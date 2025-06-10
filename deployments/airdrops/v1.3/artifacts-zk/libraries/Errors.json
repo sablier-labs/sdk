@@ -1,0 +1,140 @@
+{
+  "_format": "hh-zksolc-artifact-1",
+  "contractName": "Errors",
+  "sourceName": "contracts/libraries/Errors.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "admin",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "caller",
+          "type": "address"
+        }
+      ],
+      "name": "CallerNotAdmin",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "factory",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "caller",
+          "type": "address"
+        }
+      ],
+      "name": "SablierMerkleBase_CallerNotFactory",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "blockTimestamp",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint40",
+          "name": "expiration",
+          "type": "uint40"
+        }
+      ],
+      "name": "SablierMerkleBase_CampaignExpired",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "blockTimestamp",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint40",
+          "name": "expiration",
+          "type": "uint40"
+        },
+        {
+          "internalType": "uint40",
+          "name": "firstClaimTime",
+          "type": "uint40"
+        }
+      ],
+      "name": "SablierMerkleBase_ClawbackNotAllowed",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "factoryAdmin",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "feeAmount",
+          "type": "uint256"
+        }
+      ],
+      "name": "SablierMerkleBase_FeeTransferFail",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "feePaid",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "fee",
+          "type": "uint256"
+        }
+      ],
+      "name": "SablierMerkleBase_InsufficientFeePayment",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "SablierMerkleBase_InvalidProof",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
+      "name": "SablierMerkleBase_StreamClaimed",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint64",
+          "name": "totalPercentage",
+          "type": "uint64"
+        }
+      ],
+      "name": "SablierMerkleLT_TotalPercentageNotOneHundred",
+      "type": "error"
+    }
+  ],
+  "bytecode": "0x00000001002001900000000c0000613d0000008001000039000000400010043f0000000001000416000000000001004b0000000c0000c13d00000020010000390000010000100443000001200000044300000005010000410000000f0001042e000000000100001900000010000104300000000e000004320000000f0001042e00000010000104300000000000000000000000000000000000000000000000000000000200000000000000000000000000000040000001000000000000000000f50180cb9af87b895ee2bc9330511e02b9d779030d06d4f273f181dec8303361",
+  "deployedBytecode": "0x00000001002001900000000c0000613d0000008001000039000000400010043f0000000001000416000000000001004b0000000c0000c13d00000020010000390000010000100443000001200000044300000005010000410000000f0001042e000000000100001900000010000104300000000e000004320000000f0001042e00000010000104300000000000000000000000000000000000000000000000000000000200000000000000000000000000000040000001000000000000000000f50180cb9af87b895ee2bc9330511e02b9d779030d06d4f273f181dec8303361",
+  "linkReferences": {},
+  "deployedLinkReferences": {},
+  "factoryDeps": {}
+}

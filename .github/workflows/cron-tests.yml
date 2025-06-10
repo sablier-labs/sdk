@@ -1,0 +1,41 @@
+name: "Cron: Tests"
+
+on:
+  schedule:
+    # Runs at 02:00 UTC every day
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Check out the repo"
+        uses: "actions/checkout@v4"
+
+      - name: "Install Bun"
+        uses: "oven-sh/setup-bun@v2"
+        with:
+          bun-version: "latest"
+
+      - name: "Install the Node.js dependencies"
+        run: "bun install --frozen-lockfile"
+
+      - name: "Install Just"
+        uses: "extractions/setup-just@v3"
+        with:
+          just-version: "1"
+
+      - name: "Check the code"
+        run: "just full-check"
+
+      - name: "Run the tests"
+        env:
+          TEST_ONLY_CHAINS: true
+          TEST_ONLY_CONTRACTS: true
+        run: "just test"
+
+      - name: "Add summary"
+        run: | # shell
+          echo "## Cron Tests result" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Passed" >> $GITHUB_STEP_SUMMARY

@@ -1,0 +1,419 @@
+{
+  "_format": "hh-zksolc-artifact-1",
+  "contractName": "Errors",
+  "sourceName": "@sablier/v2-core/src/libraries/Errors.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "admin",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "caller",
+          "type": "address"
+        }
+      ],
+      "name": "CallerNotAdmin",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "DelegateCall",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "contract IERC20",
+          "name": "asset",
+          "type": "address"
+        }
+      ],
+      "name": "SablierV2Base_NoProtocolRevenues",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "SablierV2FlashLoan_AmountTooHigh",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "contract IERC20",
+          "name": "asset",
+          "type": "address"
+        }
+      ],
+      "name": "SablierV2FlashLoan_AssetNotFlashLoanable",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "SablierV2FlashLoan_CalculatedFeeTooHigh",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "SablierV2FlashLoan_FlashBorrowFail",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint128",
+          "name": "depositAmount",
+          "type": "uint128"
+        },
+        {
+          "internalType": "uint128",
+          "name": "segmentAmountsSum",
+          "type": "uint128"
+        }
+      ],
+      "name": "SablierV2LockupDynamic_DepositAmountNotEqualToSegmentAmountsSum",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "count",
+          "type": "uint256"
+        }
+      ],
+      "name": "SablierV2LockupDynamic_SegmentCountTooHigh",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "SablierV2LockupDynamic_SegmentCountZero",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "index",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint40",
+          "name": "previousMilestone",
+          "type": "uint40"
+        },
+        {
+          "internalType": "uint40",
+          "name": "currentMilestone",
+          "type": "uint40"
+        }
+      ],
+      "name": "SablierV2LockupDynamic_SegmentMilestonesNotOrdered",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint40",
+          "name": "startTime",
+          "type": "uint40"
+        },
+        {
+          "internalType": "uint40",
+          "name": "firstSegmentMilestone",
+          "type": "uint40"
+        }
+      ],
+      "name": "SablierV2LockupDynamic_StartTimeNotLessThanFirstSegmentMilestone",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint40",
+          "name": "cliffTime",
+          "type": "uint40"
+        },
+        {
+          "internalType": "uint40",
+          "name": "endTime",
+          "type": "uint40"
+        }
+      ],
+      "name": "SablierV2LockupLinear_CliffTimeNotLessThanEndTime",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint40",
+          "name": "startTime",
+          "type": "uint40"
+        },
+        {
+          "internalType": "uint40",
+          "name": "cliffTime",
+          "type": "uint40"
+        }
+      ],
+      "name": "SablierV2LockupLinear_StartTimeGreaterThanCliffTime",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "UD60x18",
+          "name": "brokerFee",
+          "type": "uint256"
+        },
+        {
+          "internalType": "UD60x18",
+          "name": "maxFee",
+          "type": "uint256"
+        }
+      ],
+      "name": "SablierV2Lockup_BrokerFeeTooHigh",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "SablierV2Lockup_DepositAmountZero",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint40",
+          "name": "currentTime",
+          "type": "uint40"
+        },
+        {
+          "internalType": "uint40",
+          "name": "endTime",
+          "type": "uint40"
+        }
+      ],
+      "name": "SablierV2Lockup_EndTimeNotInTheFuture",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "streamId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "sender",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        }
+      ],
+      "name": "SablierV2Lockup_InvalidSenderWithdrawal",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "SablierV2Lockup_NotTransferable",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "streamId",
+          "type": "uint256"
+        }
+      ],
+      "name": "SablierV2Lockup_Null",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "streamId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint128",
+          "name": "amount",
+          "type": "uint128"
+        },
+        {
+          "internalType": "uint128",
+          "name": "withdrawableAmount",
+          "type": "uint128"
+        }
+      ],
+      "name": "SablierV2Lockup_Overdraw",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "UD60x18",
+          "name": "protocolFee",
+          "type": "uint256"
+        },
+        {
+          "internalType": "UD60x18",
+          "name": "maxFee",
+          "type": "uint256"
+        }
+      ],
+      "name": "SablierV2Lockup_ProtocolFeeTooHigh",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "streamId",
+          "type": "uint256"
+        }
+      ],
+      "name": "SablierV2Lockup_StreamCanceled",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "streamId",
+          "type": "uint256"
+        }
+      ],
+      "name": "SablierV2Lockup_StreamDepleted",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "streamId",
+          "type": "uint256"
+        }
+      ],
+      "name": "SablierV2Lockup_StreamNotCancelable",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "streamId",
+          "type": "uint256"
+        }
+      ],
+      "name": "SablierV2Lockup_StreamNotDepleted",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "streamId",
+          "type": "uint256"
+        }
+      ],
+      "name": "SablierV2Lockup_StreamSettled",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "streamId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "caller",
+          "type": "address"
+        }
+      ],
+      "name": "SablierV2Lockup_Unauthorized",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "streamId",
+          "type": "uint256"
+        }
+      ],
+      "name": "SablierV2Lockup_WithdrawAmountZero",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "streamIdsCount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amountsCount",
+          "type": "uint256"
+        }
+      ],
+      "name": "SablierV2Lockup_WithdrawArrayCountsNotEqual",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "SablierV2Lockup_WithdrawToZeroAddress",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "contract IERC721Metadata",
+          "name": "nft",
+          "type": "address"
+        },
+        {
+          "internalType": "string",
+          "name": "symbol",
+          "type": "string"
+        }
+      ],
+      "name": "SablierV2NFTDescriptor_UnknownNFT",
+      "type": "error"
+    }
+  ],
+  "bytecode": "0x00000001012001900000000c0000613d0000008001000039000000400010043f0000000001000416000000000101004b0000000c0000c13d00000020010000390000010000100443000001200000044300000005010000410000000f0001042e000000000100001900000010000104300000000e000004320000000f0001042e00000010000104300000000000000000000000000000000000000000000000000000000200000000000000000000000000000040000001000000000000000000c51af4f38dd335b521e92e8207392f60c0456d8fd96c66a8dee81f2694a0af8f",
+  "deployedBytecode": "0x00000001012001900000000c0000613d0000008001000039000000400010043f0000000001000416000000000101004b0000000c0000c13d00000020010000390000010000100443000001200000044300000005010000410000000f0001042e000000000100001900000010000104300000000e000004320000000f0001042e00000010000104300000000000000000000000000000000000000000000000000000000200000000000000000000000000000040000001000000000000000000c51af4f38dd335b521e92e8207392f60c0456d8fd96c66a8dee81f2694a0af8f",
+  "linkReferences": {},
+  "deployedLinkReferences": {},
+  "factoryDeps": {}
+}

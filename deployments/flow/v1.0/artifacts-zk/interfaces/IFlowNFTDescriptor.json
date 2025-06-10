@@ -1,0 +1,36 @@
+{
+  "_format": "hh-zksolc-artifact-1",
+  "contractName": "IFlowNFTDescriptor",
+  "sourceName": "contracts/interfaces/IFlowNFTDescriptor.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "contract IERC721Metadata",
+          "name": "sablierFlow",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "streamId",
+          "type": "uint256"
+        }
+      ],
+      "name": "tokenURI",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "uri",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "linkReferences": {},
+  "deployedLinkReferences": {},
+  "factoryDeps": {}
+}

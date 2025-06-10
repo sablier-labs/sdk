@@ -1,0 +1,148 @@
+{
+  "abi": [
+    {
+      "type": "function",
+      "name": "onStreamCanceled",
+      "inputs": [
+        { "name": "streamId", "type": "uint256", "internalType": "uint256" },
+        { "name": "sender", "type": "address", "internalType": "address" },
+        { "name": "senderAmount", "type": "uint128", "internalType": "uint128" },
+        { "name": "recipientAmount", "type": "uint128", "internalType": "uint128" }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "onStreamRenounced",
+      "inputs": [{ "name": "streamId", "type": "uint256", "internalType": "uint256" }],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "onStreamWithdrawn",
+      "inputs": [
+        { "name": "streamId", "type": "uint256", "internalType": "uint256" },
+        { "name": "caller", "type": "address", "internalType": "address" },
+        { "name": "to", "type": "address", "internalType": "address" },
+        { "name": "amount", "type": "uint128", "internalType": "uint128" }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    }
+  ],
+  "bytecode": { "object": "0x", "sourceMap": "", "linkReferences": {} },
+  "deployedBytecode": { "object": "0x", "sourceMap": "", "linkReferences": {} },
+  "methodIdentifiers": {
+    "onStreamCanceled(uint256,address,uint128,uint128)": "72eba203",
+    "onStreamRenounced(uint256)": "341a0bd9",
+    "onStreamWithdrawn(uint256,address,address,uint128)": "13375c3b"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.23+commit.f704f362\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"streamId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"internalType\":\"uint128\",\"name\":\"senderAmount\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"recipientAmount\",\"type\":\"uint128\"}],\"name\":\"onStreamCanceled\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"streamId\",\"type\":\"uint256\"}],\"name\":\"onStreamRenounced\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"streamId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"caller\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint128\",\"name\":\"amount\",\"type\":\"uint128\"}],\"name\":\"onStreamWithdrawn\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Implementation of this interface is optional. If a recipient contract doesn't implement this interface or implements it partially, function execution will not revert.\",\"kind\":\"dev\",\"methods\":{\"onStreamCanceled(uint256,address,uint128,uint128)\":{\"details\":\"Notes: - This function may revert, but the Sablier contract will ignore the revert.\",\"params\":{\"recipientAmount\":\"The amount of assets left for the stream's recipient to withdraw, denoted in units of the asset's decimals.\",\"sender\":\"The stream's sender, who canceled the stream.\",\"senderAmount\":\"The amount of assets refunded to the stream's sender, denoted in units of the asset's decimals.\",\"streamId\":\"The id of the canceled stream.\"}},\"onStreamRenounced(uint256)\":{\"details\":\"Notes: - This function may revert, but the Sablier contract will ignore the revert.\",\"params\":{\"streamId\":\"The id of the renounced stream.\"}},\"onStreamWithdrawn(uint256,address,address,uint128)\":{\"details\":\"Notes: - This function may revert, but the Sablier contract will ignore the revert.\",\"params\":{\"amount\":\"The amount of assets withdrawn, denoted in units of the asset's decimals.\",\"caller\":\"The original `msg.sender` address that triggered the withdrawal.\",\"streamId\":\"The id of the stream being withdrawn from.\",\"to\":\"The address receiving the withdrawn assets.\"}}},\"title\":\"ISablierV2LockupRecipient\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"onStreamCanceled(uint256,address,uint128,uint128)\":{\"notice\":\"Responds to sender-triggered cancellations.\"},\"onStreamRenounced(uint256)\":{\"notice\":\"Responds to renouncements.\"},\"onStreamWithdrawn(uint256,address,address,uint128)\":{\"notice\":\"Responds to withdrawals triggered by either the stream's sender or an approved third party.\"}},\"notice\":\"Interface for recipient contracts capable of reacting to cancellations, renouncements, and withdrawals.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/interfaces/hooks/ISablierV2LockupRecipient.sol\":\"ISablierV2LockupRecipient\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"none\"},\"optimizer\":{\"enabled\":true,\"runs\":1000},\"remappings\":[\":@openzeppelin/contracts/=node_modules/@openzeppelin/contracts/\",\":@prb/math/=node_modules/@prb/math/\",\":@prb/test/=node_modules/@prb/test/\",\":forge-std/=node_modules/forge-std/\",\":solady/=node_modules/solady/\",\":solarray/=node_modules/solarray/\"],\"viaIR\":true},\"sources\":{\"src/interfaces/hooks/ISablierV2LockupRecipient.sol\":{\"keccak256\":\"0x156511f20a945ab947b092eb5bc94723bfc469ae812bba74cea4e9880ac70d44\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://a9f5afe5efcaf397921f7e7de148347dc4e6af6e98a5f4632f28608f0dc1bb6b\",\"dweb:/ipfs/QmUfXaLwWPwKPbKfedSBqzY5K7rdhmBnJUrYS7J2yom6dC\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": { "version": "0.8.23+commit.f704f362" },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            { "internalType": "uint256", "name": "streamId", "type": "uint256" },
+            { "internalType": "address", "name": "sender", "type": "address" },
+            { "internalType": "uint128", "name": "senderAmount", "type": "uint128" },
+            { "internalType": "uint128", "name": "recipientAmount", "type": "uint128" }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "onStreamCanceled"
+        },
+        {
+          "inputs": [{ "internalType": "uint256", "name": "streamId", "type": "uint256" }],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "onStreamRenounced"
+        },
+        {
+          "inputs": [
+            { "internalType": "uint256", "name": "streamId", "type": "uint256" },
+            { "internalType": "address", "name": "caller", "type": "address" },
+            { "internalType": "address", "name": "to", "type": "address" },
+            { "internalType": "uint128", "name": "amount", "type": "uint128" }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "onStreamWithdrawn"
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "onStreamCanceled(uint256,address,uint128,uint128)": {
+            "details": "Notes: - This function may revert, but the Sablier contract will ignore the revert.",
+            "params": {
+              "recipientAmount": "The amount of assets left for the stream's recipient to withdraw, denoted in units of the asset's decimals.",
+              "sender": "The stream's sender, who canceled the stream.",
+              "senderAmount": "The amount of assets refunded to the stream's sender, denoted in units of the asset's decimals.",
+              "streamId": "The id of the canceled stream."
+            }
+          },
+          "onStreamRenounced(uint256)": {
+            "details": "Notes: - This function may revert, but the Sablier contract will ignore the revert.",
+            "params": { "streamId": "The id of the renounced stream." }
+          },
+          "onStreamWithdrawn(uint256,address,address,uint128)": {
+            "details": "Notes: - This function may revert, but the Sablier contract will ignore the revert.",
+            "params": {
+              "amount": "The amount of assets withdrawn, denoted in units of the asset's decimals.",
+              "caller": "The original `msg.sender` address that triggered the withdrawal.",
+              "streamId": "The id of the stream being withdrawn from.",
+              "to": "The address receiving the withdrawn assets."
+            }
+          }
+        },
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "onStreamCanceled(uint256,address,uint128,uint128)": {
+            "notice": "Responds to sender-triggered cancellations."
+          },
+          "onStreamRenounced(uint256)": { "notice": "Responds to renouncements." },
+          "onStreamWithdrawn(uint256,address,address,uint128)": {
+            "notice": "Responds to withdrawals triggered by either the stream's sender or an approved third party."
+          }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        "@openzeppelin/contracts/=node_modules/@openzeppelin/contracts/",
+        "@prb/math/=node_modules/@prb/math/",
+        "@prb/test/=node_modules/@prb/test/",
+        "forge-std/=node_modules/forge-std/",
+        "solady/=node_modules/solady/",
+        "solarray/=node_modules/solarray/"
+      ],
+      "optimizer": { "enabled": true, "runs": 1000 },
+      "metadata": { "bytecodeHash": "none" },
+      "compilationTarget": { "src/interfaces/hooks/ISablierV2LockupRecipient.sol": "ISablierV2LockupRecipient" },
+      "evmVersion": "paris",
+      "libraries": {},
+      "viaIR": true
+    },
+    "sources": {
+      "src/interfaces/hooks/ISablierV2LockupRecipient.sol": {
+        "keccak256": "0x156511f20a945ab947b092eb5bc94723bfc469ae812bba74cea4e9880ac70d44",
+        "urls": [
+          "bzz-raw://a9f5afe5efcaf397921f7e7de148347dc4e6af6e98a5f4632f28608f0dc1bb6b",
+          "dweb:/ipfs/QmUfXaLwWPwKPbKfedSBqzY5K7rdhmBnJUrYS7J2yom6dC"
+        ],
+        "license": "GPL-3.0-or-later"
+      }
+    },
+    "version": 1
+  },
+  "id": 100
+}

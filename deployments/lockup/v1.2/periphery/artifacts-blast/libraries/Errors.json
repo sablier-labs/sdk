@@ -1,0 +1,127 @@
+{
+  "abi": [
+    { "type": "error", "name": "SablierV2BatchLockup_BatchSizeZero", "inputs": [] },
+    {
+      "type": "error",
+      "name": "SablierV2MerkleLT_TotalPercentageNotOneHundred",
+      "inputs": [{ "name": "totalPercentage", "type": "uint64", "internalType": "uint64" }]
+    },
+    {
+      "type": "error",
+      "name": "SablierV2MerkleLockup_CampaignExpired",
+      "inputs": [
+        { "name": "blockTimestamp", "type": "uint256", "internalType": "uint256" },
+        { "name": "expiration", "type": "uint40", "internalType": "uint40" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "SablierV2MerkleLockup_CampaignNameTooLong",
+      "inputs": [
+        { "name": "nameLength", "type": "uint256", "internalType": "uint256" },
+        { "name": "maxLength", "type": "uint256", "internalType": "uint256" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "SablierV2MerkleLockup_ClawbackNotAllowed",
+      "inputs": [
+        { "name": "blockTimestamp", "type": "uint256", "internalType": "uint256" },
+        { "name": "expiration", "type": "uint40", "internalType": "uint40" },
+        { "name": "firstClaimTime", "type": "uint40", "internalType": "uint40" }
+      ]
+    },
+    { "type": "error", "name": "SablierV2MerkleLockup_InvalidProof", "inputs": [] },
+    {
+      "type": "error",
+      "name": "SablierV2MerkleLockup_StreamClaimed",
+      "inputs": [{ "name": "index", "type": "uint256", "internalType": "uint256" }]
+    }
+  ],
+  "bytecode": {
+    "object": "0x6080806040523460175760109081601c823930815050f35b5f80fdfe5f80fdfea164736f6c634300081a000a",
+    "sourceMap": "169:1789:111:-:0;;;;;;;;;;;;;;;;;;;;;",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x5f80fdfea164736f6c634300081a000a",
+    "sourceMap": "169:1789:111:-:0;;",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {},
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.26+commit.8a97fa7a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"SablierV2BatchLockup_BatchSizeZero\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint64\",\"name\":\"totalPercentage\",\"type\":\"uint64\"}],\"name\":\"SablierV2MerkleLT_TotalPercentageNotOneHundred\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"blockTimestamp\",\"type\":\"uint256\"},{\"internalType\":\"uint40\",\"name\":\"expiration\",\"type\":\"uint40\"}],\"name\":\"SablierV2MerkleLockup_CampaignExpired\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"nameLength\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"maxLength\",\"type\":\"uint256\"}],\"name\":\"SablierV2MerkleLockup_CampaignNameTooLong\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"blockTimestamp\",\"type\":\"uint256\"},{\"internalType\":\"uint40\",\"name\":\"expiration\",\"type\":\"uint40\"},{\"internalType\":\"uint40\",\"name\":\"firstClaimTime\",\"type\":\"uint40\"}],\"name\":\"SablierV2MerkleLockup_ClawbackNotAllowed\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"SablierV2MerkleLockup_InvalidProof\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"SablierV2MerkleLockup_StreamClaimed\",\"type\":\"error\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"title\":\"Errors\",\"version\":1},\"userdoc\":{\"errors\":{\"SablierV2MerkleLT_TotalPercentageNotOneHundred(uint64)\":[{\"notice\":\"Thrown when trying to claim from an LT campaign with tranches' unlock percentages not adding up to 100%.\"}],\"SablierV2MerkleLockup_CampaignExpired(uint256,uint40)\":[{\"notice\":\"Thrown when trying to claim after the campaign has expired.\"}],\"SablierV2MerkleLockup_CampaignNameTooLong(uint256,uint256)\":[{\"notice\":\"Thrown when trying to create a campaign with a name that is too long.\"}],\"SablierV2MerkleLockup_ClawbackNotAllowed(uint256,uint40,uint40)\":[{\"notice\":\"Thrown when trying to clawback when the current timestamp is over the grace period and the campaign has not expired.\"}],\"SablierV2MerkleLockup_InvalidProof()\":[{\"notice\":\"Thrown when trying to claim with an invalid Merkle proof.\"}],\"SablierV2MerkleLockup_StreamClaimed(uint256)\":[{\"notice\":\"Thrown when trying to claim the same stream more than once.\"}]},\"kind\":\"user\",\"methods\":{},\"notice\":\"Library containing all custom errors the protocol may revert with.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/libraries/Errors.sol\":\"Errors\"},\"evmVersion\":\"shanghai\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"none\"},\"optimizer\":{\"enabled\":true,\"runs\":10000},\"remappings\":[\":@openzeppelin/contracts/=node_modules/@openzeppelin/contracts/\",\":@prb/math/=node_modules/@prb/math/\",\":@sablier/v2-core/=node_modules/@sablier/v2-core/\",\":forge-std/=node_modules/forge-std/\",\":solady/=node_modules/solady/\"],\"viaIR\":true},\"sources\":{\"src/libraries/Errors.sol\":{\"keccak256\":\"0x8c24f415a40dc249d5e27e722422140266436690dc903a4e8c37d0c14dfa1607\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://b9cd32fbcbc9885643a15a50f466e5425489d3ac286a2b6916249f5a741eee85\",\"dweb:/ipfs/QmWBHmXA67m2DSJU5hZSSkicq4nUHV7CyLesn2wuuz1QJy\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": { "version": "0.8.26+commit.8a97fa7a" },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        { "inputs": [], "type": "error", "name": "SablierV2BatchLockup_BatchSizeZero" },
+        {
+          "inputs": [{ "internalType": "uint64", "name": "totalPercentage", "type": "uint64" }],
+          "type": "error",
+          "name": "SablierV2MerkleLT_TotalPercentageNotOneHundred"
+        },
+        {
+          "inputs": [
+            { "internalType": "uint256", "name": "blockTimestamp", "type": "uint256" },
+            { "internalType": "uint40", "name": "expiration", "type": "uint40" }
+          ],
+          "type": "error",
+          "name": "SablierV2MerkleLockup_CampaignExpired"
+        },
+        {
+          "inputs": [
+            { "internalType": "uint256", "name": "nameLength", "type": "uint256" },
+            { "internalType": "uint256", "name": "maxLength", "type": "uint256" }
+          ],
+          "type": "error",
+          "name": "SablierV2MerkleLockup_CampaignNameTooLong"
+        },
+        {
+          "inputs": [
+            { "internalType": "uint256", "name": "blockTimestamp", "type": "uint256" },
+            { "internalType": "uint40", "name": "expiration", "type": "uint40" },
+            { "internalType": "uint40", "name": "firstClaimTime", "type": "uint40" }
+          ],
+          "type": "error",
+          "name": "SablierV2MerkleLockup_ClawbackNotAllowed"
+        },
+        { "inputs": [], "type": "error", "name": "SablierV2MerkleLockup_InvalidProof" },
+        {
+          "inputs": [{ "internalType": "uint256", "name": "index", "type": "uint256" }],
+          "type": "error",
+          "name": "SablierV2MerkleLockup_StreamClaimed"
+        }
+      ],
+      "devdoc": { "kind": "dev", "methods": {}, "version": 1 },
+      "userdoc": { "kind": "user", "methods": {}, "version": 1 }
+    },
+    "settings": {
+      "remappings": [
+        "@openzeppelin/contracts/=node_modules/@openzeppelin/contracts/",
+        "@prb/math/=node_modules/@prb/math/",
+        "@sablier/v2-core/=node_modules/@sablier/v2-core/",
+        "forge-std/=node_modules/forge-std/",
+        "solady/=node_modules/solady/"
+      ],
+      "optimizer": { "enabled": true, "runs": 10000 },
+      "metadata": { "bytecodeHash": "none" },
+      "compilationTarget": { "src/libraries/Errors.sol": "Errors" },
+      "evmVersion": "shanghai",
+      "libraries": {},
+      "viaIR": true
+    },
+    "sources": {
+      "src/libraries/Errors.sol": {
+        "keccak256": "0x8c24f415a40dc249d5e27e722422140266436690dc903a4e8c37d0c14dfa1607",
+        "urls": [
+          "bzz-raw://b9cd32fbcbc9885643a15a50f466e5425489d3ac286a2b6916249f5a741eee85",
+          "dweb:/ipfs/QmWBHmXA67m2DSJU5hZSSkicq4nUHV7CyLesn2wuuz1QJy"
+        ],
+        "license": "GPL-3.0-or-later"
+      }
+    },
+    "version": 1
+  },
+  "id": 111
+}

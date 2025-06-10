@@ -1,0 +1,76 @@
+{
+  "name": "sablier",
+  "description": "Contract addresses, chain data, and deployment information for the Sablier Protocol",
+  "version": "1.0.0-beta.2",
+  "author": {
+    "name": "Sablier Labs Ltd",
+    "url": "https://sablier.com"
+  },
+  "dependencies": {
+    "lodash": "^4.17",
+    "viem": "^2.31"
+  },
+  "peerDependencies": {
+    "viem": "^2.31"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.0.0-beta.5",
+    "@sablier/devkit": "github:sablier-labs/devkit#main",
+    "@types/fs-extra": "^11.0",
+    "@types/lodash": "^4.17",
+    "@types/node": "^22.14",
+    "@vitest/ui": "^3.1",
+    "axios": "^1.8",
+    "commander": "^14.0.0",
+    "fs-extra": "^11.3",
+    "globby": "11",
+    "husky": "^9.1",
+    "lint-staged": "^15.5",
+    "prettier": "^3.5",
+    "rimraf": "^6.0.1",
+    "tsc-alias": "^1.8",
+    "typescript": "^5.8",
+    "vite-tsconfig-paths": "^5.1",
+    "vitest": "^3.1",
+    "winston": "^3.17"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "airdrops",
+    "blockchain",
+    "deployments",
+    "ethereum",
+    "evm",
+    "foundry",
+    "hardhat",
+    "sablier",
+    "sablier-airdrops",
+    "sablier-flow",
+    "sablier-lockup",
+    "smart-contracts",
+    "solidity",
+    "token-streaming",
+    "token-vesting",
+    "vesting",
+    "web3"
+  ],
+  "license": "GPL-3.0-or-later",
+  "main": "dist/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sablier-labs/sdk.git"
+  },
+  "scripts": {
+    "build": "bun rimraf dist && bun tsc -p tsconfig.build.json && bun tsc-alias -p tsconfig.build.json",
+    "prepack": "bun install --frozen-lockfile && bun run build"
+  },
+  "types": "./dist/index.d.ts"
+}

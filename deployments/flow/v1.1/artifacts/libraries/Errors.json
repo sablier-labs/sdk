@@ -1,0 +1,654 @@
+{
+  "abi": [
+    {
+      "type": "error",
+      "name": "BatchError",
+      "inputs": [{ "name": "errorData", "type": "bytes", "internalType": "bytes" }]
+    },
+    {
+      "type": "error",
+      "name": "CallerNotAdmin",
+      "inputs": [
+        { "name": "admin", "type": "address", "internalType": "address" },
+        { "name": "caller", "type": "address", "internalType": "address" }
+      ]
+    },
+    { "type": "error", "name": "DelegateCall", "inputs": [] },
+    {
+      "type": "error",
+      "name": "SablierFlowBase_FeeTransferFail",
+      "inputs": [
+        { "name": "admin", "type": "address", "internalType": "address" },
+        { "name": "feeAmount", "type": "uint256", "internalType": "uint256" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "SablierFlowBase_NoProtocolRevenue",
+      "inputs": [{ "name": "token", "type": "address", "internalType": "address" }]
+    },
+    {
+      "type": "error",
+      "name": "SablierFlowBase_NotTransferable",
+      "inputs": [{ "name": "streamId", "type": "uint256", "internalType": "uint256" }]
+    },
+    {
+      "type": "error",
+      "name": "SablierFlowBase_ProtocolFeeTooHigh",
+      "inputs": [
+        { "name": "newProtocolFee", "type": "uint256", "internalType": "UD60x18" },
+        { "name": "maxFee", "type": "uint256", "internalType": "UD60x18" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "SablierFlowBase_SurplusZero",
+      "inputs": [{ "name": "token", "type": "address", "internalType": "address" }]
+    },
+    { "type": "error", "name": "SablierFlow_BrokerAddressZero", "inputs": [] },
+    {
+      "type": "error",
+      "name": "SablierFlow_BrokerFeeTooHigh",
+      "inputs": [
+        { "name": "brokerFee", "type": "uint256", "internalType": "UD60x18" },
+        { "name": "maxFee", "type": "uint256", "internalType": "UD60x18" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "SablierFlow_DepositAmountZero",
+      "inputs": [{ "name": "streamId", "type": "uint256", "internalType": "uint256" }]
+    },
+    {
+      "type": "error",
+      "name": "SablierFlow_InvalidCalculation",
+      "inputs": [
+        { "name": "streamId", "type": "uint256", "internalType": "uint256" },
+        { "name": "availableAmount", "type": "uint128", "internalType": "uint128" },
+        { "name": "amount", "type": "uint128", "internalType": "uint128" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "SablierFlow_InvalidTokenDecimals",
+      "inputs": [{ "name": "token", "type": "address", "internalType": "address" }]
+    },
+    {
+      "type": "error",
+      "name": "SablierFlow_NotStreamRecipient",
+      "inputs": [
+        { "name": "recipient", "type": "address", "internalType": "address" },
+        { "name": "streamRecipient", "type": "address", "internalType": "address" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "SablierFlow_NotStreamSender",
+      "inputs": [
+        { "name": "sender", "type": "address", "internalType": "address" },
+        { "name": "streamSender", "type": "address", "internalType": "address" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "SablierFlow_Null",
+      "inputs": [{ "name": "streamId", "type": "uint256", "internalType": "uint256" }]
+    },
+    {
+      "type": "error",
+      "name": "SablierFlow_Overdraw",
+      "inputs": [
+        { "name": "streamId", "type": "uint256", "internalType": "uint256" },
+        { "name": "amount", "type": "uint128", "internalType": "uint128" },
+        { "name": "withdrawableAmount", "type": "uint128", "internalType": "uint128" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "SablierFlow_RatePerSecondNotDifferent",
+      "inputs": [
+        { "name": "streamId", "type": "uint256", "internalType": "uint256" },
+        { "name": "ratePerSecond", "type": "uint128", "internalType": "UD21x18" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "SablierFlow_RefundAmountZero",
+      "inputs": [{ "name": "streamId", "type": "uint256", "internalType": "uint256" }]
+    },
+    {
+      "type": "error",
+      "name": "SablierFlow_RefundOverflow",
+      "inputs": [
+        { "name": "streamId", "type": "uint256", "internalType": "uint256" },
+        { "name": "refundAmount", "type": "uint128", "internalType": "uint128" },
+        { "name": "refundableAmount", "type": "uint128", "internalType": "uint128" }
+      ]
+    },
+    { "type": "error", "name": "SablierFlow_SenderZeroAddress", "inputs": [] },
+    {
+      "type": "error",
+      "name": "SablierFlow_StreamBalanceZero",
+      "inputs": [{ "name": "streamId", "type": "uint256", "internalType": "uint256" }]
+    },
+    {
+      "type": "error",
+      "name": "SablierFlow_StreamNotPaused",
+      "inputs": [{ "name": "streamId", "type": "uint256", "internalType": "uint256" }]
+    },
+    {
+      "type": "error",
+      "name": "SablierFlow_StreamPaused",
+      "inputs": [{ "name": "streamId", "type": "uint256", "internalType": "uint256" }]
+    },
+    {
+      "type": "error",
+      "name": "SablierFlow_StreamVoided",
+      "inputs": [{ "name": "streamId", "type": "uint256", "internalType": "uint256" }]
+    },
+    {
+      "type": "error",
+      "name": "SablierFlow_Unauthorized",
+      "inputs": [
+        { "name": "streamId", "type": "uint256", "internalType": "uint256" },
+        { "name": "caller", "type": "address", "internalType": "address" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "SablierFlow_WithdrawAmountZero",
+      "inputs": [{ "name": "streamId", "type": "uint256", "internalType": "uint256" }]
+    },
+    {
+      "type": "error",
+      "name": "SablierFlow_WithdrawToZeroAddress",
+      "inputs": [{ "name": "streamId", "type": "uint256", "internalType": "uint256" }]
+    },
+    {
+      "type": "error",
+      "name": "SablierFlow_WithdrawalAddressNotRecipient",
+      "inputs": [
+        { "name": "streamId", "type": "uint256", "internalType": "uint256" },
+        { "name": "caller", "type": "address", "internalType": "address" },
+        { "name": "to", "type": "address", "internalType": "address" }
+      ]
+    }
+  ],
+  "bytecode": {
+    "object": "0x6080806040523460175760109081601c823930815050f35b5f80fdfe5f80fdfea164736f6c634300081a000a",
+    "sourceMap": "267:4979:85:-:0;;;;;;;;;;;;;;;;;;;;;",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x5f80fdfea164736f6c634300081a000a",
+    "sourceMap": "267:4979:85:-:0;;",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {},
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.26+commit.8a97fa7a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"errorData\",\"type\":\"bytes\"}],\"name\":\"BatchError\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"caller\",\"type\":\"address\"}],\"name\":\"CallerNotAdmin\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"DelegateCall\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"feeAmount\",\"type\":\"uint256\"}],\"name\":\"SablierFlowBase_FeeTransferFail\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"}],\"name\":\"SablierFlowBase_NoProtocolRevenue\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"streamId\",\"type\":\"uint256\"}],\"name\":\"SablierFlowBase_NotTransferable\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"UD60x18\",\"name\":\"newProtocolFee\",\"type\":\"uint256\"},{\"internalType\":\"UD60x18\",\"name\":\"maxFee\",\"type\":\"uint256\"}],\"name\":\"SablierFlowBase_ProtocolFeeTooHigh\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"}],\"name\":\"SablierFlowBase_SurplusZero\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"SablierFlow_BrokerAddressZero\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"UD60x18\",\"name\":\"brokerFee\",\"type\":\"uint256\"},{\"internalType\":\"UD60x18\",\"name\":\"maxFee\",\"type\":\"uint256\"}],\"name\":\"SablierFlow_BrokerFeeTooHigh\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"streamId\",\"type\":\"uint256\"}],\"name\":\"SablierFlow_DepositAmountZero\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"streamId\",\"type\":\"uint256\"},{\"internalType\":\"uint128\",\"name\":\"availableAmount\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"amount\",\"type\":\"uint128\"}],\"name\":\"SablierFlow_InvalidCalculation\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"}],\"name\":\"SablierFlow_InvalidTokenDecimals\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"streamRecipient\",\"type\":\"address\"}],\"name\":\"SablierFlow_NotStreamRecipient\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"streamSender\",\"type\":\"address\"}],\"name\":\"SablierFlow_NotStreamSender\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"streamId\",\"type\":\"uint256\"}],\"name\":\"SablierFlow_Null\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"streamId\",\"type\":\"uint256\"},{\"internalType\":\"uint128\",\"name\":\"amount\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"withdrawableAmount\",\"type\":\"uint128\"}],\"name\":\"SablierFlow_Overdraw\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"streamId\",\"type\":\"uint256\"},{\"internalType\":\"UD21x18\",\"name\":\"ratePerSecond\",\"type\":\"uint128\"}],\"name\":\"SablierFlow_RatePerSecondNotDifferent\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"streamId\",\"type\":\"uint256\"}],\"name\":\"SablierFlow_RefundAmountZero\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"streamId\",\"type\":\"uint256\"},{\"internalType\":\"uint128\",\"name\":\"refundAmount\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"refundableAmount\",\"type\":\"uint128\"}],\"name\":\"SablierFlow_RefundOverflow\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"SablierFlow_SenderZeroAddress\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"streamId\",\"type\":\"uint256\"}],\"name\":\"SablierFlow_StreamBalanceZero\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"streamId\",\"type\":\"uint256\"}],\"name\":\"SablierFlow_StreamNotPaused\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"streamId\",\"type\":\"uint256\"}],\"name\":\"SablierFlow_StreamPaused\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"streamId\",\"type\":\"uint256\"}],\"name\":\"SablierFlow_StreamVoided\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"streamId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"caller\",\"type\":\"address\"}],\"name\":\"SablierFlow_Unauthorized\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"streamId\",\"type\":\"uint256\"}],\"name\":\"SablierFlow_WithdrawAmountZero\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"streamId\",\"type\":\"uint256\"}],\"name\":\"SablierFlow_WithdrawToZeroAddress\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"streamId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"caller\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"}],\"name\":\"SablierFlow_WithdrawalAddressNotRecipient\",\"type\":\"error\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"title\":\"Errors\",\"version\":1},\"userdoc\":{\"errors\":{\"BatchError(bytes)\":[{\"notice\":\"Thrown when an unexpected error occurs during a batch call.\"}],\"CallerNotAdmin(address,address)\":[{\"notice\":\"Thrown when `msg.sender` is not the admin.\"}],\"DelegateCall()\":[{\"notice\":\"Thrown when trying to delegate call to a function that disallows delegate calls.\"}],\"SablierFlowBase_FeeTransferFail(address,uint256)\":[{\"notice\":\"Thrown when the fee transfer fails.\"}],\"SablierFlowBase_NoProtocolRevenue(address)\":[{\"notice\":\"Thrown when trying to claim protocol revenue when the accrued amount is zero.\"}],\"SablierFlowBase_NotTransferable(uint256)\":[{\"notice\":\"Thrown when trying to transfer Stream NFT when transferability is disabled.\"}],\"SablierFlowBase_ProtocolFeeTooHigh(uint256,uint256)\":[{\"notice\":\"Thrown when trying to set protocol fee more than the allowed.\"}],\"SablierFlowBase_SurplusZero(address)\":[{\"notice\":\"Thrown when trying to recover for a token with zero surplus.\"}],\"SablierFlow_BrokerAddressZero()\":[{\"notice\":\"Thrown when trying to create a stream with a broker recipient address as zero.\"}],\"SablierFlow_BrokerFeeTooHigh(uint256,uint256)\":[{\"notice\":\"Thrown when trying to create a stream with a broker fee more than the allowed.\"}],\"SablierFlow_DepositAmountZero(uint256)\":[{\"notice\":\"Thrown when trying to create a stream with a zero deposit amount.\"}],\"SablierFlow_InvalidCalculation(uint256,uint128,uint128)\":[{\"notice\":\"Thrown when an unexpected error occurs during the calculation of an amount.\"}],\"SablierFlow_InvalidTokenDecimals(address)\":[{\"notice\":\"Thrown when trying to create a stream with an token with no decimals.\"}],\"SablierFlow_NotStreamRecipient(address,address)\":[{\"notice\":\"Thrown when the recipient address does not match the stream's recipient.\"}],\"SablierFlow_NotStreamSender(address,address)\":[{\"notice\":\"Thrown when the sender address does not match the stream's sender.\"}],\"SablierFlow_Null(uint256)\":[{\"notice\":\"Thrown when the ID references a null stream.\"}],\"SablierFlow_Overdraw(uint256,uint128,uint128)\":[{\"notice\":\"Thrown when trying to withdraw an amount greater than the withdrawable amount.\"}],\"SablierFlow_RatePerSecondNotDifferent(uint256,uint128)\":[{\"notice\":\"Thrown when trying to change the rate per second with the same rate per second.\"}],\"SablierFlow_RefundAmountZero(uint256)\":[{\"notice\":\"Thrown when trying to refund zero tokens from a stream.\"}],\"SablierFlow_RefundOverflow(uint256,uint128,uint128)\":[{\"notice\":\"Thrown when trying to refund an amount greater than the refundable amount.\"}],\"SablierFlow_SenderZeroAddress()\":[{\"notice\":\"Thrown when trying to create a stream with the sender as the zero address.\"}],\"SablierFlow_StreamBalanceZero(uint256)\":[{\"notice\":\"Thrown when trying to get depletion time of a stream with zero balance.\"}],\"SablierFlow_StreamNotPaused(uint256)\":[{\"notice\":\"Thrown when trying to restart a stream that is not paused.\"}],\"SablierFlow_StreamPaused(uint256)\":[{\"notice\":\"Thrown when trying to perform an action with a paused stream.\"}],\"SablierFlow_StreamVoided(uint256)\":[{\"notice\":\"Thrown when trying to perform an action with a voided stream.\"}],\"SablierFlow_Unauthorized(uint256,address)\":[{\"notice\":\"Thrown when `msg.sender` lacks authorization to perform an action.\"}],\"SablierFlow_WithdrawAmountZero(uint256)\":[{\"notice\":\"Thrown when trying to withdraw zero tokens from a stream.\"}],\"SablierFlow_WithdrawToZeroAddress(uint256)\":[{\"notice\":\"Thrown when trying to withdraw to the zero address.\"}],\"SablierFlow_WithdrawalAddressNotRecipient(uint256,address,address)\":[{\"notice\":\"Thrown when trying to withdraw to an address other than the recipient's.\"}]},\"kind\":\"user\",\"methods\":{},\"notice\":\"Library with custom errors used across the Flow contract.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/libraries/Errors.sol\":\"Errors\"},\"evmVersion\":\"shanghai\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"none\"},\"optimizer\":{\"enabled\":true,\"runs\":10000},\"remappings\":[\":@openzeppelin/contracts/=node_modules/@openzeppelin/contracts/\",\":@prb/math/=node_modules/@prb/math/\",\":forge-std/=node_modules/forge-std/\",\":solady/=node_modules/solady/\"],\"viaIR\":true},\"sources\":{\"node_modules/@prb/math/src/Common.sol\":{\"keccak256\":\"0x8225a3898d2f11f585da1fb82234800e9717fa080dbe53d450fd429a3a632e99\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://2dcbf39ca575f68f32f0d1c66391de94082424956e7585e849813966f8c0fc05\",\"dweb:/ipfs/QmYvk8vXFDUJHrmqbtutYXfoLomLBosYLyBzuPoYBxsQ42\"]},\"node_modules/@prb/math/src/UD21x18.sol\":{\"keccak256\":\"0xb0176747ae9c9f329bce39730d4d315b839e73a815494ddf2de2094aa9056957\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://534a82fe091627f9d01e665ac763daf56981b30b3976269f8e5c33a84a2dbebc\",\"dweb:/ipfs/QmYiiGJNr4S4ypYB4KGBPMTMiNskert8Cp4s6uf1CU3k73\"]},\"node_modules/@prb/math/src/UD60x18.sol\":{\"keccak256\":\"0xb98c6f74275914d279e8af6c502c2b1f50d5f6e1ed418d3b0153f5a193206c48\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a750edde2955f160806a51083a12185fb04e20efca0e3a7ebd127dc1acc049a9\",\"dweb:/ipfs/QmeAre3mThopoQPB9mSXZq6jck59QZ7JbDFR83urd2SLvp\"]},\"node_modules/@prb/math/src/sd1x18/Casting.sol\":{\"keccak256\":\"0x5d365f655f01598926c5d4fe5cda277f2cc7736fe38f943c11a32009077ddd5c\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://56b378bd6039819bc12e5f17dabd9492e1410b3281f9df496cf8210539101a11\",\"dweb:/ipfs/QmcMaE64ZWMg9cFhYxdTuG8nfzeDdNuTRHMMoFXi6tSZGu\"]},\"node_modules/@prb/math/src/sd1x18/Constants.sol\":{\"keccak256\":\"0xc14cc32061863d83912f9616de86f3c34f1ac58614b7d504c6ce07ee8efdb8e8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://22483b1282dda6a556b0232f008a5a3296bbfd76b1886e6b72bf351b7c554fab\",\"dweb:/ipfs/QmYX9cYkrFxBbhZNKsb6uUxtrc2chmAj7vuc7UKRPGMwos\"]},\"node_modules/@prb/math/src/sd1x18/Errors.sol\":{\"keccak256\":\"0xc3c8b1ab3d19889c356c222a3a2186d45dfc1d3a17b9ad88159bb64ee457baa6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://84fbe57569246403f778330bd7723018dfcb5f0ec50d7b1d82cc983c94a54bca\",\"dweb:/ipfs/QmWssAAnovc2EVjt58rTnxraE9B1RMivwTvYCYgpnr6oSE\"]},\"node_modules/@prb/math/src/sd1x18/ValueType.sol\":{\"keccak256\":\"0xaa9dc7b562faf45264390d80e2ea10c5295bb8a4f10d76261a3f9c04363734c0\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c6ca36acd15f5cb47cf124ddec289f84e1011f2d29056159e4570435629a3353\",\"dweb:/ipfs/QmUKdiLmZpAkNCq2TKxrPbQPUhiRFXGfjGSnY1VeHVu4y6\"]},\"node_modules/@prb/math/src/sd21x18/Casting.sol\":{\"keccak256\":\"0x4a16adddb9ab1f6939dd4567c77205015a11081cb840029b84bbb6fdaf78ee36\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://5003b2f4cd2fc1413da36bc63107c6e83a88d29693e8f97b54f300fa78f9c6d2\",\"dweb:/ipfs/QmaNJn91NLrZmeeGqnFQV1FTrLVSW852zHyWTrWJ5pf1pd\"]},\"node_modules/@prb/math/src/sd21x18/Constants.sol\":{\"keccak256\":\"0x501c2d5cfdea9450422182059c8df1cb6a859901a07bd59631c3fa24edcc79d4\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4669a65001c92919671fd879d33ce0e5030b602a7ba4d36bd2308128d8d1f396\",\"dweb:/ipfs/QmUC3bJ3qdkCmLMw3WHBcEqvuC4tExT2LXzUhgu5KQ3vi3\"]},\"node_modules/@prb/math/src/sd21x18/Errors.sol\":{\"keccak256\":\"0xc5422ee47eb139274e538e758fb40177a1ba22c2113ef3b3446102f0150bfe0a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a1981e052e9e86e1b0e4e55a057a7af4739aedd4ead2d60e3eaa40fb703594ee\",\"dweb:/ipfs/QmPK5qSujnyk1R8ues4RhDMy1tRKKyjQ31YJTviTKq7GML\"]},\"node_modules/@prb/math/src/sd21x18/ValueType.sol\":{\"keccak256\":\"0x532bba888370bed393464412f4ef3462d654802e71c953ad02d078e3d2701092\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://922a4e8dd813602f72d165aa1dfdf2c29b971a2abe73bebca7cd81a32ee2c880\",\"dweb:/ipfs/QmTBAJnx1r3sZpbQAuTgQtsTtvjZbpDwhCJRzkhzUumbdf\"]},\"node_modules/@prb/math/src/sd59x18/Casting.sol\":{\"keccak256\":\"0xdf70d8e70c6d6325f3f7eb028c484bc7189ef902f1d4b5b220af2e550bb5fc39\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0b15bcd36129c5cb163d57a117435afb171182018dd6d1e766a5f49cf1f4b63d\",\"dweb:/ipfs/QmbjzkMBH4FM2rdxGbx9LQ65wVERijNcu7R9C8dQmH3y4n\"]},\"node_modules/@prb/math/src/sd59x18/Constants.sol\":{\"keccak256\":\"0x9bcb8dd6b3e886d140ad1c32747a4f6d29a492529ceb835be878ae837aa6cc3a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c4045c633e3618e7e90a768d92415b2f20f781fe129b4f4e26fa88f7dbf9201f\",\"dweb:/ipfs/Qmbet95pizwPno82cJ383wJtgQRSQKESmhVZ1vDrgAu7Si\"]},\"node_modules/@prb/math/src/sd59x18/Errors.sol\":{\"keccak256\":\"0x0a79c28c85fc8a450b0801ff2e66114eac4ec565819f5d1d8738904658fe33e2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://9e0d4fd3c998019fb8555d9e26c03bec42a8513bdf4185aeac2da3a000abaebf\",\"dweb:/ipfs/QmahFJHXcX4RwPxaQbUf6LVZEk8NSpjCV3Eif7i9iqC6Mk\"]},\"node_modules/@prb/math/src/sd59x18/Helpers.sol\":{\"keccak256\":\"0x208570f1657cf730cb6c3d81aa14030e0d45cf906cdedea5059369d7df4bb716\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4c78ca900edafa9338d4e3649a55ab0c84f76468d8a22fb945ba6d01e70f8fed\",\"dweb:/ipfs/QmeP4hQYfNxcATd1FsasdD4ebyu2vrC9K1N68swxUJzzZD\"]},\"node_modules/@prb/math/src/sd59x18/Math.sol\":{\"keccak256\":\"0xd8e8b51db9b3e2fa31a60f6b8ce4ea0112c3364442ede5992aa0aa7a2c925c84\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://3c56913970e34ee7b142047b21f1856a511cbdc3473b7c50418a8490e19cd462\",\"dweb:/ipfs/QmfG1F9CBDjPYD7NXora9awFfdpvBMY9SCg5pMLCFRv9tD\"]},\"node_modules/@prb/math/src/sd59x18/ValueType.sol\":{\"keccak256\":\"0x76597ba64d37d66e0178512bc9bbc1a031a7634c45e5d5c6e9da87f46952dc9d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://36148899ad874814e9292636fb974d2eec61f1bcc0875ec39cf444d70ba40919\",\"dweb:/ipfs/QmadUe4kH2FPcdxvhCKy8yiezCvPWor4VcPzqLYSAaGDDb\"]},\"node_modules/@prb/math/src/ud21x18/Casting.sol\":{\"keccak256\":\"0x3821aa57604f6e5b7c9c5c5cc97a6d71116e673cf3fee5f76fcd42b4cefded65\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a80399c6b38ab45cc10d0a6683d50340cd89d9a085b6d0dcfb81e7c4e5b3ce09\",\"dweb:/ipfs/QmWNW2YD2LMkqrpAtJYeeuHN329Rx7mvfmrjsCo1p6akTL\"]},\"node_modules/@prb/math/src/ud21x18/Constants.sol\":{\"keccak256\":\"0x0997574a1ced6c43bde6d9c9175edc5ad64cbb920a0969a9db68eea543747601\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c09f03345a6779b002b38ffc3954258accbb2b1d0d5506d42c3bd7f117304f60\",\"dweb:/ipfs/QmTeBXRCE7H2HpqKUNsZN7Nk3rdBnFmbAUFom3E1PJeGuV\"]},\"node_modules/@prb/math/src/ud21x18/Errors.sol\":{\"keccak256\":\"0x35a1fb789b90f8c90865884d3023deb17fcca5c7146b5ddef823496d835a5415\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0af359d07ba25bdc90de7c05ed6216833932caa75d4a02fcfc51ceeaba5a4e80\",\"dweb:/ipfs/QmavBFw73Xfp1qJiN6P1gk2Dfr8ByWo3dyCPVgDHtko2gq\"]},\"node_modules/@prb/math/src/ud21x18/ValueType.sol\":{\"keccak256\":\"0x24838b2b1da371b9259d8ee21534a9f0cb5796aba75a4efca2374627952bee25\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://897e6b79308651671c7f3c91a0069e778b47356c9ba3f86e238398ab7f2623af\",\"dweb:/ipfs/QmZbLw3tJVRZFQnV9jWQUmF43gna841adSG2TAiwDAifGU\"]},\"node_modules/@prb/math/src/ud2x18/Casting.sol\":{\"keccak256\":\"0x0f3141ed054e7c29dbe1acb4b88b18eb05d60e998fba6b4e503a6799faa356d6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://b1e2468fc4c458082aaf4aa2e35af9ba3702f207e3c8533dd1e7da11ad605eae\",\"dweb:/ipfs/QmSm7iRH1eo4cJCwcAiiXWRH9Hn1urSS4tMdbaFbFGuTyL\"]},\"node_modules/@prb/math/src/ud2x18/Constants.sol\":{\"keccak256\":\"0x29b0e050c865899e1fb9022b460a7829cdee248c44c4299f068ba80695eec3fc\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://cbaef16b662fac235349bcf97bc980dd0cba15d4e6230caae61224cdac8ea6d9\",\"dweb:/ipfs/QmZQa5XBhi7k3yhtCd8wVpnwW8htfU4sjXxWhxRypMBYkC\"]},\"node_modules/@prb/math/src/ud2x18/Errors.sol\":{\"keccak256\":\"0x3b27e2a57438cd30d9c130f84aace24d547e5ed58e8689691d7d92ad2db38ddd\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://841cf9fb45443899c6b659300bbf503c3fd2c1a1e83b7f0e28620eed457f7437\",\"dweb:/ipfs/QmUqg8WscP5yQPw3UMUCWaB9RLU6nryGzseuyhAjNnDc1i\"]},\"node_modules/@prb/math/src/ud2x18/ValueType.sol\":{\"keccak256\":\"0x975a2e69b48f34a4c0bd80e8a5609ac67b7264c91992c0944f9ebe7b9e3fc9d0\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://65d012521c475295d7e70b7d526fcc0911d0f238ea938719d77251bba00c9b41\",\"dweb:/ipfs/QmexEvTQCCBPYRWAYnomZX5M7C2EkXQRAXqEYMNUZfazCs\"]},\"node_modules/@prb/math/src/ud60x18/Casting.sol\":{\"keccak256\":\"0x0803318ddc98b4ba8fbfe70e5ee08d78387fe6ae00982b9960518085a751d7b6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://2e68a2f780b2e33fa5416eb60f9daa81f014c2591119f4b67bed1217d5530780\",\"dweb:/ipfs/QmZe7JTWvbfKqMnu4sxUwWCtLcCay9hH71VZUpoFCdENcr\"]},\"node_modules/@prb/math/src/ud60x18/Constants.sol\":{\"keccak256\":\"0x2b80d26153d3fdcfb3a9ca772d9309d31ed1275f5b8b54c3ffb54d3652b37d90\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7e3a6673a156f635db94dc176baaa7274db8f9bec4461cd1152596253550ee3b\",\"dweb:/ipfs/Qmc9zT4kNSbMYaXcnbxNVqmb3P3m46ieaQxkwxqLwsvRA5\"]},\"node_modules/@prb/math/src/ud60x18/Conversions.sol\":{\"keccak256\":\"0xd486ecca97abe69acdb28230088f4c7097fbdae5b36c5ae45d5be2faac4c33f2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6080870ec6955ff0f5278f9c480b218a68714daf5f2ee42da0276d08d7b82932\",\"dweb:/ipfs/QmQ1SERHdemJgPrt4USwY8j5r63jZ8fQuJAm1knjMEEQEY\"]},\"node_modules/@prb/math/src/ud60x18/Errors.sol\":{\"keccak256\":\"0xbab6b0e303d32f3a9d9e2fe881f0392b8c59a73051a4d34f21a403b3961b3044\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://86a019bcf2510d0691287329dc057479cc0abc48a5e15f245e7f15c03052d2c8\",\"dweb:/ipfs/QmeXe5pbpDHvN5DZ8puXmH2RJ25zDHj55wpiStWtNQPvq6\"]},\"node_modules/@prb/math/src/ud60x18/Helpers.sol\":{\"keccak256\":\"0xf5faff881391d2c060029499a666cc5f0bea90a213150bb476fae8f02a5df268\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://76105fa22bb1b5f1fa99abf9c4fbc9577a02c7bc204f271754c407f0d75489f5\",\"dweb:/ipfs/QmVNGZSTniDuZus5DdbFubqJXCLtTaZit7YPm4ntjr5Lgr\"]},\"node_modules/@prb/math/src/ud60x18/Math.sol\":{\"keccak256\":\"0xc4e51dfd9af62938e277e90fa724099f239d33727a35909ed48c292a76faf2fc\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d731537cbc50b852c21d28625aeb2c329729afc23a7b86ff9d8ee5878f47e9d6\",\"dweb:/ipfs/QmS7Cj4pAdPZcTp7RqYXyxBc9EYX92CT8icfkNigktUsLr\"]},\"node_modules/@prb/math/src/ud60x18/ValueType.sol\":{\"keccak256\":\"0x1b200baf25d01a8b91b97b42114248636f742b5b7028487ef4daef6621e378a3\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://b5708ed017206bda2197654e80bea9f37b3a9993434bb066c903c2865e028f47\",\"dweb:/ipfs/QmTyotZk2J5YvWkNvB2qhXBMgRGWW2UgPqR4JPocrXSr8n\"]},\"src/libraries/Errors.sol\":{\"keccak256\":\"0x38c6031154fb79077346d4daad4895e7e9c25ced414b854526892f16548dd41d\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://0376106f810b9ab10f4eb6a096c8503cb22a2d6a88fd02917195ba6c5a438218\",\"dweb:/ipfs/QmaxVYd2GkSATLJW6Eg4MTUJpHwFD5dHQSEKqt2PqJ1k48\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": { "version": "0.8.26+commit.8a97fa7a" },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [{ "internalType": "bytes", "name": "errorData", "type": "bytes" }],
+          "type": "error",
+          "name": "BatchError"
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "admin", "type": "address" },
+            { "internalType": "address", "name": "caller", "type": "address" }
+          ],
+          "type": "error",
+          "name": "CallerNotAdmin"
+        },
+        { "inputs": [], "type": "error", "name": "DelegateCall" },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "admin", "type": "address" },
+            { "internalType": "uint256", "name": "feeAmount", "type": "uint256" }
+          ],
+          "type": "error",
+          "name": "SablierFlowBase_FeeTransferFail"
+        },
+        {
+          "inputs": [{ "internalType": "address", "name": "token", "type": "address" }],
+          "type": "error",
+          "name": "SablierFlowBase_NoProtocolRevenue"
+        },
+        {
+          "inputs": [{ "internalType": "uint256", "name": "streamId", "type": "uint256" }],
+          "type": "error",
+          "name": "SablierFlowBase_NotTransferable"
+        },
+        {
+          "inputs": [
+            { "internalType": "UD60x18", "name": "newProtocolFee", "type": "uint256" },
+            { "internalType": "UD60x18", "name": "maxFee", "type": "uint256" }
+          ],
+          "type": "error",
+          "name": "SablierFlowBase_ProtocolFeeTooHigh"
+        },
+        {
+          "inputs": [{ "internalType": "address", "name": "token", "type": "address" }],
+          "type": "error",
+          "name": "SablierFlowBase_SurplusZero"
+        },
+        { "inputs": [], "type": "error", "name": "SablierFlow_BrokerAddressZero" },
+        {
+          "inputs": [
+            { "internalType": "UD60x18", "name": "brokerFee", "type": "uint256" },
+            { "internalType": "UD60x18", "name": "maxFee", "type": "uint256" }
+          ],
+          "type": "error",
+          "name": "SablierFlow_BrokerFeeTooHigh"
+        },
+        {
+          "inputs": [{ "internalType": "uint256", "name": "streamId", "type": "uint256" }],
+          "type": "error",
+          "name": "SablierFlow_DepositAmountZero"
+        },
+        {
+          "inputs": [
+            { "internalType": "uint256", "name": "streamId", "type": "uint256" },
+            { "internalType": "uint128", "name": "availableAmount", "type": "uint128" },
+            { "internalType": "uint128", "name": "amount", "type": "uint128" }
+          ],
+          "type": "error",
+          "name": "SablierFlow_InvalidCalculation"
+        },
+        {
+          "inputs": [{ "internalType": "address", "name": "token", "type": "address" }],
+          "type": "error",
+          "name": "SablierFlow_InvalidTokenDecimals"
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "recipient", "type": "address" },
+            { "internalType": "address", "name": "streamRecipient", "type": "address" }
+          ],
+          "type": "error",
+          "name": "SablierFlow_NotStreamRecipient"
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "sender", "type": "address" },
+            { "internalType": "address", "name": "streamSender", "type": "address" }
+          ],
+          "type": "error",
+          "name": "SablierFlow_NotStreamSender"
+        },
+        {
+          "inputs": [{ "internalType": "uint256", "name": "streamId", "type": "uint256" }],
+          "type": "error",
+          "name": "SablierFlow_Null"
+        },
+        {
+          "inputs": [
+            { "internalType": "uint256", "name": "streamId", "type": "uint256" },
+            { "internalType": "uint128", "name": "amount", "type": "uint128" },
+            { "internalType": "uint128", "name": "withdrawableAmount", "type": "uint128" }
+          ],
+          "type": "error",
+          "name": "SablierFlow_Overdraw"
+        },
+        {
+          "inputs": [
+            { "internalType": "uint256", "name": "streamId", "type": "uint256" },
+            { "internalType": "UD21x18", "name": "ratePerSecond", "type": "uint128" }
+          ],
+          "type": "error",
+          "name": "SablierFlow_RatePerSecondNotDifferent"
+        },
+        {
+          "inputs": [{ "internalType": "uint256", "name": "streamId", "type": "uint256" }],
+          "type": "error",
+          "name": "SablierFlow_RefundAmountZero"
+        },
+        {
+          "inputs": [
+            { "internalType": "uint256", "name": "streamId", "type": "uint256" },
+            { "internalType": "uint128", "name": "refundAmount", "type": "uint128" },
+            { "internalType": "uint128", "name": "refundableAmount", "type": "uint128" }
+          ],
+          "type": "error",
+          "name": "SablierFlow_RefundOverflow"
+        },
+        { "inputs": [], "type": "error", "name": "SablierFlow_SenderZeroAddress" },
+        {
+          "inputs": [{ "internalType": "uint256", "name": "streamId", "type": "uint256" }],
+          "type": "error",
+          "name": "SablierFlow_StreamBalanceZero"
+        },
+        {
+          "inputs": [{ "internalType": "uint256", "name": "streamId", "type": "uint256" }],
+          "type": "error",
+          "name": "SablierFlow_StreamNotPaused"
+        },
+        {
+          "inputs": [{ "internalType": "uint256", "name": "streamId", "type": "uint256" }],
+          "type": "error",
+          "name": "SablierFlow_StreamPaused"
+        },
+        {
+          "inputs": [{ "internalType": "uint256", "name": "streamId", "type": "uint256" }],
+          "type": "error",
+          "name": "SablierFlow_StreamVoided"
+        },
+        {
+          "inputs": [
+            { "internalType": "uint256", "name": "streamId", "type": "uint256" },
+            { "internalType": "address", "name": "caller", "type": "address" }
+          ],
+          "type": "error",
+          "name": "SablierFlow_Unauthorized"
+        },
+        {
+          "inputs": [{ "internalType": "uint256", "name": "streamId", "type": "uint256" }],
+          "type": "error",
+          "name": "SablierFlow_WithdrawAmountZero"
+        },
+        {
+          "inputs": [{ "internalType": "uint256", "name": "streamId", "type": "uint256" }],
+          "type": "error",
+          "name": "SablierFlow_WithdrawToZeroAddress"
+        },
+        {
+          "inputs": [
+            { "internalType": "uint256", "name": "streamId", "type": "uint256" },
+            { "internalType": "address", "name": "caller", "type": "address" },
+            { "internalType": "address", "name": "to", "type": "address" }
+          ],
+          "type": "error",
+          "name": "SablierFlow_WithdrawalAddressNotRecipient"
+        }
+      ],
+      "devdoc": { "kind": "dev", "methods": {}, "version": 1 },
+      "userdoc": { "kind": "user", "methods": {}, "version": 1 }
+    },
+    "settings": {
+      "remappings": [
+        "@openzeppelin/contracts/=node_modules/@openzeppelin/contracts/",
+        "@prb/math/=node_modules/@prb/math/",
+        "forge-std/=node_modules/forge-std/",
+        "solady/=node_modules/solady/"
+      ],
+      "optimizer": { "enabled": true, "runs": 10000 },
+      "metadata": { "bytecodeHash": "none" },
+      "compilationTarget": { "src/libraries/Errors.sol": "Errors" },
+      "evmVersion": "shanghai",
+      "libraries": {},
+      "viaIR": true
+    },
+    "sources": {
+      "node_modules/@prb/math/src/Common.sol": {
+        "keccak256": "0x8225a3898d2f11f585da1fb82234800e9717fa080dbe53d450fd429a3a632e99",
+        "urls": [
+          "bzz-raw://2dcbf39ca575f68f32f0d1c66391de94082424956e7585e849813966f8c0fc05",
+          "dweb:/ipfs/QmYvk8vXFDUJHrmqbtutYXfoLomLBosYLyBzuPoYBxsQ42"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/UD21x18.sol": {
+        "keccak256": "0xb0176747ae9c9f329bce39730d4d315b839e73a815494ddf2de2094aa9056957",
+        "urls": [
+          "bzz-raw://534a82fe091627f9d01e665ac763daf56981b30b3976269f8e5c33a84a2dbebc",
+          "dweb:/ipfs/QmYiiGJNr4S4ypYB4KGBPMTMiNskert8Cp4s6uf1CU3k73"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/UD60x18.sol": {
+        "keccak256": "0xb98c6f74275914d279e8af6c502c2b1f50d5f6e1ed418d3b0153f5a193206c48",
+        "urls": [
+          "bzz-raw://a750edde2955f160806a51083a12185fb04e20efca0e3a7ebd127dc1acc049a9",
+          "dweb:/ipfs/QmeAre3mThopoQPB9mSXZq6jck59QZ7JbDFR83urd2SLvp"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd1x18/Casting.sol": {
+        "keccak256": "0x5d365f655f01598926c5d4fe5cda277f2cc7736fe38f943c11a32009077ddd5c",
+        "urls": [
+          "bzz-raw://56b378bd6039819bc12e5f17dabd9492e1410b3281f9df496cf8210539101a11",
+          "dweb:/ipfs/QmcMaE64ZWMg9cFhYxdTuG8nfzeDdNuTRHMMoFXi6tSZGu"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd1x18/Constants.sol": {
+        "keccak256": "0xc14cc32061863d83912f9616de86f3c34f1ac58614b7d504c6ce07ee8efdb8e8",
+        "urls": [
+          "bzz-raw://22483b1282dda6a556b0232f008a5a3296bbfd76b1886e6b72bf351b7c554fab",
+          "dweb:/ipfs/QmYX9cYkrFxBbhZNKsb6uUxtrc2chmAj7vuc7UKRPGMwos"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd1x18/Errors.sol": {
+        "keccak256": "0xc3c8b1ab3d19889c356c222a3a2186d45dfc1d3a17b9ad88159bb64ee457baa6",
+        "urls": [
+          "bzz-raw://84fbe57569246403f778330bd7723018dfcb5f0ec50d7b1d82cc983c94a54bca",
+          "dweb:/ipfs/QmWssAAnovc2EVjt58rTnxraE9B1RMivwTvYCYgpnr6oSE"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd1x18/ValueType.sol": {
+        "keccak256": "0xaa9dc7b562faf45264390d80e2ea10c5295bb8a4f10d76261a3f9c04363734c0",
+        "urls": [
+          "bzz-raw://c6ca36acd15f5cb47cf124ddec289f84e1011f2d29056159e4570435629a3353",
+          "dweb:/ipfs/QmUKdiLmZpAkNCq2TKxrPbQPUhiRFXGfjGSnY1VeHVu4y6"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd21x18/Casting.sol": {
+        "keccak256": "0x4a16adddb9ab1f6939dd4567c77205015a11081cb840029b84bbb6fdaf78ee36",
+        "urls": [
+          "bzz-raw://5003b2f4cd2fc1413da36bc63107c6e83a88d29693e8f97b54f300fa78f9c6d2",
+          "dweb:/ipfs/QmaNJn91NLrZmeeGqnFQV1FTrLVSW852zHyWTrWJ5pf1pd"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd21x18/Constants.sol": {
+        "keccak256": "0x501c2d5cfdea9450422182059c8df1cb6a859901a07bd59631c3fa24edcc79d4",
+        "urls": [
+          "bzz-raw://4669a65001c92919671fd879d33ce0e5030b602a7ba4d36bd2308128d8d1f396",
+          "dweb:/ipfs/QmUC3bJ3qdkCmLMw3WHBcEqvuC4tExT2LXzUhgu5KQ3vi3"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd21x18/Errors.sol": {
+        "keccak256": "0xc5422ee47eb139274e538e758fb40177a1ba22c2113ef3b3446102f0150bfe0a",
+        "urls": [
+          "bzz-raw://a1981e052e9e86e1b0e4e55a057a7af4739aedd4ead2d60e3eaa40fb703594ee",
+          "dweb:/ipfs/QmPK5qSujnyk1R8ues4RhDMy1tRKKyjQ31YJTviTKq7GML"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd21x18/ValueType.sol": {
+        "keccak256": "0x532bba888370bed393464412f4ef3462d654802e71c953ad02d078e3d2701092",
+        "urls": [
+          "bzz-raw://922a4e8dd813602f72d165aa1dfdf2c29b971a2abe73bebca7cd81a32ee2c880",
+          "dweb:/ipfs/QmTBAJnx1r3sZpbQAuTgQtsTtvjZbpDwhCJRzkhzUumbdf"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd59x18/Casting.sol": {
+        "keccak256": "0xdf70d8e70c6d6325f3f7eb028c484bc7189ef902f1d4b5b220af2e550bb5fc39",
+        "urls": [
+          "bzz-raw://0b15bcd36129c5cb163d57a117435afb171182018dd6d1e766a5f49cf1f4b63d",
+          "dweb:/ipfs/QmbjzkMBH4FM2rdxGbx9LQ65wVERijNcu7R9C8dQmH3y4n"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd59x18/Constants.sol": {
+        "keccak256": "0x9bcb8dd6b3e886d140ad1c32747a4f6d29a492529ceb835be878ae837aa6cc3a",
+        "urls": [
+          "bzz-raw://c4045c633e3618e7e90a768d92415b2f20f781fe129b4f4e26fa88f7dbf9201f",
+          "dweb:/ipfs/Qmbet95pizwPno82cJ383wJtgQRSQKESmhVZ1vDrgAu7Si"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd59x18/Errors.sol": {
+        "keccak256": "0x0a79c28c85fc8a450b0801ff2e66114eac4ec565819f5d1d8738904658fe33e2",
+        "urls": [
+          "bzz-raw://9e0d4fd3c998019fb8555d9e26c03bec42a8513bdf4185aeac2da3a000abaebf",
+          "dweb:/ipfs/QmahFJHXcX4RwPxaQbUf6LVZEk8NSpjCV3Eif7i9iqC6Mk"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd59x18/Helpers.sol": {
+        "keccak256": "0x208570f1657cf730cb6c3d81aa14030e0d45cf906cdedea5059369d7df4bb716",
+        "urls": [
+          "bzz-raw://4c78ca900edafa9338d4e3649a55ab0c84f76468d8a22fb945ba6d01e70f8fed",
+          "dweb:/ipfs/QmeP4hQYfNxcATd1FsasdD4ebyu2vrC9K1N68swxUJzzZD"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd59x18/Math.sol": {
+        "keccak256": "0xd8e8b51db9b3e2fa31a60f6b8ce4ea0112c3364442ede5992aa0aa7a2c925c84",
+        "urls": [
+          "bzz-raw://3c56913970e34ee7b142047b21f1856a511cbdc3473b7c50418a8490e19cd462",
+          "dweb:/ipfs/QmfG1F9CBDjPYD7NXora9awFfdpvBMY9SCg5pMLCFRv9tD"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd59x18/ValueType.sol": {
+        "keccak256": "0x76597ba64d37d66e0178512bc9bbc1a031a7634c45e5d5c6e9da87f46952dc9d",
+        "urls": [
+          "bzz-raw://36148899ad874814e9292636fb974d2eec61f1bcc0875ec39cf444d70ba40919",
+          "dweb:/ipfs/QmadUe4kH2FPcdxvhCKy8yiezCvPWor4VcPzqLYSAaGDDb"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud21x18/Casting.sol": {
+        "keccak256": "0x3821aa57604f6e5b7c9c5c5cc97a6d71116e673cf3fee5f76fcd42b4cefded65",
+        "urls": [
+          "bzz-raw://a80399c6b38ab45cc10d0a6683d50340cd89d9a085b6d0dcfb81e7c4e5b3ce09",
+          "dweb:/ipfs/QmWNW2YD2LMkqrpAtJYeeuHN329Rx7mvfmrjsCo1p6akTL"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud21x18/Constants.sol": {
+        "keccak256": "0x0997574a1ced6c43bde6d9c9175edc5ad64cbb920a0969a9db68eea543747601",
+        "urls": [
+          "bzz-raw://c09f03345a6779b002b38ffc3954258accbb2b1d0d5506d42c3bd7f117304f60",
+          "dweb:/ipfs/QmTeBXRCE7H2HpqKUNsZN7Nk3rdBnFmbAUFom3E1PJeGuV"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud21x18/Errors.sol": {
+        "keccak256": "0x35a1fb789b90f8c90865884d3023deb17fcca5c7146b5ddef823496d835a5415",
+        "urls": [
+          "bzz-raw://0af359d07ba25bdc90de7c05ed6216833932caa75d4a02fcfc51ceeaba5a4e80",
+          "dweb:/ipfs/QmavBFw73Xfp1qJiN6P1gk2Dfr8ByWo3dyCPVgDHtko2gq"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud21x18/ValueType.sol": {
+        "keccak256": "0x24838b2b1da371b9259d8ee21534a9f0cb5796aba75a4efca2374627952bee25",
+        "urls": [
+          "bzz-raw://897e6b79308651671c7f3c91a0069e778b47356c9ba3f86e238398ab7f2623af",
+          "dweb:/ipfs/QmZbLw3tJVRZFQnV9jWQUmF43gna841adSG2TAiwDAifGU"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud2x18/Casting.sol": {
+        "keccak256": "0x0f3141ed054e7c29dbe1acb4b88b18eb05d60e998fba6b4e503a6799faa356d6",
+        "urls": [
+          "bzz-raw://b1e2468fc4c458082aaf4aa2e35af9ba3702f207e3c8533dd1e7da11ad605eae",
+          "dweb:/ipfs/QmSm7iRH1eo4cJCwcAiiXWRH9Hn1urSS4tMdbaFbFGuTyL"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud2x18/Constants.sol": {
+        "keccak256": "0x29b0e050c865899e1fb9022b460a7829cdee248c44c4299f068ba80695eec3fc",
+        "urls": [
+          "bzz-raw://cbaef16b662fac235349bcf97bc980dd0cba15d4e6230caae61224cdac8ea6d9",
+          "dweb:/ipfs/QmZQa5XBhi7k3yhtCd8wVpnwW8htfU4sjXxWhxRypMBYkC"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud2x18/Errors.sol": {
+        "keccak256": "0x3b27e2a57438cd30d9c130f84aace24d547e5ed58e8689691d7d92ad2db38ddd",
+        "urls": [
+          "bzz-raw://841cf9fb45443899c6b659300bbf503c3fd2c1a1e83b7f0e28620eed457f7437",
+          "dweb:/ipfs/QmUqg8WscP5yQPw3UMUCWaB9RLU6nryGzseuyhAjNnDc1i"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud2x18/ValueType.sol": {
+        "keccak256": "0x975a2e69b48f34a4c0bd80e8a5609ac67b7264c91992c0944f9ebe7b9e3fc9d0",
+        "urls": [
+          "bzz-raw://65d012521c475295d7e70b7d526fcc0911d0f238ea938719d77251bba00c9b41",
+          "dweb:/ipfs/QmexEvTQCCBPYRWAYnomZX5M7C2EkXQRAXqEYMNUZfazCs"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/Casting.sol": {
+        "keccak256": "0x0803318ddc98b4ba8fbfe70e5ee08d78387fe6ae00982b9960518085a751d7b6",
+        "urls": [
+          "bzz-raw://2e68a2f780b2e33fa5416eb60f9daa81f014c2591119f4b67bed1217d5530780",
+          "dweb:/ipfs/QmZe7JTWvbfKqMnu4sxUwWCtLcCay9hH71VZUpoFCdENcr"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/Constants.sol": {
+        "keccak256": "0x2b80d26153d3fdcfb3a9ca772d9309d31ed1275f5b8b54c3ffb54d3652b37d90",
+        "urls": [
+          "bzz-raw://7e3a6673a156f635db94dc176baaa7274db8f9bec4461cd1152596253550ee3b",
+          "dweb:/ipfs/Qmc9zT4kNSbMYaXcnbxNVqmb3P3m46ieaQxkwxqLwsvRA5"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/Conversions.sol": {
+        "keccak256": "0xd486ecca97abe69acdb28230088f4c7097fbdae5b36c5ae45d5be2faac4c33f2",
+        "urls": [
+          "bzz-raw://6080870ec6955ff0f5278f9c480b218a68714daf5f2ee42da0276d08d7b82932",
+          "dweb:/ipfs/QmQ1SERHdemJgPrt4USwY8j5r63jZ8fQuJAm1knjMEEQEY"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/Errors.sol": {
+        "keccak256": "0xbab6b0e303d32f3a9d9e2fe881f0392b8c59a73051a4d34f21a403b3961b3044",
+        "urls": [
+          "bzz-raw://86a019bcf2510d0691287329dc057479cc0abc48a5e15f245e7f15c03052d2c8",
+          "dweb:/ipfs/QmeXe5pbpDHvN5DZ8puXmH2RJ25zDHj55wpiStWtNQPvq6"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/Helpers.sol": {
+        "keccak256": "0xf5faff881391d2c060029499a666cc5f0bea90a213150bb476fae8f02a5df268",
+        "urls": [
+          "bzz-raw://76105fa22bb1b5f1fa99abf9c4fbc9577a02c7bc204f271754c407f0d75489f5",
+          "dweb:/ipfs/QmVNGZSTniDuZus5DdbFubqJXCLtTaZit7YPm4ntjr5Lgr"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/Math.sol": {
+        "keccak256": "0xc4e51dfd9af62938e277e90fa724099f239d33727a35909ed48c292a76faf2fc",
+        "urls": [
+          "bzz-raw://d731537cbc50b852c21d28625aeb2c329729afc23a7b86ff9d8ee5878f47e9d6",
+          "dweb:/ipfs/QmS7Cj4pAdPZcTp7RqYXyxBc9EYX92CT8icfkNigktUsLr"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/ValueType.sol": {
+        "keccak256": "0x1b200baf25d01a8b91b97b42114248636f742b5b7028487ef4daef6621e378a3",
+        "urls": [
+          "bzz-raw://b5708ed017206bda2197654e80bea9f37b3a9993434bb066c903c2865e028f47",
+          "dweb:/ipfs/QmTyotZk2J5YvWkNvB2qhXBMgRGWW2UgPqR4JPocrXSr8n"
+        ],
+        "license": "MIT"
+      },
+      "src/libraries/Errors.sol": {
+        "keccak256": "0x38c6031154fb79077346d4daad4895e7e9c25ced414b854526892f16548dd41d",
+        "urls": [
+          "bzz-raw://0376106f810b9ab10f4eb6a096c8503cb22a2d6a88fd02917195ba6c5a438218",
+          "dweb:/ipfs/QmaxVYd2GkSATLJW6Eg4MTUJpHwFD5dHQSEKqt2PqJ1k48"
+        ],
+        "license": "GPL-3.0-or-later"
+      }
+    },
+    "version": 1
+  },
+  "id": 85
+}

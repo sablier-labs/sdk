@@ -1,0 +1,25 @@
+{
+  "_format": "hh-zksolc-artifact-1",
+  "contractName": "IBatch",
+  "sourceName": "contracts/interfaces/IBatch.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "bytes[]",
+          "name": "calls",
+          "type": "bytes[]"
+        }
+      ],
+      "name": "batch",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "linkReferences": {},
+  "deployedLinkReferences": {},
+  "factoryDeps": {}
+}

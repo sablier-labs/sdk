@@ -1,0 +1,36 @@
+{
+  "_format": "hh-zksolc-artifact-1",
+  "contractName": "ISablierV2NFTDescriptor",
+  "sourceName": "contracts/interfaces/ISablierV2NFTDescriptor.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "contract IERC721Metadata",
+          "name": "sablier",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "streamId",
+          "type": "uint256"
+        }
+      ],
+      "name": "tokenURI",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "uri",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "linkReferences": {},
+  "deployedLinkReferences": {},
+  "factoryDeps": {}
+}

@@ -1,0 +1,471 @@
+{
+  "abi": [
+    {
+      "type": "function",
+      "name": "onStreamCanceled",
+      "inputs": [
+        { "name": "streamId", "type": "uint256", "internalType": "uint256" },
+        { "name": "sender", "type": "address", "internalType": "address" },
+        { "name": "senderAmount", "type": "uint128", "internalType": "uint128" },
+        { "name": "recipientAmount", "type": "uint128", "internalType": "uint128" }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "onStreamRenounced",
+      "inputs": [{ "name": "streamId", "type": "uint256", "internalType": "uint256" }],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "onStreamWithdrawn",
+      "inputs": [
+        { "name": "streamId", "type": "uint256", "internalType": "uint256" },
+        { "name": "caller", "type": "address", "internalType": "address" },
+        { "name": "to", "type": "address", "internalType": "address" },
+        { "name": "amount", "type": "uint128", "internalType": "uint128" }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    }
+  ],
+  "bytecode": { "object": "0x", "sourceMap": "", "linkReferences": {} },
+  "deployedBytecode": { "object": "0x", "sourceMap": "", "linkReferences": {} },
+  "methodIdentifiers": {
+    "onStreamCanceled(uint256,address,uint128,uint128)": "72eba203",
+    "onStreamRenounced(uint256)": "341a0bd9",
+    "onStreamWithdrawn(uint256,address,address,uint128)": "13375c3b"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.23+commit.f704f362\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"streamId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"internalType\":\"uint128\",\"name\":\"senderAmount\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"recipientAmount\",\"type\":\"uint128\"}],\"name\":\"onStreamCanceled\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"streamId\",\"type\":\"uint256\"}],\"name\":\"onStreamRenounced\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"streamId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"caller\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint128\",\"name\":\"amount\",\"type\":\"uint128\"}],\"name\":\"onStreamWithdrawn\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Implementation of this interface is optional. If a recipient contract doesn't implement this interface or implements it partially, function execution will not revert.\",\"kind\":\"dev\",\"methods\":{\"onStreamCanceled(uint256,address,uint128,uint128)\":{\"details\":\"Notes: - This function may revert, but the Sablier contract will ignore the revert.\",\"params\":{\"recipientAmount\":\"The amount of assets left for the stream's recipient to withdraw, denoted in units of the asset's decimals.\",\"sender\":\"The stream's sender, who canceled the stream.\",\"senderAmount\":\"The amount of assets refunded to the stream's sender, denoted in units of the asset's decimals.\",\"streamId\":\"The id of the canceled stream.\"}},\"onStreamRenounced(uint256)\":{\"details\":\"Notes: - This function may revert, but the Sablier contract will ignore the revert.\",\"params\":{\"streamId\":\"The id of the renounced stream.\"}},\"onStreamWithdrawn(uint256,address,address,uint128)\":{\"details\":\"Notes: - This function may revert, but the Sablier contract will ignore the revert.\",\"params\":{\"amount\":\"The amount of assets withdrawn, denoted in units of the asset's decimals.\",\"caller\":\"The original `msg.sender` address that triggered the withdrawal.\",\"streamId\":\"The id of the stream being withdrawn from.\",\"to\":\"The address receiving the withdrawn assets.\"}}},\"title\":\"ISablierV2LockupRecipient\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"onStreamCanceled(uint256,address,uint128,uint128)\":{\"notice\":\"Responds to sender-triggered cancellations.\"},\"onStreamRenounced(uint256)\":{\"notice\":\"Responds to renouncements.\"},\"onStreamWithdrawn(uint256,address,address,uint128)\":{\"notice\":\"Responds to withdrawals triggered by either the stream's sender or an approved third party.\"}},\"notice\":\"Interface for recipient contracts capable of reacting to cancellations, renouncements, and withdrawals.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/interfaces/hooks/ISablierV2LockupRecipient.sol\":\"ISablierV2LockupRecipient\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"none\"},\"optimizer\":{\"enabled\":true,\"runs\":1000},\"remappings\":[\":@openzeppelin/contracts/=node_modules/@openzeppelin/contracts/\",\":@prb/math/=node_modules/@prb/math/\",\":@prb/test/=node_modules/@prb/test/\",\":forge-std/=node_modules/forge-std/\",\":solady/=node_modules/solady/\",\":solarray/=node_modules/solarray/\"],\"viaIR\":true},\"sources\":{\"src/interfaces/hooks/ISablierV2LockupRecipient.sol\":{\"keccak256\":\"0x156511f20a945ab947b092eb5bc94723bfc469ae812bba74cea4e9880ac70d44\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://a9f5afe5efcaf397921f7e7de148347dc4e6af6e98a5f4632f28608f0dc1bb6b\",\"dweb:/ipfs/QmUfXaLwWPwKPbKfedSBqzY5K7rdhmBnJUrYS7J2yom6dC\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": { "version": "0.8.23+commit.f704f362" },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            { "internalType": "uint256", "name": "streamId", "type": "uint256" },
+            { "internalType": "address", "name": "sender", "type": "address" },
+            { "internalType": "uint128", "name": "senderAmount", "type": "uint128" },
+            { "internalType": "uint128", "name": "recipientAmount", "type": "uint128" }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "onStreamCanceled"
+        },
+        {
+          "inputs": [{ "internalType": "uint256", "name": "streamId", "type": "uint256" }],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "onStreamRenounced"
+        },
+        {
+          "inputs": [
+            { "internalType": "uint256", "name": "streamId", "type": "uint256" },
+            { "internalType": "address", "name": "caller", "type": "address" },
+            { "internalType": "address", "name": "to", "type": "address" },
+            { "internalType": "uint128", "name": "amount", "type": "uint128" }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "onStreamWithdrawn"
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "onStreamCanceled(uint256,address,uint128,uint128)": {
+            "details": "Notes: - This function may revert, but the Sablier contract will ignore the revert.",
+            "params": {
+              "recipientAmount": "The amount of assets left for the stream's recipient to withdraw, denoted in units of the asset's decimals.",
+              "sender": "The stream's sender, who canceled the stream.",
+              "senderAmount": "The amount of assets refunded to the stream's sender, denoted in units of the asset's decimals.",
+              "streamId": "The id of the canceled stream."
+            }
+          },
+          "onStreamRenounced(uint256)": {
+            "details": "Notes: - This function may revert, but the Sablier contract will ignore the revert.",
+            "params": { "streamId": "The id of the renounced stream." }
+          },
+          "onStreamWithdrawn(uint256,address,address,uint128)": {
+            "details": "Notes: - This function may revert, but the Sablier contract will ignore the revert.",
+            "params": {
+              "amount": "The amount of assets withdrawn, denoted in units of the asset's decimals.",
+              "caller": "The original `msg.sender` address that triggered the withdrawal.",
+              "streamId": "The id of the stream being withdrawn from.",
+              "to": "The address receiving the withdrawn assets."
+            }
+          }
+        },
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "onStreamCanceled(uint256,address,uint128,uint128)": {
+            "notice": "Responds to sender-triggered cancellations."
+          },
+          "onStreamRenounced(uint256)": { "notice": "Responds to renouncements." },
+          "onStreamWithdrawn(uint256,address,address,uint128)": {
+            "notice": "Responds to withdrawals triggered by either the stream's sender or an approved third party."
+          }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        "@openzeppelin/contracts/=node_modules/@openzeppelin/contracts/",
+        "@prb/math/=node_modules/@prb/math/",
+        "@prb/test/=node_modules/@prb/test/",
+        "forge-std/=node_modules/forge-std/",
+        "solady/=node_modules/solady/",
+        "solarray/=node_modules/solarray/"
+      ],
+      "optimizer": { "enabled": true, "runs": 1000 },
+      "metadata": { "bytecodeHash": "none" },
+      "compilationTarget": { "src/interfaces/hooks/ISablierV2LockupRecipient.sol": "ISablierV2LockupRecipient" },
+      "libraries": {},
+      "viaIR": true
+    },
+    "sources": {
+      "src/interfaces/hooks/ISablierV2LockupRecipient.sol": {
+        "keccak256": "0x156511f20a945ab947b092eb5bc94723bfc469ae812bba74cea4e9880ac70d44",
+        "urls": [
+          "bzz-raw://a9f5afe5efcaf397921f7e7de148347dc4e6af6e98a5f4632f28608f0dc1bb6b",
+          "dweb:/ipfs/QmUfXaLwWPwKPbKfedSBqzY5K7rdhmBnJUrYS7J2yom6dC"
+        ],
+        "license": "GPL-3.0-or-later"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "src/interfaces/hooks/ISablierV2LockupRecipient.sol",
+    "id": 50013,
+    "exportedSymbols": { "ISablierV2LockupRecipient": [50012] },
+    "nodeType": "SourceUnit",
+    "src": "45:2075:93",
+    "nodes": [
+      {
+        "id": 49980,
+        "nodeType": "PragmaDirective",
+        "src": "45:25:93",
+        "nodes": [],
+        "literals": ["solidity", ">=", "0.8", ".19"]
+      },
+      {
+        "id": 50012,
+        "nodeType": "ContractDefinition",
+        "src": "405:1714:93",
+        "nodes": [
+          {
+            "id": 49993,
+            "nodeType": "FunctionDefinition",
+            "src": "1030:162:93",
+            "nodes": [],
+            "documentation": {
+              "id": 49982,
+              "nodeType": "StructuredDocumentation",
+              "src": "447:578:93",
+              "text": "@notice Responds to sender-triggered cancellations.\n @dev Notes:\n - This function may revert, but the Sablier contract will ignore the revert.\n @param streamId The id of the canceled stream.\n @param sender The stream's sender, who canceled the stream.\n @param senderAmount The amount of assets refunded to the stream's sender, denoted in units of the asset's\n decimals.\n @param recipientAmount The amount of assets left for the stream's recipient to withdraw, denoted in units of\n the asset's decimals."
+            },
+            "functionSelector": "72eba203",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "onStreamCanceled",
+            "nameLocation": "1039:16:93",
+            "parameters": {
+              "id": 49991,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 49984,
+                  "mutability": "mutable",
+                  "name": "streamId",
+                  "nameLocation": "1073:8:93",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 49993,
+                  "src": "1065:16:93",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" },
+                  "typeName": {
+                    "id": 49983,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1065:7:93",
+                    "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 49986,
+                  "mutability": "mutable",
+                  "name": "sender",
+                  "nameLocation": "1099:6:93",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 49993,
+                  "src": "1091:14:93",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 49985,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1091:7:93",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 49988,
+                  "mutability": "mutable",
+                  "name": "senderAmount",
+                  "nameLocation": "1123:12:93",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 49993,
+                  "src": "1115:20:93",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_uint128", "typeString": "uint128" },
+                  "typeName": {
+                    "id": 49987,
+                    "name": "uint128",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1115:7:93",
+                    "typeDescriptions": { "typeIdentifier": "t_uint128", "typeString": "uint128" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 49990,
+                  "mutability": "mutable",
+                  "name": "recipientAmount",
+                  "nameLocation": "1153:15:93",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 49993,
+                  "src": "1145:23:93",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_uint128", "typeString": "uint128" },
+                  "typeName": {
+                    "id": 49989,
+                    "name": "uint128",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1145:7:93",
+                    "typeDescriptions": { "typeIdentifier": "t_uint128", "typeString": "uint128" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1055:119:93"
+            },
+            "returnParameters": { "id": 49992, "nodeType": "ParameterList", "parameters": [], "src": "1191:0:93" },
+            "scope": 50012,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 49999,
+            "nodeType": "FunctionDefinition",
+            "src": "1418:54:93",
+            "nodes": [],
+            "documentation": {
+              "id": 49994,
+              "nodeType": "StructuredDocumentation",
+              "src": "1198:215:93",
+              "text": "@notice Responds to renouncements.\n @dev Notes:\n - This function may revert, but the Sablier contract will ignore the revert.\n @param streamId The id of the renounced stream."
+            },
+            "functionSelector": "341a0bd9",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "onStreamRenounced",
+            "nameLocation": "1427:17:93",
+            "parameters": {
+              "id": 49997,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 49996,
+                  "mutability": "mutable",
+                  "name": "streamId",
+                  "nameLocation": "1453:8:93",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 49999,
+                  "src": "1445:16:93",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" },
+                  "typeName": {
+                    "id": 49995,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1445:7:93",
+                    "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1444:18:93"
+            },
+            "returnParameters": { "id": 49998, "nodeType": "ParameterList", "parameters": [], "src": "1471:0:93" },
+            "scope": 50012,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 50011,
+            "nodeType": "FunctionDefinition",
+            "src": "2019:98:93",
+            "nodes": [],
+            "documentation": {
+              "id": 50000,
+              "nodeType": "StructuredDocumentation",
+              "src": "1478:536:93",
+              "text": "@notice Responds to withdrawals triggered by either the stream's sender or an approved third party.\n @dev Notes:\n - This function may revert, but the Sablier contract will ignore the revert.\n @param streamId The id of the stream being withdrawn from.\n @param caller The original `msg.sender` address that triggered the withdrawal.\n @param to The address receiving the withdrawn assets.\n @param amount The amount of assets withdrawn, denoted in units of the asset's decimals."
+            },
+            "functionSelector": "13375c3b",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "onStreamWithdrawn",
+            "nameLocation": "2028:17:93",
+            "parameters": {
+              "id": 50009,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 50002,
+                  "mutability": "mutable",
+                  "name": "streamId",
+                  "nameLocation": "2054:8:93",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 50011,
+                  "src": "2046:16:93",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" },
+                  "typeName": {
+                    "id": 50001,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2046:7:93",
+                    "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 50004,
+                  "mutability": "mutable",
+                  "name": "caller",
+                  "nameLocation": "2072:6:93",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 50011,
+                  "src": "2064:14:93",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 50003,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2064:7:93",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 50006,
+                  "mutability": "mutable",
+                  "name": "to",
+                  "nameLocation": "2088:2:93",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 50011,
+                  "src": "2080:10:93",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 50005,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2080:7:93",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 50008,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nameLocation": "2100:6:93",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 50011,
+                  "src": "2092:14:93",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_uint128", "typeString": "uint128" },
+                  "typeName": {
+                    "id": 50007,
+                    "name": "uint128",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2092:7:93",
+                    "typeDescriptions": { "typeIdentifier": "t_uint128", "typeString": "uint128" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2045:62:93"
+            },
+            "returnParameters": { "id": 50010, "nodeType": "ParameterList", "parameters": [], "src": "2116:0:93" },
+            "scope": 50012,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "ISablierV2LockupRecipient",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 49981,
+          "nodeType": "StructuredDocumentation",
+          "src": "72:333:93",
+          "text": "@title ISablierV2LockupRecipient\n @notice Interface for recipient contracts capable of reacting to cancellations, renouncements, and withdrawals.\n @dev Implementation of this interface is optional. If a recipient contract doesn't implement this\n interface or implements it partially, function execution will not revert."
+        },
+        "fullyImplemented": false,
+        "linearizedBaseContracts": [50012],
+        "name": "ISablierV2LockupRecipient",
+        "nameLocation": "415:25:93",
+        "scope": 50013,
+        "usedErrors": [],
+        "usedEvents": []
+      }
+    ],
+    "license": "GPL-3.0-or-later"
+  },
+  "id": 93
+}

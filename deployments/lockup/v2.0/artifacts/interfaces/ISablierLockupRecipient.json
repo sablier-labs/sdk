@@ -1,0 +1,161 @@
+{
+  "abi": [
+    {
+      "type": "function",
+      "name": "onSablierLockupCancel",
+      "inputs": [
+        { "name": "streamId", "type": "uint256", "internalType": "uint256" },
+        { "name": "sender", "type": "address", "internalType": "address" },
+        { "name": "senderAmount", "type": "uint128", "internalType": "uint128" },
+        { "name": "recipientAmount", "type": "uint128", "internalType": "uint128" }
+      ],
+      "outputs": [{ "name": "selector", "type": "bytes4", "internalType": "bytes4" }],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "onSablierLockupWithdraw",
+      "inputs": [
+        { "name": "streamId", "type": "uint256", "internalType": "uint256" },
+        { "name": "caller", "type": "address", "internalType": "address" },
+        { "name": "to", "type": "address", "internalType": "address" },
+        { "name": "amount", "type": "uint128", "internalType": "uint128" }
+      ],
+      "outputs": [{ "name": "selector", "type": "bytes4", "internalType": "bytes4" }],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "supportsInterface",
+      "inputs": [{ "name": "interfaceId", "type": "bytes4", "internalType": "bytes4" }],
+      "outputs": [{ "name": "", "type": "bool", "internalType": "bool" }],
+      "stateMutability": "view"
+    }
+  ],
+  "bytecode": { "object": "0x", "sourceMap": "", "linkReferences": {} },
+  "deployedBytecode": { "object": "0x", "sourceMap": "", "linkReferences": {} },
+  "methodIdentifiers": {
+    "onSablierLockupCancel(uint256,address,uint128,uint128)": "6a5788f8",
+    "onSablierLockupWithdraw(uint256,address,address,uint128)": "92b9102b",
+    "supportsInterface(bytes4)": "01ffc9a7"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.26+commit.8a97fa7a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"streamId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"internalType\":\"uint128\",\"name\":\"senderAmount\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"recipientAmount\",\"type\":\"uint128\"}],\"name\":\"onSablierLockupCancel\",\"outputs\":[{\"internalType\":\"bytes4\",\"name\":\"selector\",\"type\":\"bytes4\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"streamId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"caller\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint128\",\"name\":\"amount\",\"type\":\"uint128\"}],\"name\":\"onSablierLockupWithdraw\",\"outputs\":[{\"internalType\":\"bytes4\",\"name\":\"selector\",\"type\":\"bytes4\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"See {IERC165-supportsInterface}. The implementation MUST implement the {IERC165-supportsInterface} method, which MUST return `true` when called with `0xf8ee98d3`, i.e. `type(ISablierLockupRecipient).interfaceId`.\",\"kind\":\"dev\",\"methods\":{\"onSablierLockupCancel(uint256,address,uint128,uint128)\":{\"details\":\"Notes: - The function MUST return the selector `ISablierLockupRecipient.onSablierLockupCancel.selector`. - If this function reverts, the execution in the Lockup contract will revert as well.\",\"params\":{\"recipientAmount\":\"The amount of tokens left for the stream's recipient to withdraw, denoted in units of the token's decimals.\",\"sender\":\"The stream's sender, who canceled the stream.\",\"senderAmount\":\"The amount of tokens refunded to the stream's sender, denoted in units of the token's decimals.\",\"streamId\":\"The ID of the canceled stream.\"},\"returns\":{\"selector\":\"The selector of this function needed to validate the hook.\"}},\"onSablierLockupWithdraw(uint256,address,address,uint128)\":{\"details\":\"Notes: - The function MUST return the selector `ISablierLockupRecipient.onSablierLockupWithdraw.selector`. - If this function reverts, the execution in the Lockup contract will revert as well.\",\"params\":{\"amount\":\"The amount of tokens withdrawn, denoted in units of the token's decimals.\",\"caller\":\"The original `msg.sender` address that triggered the withdrawal.\",\"streamId\":\"The ID of the stream being withdrawn from.\",\"to\":\"The address receiving the withdrawn tokens.\"},\"returns\":{\"selector\":\"The selector of this function needed to validate the hook.\"}},\"supportsInterface(bytes4)\":{\"details\":\"Returns true if this contract implements the interface defined by `interfaceId`. See the corresponding https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section] to learn more about how these ids are created. This function call must use less than 30 000 gas.\"}},\"title\":\"ISablierLockupRecipient\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"onSablierLockupCancel(uint256,address,uint128,uint128)\":{\"notice\":\"Responds to cancellations.\"},\"onSablierLockupWithdraw(uint256,address,address,uint128)\":{\"notice\":\"Responds to withdrawals triggered by any address except the contract implementing this interface.\"}},\"notice\":\"Interface for recipient contracts capable of reacting to cancellations and withdrawals. For this to be able to hook into Sablier, it must fully implement this interface and it must have been allowlisted by the Lockup contract's admin.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/interfaces/ISablierLockupRecipient.sol\":\"ISablierLockupRecipient\"},\"evmVersion\":\"shanghai\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"none\"},\"optimizer\":{\"enabled\":true,\"runs\":570},\"remappings\":[\":@ensdomains/=node_modules/@ensdomains/\",\":@ethereum-waffle/=node_modules/@ethereum-waffle/\",\":@openzeppelin/contracts/=node_modules/@openzeppelin/contracts/\",\":@prb/math/=node_modules/@prb/math/\",\":eth-gas-reporter/=node_modules/eth-gas-reporter/\",\":forge-std/=node_modules/forge-std/\",\":hardhat-deploy/=node_modules/hardhat-deploy/\",\":hardhat/=node_modules/hardhat/\",\":solady/=node_modules/solady/\",\":solarray/=node_modules/solarray/\"],\"viaIR\":true},\"sources\":{\"node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol\":{\"keccak256\":\"0x4296879f55019b23e135000eb36896057e7101fb7fb859c5ef690cf14643757b\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://87b3541437c8c443ccd36795e56a338ed12855eec17f8da624511b8d1a7e14df\",\"dweb:/ipfs/QmeJQCtZrQjtJLr6u7ZHWeH3pBnjtLWzvRrKViAi7UZqxL\"]},\"src/interfaces/ISablierLockupRecipient.sol\":{\"keccak256\":\"0x633d2b31e7ac8f85941e26f5655be717cd74c7b964b296eeac6b120d48625b85\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://6ff6018fa59ba3528a4f8c87072bf208d83a9ad89e556a93975ed105c677ef7c\",\"dweb:/ipfs/QmZdJ1Jx6be7KevRjRBkALvhhtTa42MMdCbdR47WEU14wc\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": { "version": "0.8.26+commit.8a97fa7a" },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            { "internalType": "uint256", "name": "streamId", "type": "uint256" },
+            { "internalType": "address", "name": "sender", "type": "address" },
+            { "internalType": "uint128", "name": "senderAmount", "type": "uint128" },
+            { "internalType": "uint128", "name": "recipientAmount", "type": "uint128" }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "onSablierLockupCancel",
+          "outputs": [{ "internalType": "bytes4", "name": "selector", "type": "bytes4" }]
+        },
+        {
+          "inputs": [
+            { "internalType": "uint256", "name": "streamId", "type": "uint256" },
+            { "internalType": "address", "name": "caller", "type": "address" },
+            { "internalType": "address", "name": "to", "type": "address" },
+            { "internalType": "uint128", "name": "amount", "type": "uint128" }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "onSablierLockupWithdraw",
+          "outputs": [{ "internalType": "bytes4", "name": "selector", "type": "bytes4" }]
+        },
+        {
+          "inputs": [{ "internalType": "bytes4", "name": "interfaceId", "type": "bytes4" }],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "supportsInterface",
+          "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }]
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "onSablierLockupCancel(uint256,address,uint128,uint128)": {
+            "details": "Notes: - The function MUST return the selector `ISablierLockupRecipient.onSablierLockupCancel.selector`. - If this function reverts, the execution in the Lockup contract will revert as well.",
+            "params": {
+              "recipientAmount": "The amount of tokens left for the stream's recipient to withdraw, denoted in units of the token's decimals.",
+              "sender": "The stream's sender, who canceled the stream.",
+              "senderAmount": "The amount of tokens refunded to the stream's sender, denoted in units of the token's decimals.",
+              "streamId": "The ID of the canceled stream."
+            },
+            "returns": { "selector": "The selector of this function needed to validate the hook." }
+          },
+          "onSablierLockupWithdraw(uint256,address,address,uint128)": {
+            "details": "Notes: - The function MUST return the selector `ISablierLockupRecipient.onSablierLockupWithdraw.selector`. - If this function reverts, the execution in the Lockup contract will revert as well.",
+            "params": {
+              "amount": "The amount of tokens withdrawn, denoted in units of the token's decimals.",
+              "caller": "The original `msg.sender` address that triggered the withdrawal.",
+              "streamId": "The ID of the stream being withdrawn from.",
+              "to": "The address receiving the withdrawn tokens."
+            },
+            "returns": { "selector": "The selector of this function needed to validate the hook." }
+          },
+          "supportsInterface(bytes4)": {
+            "details": "Returns true if this contract implements the interface defined by `interfaceId`. See the corresponding https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section] to learn more about how these ids are created. This function call must use less than 30 000 gas."
+          }
+        },
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "onSablierLockupCancel(uint256,address,uint128,uint128)": { "notice": "Responds to cancellations." },
+          "onSablierLockupWithdraw(uint256,address,address,uint128)": {
+            "notice": "Responds to withdrawals triggered by any address except the contract implementing this interface."
+          }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        "@ensdomains/=node_modules/@ensdomains/",
+        "@ethereum-waffle/=node_modules/@ethereum-waffle/",
+        "@openzeppelin/contracts/=node_modules/@openzeppelin/contracts/",
+        "@prb/math/=node_modules/@prb/math/",
+        "eth-gas-reporter/=node_modules/eth-gas-reporter/",
+        "forge-std/=node_modules/forge-std/",
+        "hardhat-deploy/=node_modules/hardhat-deploy/",
+        "hardhat/=node_modules/hardhat/",
+        "solady/=node_modules/solady/",
+        "solarray/=node_modules/solarray/"
+      ],
+      "optimizer": { "enabled": true, "runs": 570 },
+      "metadata": { "bytecodeHash": "none" },
+      "compilationTarget": { "src/interfaces/ISablierLockupRecipient.sol": "ISablierLockupRecipient" },
+      "evmVersion": "shanghai",
+      "libraries": {},
+      "viaIR": true
+    },
+    "sources": {
+      "node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol": {
+        "keccak256": "0x4296879f55019b23e135000eb36896057e7101fb7fb859c5ef690cf14643757b",
+        "urls": [
+          "bzz-raw://87b3541437c8c443ccd36795e56a338ed12855eec17f8da624511b8d1a7e14df",
+          "dweb:/ipfs/QmeJQCtZrQjtJLr6u7ZHWeH3pBnjtLWzvRrKViAi7UZqxL"
+        ],
+        "license": "MIT"
+      },
+      "src/interfaces/ISablierLockupRecipient.sol": {
+        "keccak256": "0x633d2b31e7ac8f85941e26f5655be717cd74c7b964b296eeac6b120d48625b85",
+        "urls": [
+          "bzz-raw://6ff6018fa59ba3528a4f8c87072bf208d83a9ad89e556a93975ed105c677ef7c",
+          "dweb:/ipfs/QmZdJ1Jx6be7KevRjRBkALvhhtTa42MMdCbdR47WEU14wc"
+        ],
+        "license": "GPL-3.0-or-later"
+      }
+    },
+    "version": 1
+  },
+  "id": 90
+}

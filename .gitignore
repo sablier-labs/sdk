@@ -1,0 +1,15 @@
+# directories
+dist
+logs
+node_modules
+repomix
+
+# files
+*.env
+*.log
+*.tsbuildinfo
+bun.lockb
+lcov.info
+package-lock.json
+pnpm-lock.yaml
+yarn.lock

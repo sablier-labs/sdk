@@ -1,0 +1,97 @@
+{
+  "_format": "hh-zksolc-artifact-1",
+  "contractName": "Errors",
+  "sourceName": "contracts/libraries/Errors.sol",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "SablierV2BatchLockup_BatchSizeZero",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint64",
+          "name": "totalPercentage",
+          "type": "uint64"
+        }
+      ],
+      "name": "SablierV2MerkleLT_TotalPercentageNotOneHundred",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "blockTimestamp",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint40",
+          "name": "expiration",
+          "type": "uint40"
+        }
+      ],
+      "name": "SablierV2MerkleLockup_CampaignExpired",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "nameLength",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "maxLength",
+          "type": "uint256"
+        }
+      ],
+      "name": "SablierV2MerkleLockup_CampaignNameTooLong",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "blockTimestamp",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint40",
+          "name": "expiration",
+          "type": "uint40"
+        },
+        {
+          "internalType": "uint40",
+          "name": "firstClaimTime",
+          "type": "uint40"
+        }
+      ],
+      "name": "SablierV2MerkleLockup_ClawbackNotAllowed",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "SablierV2MerkleLockup_InvalidProof",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
+      "name": "SablierV2MerkleLockup_StreamClaimed",
+      "type": "error"
+    }
+  ],
+  "bytecode": "0x00000001002001900000000c0000613d0000008001000039000000400010043f0000000001000416000000000001004b0000000c0000c13d00000020010000390000010000100443000001200000044300000005010000410000000f0001042e000000000100001900000010000104300000000e000004320000000f0001042e0000001000010430000000000000000000000000000000000000000000000000000000020000000000000000000000000000004000000100000000000000000079bf6722f749596a572b14df1c9ef5e1d7df419de7b658434f2655cbbd188b46",
+  "deployedBytecode": "0x00000001002001900000000c0000613d0000008001000039000000400010043f0000000001000416000000000001004b0000000c0000c13d00000020010000390000010000100443000001200000044300000005010000410000000f0001042e000000000100001900000010000104300000000e000004320000000f0001042e0000001000010430000000000000000000000000000000000000000000000000000000020000000000000000000000000000004000000100000000000000000079bf6722f749596a572b14df1c9ef5e1d7df419de7b658434f2655cbbd188b46",
+  "linkReferences": {},
+  "deployedLinkReferences": {},
+  "factoryDeps": {}
+}

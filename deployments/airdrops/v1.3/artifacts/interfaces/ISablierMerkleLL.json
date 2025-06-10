@@ -1,0 +1,894 @@
+{
+  "abi": [
+    {
+      "type": "function",
+      "name": "EXPIRATION",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "uint40", "internalType": "uint40" }],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "FACTORY",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "FEE",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "LOCKUP",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "address", "internalType": "contract ISablierLockup" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "MERKLE_ROOT",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "bytes32", "internalType": "bytes32" }],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "STREAM_CANCELABLE",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "bool", "internalType": "bool" }],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "STREAM_TRANSFERABLE",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "bool", "internalType": "bool" }],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "TOKEN",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "address", "internalType": "contract IERC20" }],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "admin",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "campaignName",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "string", "internalType": "string" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "claim",
+      "inputs": [
+        { "name": "index", "type": "uint256", "internalType": "uint256" },
+        { "name": "recipient", "type": "address", "internalType": "address" },
+        { "name": "amount", "type": "uint128", "internalType": "uint128" },
+        { "name": "merkleProof", "type": "bytes32[]", "internalType": "bytes32[]" }
+      ],
+      "outputs": [],
+      "stateMutability": "payable"
+    },
+    {
+      "type": "function",
+      "name": "clawback",
+      "inputs": [
+        { "name": "to", "type": "address", "internalType": "address" },
+        { "name": "amount", "type": "uint128", "internalType": "uint128" }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "collectFees",
+      "inputs": [{ "name": "factoryAdmin", "type": "address", "internalType": "address" }],
+      "outputs": [{ "name": "feeAmount", "type": "uint256", "internalType": "uint256" }],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "getFirstClaimTime",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "uint40", "internalType": "uint40" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "getSchedule",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "tuple",
+          "internalType": "struct MerkleLL.Schedule",
+          "components": [
+            { "name": "startTime", "type": "uint40", "internalType": "uint40" },
+            { "name": "startPercentage", "type": "uint64", "internalType": "UD2x18" },
+            { "name": "cliffDuration", "type": "uint40", "internalType": "uint40" },
+            { "name": "cliffPercentage", "type": "uint64", "internalType": "UD2x18" },
+            { "name": "totalDuration", "type": "uint40", "internalType": "uint40" }
+          ]
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "hasClaimed",
+      "inputs": [{ "name": "index", "type": "uint256", "internalType": "uint256" }],
+      "outputs": [{ "name": "", "type": "bool", "internalType": "bool" }],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "hasExpired",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "bool", "internalType": "bool" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "ipfsCID",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "string", "internalType": "string" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "shape",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "string", "internalType": "string" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "transferAdmin",
+      "inputs": [{ "name": "newAdmin", "type": "address", "internalType": "address" }],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "event",
+      "name": "Claim",
+      "inputs": [
+        { "name": "index", "type": "uint256", "indexed": false, "internalType": "uint256" },
+        { "name": "recipient", "type": "address", "indexed": true, "internalType": "address" },
+        { "name": "amount", "type": "uint128", "indexed": false, "internalType": "uint128" },
+        { "name": "streamId", "type": "uint256", "indexed": true, "internalType": "uint256" }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "Clawback",
+      "inputs": [
+        { "name": "admin", "type": "address", "indexed": true, "internalType": "address" },
+        { "name": "to", "type": "address", "indexed": true, "internalType": "address" },
+        { "name": "amount", "type": "uint128", "indexed": false, "internalType": "uint128" }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "TransferAdmin",
+      "inputs": [
+        { "name": "oldAdmin", "type": "address", "indexed": true, "internalType": "address" },
+        { "name": "newAdmin", "type": "address", "indexed": true, "internalType": "address" }
+      ],
+      "anonymous": false
+    }
+  ],
+  "bytecode": { "object": "0x", "sourceMap": "", "linkReferences": {} },
+  "deployedBytecode": { "object": "0x", "sourceMap": "", "linkReferences": {} },
+  "methodIdentifiers": {
+    "EXPIRATION()": "bb4b5734",
+    "FACTORY()": "2dd31000",
+    "FEE()": "c57981b5",
+    "LOCKUP()": "845aef4b",
+    "MERKLE_ROOT()": "51e75e8b",
+    "STREAM_CANCELABLE()": "cbe9e5ef",
+    "STREAM_TRANSFERABLE()": "bf44497a",
+    "TOKEN()": "82bfefc8",
+    "admin()": "f851a440",
+    "campaignName()": "0724fda9",
+    "claim(uint256,address,uint128,bytes32[])": "3f31ae3f",
+    "clawback(address,uint128)": "1686c909",
+    "collectFees(address)": "a480ca79",
+    "getFirstClaimTime()": "4e390d3e",
+    "getSchedule()": "26fadbe2",
+    "hasClaimed(uint256)": "ce516507",
+    "hasExpired()": "90e64d13",
+    "ipfsCID()": "49fc73dd",
+    "shape()": "0f7514a2",
+    "transferAdmin(address)": "75829def"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.26+commit.8a97fa7a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint128\",\"name\":\"amount\",\"type\":\"uint128\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"streamId\",\"type\":\"uint256\"}],\"name\":\"Claim\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint128\",\"name\":\"amount\",\"type\":\"uint128\"}],\"name\":\"Clawback\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"oldAdmin\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newAdmin\",\"type\":\"address\"}],\"name\":\"TransferAdmin\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"EXPIRATION\",\"outputs\":[{\"internalType\":\"uint40\",\"name\":\"\",\"type\":\"uint40\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"FACTORY\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"FEE\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"LOCKUP\",\"outputs\":[{\"internalType\":\"contract ISablierLockup\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"MERKLE_ROOT\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"STREAM_CANCELABLE\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"STREAM_TRANSFERABLE\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"TOKEN\",\"outputs\":[{\"internalType\":\"contract IERC20\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"admin\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"campaignName\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint128\",\"name\":\"amount\",\"type\":\"uint128\"},{\"internalType\":\"bytes32[]\",\"name\":\"merkleProof\",\"type\":\"bytes32[]\"}],\"name\":\"claim\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint128\",\"name\":\"amount\",\"type\":\"uint128\"}],\"name\":\"clawback\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"factoryAdmin\",\"type\":\"address\"}],\"name\":\"collectFees\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"feeAmount\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getFirstClaimTime\",\"outputs\":[{\"internalType\":\"uint40\",\"name\":\"\",\"type\":\"uint40\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getSchedule\",\"outputs\":[{\"components\":[{\"internalType\":\"uint40\",\"name\":\"startTime\",\"type\":\"uint40\"},{\"internalType\":\"UD2x18\",\"name\":\"startPercentage\",\"type\":\"uint64\"},{\"internalType\":\"uint40\",\"name\":\"cliffDuration\",\"type\":\"uint40\"},{\"internalType\":\"UD2x18\",\"name\":\"cliffPercentage\",\"type\":\"uint64\"},{\"internalType\":\"uint40\",\"name\":\"totalDuration\",\"type\":\"uint40\"}],\"internalType\":\"struct MerkleLL.Schedule\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"hasClaimed\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"hasExpired\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ipfsCID\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"shape\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newAdmin\",\"type\":\"address\"}],\"name\":\"transferAdmin\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"events\":{\"TransferAdmin(address,address)\":{\"params\":{\"newAdmin\":\"The address of the new admin.\",\"oldAdmin\":\"The address of the old admin.\"}}},\"kind\":\"dev\",\"methods\":{\"EXPIRATION()\":{\"details\":\"This is an immutable state variable.\"},\"MERKLE_ROOT()\":{\"details\":\"This is an immutable state variable.\"},\"STREAM_CANCELABLE()\":{\"details\":\"This is an immutable state variable.\"},\"STREAM_TRANSFERABLE()\":{\"details\":\"This is an immutable state variable.\"},\"TOKEN()\":{\"details\":\"This is an immutable state variable.\"},\"claim(uint256,address,uint128,bytes32[])\":{\"details\":\"Depending on the Merkle campaign, it either transfers tokens to the recipient or creates a Lockup stream with an NFT minted to the recipient. Requirements: - The campaign must not have expired. - The stream must not have been claimed already. - The Merkle proof must be valid. - The `msg.value` must not be less than `FEE`.\",\"params\":{\"amount\":\"The amount of ERC-20 tokens to be transferred to the recipient.\",\"index\":\"The index of the recipient in the Merkle tree.\",\"merkleProof\":\"The proof of inclusion in the Merkle tree.\",\"recipient\":\"The address of the airdrop recipient.\"}},\"clawback(address,uint128)\":{\"details\":\"Emits a {Clawback} event. Requirements: - `msg.sender` must be the admin. - No claim must be made, OR   The current timestamp must not exceed 7 days after the first claim, OR   The campaign must be expired.\",\"params\":{\"amount\":\"The amount of tokens to claw back.\",\"to\":\"The address to receive the tokens.\"}},\"collectFees(address)\":{\"params\":{\"factoryAdmin\":\"The address of the `FACTORY` admin.\"},\"returns\":{\"feeAmount\":\"The amount of native tokens (e.g., ETH) collected as fees.\"}},\"getSchedule()\":{\"details\":\"A start time value of zero will be considered as `block.timestamp`.\"},\"hasClaimed(uint256)\":{\"details\":\"Uses a bitmap to save gas.\",\"params\":{\"index\":\"The index of the recipient to check.\"}},\"transferAdmin(address)\":{\"details\":\"Notes: - Does not revert if the admin is the same. - This function can potentially leave the contract without an admin, thereby removing any functionality that is only available to the admin. Requirements: - `msg.sender` must be the contract admin.\",\"params\":{\"newAdmin\":\"The address of the new admin.\"}}},\"title\":\"ISablierMerkleLL\",\"version\":1},\"userdoc\":{\"events\":{\"Claim(uint256,address,uint128,uint256)\":{\"notice\":\"Emitted when a recipient claims a stream.\"},\"Clawback(address,address,uint128)\":{\"notice\":\"Emitted when the admin claws back the unclaimed tokens.\"},\"TransferAdmin(address,address)\":{\"notice\":\"Emitted when the admin is transferred.\"}},\"kind\":\"user\",\"methods\":{\"EXPIRATION()\":{\"notice\":\"The cut-off point for the campaign, as a Unix timestamp. A value of zero means there is no expiration.\"},\"FACTORY()\":{\"notice\":\"Retrieves the address of the factory contract.\"},\"FEE()\":{\"notice\":\"Retrieves the minimum fee required to claim the airdrop, which is paid in the native token of the chain, e.g. ETH for Ethereum Mainnet.\"},\"LOCKUP()\":{\"notice\":\"The address of the {SablierLockup} contract.\"},\"MERKLE_ROOT()\":{\"notice\":\"The root of the Merkle tree used to validate the proofs of inclusion.\"},\"STREAM_CANCELABLE()\":{\"notice\":\"A flag indicating whether the streams can be canceled.\"},\"STREAM_TRANSFERABLE()\":{\"notice\":\"A flag indicating whether the stream NFTs are transferable.\"},\"TOKEN()\":{\"notice\":\"The ERC-20 token to distribute.\"},\"admin()\":{\"notice\":\"The address of the admin account or contract.\"},\"campaignName()\":{\"notice\":\"Retrieves the name of the campaign.\"},\"claim(uint256,address,uint128,bytes32[])\":{\"notice\":\"Makes the claim.\"},\"clawback(address,uint128)\":{\"notice\":\"Claws back the unclaimed tokens from the campaign.\"},\"collectFees(address)\":{\"notice\":\"Collects the accrued fees by transferring them to `FACTORY` admin. Requirements: - `msg.sender` must be the `FACTORY` contract.\"},\"getFirstClaimTime()\":{\"notice\":\"Returns the timestamp when the first claim is made.\"},\"getSchedule()\":{\"notice\":\"A tuple containing the start time, start unlock percentage, cliff duration, cliff unlock percentage, and end duration. These values are used to calculate the vesting schedule in `Lockup.CreateWithTimestampsLL`.\"},\"hasClaimed(uint256)\":{\"notice\":\"Returns a flag indicating whether a claim has been made for a given index.\"},\"hasExpired()\":{\"notice\":\"Returns a flag indicating whether the campaign has expired.\"},\"ipfsCID()\":{\"notice\":\"The content identifier for indexing the campaign on IPFS.\"},\"shape()\":{\"notice\":\"Retrieves the shape of the lockup stream that the campaign produces upon claiming.\"},\"transferAdmin(address)\":{\"notice\":\"Transfers the contract admin to a new address.\"}},\"notice\":\"Merkle Lockup enables airdrops with a vesting period powered by the Lockup Linear distribution model.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/interfaces/ISablierMerkleLL.sol\":\"ISablierMerkleLL\"},\"evmVersion\":\"shanghai\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"none\"},\"optimizer\":{\"enabled\":true,\"runs\":1000},\"remappings\":[\":@openzeppelin/contracts/=node_modules/@openzeppelin/contracts/\",\":@prb/math/=node_modules/@prb/math/\",\":@sablier/lockup/=node_modules/@sablier/lockup/\",\":forge-std/=node_modules/forge-std/\",\":murky/=node_modules/murky/\",\":openzeppelin-contracts/=node_modules/murky/lib/openzeppelin-contracts/\",\":solady/=node_modules/solady/\"],\"viaIR\":true},\"sources\":{\"node_modules/@openzeppelin/contracts/interfaces/IERC165.sol\":{\"keccak256\":\"0xde7e9fd9aee8d4f40772f96bb3b58836cbc6dfc0227014a061947f8821ea9724\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://11fea9f8bc98949ac6709f0c1699db7430d2948137aa94d5a9e95a91f61a710a\",\"dweb:/ipfs/QmQdfRXxQjwP6yn3DVo1GHPpriKNcFghSPi94Z1oKEFUNS\"]},\"node_modules/@openzeppelin/contracts/interfaces/IERC4906.sol\":{\"keccak256\":\"0xb31b86c03f4677dcffa4655285d62433509513be9bafa0e04984565052d34e44\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a89c6fb0cd5fef4244500b633f63def9f2bb2134debb961e590bd5a2910662fd\",\"dweb:/ipfs/QmNqWyCxyopvb99RbRomPpfTZGXRi5MnzgpFXE2BFLLgMc\"]},\"node_modules/@openzeppelin/contracts/interfaces/IERC721.sol\":{\"keccak256\":\"0xc4d7ebf63eb2f6bf3fee1b6c0ee775efa9f31b4843a5511d07eea147e212932d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://01c66a2fad66bc710db7510419a7eee569b40b67cd9f01b70a3fc90d6f76c03b\",\"dweb:/ipfs/QmT1CjJZq4eTNA4nu8E9ZrWfaZu6ReUsDbjcK8DbEFqwx5\"]},\"node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0xc6a8ff0ea489379b61faa647490411b80102578440ab9d84e9a957cc12164e70\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0ea104e577e63faea3b69c415637e99e755dcbf64c5833d7140c35a714d6d90c\",\"dweb:/ipfs/Qmau6x4Ns9XdyynRCNNp3RhLqijJjFm7z5fyZazfYFGYdq\"]},\"node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol\":{\"keccak256\":\"0x5ef46daa3b58ef2702279d514780316efaa952915ee1aa3396f041ee2982b0b4\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://2f8f2a76e23b02fc69e8cd24c3cb47da6c7af3a2d6c3a382f8ac25c6e094ade7\",\"dweb:/ipfs/QmPV4ZS4tPVv4mTCf9ejyZ1ai57EEibDRj7mN2ARDCLV5n\"]},\"node_modules/@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol\":{\"keccak256\":\"0x37d1aaaa5a2908a09e9dcf56a26ddf762ecf295afb5964695937344fc6802ce1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ed0bfc1b92153c5000e50f4021367b931bbe96372ac6facec3c4961b72053d02\",\"dweb:/ipfs/Qmbwp8VDerjS5SV1quwHH1oMXxPQ93fzfLVqJ2RCqbowGE\"]},\"node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol\":{\"keccak256\":\"0x4296879f55019b23e135000eb36896057e7101fb7fb859c5ef690cf14643757b\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://87b3541437c8c443ccd36795e56a338ed12855eec17f8da624511b8d1a7e14df\",\"dweb:/ipfs/QmeJQCtZrQjtJLr6u7ZHWeH3pBnjtLWzvRrKViAi7UZqxL\"]},\"node_modules/@prb/math/src/Common.sol\":{\"keccak256\":\"0x8225a3898d2f11f585da1fb82234800e9717fa080dbe53d450fd429a3a632e99\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://2dcbf39ca575f68f32f0d1c66391de94082424956e7585e849813966f8c0fc05\",\"dweb:/ipfs/QmYvk8vXFDUJHrmqbtutYXfoLomLBosYLyBzuPoYBxsQ42\"]},\"node_modules/@prb/math/src/UD2x18.sol\":{\"keccak256\":\"0xfb624e24cd8bb790fa08e7827819de85504a86e20e961fa4ad126c65b6d90641\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://dd795b8df250e7eedc68e2dba1afbb60357ce8f22f21bed212b5a9046d2057d2\",\"dweb:/ipfs/QmUHtrSr8Gb6bvSe2rCWPA5YrJq72UiJARYr1gZqFVRsYH\"]},\"node_modules/@prb/math/src/UD60x18.sol\":{\"keccak256\":\"0xb98c6f74275914d279e8af6c502c2b1f50d5f6e1ed418d3b0153f5a193206c48\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a750edde2955f160806a51083a12185fb04e20efca0e3a7ebd127dc1acc049a9\",\"dweb:/ipfs/QmeAre3mThopoQPB9mSXZq6jck59QZ7JbDFR83urd2SLvp\"]},\"node_modules/@prb/math/src/sd1x18/Casting.sol\":{\"keccak256\":\"0x5d365f655f01598926c5d4fe5cda277f2cc7736fe38f943c11a32009077ddd5c\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://56b378bd6039819bc12e5f17dabd9492e1410b3281f9df496cf8210539101a11\",\"dweb:/ipfs/QmcMaE64ZWMg9cFhYxdTuG8nfzeDdNuTRHMMoFXi6tSZGu\"]},\"node_modules/@prb/math/src/sd1x18/Constants.sol\":{\"keccak256\":\"0xc14cc32061863d83912f9616de86f3c34f1ac58614b7d504c6ce07ee8efdb8e8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://22483b1282dda6a556b0232f008a5a3296bbfd76b1886e6b72bf351b7c554fab\",\"dweb:/ipfs/QmYX9cYkrFxBbhZNKsb6uUxtrc2chmAj7vuc7UKRPGMwos\"]},\"node_modules/@prb/math/src/sd1x18/Errors.sol\":{\"keccak256\":\"0xc3c8b1ab3d19889c356c222a3a2186d45dfc1d3a17b9ad88159bb64ee457baa6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://84fbe57569246403f778330bd7723018dfcb5f0ec50d7b1d82cc983c94a54bca\",\"dweb:/ipfs/QmWssAAnovc2EVjt58rTnxraE9B1RMivwTvYCYgpnr6oSE\"]},\"node_modules/@prb/math/src/sd1x18/ValueType.sol\":{\"keccak256\":\"0xaa9dc7b562faf45264390d80e2ea10c5295bb8a4f10d76261a3f9c04363734c0\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c6ca36acd15f5cb47cf124ddec289f84e1011f2d29056159e4570435629a3353\",\"dweb:/ipfs/QmUKdiLmZpAkNCq2TKxrPbQPUhiRFXGfjGSnY1VeHVu4y6\"]},\"node_modules/@prb/math/src/sd21x18/Casting.sol\":{\"keccak256\":\"0x4a16adddb9ab1f6939dd4567c77205015a11081cb840029b84bbb6fdaf78ee36\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://5003b2f4cd2fc1413da36bc63107c6e83a88d29693e8f97b54f300fa78f9c6d2\",\"dweb:/ipfs/QmaNJn91NLrZmeeGqnFQV1FTrLVSW852zHyWTrWJ5pf1pd\"]},\"node_modules/@prb/math/src/sd21x18/Constants.sol\":{\"keccak256\":\"0x501c2d5cfdea9450422182059c8df1cb6a859901a07bd59631c3fa24edcc79d4\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4669a65001c92919671fd879d33ce0e5030b602a7ba4d36bd2308128d8d1f396\",\"dweb:/ipfs/QmUC3bJ3qdkCmLMw3WHBcEqvuC4tExT2LXzUhgu5KQ3vi3\"]},\"node_modules/@prb/math/src/sd21x18/Errors.sol\":{\"keccak256\":\"0xc5422ee47eb139274e538e758fb40177a1ba22c2113ef3b3446102f0150bfe0a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a1981e052e9e86e1b0e4e55a057a7af4739aedd4ead2d60e3eaa40fb703594ee\",\"dweb:/ipfs/QmPK5qSujnyk1R8ues4RhDMy1tRKKyjQ31YJTviTKq7GML\"]},\"node_modules/@prb/math/src/sd21x18/ValueType.sol\":{\"keccak256\":\"0x532bba888370bed393464412f4ef3462d654802e71c953ad02d078e3d2701092\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://922a4e8dd813602f72d165aa1dfdf2c29b971a2abe73bebca7cd81a32ee2c880\",\"dweb:/ipfs/QmTBAJnx1r3sZpbQAuTgQtsTtvjZbpDwhCJRzkhzUumbdf\"]},\"node_modules/@prb/math/src/sd59x18/Casting.sol\":{\"keccak256\":\"0xdf70d8e70c6d6325f3f7eb028c484bc7189ef902f1d4b5b220af2e550bb5fc39\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0b15bcd36129c5cb163d57a117435afb171182018dd6d1e766a5f49cf1f4b63d\",\"dweb:/ipfs/QmbjzkMBH4FM2rdxGbx9LQ65wVERijNcu7R9C8dQmH3y4n\"]},\"node_modules/@prb/math/src/sd59x18/Constants.sol\":{\"keccak256\":\"0x9bcb8dd6b3e886d140ad1c32747a4f6d29a492529ceb835be878ae837aa6cc3a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c4045c633e3618e7e90a768d92415b2f20f781fe129b4f4e26fa88f7dbf9201f\",\"dweb:/ipfs/Qmbet95pizwPno82cJ383wJtgQRSQKESmhVZ1vDrgAu7Si\"]},\"node_modules/@prb/math/src/sd59x18/Errors.sol\":{\"keccak256\":\"0x0a79c28c85fc8a450b0801ff2e66114eac4ec565819f5d1d8738904658fe33e2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://9e0d4fd3c998019fb8555d9e26c03bec42a8513bdf4185aeac2da3a000abaebf\",\"dweb:/ipfs/QmahFJHXcX4RwPxaQbUf6LVZEk8NSpjCV3Eif7i9iqC6Mk\"]},\"node_modules/@prb/math/src/sd59x18/Helpers.sol\":{\"keccak256\":\"0x208570f1657cf730cb6c3d81aa14030e0d45cf906cdedea5059369d7df4bb716\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4c78ca900edafa9338d4e3649a55ab0c84f76468d8a22fb945ba6d01e70f8fed\",\"dweb:/ipfs/QmeP4hQYfNxcATd1FsasdD4ebyu2vrC9K1N68swxUJzzZD\"]},\"node_modules/@prb/math/src/sd59x18/Math.sol\":{\"keccak256\":\"0xd8e8b51db9b3e2fa31a60f6b8ce4ea0112c3364442ede5992aa0aa7a2c925c84\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://3c56913970e34ee7b142047b21f1856a511cbdc3473b7c50418a8490e19cd462\",\"dweb:/ipfs/QmfG1F9CBDjPYD7NXora9awFfdpvBMY9SCg5pMLCFRv9tD\"]},\"node_modules/@prb/math/src/sd59x18/ValueType.sol\":{\"keccak256\":\"0x76597ba64d37d66e0178512bc9bbc1a031a7634c45e5d5c6e9da87f46952dc9d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://36148899ad874814e9292636fb974d2eec61f1bcc0875ec39cf444d70ba40919\",\"dweb:/ipfs/QmadUe4kH2FPcdxvhCKy8yiezCvPWor4VcPzqLYSAaGDDb\"]},\"node_modules/@prb/math/src/ud21x18/Casting.sol\":{\"keccak256\":\"0x3821aa57604f6e5b7c9c5c5cc97a6d71116e673cf3fee5f76fcd42b4cefded65\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a80399c6b38ab45cc10d0a6683d50340cd89d9a085b6d0dcfb81e7c4e5b3ce09\",\"dweb:/ipfs/QmWNW2YD2LMkqrpAtJYeeuHN329Rx7mvfmrjsCo1p6akTL\"]},\"node_modules/@prb/math/src/ud21x18/Constants.sol\":{\"keccak256\":\"0x0997574a1ced6c43bde6d9c9175edc5ad64cbb920a0969a9db68eea543747601\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c09f03345a6779b002b38ffc3954258accbb2b1d0d5506d42c3bd7f117304f60\",\"dweb:/ipfs/QmTeBXRCE7H2HpqKUNsZN7Nk3rdBnFmbAUFom3E1PJeGuV\"]},\"node_modules/@prb/math/src/ud21x18/Errors.sol\":{\"keccak256\":\"0x35a1fb789b90f8c90865884d3023deb17fcca5c7146b5ddef823496d835a5415\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0af359d07ba25bdc90de7c05ed6216833932caa75d4a02fcfc51ceeaba5a4e80\",\"dweb:/ipfs/QmavBFw73Xfp1qJiN6P1gk2Dfr8ByWo3dyCPVgDHtko2gq\"]},\"node_modules/@prb/math/src/ud21x18/ValueType.sol\":{\"keccak256\":\"0x24838b2b1da371b9259d8ee21534a9f0cb5796aba75a4efca2374627952bee25\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://897e6b79308651671c7f3c91a0069e778b47356c9ba3f86e238398ab7f2623af\",\"dweb:/ipfs/QmZbLw3tJVRZFQnV9jWQUmF43gna841adSG2TAiwDAifGU\"]},\"node_modules/@prb/math/src/ud2x18/Casting.sol\":{\"keccak256\":\"0x0f3141ed054e7c29dbe1acb4b88b18eb05d60e998fba6b4e503a6799faa356d6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://b1e2468fc4c458082aaf4aa2e35af9ba3702f207e3c8533dd1e7da11ad605eae\",\"dweb:/ipfs/QmSm7iRH1eo4cJCwcAiiXWRH9Hn1urSS4tMdbaFbFGuTyL\"]},\"node_modules/@prb/math/src/ud2x18/Constants.sol\":{\"keccak256\":\"0x29b0e050c865899e1fb9022b460a7829cdee248c44c4299f068ba80695eec3fc\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://cbaef16b662fac235349bcf97bc980dd0cba15d4e6230caae61224cdac8ea6d9\",\"dweb:/ipfs/QmZQa5XBhi7k3yhtCd8wVpnwW8htfU4sjXxWhxRypMBYkC\"]},\"node_modules/@prb/math/src/ud2x18/Errors.sol\":{\"keccak256\":\"0x3b27e2a57438cd30d9c130f84aace24d547e5ed58e8689691d7d92ad2db38ddd\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://841cf9fb45443899c6b659300bbf503c3fd2c1a1e83b7f0e28620eed457f7437\",\"dweb:/ipfs/QmUqg8WscP5yQPw3UMUCWaB9RLU6nryGzseuyhAjNnDc1i\"]},\"node_modules/@prb/math/src/ud2x18/ValueType.sol\":{\"keccak256\":\"0x975a2e69b48f34a4c0bd80e8a5609ac67b7264c91992c0944f9ebe7b9e3fc9d0\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://65d012521c475295d7e70b7d526fcc0911d0f238ea938719d77251bba00c9b41\",\"dweb:/ipfs/QmexEvTQCCBPYRWAYnomZX5M7C2EkXQRAXqEYMNUZfazCs\"]},\"node_modules/@prb/math/src/ud60x18/Casting.sol\":{\"keccak256\":\"0x0803318ddc98b4ba8fbfe70e5ee08d78387fe6ae00982b9960518085a751d7b6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://2e68a2f780b2e33fa5416eb60f9daa81f014c2591119f4b67bed1217d5530780\",\"dweb:/ipfs/QmZe7JTWvbfKqMnu4sxUwWCtLcCay9hH71VZUpoFCdENcr\"]},\"node_modules/@prb/math/src/ud60x18/Constants.sol\":{\"keccak256\":\"0x2b80d26153d3fdcfb3a9ca772d9309d31ed1275f5b8b54c3ffb54d3652b37d90\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7e3a6673a156f635db94dc176baaa7274db8f9bec4461cd1152596253550ee3b\",\"dweb:/ipfs/Qmc9zT4kNSbMYaXcnbxNVqmb3P3m46ieaQxkwxqLwsvRA5\"]},\"node_modules/@prb/math/src/ud60x18/Conversions.sol\":{\"keccak256\":\"0xd486ecca97abe69acdb28230088f4c7097fbdae5b36c5ae45d5be2faac4c33f2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6080870ec6955ff0f5278f9c480b218a68714daf5f2ee42da0276d08d7b82932\",\"dweb:/ipfs/QmQ1SERHdemJgPrt4USwY8j5r63jZ8fQuJAm1knjMEEQEY\"]},\"node_modules/@prb/math/src/ud60x18/Errors.sol\":{\"keccak256\":\"0xbab6b0e303d32f3a9d9e2fe881f0392b8c59a73051a4d34f21a403b3961b3044\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://86a019bcf2510d0691287329dc057479cc0abc48a5e15f245e7f15c03052d2c8\",\"dweb:/ipfs/QmeXe5pbpDHvN5DZ8puXmH2RJ25zDHj55wpiStWtNQPvq6\"]},\"node_modules/@prb/math/src/ud60x18/Helpers.sol\":{\"keccak256\":\"0xf5faff881391d2c060029499a666cc5f0bea90a213150bb476fae8f02a5df268\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://76105fa22bb1b5f1fa99abf9c4fbc9577a02c7bc204f271754c407f0d75489f5\",\"dweb:/ipfs/QmVNGZSTniDuZus5DdbFubqJXCLtTaZit7YPm4ntjr5Lgr\"]},\"node_modules/@prb/math/src/ud60x18/Math.sol\":{\"keccak256\":\"0xc4e51dfd9af62938e277e90fa724099f239d33727a35909ed48c292a76faf2fc\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d731537cbc50b852c21d28625aeb2c329729afc23a7b86ff9d8ee5878f47e9d6\",\"dweb:/ipfs/QmS7Cj4pAdPZcTp7RqYXyxBc9EYX92CT8icfkNigktUsLr\"]},\"node_modules/@prb/math/src/ud60x18/ValueType.sol\":{\"keccak256\":\"0x1b200baf25d01a8b91b97b42114248636f742b5b7028487ef4daef6621e378a3\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://b5708ed017206bda2197654e80bea9f37b3a9993434bb066c903c2865e028f47\",\"dweb:/ipfs/QmTyotZk2J5YvWkNvB2qhXBMgRGWW2UgPqR4JPocrXSr8n\"]},\"node_modules/@sablier/lockup/src/interfaces/IAdminable.sol\":{\"keccak256\":\"0xa279c49e51228b571329164e36250e82b2c1378e8b549194ab7dd90fca9c3b2b\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://b0af605b82e64679db7039fb378fc206c4a000f8cd24b3ff17b019e27b81be8f\",\"dweb:/ipfs/QmUSr73cbnG7K79mVE9Nwcou5nJZEK2ZGekt3KpkfpxL4Z\"]},\"node_modules/@sablier/lockup/src/interfaces/IBatch.sol\":{\"keccak256\":\"0x6d3aab84cb0529afc1e8b4a2ad4f89feb15c76b6a515a14fdf4b98887d856ae4\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://77e68471ec663dda763ac40bb7c35d47b2a87e262461dad9a2f03377f928e758\",\"dweb:/ipfs/QmdvAq7XyNAUA8uLhnFrWuBgZAjNjoq6BaY5AyjFKvC8Xh\"]},\"node_modules/@sablier/lockup/src/interfaces/ILockupNFTDescriptor.sol\":{\"keccak256\":\"0x49c9d9f68d025c3e735de68ca53b7b3144bf29f9b5890706847da0f1667f111e\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://7588bdbb3057462744661468632847a469e13cb1da581a8b75a813cb6223c49e\",\"dweb:/ipfs/QmbynwaivForuftTtya4Lxwu78KA5LCgmVCHk3k4st9uC2\"]},\"node_modules/@sablier/lockup/src/interfaces/ISablierLockup.sol\":{\"keccak256\":\"0x625ba75d5b893749ceacf197c92b7ba684de7fb68bb9d0a21e75456a48785e3e\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://300c011e17907d218eeb3a4c3d9559f86b12b44633dcbfe546439ea9d012705e\",\"dweb:/ipfs/QmT8WNAUhN5ftC68fHyUL1dhbgvUv9bC8raHLcAXWiLYyP\"]},\"node_modules/@sablier/lockup/src/interfaces/ISablierLockupBase.sol\":{\"keccak256\":\"0xb455bccf9814079427cdd5abc44fe0e1d754a011dcf03ec4a9d50b74be2b8a86\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://7d8f9b0ba7c8bab4a7168c6c5fb9535ca580807ae631e0680a7b450250c95d87\",\"dweb:/ipfs/QmcaDTt36Q7AC4iMpUikkZTYGxqRBNAcauewiocmHWqUad\"]},\"node_modules/@sablier/lockup/src/types/DataTypes.sol\":{\"keccak256\":\"0x54b0a47578fd242f218becd8d74c785eccf5ef45ea524465c625a81f64fb50ed\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://88193d0336532dfd3671e1259be5257dcf9f58662276e29083073071cd421d00\",\"dweb:/ipfs/QmWxBgMtnuGp9gKx8FAFBtc1rvbboyPRgW6n5hQGqVdhWf\"]},\"src/interfaces/ISablierMerkleBase.sol\":{\"keccak256\":\"0x228e6f6cb474954facb08cce54ccc47c9ea3763df30465876ddd46dae6ecf5a7\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://941895fd80d347fe41a02cf65ba2cb88db45dc4cb9ca835f18f2b5a17b5dfb1b\",\"dweb:/ipfs/QmWwDkGhFjLZwg73BgP8LmVoHkpoNcqjgwVPiQqSNHaAEs\"]},\"src/interfaces/ISablierMerkleLL.sol\":{\"keccak256\":\"0x74c2244b4f859e88748a019dbac19fc179e3652756d4e420db383f1ce46b1bfd\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://f71e1b7f21c43c151ce6ffabe000829183b117a380ae84f563b340c9dea42c7c\",\"dweb:/ipfs/QmZ5YFb33sTYKvQiyr1c4WdNvkjUbNV2nPfzYg4ndmwaYD\"]},\"src/types/DataTypes.sol\":{\"keccak256\":\"0x404635e102fce59072dc62d35e80d3069000e7570404f1f12d71a2cb4a625f3d\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://29f12de0059e512ae7d3df7a9fb5939c671b51873c8e2b58516c526df9674a7b\",\"dweb:/ipfs/QmdbeiK8T2NWMG1vhN96mNQDn2wJpsamgqNVEUM1hbWnrU\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": { "version": "0.8.26+commit.8a97fa7a" },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            { "internalType": "uint256", "name": "index", "type": "uint256", "indexed": false },
+            { "internalType": "address", "name": "recipient", "type": "address", "indexed": true },
+            { "internalType": "uint128", "name": "amount", "type": "uint128", "indexed": false },
+            { "internalType": "uint256", "name": "streamId", "type": "uint256", "indexed": true }
+          ],
+          "type": "event",
+          "name": "Claim",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "admin", "type": "address", "indexed": true },
+            { "internalType": "address", "name": "to", "type": "address", "indexed": true },
+            { "internalType": "uint128", "name": "amount", "type": "uint128", "indexed": false }
+          ],
+          "type": "event",
+          "name": "Clawback",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "oldAdmin", "type": "address", "indexed": true },
+            { "internalType": "address", "name": "newAdmin", "type": "address", "indexed": true }
+          ],
+          "type": "event",
+          "name": "TransferAdmin",
+          "anonymous": false
+        },
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "EXPIRATION",
+          "outputs": [{ "internalType": "uint40", "name": "", "type": "uint40" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "FACTORY",
+          "outputs": [{ "internalType": "address", "name": "", "type": "address" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "FEE",
+          "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "LOCKUP",
+          "outputs": [{ "internalType": "contract ISablierLockup", "name": "", "type": "address" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "MERKLE_ROOT",
+          "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "STREAM_CANCELABLE",
+          "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "STREAM_TRANSFERABLE",
+          "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "TOKEN",
+          "outputs": [{ "internalType": "contract IERC20", "name": "", "type": "address" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "admin",
+          "outputs": [{ "internalType": "address", "name": "", "type": "address" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "campaignName",
+          "outputs": [{ "internalType": "string", "name": "", "type": "string" }]
+        },
+        {
+          "inputs": [
+            { "internalType": "uint256", "name": "index", "type": "uint256" },
+            { "internalType": "address", "name": "recipient", "type": "address" },
+            { "internalType": "uint128", "name": "amount", "type": "uint128" },
+            { "internalType": "bytes32[]", "name": "merkleProof", "type": "bytes32[]" }
+          ],
+          "stateMutability": "payable",
+          "type": "function",
+          "name": "claim"
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "to", "type": "address" },
+            { "internalType": "uint128", "name": "amount", "type": "uint128" }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "clawback"
+        },
+        {
+          "inputs": [{ "internalType": "address", "name": "factoryAdmin", "type": "address" }],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "collectFees",
+          "outputs": [{ "internalType": "uint256", "name": "feeAmount", "type": "uint256" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "getFirstClaimTime",
+          "outputs": [{ "internalType": "uint40", "name": "", "type": "uint40" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "getSchedule",
+          "outputs": [
+            {
+              "internalType": "struct MerkleLL.Schedule",
+              "name": "",
+              "type": "tuple",
+              "components": [
+                { "internalType": "uint40", "name": "startTime", "type": "uint40" },
+                { "internalType": "UD2x18", "name": "startPercentage", "type": "uint64" },
+                { "internalType": "uint40", "name": "cliffDuration", "type": "uint40" },
+                { "internalType": "UD2x18", "name": "cliffPercentage", "type": "uint64" },
+                { "internalType": "uint40", "name": "totalDuration", "type": "uint40" }
+              ]
+            }
+          ]
+        },
+        {
+          "inputs": [{ "internalType": "uint256", "name": "index", "type": "uint256" }],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "hasClaimed",
+          "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "hasExpired",
+          "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "ipfsCID",
+          "outputs": [{ "internalType": "string", "name": "", "type": "string" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "shape",
+          "outputs": [{ "internalType": "string", "name": "", "type": "string" }]
+        },
+        {
+          "inputs": [{ "internalType": "address", "name": "newAdmin", "type": "address" }],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "transferAdmin"
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "EXPIRATION()": { "details": "This is an immutable state variable." },
+          "MERKLE_ROOT()": { "details": "This is an immutable state variable." },
+          "STREAM_CANCELABLE()": { "details": "This is an immutable state variable." },
+          "STREAM_TRANSFERABLE()": { "details": "This is an immutable state variable." },
+          "TOKEN()": { "details": "This is an immutable state variable." },
+          "claim(uint256,address,uint128,bytes32[])": {
+            "details": "Depending on the Merkle campaign, it either transfers tokens to the recipient or creates a Lockup stream with an NFT minted to the recipient. Requirements: - The campaign must not have expired. - The stream must not have been claimed already. - The Merkle proof must be valid. - The `msg.value` must not be less than `FEE`.",
+            "params": {
+              "amount": "The amount of ERC-20 tokens to be transferred to the recipient.",
+              "index": "The index of the recipient in the Merkle tree.",
+              "merkleProof": "The proof of inclusion in the Merkle tree.",
+              "recipient": "The address of the airdrop recipient."
+            }
+          },
+          "clawback(address,uint128)": {
+            "details": "Emits a {Clawback} event. Requirements: - `msg.sender` must be the admin. - No claim must be made, OR   The current timestamp must not exceed 7 days after the first claim, OR   The campaign must be expired.",
+            "params": { "amount": "The amount of tokens to claw back.", "to": "The address to receive the tokens." }
+          },
+          "collectFees(address)": {
+            "params": { "factoryAdmin": "The address of the `FACTORY` admin." },
+            "returns": { "feeAmount": "The amount of native tokens (e.g., ETH) collected as fees." }
+          },
+          "getSchedule()": { "details": "A start time value of zero will be considered as `block.timestamp`." },
+          "hasClaimed(uint256)": {
+            "details": "Uses a bitmap to save gas.",
+            "params": { "index": "The index of the recipient to check." }
+          },
+          "transferAdmin(address)": {
+            "details": "Notes: - Does not revert if the admin is the same. - This function can potentially leave the contract without an admin, thereby removing any functionality that is only available to the admin. Requirements: - `msg.sender` must be the contract admin.",
+            "params": { "newAdmin": "The address of the new admin." }
+          }
+        },
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "EXPIRATION()": {
+            "notice": "The cut-off point for the campaign, as a Unix timestamp. A value of zero means there is no expiration."
+          },
+          "FACTORY()": { "notice": "Retrieves the address of the factory contract." },
+          "FEE()": {
+            "notice": "Retrieves the minimum fee required to claim the airdrop, which is paid in the native token of the chain, e.g. ETH for Ethereum Mainnet."
+          },
+          "LOCKUP()": { "notice": "The address of the {SablierLockup} contract." },
+          "MERKLE_ROOT()": { "notice": "The root of the Merkle tree used to validate the proofs of inclusion." },
+          "STREAM_CANCELABLE()": { "notice": "A flag indicating whether the streams can be canceled." },
+          "STREAM_TRANSFERABLE()": { "notice": "A flag indicating whether the stream NFTs are transferable." },
+          "TOKEN()": { "notice": "The ERC-20 token to distribute." },
+          "admin()": { "notice": "The address of the admin account or contract." },
+          "campaignName()": { "notice": "Retrieves the name of the campaign." },
+          "claim(uint256,address,uint128,bytes32[])": { "notice": "Makes the claim." },
+          "clawback(address,uint128)": { "notice": "Claws back the unclaimed tokens from the campaign." },
+          "collectFees(address)": {
+            "notice": "Collects the accrued fees by transferring them to `FACTORY` admin. Requirements: - `msg.sender` must be the `FACTORY` contract."
+          },
+          "getFirstClaimTime()": { "notice": "Returns the timestamp when the first claim is made." },
+          "getSchedule()": {
+            "notice": "A tuple containing the start time, start unlock percentage, cliff duration, cliff unlock percentage, and end duration. These values are used to calculate the vesting schedule in `Lockup.CreateWithTimestampsLL`."
+          },
+          "hasClaimed(uint256)": {
+            "notice": "Returns a flag indicating whether a claim has been made for a given index."
+          },
+          "hasExpired()": { "notice": "Returns a flag indicating whether the campaign has expired." },
+          "ipfsCID()": { "notice": "The content identifier for indexing the campaign on IPFS." },
+          "shape()": { "notice": "Retrieves the shape of the lockup stream that the campaign produces upon claiming." },
+          "transferAdmin(address)": { "notice": "Transfers the contract admin to a new address." }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        "@openzeppelin/contracts/=node_modules/@openzeppelin/contracts/",
+        "@prb/math/=node_modules/@prb/math/",
+        "@sablier/lockup/=node_modules/@sablier/lockup/",
+        "forge-std/=node_modules/forge-std/",
+        "murky/=node_modules/murky/",
+        "openzeppelin-contracts/=node_modules/murky/lib/openzeppelin-contracts/",
+        "solady/=node_modules/solady/"
+      ],
+      "optimizer": { "enabled": true, "runs": 1000 },
+      "metadata": { "bytecodeHash": "none" },
+      "compilationTarget": { "src/interfaces/ISablierMerkleLL.sol": "ISablierMerkleLL" },
+      "evmVersion": "shanghai",
+      "libraries": {},
+      "viaIR": true
+    },
+    "sources": {
+      "node_modules/@openzeppelin/contracts/interfaces/IERC165.sol": {
+        "keccak256": "0xde7e9fd9aee8d4f40772f96bb3b58836cbc6dfc0227014a061947f8821ea9724",
+        "urls": [
+          "bzz-raw://11fea9f8bc98949ac6709f0c1699db7430d2948137aa94d5a9e95a91f61a710a",
+          "dweb:/ipfs/QmQdfRXxQjwP6yn3DVo1GHPpriKNcFghSPi94Z1oKEFUNS"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/interfaces/IERC4906.sol": {
+        "keccak256": "0xb31b86c03f4677dcffa4655285d62433509513be9bafa0e04984565052d34e44",
+        "urls": [
+          "bzz-raw://a89c6fb0cd5fef4244500b633f63def9f2bb2134debb961e590bd5a2910662fd",
+          "dweb:/ipfs/QmNqWyCxyopvb99RbRomPpfTZGXRi5MnzgpFXE2BFLLgMc"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/interfaces/IERC721.sol": {
+        "keccak256": "0xc4d7ebf63eb2f6bf3fee1b6c0ee775efa9f31b4843a5511d07eea147e212932d",
+        "urls": [
+          "bzz-raw://01c66a2fad66bc710db7510419a7eee569b40b67cd9f01b70a3fc90d6f76c03b",
+          "dweb:/ipfs/QmT1CjJZq4eTNA4nu8E9ZrWfaZu6ReUsDbjcK8DbEFqwx5"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+        "keccak256": "0xc6a8ff0ea489379b61faa647490411b80102578440ab9d84e9a957cc12164e70",
+        "urls": [
+          "bzz-raw://0ea104e577e63faea3b69c415637e99e755dcbf64c5833d7140c35a714d6d90c",
+          "dweb:/ipfs/Qmau6x4Ns9XdyynRCNNp3RhLqijJjFm7z5fyZazfYFGYdq"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol": {
+        "keccak256": "0x5ef46daa3b58ef2702279d514780316efaa952915ee1aa3396f041ee2982b0b4",
+        "urls": [
+          "bzz-raw://2f8f2a76e23b02fc69e8cd24c3cb47da6c7af3a2d6c3a382f8ac25c6e094ade7",
+          "dweb:/ipfs/QmPV4ZS4tPVv4mTCf9ejyZ1ai57EEibDRj7mN2ARDCLV5n"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol": {
+        "keccak256": "0x37d1aaaa5a2908a09e9dcf56a26ddf762ecf295afb5964695937344fc6802ce1",
+        "urls": [
+          "bzz-raw://ed0bfc1b92153c5000e50f4021367b931bbe96372ac6facec3c4961b72053d02",
+          "dweb:/ipfs/Qmbwp8VDerjS5SV1quwHH1oMXxPQ93fzfLVqJ2RCqbowGE"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol": {
+        "keccak256": "0x4296879f55019b23e135000eb36896057e7101fb7fb859c5ef690cf14643757b",
+        "urls": [
+          "bzz-raw://87b3541437c8c443ccd36795e56a338ed12855eec17f8da624511b8d1a7e14df",
+          "dweb:/ipfs/QmeJQCtZrQjtJLr6u7ZHWeH3pBnjtLWzvRrKViAi7UZqxL"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/Common.sol": {
+        "keccak256": "0x8225a3898d2f11f585da1fb82234800e9717fa080dbe53d450fd429a3a632e99",
+        "urls": [
+          "bzz-raw://2dcbf39ca575f68f32f0d1c66391de94082424956e7585e849813966f8c0fc05",
+          "dweb:/ipfs/QmYvk8vXFDUJHrmqbtutYXfoLomLBosYLyBzuPoYBxsQ42"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/UD2x18.sol": {
+        "keccak256": "0xfb624e24cd8bb790fa08e7827819de85504a86e20e961fa4ad126c65b6d90641",
+        "urls": [
+          "bzz-raw://dd795b8df250e7eedc68e2dba1afbb60357ce8f22f21bed212b5a9046d2057d2",
+          "dweb:/ipfs/QmUHtrSr8Gb6bvSe2rCWPA5YrJq72UiJARYr1gZqFVRsYH"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/UD60x18.sol": {
+        "keccak256": "0xb98c6f74275914d279e8af6c502c2b1f50d5f6e1ed418d3b0153f5a193206c48",
+        "urls": [
+          "bzz-raw://a750edde2955f160806a51083a12185fb04e20efca0e3a7ebd127dc1acc049a9",
+          "dweb:/ipfs/QmeAre3mThopoQPB9mSXZq6jck59QZ7JbDFR83urd2SLvp"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd1x18/Casting.sol": {
+        "keccak256": "0x5d365f655f01598926c5d4fe5cda277f2cc7736fe38f943c11a32009077ddd5c",
+        "urls": [
+          "bzz-raw://56b378bd6039819bc12e5f17dabd9492e1410b3281f9df496cf8210539101a11",
+          "dweb:/ipfs/QmcMaE64ZWMg9cFhYxdTuG8nfzeDdNuTRHMMoFXi6tSZGu"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd1x18/Constants.sol": {
+        "keccak256": "0xc14cc32061863d83912f9616de86f3c34f1ac58614b7d504c6ce07ee8efdb8e8",
+        "urls": [
+          "bzz-raw://22483b1282dda6a556b0232f008a5a3296bbfd76b1886e6b72bf351b7c554fab",
+          "dweb:/ipfs/QmYX9cYkrFxBbhZNKsb6uUxtrc2chmAj7vuc7UKRPGMwos"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd1x18/Errors.sol": {
+        "keccak256": "0xc3c8b1ab3d19889c356c222a3a2186d45dfc1d3a17b9ad88159bb64ee457baa6",
+        "urls": [
+          "bzz-raw://84fbe57569246403f778330bd7723018dfcb5f0ec50d7b1d82cc983c94a54bca",
+          "dweb:/ipfs/QmWssAAnovc2EVjt58rTnxraE9B1RMivwTvYCYgpnr6oSE"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd1x18/ValueType.sol": {
+        "keccak256": "0xaa9dc7b562faf45264390d80e2ea10c5295bb8a4f10d76261a3f9c04363734c0",
+        "urls": [
+          "bzz-raw://c6ca36acd15f5cb47cf124ddec289f84e1011f2d29056159e4570435629a3353",
+          "dweb:/ipfs/QmUKdiLmZpAkNCq2TKxrPbQPUhiRFXGfjGSnY1VeHVu4y6"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd21x18/Casting.sol": {
+        "keccak256": "0x4a16adddb9ab1f6939dd4567c77205015a11081cb840029b84bbb6fdaf78ee36",
+        "urls": [
+          "bzz-raw://5003b2f4cd2fc1413da36bc63107c6e83a88d29693e8f97b54f300fa78f9c6d2",
+          "dweb:/ipfs/QmaNJn91NLrZmeeGqnFQV1FTrLVSW852zHyWTrWJ5pf1pd"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd21x18/Constants.sol": {
+        "keccak256": "0x501c2d5cfdea9450422182059c8df1cb6a859901a07bd59631c3fa24edcc79d4",
+        "urls": [
+          "bzz-raw://4669a65001c92919671fd879d33ce0e5030b602a7ba4d36bd2308128d8d1f396",
+          "dweb:/ipfs/QmUC3bJ3qdkCmLMw3WHBcEqvuC4tExT2LXzUhgu5KQ3vi3"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd21x18/Errors.sol": {
+        "keccak256": "0xc5422ee47eb139274e538e758fb40177a1ba22c2113ef3b3446102f0150bfe0a",
+        "urls": [
+          "bzz-raw://a1981e052e9e86e1b0e4e55a057a7af4739aedd4ead2d60e3eaa40fb703594ee",
+          "dweb:/ipfs/QmPK5qSujnyk1R8ues4RhDMy1tRKKyjQ31YJTviTKq7GML"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd21x18/ValueType.sol": {
+        "keccak256": "0x532bba888370bed393464412f4ef3462d654802e71c953ad02d078e3d2701092",
+        "urls": [
+          "bzz-raw://922a4e8dd813602f72d165aa1dfdf2c29b971a2abe73bebca7cd81a32ee2c880",
+          "dweb:/ipfs/QmTBAJnx1r3sZpbQAuTgQtsTtvjZbpDwhCJRzkhzUumbdf"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd59x18/Casting.sol": {
+        "keccak256": "0xdf70d8e70c6d6325f3f7eb028c484bc7189ef902f1d4b5b220af2e550bb5fc39",
+        "urls": [
+          "bzz-raw://0b15bcd36129c5cb163d57a117435afb171182018dd6d1e766a5f49cf1f4b63d",
+          "dweb:/ipfs/QmbjzkMBH4FM2rdxGbx9LQ65wVERijNcu7R9C8dQmH3y4n"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd59x18/Constants.sol": {
+        "keccak256": "0x9bcb8dd6b3e886d140ad1c32747a4f6d29a492529ceb835be878ae837aa6cc3a",
+        "urls": [
+          "bzz-raw://c4045c633e3618e7e90a768d92415b2f20f781fe129b4f4e26fa88f7dbf9201f",
+          "dweb:/ipfs/Qmbet95pizwPno82cJ383wJtgQRSQKESmhVZ1vDrgAu7Si"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd59x18/Errors.sol": {
+        "keccak256": "0x0a79c28c85fc8a450b0801ff2e66114eac4ec565819f5d1d8738904658fe33e2",
+        "urls": [
+          "bzz-raw://9e0d4fd3c998019fb8555d9e26c03bec42a8513bdf4185aeac2da3a000abaebf",
+          "dweb:/ipfs/QmahFJHXcX4RwPxaQbUf6LVZEk8NSpjCV3Eif7i9iqC6Mk"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd59x18/Helpers.sol": {
+        "keccak256": "0x208570f1657cf730cb6c3d81aa14030e0d45cf906cdedea5059369d7df4bb716",
+        "urls": [
+          "bzz-raw://4c78ca900edafa9338d4e3649a55ab0c84f76468d8a22fb945ba6d01e70f8fed",
+          "dweb:/ipfs/QmeP4hQYfNxcATd1FsasdD4ebyu2vrC9K1N68swxUJzzZD"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd59x18/Math.sol": {
+        "keccak256": "0xd8e8b51db9b3e2fa31a60f6b8ce4ea0112c3364442ede5992aa0aa7a2c925c84",
+        "urls": [
+          "bzz-raw://3c56913970e34ee7b142047b21f1856a511cbdc3473b7c50418a8490e19cd462",
+          "dweb:/ipfs/QmfG1F9CBDjPYD7NXora9awFfdpvBMY9SCg5pMLCFRv9tD"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd59x18/ValueType.sol": {
+        "keccak256": "0x76597ba64d37d66e0178512bc9bbc1a031a7634c45e5d5c6e9da87f46952dc9d",
+        "urls": [
+          "bzz-raw://36148899ad874814e9292636fb974d2eec61f1bcc0875ec39cf444d70ba40919",
+          "dweb:/ipfs/QmadUe4kH2FPcdxvhCKy8yiezCvPWor4VcPzqLYSAaGDDb"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud21x18/Casting.sol": {
+        "keccak256": "0x3821aa57604f6e5b7c9c5c5cc97a6d71116e673cf3fee5f76fcd42b4cefded65",
+        "urls": [
+          "bzz-raw://a80399c6b38ab45cc10d0a6683d50340cd89d9a085b6d0dcfb81e7c4e5b3ce09",
+          "dweb:/ipfs/QmWNW2YD2LMkqrpAtJYeeuHN329Rx7mvfmrjsCo1p6akTL"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud21x18/Constants.sol": {
+        "keccak256": "0x0997574a1ced6c43bde6d9c9175edc5ad64cbb920a0969a9db68eea543747601",
+        "urls": [
+          "bzz-raw://c09f03345a6779b002b38ffc3954258accbb2b1d0d5506d42c3bd7f117304f60",
+          "dweb:/ipfs/QmTeBXRCE7H2HpqKUNsZN7Nk3rdBnFmbAUFom3E1PJeGuV"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud21x18/Errors.sol": {
+        "keccak256": "0x35a1fb789b90f8c90865884d3023deb17fcca5c7146b5ddef823496d835a5415",
+        "urls": [
+          "bzz-raw://0af359d07ba25bdc90de7c05ed6216833932caa75d4a02fcfc51ceeaba5a4e80",
+          "dweb:/ipfs/QmavBFw73Xfp1qJiN6P1gk2Dfr8ByWo3dyCPVgDHtko2gq"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud21x18/ValueType.sol": {
+        "keccak256": "0x24838b2b1da371b9259d8ee21534a9f0cb5796aba75a4efca2374627952bee25",
+        "urls": [
+          "bzz-raw://897e6b79308651671c7f3c91a0069e778b47356c9ba3f86e238398ab7f2623af",
+          "dweb:/ipfs/QmZbLw3tJVRZFQnV9jWQUmF43gna841adSG2TAiwDAifGU"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud2x18/Casting.sol": {
+        "keccak256": "0x0f3141ed054e7c29dbe1acb4b88b18eb05d60e998fba6b4e503a6799faa356d6",
+        "urls": [
+          "bzz-raw://b1e2468fc4c458082aaf4aa2e35af9ba3702f207e3c8533dd1e7da11ad605eae",
+          "dweb:/ipfs/QmSm7iRH1eo4cJCwcAiiXWRH9Hn1urSS4tMdbaFbFGuTyL"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud2x18/Constants.sol": {
+        "keccak256": "0x29b0e050c865899e1fb9022b460a7829cdee248c44c4299f068ba80695eec3fc",
+        "urls": [
+          "bzz-raw://cbaef16b662fac235349bcf97bc980dd0cba15d4e6230caae61224cdac8ea6d9",
+          "dweb:/ipfs/QmZQa5XBhi7k3yhtCd8wVpnwW8htfU4sjXxWhxRypMBYkC"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud2x18/Errors.sol": {
+        "keccak256": "0x3b27e2a57438cd30d9c130f84aace24d547e5ed58e8689691d7d92ad2db38ddd",
+        "urls": [
+          "bzz-raw://841cf9fb45443899c6b659300bbf503c3fd2c1a1e83b7f0e28620eed457f7437",
+          "dweb:/ipfs/QmUqg8WscP5yQPw3UMUCWaB9RLU6nryGzseuyhAjNnDc1i"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud2x18/ValueType.sol": {
+        "keccak256": "0x975a2e69b48f34a4c0bd80e8a5609ac67b7264c91992c0944f9ebe7b9e3fc9d0",
+        "urls": [
+          "bzz-raw://65d012521c475295d7e70b7d526fcc0911d0f238ea938719d77251bba00c9b41",
+          "dweb:/ipfs/QmexEvTQCCBPYRWAYnomZX5M7C2EkXQRAXqEYMNUZfazCs"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/Casting.sol": {
+        "keccak256": "0x0803318ddc98b4ba8fbfe70e5ee08d78387fe6ae00982b9960518085a751d7b6",
+        "urls": [
+          "bzz-raw://2e68a2f780b2e33fa5416eb60f9daa81f014c2591119f4b67bed1217d5530780",
+          "dweb:/ipfs/QmZe7JTWvbfKqMnu4sxUwWCtLcCay9hH71VZUpoFCdENcr"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/Constants.sol": {
+        "keccak256": "0x2b80d26153d3fdcfb3a9ca772d9309d31ed1275f5b8b54c3ffb54d3652b37d90",
+        "urls": [
+          "bzz-raw://7e3a6673a156f635db94dc176baaa7274db8f9bec4461cd1152596253550ee3b",
+          "dweb:/ipfs/Qmc9zT4kNSbMYaXcnbxNVqmb3P3m46ieaQxkwxqLwsvRA5"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/Conversions.sol": {
+        "keccak256": "0xd486ecca97abe69acdb28230088f4c7097fbdae5b36c5ae45d5be2faac4c33f2",
+        "urls": [
+          "bzz-raw://6080870ec6955ff0f5278f9c480b218a68714daf5f2ee42da0276d08d7b82932",
+          "dweb:/ipfs/QmQ1SERHdemJgPrt4USwY8j5r63jZ8fQuJAm1knjMEEQEY"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/Errors.sol": {
+        "keccak256": "0xbab6b0e303d32f3a9d9e2fe881f0392b8c59a73051a4d34f21a403b3961b3044",
+        "urls": [
+          "bzz-raw://86a019bcf2510d0691287329dc057479cc0abc48a5e15f245e7f15c03052d2c8",
+          "dweb:/ipfs/QmeXe5pbpDHvN5DZ8puXmH2RJ25zDHj55wpiStWtNQPvq6"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/Helpers.sol": {
+        "keccak256": "0xf5faff881391d2c060029499a666cc5f0bea90a213150bb476fae8f02a5df268",
+        "urls": [
+          "bzz-raw://76105fa22bb1b5f1fa99abf9c4fbc9577a02c7bc204f271754c407f0d75489f5",
+          "dweb:/ipfs/QmVNGZSTniDuZus5DdbFubqJXCLtTaZit7YPm4ntjr5Lgr"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/Math.sol": {
+        "keccak256": "0xc4e51dfd9af62938e277e90fa724099f239d33727a35909ed48c292a76faf2fc",
+        "urls": [
+          "bzz-raw://d731537cbc50b852c21d28625aeb2c329729afc23a7b86ff9d8ee5878f47e9d6",
+          "dweb:/ipfs/QmS7Cj4pAdPZcTp7RqYXyxBc9EYX92CT8icfkNigktUsLr"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/ValueType.sol": {
+        "keccak256": "0x1b200baf25d01a8b91b97b42114248636f742b5b7028487ef4daef6621e378a3",
+        "urls": [
+          "bzz-raw://b5708ed017206bda2197654e80bea9f37b3a9993434bb066c903c2865e028f47",
+          "dweb:/ipfs/QmTyotZk2J5YvWkNvB2qhXBMgRGWW2UgPqR4JPocrXSr8n"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@sablier/lockup/src/interfaces/IAdminable.sol": {
+        "keccak256": "0xa279c49e51228b571329164e36250e82b2c1378e8b549194ab7dd90fca9c3b2b",
+        "urls": [
+          "bzz-raw://b0af605b82e64679db7039fb378fc206c4a000f8cd24b3ff17b019e27b81be8f",
+          "dweb:/ipfs/QmUSr73cbnG7K79mVE9Nwcou5nJZEK2ZGekt3KpkfpxL4Z"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "node_modules/@sablier/lockup/src/interfaces/IBatch.sol": {
+        "keccak256": "0x6d3aab84cb0529afc1e8b4a2ad4f89feb15c76b6a515a14fdf4b98887d856ae4",
+        "urls": [
+          "bzz-raw://77e68471ec663dda763ac40bb7c35d47b2a87e262461dad9a2f03377f928e758",
+          "dweb:/ipfs/QmdvAq7XyNAUA8uLhnFrWuBgZAjNjoq6BaY5AyjFKvC8Xh"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "node_modules/@sablier/lockup/src/interfaces/ILockupNFTDescriptor.sol": {
+        "keccak256": "0x49c9d9f68d025c3e735de68ca53b7b3144bf29f9b5890706847da0f1667f111e",
+        "urls": [
+          "bzz-raw://7588bdbb3057462744661468632847a469e13cb1da581a8b75a813cb6223c49e",
+          "dweb:/ipfs/QmbynwaivForuftTtya4Lxwu78KA5LCgmVCHk3k4st9uC2"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "node_modules/@sablier/lockup/src/interfaces/ISablierLockup.sol": {
+        "keccak256": "0x625ba75d5b893749ceacf197c92b7ba684de7fb68bb9d0a21e75456a48785e3e",
+        "urls": [
+          "bzz-raw://300c011e17907d218eeb3a4c3d9559f86b12b44633dcbfe546439ea9d012705e",
+          "dweb:/ipfs/QmT8WNAUhN5ftC68fHyUL1dhbgvUv9bC8raHLcAXWiLYyP"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "node_modules/@sablier/lockup/src/interfaces/ISablierLockupBase.sol": {
+        "keccak256": "0xb455bccf9814079427cdd5abc44fe0e1d754a011dcf03ec4a9d50b74be2b8a86",
+        "urls": [
+          "bzz-raw://7d8f9b0ba7c8bab4a7168c6c5fb9535ca580807ae631e0680a7b450250c95d87",
+          "dweb:/ipfs/QmcaDTt36Q7AC4iMpUikkZTYGxqRBNAcauewiocmHWqUad"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "node_modules/@sablier/lockup/src/types/DataTypes.sol": {
+        "keccak256": "0x54b0a47578fd242f218becd8d74c785eccf5ef45ea524465c625a81f64fb50ed",
+        "urls": [
+          "bzz-raw://88193d0336532dfd3671e1259be5257dcf9f58662276e29083073071cd421d00",
+          "dweb:/ipfs/QmWxBgMtnuGp9gKx8FAFBtc1rvbboyPRgW6n5hQGqVdhWf"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "src/interfaces/ISablierMerkleBase.sol": {
+        "keccak256": "0x228e6f6cb474954facb08cce54ccc47c9ea3763df30465876ddd46dae6ecf5a7",
+        "urls": [
+          "bzz-raw://941895fd80d347fe41a02cf65ba2cb88db45dc4cb9ca835f18f2b5a17b5dfb1b",
+          "dweb:/ipfs/QmWwDkGhFjLZwg73BgP8LmVoHkpoNcqjgwVPiQqSNHaAEs"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "src/interfaces/ISablierMerkleLL.sol": {
+        "keccak256": "0x74c2244b4f859e88748a019dbac19fc179e3652756d4e420db383f1ce46b1bfd",
+        "urls": [
+          "bzz-raw://f71e1b7f21c43c151ce6ffabe000829183b117a380ae84f563b340c9dea42c7c",
+          "dweb:/ipfs/QmZ5YFb33sTYKvQiyr1c4WdNvkjUbNV2nPfzYg4ndmwaYD"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "src/types/DataTypes.sol": {
+        "keccak256": "0x404635e102fce59072dc62d35e80d3069000e7570404f1f12d71a2cb4a625f3d",
+        "urls": [
+          "bzz-raw://29f12de0059e512ae7d3df7a9fb5939c671b51873c8e2b58516c526df9674a7b",
+          "dweb:/ipfs/QmdbeiK8T2NWMG1vhN96mNQDn2wJpsamgqNVEUM1hbWnrU"
+        ],
+        "license": "GPL-3.0-or-later"
+      }
+    },
+    "version": 1
+  },
+  "id": 84
+}

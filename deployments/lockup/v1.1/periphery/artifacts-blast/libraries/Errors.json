@@ -1,0 +1,102 @@
+{
+  "abi": [
+    { "type": "error", "name": "SablierV2Batch_BatchSizeZero", "inputs": [] },
+    {
+      "type": "error",
+      "name": "SablierV2MerkleStreamer_CampaignExpired",
+      "inputs": [
+        { "name": "currentTime", "type": "uint256", "internalType": "uint256" },
+        { "name": "expiration", "type": "uint40", "internalType": "uint40" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "SablierV2MerkleStreamer_CampaignNotExpired",
+      "inputs": [
+        { "name": "currentTime", "type": "uint256", "internalType": "uint256" },
+        { "name": "expiration", "type": "uint40", "internalType": "uint40" }
+      ]
+    },
+    { "type": "error", "name": "SablierV2MerkleStreamer_InvalidProof", "inputs": [] },
+    { "type": "error", "name": "SablierV2MerkleStreamer_ProtocolFeeNotZero", "inputs": [] },
+    {
+      "type": "error",
+      "name": "SablierV2MerkleStreamer_StreamClaimed",
+      "inputs": [{ "name": "index", "type": "uint256", "internalType": "uint256" }]
+    }
+  ],
+  "bytecode": {
+    "object": "0x6080806040523460175760119081601d823930815050f35b600080fdfe600080fdfea164736f6c6343000817000a",
+    "sourceMap": "169:1238:102:-:0;;;;;;;;;;;;;;;;;;;;;",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x600080fdfea164736f6c6343000817000a",
+    "sourceMap": "169:1238:102:-:0;;",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {},
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.23+commit.f704f362\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"SablierV2Batch_BatchSizeZero\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"currentTime\",\"type\":\"uint256\"},{\"internalType\":\"uint40\",\"name\":\"expiration\",\"type\":\"uint40\"}],\"name\":\"SablierV2MerkleStreamer_CampaignExpired\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"currentTime\",\"type\":\"uint256\"},{\"internalType\":\"uint40\",\"name\":\"expiration\",\"type\":\"uint40\"}],\"name\":\"SablierV2MerkleStreamer_CampaignNotExpired\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"SablierV2MerkleStreamer_InvalidProof\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"SablierV2MerkleStreamer_ProtocolFeeNotZero\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"SablierV2MerkleStreamer_StreamClaimed\",\"type\":\"error\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"title\":\"Errors\",\"version\":1},\"userdoc\":{\"errors\":{\"SablierV2MerkleStreamer_CampaignExpired(uint256,uint40)\":[{\"notice\":\"Thrown when trying to claim after the campaign has expired.\"}],\"SablierV2MerkleStreamer_CampaignNotExpired(uint256,uint40)\":[{\"notice\":\"Thrown when trying to clawback when the campaign has not expired.\"}],\"SablierV2MerkleStreamer_InvalidProof()\":[{\"notice\":\"Thrown when trying to claim with an invalid Merkle proof.\"}],\"SablierV2MerkleStreamer_ProtocolFeeNotZero()\":[{\"notice\":\"Thrown when trying to claim when the protocol fee is not zero.\"}],\"SablierV2MerkleStreamer_StreamClaimed(uint256)\":[{\"notice\":\"Thrown when trying to claim the same stream more than once.\"}]},\"kind\":\"user\",\"methods\":{},\"notice\":\"Library containing all custom errors the protocol may revert with.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/libraries/Errors.sol\":\"Errors\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"none\"},\"optimizer\":{\"enabled\":true,\"runs\":10000},\"remappings\":[\":@openzeppelin/contracts/=node_modules/@openzeppelin/contracts/\",\":@prb/math/=node_modules/@prb/math/\",\":@prb/test/=node_modules/@prb/test/\",\":@sablier/v2-core/=node_modules/@sablier/v2-core/\",\":forge-std/=node_modules/forge-std/\",\":solady/=node_modules/solady/\"],\"viaIR\":true},\"sources\":{\"src/libraries/Errors.sol\":{\"keccak256\":\"0x2708778e69afcbbaa6963139b2df10dd06ebec06278d8dedee915d01d8c25cc4\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://20f365f7608963351bfbcc93c150f9b04221a3fa93430d80dcbcd264c5eede8b\",\"dweb:/ipfs/QmcHnjsxeTEbEKkgyNXEzybbjb6KZXFEA5Yw3y52txZ372\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": { "version": "0.8.23+commit.f704f362" },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        { "inputs": [], "type": "error", "name": "SablierV2Batch_BatchSizeZero" },
+        {
+          "inputs": [
+            { "internalType": "uint256", "name": "currentTime", "type": "uint256" },
+            { "internalType": "uint40", "name": "expiration", "type": "uint40" }
+          ],
+          "type": "error",
+          "name": "SablierV2MerkleStreamer_CampaignExpired"
+        },
+        {
+          "inputs": [
+            { "internalType": "uint256", "name": "currentTime", "type": "uint256" },
+            { "internalType": "uint40", "name": "expiration", "type": "uint40" }
+          ],
+          "type": "error",
+          "name": "SablierV2MerkleStreamer_CampaignNotExpired"
+        },
+        { "inputs": [], "type": "error", "name": "SablierV2MerkleStreamer_InvalidProof" },
+        { "inputs": [], "type": "error", "name": "SablierV2MerkleStreamer_ProtocolFeeNotZero" },
+        {
+          "inputs": [{ "internalType": "uint256", "name": "index", "type": "uint256" }],
+          "type": "error",
+          "name": "SablierV2MerkleStreamer_StreamClaimed"
+        }
+      ],
+      "devdoc": { "kind": "dev", "methods": {}, "version": 1 },
+      "userdoc": { "kind": "user", "methods": {}, "version": 1 }
+    },
+    "settings": {
+      "remappings": [
+        "@openzeppelin/contracts/=node_modules/@openzeppelin/contracts/",
+        "@prb/math/=node_modules/@prb/math/",
+        "@prb/test/=node_modules/@prb/test/",
+        "@sablier/v2-core/=node_modules/@sablier/v2-core/",
+        "forge-std/=node_modules/forge-std/",
+        "solady/=node_modules/solady/"
+      ],
+      "optimizer": { "enabled": true, "runs": 10000 },
+      "metadata": { "bytecodeHash": "none" },
+      "compilationTarget": { "src/libraries/Errors.sol": "Errors" },
+      "evmVersion": "paris",
+      "libraries": {},
+      "viaIR": true
+    },
+    "sources": {
+      "src/libraries/Errors.sol": {
+        "keccak256": "0x2708778e69afcbbaa6963139b2df10dd06ebec06278d8dedee915d01d8c25cc4",
+        "urls": [
+          "bzz-raw://20f365f7608963351bfbcc93c150f9b04221a3fa93430d80dcbcd264c5eede8b",
+          "dweb:/ipfs/QmcHnjsxeTEbEKkgyNXEzybbjb6KZXFEA5Yw3y52txZ372"
+        ],
+        "license": "GPL-3.0-or-later"
+      }
+    },
+    "version": 1
+  },
+  "id": 102
+}

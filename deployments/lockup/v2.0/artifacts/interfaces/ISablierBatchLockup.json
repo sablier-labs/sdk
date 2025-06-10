@@ -1,0 +1,1037 @@
+{
+  "abi": [
+    {
+      "type": "function",
+      "name": "createWithDurationsLD",
+      "inputs": [
+        { "name": "lockup", "type": "address", "internalType": "contract ISablierLockup" },
+        { "name": "token", "type": "address", "internalType": "contract IERC20" },
+        {
+          "name": "batch",
+          "type": "tuple[]",
+          "internalType": "struct BatchLockup.CreateWithDurationsLD[]",
+          "components": [
+            { "name": "sender", "type": "address", "internalType": "address" },
+            { "name": "recipient", "type": "address", "internalType": "address" },
+            { "name": "totalAmount", "type": "uint128", "internalType": "uint128" },
+            { "name": "cancelable", "type": "bool", "internalType": "bool" },
+            { "name": "transferable", "type": "bool", "internalType": "bool" },
+            {
+              "name": "segmentsWithDuration",
+              "type": "tuple[]",
+              "internalType": "struct LockupDynamic.SegmentWithDuration[]",
+              "components": [
+                { "name": "amount", "type": "uint128", "internalType": "uint128" },
+                { "name": "exponent", "type": "uint64", "internalType": "UD2x18" },
+                { "name": "duration", "type": "uint40", "internalType": "uint40" }
+              ]
+            },
+            { "name": "shape", "type": "string", "internalType": "string" },
+            {
+              "name": "broker",
+              "type": "tuple",
+              "internalType": "struct Broker",
+              "components": [
+                { "name": "account", "type": "address", "internalType": "address" },
+                { "name": "fee", "type": "uint256", "internalType": "UD60x18" }
+              ]
+            }
+          ]
+        }
+      ],
+      "outputs": [{ "name": "streamIds", "type": "uint256[]", "internalType": "uint256[]" }],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "createWithDurationsLL",
+      "inputs": [
+        { "name": "lockup", "type": "address", "internalType": "contract ISablierLockup" },
+        { "name": "token", "type": "address", "internalType": "contract IERC20" },
+        {
+          "name": "batch",
+          "type": "tuple[]",
+          "internalType": "struct BatchLockup.CreateWithDurationsLL[]",
+          "components": [
+            { "name": "sender", "type": "address", "internalType": "address" },
+            { "name": "recipient", "type": "address", "internalType": "address" },
+            { "name": "totalAmount", "type": "uint128", "internalType": "uint128" },
+            { "name": "cancelable", "type": "bool", "internalType": "bool" },
+            { "name": "transferable", "type": "bool", "internalType": "bool" },
+            {
+              "name": "durations",
+              "type": "tuple",
+              "internalType": "struct LockupLinear.Durations",
+              "components": [
+                { "name": "cliff", "type": "uint40", "internalType": "uint40" },
+                { "name": "total", "type": "uint40", "internalType": "uint40" }
+              ]
+            },
+            {
+              "name": "unlockAmounts",
+              "type": "tuple",
+              "internalType": "struct LockupLinear.UnlockAmounts",
+              "components": [
+                { "name": "start", "type": "uint128", "internalType": "uint128" },
+                { "name": "cliff", "type": "uint128", "internalType": "uint128" }
+              ]
+            },
+            { "name": "shape", "type": "string", "internalType": "string" },
+            {
+              "name": "broker",
+              "type": "tuple",
+              "internalType": "struct Broker",
+              "components": [
+                { "name": "account", "type": "address", "internalType": "address" },
+                { "name": "fee", "type": "uint256", "internalType": "UD60x18" }
+              ]
+            }
+          ]
+        }
+      ],
+      "outputs": [{ "name": "streamIds", "type": "uint256[]", "internalType": "uint256[]" }],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "createWithDurationsLT",
+      "inputs": [
+        { "name": "lockup", "type": "address", "internalType": "contract ISablierLockup" },
+        { "name": "token", "type": "address", "internalType": "contract IERC20" },
+        {
+          "name": "batch",
+          "type": "tuple[]",
+          "internalType": "struct BatchLockup.CreateWithDurationsLT[]",
+          "components": [
+            { "name": "sender", "type": "address", "internalType": "address" },
+            { "name": "recipient", "type": "address", "internalType": "address" },
+            { "name": "totalAmount", "type": "uint128", "internalType": "uint128" },
+            { "name": "cancelable", "type": "bool", "internalType": "bool" },
+            { "name": "transferable", "type": "bool", "internalType": "bool" },
+            {
+              "name": "tranchesWithDuration",
+              "type": "tuple[]",
+              "internalType": "struct LockupTranched.TrancheWithDuration[]",
+              "components": [
+                { "name": "amount", "type": "uint128", "internalType": "uint128" },
+                { "name": "duration", "type": "uint40", "internalType": "uint40" }
+              ]
+            },
+            { "name": "shape", "type": "string", "internalType": "string" },
+            {
+              "name": "broker",
+              "type": "tuple",
+              "internalType": "struct Broker",
+              "components": [
+                { "name": "account", "type": "address", "internalType": "address" },
+                { "name": "fee", "type": "uint256", "internalType": "UD60x18" }
+              ]
+            }
+          ]
+        }
+      ],
+      "outputs": [{ "name": "streamIds", "type": "uint256[]", "internalType": "uint256[]" }],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "createWithTimestampsLD",
+      "inputs": [
+        { "name": "lockup", "type": "address", "internalType": "contract ISablierLockup" },
+        { "name": "token", "type": "address", "internalType": "contract IERC20" },
+        {
+          "name": "batch",
+          "type": "tuple[]",
+          "internalType": "struct BatchLockup.CreateWithTimestampsLD[]",
+          "components": [
+            { "name": "sender", "type": "address", "internalType": "address" },
+            { "name": "recipient", "type": "address", "internalType": "address" },
+            { "name": "totalAmount", "type": "uint128", "internalType": "uint128" },
+            { "name": "cancelable", "type": "bool", "internalType": "bool" },
+            { "name": "transferable", "type": "bool", "internalType": "bool" },
+            { "name": "startTime", "type": "uint40", "internalType": "uint40" },
+            {
+              "name": "segments",
+              "type": "tuple[]",
+              "internalType": "struct LockupDynamic.Segment[]",
+              "components": [
+                { "name": "amount", "type": "uint128", "internalType": "uint128" },
+                { "name": "exponent", "type": "uint64", "internalType": "UD2x18" },
+                { "name": "timestamp", "type": "uint40", "internalType": "uint40" }
+              ]
+            },
+            { "name": "shape", "type": "string", "internalType": "string" },
+            {
+              "name": "broker",
+              "type": "tuple",
+              "internalType": "struct Broker",
+              "components": [
+                { "name": "account", "type": "address", "internalType": "address" },
+                { "name": "fee", "type": "uint256", "internalType": "UD60x18" }
+              ]
+            }
+          ]
+        }
+      ],
+      "outputs": [{ "name": "streamIds", "type": "uint256[]", "internalType": "uint256[]" }],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "createWithTimestampsLL",
+      "inputs": [
+        { "name": "lockup", "type": "address", "internalType": "contract ISablierLockup" },
+        { "name": "token", "type": "address", "internalType": "contract IERC20" },
+        {
+          "name": "batch",
+          "type": "tuple[]",
+          "internalType": "struct BatchLockup.CreateWithTimestampsLL[]",
+          "components": [
+            { "name": "sender", "type": "address", "internalType": "address" },
+            { "name": "recipient", "type": "address", "internalType": "address" },
+            { "name": "totalAmount", "type": "uint128", "internalType": "uint128" },
+            { "name": "cancelable", "type": "bool", "internalType": "bool" },
+            { "name": "transferable", "type": "bool", "internalType": "bool" },
+            {
+              "name": "timestamps",
+              "type": "tuple",
+              "internalType": "struct Lockup.Timestamps",
+              "components": [
+                { "name": "start", "type": "uint40", "internalType": "uint40" },
+                { "name": "end", "type": "uint40", "internalType": "uint40" }
+              ]
+            },
+            { "name": "cliffTime", "type": "uint40", "internalType": "uint40" },
+            {
+              "name": "unlockAmounts",
+              "type": "tuple",
+              "internalType": "struct LockupLinear.UnlockAmounts",
+              "components": [
+                { "name": "start", "type": "uint128", "internalType": "uint128" },
+                { "name": "cliff", "type": "uint128", "internalType": "uint128" }
+              ]
+            },
+            { "name": "shape", "type": "string", "internalType": "string" },
+            {
+              "name": "broker",
+              "type": "tuple",
+              "internalType": "struct Broker",
+              "components": [
+                { "name": "account", "type": "address", "internalType": "address" },
+                { "name": "fee", "type": "uint256", "internalType": "UD60x18" }
+              ]
+            }
+          ]
+        }
+      ],
+      "outputs": [{ "name": "streamIds", "type": "uint256[]", "internalType": "uint256[]" }],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "createWithTimestampsLT",
+      "inputs": [
+        { "name": "lockup", "type": "address", "internalType": "contract ISablierLockup" },
+        { "name": "token", "type": "address", "internalType": "contract IERC20" },
+        {
+          "name": "batch",
+          "type": "tuple[]",
+          "internalType": "struct BatchLockup.CreateWithTimestampsLT[]",
+          "components": [
+            { "name": "sender", "type": "address", "internalType": "address" },
+            { "name": "recipient", "type": "address", "internalType": "address" },
+            { "name": "totalAmount", "type": "uint128", "internalType": "uint128" },
+            { "name": "cancelable", "type": "bool", "internalType": "bool" },
+            { "name": "transferable", "type": "bool", "internalType": "bool" },
+            { "name": "startTime", "type": "uint40", "internalType": "uint40" },
+            {
+              "name": "tranches",
+              "type": "tuple[]",
+              "internalType": "struct LockupTranched.Tranche[]",
+              "components": [
+                { "name": "amount", "type": "uint128", "internalType": "uint128" },
+                { "name": "timestamp", "type": "uint40", "internalType": "uint40" }
+              ]
+            },
+            { "name": "shape", "type": "string", "internalType": "string" },
+            {
+              "name": "broker",
+              "type": "tuple",
+              "internalType": "struct Broker",
+              "components": [
+                { "name": "account", "type": "address", "internalType": "address" },
+                { "name": "fee", "type": "uint256", "internalType": "UD60x18" }
+              ]
+            }
+          ]
+        }
+      ],
+      "outputs": [{ "name": "streamIds", "type": "uint256[]", "internalType": "uint256[]" }],
+      "stateMutability": "nonpayable"
+    }
+  ],
+  "bytecode": { "object": "0x", "sourceMap": "", "linkReferences": {} },
+  "deployedBytecode": { "object": "0x", "sourceMap": "", "linkReferences": {} },
+  "methodIdentifiers": {
+    "createWithDurationsLD(address,address,(address,address,uint128,bool,bool,(uint128,uint64,uint40)[],string,(address,uint256))[])": "bf4bb0dd",
+    "createWithDurationsLL(address,address,(address,address,uint128,bool,bool,(uint40,uint40),(uint128,uint128),string,(address,uint256))[])": "8f331574",
+    "createWithDurationsLT(address,address,(address,address,uint128,bool,bool,(uint128,uint40)[],string,(address,uint256))[])": "20462ba5",
+    "createWithTimestampsLD(address,address,(address,address,uint128,bool,bool,uint40,(uint128,uint64,uint40)[],string,(address,uint256))[])": "4739fa8d",
+    "createWithTimestampsLL(address,address,(address,address,uint128,bool,bool,(uint40,uint40),uint40,(uint128,uint128),string,(address,uint256))[])": "848c706c",
+    "createWithTimestampsLT(address,address,(address,address,uint128,bool,bool,uint40,(uint128,uint40)[],string,(address,uint256))[])": "5e449ca8"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.26+commit.8a97fa7a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"contract ISablierLockup\",\"name\":\"lockup\",\"type\":\"address\"},{\"internalType\":\"contract IERC20\",\"name\":\"token\",\"type\":\"address\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint128\",\"name\":\"totalAmount\",\"type\":\"uint128\"},{\"internalType\":\"bool\",\"name\":\"cancelable\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"transferable\",\"type\":\"bool\"},{\"components\":[{\"internalType\":\"uint128\",\"name\":\"amount\",\"type\":\"uint128\"},{\"internalType\":\"UD2x18\",\"name\":\"exponent\",\"type\":\"uint64\"},{\"internalType\":\"uint40\",\"name\":\"duration\",\"type\":\"uint40\"}],\"internalType\":\"struct LockupDynamic.SegmentWithDuration[]\",\"name\":\"segmentsWithDuration\",\"type\":\"tuple[]\"},{\"internalType\":\"string\",\"name\":\"shape\",\"type\":\"string\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"UD60x18\",\"name\":\"fee\",\"type\":\"uint256\"}],\"internalType\":\"struct Broker\",\"name\":\"broker\",\"type\":\"tuple\"}],\"internalType\":\"struct BatchLockup.CreateWithDurationsLD[]\",\"name\":\"batch\",\"type\":\"tuple[]\"}],\"name\":\"createWithDurationsLD\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"streamIds\",\"type\":\"uint256[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract ISablierLockup\",\"name\":\"lockup\",\"type\":\"address\"},{\"internalType\":\"contract IERC20\",\"name\":\"token\",\"type\":\"address\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint128\",\"name\":\"totalAmount\",\"type\":\"uint128\"},{\"internalType\":\"bool\",\"name\":\"cancelable\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"transferable\",\"type\":\"bool\"},{\"components\":[{\"internalType\":\"uint40\",\"name\":\"cliff\",\"type\":\"uint40\"},{\"internalType\":\"uint40\",\"name\":\"total\",\"type\":\"uint40\"}],\"internalType\":\"struct LockupLinear.Durations\",\"name\":\"durations\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"uint128\",\"name\":\"start\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"cliff\",\"type\":\"uint128\"}],\"internalType\":\"struct LockupLinear.UnlockAmounts\",\"name\":\"unlockAmounts\",\"type\":\"tuple\"},{\"internalType\":\"string\",\"name\":\"shape\",\"type\":\"string\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"UD60x18\",\"name\":\"fee\",\"type\":\"uint256\"}],\"internalType\":\"struct Broker\",\"name\":\"broker\",\"type\":\"tuple\"}],\"internalType\":\"struct BatchLockup.CreateWithDurationsLL[]\",\"name\":\"batch\",\"type\":\"tuple[]\"}],\"name\":\"createWithDurationsLL\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"streamIds\",\"type\":\"uint256[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract ISablierLockup\",\"name\":\"lockup\",\"type\":\"address\"},{\"internalType\":\"contract IERC20\",\"name\":\"token\",\"type\":\"address\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint128\",\"name\":\"totalAmount\",\"type\":\"uint128\"},{\"internalType\":\"bool\",\"name\":\"cancelable\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"transferable\",\"type\":\"bool\"},{\"components\":[{\"internalType\":\"uint128\",\"name\":\"amount\",\"type\":\"uint128\"},{\"internalType\":\"uint40\",\"name\":\"duration\",\"type\":\"uint40\"}],\"internalType\":\"struct LockupTranched.TrancheWithDuration[]\",\"name\":\"tranchesWithDuration\",\"type\":\"tuple[]\"},{\"internalType\":\"string\",\"name\":\"shape\",\"type\":\"string\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"UD60x18\",\"name\":\"fee\",\"type\":\"uint256\"}],\"internalType\":\"struct Broker\",\"name\":\"broker\",\"type\":\"tuple\"}],\"internalType\":\"struct BatchLockup.CreateWithDurationsLT[]\",\"name\":\"batch\",\"type\":\"tuple[]\"}],\"name\":\"createWithDurationsLT\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"streamIds\",\"type\":\"uint256[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract ISablierLockup\",\"name\":\"lockup\",\"type\":\"address\"},{\"internalType\":\"contract IERC20\",\"name\":\"token\",\"type\":\"address\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint128\",\"name\":\"totalAmount\",\"type\":\"uint128\"},{\"internalType\":\"bool\",\"name\":\"cancelable\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"transferable\",\"type\":\"bool\"},{\"internalType\":\"uint40\",\"name\":\"startTime\",\"type\":\"uint40\"},{\"components\":[{\"internalType\":\"uint128\",\"name\":\"amount\",\"type\":\"uint128\"},{\"internalType\":\"UD2x18\",\"name\":\"exponent\",\"type\":\"uint64\"},{\"internalType\":\"uint40\",\"name\":\"timestamp\",\"type\":\"uint40\"}],\"internalType\":\"struct LockupDynamic.Segment[]\",\"name\":\"segments\",\"type\":\"tuple[]\"},{\"internalType\":\"string\",\"name\":\"shape\",\"type\":\"string\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"UD60x18\",\"name\":\"fee\",\"type\":\"uint256\"}],\"internalType\":\"struct Broker\",\"name\":\"broker\",\"type\":\"tuple\"}],\"internalType\":\"struct BatchLockup.CreateWithTimestampsLD[]\",\"name\":\"batch\",\"type\":\"tuple[]\"}],\"name\":\"createWithTimestampsLD\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"streamIds\",\"type\":\"uint256[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract ISablierLockup\",\"name\":\"lockup\",\"type\":\"address\"},{\"internalType\":\"contract IERC20\",\"name\":\"token\",\"type\":\"address\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint128\",\"name\":\"totalAmount\",\"type\":\"uint128\"},{\"internalType\":\"bool\",\"name\":\"cancelable\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"transferable\",\"type\":\"bool\"},{\"components\":[{\"internalType\":\"uint40\",\"name\":\"start\",\"type\":\"uint40\"},{\"internalType\":\"uint40\",\"name\":\"end\",\"type\":\"uint40\"}],\"internalType\":\"struct Lockup.Timestamps\",\"name\":\"timestamps\",\"type\":\"tuple\"},{\"internalType\":\"uint40\",\"name\":\"cliffTime\",\"type\":\"uint40\"},{\"components\":[{\"internalType\":\"uint128\",\"name\":\"start\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"cliff\",\"type\":\"uint128\"}],\"internalType\":\"struct LockupLinear.UnlockAmounts\",\"name\":\"unlockAmounts\",\"type\":\"tuple\"},{\"internalType\":\"string\",\"name\":\"shape\",\"type\":\"string\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"UD60x18\",\"name\":\"fee\",\"type\":\"uint256\"}],\"internalType\":\"struct Broker\",\"name\":\"broker\",\"type\":\"tuple\"}],\"internalType\":\"struct BatchLockup.CreateWithTimestampsLL[]\",\"name\":\"batch\",\"type\":\"tuple[]\"}],\"name\":\"createWithTimestampsLL\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"streamIds\",\"type\":\"uint256[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract ISablierLockup\",\"name\":\"lockup\",\"type\":\"address\"},{\"internalType\":\"contract IERC20\",\"name\":\"token\",\"type\":\"address\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint128\",\"name\":\"totalAmount\",\"type\":\"uint128\"},{\"internalType\":\"bool\",\"name\":\"cancelable\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"transferable\",\"type\":\"bool\"},{\"internalType\":\"uint40\",\"name\":\"startTime\",\"type\":\"uint40\"},{\"components\":[{\"internalType\":\"uint128\",\"name\":\"amount\",\"type\":\"uint128\"},{\"internalType\":\"uint40\",\"name\":\"timestamp\",\"type\":\"uint40\"}],\"internalType\":\"struct LockupTranched.Tranche[]\",\"name\":\"tranches\",\"type\":\"tuple[]\"},{\"internalType\":\"string\",\"name\":\"shape\",\"type\":\"string\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"UD60x18\",\"name\":\"fee\",\"type\":\"uint256\"}],\"internalType\":\"struct Broker\",\"name\":\"broker\",\"type\":\"tuple\"}],\"internalType\":\"struct BatchLockup.CreateWithTimestampsLT[]\",\"name\":\"batch\",\"type\":\"tuple[]\"}],\"name\":\"createWithTimestampsLT\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"streamIds\",\"type\":\"uint256[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"createWithDurationsLD(address,address,(address,address,uint128,bool,bool,(uint128,uint64,uint40)[],string,(address,uint256))[])\":{\"details\":\"Requirements: - There must be at least one element in `batch`. - All requirements from {ISablierLockup.createWithDurationsLD} must be met for each stream.\",\"params\":{\"batch\":\"An array of structs, each encapsulating a subset of the parameters of {SablierLockup.createWithDurationsLD}.\",\"lockup\":\"The address of the {SablierLockup} contract.\",\"token\":\"The contract address of the ERC-20 token to be distributed.\"},\"returns\":{\"streamIds\":\"The ids of the newly created streams.\"}},\"createWithDurationsLL(address,address,(address,address,uint128,bool,bool,(uint40,uint40),(uint128,uint128),string,(address,uint256))[])\":{\"details\":\"Requirements: - There must be at least one element in `batch`. - All requirements from {ISablierLockup.createWithDurationsLL} must be met for each stream.\",\"params\":{\"batch\":\"An array of structs, each encapsulating a subset of the parameters of {SablierLockup.createWithDurationsLL}.\",\"lockup\":\"The address of the {SablierLockup} contract.\",\"token\":\"The contract address of the ERC-20 token to be distributed.\"},\"returns\":{\"streamIds\":\"The ids of the newly created streams.\"}},\"createWithDurationsLT(address,address,(address,address,uint128,bool,bool,(uint128,uint40)[],string,(address,uint256))[])\":{\"details\":\"Requirements: - There must be at least one element in `batch`. - All requirements from {ISablierLockup.createWithDurationsLT} must be met for each stream.\",\"params\":{\"batch\":\"An array of structs, each encapsulating a subset of the parameters of {SablierLockup.createWithDurationsLT}.\",\"lockup\":\"The address of the {SablierLockup} contract.\",\"token\":\"The contract address of the ERC-20 token to be distributed.\"},\"returns\":{\"streamIds\":\"The ids of the newly created streams.\"}},\"createWithTimestampsLD(address,address,(address,address,uint128,bool,bool,uint40,(uint128,uint64,uint40)[],string,(address,uint256))[])\":{\"details\":\"Requirements: - There must be at least one element in `batch`. - All requirements from {ISablierLockup.createWithTimestampsLD} must be met for each stream.\",\"params\":{\"batch\":\"An array of structs, each encapsulating a subset of the parameters of {SablierLockup.createWithTimestampsLD}.\",\"lockup\":\"The address of the {SablierLockup} contract.\",\"token\":\"The contract address of the ERC-20 token to be distributed.\"},\"returns\":{\"streamIds\":\"The ids of the newly created streams.\"}},\"createWithTimestampsLL(address,address,(address,address,uint128,bool,bool,(uint40,uint40),uint40,(uint128,uint128),string,(address,uint256))[])\":{\"details\":\"Requirements: - There must be at least one element in `batch`. - All requirements from {ISablierLockup.createWithTimestampsLL} must be met for each stream.\",\"params\":{\"batch\":\"An array of structs, each encapsulating a subset of the parameters of {SablierLockup.createWithTimestampsLL}.\",\"lockup\":\"The address of the {SablierLockup} contract.\",\"token\":\"The contract address of the ERC-20 token to be distributed.\"},\"returns\":{\"streamIds\":\"The ids of the newly created streams.\"}},\"createWithTimestampsLT(address,address,(address,address,uint128,bool,bool,uint40,(uint128,uint40)[],string,(address,uint256))[])\":{\"details\":\"Requirements: - There must be at least one element in `batch`. - All requirements from {ISablierLockup.createWithTimestampsLT} must be met for each stream.\",\"params\":{\"batch\":\"An array of structs, each encapsulating a subset of the parameters of {SablierLockup.createWithTimestampsLT}.\",\"lockup\":\"The address of the {SablierLockup} contract.\",\"token\":\"The contract address of the ERC-20 token to be distributed.\"},\"returns\":{\"streamIds\":\"The ids of the newly created streams.\"}}},\"title\":\"ISablierBatchLockup\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"createWithDurationsLD(address,address,(address,address,uint128,bool,bool,(uint128,uint64,uint40)[],string,(address,uint256))[])\":{\"notice\":\"Creates a batch of Lockup Dynamic streams using `createWithDurationsLD`.\"},\"createWithDurationsLL(address,address,(address,address,uint128,bool,bool,(uint40,uint40),(uint128,uint128),string,(address,uint256))[])\":{\"notice\":\"Creates a batch of Lockup Linear streams using `createWithDurationsLL`.\"},\"createWithDurationsLT(address,address,(address,address,uint128,bool,bool,(uint128,uint40)[],string,(address,uint256))[])\":{\"notice\":\"Creates a batch of Lockup Tranched streams using `createWithDurationsLT`.\"},\"createWithTimestampsLD(address,address,(address,address,uint128,bool,bool,uint40,(uint128,uint64,uint40)[],string,(address,uint256))[])\":{\"notice\":\"Creates a batch of Lockup Dynamic streams using `createWithTimestampsLD`.\"},\"createWithTimestampsLL(address,address,(address,address,uint128,bool,bool,(uint40,uint40),uint40,(uint128,uint128),string,(address,uint256))[])\":{\"notice\":\"Creates a batch of Lockup Linear streams using `createWithTimestampsLL`.\"},\"createWithTimestampsLT(address,address,(address,address,uint128,bool,bool,uint40,(uint128,uint40)[],string,(address,uint256))[])\":{\"notice\":\"Creates a batch of Lockup Tranched streams using `createWithTimestampsLT`.\"}},\"notice\":\"Helper to batch create Lockup streams.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/interfaces/ISablierBatchLockup.sol\":\"ISablierBatchLockup\"},\"evmVersion\":\"shanghai\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"none\"},\"optimizer\":{\"enabled\":true,\"runs\":570},\"remappings\":[\":@ensdomains/=node_modules/@ensdomains/\",\":@ethereum-waffle/=node_modules/@ethereum-waffle/\",\":@openzeppelin/contracts/=node_modules/@openzeppelin/contracts/\",\":@prb/math/=node_modules/@prb/math/\",\":eth-gas-reporter/=node_modules/eth-gas-reporter/\",\":forge-std/=node_modules/forge-std/\",\":hardhat-deploy/=node_modules/hardhat-deploy/\",\":hardhat/=node_modules/hardhat/\",\":solady/=node_modules/solady/\",\":solarray/=node_modules/solarray/\"],\"viaIR\":true},\"sources\":{\"node_modules/@openzeppelin/contracts/interfaces/IERC165.sol\":{\"keccak256\":\"0xde7e9fd9aee8d4f40772f96bb3b58836cbc6dfc0227014a061947f8821ea9724\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://11fea9f8bc98949ac6709f0c1699db7430d2948137aa94d5a9e95a91f61a710a\",\"dweb:/ipfs/QmQdfRXxQjwP6yn3DVo1GHPpriKNcFghSPi94Z1oKEFUNS\"]},\"node_modules/@openzeppelin/contracts/interfaces/IERC4906.sol\":{\"keccak256\":\"0xb31b86c03f4677dcffa4655285d62433509513be9bafa0e04984565052d34e44\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a89c6fb0cd5fef4244500b633f63def9f2bb2134debb961e590bd5a2910662fd\",\"dweb:/ipfs/QmNqWyCxyopvb99RbRomPpfTZGXRi5MnzgpFXE2BFLLgMc\"]},\"node_modules/@openzeppelin/contracts/interfaces/IERC721.sol\":{\"keccak256\":\"0xc4d7ebf63eb2f6bf3fee1b6c0ee775efa9f31b4843a5511d07eea147e212932d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://01c66a2fad66bc710db7510419a7eee569b40b67cd9f01b70a3fc90d6f76c03b\",\"dweb:/ipfs/QmT1CjJZq4eTNA4nu8E9ZrWfaZu6ReUsDbjcK8DbEFqwx5\"]},\"node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0xc6a8ff0ea489379b61faa647490411b80102578440ab9d84e9a957cc12164e70\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0ea104e577e63faea3b69c415637e99e755dcbf64c5833d7140c35a714d6d90c\",\"dweb:/ipfs/Qmau6x4Ns9XdyynRCNNp3RhLqijJjFm7z5fyZazfYFGYdq\"]},\"node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol\":{\"keccak256\":\"0x5ef46daa3b58ef2702279d514780316efaa952915ee1aa3396f041ee2982b0b4\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://2f8f2a76e23b02fc69e8cd24c3cb47da6c7af3a2d6c3a382f8ac25c6e094ade7\",\"dweb:/ipfs/QmPV4ZS4tPVv4mTCf9ejyZ1ai57EEibDRj7mN2ARDCLV5n\"]},\"node_modules/@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol\":{\"keccak256\":\"0x37d1aaaa5a2908a09e9dcf56a26ddf762ecf295afb5964695937344fc6802ce1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ed0bfc1b92153c5000e50f4021367b931bbe96372ac6facec3c4961b72053d02\",\"dweb:/ipfs/Qmbwp8VDerjS5SV1quwHH1oMXxPQ93fzfLVqJ2RCqbowGE\"]},\"node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol\":{\"keccak256\":\"0x4296879f55019b23e135000eb36896057e7101fb7fb859c5ef690cf14643757b\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://87b3541437c8c443ccd36795e56a338ed12855eec17f8da624511b8d1a7e14df\",\"dweb:/ipfs/QmeJQCtZrQjtJLr6u7ZHWeH3pBnjtLWzvRrKViAi7UZqxL\"]},\"node_modules/@prb/math/src/Common.sol\":{\"keccak256\":\"0x8225a3898d2f11f585da1fb82234800e9717fa080dbe53d450fd429a3a632e99\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://2dcbf39ca575f68f32f0d1c66391de94082424956e7585e849813966f8c0fc05\",\"dweb:/ipfs/QmYvk8vXFDUJHrmqbtutYXfoLomLBosYLyBzuPoYBxsQ42\"]},\"node_modules/@prb/math/src/UD2x18.sol\":{\"keccak256\":\"0xfb624e24cd8bb790fa08e7827819de85504a86e20e961fa4ad126c65b6d90641\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://dd795b8df250e7eedc68e2dba1afbb60357ce8f22f21bed212b5a9046d2057d2\",\"dweb:/ipfs/QmUHtrSr8Gb6bvSe2rCWPA5YrJq72UiJARYr1gZqFVRsYH\"]},\"node_modules/@prb/math/src/UD60x18.sol\":{\"keccak256\":\"0xb98c6f74275914d279e8af6c502c2b1f50d5f6e1ed418d3b0153f5a193206c48\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a750edde2955f160806a51083a12185fb04e20efca0e3a7ebd127dc1acc049a9\",\"dweb:/ipfs/QmeAre3mThopoQPB9mSXZq6jck59QZ7JbDFR83urd2SLvp\"]},\"node_modules/@prb/math/src/sd1x18/Casting.sol\":{\"keccak256\":\"0x5d365f655f01598926c5d4fe5cda277f2cc7736fe38f943c11a32009077ddd5c\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://56b378bd6039819bc12e5f17dabd9492e1410b3281f9df496cf8210539101a11\",\"dweb:/ipfs/QmcMaE64ZWMg9cFhYxdTuG8nfzeDdNuTRHMMoFXi6tSZGu\"]},\"node_modules/@prb/math/src/sd1x18/Constants.sol\":{\"keccak256\":\"0xc14cc32061863d83912f9616de86f3c34f1ac58614b7d504c6ce07ee8efdb8e8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://22483b1282dda6a556b0232f008a5a3296bbfd76b1886e6b72bf351b7c554fab\",\"dweb:/ipfs/QmYX9cYkrFxBbhZNKsb6uUxtrc2chmAj7vuc7UKRPGMwos\"]},\"node_modules/@prb/math/src/sd1x18/Errors.sol\":{\"keccak256\":\"0xc3c8b1ab3d19889c356c222a3a2186d45dfc1d3a17b9ad88159bb64ee457baa6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://84fbe57569246403f778330bd7723018dfcb5f0ec50d7b1d82cc983c94a54bca\",\"dweb:/ipfs/QmWssAAnovc2EVjt58rTnxraE9B1RMivwTvYCYgpnr6oSE\"]},\"node_modules/@prb/math/src/sd1x18/ValueType.sol\":{\"keccak256\":\"0xaa9dc7b562faf45264390d80e2ea10c5295bb8a4f10d76261a3f9c04363734c0\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c6ca36acd15f5cb47cf124ddec289f84e1011f2d29056159e4570435629a3353\",\"dweb:/ipfs/QmUKdiLmZpAkNCq2TKxrPbQPUhiRFXGfjGSnY1VeHVu4y6\"]},\"node_modules/@prb/math/src/sd21x18/Casting.sol\":{\"keccak256\":\"0x4a16adddb9ab1f6939dd4567c77205015a11081cb840029b84bbb6fdaf78ee36\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://5003b2f4cd2fc1413da36bc63107c6e83a88d29693e8f97b54f300fa78f9c6d2\",\"dweb:/ipfs/QmaNJn91NLrZmeeGqnFQV1FTrLVSW852zHyWTrWJ5pf1pd\"]},\"node_modules/@prb/math/src/sd21x18/Constants.sol\":{\"keccak256\":\"0x501c2d5cfdea9450422182059c8df1cb6a859901a07bd59631c3fa24edcc79d4\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4669a65001c92919671fd879d33ce0e5030b602a7ba4d36bd2308128d8d1f396\",\"dweb:/ipfs/QmUC3bJ3qdkCmLMw3WHBcEqvuC4tExT2LXzUhgu5KQ3vi3\"]},\"node_modules/@prb/math/src/sd21x18/Errors.sol\":{\"keccak256\":\"0xc5422ee47eb139274e538e758fb40177a1ba22c2113ef3b3446102f0150bfe0a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a1981e052e9e86e1b0e4e55a057a7af4739aedd4ead2d60e3eaa40fb703594ee\",\"dweb:/ipfs/QmPK5qSujnyk1R8ues4RhDMy1tRKKyjQ31YJTviTKq7GML\"]},\"node_modules/@prb/math/src/sd21x18/ValueType.sol\":{\"keccak256\":\"0x532bba888370bed393464412f4ef3462d654802e71c953ad02d078e3d2701092\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://922a4e8dd813602f72d165aa1dfdf2c29b971a2abe73bebca7cd81a32ee2c880\",\"dweb:/ipfs/QmTBAJnx1r3sZpbQAuTgQtsTtvjZbpDwhCJRzkhzUumbdf\"]},\"node_modules/@prb/math/src/sd59x18/Casting.sol\":{\"keccak256\":\"0xdf70d8e70c6d6325f3f7eb028c484bc7189ef902f1d4b5b220af2e550bb5fc39\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0b15bcd36129c5cb163d57a117435afb171182018dd6d1e766a5f49cf1f4b63d\",\"dweb:/ipfs/QmbjzkMBH4FM2rdxGbx9LQ65wVERijNcu7R9C8dQmH3y4n\"]},\"node_modules/@prb/math/src/sd59x18/Constants.sol\":{\"keccak256\":\"0x9bcb8dd6b3e886d140ad1c32747a4f6d29a492529ceb835be878ae837aa6cc3a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c4045c633e3618e7e90a768d92415b2f20f781fe129b4f4e26fa88f7dbf9201f\",\"dweb:/ipfs/Qmbet95pizwPno82cJ383wJtgQRSQKESmhVZ1vDrgAu7Si\"]},\"node_modules/@prb/math/src/sd59x18/Errors.sol\":{\"keccak256\":\"0x0a79c28c85fc8a450b0801ff2e66114eac4ec565819f5d1d8738904658fe33e2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://9e0d4fd3c998019fb8555d9e26c03bec42a8513bdf4185aeac2da3a000abaebf\",\"dweb:/ipfs/QmahFJHXcX4RwPxaQbUf6LVZEk8NSpjCV3Eif7i9iqC6Mk\"]},\"node_modules/@prb/math/src/sd59x18/Helpers.sol\":{\"keccak256\":\"0x208570f1657cf730cb6c3d81aa14030e0d45cf906cdedea5059369d7df4bb716\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4c78ca900edafa9338d4e3649a55ab0c84f76468d8a22fb945ba6d01e70f8fed\",\"dweb:/ipfs/QmeP4hQYfNxcATd1FsasdD4ebyu2vrC9K1N68swxUJzzZD\"]},\"node_modules/@prb/math/src/sd59x18/Math.sol\":{\"keccak256\":\"0xd8e8b51db9b3e2fa31a60f6b8ce4ea0112c3364442ede5992aa0aa7a2c925c84\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://3c56913970e34ee7b142047b21f1856a511cbdc3473b7c50418a8490e19cd462\",\"dweb:/ipfs/QmfG1F9CBDjPYD7NXora9awFfdpvBMY9SCg5pMLCFRv9tD\"]},\"node_modules/@prb/math/src/sd59x18/ValueType.sol\":{\"keccak256\":\"0x76597ba64d37d66e0178512bc9bbc1a031a7634c45e5d5c6e9da87f46952dc9d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://36148899ad874814e9292636fb974d2eec61f1bcc0875ec39cf444d70ba40919\",\"dweb:/ipfs/QmadUe4kH2FPcdxvhCKy8yiezCvPWor4VcPzqLYSAaGDDb\"]},\"node_modules/@prb/math/src/ud21x18/Casting.sol\":{\"keccak256\":\"0x3821aa57604f6e5b7c9c5c5cc97a6d71116e673cf3fee5f76fcd42b4cefded65\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a80399c6b38ab45cc10d0a6683d50340cd89d9a085b6d0dcfb81e7c4e5b3ce09\",\"dweb:/ipfs/QmWNW2YD2LMkqrpAtJYeeuHN329Rx7mvfmrjsCo1p6akTL\"]},\"node_modules/@prb/math/src/ud21x18/Constants.sol\":{\"keccak256\":\"0x0997574a1ced6c43bde6d9c9175edc5ad64cbb920a0969a9db68eea543747601\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c09f03345a6779b002b38ffc3954258accbb2b1d0d5506d42c3bd7f117304f60\",\"dweb:/ipfs/QmTeBXRCE7H2HpqKUNsZN7Nk3rdBnFmbAUFom3E1PJeGuV\"]},\"node_modules/@prb/math/src/ud21x18/Errors.sol\":{\"keccak256\":\"0x35a1fb789b90f8c90865884d3023deb17fcca5c7146b5ddef823496d835a5415\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0af359d07ba25bdc90de7c05ed6216833932caa75d4a02fcfc51ceeaba5a4e80\",\"dweb:/ipfs/QmavBFw73Xfp1qJiN6P1gk2Dfr8ByWo3dyCPVgDHtko2gq\"]},\"node_modules/@prb/math/src/ud21x18/ValueType.sol\":{\"keccak256\":\"0x24838b2b1da371b9259d8ee21534a9f0cb5796aba75a4efca2374627952bee25\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://897e6b79308651671c7f3c91a0069e778b47356c9ba3f86e238398ab7f2623af\",\"dweb:/ipfs/QmZbLw3tJVRZFQnV9jWQUmF43gna841adSG2TAiwDAifGU\"]},\"node_modules/@prb/math/src/ud2x18/Casting.sol\":{\"keccak256\":\"0x0f3141ed054e7c29dbe1acb4b88b18eb05d60e998fba6b4e503a6799faa356d6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://b1e2468fc4c458082aaf4aa2e35af9ba3702f207e3c8533dd1e7da11ad605eae\",\"dweb:/ipfs/QmSm7iRH1eo4cJCwcAiiXWRH9Hn1urSS4tMdbaFbFGuTyL\"]},\"node_modules/@prb/math/src/ud2x18/Constants.sol\":{\"keccak256\":\"0x29b0e050c865899e1fb9022b460a7829cdee248c44c4299f068ba80695eec3fc\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://cbaef16b662fac235349bcf97bc980dd0cba15d4e6230caae61224cdac8ea6d9\",\"dweb:/ipfs/QmZQa5XBhi7k3yhtCd8wVpnwW8htfU4sjXxWhxRypMBYkC\"]},\"node_modules/@prb/math/src/ud2x18/Errors.sol\":{\"keccak256\":\"0x3b27e2a57438cd30d9c130f84aace24d547e5ed58e8689691d7d92ad2db38ddd\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://841cf9fb45443899c6b659300bbf503c3fd2c1a1e83b7f0e28620eed457f7437\",\"dweb:/ipfs/QmUqg8WscP5yQPw3UMUCWaB9RLU6nryGzseuyhAjNnDc1i\"]},\"node_modules/@prb/math/src/ud2x18/ValueType.sol\":{\"keccak256\":\"0x975a2e69b48f34a4c0bd80e8a5609ac67b7264c91992c0944f9ebe7b9e3fc9d0\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://65d012521c475295d7e70b7d526fcc0911d0f238ea938719d77251bba00c9b41\",\"dweb:/ipfs/QmexEvTQCCBPYRWAYnomZX5M7C2EkXQRAXqEYMNUZfazCs\"]},\"node_modules/@prb/math/src/ud60x18/Casting.sol\":{\"keccak256\":\"0x0803318ddc98b4ba8fbfe70e5ee08d78387fe6ae00982b9960518085a751d7b6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://2e68a2f780b2e33fa5416eb60f9daa81f014c2591119f4b67bed1217d5530780\",\"dweb:/ipfs/QmZe7JTWvbfKqMnu4sxUwWCtLcCay9hH71VZUpoFCdENcr\"]},\"node_modules/@prb/math/src/ud60x18/Constants.sol\":{\"keccak256\":\"0x2b80d26153d3fdcfb3a9ca772d9309d31ed1275f5b8b54c3ffb54d3652b37d90\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7e3a6673a156f635db94dc176baaa7274db8f9bec4461cd1152596253550ee3b\",\"dweb:/ipfs/Qmc9zT4kNSbMYaXcnbxNVqmb3P3m46ieaQxkwxqLwsvRA5\"]},\"node_modules/@prb/math/src/ud60x18/Conversions.sol\":{\"keccak256\":\"0xd486ecca97abe69acdb28230088f4c7097fbdae5b36c5ae45d5be2faac4c33f2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6080870ec6955ff0f5278f9c480b218a68714daf5f2ee42da0276d08d7b82932\",\"dweb:/ipfs/QmQ1SERHdemJgPrt4USwY8j5r63jZ8fQuJAm1knjMEEQEY\"]},\"node_modules/@prb/math/src/ud60x18/Errors.sol\":{\"keccak256\":\"0xbab6b0e303d32f3a9d9e2fe881f0392b8c59a73051a4d34f21a403b3961b3044\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://86a019bcf2510d0691287329dc057479cc0abc48a5e15f245e7f15c03052d2c8\",\"dweb:/ipfs/QmeXe5pbpDHvN5DZ8puXmH2RJ25zDHj55wpiStWtNQPvq6\"]},\"node_modules/@prb/math/src/ud60x18/Helpers.sol\":{\"keccak256\":\"0xf5faff881391d2c060029499a666cc5f0bea90a213150bb476fae8f02a5df268\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://76105fa22bb1b5f1fa99abf9c4fbc9577a02c7bc204f271754c407f0d75489f5\",\"dweb:/ipfs/QmVNGZSTniDuZus5DdbFubqJXCLtTaZit7YPm4ntjr5Lgr\"]},\"node_modules/@prb/math/src/ud60x18/Math.sol\":{\"keccak256\":\"0xc4e51dfd9af62938e277e90fa724099f239d33727a35909ed48c292a76faf2fc\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d731537cbc50b852c21d28625aeb2c329729afc23a7b86ff9d8ee5878f47e9d6\",\"dweb:/ipfs/QmS7Cj4pAdPZcTp7RqYXyxBc9EYX92CT8icfkNigktUsLr\"]},\"node_modules/@prb/math/src/ud60x18/ValueType.sol\":{\"keccak256\":\"0x1b200baf25d01a8b91b97b42114248636f742b5b7028487ef4daef6621e378a3\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://b5708ed017206bda2197654e80bea9f37b3a9993434bb066c903c2865e028f47\",\"dweb:/ipfs/QmTyotZk2J5YvWkNvB2qhXBMgRGWW2UgPqR4JPocrXSr8n\"]},\"src/interfaces/IAdminable.sol\":{\"keccak256\":\"0xa279c49e51228b571329164e36250e82b2c1378e8b549194ab7dd90fca9c3b2b\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://b0af605b82e64679db7039fb378fc206c4a000f8cd24b3ff17b019e27b81be8f\",\"dweb:/ipfs/QmUSr73cbnG7K79mVE9Nwcou5nJZEK2ZGekt3KpkfpxL4Z\"]},\"src/interfaces/IBatch.sol\":{\"keccak256\":\"0x6d3aab84cb0529afc1e8b4a2ad4f89feb15c76b6a515a14fdf4b98887d856ae4\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://77e68471ec663dda763ac40bb7c35d47b2a87e262461dad9a2f03377f928e758\",\"dweb:/ipfs/QmdvAq7XyNAUA8uLhnFrWuBgZAjNjoq6BaY5AyjFKvC8Xh\"]},\"src/interfaces/ILockupNFTDescriptor.sol\":{\"keccak256\":\"0x49c9d9f68d025c3e735de68ca53b7b3144bf29f9b5890706847da0f1667f111e\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://7588bdbb3057462744661468632847a469e13cb1da581a8b75a813cb6223c49e\",\"dweb:/ipfs/QmbynwaivForuftTtya4Lxwu78KA5LCgmVCHk3k4st9uC2\"]},\"src/interfaces/ISablierBatchLockup.sol\":{\"keccak256\":\"0xe4277cb7fff96518320f48abde8ae2f9a0ffa828db08c6309e7ef0559e275c74\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://27cbc46bb6c6cd963a6adc1b2e4c0cab54bf5aec96036e8e72037d5bec2ecfa4\",\"dweb:/ipfs/QmYzYkM5XY266ACXGhiU9FeyF4uCKJCqf4HiurgpjGu7vS\"]},\"src/interfaces/ISablierLockup.sol\":{\"keccak256\":\"0x625ba75d5b893749ceacf197c92b7ba684de7fb68bb9d0a21e75456a48785e3e\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://300c011e17907d218eeb3a4c3d9559f86b12b44633dcbfe546439ea9d012705e\",\"dweb:/ipfs/QmT8WNAUhN5ftC68fHyUL1dhbgvUv9bC8raHLcAXWiLYyP\"]},\"src/interfaces/ISablierLockupBase.sol\":{\"keccak256\":\"0xb455bccf9814079427cdd5abc44fe0e1d754a011dcf03ec4a9d50b74be2b8a86\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://7d8f9b0ba7c8bab4a7168c6c5fb9535ca580807ae631e0680a7b450250c95d87\",\"dweb:/ipfs/QmcaDTt36Q7AC4iMpUikkZTYGxqRBNAcauewiocmHWqUad\"]},\"src/types/DataTypes.sol\":{\"keccak256\":\"0x54b0a47578fd242f218becd8d74c785eccf5ef45ea524465c625a81f64fb50ed\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://88193d0336532dfd3671e1259be5257dcf9f58662276e29083073071cd421d00\",\"dweb:/ipfs/QmWxBgMtnuGp9gKx8FAFBtc1rvbboyPRgW6n5hQGqVdhWf\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": { "version": "0.8.26+commit.8a97fa7a" },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            { "internalType": "contract ISablierLockup", "name": "lockup", "type": "address" },
+            { "internalType": "contract IERC20", "name": "token", "type": "address" },
+            {
+              "internalType": "struct BatchLockup.CreateWithDurationsLD[]",
+              "name": "batch",
+              "type": "tuple[]",
+              "components": [
+                { "internalType": "address", "name": "sender", "type": "address" },
+                { "internalType": "address", "name": "recipient", "type": "address" },
+                { "internalType": "uint128", "name": "totalAmount", "type": "uint128" },
+                { "internalType": "bool", "name": "cancelable", "type": "bool" },
+                { "internalType": "bool", "name": "transferable", "type": "bool" },
+                {
+                  "internalType": "struct LockupDynamic.SegmentWithDuration[]",
+                  "name": "segmentsWithDuration",
+                  "type": "tuple[]",
+                  "components": [
+                    { "internalType": "uint128", "name": "amount", "type": "uint128" },
+                    { "internalType": "UD2x18", "name": "exponent", "type": "uint64" },
+                    { "internalType": "uint40", "name": "duration", "type": "uint40" }
+                  ]
+                },
+                { "internalType": "string", "name": "shape", "type": "string" },
+                {
+                  "internalType": "struct Broker",
+                  "name": "broker",
+                  "type": "tuple",
+                  "components": [
+                    { "internalType": "address", "name": "account", "type": "address" },
+                    { "internalType": "UD60x18", "name": "fee", "type": "uint256" }
+                  ]
+                }
+              ]
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "createWithDurationsLD",
+          "outputs": [{ "internalType": "uint256[]", "name": "streamIds", "type": "uint256[]" }]
+        },
+        {
+          "inputs": [
+            { "internalType": "contract ISablierLockup", "name": "lockup", "type": "address" },
+            { "internalType": "contract IERC20", "name": "token", "type": "address" },
+            {
+              "internalType": "struct BatchLockup.CreateWithDurationsLL[]",
+              "name": "batch",
+              "type": "tuple[]",
+              "components": [
+                { "internalType": "address", "name": "sender", "type": "address" },
+                { "internalType": "address", "name": "recipient", "type": "address" },
+                { "internalType": "uint128", "name": "totalAmount", "type": "uint128" },
+                { "internalType": "bool", "name": "cancelable", "type": "bool" },
+                { "internalType": "bool", "name": "transferable", "type": "bool" },
+                {
+                  "internalType": "struct LockupLinear.Durations",
+                  "name": "durations",
+                  "type": "tuple",
+                  "components": [
+                    { "internalType": "uint40", "name": "cliff", "type": "uint40" },
+                    { "internalType": "uint40", "name": "total", "type": "uint40" }
+                  ]
+                },
+                {
+                  "internalType": "struct LockupLinear.UnlockAmounts",
+                  "name": "unlockAmounts",
+                  "type": "tuple",
+                  "components": [
+                    { "internalType": "uint128", "name": "start", "type": "uint128" },
+                    { "internalType": "uint128", "name": "cliff", "type": "uint128" }
+                  ]
+                },
+                { "internalType": "string", "name": "shape", "type": "string" },
+                {
+                  "internalType": "struct Broker",
+                  "name": "broker",
+                  "type": "tuple",
+                  "components": [
+                    { "internalType": "address", "name": "account", "type": "address" },
+                    { "internalType": "UD60x18", "name": "fee", "type": "uint256" }
+                  ]
+                }
+              ]
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "createWithDurationsLL",
+          "outputs": [{ "internalType": "uint256[]", "name": "streamIds", "type": "uint256[]" }]
+        },
+        {
+          "inputs": [
+            { "internalType": "contract ISablierLockup", "name": "lockup", "type": "address" },
+            { "internalType": "contract IERC20", "name": "token", "type": "address" },
+            {
+              "internalType": "struct BatchLockup.CreateWithDurationsLT[]",
+              "name": "batch",
+              "type": "tuple[]",
+              "components": [
+                { "internalType": "address", "name": "sender", "type": "address" },
+                { "internalType": "address", "name": "recipient", "type": "address" },
+                { "internalType": "uint128", "name": "totalAmount", "type": "uint128" },
+                { "internalType": "bool", "name": "cancelable", "type": "bool" },
+                { "internalType": "bool", "name": "transferable", "type": "bool" },
+                {
+                  "internalType": "struct LockupTranched.TrancheWithDuration[]",
+                  "name": "tranchesWithDuration",
+                  "type": "tuple[]",
+                  "components": [
+                    { "internalType": "uint128", "name": "amount", "type": "uint128" },
+                    { "internalType": "uint40", "name": "duration", "type": "uint40" }
+                  ]
+                },
+                { "internalType": "string", "name": "shape", "type": "string" },
+                {
+                  "internalType": "struct Broker",
+                  "name": "broker",
+                  "type": "tuple",
+                  "components": [
+                    { "internalType": "address", "name": "account", "type": "address" },
+                    { "internalType": "UD60x18", "name": "fee", "type": "uint256" }
+                  ]
+                }
+              ]
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "createWithDurationsLT",
+          "outputs": [{ "internalType": "uint256[]", "name": "streamIds", "type": "uint256[]" }]
+        },
+        {
+          "inputs": [
+            { "internalType": "contract ISablierLockup", "name": "lockup", "type": "address" },
+            { "internalType": "contract IERC20", "name": "token", "type": "address" },
+            {
+              "internalType": "struct BatchLockup.CreateWithTimestampsLD[]",
+              "name": "batch",
+              "type": "tuple[]",
+              "components": [
+                { "internalType": "address", "name": "sender", "type": "address" },
+                { "internalType": "address", "name": "recipient", "type": "address" },
+                { "internalType": "uint128", "name": "totalAmount", "type": "uint128" },
+                { "internalType": "bool", "name": "cancelable", "type": "bool" },
+                { "internalType": "bool", "name": "transferable", "type": "bool" },
+                { "internalType": "uint40", "name": "startTime", "type": "uint40" },
+                {
+                  "internalType": "struct LockupDynamic.Segment[]",
+                  "name": "segments",
+                  "type": "tuple[]",
+                  "components": [
+                    { "internalType": "uint128", "name": "amount", "type": "uint128" },
+                    { "internalType": "UD2x18", "name": "exponent", "type": "uint64" },
+                    { "internalType": "uint40", "name": "timestamp", "type": "uint40" }
+                  ]
+                },
+                { "internalType": "string", "name": "shape", "type": "string" },
+                {
+                  "internalType": "struct Broker",
+                  "name": "broker",
+                  "type": "tuple",
+                  "components": [
+                    { "internalType": "address", "name": "account", "type": "address" },
+                    { "internalType": "UD60x18", "name": "fee", "type": "uint256" }
+                  ]
+                }
+              ]
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "createWithTimestampsLD",
+          "outputs": [{ "internalType": "uint256[]", "name": "streamIds", "type": "uint256[]" }]
+        },
+        {
+          "inputs": [
+            { "internalType": "contract ISablierLockup", "name": "lockup", "type": "address" },
+            { "internalType": "contract IERC20", "name": "token", "type": "address" },
+            {
+              "internalType": "struct BatchLockup.CreateWithTimestampsLL[]",
+              "name": "batch",
+              "type": "tuple[]",
+              "components": [
+                { "internalType": "address", "name": "sender", "type": "address" },
+                { "internalType": "address", "name": "recipient", "type": "address" },
+                { "internalType": "uint128", "name": "totalAmount", "type": "uint128" },
+                { "internalType": "bool", "name": "cancelable", "type": "bool" },
+                { "internalType": "bool", "name": "transferable", "type": "bool" },
+                {
+                  "internalType": "struct Lockup.Timestamps",
+                  "name": "timestamps",
+                  "type": "tuple",
+                  "components": [
+                    { "internalType": "uint40", "name": "start", "type": "uint40" },
+                    { "internalType": "uint40", "name": "end", "type": "uint40" }
+                  ]
+                },
+                { "internalType": "uint40", "name": "cliffTime", "type": "uint40" },
+                {
+                  "internalType": "struct LockupLinear.UnlockAmounts",
+                  "name": "unlockAmounts",
+                  "type": "tuple",
+                  "components": [
+                    { "internalType": "uint128", "name": "start", "type": "uint128" },
+                    { "internalType": "uint128", "name": "cliff", "type": "uint128" }
+                  ]
+                },
+                { "internalType": "string", "name": "shape", "type": "string" },
+                {
+                  "internalType": "struct Broker",
+                  "name": "broker",
+                  "type": "tuple",
+                  "components": [
+                    { "internalType": "address", "name": "account", "type": "address" },
+                    { "internalType": "UD60x18", "name": "fee", "type": "uint256" }
+                  ]
+                }
+              ]
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "createWithTimestampsLL",
+          "outputs": [{ "internalType": "uint256[]", "name": "streamIds", "type": "uint256[]" }]
+        },
+        {
+          "inputs": [
+            { "internalType": "contract ISablierLockup", "name": "lockup", "type": "address" },
+            { "internalType": "contract IERC20", "name": "token", "type": "address" },
+            {
+              "internalType": "struct BatchLockup.CreateWithTimestampsLT[]",
+              "name": "batch",
+              "type": "tuple[]",
+              "components": [
+                { "internalType": "address", "name": "sender", "type": "address" },
+                { "internalType": "address", "name": "recipient", "type": "address" },
+                { "internalType": "uint128", "name": "totalAmount", "type": "uint128" },
+                { "internalType": "bool", "name": "cancelable", "type": "bool" },
+                { "internalType": "bool", "name": "transferable", "type": "bool" },
+                { "internalType": "uint40", "name": "startTime", "type": "uint40" },
+                {
+                  "internalType": "struct LockupTranched.Tranche[]",
+                  "name": "tranches",
+                  "type": "tuple[]",
+                  "components": [
+                    { "internalType": "uint128", "name": "amount", "type": "uint128" },
+                    { "internalType": "uint40", "name": "timestamp", "type": "uint40" }
+                  ]
+                },
+                { "internalType": "string", "name": "shape", "type": "string" },
+                {
+                  "internalType": "struct Broker",
+                  "name": "broker",
+                  "type": "tuple",
+                  "components": [
+                    { "internalType": "address", "name": "account", "type": "address" },
+                    { "internalType": "UD60x18", "name": "fee", "type": "uint256" }
+                  ]
+                }
+              ]
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "createWithTimestampsLT",
+          "outputs": [{ "internalType": "uint256[]", "name": "streamIds", "type": "uint256[]" }]
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "createWithDurationsLD(address,address,(address,address,uint128,bool,bool,(uint128,uint64,uint40)[],string,(address,uint256))[])": {
+            "details": "Requirements: - There must be at least one element in `batch`. - All requirements from {ISablierLockup.createWithDurationsLD} must be met for each stream.",
+            "params": {
+              "batch": "An array of structs, each encapsulating a subset of the parameters of {SablierLockup.createWithDurationsLD}.",
+              "lockup": "The address of the {SablierLockup} contract.",
+              "token": "The contract address of the ERC-20 token to be distributed."
+            },
+            "returns": { "streamIds": "The ids of the newly created streams." }
+          },
+          "createWithDurationsLL(address,address,(address,address,uint128,bool,bool,(uint40,uint40),(uint128,uint128),string,(address,uint256))[])": {
+            "details": "Requirements: - There must be at least one element in `batch`. - All requirements from {ISablierLockup.createWithDurationsLL} must be met for each stream.",
+            "params": {
+              "batch": "An array of structs, each encapsulating a subset of the parameters of {SablierLockup.createWithDurationsLL}.",
+              "lockup": "The address of the {SablierLockup} contract.",
+              "token": "The contract address of the ERC-20 token to be distributed."
+            },
+            "returns": { "streamIds": "The ids of the newly created streams." }
+          },
+          "createWithDurationsLT(address,address,(address,address,uint128,bool,bool,(uint128,uint40)[],string,(address,uint256))[])": {
+            "details": "Requirements: - There must be at least one element in `batch`. - All requirements from {ISablierLockup.createWithDurationsLT} must be met for each stream.",
+            "params": {
+              "batch": "An array of structs, each encapsulating a subset of the parameters of {SablierLockup.createWithDurationsLT}.",
+              "lockup": "The address of the {SablierLockup} contract.",
+              "token": "The contract address of the ERC-20 token to be distributed."
+            },
+            "returns": { "streamIds": "The ids of the newly created streams." }
+          },
+          "createWithTimestampsLD(address,address,(address,address,uint128,bool,bool,uint40,(uint128,uint64,uint40)[],string,(address,uint256))[])": {
+            "details": "Requirements: - There must be at least one element in `batch`. - All requirements from {ISablierLockup.createWithTimestampsLD} must be met for each stream.",
+            "params": {
+              "batch": "An array of structs, each encapsulating a subset of the parameters of {SablierLockup.createWithTimestampsLD}.",
+              "lockup": "The address of the {SablierLockup} contract.",
+              "token": "The contract address of the ERC-20 token to be distributed."
+            },
+            "returns": { "streamIds": "The ids of the newly created streams." }
+          },
+          "createWithTimestampsLL(address,address,(address,address,uint128,bool,bool,(uint40,uint40),uint40,(uint128,uint128),string,(address,uint256))[])": {
+            "details": "Requirements: - There must be at least one element in `batch`. - All requirements from {ISablierLockup.createWithTimestampsLL} must be met for each stream.",
+            "params": {
+              "batch": "An array of structs, each encapsulating a subset of the parameters of {SablierLockup.createWithTimestampsLL}.",
+              "lockup": "The address of the {SablierLockup} contract.",
+              "token": "The contract address of the ERC-20 token to be distributed."
+            },
+            "returns": { "streamIds": "The ids of the newly created streams." }
+          },
+          "createWithTimestampsLT(address,address,(address,address,uint128,bool,bool,uint40,(uint128,uint40)[],string,(address,uint256))[])": {
+            "details": "Requirements: - There must be at least one element in `batch`. - All requirements from {ISablierLockup.createWithTimestampsLT} must be met for each stream.",
+            "params": {
+              "batch": "An array of structs, each encapsulating a subset of the parameters of {SablierLockup.createWithTimestampsLT}.",
+              "lockup": "The address of the {SablierLockup} contract.",
+              "token": "The contract address of the ERC-20 token to be distributed."
+            },
+            "returns": { "streamIds": "The ids of the newly created streams." }
+          }
+        },
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "createWithDurationsLD(address,address,(address,address,uint128,bool,bool,(uint128,uint64,uint40)[],string,(address,uint256))[])": {
+            "notice": "Creates a batch of Lockup Dynamic streams using `createWithDurationsLD`."
+          },
+          "createWithDurationsLL(address,address,(address,address,uint128,bool,bool,(uint40,uint40),(uint128,uint128),string,(address,uint256))[])": {
+            "notice": "Creates a batch of Lockup Linear streams using `createWithDurationsLL`."
+          },
+          "createWithDurationsLT(address,address,(address,address,uint128,bool,bool,(uint128,uint40)[],string,(address,uint256))[])": {
+            "notice": "Creates a batch of Lockup Tranched streams using `createWithDurationsLT`."
+          },
+          "createWithTimestampsLD(address,address,(address,address,uint128,bool,bool,uint40,(uint128,uint64,uint40)[],string,(address,uint256))[])": {
+            "notice": "Creates a batch of Lockup Dynamic streams using `createWithTimestampsLD`."
+          },
+          "createWithTimestampsLL(address,address,(address,address,uint128,bool,bool,(uint40,uint40),uint40,(uint128,uint128),string,(address,uint256))[])": {
+            "notice": "Creates a batch of Lockup Linear streams using `createWithTimestampsLL`."
+          },
+          "createWithTimestampsLT(address,address,(address,address,uint128,bool,bool,uint40,(uint128,uint40)[],string,(address,uint256))[])": {
+            "notice": "Creates a batch of Lockup Tranched streams using `createWithTimestampsLT`."
+          }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        "@ensdomains/=node_modules/@ensdomains/",
+        "@ethereum-waffle/=node_modules/@ethereum-waffle/",
+        "@openzeppelin/contracts/=node_modules/@openzeppelin/contracts/",
+        "@prb/math/=node_modules/@prb/math/",
+        "eth-gas-reporter/=node_modules/eth-gas-reporter/",
+        "forge-std/=node_modules/forge-std/",
+        "hardhat-deploy/=node_modules/hardhat-deploy/",
+        "hardhat/=node_modules/hardhat/",
+        "solady/=node_modules/solady/",
+        "solarray/=node_modules/solarray/"
+      ],
+      "optimizer": { "enabled": true, "runs": 570 },
+      "metadata": { "bytecodeHash": "none" },
+      "compilationTarget": { "src/interfaces/ISablierBatchLockup.sol": "ISablierBatchLockup" },
+      "evmVersion": "shanghai",
+      "libraries": {},
+      "viaIR": true
+    },
+    "sources": {
+      "node_modules/@openzeppelin/contracts/interfaces/IERC165.sol": {
+        "keccak256": "0xde7e9fd9aee8d4f40772f96bb3b58836cbc6dfc0227014a061947f8821ea9724",
+        "urls": [
+          "bzz-raw://11fea9f8bc98949ac6709f0c1699db7430d2948137aa94d5a9e95a91f61a710a",
+          "dweb:/ipfs/QmQdfRXxQjwP6yn3DVo1GHPpriKNcFghSPi94Z1oKEFUNS"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/interfaces/IERC4906.sol": {
+        "keccak256": "0xb31b86c03f4677dcffa4655285d62433509513be9bafa0e04984565052d34e44",
+        "urls": [
+          "bzz-raw://a89c6fb0cd5fef4244500b633f63def9f2bb2134debb961e590bd5a2910662fd",
+          "dweb:/ipfs/QmNqWyCxyopvb99RbRomPpfTZGXRi5MnzgpFXE2BFLLgMc"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/interfaces/IERC721.sol": {
+        "keccak256": "0xc4d7ebf63eb2f6bf3fee1b6c0ee775efa9f31b4843a5511d07eea147e212932d",
+        "urls": [
+          "bzz-raw://01c66a2fad66bc710db7510419a7eee569b40b67cd9f01b70a3fc90d6f76c03b",
+          "dweb:/ipfs/QmT1CjJZq4eTNA4nu8E9ZrWfaZu6ReUsDbjcK8DbEFqwx5"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+        "keccak256": "0xc6a8ff0ea489379b61faa647490411b80102578440ab9d84e9a957cc12164e70",
+        "urls": [
+          "bzz-raw://0ea104e577e63faea3b69c415637e99e755dcbf64c5833d7140c35a714d6d90c",
+          "dweb:/ipfs/Qmau6x4Ns9XdyynRCNNp3RhLqijJjFm7z5fyZazfYFGYdq"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol": {
+        "keccak256": "0x5ef46daa3b58ef2702279d514780316efaa952915ee1aa3396f041ee2982b0b4",
+        "urls": [
+          "bzz-raw://2f8f2a76e23b02fc69e8cd24c3cb47da6c7af3a2d6c3a382f8ac25c6e094ade7",
+          "dweb:/ipfs/QmPV4ZS4tPVv4mTCf9ejyZ1ai57EEibDRj7mN2ARDCLV5n"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol": {
+        "keccak256": "0x37d1aaaa5a2908a09e9dcf56a26ddf762ecf295afb5964695937344fc6802ce1",
+        "urls": [
+          "bzz-raw://ed0bfc1b92153c5000e50f4021367b931bbe96372ac6facec3c4961b72053d02",
+          "dweb:/ipfs/Qmbwp8VDerjS5SV1quwHH1oMXxPQ93fzfLVqJ2RCqbowGE"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol": {
+        "keccak256": "0x4296879f55019b23e135000eb36896057e7101fb7fb859c5ef690cf14643757b",
+        "urls": [
+          "bzz-raw://87b3541437c8c443ccd36795e56a338ed12855eec17f8da624511b8d1a7e14df",
+          "dweb:/ipfs/QmeJQCtZrQjtJLr6u7ZHWeH3pBnjtLWzvRrKViAi7UZqxL"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/Common.sol": {
+        "keccak256": "0x8225a3898d2f11f585da1fb82234800e9717fa080dbe53d450fd429a3a632e99",
+        "urls": [
+          "bzz-raw://2dcbf39ca575f68f32f0d1c66391de94082424956e7585e849813966f8c0fc05",
+          "dweb:/ipfs/QmYvk8vXFDUJHrmqbtutYXfoLomLBosYLyBzuPoYBxsQ42"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/UD2x18.sol": {
+        "keccak256": "0xfb624e24cd8bb790fa08e7827819de85504a86e20e961fa4ad126c65b6d90641",
+        "urls": [
+          "bzz-raw://dd795b8df250e7eedc68e2dba1afbb60357ce8f22f21bed212b5a9046d2057d2",
+          "dweb:/ipfs/QmUHtrSr8Gb6bvSe2rCWPA5YrJq72UiJARYr1gZqFVRsYH"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/UD60x18.sol": {
+        "keccak256": "0xb98c6f74275914d279e8af6c502c2b1f50d5f6e1ed418d3b0153f5a193206c48",
+        "urls": [
+          "bzz-raw://a750edde2955f160806a51083a12185fb04e20efca0e3a7ebd127dc1acc049a9",
+          "dweb:/ipfs/QmeAre3mThopoQPB9mSXZq6jck59QZ7JbDFR83urd2SLvp"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd1x18/Casting.sol": {
+        "keccak256": "0x5d365f655f01598926c5d4fe5cda277f2cc7736fe38f943c11a32009077ddd5c",
+        "urls": [
+          "bzz-raw://56b378bd6039819bc12e5f17dabd9492e1410b3281f9df496cf8210539101a11",
+          "dweb:/ipfs/QmcMaE64ZWMg9cFhYxdTuG8nfzeDdNuTRHMMoFXi6tSZGu"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd1x18/Constants.sol": {
+        "keccak256": "0xc14cc32061863d83912f9616de86f3c34f1ac58614b7d504c6ce07ee8efdb8e8",
+        "urls": [
+          "bzz-raw://22483b1282dda6a556b0232f008a5a3296bbfd76b1886e6b72bf351b7c554fab",
+          "dweb:/ipfs/QmYX9cYkrFxBbhZNKsb6uUxtrc2chmAj7vuc7UKRPGMwos"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd1x18/Errors.sol": {
+        "keccak256": "0xc3c8b1ab3d19889c356c222a3a2186d45dfc1d3a17b9ad88159bb64ee457baa6",
+        "urls": [
+          "bzz-raw://84fbe57569246403f778330bd7723018dfcb5f0ec50d7b1d82cc983c94a54bca",
+          "dweb:/ipfs/QmWssAAnovc2EVjt58rTnxraE9B1RMivwTvYCYgpnr6oSE"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd1x18/ValueType.sol": {
+        "keccak256": "0xaa9dc7b562faf45264390d80e2ea10c5295bb8a4f10d76261a3f9c04363734c0",
+        "urls": [
+          "bzz-raw://c6ca36acd15f5cb47cf124ddec289f84e1011f2d29056159e4570435629a3353",
+          "dweb:/ipfs/QmUKdiLmZpAkNCq2TKxrPbQPUhiRFXGfjGSnY1VeHVu4y6"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd21x18/Casting.sol": {
+        "keccak256": "0x4a16adddb9ab1f6939dd4567c77205015a11081cb840029b84bbb6fdaf78ee36",
+        "urls": [
+          "bzz-raw://5003b2f4cd2fc1413da36bc63107c6e83a88d29693e8f97b54f300fa78f9c6d2",
+          "dweb:/ipfs/QmaNJn91NLrZmeeGqnFQV1FTrLVSW852zHyWTrWJ5pf1pd"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd21x18/Constants.sol": {
+        "keccak256": "0x501c2d5cfdea9450422182059c8df1cb6a859901a07bd59631c3fa24edcc79d4",
+        "urls": [
+          "bzz-raw://4669a65001c92919671fd879d33ce0e5030b602a7ba4d36bd2308128d8d1f396",
+          "dweb:/ipfs/QmUC3bJ3qdkCmLMw3WHBcEqvuC4tExT2LXzUhgu5KQ3vi3"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd21x18/Errors.sol": {
+        "keccak256": "0xc5422ee47eb139274e538e758fb40177a1ba22c2113ef3b3446102f0150bfe0a",
+        "urls": [
+          "bzz-raw://a1981e052e9e86e1b0e4e55a057a7af4739aedd4ead2d60e3eaa40fb703594ee",
+          "dweb:/ipfs/QmPK5qSujnyk1R8ues4RhDMy1tRKKyjQ31YJTviTKq7GML"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd21x18/ValueType.sol": {
+        "keccak256": "0x532bba888370bed393464412f4ef3462d654802e71c953ad02d078e3d2701092",
+        "urls": [
+          "bzz-raw://922a4e8dd813602f72d165aa1dfdf2c29b971a2abe73bebca7cd81a32ee2c880",
+          "dweb:/ipfs/QmTBAJnx1r3sZpbQAuTgQtsTtvjZbpDwhCJRzkhzUumbdf"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd59x18/Casting.sol": {
+        "keccak256": "0xdf70d8e70c6d6325f3f7eb028c484bc7189ef902f1d4b5b220af2e550bb5fc39",
+        "urls": [
+          "bzz-raw://0b15bcd36129c5cb163d57a117435afb171182018dd6d1e766a5f49cf1f4b63d",
+          "dweb:/ipfs/QmbjzkMBH4FM2rdxGbx9LQ65wVERijNcu7R9C8dQmH3y4n"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd59x18/Constants.sol": {
+        "keccak256": "0x9bcb8dd6b3e886d140ad1c32747a4f6d29a492529ceb835be878ae837aa6cc3a",
+        "urls": [
+          "bzz-raw://c4045c633e3618e7e90a768d92415b2f20f781fe129b4f4e26fa88f7dbf9201f",
+          "dweb:/ipfs/Qmbet95pizwPno82cJ383wJtgQRSQKESmhVZ1vDrgAu7Si"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd59x18/Errors.sol": {
+        "keccak256": "0x0a79c28c85fc8a450b0801ff2e66114eac4ec565819f5d1d8738904658fe33e2",
+        "urls": [
+          "bzz-raw://9e0d4fd3c998019fb8555d9e26c03bec42a8513bdf4185aeac2da3a000abaebf",
+          "dweb:/ipfs/QmahFJHXcX4RwPxaQbUf6LVZEk8NSpjCV3Eif7i9iqC6Mk"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd59x18/Helpers.sol": {
+        "keccak256": "0x208570f1657cf730cb6c3d81aa14030e0d45cf906cdedea5059369d7df4bb716",
+        "urls": [
+          "bzz-raw://4c78ca900edafa9338d4e3649a55ab0c84f76468d8a22fb945ba6d01e70f8fed",
+          "dweb:/ipfs/QmeP4hQYfNxcATd1FsasdD4ebyu2vrC9K1N68swxUJzzZD"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd59x18/Math.sol": {
+        "keccak256": "0xd8e8b51db9b3e2fa31a60f6b8ce4ea0112c3364442ede5992aa0aa7a2c925c84",
+        "urls": [
+          "bzz-raw://3c56913970e34ee7b142047b21f1856a511cbdc3473b7c50418a8490e19cd462",
+          "dweb:/ipfs/QmfG1F9CBDjPYD7NXora9awFfdpvBMY9SCg5pMLCFRv9tD"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd59x18/ValueType.sol": {
+        "keccak256": "0x76597ba64d37d66e0178512bc9bbc1a031a7634c45e5d5c6e9da87f46952dc9d",
+        "urls": [
+          "bzz-raw://36148899ad874814e9292636fb974d2eec61f1bcc0875ec39cf444d70ba40919",
+          "dweb:/ipfs/QmadUe4kH2FPcdxvhCKy8yiezCvPWor4VcPzqLYSAaGDDb"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud21x18/Casting.sol": {
+        "keccak256": "0x3821aa57604f6e5b7c9c5c5cc97a6d71116e673cf3fee5f76fcd42b4cefded65",
+        "urls": [
+          "bzz-raw://a80399c6b38ab45cc10d0a6683d50340cd89d9a085b6d0dcfb81e7c4e5b3ce09",
+          "dweb:/ipfs/QmWNW2YD2LMkqrpAtJYeeuHN329Rx7mvfmrjsCo1p6akTL"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud21x18/Constants.sol": {
+        "keccak256": "0x0997574a1ced6c43bde6d9c9175edc5ad64cbb920a0969a9db68eea543747601",
+        "urls": [
+          "bzz-raw://c09f03345a6779b002b38ffc3954258accbb2b1d0d5506d42c3bd7f117304f60",
+          "dweb:/ipfs/QmTeBXRCE7H2HpqKUNsZN7Nk3rdBnFmbAUFom3E1PJeGuV"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud21x18/Errors.sol": {
+        "keccak256": "0x35a1fb789b90f8c90865884d3023deb17fcca5c7146b5ddef823496d835a5415",
+        "urls": [
+          "bzz-raw://0af359d07ba25bdc90de7c05ed6216833932caa75d4a02fcfc51ceeaba5a4e80",
+          "dweb:/ipfs/QmavBFw73Xfp1qJiN6P1gk2Dfr8ByWo3dyCPVgDHtko2gq"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud21x18/ValueType.sol": {
+        "keccak256": "0x24838b2b1da371b9259d8ee21534a9f0cb5796aba75a4efca2374627952bee25",
+        "urls": [
+          "bzz-raw://897e6b79308651671c7f3c91a0069e778b47356c9ba3f86e238398ab7f2623af",
+          "dweb:/ipfs/QmZbLw3tJVRZFQnV9jWQUmF43gna841adSG2TAiwDAifGU"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud2x18/Casting.sol": {
+        "keccak256": "0x0f3141ed054e7c29dbe1acb4b88b18eb05d60e998fba6b4e503a6799faa356d6",
+        "urls": [
+          "bzz-raw://b1e2468fc4c458082aaf4aa2e35af9ba3702f207e3c8533dd1e7da11ad605eae",
+          "dweb:/ipfs/QmSm7iRH1eo4cJCwcAiiXWRH9Hn1urSS4tMdbaFbFGuTyL"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud2x18/Constants.sol": {
+        "keccak256": "0x29b0e050c865899e1fb9022b460a7829cdee248c44c4299f068ba80695eec3fc",
+        "urls": [
+          "bzz-raw://cbaef16b662fac235349bcf97bc980dd0cba15d4e6230caae61224cdac8ea6d9",
+          "dweb:/ipfs/QmZQa5XBhi7k3yhtCd8wVpnwW8htfU4sjXxWhxRypMBYkC"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud2x18/Errors.sol": {
+        "keccak256": "0x3b27e2a57438cd30d9c130f84aace24d547e5ed58e8689691d7d92ad2db38ddd",
+        "urls": [
+          "bzz-raw://841cf9fb45443899c6b659300bbf503c3fd2c1a1e83b7f0e28620eed457f7437",
+          "dweb:/ipfs/QmUqg8WscP5yQPw3UMUCWaB9RLU6nryGzseuyhAjNnDc1i"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud2x18/ValueType.sol": {
+        "keccak256": "0x975a2e69b48f34a4c0bd80e8a5609ac67b7264c91992c0944f9ebe7b9e3fc9d0",
+        "urls": [
+          "bzz-raw://65d012521c475295d7e70b7d526fcc0911d0f238ea938719d77251bba00c9b41",
+          "dweb:/ipfs/QmexEvTQCCBPYRWAYnomZX5M7C2EkXQRAXqEYMNUZfazCs"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/Casting.sol": {
+        "keccak256": "0x0803318ddc98b4ba8fbfe70e5ee08d78387fe6ae00982b9960518085a751d7b6",
+        "urls": [
+          "bzz-raw://2e68a2f780b2e33fa5416eb60f9daa81f014c2591119f4b67bed1217d5530780",
+          "dweb:/ipfs/QmZe7JTWvbfKqMnu4sxUwWCtLcCay9hH71VZUpoFCdENcr"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/Constants.sol": {
+        "keccak256": "0x2b80d26153d3fdcfb3a9ca772d9309d31ed1275f5b8b54c3ffb54d3652b37d90",
+        "urls": [
+          "bzz-raw://7e3a6673a156f635db94dc176baaa7274db8f9bec4461cd1152596253550ee3b",
+          "dweb:/ipfs/Qmc9zT4kNSbMYaXcnbxNVqmb3P3m46ieaQxkwxqLwsvRA5"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/Conversions.sol": {
+        "keccak256": "0xd486ecca97abe69acdb28230088f4c7097fbdae5b36c5ae45d5be2faac4c33f2",
+        "urls": [
+          "bzz-raw://6080870ec6955ff0f5278f9c480b218a68714daf5f2ee42da0276d08d7b82932",
+          "dweb:/ipfs/QmQ1SERHdemJgPrt4USwY8j5r63jZ8fQuJAm1knjMEEQEY"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/Errors.sol": {
+        "keccak256": "0xbab6b0e303d32f3a9d9e2fe881f0392b8c59a73051a4d34f21a403b3961b3044",
+        "urls": [
+          "bzz-raw://86a019bcf2510d0691287329dc057479cc0abc48a5e15f245e7f15c03052d2c8",
+          "dweb:/ipfs/QmeXe5pbpDHvN5DZ8puXmH2RJ25zDHj55wpiStWtNQPvq6"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/Helpers.sol": {
+        "keccak256": "0xf5faff881391d2c060029499a666cc5f0bea90a213150bb476fae8f02a5df268",
+        "urls": [
+          "bzz-raw://76105fa22bb1b5f1fa99abf9c4fbc9577a02c7bc204f271754c407f0d75489f5",
+          "dweb:/ipfs/QmVNGZSTniDuZus5DdbFubqJXCLtTaZit7YPm4ntjr5Lgr"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/Math.sol": {
+        "keccak256": "0xc4e51dfd9af62938e277e90fa724099f239d33727a35909ed48c292a76faf2fc",
+        "urls": [
+          "bzz-raw://d731537cbc50b852c21d28625aeb2c329729afc23a7b86ff9d8ee5878f47e9d6",
+          "dweb:/ipfs/QmS7Cj4pAdPZcTp7RqYXyxBc9EYX92CT8icfkNigktUsLr"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/ValueType.sol": {
+        "keccak256": "0x1b200baf25d01a8b91b97b42114248636f742b5b7028487ef4daef6621e378a3",
+        "urls": [
+          "bzz-raw://b5708ed017206bda2197654e80bea9f37b3a9993434bb066c903c2865e028f47",
+          "dweb:/ipfs/QmTyotZk2J5YvWkNvB2qhXBMgRGWW2UgPqR4JPocrXSr8n"
+        ],
+        "license": "MIT"
+      },
+      "src/interfaces/IAdminable.sol": {
+        "keccak256": "0xa279c49e51228b571329164e36250e82b2c1378e8b549194ab7dd90fca9c3b2b",
+        "urls": [
+          "bzz-raw://b0af605b82e64679db7039fb378fc206c4a000f8cd24b3ff17b019e27b81be8f",
+          "dweb:/ipfs/QmUSr73cbnG7K79mVE9Nwcou5nJZEK2ZGekt3KpkfpxL4Z"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "src/interfaces/IBatch.sol": {
+        "keccak256": "0x6d3aab84cb0529afc1e8b4a2ad4f89feb15c76b6a515a14fdf4b98887d856ae4",
+        "urls": [
+          "bzz-raw://77e68471ec663dda763ac40bb7c35d47b2a87e262461dad9a2f03377f928e758",
+          "dweb:/ipfs/QmdvAq7XyNAUA8uLhnFrWuBgZAjNjoq6BaY5AyjFKvC8Xh"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "src/interfaces/ILockupNFTDescriptor.sol": {
+        "keccak256": "0x49c9d9f68d025c3e735de68ca53b7b3144bf29f9b5890706847da0f1667f111e",
+        "urls": [
+          "bzz-raw://7588bdbb3057462744661468632847a469e13cb1da581a8b75a813cb6223c49e",
+          "dweb:/ipfs/QmbynwaivForuftTtya4Lxwu78KA5LCgmVCHk3k4st9uC2"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "src/interfaces/ISablierBatchLockup.sol": {
+        "keccak256": "0xe4277cb7fff96518320f48abde8ae2f9a0ffa828db08c6309e7ef0559e275c74",
+        "urls": [
+          "bzz-raw://27cbc46bb6c6cd963a6adc1b2e4c0cab54bf5aec96036e8e72037d5bec2ecfa4",
+          "dweb:/ipfs/QmYzYkM5XY266ACXGhiU9FeyF4uCKJCqf4HiurgpjGu7vS"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "src/interfaces/ISablierLockup.sol": {
+        "keccak256": "0x625ba75d5b893749ceacf197c92b7ba684de7fb68bb9d0a21e75456a48785e3e",
+        "urls": [
+          "bzz-raw://300c011e17907d218eeb3a4c3d9559f86b12b44633dcbfe546439ea9d012705e",
+          "dweb:/ipfs/QmT8WNAUhN5ftC68fHyUL1dhbgvUv9bC8raHLcAXWiLYyP"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "src/interfaces/ISablierLockupBase.sol": {
+        "keccak256": "0xb455bccf9814079427cdd5abc44fe0e1d754a011dcf03ec4a9d50b74be2b8a86",
+        "urls": [
+          "bzz-raw://7d8f9b0ba7c8bab4a7168c6c5fb9535ca580807ae631e0680a7b450250c95d87",
+          "dweb:/ipfs/QmcaDTt36Q7AC4iMpUikkZTYGxqRBNAcauewiocmHWqUad"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "src/types/DataTypes.sol": {
+        "keccak256": "0x54b0a47578fd242f218becd8d74c785eccf5ef45ea524465c625a81f64fb50ed",
+        "urls": [
+          "bzz-raw://88193d0336532dfd3671e1259be5257dcf9f58662276e29083073071cd421d00",
+          "dweb:/ipfs/QmWxBgMtnuGp9gKx8FAFBtc1rvbboyPRgW6n5hQGqVdhWf"
+        ],
+        "license": "GPL-3.0-or-later"
+      }
+    },
+    "version": 1
+  },
+  "id": 87
+}

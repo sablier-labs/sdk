@@ -1,0 +1,6 @@
+---
+description:
+globs: *.ts
+alwaysApply: false
+---
+When you suggest code snippets that contain utility functions such as `Object.values`, `Object.entries`, etc., use lodash (_) instead of the `Object.` syntax. Do so unless I tell you otherwise.
