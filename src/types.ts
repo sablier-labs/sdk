@@ -1,5 +1,5 @@
 import type { Chain as ViemChain } from "viem";
-import type { Protocol, Version } from "./enums";
+import type * as enums from "./enums";
 
 export namespace Sablier {
   /* -------------------------------------------------------------------------- */
@@ -98,7 +98,7 @@ export namespace Sablier {
     [contractName: string]: Address | [Address, number];
   };
 
-  export type Protocol = (typeof Protocol)[keyof typeof Protocol];
+  export type Protocol = `${enums.Protocol}` | enums.Protocol;
 
   export type Repository = {
     commit: string;
@@ -222,13 +222,13 @@ export namespace Sablier {
   export type Release = Release.Standard | Release.LockupV1;
 
   export namespace Version {
-    export type Airdrops = (typeof Version.Airdrops)[keyof typeof Version.Airdrops];
+    export type Airdrops = `${enums.Version.Airdrops}` | enums.Version.Airdrops;
 
-    export type Flow = (typeof Version.Flow)[keyof typeof Version.Flow];
+    export type Flow = `${enums.Version.Flow}` | enums.Version.Flow;
 
-    export type Legacy = (typeof Version.Legacy)[keyof typeof Version.Legacy];
+    export type Legacy = `${enums.Version.Legacy}` | enums.Version.Legacy;
 
-    export type Lockup = (typeof Version.Lockup)[keyof typeof Version.Lockup];
+    export type Lockup = `${enums.Version.Lockup}` | enums.Version.Lockup;
   }
 
   export type Version = Version.Airdrops | Version.Flow | Version.Legacy | Version.Lockup;

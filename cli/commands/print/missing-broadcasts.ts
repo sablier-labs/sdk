@@ -119,7 +119,7 @@ export const missingBroadcastsCommand = new Command("missing-broadcasts")
     }
 
     const available = _.values(Protocol);
-    if (!available.includes(options.protocol)) {
+    if (!available.includes(options.protocol as Protocol)) {
       logger.error(`Error: Please provide one of these protocols: ${available.join(", ")}`);
       process.exit(1);
     }

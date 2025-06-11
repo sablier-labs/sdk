@@ -6,8 +6,9 @@ import { catalog } from "./catalog";
 export const contractsQueries = {
   /**
    * Get a single contract using the following options:
-   * - { chainId, name, release }
-   * - { chainId, address, protocol }
+   *
+   * - { chainId, contractName, release }
+   * - { chainId, contractAddress, protocol }
    */
   get: (opts: {
     chainId: number;
@@ -48,9 +49,9 @@ export const contractsQueries = {
    * - no options             ⇒ all
    * - { chainId }            ⇒ all for that chain
    * - { protocol }           ⇒ all for that protocol
-   * - { protocol, chainId }  ⇒ filtered by chain
+   * - { protocol, chainId }  ⇒ all for that protocol and chain
    * - { release }            ⇒ all deployments of that release
-   * - { release, chainId }   ⇒ that slice of deployments
+   * - { release, chainId }   ⇒ all for that release and chain
    */
   getAll: (opts?: {
     chainId?: number;
