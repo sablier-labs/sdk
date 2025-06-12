@@ -5,20 +5,24 @@ import { aliasesCommand } from "./commands/print/aliases";
 import { chainCommand } from "./commands/print/chains";
 import { missingBroadcastsCommand } from "./commands/print/missing-broadcasts";
 
-const program = new Command();
+async function main() {
+  const program = new Command();
 
-program.name("sablier-cli").description("CLI for Sablier deployment utilities");
+  program.name("sablier-cli").description("CLI for Sablier deployment utilities");
 
-// Create the print subcommand
-const printCommand = new Command("print").description("Print various deployment information");
+  // Create the print subcommand
+  const printCommand = new Command("print").description("Print various deployment information");
 
-// Add commands to the print subcommand
-printCommand.addCommand(aliasesCommand);
-printCommand.addCommand(chainCommand);
-printCommand.addCommand(missingBroadcastsCommand);
+  // Add commands to the print subcommand
+  printCommand.addCommand(aliasesCommand);
+  printCommand.addCommand(chainCommand);
+  printCommand.addCommand(missingBroadcastsCommand);
 
-// Add the print command to the main program
-program.addCommand(printCommand);
+  // Add the print command to the main program
+  program.addCommand(printCommand);
 
-// Parse command line arguments
-program.parse();
+  // Parse command line arguments
+  program.parse();
+}
+
+main().catch(console.error);

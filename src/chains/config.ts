@@ -36,6 +36,10 @@ export function fill(slug: string, chain: ViemChain): Sablier.Chain {
   if (!chain.blockExplorers) {
     throw new Error(`Chain ${chain.name} has no block explorers`);
   }
+  const defaultRPC = chain.rpcUrls.default.http[0];
+  if (!defaultRPC) {
+    throw new Error(`Chain ${chain.name} has no default RPC`);
+  }
 
   const isTestnet = Boolean(chain.testnet);
   const isSupportedByUI = isTestnet
@@ -50,7 +54,7 @@ export function fill(slug: string, chain: ViemChain): Sablier.Chain {
     isZK: Boolean(config.zk[chain.id]),
     rpc: {
       alchemy: alchemyRPCs[chain.id],
-      default: chain.rpcUrls.default.http[0],
+      default: defaultRPC,
       infura: infuraRPCs[chain.id],
     },
     slug,
