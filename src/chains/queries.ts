@@ -6,7 +6,10 @@ export const chainsQueries = {
   get: (chainId: number): Sablier.Chain | undefined => {
     return _.find(allChains, { id: chainId });
   },
-  getAll: (): Sablier.Chain[] => {
+  getAll: (kind?: "mainnets" | "testnets"): Sablier.Chain[] => {
+    if (kind) {
+      return _.filter(_.values(allChains), { isTestnet: kind === "testnets" });
+    }
     return _.values(allChains);
   },
   getBySlug: (slug: string): Sablier.Chain | undefined => {

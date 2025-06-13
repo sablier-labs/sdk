@@ -1,6 +1,6 @@
+import * as path from "node:path";
 import type { Sablier } from "@src/types";
 import * as fs from "fs-extra";
-import * as path from "node:path";
 import { log } from "./logger";
 
 const ROOT_DIR = path.join(__dirname, "..", "..");

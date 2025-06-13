@@ -5,6 +5,7 @@
 - [Node.js](https://nodejs.org) (v20+)
 - [Just](https://github.com/casey/just) (command runner)
 - [Bun](https://bun.sh) (package manager)
+- [Ni](https://github.com/antfu-collective/ni) (package manager resolver)
 
 ### Setup
 

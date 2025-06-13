@@ -1,5 +1,7 @@
-import * as mainnets from "./mainnets";
-import * as testnets from "./testnets";
+import type { Sablier } from "@src/types";
+import * as mainnetsModule from "./mainnets";
+import * as testnetsModule from "./testnets";
 
-export { mainnets, testnets };
+export const mainnets = mainnetsModule satisfies Record<string, Sablier.Chain>;
+export const testnets = testnetsModule satisfies Record<string, Sablier.Chain>;
 export const chains = { ...mainnets, ...testnets };
