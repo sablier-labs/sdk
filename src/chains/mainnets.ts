@@ -3,41 +3,7 @@ import { defineChain } from "viem";
 import * as viem from "viem/chains";
 import { fill } from "./config";
 
-export const abstract = fill("abstract", viem.abstract);
-export const arbitrum = fill("arbitrum", viem.arbitrum);
-export const avalanche = fill("avalanche", viem.avalanche);
-export const base = fill("base", viem.base);
-export const berachain = fill("berachain", viem.berachain);
-export const blast = fill("blast", viem.blast);
-export const bsc = fill("bsc", viem.bsc);
-export const chiliz = fill("chiliz", viem.chiliz);
-export const coreDao = fill("core-dao", viem.coreDao);
-export const ethereum = fill("ethereum", viem.mainnet);
-export const form = fill("form", viem.form);
-export const gnosis = fill("gnosis", viem.gnosis);
-export const iotex = fill("iotex", viem.iotex);
-export const lightlink = fill("lightlink", viem.lightlinkPhoenix);
-export const linea = fill("linea", viem.linea);
-export const meld = fill("meld", viem.meld);
-export const mode = fill("mode", viem.mode);
-export const morph = fill("morph", viem.morph);
-export const optimism = fill("optimism", viem.optimism);
-export const polygon = fill("polygon", viem.polygon);
-export const ronin = fill("ronin", viem.ronin);
-export const scroll = fill("scroll", viem.scroll);
-export const sei = fill("sei", viem.sei);
-export const sophon = fill("sophon", viem.sophon);
-export const superseed = fill("superseed", viem.superseed);
-export const taiko = fill("taiko", viem.taiko);
-export const unichain = fill("unichain", viem.unichain);
-export const xdc = fill("xdc", viem.xdc);
-export const zksync = fill("zksync", viem.zksync);
-
-/* -------------------------------------------------------------------------- */
-/*                                CUSTOM CHAINS                               */
-/* -------------------------------------------------------------------------- */
-
-export const tangle: Sablier.Chain = fill(
+const tangle: Sablier.Chain = fill(
   "tangle",
   defineChain({
     blockExplorers: {
@@ -67,3 +33,36 @@ export const tangle: Sablier.Chain = fill(
     testnet: false,
   }),
 );
+
+export const mainnets: Record<string, Sablier.Chain> = {
+  abstract: fill("abstract", viem.abstract),
+  arbitrum: fill("arbitrum", viem.arbitrum),
+  avalanche: fill("avalanche", viem.avalanche),
+  base: fill("base", viem.base),
+  berachain: fill("berachain", viem.berachain),
+  blast: fill("blast", viem.blast),
+  bsc: fill("bsc", viem.bsc),
+  chiliz: fill("chiliz", viem.chiliz),
+  coreDao: fill("core-dao", viem.coreDao),
+  ethereum: fill("ethereum", viem.mainnet),
+  form: fill("form", viem.form),
+  gnosis: fill("gnosis", viem.gnosis),
+  iotex: fill("iotex", viem.iotex),
+  lightlink: fill("lightlink", viem.lightlinkPhoenix),
+  linea: fill("linea", viem.linea),
+  meld: fill("meld", viem.meld),
+  mode: fill("mode", viem.mode),
+  morph: fill("morph", viem.morph),
+  optimism: fill("optimism", viem.optimism),
+  polygon: fill("polygon", viem.polygon),
+  ronin: fill("ronin", viem.ronin),
+  scroll: fill("scroll", viem.scroll),
+  sei: fill("sei", viem.sei),
+  sophon: fill("sophon", viem.sophon),
+  superseed: fill("superseed", viem.superseed),
+  taiko: fill("taiko", viem.taiko),
+  tangle,
+  unichain: fill("unichain", viem.unichain),
+  xdc: fill("xdc", viem.xdc),
+  zksync: fill("zksync", viem.zksync),
+};
