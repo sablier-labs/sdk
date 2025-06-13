@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "extends": "./node_modules/@sablier/devkit/tsconfigs/base.json",
+  "extends": "./node_modules/@sablier/devkit/tsconfig/base.json",
   "compilerOptions": {
     "paths": {
       "@cli": ["./cli"],
