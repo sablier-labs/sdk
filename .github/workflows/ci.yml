@@ -18,16 +18,10 @@ jobs:
 
       - name: "Set up devkit"
         uses: "sablier-labs/devkit/actions/setup@main"
-
-      - name: "Install Bun"
-        uses: "oven-sh/setup-bun@v2"
         with:
-          bun-version: "latest"
+          package-manager: "bun"
 
-      - name: "Install the Node.js dependencies"
-        run: "bun install --frozen-lockfile"
-
-      - name: "Check the code"
+      - name: "Run the code checks"
         run: "just full-check"
 
       - name: "Run the tests"

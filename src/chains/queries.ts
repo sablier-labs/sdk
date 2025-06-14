@@ -1,3 +1,4 @@
+import { sortChains } from "@src/helpers";
 import type { Sablier } from "@src/types";
 import _ from "lodash";
 import { chains as allChains } from "./data";
@@ -8,9 +9,9 @@ export const chainsQueries = {
   },
   getAll: (kind?: "mainnets" | "testnets"): Sablier.Chain[] => {
     if (kind) {
-      return _.filter(_.values(allChains), { isTestnet: kind === "testnets" });
+      return sortChains(_.filter(_.values(allChains), { isTestnet: kind === "testnets" }));
     }
-    return _.values(allChains);
+    return sortChains(_.values(allChains));
   },
   getBySlug: (slug: string): Sablier.Chain | undefined => {
     return _.find(allChains, { slug });
