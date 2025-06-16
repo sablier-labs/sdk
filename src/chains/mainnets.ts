@@ -3,6 +3,36 @@ import { defineChain } from "viem";
 import * as viem from "viem/chains";
 import { fill } from "./config";
 
+const MULTICALL3_ADDRESS = "0xcA11bde05977b3631167028862bE2a173976CA11";
+
+const chiliz: Sablier.Chain = fill(
+  "chiliz",
+  defineChain({
+    ...viem.chiliz,
+    contracts: {
+      ...viem.chiliz.contracts,
+      multicall3: {
+        address: MULTICALL3_ADDRESS,
+        blockCreated: 8_080_847,
+      },
+    },
+  }),
+);
+
+const morph: Sablier.Chain = fill(
+  "morph",
+  defineChain({
+    ...viem.morph,
+    contracts: {
+      ...viem.morph.contracts,
+      multicall3: {
+        address: MULTICALL3_ADDRESS,
+        blockCreated: 3_654_913,
+      },
+    },
+  }),
+);
+
 const tangle: Sablier.Chain = fill(
   "tangle",
   defineChain({
@@ -42,7 +72,7 @@ export const mainnets: Record<string, Sablier.Chain> = {
   berachain: fill("berachain", viem.berachain),
   blast: fill("blast", viem.blast),
   bsc: fill("bsc", viem.bsc),
-  chiliz: fill("chiliz", viem.chiliz),
+  chiliz,
   coreDao: fill("core-dao", viem.coreDao),
   ethereum: fill("ethereum", viem.mainnet),
   form: fill("form", viem.form),
@@ -52,7 +82,7 @@ export const mainnets: Record<string, Sablier.Chain> = {
   linea: fill("linea", viem.linea),
   meld: fill("meld", viem.meld),
   mode: fill("mode", viem.mode),
-  morph: fill("morph", viem.morph),
+  morph,
   optimism: fill("optimism", viem.optimism),
   polygon: fill("polygon", viem.polygon),
   ronin: fill("ronin", viem.ronin),

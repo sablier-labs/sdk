@@ -1,11 +1,6 @@
 {
-  "[md][yaml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript][json][jsonc][typescript]": {
-    "editor.defaultFormatter": "biomejs.biome"
-  },
   "biome.enabled": true,
+  "typescript.tsdk": "node_modules/typescript/lib",
   "editor.codeActionsOnSave": {
     "source.fixAll.biome": "explicit",
     "source.organizeImports.biome": "explicit"
@@ -14,5 +9,10 @@
     "**/node_modules": true,
     "./deployments": true
   },
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "[md][yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript][json][jsonc][typescript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  }
 }
