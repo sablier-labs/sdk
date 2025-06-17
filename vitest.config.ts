@@ -31,14 +31,14 @@ function getRetry() {
 }
 
 function getTimeout() {
-  return !process.env.CI ? 10_000 : 60_000; // 10 seconds normally, 1 minute in CI
+  return !CI ? 10_000 : 60_000; // 10 seconds normally, 1 minute in CI
 }
 
 export default defineConfig({
   plugins: [tsconfigPaths()],
   test: {
     environment: "node",
-    globalSetup: "./tests/helpers/global.ts",
+    globalSetup: "./tests/helpers/setup.ts",
     globals: true,
     include: getInclude(),
     retry: getRetry(),

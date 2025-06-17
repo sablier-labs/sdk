@@ -32,7 +32,7 @@ export const config = {
   } as ConfigBool,
 };
 
-export function fill(slug: string, chain: ViemChain): Sablier.Chain {
+export function resolve(slug: string, chain: ViemChain): Sablier.Chain {
   if (!chain.blockExplorers) {
     throw new Error(`Chain ${chain.name} has no block explorers`);
   }

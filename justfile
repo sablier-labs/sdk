@@ -37,13 +37,9 @@ setup:
     bun husky
 
 # Run tests
-test:
-    bun vitest run --silent
+test args="--silent":
+    bun vitest run {{ args }}
 alias t := test
-
-# Run tests with UI
-test-ui:
-    bun vitest --silent --ui
 
 # Run tests in watch mode
 test-watch:

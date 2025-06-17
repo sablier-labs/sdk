@@ -1,11 +1,11 @@
 import type { Sablier } from "@src/types";
 import { defineChain } from "viem";
 import * as viem from "viem/chains";
-import { fill } from "./config";
+import { resolve } from "./resolver";
 
 const MULTICALL3_ADDRESS = "0xcA11bde05977b3631167028862bE2a173976CA11";
 
-const chiliz: Sablier.Chain = fill(
+const chiliz: Sablier.Chain = resolve(
   "chiliz",
   defineChain({
     ...viem.chiliz,
@@ -19,7 +19,7 @@ const chiliz: Sablier.Chain = fill(
   }),
 );
 
-const morph: Sablier.Chain = fill(
+const morph: Sablier.Chain = resolve(
   "morph",
   defineChain({
     ...viem.morph,
@@ -33,7 +33,7 @@ const morph: Sablier.Chain = fill(
   }),
 );
 
-const tangle: Sablier.Chain = fill(
+const tangle: Sablier.Chain = resolve(
   "tangle",
   defineChain({
     blockExplorers: {
@@ -65,34 +65,34 @@ const tangle: Sablier.Chain = fill(
 );
 
 export const mainnets: Record<string, Sablier.Chain> = {
-  abstract: fill("abstract", viem.abstract),
-  arbitrum: fill("arbitrum", viem.arbitrum),
-  avalanche: fill("avalanche", viem.avalanche),
-  base: fill("base", viem.base),
-  berachain: fill("berachain", viem.berachain),
-  blast: fill("blast", viem.blast),
-  bsc: fill("bsc", viem.bsc),
+  abstract: resolve("abstract", viem.abstract),
+  arbitrum: resolve("arbitrum", viem.arbitrum),
+  avalanche: resolve("avalanche", viem.avalanche),
+  base: resolve("base", viem.base),
+  berachain: resolve("berachain", viem.berachain),
+  blast: resolve("blast", viem.blast),
+  bsc: resolve("bsc", viem.bsc),
   chiliz,
-  coreDao: fill("core-dao", viem.coreDao),
-  ethereum: fill("ethereum", viem.mainnet),
-  form: fill("form", viem.form),
-  gnosis: fill("gnosis", viem.gnosis),
-  iotex: fill("iotex", viem.iotex),
-  lightlink: fill("lightlink", viem.lightlinkPhoenix),
-  linea: fill("linea", viem.linea),
-  meld: fill("meld", viem.meld),
-  mode: fill("mode", viem.mode),
+  coreDao: resolve("core-dao", viem.coreDao),
+  ethereum: resolve("ethereum", viem.mainnet),
+  form: resolve("form", viem.form),
+  gnosis: resolve("gnosis", viem.gnosis),
+  iotex: resolve("iotex", viem.iotex),
+  lightlink: resolve("lightlink", viem.lightlinkPhoenix),
+  linea: resolve("linea", viem.linea),
+  meld: resolve("meld", viem.meld),
+  mode: resolve("mode", viem.mode),
   morph,
-  optimism: fill("optimism", viem.optimism),
-  polygon: fill("polygon", viem.polygon),
-  ronin: fill("ronin", viem.ronin),
-  scroll: fill("scroll", viem.scroll),
-  sei: fill("sei", viem.sei),
-  sophon: fill("sophon", viem.sophon),
-  superseed: fill("superseed", viem.superseed),
-  taiko: fill("taiko", viem.taiko),
+  optimism: resolve("optimism", viem.optimism),
+  polygon: resolve("polygon", viem.polygon),
+  ronin: resolve("ronin", viem.ronin),
+  scroll: resolve("scroll", viem.scroll),
+  sei: resolve("sei", viem.sei),
+  sophon: resolve("sophon", viem.sophon),
+  superseed: resolve("superseed", viem.superseed),
+  taiko: resolve("taiko", viem.taiko),
   tangle,
-  unichain: fill("unichain", viem.unichain),
-  xdc: fill("xdc", viem.xdc),
-  zksync: fill("zksync", viem.zksync),
+  unichain: resolve("unichain", viem.unichain),
+  xdc: resolve("xdc", viem.xdc),
+  zksync: resolve("zksync", viem.zksync),
 };
