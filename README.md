@@ -1,4 +1,6 @@
-# Sablier Lockup [![Github Actions][gha-badge]][gha] [![Discord][discord-badge]][discord] [![Twitter][twitter-badge]][twitter]
+![Sablier Branding](https://files.sablier.com/banners/banner-sdk.png)
+
+# Sablier SDK [![Github Actions][gha-badge]][gha] [![Discord][discord-badge]][discord] [![Twitter][twitter-badge]][twitter]
 
 [gha]: https://github.com/sablier-labs/sdk/actions
 [gha-badge]: https://github.com/sablier-labs/sdk/actions/workflows/ci.yml/badge.svg
