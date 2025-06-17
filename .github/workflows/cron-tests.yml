@@ -13,26 +13,18 @@ jobs:
       - name: "Check out the repo"
         uses: "actions/checkout@v4"
 
-      - name: "Install Bun"
-        uses: "oven-sh/setup-bun@v2"
+      - name: "Set up devkit"
+        uses: "sablier-labs/devkit/actions/setup@main"
         with:
-          bun-version: "latest"
-
-      - name: "Install the Node.js dependencies"
-        run: "bun install --frozen-lockfile"
-
-      - name: "Install Just"
-        uses: "extractions/setup-just@v3"
-        with:
-          just-version: "1"
+          package-manager: "bun"
 
       - name: "Check the code"
         run: "just full-check"
 
       - name: "Run the tests"
         env:
-          TEST_ONLY_CHAINS: true
-          TEST_ONLY_CONTRACTS: true
+          VITE_CHAINS_TESTS: true
+          VITE_CONTRACT_BLOCKS_TESTS: true
         run: "just test"
 
       - name: "Add summary"

@@ -17,7 +17,7 @@ import axios from "axios";
 import globby from "globby";
 import _ from "lodash";
 import { beforeAll, describe, expect, it } from "vitest";
-import { MISSING_CHAINS } from "./setup/missing";
+import { MISSING_CHAINS } from "./helpers/missing";
 
 const MALFUNCTIONING_RPC: number[] = [chains.meld.id];
 const KNOWN_SLUGS = _.values(chains)

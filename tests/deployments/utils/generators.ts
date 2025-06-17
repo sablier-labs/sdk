@@ -2,7 +2,7 @@ import { sablier } from "@src/sablier";
 import type { Sablier } from "@src/types";
 import _ from "lodash";
 import { beforeAll, describe, expect, it } from "vitest";
-import { isKnownMissing } from "../../setup/missing";
+import { isKnownMissing } from "../../helpers/missing";
 import type { BasicContract, StandardBroadcast, ZKBroadcast } from "../../types";
 import { findContract, findZKContract } from "./finders";
 import { loadBroadcast } from "./loaders";
