@@ -58,6 +58,6 @@ async function printAliases(): Promise<void> {
   }
 }
 
-export const aliasesCommand = new Command("aliases")
+export const aliasesCmd = new Command("aliases")
   .description("Display all contract aliases across releases")
   .action(printAliases);

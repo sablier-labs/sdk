@@ -30,7 +30,7 @@ async function checkMissingBroadcasts(protocol: Sablier.Protocol): Promise<void>
 
       if (r.kind === "lockupV1") {
         const components = ["core", "periphery"];
-        const results = await Promise.all(components.map((component) => checkBroadcast(r, chain, component)));
+        const results = await Promise.all(components.map((c) => checkBroadcast(r, chain, c)));
         hasValidBroadcasts = results.every(Boolean);
       } else {
         const paths = await checkBroadcast(r, chain);
@@ -109,7 +109,8 @@ function printSectionHeader(text: string): void {
   console.log(`${separator}\n`);
 }
 
-export const missingBroadcastsCommand = new Command("missing-broadcasts")
+// TODO: make this work for Airdrops v1.1 and v1.2
+export const missingBroadcastsCmd = new Command("missing-broadcasts")
   .description("Check for missing broadcasts for a given protocol")
   .option("-p, --protocol <protocol>", `Protocol to check (${_.values(Protocol).join(", ")})`)
   .action(async (options: { protocol?: Sablier.Protocol }) => {

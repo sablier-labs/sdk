@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 import { Command } from "commander";
-import { aliasesCommand } from "./commands/print/aliases";
-import { chainCommand } from "./commands/print/chains";
-import { missingBroadcastsCommand } from "./commands/print/missing-broadcasts";
+import { aliasesCmd } from "./commands/print/aliases";
+import { chainCmd } from "./commands/print/chains";
+import { missingBroadcastsCmd } from "./commands/print/missing-broadcasts";
 
 async function main() {
   const program = new Command();
@@ -14,9 +14,9 @@ async function main() {
   const printCommand = new Command("print").description("Print various deployment information");
 
   // Add commands to the print subcommand
-  printCommand.addCommand(aliasesCommand);
-  printCommand.addCommand(chainCommand);
-  printCommand.addCommand(missingBroadcastsCommand);
+  printCommand.addCommand(aliasesCmd);
+  printCommand.addCommand(chainCmd);
+  printCommand.addCommand(missingBroadcastsCmd);
 
   // Add the print command to the main program
   program.addCommand(printCommand);
