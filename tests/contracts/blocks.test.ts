@@ -7,6 +7,12 @@ import _ from "lodash";
 import { describe, expect, it } from "vitest";
 import { ETHERSCAN_CHAINS, getEtherscanContractCreationUrl } from "../helpers/etherscan";
 
+interface EtherscanResponse {
+  result?: Array<{
+    blockNumber: string;
+  }>;
+}
+
 /**
  * These contracts are indexed by the Sablier Indexers, so they require a deployment block number.
  * @see https://github.com/sablier-labs/indexers
@@ -51,11 +57,6 @@ describe("Indexed contracts have a deployment block number", () => {
 const envVarsSet = Boolean(process.env.CI && process.env.VITE_CONTRACT_BLOCKS_TESTS);
 
 describe.runIf(envVarsSet)("Block numbers correspond to Etherscan data", () => {
-  const ETHERSCAN_API_KEY = process.env.VITE_ETHERSCAN_API_KEY;
-  if (!ETHERSCAN_API_KEY) {
-    throw new Error("VITE_ETHERSCAN_API_KEY is not set");
-  }
-
   /**
    * Fetches contract creation block number from Etherscan API
    */
@@ -66,8 +67,8 @@ describe.runIf(envVarsSet)("Block numbers correspond to Etherscan data", () => {
       contractAddresses: addressLower,
     });
 
-    const response = await axios.get(apiURL);
-    const blockNumber = _.get(response.data, "result[0].blockNumber");
+    const response = await axios.get<EtherscanResponse>(apiURL);
+    const blockNumber = response.data.result?.[0]?.blockNumber;
     return blockNumber ? Number.parseInt(blockNumber, 10) : undefined;
   }
 
