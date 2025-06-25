@@ -86,7 +86,7 @@ export const mainnets: Sablier.Deployment[] = [
     [manifest.SABLIER_MERKLE_FACTORY]: ["0x3df48bb93509D9a041C81F6670C37B1eEb3E154B", 799_582],
   }),
   get(chains.taiko.id, {
-    [manifest.SABLIER_MERKLE_FACTORY]: ["0x39D4D8C60D3596B75bc09863605BBB4dcE8243F1", 39_064],
+    [manifest.SABLIER_MERKLE_FACTORY]: ["0x39D4D8C60D3596B75bc09863605BBB4dcE8243F1", 799_582],
   }),
   get(chains.tangle.id, {
     [manifest.SABLIER_MERKLE_FACTORY]: ["0xd641a0E4509Cced67cC24E7BDcDe2a31b7F7cF77", 4_004_609],
