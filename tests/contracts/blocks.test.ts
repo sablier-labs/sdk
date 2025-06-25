@@ -73,7 +73,7 @@ describe.runIf(envVarsSet)("Block numbers correspond to Etherscan data", () => {
   }
 
   for (const release of sablier.releases.getAll()) {
-    describe(`${release.protocol} ${release.version}`, () => {
+    describe(`${release.protocol} ${release.version}`, async () => {
       const contracts = sablier.contracts.getAll({ release })!;
 
       for (const contract of contracts) {
@@ -87,8 +87,13 @@ describe.runIf(envVarsSet)("Block numbers correspond to Etherscan data", () => {
         }
 
         const chain = sablier.chains.getOrThrow(contract.chainId);
-        it(`Contract ${contract.name} should have a correct block number on ${chain.name}`, async () => {
-          const actualBlockNumber = await getContractCreationBlock(contract.address, chain.id);
+        const actualBlockNumber = await getContractCreationBlock(contract.address, chain.id);
+        if (!actualBlockNumber) {
+          it.skip(`Skipped ${contract.name} because the block number could not be fetched from Etherscan.`, () => {});
+          continue;
+        }
+
+        it(`Chain ${chain.name} - Contract ${contract.name} should have a correct block number`, () => {
           expect(contract.block).toEqual(actualBlockNumber);
         });
       }
