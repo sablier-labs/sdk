@@ -1,1 +1,4 @@
-**/*.ts
+# directories
+dist
+logs
+node_modules
