@@ -19,6 +19,9 @@ function get(chainId: number, contractMap: Sablier.ContractMap): Sablier.Deploym
  * @description Mainnet deployments for Airdrops v1.3
  */
 export const mainnets: Sablier.Deployment[] = [
+  get(chains.mainnet.id, {
+    [manifest.SABLIER_MERKLE_FACTORY]: ["0x71DD3Ca88E7564416E5C2E350090C12Bf8F6144a", 217_192_43],
+  }),
   get(chains.abstract.id, {
     [manifest.SABLIER_MERKLE_FACTORY]: ["0x0C72b957347B51285854f015e4D20641655B939A", 332_977],
   }),
@@ -42,9 +45,6 @@ export const mainnets: Sablier.Deployment[] = [
   }),
   get(chains.chiliz.id, {
     [manifest.SABLIER_MERKLE_FACTORY]: ["0xf978034bb3CAB5fe88d23DB5Cb38D510485DaB90", 20_432_619],
-  }),
-  get(chains.ethereum.id, {
-    [manifest.SABLIER_MERKLE_FACTORY]: ["0x71DD3Ca88E7564416E5C2E350090C12Bf8F6144a", 217_192_43],
   }),
   get(chains.form.id, {
     [manifest.SABLIER_MERKLE_FACTORY]: ["0xA9264Ef7cB1516cc27FCD5149A2909Ace885Ffb6", 3_359_651],
@@ -112,9 +112,6 @@ export const testnets: Sablier.Deployment[] = [
   get(chains.baseSepolia.id, {
     [manifest.SABLIER_MERKLE_FACTORY]: ["0x6a3466398A66c7Ce801989B45C390cdC8717102D", 21_167_425],
   }),
-  get(chains.ethereumSepolia.id, {
-    [manifest.SABLIER_MERKLE_FACTORY]: ["0xf642751d1271c88bBb8786067de808B32a016Fd4", 7_596_143],
-  }),
   get(chains.lineaSepolia.id, {
     [manifest.SABLIER_MERKLE_FACTORY]: ["0x5ADE5DF4FB42e353223DFF677cbfec812c6C4Da7", 86_299_28],
   }),
@@ -126,6 +123,9 @@ export const testnets: Sablier.Deployment[] = [
   }),
   get(chains.optimismSepolia.id, {
     [manifest.SABLIER_MERKLE_FACTORY]: ["0x2934A7aDDC3000D1625eD1E8D21C070a89073702", 23_108_917],
+  }),
+  get(chains.sepolia.id, {
+    [manifest.SABLIER_MERKLE_FACTORY]: ["0xf642751d1271c88bBb8786067de808B32a016Fd4", 7_596_143],
   }),
   get(chains.superseedSepolia.id, {
     [manifest.SABLIER_MERKLE_FACTORY]: ["0xb5951501D416cb7326e5b9bEB6EF8840a8DF6910", 13_546_515],

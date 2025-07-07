@@ -25,7 +25,7 @@ function get(
  * @description Mainnet deployments for Lockup v1.2
  */
 export const mainnets: Sablier.Deployment.LockupV1[] = [
-  get(chains.ethereum.id, {
+  get(chains.mainnet.id, {
     core: {
       [manifest.core.SABLIER_V2_COMPTROLLER]: "0xC3Be6BffAeab7B297c03383B4254aa3Af2b9a5BA",
       [manifest.core.SABLIER_V2_LOCKUP_DYNAMIC]: ["0x39EFdC3dbB57B2388CcC4bb40aC4CB1226Bc9E44", 17_613_133],
@@ -170,7 +170,7 @@ export const testnets: Sablier.Deployment.LockupV1[] = [
       [manifest.periphery.SABLIER_V2_PROXY_TARGET]: "0x396A3a169918A4C0B339ECf86C583f46D696254E",
     },
   }),
-  get(chains.ethereumSepolia.id, {
+  get(chains.sepolia.id, {
     core: {
       [manifest.core.SABLIER_V2_COMPTROLLER]: "0x2006d43E65e66C5FF20254836E63947FA8bAaD68",
       [manifest.core.SABLIER_V2_LOCKUP_DYNAMIC]: ["0x421e1E7a53FF360f70A2D02037Ee394FA474e035", 4_067_889],

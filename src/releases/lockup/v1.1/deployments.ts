@@ -25,6 +25,21 @@ function get(
  * @description Mainnet deployments for Lockup v1.1
  */
 export const mainnets: Sablier.Deployment.LockupV1[] = [
+  get(chains.mainnet.id, {
+    core: {
+      [manifest.core.SABLIER_V2_COMPTROLLER]: "0xC3Be6BffAeab7B297c03383B4254aa3Af2b9a5BA",
+      [manifest.core.SABLIER_V2_LOCKUP_DYNAMIC]: ["0x7CC7e125d83A581ff438608490Cc0f7bDff79127", 18_821_269],
+      [manifest.core.SABLIER_V2_LOCKUP_LINEAR]: ["0xAFb979d9afAd1aD27C5eFf4E27226E3AB9e5dCC9", 18_820_775],
+      [manifest.core.SABLIER_V2_NFT_DESCRIPTOR]: "0x23eD5DA55AF4286c0dE55fAcb414dEE2e317F4CB",
+    },
+    periphery: {
+      [manifest.periphery.SABLIER_V2_BATCH]: "0xEa07DdBBeA804E7fe66b958329F8Fa5cDA95Bd55",
+      [manifest.periphery.SABLIER_V2_MERKLE_STREAMER_FACTORY]: [
+        "0x1A272b596b10f02931480BC7a3617db4a8d154E3",
+        18_811_605,
+      ],
+    },
+  }),
   get(chains.arbitrum.id, {
     core: {
       [manifest.core.SABLIER_V2_COMPTROLLER]: "0x17Ec73692F0aDf7E7C554822FBEAACB4BE781762",
@@ -94,21 +109,6 @@ export const mainnets: Sablier.Deployment.LockupV1[] = [
       [manifest.periphery.SABLIER_V2_MERKLE_STREAMER_FACTORY]: [
         "0x434D73465aAc4125d204A6637eB6C579d8D69f48",
         34_438_438,
-      ],
-    },
-  }),
-  get(chains.ethereum.id, {
-    core: {
-      [manifest.core.SABLIER_V2_COMPTROLLER]: "0xC3Be6BffAeab7B297c03383B4254aa3Af2b9a5BA",
-      [manifest.core.SABLIER_V2_LOCKUP_DYNAMIC]: ["0x7CC7e125d83A581ff438608490Cc0f7bDff79127", 18_821_269],
-      [manifest.core.SABLIER_V2_LOCKUP_LINEAR]: ["0xAFb979d9afAd1aD27C5eFf4E27226E3AB9e5dCC9", 18_820_775],
-      [manifest.core.SABLIER_V2_NFT_DESCRIPTOR]: "0x23eD5DA55AF4286c0dE55fAcb414dEE2e317F4CB",
-    },
-    periphery: {
-      [manifest.periphery.SABLIER_V2_BATCH]: "0xEa07DdBBeA804E7fe66b958329F8Fa5cDA95Bd55",
-      [manifest.periphery.SABLIER_V2_MERKLE_STREAMER_FACTORY]: [
-        "0x1A272b596b10f02931480BC7a3617db4a8d154E3",
-        18_811_605,
       ],
     },
   }),
@@ -268,7 +268,7 @@ export const testnets: Sablier.Deployment.LockupV1[] = [
       ],
     },
   }),
-  get(chains.ethereumSepolia.id, {
+  get(chains.sepolia.id, {
     core: {
       [manifest.core.SABLIER_V2_COMPTROLLER]: "0x2006d43E65e66C5FF20254836E63947FA8bAaD68",
       [manifest.core.SABLIER_V2_LOCKUP_DYNAMIC]: ["0xc9940AD8F43aAD8e8f33A4D5dbBf0a8F7FF4429A", 4_917_331],

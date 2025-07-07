@@ -25,6 +25,18 @@ function get(
  * @description Mainnet deployments for Lockup v1.2
  */
 export const mainnets: Sablier.Deployment.LockupV1[] = [
+  get(chains.mainnet.id, {
+    core: {
+      [manifest.core.SABLIER_V2_LOCKUP_DYNAMIC]: ["0x9DeaBf7815b42Bf4E9a03EEc35a486fF74ee7459", 20_240_097],
+      [manifest.core.SABLIER_V2_LOCKUP_LINEAR]: ["0x3962f6585946823440d274aD7C719B02b49DE51E", 20_240_097],
+      [manifest.core.SABLIER_V2_LOCKUP_TRANCHED]: ["0xf86B359035208e4529686A1825F2D5BeE38c28A8", 20_240_098],
+      [manifest.core.SABLIER_V2_NFT_DESCRIPTOR]: "0xAE32Ca14d85311A506Bb852D49bbfB315466bA26",
+    },
+    periphery: {
+      [manifest.periphery.SABLIER_V2_BATCH_LOCKUP]: "0xB5Ec9706C3Be9d22326D208f491E5DEef7C8d9f0",
+      [manifest.periphery.SABLIER_V2_MERKLE_LOCKUP_FACTORY]: ["0xF35aB407CF28012Ba57CAF5ee2f6d6E4420253bc", 20_240_153],
+    },
+  }),
   get(chains.abstract.id, {
     core: {
       [manifest.core.SABLIER_V2_LOCKUP_DYNAMIC]: ["0xc69c06c030E825EDE13F1486078Aa9a2E2AAffaf", 72_821],
@@ -122,18 +134,6 @@ export const mainnets: Sablier.Deployment.LockupV1[] = [
     periphery: {
       [manifest.periphery.SABLIER_V2_BATCH_LOCKUP]: "0xdE21BBFf718723E9069d8528d6Bb26c2971D58a7",
       [manifest.periphery.SABLIER_V2_MERKLE_LOCKUP_FACTORY]: ["0x074CC814a8114126c505F5eecFC82A400B39cA03", 18_996_240],
-    },
-  }),
-  get(chains.ethereum.id, {
-    core: {
-      [manifest.core.SABLIER_V2_LOCKUP_DYNAMIC]: ["0x9DeaBf7815b42Bf4E9a03EEc35a486fF74ee7459", 20_240_097],
-      [manifest.core.SABLIER_V2_LOCKUP_LINEAR]: ["0x3962f6585946823440d274aD7C719B02b49DE51E", 20_240_097],
-      [manifest.core.SABLIER_V2_LOCKUP_TRANCHED]: ["0xf86B359035208e4529686A1825F2D5BeE38c28A8", 20_240_098],
-      [manifest.core.SABLIER_V2_NFT_DESCRIPTOR]: "0xAE32Ca14d85311A506Bb852D49bbfB315466bA26",
-    },
-    periphery: {
-      [manifest.periphery.SABLIER_V2_BATCH_LOCKUP]: "0xB5Ec9706C3Be9d22326D208f491E5DEef7C8d9f0",
-      [manifest.periphery.SABLIER_V2_MERKLE_LOCKUP_FACTORY]: ["0xF35aB407CF28012Ba57CAF5ee2f6d6E4420253bc", 20_240_153],
     },
   }),
   get(chains.gnosis.id, {
@@ -349,18 +349,6 @@ export const testnets: Sablier.Deployment.LockupV1[] = [
       [manifest.periphery.SABLIER_V2_MERKLE_LOCKUP_FACTORY]: ["0xb9fCF1f73DD941Dd1C589fCf8545E60133EE5eC2", 8_184_439],
     },
   }),
-  get(chains.ethereumSepolia.id, {
-    core: {
-      [manifest.core.SABLIER_V2_LOCKUP_DYNAMIC]: ["0x73BB6dD3f5828d60F8b3dBc8798EB10fbA2c5636", 6_239_030],
-      [manifest.core.SABLIER_V2_LOCKUP_LINEAR]: ["0x3E435560fd0a03ddF70694b35b673C25c65aBB6C", 6_239_030],
-      [manifest.core.SABLIER_V2_LOCKUP_TRANCHED]: ["0x3a1beA13A8C24c0EA2b8fAE91E4b2762A59D7aF5", 6_239_031],
-      [manifest.core.SABLIER_V2_NFT_DESCRIPTOR]: "0x56F2f7f4d15d1A9FF9d3782b6F6bB8f6fd690D33",
-    },
-    periphery: {
-      [manifest.periphery.SABLIER_V2_BATCH_LOCKUP]: "0x04A9c14b7a000640419aD5515Db4eF4172C00E31",
-      [manifest.periphery.SABLIER_V2_MERKLE_LOCKUP_FACTORY]: ["0x56E9180A8d2C35c99F2F8a1A5Ab8aBe79E876E8c", 6_240_754],
-    },
-  }),
   get(chains.lineaSepolia.id, {
     core: {
       [manifest.core.SABLIER_V2_LOCKUP_DYNAMIC]: ["0x95D29708be647BDD8dA0bdF82B84eB5f42d45918", 3_241_482],
@@ -407,6 +395,18 @@ export const testnets: Sablier.Deployment.LockupV1[] = [
     periphery: {
       [manifest.periphery.SABLIER_V2_BATCH_LOCKUP]: "0xd9dD971D4800100aED0BfF3535aB116D4Be5c420",
       [manifest.periphery.SABLIER_V2_MERKLE_LOCKUP_FACTORY]: ["0x6CBe6e298A9354306e6ee65f63FF85CFA7062a39", 14_622_635],
+    },
+  }),
+  get(chains.sepolia.id, {
+    core: {
+      [manifest.core.SABLIER_V2_LOCKUP_DYNAMIC]: ["0x73BB6dD3f5828d60F8b3dBc8798EB10fbA2c5636", 6_239_030],
+      [manifest.core.SABLIER_V2_LOCKUP_LINEAR]: ["0x3E435560fd0a03ddF70694b35b673C25c65aBB6C", 6_239_030],
+      [manifest.core.SABLIER_V2_LOCKUP_TRANCHED]: ["0x3a1beA13A8C24c0EA2b8fAE91E4b2762A59D7aF5", 6_239_031],
+      [manifest.core.SABLIER_V2_NFT_DESCRIPTOR]: "0x56F2f7f4d15d1A9FF9d3782b6F6bB8f6fd690D33",
+    },
+    periphery: {
+      [manifest.periphery.SABLIER_V2_BATCH_LOCKUP]: "0x04A9c14b7a000640419aD5515Db4eF4172C00E31",
+      [manifest.periphery.SABLIER_V2_MERKLE_LOCKUP_FACTORY]: ["0x56E9180A8d2C35c99F2F8a1A5Ab8aBe79E876E8c", 6_240_754],
     },
   }),
   get(chains.superseedSepolia.id, {

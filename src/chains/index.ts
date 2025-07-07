@@ -8,4 +8,4 @@
  * @see https://docs.sablier.com/concepts/chains
  * @see https://chainlist.org
  */
-export * from "./data";
+export * as chains from "./data";

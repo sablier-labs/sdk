@@ -1,18 +1,20 @@
-import { mainnets, testnets } from "@src/chains";
+import { sablier } from "@src";
 import { Command } from "commander";
 import _ from "lodash";
 
 export const chainCmd = new Command("chains").description("List all supported chain slugs").action(() => {
   console.log("🌐 Mainnets:");
   console.log(
-    _.values(mainnets)
+    sablier.chains
+      .getMainnets()
       .map((c) => `• ${c.slug}`)
       .join("\n"),
   );
 
   console.log("\n🧪 Testnets:");
   console.log(
-    _.values(testnets)
+    sablier.chains
+      .getTestnets()
       .map((c) => `• ${c.slug}`)
       .join("\n"),
   );

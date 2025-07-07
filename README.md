@@ -67,7 +67,7 @@ Our chain types extend upon Viem's [Chain](https://viem.sh/docs/chains/introduct
 import { chains } from "sablier";
 
 // Get by name
-const ethereum = chains.ethereum;
+const mainnet = chains.mainnet;
 
 // Get chain by ID
 const arbitrum = chains.queries.get({ chainId: 42161 });

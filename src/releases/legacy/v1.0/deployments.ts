@@ -16,7 +16,7 @@ const contractMap: Sablier.ContractMap = {
 export const mainnets: Sablier.Deployment[] = [
   resolvers.deployment.standard({
     aliasMap,
-    chainId: chains.ethereum.id,
+    chainId: chains.mainnet.id,
     contractMap,
     protocol: Protocol.Legacy,
     version: "v1.0",
