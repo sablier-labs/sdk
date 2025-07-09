@@ -12,6 +12,7 @@ import {
   blast as _blast,
   blastSepolia as _blastSepolia,
   bsc as _bsc,
+  chiliz as _chiliz,
   coreDao as _coreDao,
   form as _form,
   gnosis as _gnosis,
@@ -38,7 +39,6 @@ import {
   taiko as _taiko,
   taikoHekla as _taikoHekla,
   unichain as _unichain,
-  chiliz as _viemChiliz,
   morph as _viemMorph,
   xdc as _xdc,
   zksync as _zksync,
@@ -113,6 +113,15 @@ type ConfigBool = { [chainId: number]: boolean };
 type ConfigString = { [chainId: number]: string };
 
 const config = {
+  names: {
+    [_arbitrum.id]: "Arbitrum",
+    [_bsc.id]: "BNB Chain",
+    [_chiliz.id]: "Chiliz",
+    [_form.id]: "Form",
+    [_lightlinkPhoenix.id]: "Lightlink",
+    [_mode.id]: "Mode",
+    [_xdc.id]: "XDC",
+  } as ConfigString,
   slugs: {
     [_zksyncSepoliaTestnet.id]: "zksync-sepolia",
   } as ConfigString,
@@ -158,6 +167,7 @@ function define(slug: string, chain: ViemChain): Sablier.Chain {
     isSupportedByUI,
     isTestnet,
     isZK: Boolean(config.zk[chain.id]),
+    name: config.names[chain.id] ?? chain.name,
     rpc: {
       alchemy: alchemyRPCs[chain.id],
       default: defaultRPC,
@@ -214,9 +224,9 @@ export const zksyncSepolia = define("zksync-sepolia", _zksyncSepoliaTestnet);
 export const chiliz: Sablier.Chain = define(
   "chiliz",
   viemDefine({
-    ..._viemChiliz,
+    ..._chiliz,
     contracts: {
-      ..._viemChiliz.contracts,
+      ..._chiliz.contracts,
       multicall3: {
         address: "0xcA11bde05977b3631167028862bE2a173976CA11",
         blockCreated: 8_080_847,

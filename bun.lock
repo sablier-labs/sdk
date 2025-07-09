@@ -9,7 +9,7 @@
       },
       "devDependencies": {
         "@biomejs/biome": "2.0.0-beta.5",
-        "@sablier/devkit": "github:sablier-labs/devkit",
+        "@sablier/devkit": "github:sablier-labs/devkit#main",
         "@types/fs-extra": "^11.0",
         "@types/lodash": "^4.17",
         "@types/node": "^22.14",
@@ -166,7 +166,7 @@
 
     "@rollup/rollup-win32-x64-msvc": ["@rollup/rollup-win32-x64-msvc@4.40.0", "", { "os": "win32", "cpu": "x64" }, "sha512-lpPE1cLfP5oPzVjKMx10pgBmKELQnFJXHgvtHCtuJWOv8MxqdEIMNtgHgBFf7Ea2/7EuVwa9fodWUfXAlXZLZQ=="],
 
-    "@sablier/devkit": ["@sablier/devkit@github:sablier-labs/devkit#f4773d0", {}, "sablier-labs-devkit-f4773d0"],
+    "@sablier/devkit": ["@sablier/devkit@github:sablier-labs/devkit#bf484ce", {}, "sablier-labs-devkit-bf484ce"],
 
     "@scure/base": ["@scure/base@1.2.5", "", {}, "sha512-9rE6EOVeIQzt5TSu4v+K523F8u6DhBsoZWPGKlnCshhlDhy0kJzUX4V+tr2dWmzF1GdekvThABoEQBGBQI7xZw=="],
 

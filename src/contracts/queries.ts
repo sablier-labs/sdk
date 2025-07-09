@@ -69,7 +69,7 @@ export const contractsQueries = {
       const releases = releasesQueries.getAll({ protocol });
       let deps = _.flatMap(releases, (r) => r.deployments);
       if (chainId) {
-        deps = _.filter(deps, { chainId });
+        deps = _.filter(deps, (d) => d.chainId === chainId);
         if (deps.length === 0) return undefined;
       }
       return _.flatMap(deps, (d) => d.contracts);
@@ -79,7 +79,7 @@ export const contractsQueries = {
     if (release) {
       let deps = release.deployments;
       if (chainId) {
-        deps = _.filter(deps, { chainId });
+        deps = _.filter(deps, (d) => d.chainId === chainId);
         if (deps.length === 0) return undefined;
       }
       return _.flatMap(deps, (d) => d.contracts);
@@ -88,7 +88,7 @@ export const contractsQueries = {
     // by chain id
     if (chainId) {
       const deps = _.flatMap(releasesQueries.getAll(), (r) => r.deployments);
-      const filtered = _.filter(deps, { chainId });
+      const filtered = _.filter(deps, (d) => d.chainId === chainId);
       return _.flatMap(filtered, (d) => d.contracts);
     }
 

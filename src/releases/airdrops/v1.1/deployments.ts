@@ -9,7 +9,7 @@ import manifest from "./manifest";
 function filter(deployments: Sablier.Deployment.LockupV1[]): Sablier.Deployment.Standard[] {
   return _.filter(deployments, (d) => {
     const peripheryContracts = d.periphery;
-    return _.some(peripheryContracts, { name: manifest.SABLIER_V2_MERKLE_STREAMER_FACTORY });
+    return _.some(peripheryContracts, (c) => c.name === manifest.SABLIER_V2_MERKLE_STREAMER_FACTORY);
   });
 }
 

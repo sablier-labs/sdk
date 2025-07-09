@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.0.0-beta.5",
-    "@sablier/devkit": "github:sablier-labs/devkit",
+    "@sablier/devkit": "github:sablier-labs/devkit#main",
     "@types/fs-extra": "^11.0",
     "@types/lodash": "^4.17",
     "@types/node": "^22.14",
