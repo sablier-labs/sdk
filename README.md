@@ -33,14 +33,10 @@ yarn add sablier
 
 ## Protocol Overview 🎯
 
-Sablier supports multiple protocols across versions:
-
-### Current Protocols
-
 - **💧 Sablier Airdrops** - Merkle-based airdrop distributions with an optional vesting module
 - **🔒 Sablier Lockup** - Time-locked token vesting with cliffs
 - **🔄 Sablier Flow** - Token streaming with continuous payments
-- **⚡ Sablier Legacy** - Old release similar to Lockup, deployed between 2019-2021
+- **📟 Sablier Legacy** - Old release similar to Lockup, deployed between 2019-2021
 
 ### Supported Chains
 
