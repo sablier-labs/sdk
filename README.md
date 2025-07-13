@@ -60,16 +60,16 @@ The addresses are provided in this package, but you can also view the deployment
 Our chain types extend upon Viem's [Chain](https://viem.sh/docs/chains/introduction).
 
 ```typescript
-import { chains } from "sablier";
+import { chains, sablier } from "sablier";
 
 // Get by name
 const mainnet = chains.mainnet;
 
 // Get chain by ID
-const arbitrum = chains.queries.get({ chainId: 42161 });
+const arbitrum = sablier.chains.queries.get({ chainId: 42161 });
 
 // Get chain by slug
-const polygon = chains.queries.get({ slug: "polygon" });
+const polygon = sablier.chains.queries.get({ slug: "polygon" });
 
 // Check if chain supports Sablier UI
 if (arbitrum.isSupportedByUI) {
@@ -97,7 +97,7 @@ import { releases, sablier } from "sablier";
 // Get specific releases
 const airdropsV1_3 = releases.airdrops["v1.3"];
 const lockupV2_0 = releases.lockup["v2.0"];
-const flowV1_1 = releases.flow["v1.1"]";
+const flowV1_1 = releases.flow["v1.1"];
 
 // Get all Lockup releases
 const allLockups = sablier.releases.getAll({ protocol: "lockup" });
