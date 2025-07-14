@@ -18,7 +18,7 @@ export function findContract(data: StandardBroadcast, contractName: string): Bas
 }
 
 export function findZKContract(zkData: ZKBroadcast[], contractName: string): ZKBroadcast | null {
-  return _.find(zkData, { contractName }) ?? null;
+  return _.find(zkData, (d) => d.contractName === contractName) ?? null;
 }
 
 /**
