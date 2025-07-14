@@ -15,7 +15,7 @@ alias b := build
 
 # Clean the dist directory
 clean:
-    bunx rimraf dist
+    bunx del-cli dist
 
 # Run print CLI commands.
 [group("print")]

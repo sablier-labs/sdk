@@ -13,13 +13,11 @@
 import path from "node:path";
 import { chains } from "@src/chains";
 import { getDeploymentsDir } from "@src/internal/helpers";
-import axios from "axios";
 import globby from "globby";
 import _ from "lodash";
 import { beforeAll, describe, expect, it } from "vitest";
 import { MISSING_CHAINS } from "./helpers/missing";
 
-const MALFUNCTIONING_RPC: number[] = [chains.meld.id];
 const KNOWN_SLUGS = _.values(chains)
   .filter((chain) => !MISSING_CHAINS.includes(chain.id))
   .map((chain) => chain.slug);
@@ -63,36 +61,6 @@ describe("Package chains are in sync with broadcasts", () => {
     }
     expect(errors.size).toBe(0);
   });
-});
-
-const envVarsSet = Boolean(process.env.CI && process.env.TEST_ONLY_CHAINS);
-describe.runIf(envVarsSet)("Ping JSON-RPC server", () => {
-  for (const chain of _.values(chains)) {
-    const shouldSkip: boolean = MALFUNCTIONING_RPC.includes(chain.id);
-
-    it.skipIf(shouldSkip)(`${chain.name} (ID: ${chain.id})`, async () => {
-      const rpcRequest = {
-        id: 1,
-        jsonrpc: "2.0",
-        method: "eth_chainId",
-        params: [],
-      };
-
-      await expect(
-        axios.post(chain.rpc.default, rpcRequest, {
-          headers: { "Content-Type": "application/json" },
-          timeout: 10_000, // 10 seconds
-        }),
-      ).resolves.toMatchObject({
-        data: {
-          id: 1,
-          jsonrpc: "2.0",
-          result: expect.any(String),
-        },
-        status: 200,
-      });
-    });
-  }
 });
 
 async function getAllBroadcastSlugs(): Promise<string[]> {

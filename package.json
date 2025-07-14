@@ -7,8 +7,8 @@
     "url": "https://sablier.com"
   },
   "dependencies": {
-    "lodash": "^4.17",
-    "viem": "^2.31"
+    "lodash": "^4.17.21",
+    "viem": "^2.31.7"
   },
   "peerDependencies": {
     "viem": "^2.31"
@@ -16,22 +16,21 @@
   "devDependencies": {
     "@biomejs/biome": "2.1.1",
     "@sablier/devkit": "github:sablier-labs/devkit#main",
-    "@types/fs-extra": "^11.0",
-    "@types/lodash": "^4.17",
-    "@types/node": "^22.14",
-    "@vitest/ui": "^3.1",
-    "axios": "^1.8",
+    "@types/fs-extra": "^11.0.4",
+    "@types/lodash": "^4.17.20",
+    "@types/node": "^22.16.3",
+    "@vitest/ui": "^3.2.4",
+    "axios": "^1.10.0",
     "commander": "^14.0.0",
-    "fs-extra": "^11.3",
+    "fs-extra": "^11.3.0",
     "globby": "11",
-    "husky": "^9.1",
-    "lint-staged": "^15.5",
-    "prettier": "^3.5",
-    "rimraf": "^6.0.1",
-    "tsc-alias": "^1.8",
-    "typescript": "^5.8",
-    "vite-tsconfig-paths": "^5.1",
-    "vitest": "^3.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.2",
+    "prettier": "^3.6.2",
+    "tsc-alias": "^1.8.16",
+    "typescript": "^5.8.3",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.2.4",
     "winston": "^3.17"
   },
   "engines": {
@@ -69,7 +68,7 @@
     "url": "git+https://github.com/sablier-labs/sdk.git"
   },
   "scripts": {
-    "build": "bun rimraf dist && bun tsc -p tsconfig.build.json && bun tsc-alias -p tsconfig.build.json",
+    "build": "bunx del-cli dist && bun tsc -p tsconfig.build.json && bun tsc-alias -p tsconfig.build.json",
     "prepack": "bun install --frozen-lockfile && bun run build"
   },
   "types": "./dist/index.d.ts"

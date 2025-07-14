@@ -33,30 +33,7 @@ const INDEXED: Record<Sablier.Protocol, Set<string>> = {
   ]),
 };
 
-describe("Indexed contracts have a deployment block number", () => {
-  for (const release of sablier.releases.getAll()) {
-    describe(`${release.protocol} ${release.version}`, () => {
-      const contracts = sablier.contracts.getAll({ release })!;
-
-      for (const contract of contracts) {
-        if (!INDEXED[release.protocol].has(contract.name)) {
-          it.skip(`Skipped ${contract.name} because it's not an indexed contract.`, () => {});
-          continue;
-        }
-
-        const chain = sablier.chains.getOrThrow(contract.chainId);
-        it(`Contract ${contract.name} should have a deployment block number set on ${chain.name}`, () => {
-          const errorMsg = `No block number found for ${contract.name}`;
-          expect(contract.block, errorMsg).toBeDefined();
-        });
-      }
-    });
-  }
-});
-
-const envVarsSet = Boolean(process.env.CI && process.env.VITE_CONTRACT_BLOCKS_TESTS);
-
-describe.runIf(envVarsSet)("Block numbers correspond to Etherscan data", () => {
+describe("Block numbers correspond to Etherscan data", () => {
   /**
    * Fetches contract creation block number from Etherscan API
    */

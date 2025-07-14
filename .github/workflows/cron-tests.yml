@@ -23,8 +23,7 @@ jobs:
 
       - name: "Run the tests"
         env:
-          VITE_CHAINS_TESTS: true
-          VITE_CONTRACT_BLOCKS_TESTS: true
+          VITE_CRON_TESTS: true
           VITE_ETHERSCAN_API_KEY: ${{ secrets.VITE_ETHERSCAN_API_KEY }}
         run: "just test"
 
