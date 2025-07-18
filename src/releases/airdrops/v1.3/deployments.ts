@@ -55,6 +55,9 @@ export const mainnets: Sablier.Deployment[] = [
   get(chains.gnosis.id, {
     [manifest.SABLIER_MERKLE_FACTORY]: ["0x64ba580946985B4b87f4D9f7b6598C2156026775", 382_621_99],
   }),
+  get(chains.hyperevm.id, {
+    [manifest.SABLIER_MERKLE_FACTORY]: ["0xe0548364372f3b842e6f89e2DAC2E53b5eA0a35b", 8665370],
+  }),
   get(chains.lightlink.id, {
     [manifest.SABLIER_MERKLE_FACTORY]: ["0xC0107f368FBB50075d2190549055d9E6bf75c5c9", 125_554_946],
   }),

@@ -235,6 +235,37 @@ export const chiliz: Sablier.Chain = define(
   }),
 );
 
+export const hyperevm: Sablier.Chain = define(
+  "hyperevm",
+  viemDefine({
+    blockExplorers: {
+      default: { name: "Explorer", url: "https://hyperevmscan.io/" },
+    },
+    contracts: {
+      multicall3: {
+        address: "0xcA11bde05977b3631167028862bE2a173976CA11",
+        blockCreated: 13051,
+      },
+    },
+    id: 999,
+    name: "HyperEVM",
+    nativeCurrency: {
+      decimals: 18,
+      name: "Hyperliquid",
+      symbol: "HYPE",
+    },
+    rpc: {
+      public: "https://rpc.hyperliquid.xyz/evm",
+    },
+    rpcUrls: {
+      default: {
+        http: ["https://rpc.hyperliquid.xyz/evm"],
+      },
+    },
+    testnet: false,
+  }),
+);
+
 export const morph: Sablier.Chain = define(
   "morph",
   viemDefine({
