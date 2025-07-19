@@ -12,13 +12,14 @@
 
 ## Compiler Settings
 
-| Chains  | Tool    | EVM      | Optimizer Runs | Solc Version | Via IR |
-| :------ | :------ | :------- | :------------- | :----------- | :----- |
-| Default | Foundry | Shanghai | 10000          | 0.8.26       | true   |
-| IoTeX   | Hardhat | Paris    | 10000          | 0.8.20       | true   |
-| Linea   | Foundry | Paris    | 10000          | 0.8.26       | true   |
-| Tangle  | Hardhat | Paris    | 10000          | 0.8.20       | true   |
-| Ultra   | Hardhat | Paris    | 10000          | 0.8.26       | true   |
+| Chains   | Tool    | EVM      | Optimizer Runs | Solc Version | Via IR |
+| :------- | :------ | :------- | :------------- | :----------- | :----- |
+| Default  | Foundry | Shanghai | 10000          | 0.8.26       | true   |
+| HyperEVM | Foundry | Paris    | 10000          | 0.8.22       | true   |
+| IoTeX    | Hardhat | Paris    | 10000          | 0.8.20       | true   |
+| Linea    | Foundry | Paris    | 10000          | 0.8.26       | true   |
+| Tangle   | Hardhat | Paris    | 10000          | 0.8.20       | true   |
+| Ultra    | Hardhat | Paris    | 10000          | 0.8.26       | true   |
 
 For deployments on the zkSync based chains, the following settings were used:
 
@@ -46,6 +47,7 @@ opcode:
 | Chiliz          | No Salt                       |
 | Form            | ChainID 478, Version 1.1.0    |
 | Gnosis          | ChainID 100, Version 1.1.0    |
+| HyperEVM        | ChainID 999, Version 1.1.0    |
 | IoTex           | No Salt                       |
 | Linea           | ChainID 59144, Version 1.1.0  |
 | LightLink       | ChainID 1890, Version 1.1.0   |
