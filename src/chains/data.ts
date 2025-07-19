@@ -119,7 +119,10 @@ const config = {
     [_chiliz.id]: "Chiliz",
     [_form.id]: "Form",
     [_lightlinkPhoenix.id]: "Lightlink",
+    [_lineaSepolia.id]: "Linea Sepolia",
     [_mode.id]: "Mode",
+    [_taiko.id]: "Taiko",
+    [_taikoHekla.id]: "Taiko Hekla",
     [_xdc.id]: "XDC",
   } as ConfigString,
   slugs: {
