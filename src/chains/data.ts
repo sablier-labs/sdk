@@ -235,11 +235,15 @@ export const chiliz: Sablier.Chain = define(
   }),
 );
 
+/**
+ * HyperEVM is using another chain's ID (Wanchain Testnet). Until they change this, we will have to define it like this.
+ * @see https://github.com/wevm/viem/pull/3390
+ */
 export const hyperevm: Sablier.Chain = define(
   "hyperevm",
   viemDefine({
     blockExplorers: {
-      default: { name: "Explorer", url: "https://hyperevmscan.io/" },
+      default: { name: "Explorer", url: "https://hyperevmscan.io" },
     },
     contracts: {
       multicall3: {
