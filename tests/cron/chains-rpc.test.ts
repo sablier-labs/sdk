@@ -18,7 +18,7 @@ describe("Ping JSON-RPC server", () => {
       };
 
       await expect(
-        axios.post(chain.rpc.default, rpcRequest, {
+        axios.post(chain.rpc.defaults[0], rpcRequest, {
           headers: { "Content-Type": "application/json" },
           timeout: 10_000, // 10 seconds
         }),

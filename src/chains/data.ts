@@ -154,8 +154,8 @@ function define(slug: string, chain: ViemChain): Sablier.Chain {
   if (!chain.blockExplorers) {
     throw new Error(`Chain ${chain.name} has no block explorers`);
   }
-  const defaultRPC = chain.rpcUrls.default.http[0];
-  if (!defaultRPC) {
+  const defaultRPCs = chain.rpcUrls.default.http;
+  if (!defaultRPCs) {
     throw new Error(`Chain ${chain.name} has no default RPC`);
   }
 
@@ -173,7 +173,7 @@ function define(slug: string, chain: ViemChain): Sablier.Chain {
     name: config.names[chain.id] ?? chain.name,
     rpc: {
       alchemy: alchemyRPCs[chain.id],
-      default: defaultRPC,
+      defaults: defaultRPCs as string[],
       infura: infuraRPCs[chain.id],
     },
     slug,
