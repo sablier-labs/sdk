@@ -212,7 +212,6 @@ export const optimismSepolia = define("optimism-sepolia", _optimismSepolia);
 export const polygon = define("polygon", _polygon);
 export const ronin = define("ronin", _ronin);
 export const scroll = define("scroll", _scroll);
-export const sei = define("sei", _sei);
 export const sepolia = define("sepolia", _sepolia);
 export const sophon = define("sophon", _sophon);
 export const superseed = define("superseed", _superseed);
@@ -233,6 +232,11 @@ export const chiliz: Sablier.Chain = define(
       multicall3: {
         address: "0xcA11bde05977b3631167028862bE2a173976CA11",
         blockCreated: 8_080_847,
+      },
+    },
+    rpcUrls: {
+      default: {
+        http: ["https://rpc.ankr.com/chiliz", "https://chiliz-rpc.publicnode.com", "https://rpc.chiliz.com"],
       },
     },
   }),
@@ -282,6 +286,18 @@ export const morph: Sablier.Chain = define(
       multicall3: {
         address: "0xcA11bde05977b3631167028862bE2a173976CA11",
         blockCreated: 3_654_913,
+      },
+    },
+  }),
+);
+
+export const sei: Sablier.Chain = define(
+  "sei",
+  viemDefine({
+    ..._sei,
+    rpcUrls: {
+      default: {
+        http: ["https://evm-rpc.sei-apis.com", "https://sei.drpc.org"],
       },
     },
   }),
