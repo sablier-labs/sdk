@@ -25,6 +25,8 @@ import {
   mode as _mode,
   modeTestnet as _modeTestnet,
   monadTestnet as _monadTestnet,
+  morph as _morph,
+  morphHolesky as _morphHolesky,
   optimism as _optimism,
   optimismSepolia as _optimismSepolia,
   polygon as _polygon,
@@ -38,8 +40,6 @@ import {
   taiko as _taiko,
   taikoHekla as _taikoHekla,
   unichain as _unichain,
-  morph as _morph,
-  morphHolesky as _morphHolesky,
   xdc as _xdc,
   zksync as _zksync,
   zksyncSepoliaTestnet as _zksyncSepoliaTestnet,
@@ -194,6 +194,7 @@ export const berachain = define("berachain", _berachain);
 export const blast = define("blast", _blast);
 export const blastSepolia = define("blast-sepolia", _blastSepolia);
 export const bsc = define("bsc", _bsc);
+export const chiliz = define("chiliz", _chiliz);
 export const coreDao = define("core-dao", _coreDao);
 export const form = define("form", _form);
 export const gnosis = define("gnosis", _gnosis);
@@ -206,6 +207,7 @@ export const meld = define("meld", _meld);
 export const mode = define("mode", _mode);
 export const modeTestnet = define("mode-testnet", _modeTestnet);
 export const monadTestnet = define("monad-testnet", _monadTestnet);
+export const morph = define("morph", _morph);
 export const morphHolesky = define("morph-holesky", _morphHolesky);
 export const optimism = define("optimism", _optimism);
 export const optimismSepolia = define("optimism-sepolia", _optimismSepolia);
@@ -223,8 +225,6 @@ export const xdc = define("xdc", _xdc);
 export const zksync = define("zksync", _zksync);
 export const zksyncSepolia = define("zksync-sepolia", _zksyncSepoliaTestnet);
 
-export const chiliz = define("chiliz", _chiliz);
-
 /**
  * HyperEVM is using another chain's ID (Wanchain Testnet). Until they change this, we will have to define it like this.
  * @see https://github.com/wevm/viem/pull/3390
@@ -238,7 +238,7 @@ export const hyperevm: Sablier.Chain = define(
     contracts: {
       multicall3: {
         address: "0xcA11bde05977b3631167028862bE2a173976CA11",
-        blockCreated: 13051,
+        blockCreated: 13_051,
       },
     },
     id: 999,
@@ -259,8 +259,6 @@ export const hyperevm: Sablier.Chain = define(
     testnet: false,
   }),
 );
-
-export const morph = define("morph", _morph);
 
 export const sei: Sablier.Chain = define(
   "sei",
@@ -283,7 +281,7 @@ export const tangle: Sablier.Chain = define(
     contracts: {
       multicall3: {
         address: "0xd595D34ed96b253E7c7a934a7624F330a8411953",
-        blockCreated: 2790914,
+        blockCreated: 2_790_914,
       },
     },
     id: 5845,
