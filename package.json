@@ -8,10 +8,10 @@
   },
   "dependencies": {
     "lodash": "^4.17.21",
-    "viem": "^2.31.7"
+    "viem": "^2.33.3"
   },
   "peerDependencies": {
-    "viem": "^2.31"
+    "viem": "^2.32"
   },
   "devDependencies": {
     "@biomejs/biome": "2.1.1",

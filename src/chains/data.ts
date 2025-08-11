@@ -25,7 +25,6 @@ import {
   mode as _mode,
   modeTestnet as _modeTestnet,
   monadTestnet as _monadTestnet,
-  morphHolesky as _morphHolesky,
   optimism as _optimism,
   optimismSepolia as _optimismSepolia,
   polygon as _polygon,
@@ -39,7 +38,8 @@ import {
   taiko as _taiko,
   taikoHekla as _taikoHekla,
   unichain as _unichain,
-  morph as _viemMorph,
+  morph as _morph,
+  morphHolesky as _morphHolesky,
   xdc as _xdc,
   zksync as _zksync,
   zksyncSepoliaTestnet as _zksyncSepoliaTestnet,
@@ -223,24 +223,7 @@ export const xdc = define("xdc", _xdc);
 export const zksync = define("zksync", _zksync);
 export const zksyncSepolia = define("zksync-sepolia", _zksyncSepoliaTestnet);
 
-export const chiliz: Sablier.Chain = define(
-  "chiliz",
-  viemDefine({
-    ..._chiliz,
-    contracts: {
-      ..._chiliz.contracts,
-      multicall3: {
-        address: "0xcA11bde05977b3631167028862bE2a173976CA11",
-        blockCreated: 8_080_847,
-      },
-    },
-    rpcUrls: {
-      default: {
-        http: ["https://rpc.ankr.com/chiliz", "https://chiliz-rpc.publicnode.com", "https://rpc.chiliz.com"],
-      },
-    },
-  }),
-);
+export const chiliz = define("chiliz", _chiliz);
 
 /**
  * HyperEVM is using another chain's ID (Wanchain Testnet). Until they change this, we will have to define it like this.
@@ -277,19 +260,7 @@ export const hyperevm: Sablier.Chain = define(
   }),
 );
 
-export const morph: Sablier.Chain = define(
-  "morph",
-  viemDefine({
-    ..._viemMorph,
-    contracts: {
-      ..._viemMorph.contracts,
-      multicall3: {
-        address: "0xcA11bde05977b3631167028862bE2a173976CA11",
-        blockCreated: 3_654_913,
-      },
-    },
-  }),
-);
+export const morph = define("morph", _morph);
 
 export const sei: Sablier.Chain = define(
   "sei",
