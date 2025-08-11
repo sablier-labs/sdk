@@ -3,8 +3,8 @@
 ### Prerequisites
 
 - [Node.js](https://nodejs.org) (v20+)
-- [Just](https://github.com/casey/just) (command runner)
 - [Bun](https://bun.sh) (package manager)
+- [Just](https://github.com/casey/just) (command runner)
 - [Ni](https://github.com/antfu-collective/ni) (package manager resolver)
 
 ### Setup
@@ -12,7 +12,7 @@
 ```bash
 git clone https://github.com/sablier-labs/sdk.git sablier-sdk
 cd sablier-sdk
-just install
+bun install
 ```
 
 ### Available Commands

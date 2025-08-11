@@ -147,7 +147,7 @@ We welcome contributions!
 
 - 🐛 [Bug reports](https://github.com/sablier-labs/sdk/issues/new)
 - 💬 [Discussions](https://github.com/sablier-labs/sdk/discussions/new)
-- 💬 [Discord](https://discord.gg/bSwRCwWRsT)
+- 💬 [Discord](https://discord.sablier.com)
 
 For guidance on how to make PRs, see the [CONTRIBUTING](./CONTRIBUTING.md) guide.
 

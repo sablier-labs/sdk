@@ -45,7 +45,7 @@ alias t := test
 test-watch:
     bun vitest --silent
 
-# Build TypeScript
+# Build with TypeScript CLI
 tsc-build:
     bun tsc -p tsconfig.build.json
     bun tsc-alias -p tsconfig.build.json
