@@ -42,7 +42,7 @@ async function printVersions(): Promise<void> {
       const parseVersion = (v: string) => {
         const match = v.match(/v(\d+)\.(\d+)/);
         if (!match) return [0, 0];
-        return [parseInt(match[1]), parseInt(match[2])];
+        return [_.parseInt(match[1]), _.parseInt(match[2])];
       };
 
       const [aMajor, aMinor] = parseVersion(a.version);

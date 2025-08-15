@@ -10,7 +10,7 @@ export type BasicContract = {
   name: string;
 };
 
-export type ContractReturn = {
+type ContractReturn = {
   internal_type: string;
   value: `0x${string}`;
 };

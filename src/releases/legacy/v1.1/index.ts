@@ -7,7 +7,7 @@ import manifest from "./manifest";
 
 const sortedMainnets = sortDeployments(mainnets);
 
-export const deployments: Sablier.Deployment[] = [...sortedMainnets];
+const deployments: Sablier.Deployment[] = [...sortedMainnets];
 
 export const release = resolvers.release.standard({
   deployments,

@@ -52,7 +52,3 @@ export function checkBroadcast(release: Sablier.Release, chain: Sablier.Chain, i
 export function getDeploymentsDir(): string {
   return DEPLOYMENTS_DIR;
 }
-
-export function getRootDir(): string {
-  return ROOT_DIR;
-}

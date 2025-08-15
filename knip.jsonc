@@ -1,0 +1,6 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema-jsonc.json",
+  "entry": ["cli/index.ts", "src/index.ts"],
+  "ignoreDependencies": ["husky"],
+  "project": ["**/*.{js,ts}"]
+}

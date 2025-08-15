@@ -5,7 +5,7 @@ import aliases from "./aliases";
 import { mainnets, testnets } from "./deployments";
 import manifest from "./manifest";
 
-export const deployments: Sablier.Deployment[] = [...mainnets, ...testnets];
+const deployments: Sablier.Deployment[] = [...mainnets, ...testnets];
 
 export const release = resolvers.release.standard({
   aliases,

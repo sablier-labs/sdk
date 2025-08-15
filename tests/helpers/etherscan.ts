@@ -6,14 +6,6 @@ export const ETHERSCAN_CHAINS: Set<number> = new Set([
   33139, 33111, 480, 4801, 50104, 531050104, 146, 57054, 130, 1301, 2741, 11124, 80094, 80069, 1923, 1924, 10143,
 ]);
 
-export function getEtherscanApiKey(): string {
-  const key = process.env.VITE_ETHERSCAN_API_KEY;
-  if (!key) {
-    throw new Error("VITE_ETHERSCAN_API_KEY is not set");
-  }
-  return key;
-}
-
 /**
  * Builds Etherscan API URL with clean parameter handling
  * @see https://docs.etherscan.io/api-endpoints/contracts
@@ -31,4 +23,12 @@ export function getEtherscanContractCreationUrl(params: { chainId: number; contr
   });
   url.search = searchParams.toString();
   return url.toString();
+}
+
+function getEtherscanApiKey(): string {
+  const key = process.env.VITE_ETHERSCAN_API_KEY;
+  if (!key) {
+    throw new Error("VITE_ETHERSCAN_API_KEY is not set");
+  }
+  return key;
 }

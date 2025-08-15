@@ -108,11 +108,7 @@ function createContractTests<BD, CD>(
   });
 }
 
-export function createStandardTests(
-  release: Sablier.Release,
-  deployment: Sablier.Deployment,
-  chain: Sablier.Chain,
-): void {
+function createStandardTests(release: Sablier.Release, deployment: Sablier.Deployment, chain: Sablier.Chain): void {
   createContractTests<StandardBroadcast, BasicContract>(release, deployment, chain, {
     expector: expectContract,
     finder: findContract,
@@ -120,7 +116,7 @@ export function createStandardTests(
   });
 }
 
-export function createZKTests(release: Sablier.Release, deployment: Sablier.Deployment, chain: Sablier.Chain): void {
+function createZKTests(release: Sablier.Release, deployment: Sablier.Deployment, chain: Sablier.Chain): void {
   createContractTests<ZKBroadcast[], ZKBroadcast>(release, deployment, chain, {
     expector: expectZKContract,
     finder: findZKContract,

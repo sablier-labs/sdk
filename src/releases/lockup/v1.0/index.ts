@@ -8,7 +8,7 @@ import manifest from "./manifest";
 
 const sortedMainnets = sortDeployments(mainnets);
 const sortedTestnets = sortDeployments(testnets);
-export const deployments: Sablier.Deployment.LockupV1[] = [...sortedMainnets, ...sortedTestnets];
+const deployments: Sablier.Deployment.LockupV1[] = [...sortedMainnets, ...sortedTestnets];
 
 export const release = resolvers.release.lockupV1({
   aliases,
