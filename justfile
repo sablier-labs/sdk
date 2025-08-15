@@ -17,14 +17,6 @@ alias b := build
 clean:
     bunx del-cli dist
 
-# Run knip checks
-knip-check:
-    bun knip
-
-# Run knip fix
-knip-fix:
-    bun knip --fix
-
 # Run print CLI commands.
 [group("print")]
 @print-aliases:
