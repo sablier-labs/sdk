@@ -32,6 +32,11 @@ clean:
 @print-missing-broadcasts protocol:
     just cli print missing-broadcasts --protocol {{ protocol }}
 
+# Run print CLI commands.
+[group("print")]
+@print-versions:
+    just cli print versions
+
 # Setup Husky
 setup:
     bun husky
