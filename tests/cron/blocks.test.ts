@@ -3,7 +3,6 @@ import { Protocol } from "@src/enums";
 import { sablier } from "@src/sablier";
 import type { Sablier } from "@src/types";
 import axios from "axios";
-import _ from "lodash";
 import { describe, expect, it } from "vitest";
 import { ETHERSCAN_CHAINS, getEtherscanContractCreationUrl } from "../helpers/etherscan";
 

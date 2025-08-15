@@ -29,14 +29,14 @@ async function printVersions(): Promise<void> {
   logger.info(`✅ Found ${rows.length} total versions\n`);
 
   // Group by protocol
-  const groupedByProtocol = _.groupBy(rows, 'protocol');
-  
+  const groupedByProtocol = _.groupBy(rows, "protocol");
+
   // Sort protocols alphabetically
   const sortedProtocols = Object.keys(groupedByProtocol).sort();
 
   for (const protocol of sortedProtocols) {
     const protocolRows = groupedByProtocol[protocol];
-    
+
     // Sort versions from highest to lowest
     protocolRows.sort((a, b) => {
       const parseVersion = (v: string) => {
@@ -44,27 +44,27 @@ async function printVersions(): Promise<void> {
         if (!match) return [0, 0];
         return [parseInt(match[1]), parseInt(match[2])];
       };
-      
+
       const [aMajor, aMinor] = parseVersion(a.version);
       const [bMajor, bMinor] = parseVersion(b.version);
-      
+
       if (aMajor !== bMajor) return bMajor - aMajor;
       return bMinor - aMinor;
     });
 
     // Print protocol header
     console.log(`\n${protocol}:`);
-    
+
     // Calculate column widths for this protocol's table
     const headers = ["Version"];
-    const colWidths = headers.map((h, i) => {
-      const values = protocolRows.map(row => row.version);
-      return Math.max(h.length, ...values.map(v => v.length));
+    const colWidths = headers.map((h) => {
+      const values = protocolRows.map((row) => row.version);
+      return Math.max(h.length, ...values.map((v) => v.length));
     });
 
     // Print table header
     const headerRow = headers.map((h, i) => h.padEnd(colWidths[i])).join(" | ");
-    const sep = colWidths.map(w => "-".repeat(w)).join(" | ");
+    const sep = colWidths.map((w) => "-".repeat(w)).join(" | ");
     console.log(`| ${headerRow} |`);
     console.log(`| ${sep} |`);
 

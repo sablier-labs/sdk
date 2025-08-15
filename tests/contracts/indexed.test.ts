@@ -2,7 +2,6 @@ import { contracts } from "@src/contracts";
 import { Protocol } from "@src/enums";
 import { sablier } from "@src/sablier";
 import type { Sablier } from "@src/types";
-import _ from "lodash";
 import { describe, expect, it } from "vitest";
 
 /**

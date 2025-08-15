@@ -1,6 +1,5 @@
 import { sablier } from "@src";
 import { Command } from "commander";
-import _ from "lodash";
 
 export const chainCmd = new Command("chains").description("List all supported chain slugs").action(() => {
   console.log("🌐 Mainnets:");

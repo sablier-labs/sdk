@@ -1,6 +1,5 @@
 import { releases } from "@src/releases";
 import { sablier } from "@src/sablier";
-import _ from "lodash";
 import { describe, expect, it } from "vitest";
 
 describe("Contract catalog", () => {
