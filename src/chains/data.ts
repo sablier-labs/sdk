@@ -1,5 +1,6 @@
 import type { Sablier } from "@src/types";
-import { type Chain as ViemChain, defineChain as viemDefine } from "viem";
+import type { Chain as ViemChain } from "viem";
+import { defineChain as viemDefine } from "viem";
 // Imported like this for tree-shaking
 import {
   abstract as _abstract,
