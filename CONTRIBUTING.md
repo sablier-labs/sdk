@@ -37,6 +37,19 @@ just test                   # Run test suite
 
 TODO
 
-### Adding New Deployments
+### Adding New Protocol Deployments
 
 TODO
+
+### Versioning and Publishing
+
+> [!IMPORTANT]
+>
+> Make sure the `CHANGELOG.md` is updated with the new version and the changes.
+
+- After adding new chains or new deployments, bump the minor version. E.g. if the current version is `v1.0.0`, the next
+  version should be `v1.1.0`.
+- Tag the new version by running the `tag` command, e.g. `just tag v1.0.0`.
+- Publish the npm package using the `publish` or `publish-beta` command.
+  - For new experimental features, use the `publish-beta` command.
+  - For new stable features, use the `publish` command.
