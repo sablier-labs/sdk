@@ -107,6 +107,10 @@ export const mainnets: Sablier.Deployment[] = [
     [manifest.SABLIER_FLOW]: ["0xdEF70082ebda4944A55311624900E42A720b4Ec9", 138_911_958],
     [manifest.FLOW_NFT_DESCRIPTOR]: "0xF3D18b06c87735a58DAb3baC45af058b3772fD54",
   }),
+  get(chains.sonic.id, {
+    [manifest.SABLIER_FLOW]: ["0x63815da47C97063cc24b28D0b6F59234f71D5c96", 43944753],
+    [manifest.FLOW_NFT_DESCRIPTOR]: "0xAab30e5CB903f67F109aFc7102ac8ED803681EA5",
+  }),
   get(chains.sophon.id, {
     [manifest.SABLIER_FLOW]: ["0x20C9A3E27322Fc2b21Ced430D1B2e12d90804db6", 11_341_394],
     [manifest.FLOW_NFT_DESCRIPTOR]: "0x2F1eB117A87217E8bE9AA96795F69c9e380686Db",

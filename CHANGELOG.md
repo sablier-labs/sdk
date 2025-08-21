@@ -12,7 +12,7 @@ The format is based on [Common Changelog](https://common-changelog.org/), and th
 
 ### Added
 
-- Add new EVM chain: Sonic ([#TODO](https://))
+- Add new EVM chain: Sonic ([#24](https://github.com/sablier-labs/sdk/pull/24))
 
 ### Fixed
 

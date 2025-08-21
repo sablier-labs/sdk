@@ -61,6 +61,7 @@ opcode:
 | Polygon         | ChainID 137, Version 1.3.0    |
 | Scroll          | ChainID 534352, Version 1.3.0 |
 | Sei             | ChainID 1329, Version 1.3.0   |
+| Sonic           | ChainID 146, Version 1.3.0    |
 | Taiko Mainnet   | ChainID 167000, Version 1.3.0 |
 | Tangle          | No Salt                       |
 | Ultra           | No Salt                       |

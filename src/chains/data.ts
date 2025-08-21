@@ -35,6 +35,7 @@ import {
   scroll as _scroll,
   sei as _sei,
   sepolia as _sepolia,
+  sonic as _sonic,
   sophon as _sophon,
   superseed as _superseed,
   superseedSepolia as _superseedSepolia,
@@ -76,6 +77,7 @@ const alchemyRPCs: Record<number, RPCGenerator> = {
   [_sepolia.id]: (apiKey) => `https://eth-sepolia.g.alchemy.com/v2/${apiKey}`,
   [_scroll.id]: (apiKey) => `https://scroll-mainnet.g.alchemy.com/v2/${apiKey}`,
   [_sei.id]: (apiKey) => `https://sei-mainnet.g.alchemy.com/v2/${apiKey}`,
+  [_sonic.id]: (apiKey) => `https://sonic-mainnet.g.alchemy.com/v2/${apiKey}`,
   [_superseed.id]: (apiKey) => `https://superseed-mainnet.g.alchemy.com/v2/${apiKey}`,
   [_unichain.id]: (apiKey) => `https://unichain-mainnet.g.alchemy.com/v2/${apiKey}`,
   [_zksync.id]: (apiKey) => `https://zksync-mainnet.g.alchemy.com/v2/${apiKey}`,
@@ -216,6 +218,7 @@ export const polygon = define("polygon", _polygon);
 export const ronin = define("ronin", _ronin);
 export const scroll = define("scroll", _scroll);
 export const sepolia = define("sepolia", _sepolia);
+export const sonic = define("sonic", _sonic);
 export const sophon = define("sophon", _sophon);
 export const superseed = define("superseed", _superseed);
 export const superseedSepolia = define("superseed-sepolia", _superseedSepolia);

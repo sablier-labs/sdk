@@ -82,6 +82,9 @@ export const mainnets: Sablier.Deployment[] = [
   get(chains.sei.id, {
     [manifest.SABLIER_MERKLE_FACTORY]: ["0x0171A06878F7ff81c9955DEB5641f64f520d45E5", 138_904_383],
   }),
+  get(chains.sonic.id, {
+    [manifest.SABLIER_MERKLE_FACTORY]: ["0xbD73389Cbdd4f31F374F2815ecb7f9dEc0F124D3", 43945441],
+  }),
   get(chains.sophon.id, {
     [manifest.SABLIER_MERKLE_FACTORY]: ["0x9D4923e2ff0b9DAdc447A89f528760928f84D0F7", 11_290_094],
   }),
