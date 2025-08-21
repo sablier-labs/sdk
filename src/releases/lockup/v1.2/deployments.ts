@@ -210,9 +210,9 @@ export const mainnets: Sablier.Deployment.LockupV1[] = [
   }),
   get(chains.morph.id, {
     core: {
-      [manifest.core.SABLIER_V2_LOCKUP_DYNAMIC]: ["0x946654AB30Dd6eD10236C89f2C8B2719df653691", 45825],
-      [manifest.core.SABLIER_V2_LOCKUP_LINEAR]: ["0xAC19F4181E58efb7094e0cb4e1BB18c79F6AAdf4", 45825],
-      [manifest.core.SABLIER_V2_LOCKUP_TRANCHED]: ["0x63B92F7E2f69877184C955E63B9D8Dff55e52e14", 45826],
+      [manifest.core.SABLIER_V2_LOCKUP_DYNAMIC]: ["0x946654AB30Dd6eD10236C89f2C8B2719df653691", 45_825],
+      [manifest.core.SABLIER_V2_LOCKUP_LINEAR]: ["0xAC19F4181E58efb7094e0cb4e1BB18c79F6AAdf4", 45_825],
+      [manifest.core.SABLIER_V2_LOCKUP_TRANCHED]: ["0x63B92F7E2f69877184C955E63B9D8Dff55e52e14", 45_826],
       [manifest.core.SABLIER_V2_NFT_DESCRIPTOR]: "0xe785101Cb228693cc3EFdCd5d637fEf6A6Ff7259",
     },
     periphery: {
