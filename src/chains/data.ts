@@ -139,6 +139,8 @@ const config = {
     } as ConfigBool,
     // By default, mainnets are supported by the UI.
     unsupportedMainnets: {
+      [_form.id]: true,
+      [_iotex.id]: true,
       [_meld.id]: true,
       [_ronin.id]: true,
       [_taiko.id]: true,
