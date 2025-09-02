@@ -1,0 +1,114 @@
+{
+  "abi": [
+    {
+      "type": "function",
+      "name": "tokenURI",
+      "inputs": [
+        { "name": "sablierFlow", "type": "address", "internalType": "contract IERC721Metadata" },
+        { "name": "streamId", "type": "uint256", "internalType": "uint256" }
+      ],
+      "outputs": [{ "name": "uri", "type": "string", "internalType": "string" }],
+      "stateMutability": "view"
+    }
+  ],
+  "bytecode": { "object": "0x", "sourceMap": "", "linkReferences": {} },
+  "deployedBytecode": { "object": "0x", "sourceMap": "", "linkReferences": {} },
+  "methodIdentifiers": { "tokenURI(address,uint256)": "e9dc6375" },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.29+commit.ab55807c\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"contract IERC721Metadata\",\"name\":\"sablierFlow\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"streamId\",\"type\":\"uint256\"}],\"name\":\"tokenURI\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"uri\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"tokenURI(address,uint256)\":{\"details\":\"Currently it returns the Sablier logo as an SVG. In the future, it will return an NFT SVG.\",\"params\":{\"sablierFlow\":\"The address of the Sablier Flow the stream was created in.\",\"streamId\":\"The ID of the stream for which to produce a description.\"},\"returns\":{\"uri\":\"The URI of the ERC721-compliant metadata.\"}}},\"title\":\"IFlowNFTDescriptor\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"tokenURI(address,uint256)\":{\"notice\":\"Produces the URI describing a particular stream NFT.\"}},\"notice\":\"This contract generates the URI describing the Sablier Flow stream NFTs.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/interfaces/IFlowNFTDescriptor.sol\":\"IFlowNFTDescriptor\"},\"evmVersion\":\"shanghai\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":1000000},\"remappings\":[\":@arbitrum/=node_modules/@arbitrum/\",\":@chainlink/=node_modules/@chainlink/\",\":@eth-optimism/=node_modules/@eth-optimism/\",\":@offchainlabs/=node_modules/@offchainlabs/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":@prb/=node_modules/@prb/\",\":@sablier/=node_modules/@sablier/\",\":@scroll-tech/=node_modules/@scroll-tech/\",\":@zksync/=node_modules/@zksync/\",\":forge-std/=node_modules/forge-std/\",\":solady/=node_modules/solady/\"],\"viaIR\":true},\"sources\":{\"node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol\":{\"keccak256\":\"0x5dc63d1c6a12fe1b17793e1745877b2fcbe1964c3edfd0a482fac21ca8f18261\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6b7f97c5960a50fd1822cb298551ffc908e37b7893a68d6d08bce18a11cb0f11\",\"dweb:/ipfs/QmQQvxBytoY1eBt3pRQDmvH2hZ2yjhs12YqVfzGm7KSURq\"]},\"node_modules/@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol\":{\"keccak256\":\"0x37d1aaaa5a2908a09e9dcf56a26ddf762ecf295afb5964695937344fc6802ce1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ed0bfc1b92153c5000e50f4021367b931bbe96372ac6facec3c4961b72053d02\",\"dweb:/ipfs/Qmbwp8VDerjS5SV1quwHH1oMXxPQ93fzfLVqJ2RCqbowGE\"]},\"node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol\":{\"keccak256\":\"0x79796192ec90263f21b464d5bc90b777a525971d3de8232be80d9c4f9fb353b8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://f6fda447a62815e8064f47eff0dd1cf58d9207ad69b5d32280f8d7ed1d1e4621\",\"dweb:/ipfs/QmfDRc7pxfaXB2Dh9np5Uf29Na3pQ7tafRS684wd3GLjVL\"]},\"src/interfaces/IFlowNFTDescriptor.sol\":{\"keccak256\":\"0xdf964042ae7c74f03909d020fbb63e0ae56aeb2fa47213e3775a1e3263d00e54\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://0d4ede276be940185ea0b638c8f38f68232b6f4394ce0a69c2c729bc761aec82\",\"dweb:/ipfs/QmSgivdvgxrY7n6XbLQcGp645nRw1y2272iJUVhQyfnWUp\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": { "version": "0.8.29+commit.ab55807c" },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            { "internalType": "contract IERC721Metadata", "name": "sablierFlow", "type": "address" },
+            { "internalType": "uint256", "name": "streamId", "type": "uint256" }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "tokenURI",
+          "outputs": [{ "internalType": "string", "name": "uri", "type": "string" }]
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "tokenURI(address,uint256)": {
+            "details": "Currently it returns the Sablier logo as an SVG. In the future, it will return an NFT SVG.",
+            "params": {
+              "sablierFlow": "The address of the Sablier Flow the stream was created in.",
+              "streamId": "The ID of the stream for which to produce a description."
+            },
+            "returns": { "uri": "The URI of the ERC721-compliant metadata." }
+          }
+        },
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "tokenURI(address,uint256)": { "notice": "Produces the URI describing a particular stream NFT." }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        "@arbitrum/=node_modules/@arbitrum/",
+        "@chainlink/=node_modules/@chainlink/",
+        "@eth-optimism/=node_modules/@eth-optimism/",
+        "@offchainlabs/=node_modules/@offchainlabs/",
+        "@openzeppelin/=node_modules/@openzeppelin/",
+        "@prb/=node_modules/@prb/",
+        "@sablier/=node_modules/@sablier/",
+        "@scroll-tech/=node_modules/@scroll-tech/",
+        "@zksync/=node_modules/@zksync/",
+        "forge-std/=node_modules/forge-std/",
+        "solady/=node_modules/solady/"
+      ],
+      "optimizer": { "enabled": true, "runs": 1000000 },
+      "metadata": { "bytecodeHash": "ipfs" },
+      "compilationTarget": { "src/interfaces/IFlowNFTDescriptor.sol": "IFlowNFTDescriptor" },
+      "evmVersion": "shanghai",
+      "libraries": {},
+      "viaIR": true
+    },
+    "sources": {
+      "node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol": {
+        "keccak256": "0x5dc63d1c6a12fe1b17793e1745877b2fcbe1964c3edfd0a482fac21ca8f18261",
+        "urls": [
+          "bzz-raw://6b7f97c5960a50fd1822cb298551ffc908e37b7893a68d6d08bce18a11cb0f11",
+          "dweb:/ipfs/QmQQvxBytoY1eBt3pRQDmvH2hZ2yjhs12YqVfzGm7KSURq"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol": {
+        "keccak256": "0x37d1aaaa5a2908a09e9dcf56a26ddf762ecf295afb5964695937344fc6802ce1",
+        "urls": [
+          "bzz-raw://ed0bfc1b92153c5000e50f4021367b931bbe96372ac6facec3c4961b72053d02",
+          "dweb:/ipfs/Qmbwp8VDerjS5SV1quwHH1oMXxPQ93fzfLVqJ2RCqbowGE"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol": {
+        "keccak256": "0x79796192ec90263f21b464d5bc90b777a525971d3de8232be80d9c4f9fb353b8",
+        "urls": [
+          "bzz-raw://f6fda447a62815e8064f47eff0dd1cf58d9207ad69b5d32280f8d7ed1d1e4621",
+          "dweb:/ipfs/QmfDRc7pxfaXB2Dh9np5Uf29Na3pQ7tafRS684wd3GLjVL"
+        ],
+        "license": "MIT"
+      },
+      "src/interfaces/IFlowNFTDescriptor.sol": {
+        "keccak256": "0xdf964042ae7c74f03909d020fbb63e0ae56aeb2fa47213e3775a1e3263d00e54",
+        "urls": [
+          "bzz-raw://0d4ede276be940185ea0b638c8f38f68232b6f4394ce0a69c2c729bc761aec82",
+          "dweb:/ipfs/QmSgivdvgxrY7n6XbLQcGp645nRw1y2272iJUVhQyfnWUp"
+        ],
+        "license": "GPL-3.0-or-later"
+      }
+    },
+    "version": 1
+  },
+  "id": 88
+}

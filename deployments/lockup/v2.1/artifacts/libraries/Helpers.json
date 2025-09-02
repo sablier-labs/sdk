@@ -1,0 +1,915 @@
+{
+  "abi": [
+    {
+      "type": "function",
+      "name": "calculateSegmentTimestamps",
+      "inputs": [
+        {
+          "name": "segmentsWithDuration",
+          "type": "tuple[]",
+          "internalType": "struct LockupDynamic.SegmentWithDuration[]",
+          "components": [
+            { "name": "amount", "type": "uint128", "internalType": "uint128" },
+            { "name": "exponent", "type": "uint64", "internalType": "UD2x18" },
+            { "name": "duration", "type": "uint40", "internalType": "uint40" }
+          ]
+        },
+        { "name": "startTime", "type": "uint40", "internalType": "uint40" }
+      ],
+      "outputs": [
+        {
+          "name": "segmentsWithTimestamps",
+          "type": "tuple[]",
+          "internalType": "struct LockupDynamic.Segment[]",
+          "components": [
+            { "name": "amount", "type": "uint128", "internalType": "uint128" },
+            { "name": "exponent", "type": "uint64", "internalType": "UD2x18" },
+            { "name": "timestamp", "type": "uint40", "internalType": "uint40" }
+          ]
+        }
+      ],
+      "stateMutability": "pure"
+    },
+    {
+      "type": "function",
+      "name": "calculateTrancheTimestamps",
+      "inputs": [
+        {
+          "name": "tranchesWithDuration",
+          "type": "tuple[]",
+          "internalType": "struct LockupTranched.TrancheWithDuration[]",
+          "components": [
+            { "name": "amount", "type": "uint128", "internalType": "uint128" },
+            { "name": "duration", "type": "uint40", "internalType": "uint40" }
+          ]
+        },
+        { "name": "startTime", "type": "uint40", "internalType": "uint40" }
+      ],
+      "outputs": [
+        {
+          "name": "tranchesWithTimestamps",
+          "type": "tuple[]",
+          "internalType": "struct LockupTranched.Tranche[]",
+          "components": [
+            { "name": "amount", "type": "uint128", "internalType": "uint128" },
+            { "name": "timestamp", "type": "uint40", "internalType": "uint40" }
+          ]
+        }
+      ],
+      "stateMutability": "pure"
+    },
+    {
+      "type": "function",
+      "name": "checkCreateLD",
+      "inputs": [
+        { "name": "sender", "type": "address", "internalType": "address" },
+        {
+          "name": "timestamps",
+          "type": "tuple",
+          "internalType": "struct Lockup.Timestamps",
+          "components": [
+            { "name": "start", "type": "uint40", "internalType": "uint40" },
+            { "name": "end", "type": "uint40", "internalType": "uint40" }
+          ]
+        },
+        { "name": "depositAmount", "type": "uint128", "internalType": "uint128" },
+        {
+          "name": "segments",
+          "type": "tuple[]",
+          "internalType": "struct LockupDynamic.Segment[]",
+          "components": [
+            { "name": "amount", "type": "uint128", "internalType": "uint128" },
+            { "name": "exponent", "type": "uint64", "internalType": "UD2x18" },
+            { "name": "timestamp", "type": "uint40", "internalType": "uint40" }
+          ]
+        },
+        { "name": "token", "type": "address", "internalType": "address" },
+        { "name": "nativeToken", "type": "address", "internalType": "address" },
+        { "name": "shape", "type": "string", "internalType": "string" }
+      ],
+      "outputs": [],
+      "stateMutability": "pure"
+    },
+    {
+      "type": "function",
+      "name": "checkCreateLL",
+      "inputs": [
+        { "name": "sender", "type": "address", "internalType": "address" },
+        {
+          "name": "timestamps",
+          "type": "tuple",
+          "internalType": "struct Lockup.Timestamps",
+          "components": [
+            { "name": "start", "type": "uint40", "internalType": "uint40" },
+            { "name": "end", "type": "uint40", "internalType": "uint40" }
+          ]
+        },
+        { "name": "cliffTime", "type": "uint40", "internalType": "uint40" },
+        { "name": "depositAmount", "type": "uint128", "internalType": "uint128" },
+        {
+          "name": "unlockAmounts",
+          "type": "tuple",
+          "internalType": "struct LockupLinear.UnlockAmounts",
+          "components": [
+            { "name": "start", "type": "uint128", "internalType": "uint128" },
+            { "name": "cliff", "type": "uint128", "internalType": "uint128" }
+          ]
+        },
+        { "name": "token", "type": "address", "internalType": "address" },
+        { "name": "nativeToken", "type": "address", "internalType": "address" },
+        { "name": "shape", "type": "string", "internalType": "string" }
+      ],
+      "outputs": [],
+      "stateMutability": "pure"
+    },
+    {
+      "type": "function",
+      "name": "checkCreateLT",
+      "inputs": [
+        { "name": "sender", "type": "address", "internalType": "address" },
+        {
+          "name": "timestamps",
+          "type": "tuple",
+          "internalType": "struct Lockup.Timestamps",
+          "components": [
+            { "name": "start", "type": "uint40", "internalType": "uint40" },
+            { "name": "end", "type": "uint40", "internalType": "uint40" }
+          ]
+        },
+        { "name": "depositAmount", "type": "uint128", "internalType": "uint128" },
+        {
+          "name": "tranches",
+          "type": "tuple[]",
+          "internalType": "struct LockupTranched.Tranche[]",
+          "components": [
+            { "name": "amount", "type": "uint128", "internalType": "uint128" },
+            { "name": "timestamp", "type": "uint40", "internalType": "uint40" }
+          ]
+        },
+        { "name": "token", "type": "address", "internalType": "address" },
+        { "name": "nativeToken", "type": "address", "internalType": "address" },
+        { "name": "shape", "type": "string", "internalType": "string" }
+      ],
+      "outputs": [],
+      "stateMutability": "pure"
+    },
+    {
+      "type": "error",
+      "name": "SablierHelpers_CliffTimeNotLessThanEndTime",
+      "inputs": [
+        { "name": "cliffTime", "type": "uint40", "internalType": "uint40" },
+        { "name": "endTime", "type": "uint40", "internalType": "uint40" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "SablierHelpers_CliffTimeZeroUnlockAmountNotZero",
+      "inputs": [{ "name": "cliffUnlockAmount", "type": "uint128", "internalType": "uint128" }]
+    },
+    {
+      "type": "error",
+      "name": "SablierHelpers_CreateNativeToken",
+      "inputs": [{ "name": "nativeToken", "type": "address", "internalType": "address" }]
+    },
+    {
+      "type": "error",
+      "name": "SablierHelpers_DepositAmountNotEqualToSegmentAmountsSum",
+      "inputs": [
+        { "name": "depositAmount", "type": "uint128", "internalType": "uint128" },
+        { "name": "segmentAmountsSum", "type": "uint128", "internalType": "uint128" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "SablierHelpers_DepositAmountNotEqualToTrancheAmountsSum",
+      "inputs": [
+        { "name": "depositAmount", "type": "uint128", "internalType": "uint128" },
+        { "name": "trancheAmountsSum", "type": "uint128", "internalType": "uint128" }
+      ]
+    },
+    { "type": "error", "name": "SablierHelpers_DepositAmountZero", "inputs": [] },
+    {
+      "type": "error",
+      "name": "SablierHelpers_EndTimeNotEqualToLastSegmentTimestamp",
+      "inputs": [
+        { "name": "endTime", "type": "uint40", "internalType": "uint40" },
+        { "name": "lastSegmentTimestamp", "type": "uint40", "internalType": "uint40" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "SablierHelpers_EndTimeNotEqualToLastTrancheTimestamp",
+      "inputs": [
+        { "name": "endTime", "type": "uint40", "internalType": "uint40" },
+        { "name": "lastTrancheTimestamp", "type": "uint40", "internalType": "uint40" }
+      ]
+    },
+    { "type": "error", "name": "SablierHelpers_SegmentCountZero", "inputs": [] },
+    {
+      "type": "error",
+      "name": "SablierHelpers_SegmentTimestampsNotOrdered",
+      "inputs": [
+        { "name": "index", "type": "uint256", "internalType": "uint256" },
+        { "name": "previousTimestamp", "type": "uint40", "internalType": "uint40" },
+        { "name": "currentTimestamp", "type": "uint40", "internalType": "uint40" }
+      ]
+    },
+    { "type": "error", "name": "SablierHelpers_SenderZeroAddress", "inputs": [] },
+    {
+      "type": "error",
+      "name": "SablierHelpers_ShapeExceeds32Bytes",
+      "inputs": [{ "name": "shapeLength", "type": "uint256", "internalType": "uint256" }]
+    },
+    {
+      "type": "error",
+      "name": "SablierHelpers_StartTimeNotLessThanCliffTime",
+      "inputs": [
+        { "name": "startTime", "type": "uint40", "internalType": "uint40" },
+        { "name": "cliffTime", "type": "uint40", "internalType": "uint40" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "SablierHelpers_StartTimeNotLessThanEndTime",
+      "inputs": [
+        { "name": "startTime", "type": "uint40", "internalType": "uint40" },
+        { "name": "endTime", "type": "uint40", "internalType": "uint40" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "SablierHelpers_StartTimeNotLessThanFirstSegmentTimestamp",
+      "inputs": [
+        { "name": "startTime", "type": "uint40", "internalType": "uint40" },
+        { "name": "firstSegmentTimestamp", "type": "uint40", "internalType": "uint40" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "SablierHelpers_StartTimeNotLessThanFirstTrancheTimestamp",
+      "inputs": [
+        { "name": "startTime", "type": "uint40", "internalType": "uint40" },
+        { "name": "firstTrancheTimestamp", "type": "uint40", "internalType": "uint40" }
+      ]
+    },
+    { "type": "error", "name": "SablierHelpers_StartTimeZero", "inputs": [] },
+    { "type": "error", "name": "SablierHelpers_TrancheCountZero", "inputs": [] },
+    {
+      "type": "error",
+      "name": "SablierHelpers_TrancheTimestampsNotOrdered",
+      "inputs": [
+        { "name": "index", "type": "uint256", "internalType": "uint256" },
+        { "name": "previousTimestamp", "type": "uint40", "internalType": "uint40" },
+        { "name": "currentTimestamp", "type": "uint40", "internalType": "uint40" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "SablierHelpers_UnlockAmountsSumTooHigh",
+      "inputs": [
+        { "name": "depositAmount", "type": "uint128", "internalType": "uint128" },
+        { "name": "startUnlockAmount", "type": "uint128", "internalType": "uint128" },
+        { "name": "cliffUnlockAmount", "type": "uint128", "internalType": "uint128" }
+      ]
+    }
+  ],
+  "bytecode": {
+    "object": "0x60808060405234601957610e0c908161001e823930815050f35b5f80fdfe60806040526004361015610011575f80fd5b5f3560e01c80630e1c82bc1461083a578063144120791461067d578063179cab3e14610455578063f0b95e091461023a5763f89d584114610050575f80fd5b61014036600319011261023657610065610a34565b61006e36610b16565b6064359164ffffffffff831680930361023657608435916001600160801b038316938484036102365760403660a3190112610236576100ab610a76565b9260a4356001600160801b038116810361023657845260c435946001600160801b0386168603610236576020850195865260e4356001600160a01b03811681036102365761010435906001600160a01b038216820361023657610124359367ffffffffffffffff851161023657610129610139953690600401610c08565b9364ffffffffff88511691610d1e565b801561020d5764ffffffffff825116818110156101f8575064ffffffffff60208301511690818110156101e35750505b64ffffffffff6020818351169201511690818110156101ce575050826001600160801b0361019e818451168286511690610db6565b16116101a657005b6001600160801b038091511691511691630b4ba30d60e01b5f5260045260245260445260645ffd5b630517114360e01b5f5260045260245260445ffd5b633717194760e21b5f5260045260245260445ffd5b63da94737160e01b5f5260045260245260445ffd5b506001600160801b03835116806102245750610169565b63150ee1a560e21b5f5260045260245ffd5b5f80fd5b60403660031901126102365760043567ffffffffffffffff8111610236573660238201121561023657610277903690602481600401359101610c5a565b61027f610af0565b9080519061029461028f83610b80565b610aca565b82815292601f196102a484610b80565b015f5b8181106104305750506001600160801b036102c183610ce9565b5151169064ffffffffff67ffffffffffffffff60206102df86610ce9565b51015116918160406102f087610ce9565b510151160116906102ff610aaa565b9283526020830152604082015261031584610ce9565b5261031f83610ce9565b5060015b8281106103a057836040518091602082016020835281518091526020604084019201905f5b818110610356575050500390f35b919350916020606060019264ffffffffff604088516001600160801b03815116845267ffffffffffffffff8682015116868501520151166040820152019401910191849392610348565b806001600160801b036103b560019385610d0a565b51511667ffffffffffffffff60206103cd8487610d0a565b5101511664ffffffffff8060406103e75f1987018b610d0a565b510151168160406103f8878a610d0a565b51015116011690610407610aaa565b9283526020830152604082015261041e8287610d0a565b526104298186610d0a565b5001610323565b60209061043b610aaa565b5f81525f838201525f6040820152828289010152016102a7565b6101003660031901126102365761046a610a34565b61047336610b16565b61047b610b56565b9160843567ffffffffffffffff81116102365736602382011215610236576104ad903690602481600401359101610c5a565b906104b6610a4a565b906104bf610a60565b60e4359267ffffffffffffffff8411610236576104e36104f4943690600401610c08565b928764ffffffffff88511691610d1e565b805191821561066e5764ffffffffff81511664ffffffffff604061051785610ce9565b51015116111561063f5760200180515f198401919064ffffffffff1684831161062b5764ffffffffff604061054c8587610d0a565b51015116036105fb57505f9283928392505b81831061059157856001600160801b03808716911681810361057c57005b634b52f2ff60e01b5f5260045260245260445ffd5b909192936105b4906001600160801b036105ab8685610d0a565b51511690610db6565b9364ffffffffff8060406105c88786610d0a565b510151169116808211156105e2575092600101919061055e565b84637d6d1f3360e01b5f5260045260245260445260645ffd5b61061164ffffffffff9283604093511694610d0a565b510151169063474537ff60e11b5f5260045260245260445ffd5b634e487b7160e01b5f52601160045260245ffd5b604061065464ffffffffff8093511693610ce9565b5101511690630f500ccb60e41b5f5260045260245260445ffd5b630c8936c160e31b5f5260045ffd5b60403660031901126102365760043567ffffffffffffffff81116102365736602382011215610236576106ba903690602481600401359101610b98565b6106c2610af0565b908051906106d261028f83610b80565b82815292601f196106e284610b80565b015f5b81811061081b57505064ffffffffff6001600160801b0361070584610ce9565b5151169181602061071586610ce9565b510151160116610723610a76565b918252602082015261073484610ce9565b5261073e83610ce9565b5060015b8281106107aa57836040518091602082016020835281518091526020604084019201905f5b818110610775575050500390f35b825180516001600160801b0316855260209081015164ffffffffff168186015286955060409094019390920191600101610767565b806001600160801b036107bf60019385610d0a565b51511664ffffffffff8060206107d85f1986018a610d0a565b510151168160206107e98689610d0a565b5101511601166107f7610a76565b91825260208201526108098287610d0a565b526108148186610d0a565b5001610742565b602090610826610a76565b5f81525f83820152828289010152016106e5565b6101003660031901126102365761084f610a34565b61085836610b16565b610860610b56565b9160843567ffffffffffffffff8111610236573660238201121561023657610892903690602481600401359101610b98565b9061089b610a4a565b906108a4610a60565b60e4359267ffffffffffffffff8411610236576104e36108c8943690600401610c08565b8051918215610a255764ffffffffff81511664ffffffffff60206108eb85610ce9565b5101511611156109f65760200180515f198401919064ffffffffff1684831161062b5764ffffffffff60206109208587610d0a565b51015116036109c657505f9283928392505b81831061096557856001600160801b03808716911681810361095057005b6359b0e8dd60e01b5f5260045260245260445ffd5b9091929361097f906001600160801b036105ab8685610d0a565b9364ffffffffff8060206109938786610d0a565b510151169116808211156109ad5750926001019190610932565b846373a9cd5f60e01b5f5260045260245260445260645ffd5b6109dc64ffffffffff9283602093511694610d0a565b5101511690632828b1df60e11b5f5260045260245260445ffd5b6020610a0b64ffffffffff8093511693610ce9565b5101511690632719805f60e21b5f5260045260245260445ffd5b63ff743f9160e01b5f5260045ffd5b600435906001600160a01b038216820361023657565b60a435906001600160a01b038216820361023657565b60c435906001600160a01b038216820361023657565b604051906040820182811067ffffffffffffffff821117610a9657604052565b634e487b7160e01b5f52604160045260245ffd5b604051906060820182811067ffffffffffffffff821117610a9657604052565b6040519190601f01601f1916820167ffffffffffffffff811183821017610a9657604052565b6024359064ffffffffff8216820361023657565b359064ffffffffff8216820361023657565b604090602319011261023657610b2a610a76565b9060243564ffffffffff8116810361023657825260443564ffffffffff81168103610236576020830152565b606435906001600160801b038216820361023657565b35906001600160801b038216820361023657565b67ffffffffffffffff8111610a965760051b60200190565b929192610ba761028f83610b80565b93828552602085019260061b82019181831161023657925b828410610bcc5750505050565b604084830312610236576020604091610be3610a76565b610bec87610b6c565b8152610bf9838801610b04565b83820152815201930192610bbf565b81601f820112156102365780359067ffffffffffffffff8211610a9657610c38601f8301601f1916602001610aca565b928284526020838301011161023657815f926020809301838601378301015290565b929192610c6961028f83610b80565b93828552606060208601930282019181831161023657925b828410610c8e5750505050565b60608483031261023657610ca0610aaa565b90610caa85610b6c565b825260208501359067ffffffffffffffff821682036102365782602092836060950152610cd960408801610b04565b6040820152815201930192610c81565b805115610cf65760200190565b634e487b7160e01b5f52603260045260245ffd5b8051821015610cf65760209160051b010190565b6001600160a01b031615610da7576001600160801b031615610d985764ffffffffff1615610d8a576001600160a01b0391821691168114610d7857505160208111610d665750565b631f68a77160e21b5f5260045260245ffd5b635d66c1bb60e11b5f5260045260245ffd5b62fcdef560e71b5f5260045ffd5b6359d1976560e11b5f5260045ffd5b63feb974b360e01b5f5260045ffd5b906001600160801b03809116911601906001600160801b03821161062b5756fea2646970667358221220f03a5488d408a1cdc9b7d44cd370a129774920cf2a8fd9fdcfb3a93e6595d55a64736f6c634300081d0033",
+    "sourceMap": "443:13747:113:-:0;;;;;;;;;;;;;;;;;;;;;",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x60806040526004361015610011575f80fd5b5f3560e01c80630e1c82bc1461083a578063144120791461067d578063179cab3e14610455578063f0b95e091461023a5763f89d584114610050575f80fd5b61014036600319011261023657610065610a34565b61006e36610b16565b6064359164ffffffffff831680930361023657608435916001600160801b038316938484036102365760403660a3190112610236576100ab610a76565b9260a4356001600160801b038116810361023657845260c435946001600160801b0386168603610236576020850195865260e4356001600160a01b03811681036102365761010435906001600160a01b038216820361023657610124359367ffffffffffffffff851161023657610129610139953690600401610c08565b9364ffffffffff88511691610d1e565b801561020d5764ffffffffff825116818110156101f8575064ffffffffff60208301511690818110156101e35750505b64ffffffffff6020818351169201511690818110156101ce575050826001600160801b0361019e818451168286511690610db6565b16116101a657005b6001600160801b038091511691511691630b4ba30d60e01b5f5260045260245260445260645ffd5b630517114360e01b5f5260045260245260445ffd5b633717194760e21b5f5260045260245260445ffd5b63da94737160e01b5f5260045260245260445ffd5b506001600160801b03835116806102245750610169565b63150ee1a560e21b5f5260045260245ffd5b5f80fd5b60403660031901126102365760043567ffffffffffffffff8111610236573660238201121561023657610277903690602481600401359101610c5a565b61027f610af0565b9080519061029461028f83610b80565b610aca565b82815292601f196102a484610b80565b015f5b8181106104305750506001600160801b036102c183610ce9565b5151169064ffffffffff67ffffffffffffffff60206102df86610ce9565b51015116918160406102f087610ce9565b510151160116906102ff610aaa565b9283526020830152604082015261031584610ce9565b5261031f83610ce9565b5060015b8281106103a057836040518091602082016020835281518091526020604084019201905f5b818110610356575050500390f35b919350916020606060019264ffffffffff604088516001600160801b03815116845267ffffffffffffffff8682015116868501520151166040820152019401910191849392610348565b806001600160801b036103b560019385610d0a565b51511667ffffffffffffffff60206103cd8487610d0a565b5101511664ffffffffff8060406103e75f1987018b610d0a565b510151168160406103f8878a610d0a565b51015116011690610407610aaa565b9283526020830152604082015261041e8287610d0a565b526104298186610d0a565b5001610323565b60209061043b610aaa565b5f81525f838201525f6040820152828289010152016102a7565b6101003660031901126102365761046a610a34565b61047336610b16565b61047b610b56565b9160843567ffffffffffffffff81116102365736602382011215610236576104ad903690602481600401359101610c5a565b906104b6610a4a565b906104bf610a60565b60e4359267ffffffffffffffff8411610236576104e36104f4943690600401610c08565b928764ffffffffff88511691610d1e565b805191821561066e5764ffffffffff81511664ffffffffff604061051785610ce9565b51015116111561063f5760200180515f198401919064ffffffffff1684831161062b5764ffffffffff604061054c8587610d0a565b51015116036105fb57505f9283928392505b81831061059157856001600160801b03808716911681810361057c57005b634b52f2ff60e01b5f5260045260245260445ffd5b909192936105b4906001600160801b036105ab8685610d0a565b51511690610db6565b9364ffffffffff8060406105c88786610d0a565b510151169116808211156105e2575092600101919061055e565b84637d6d1f3360e01b5f5260045260245260445260645ffd5b61061164ffffffffff9283604093511694610d0a565b510151169063474537ff60e11b5f5260045260245260445ffd5b634e487b7160e01b5f52601160045260245ffd5b604061065464ffffffffff8093511693610ce9565b5101511690630f500ccb60e41b5f5260045260245260445ffd5b630c8936c160e31b5f5260045ffd5b60403660031901126102365760043567ffffffffffffffff81116102365736602382011215610236576106ba903690602481600401359101610b98565b6106c2610af0565b908051906106d261028f83610b80565b82815292601f196106e284610b80565b015f5b81811061081b57505064ffffffffff6001600160801b0361070584610ce9565b5151169181602061071586610ce9565b510151160116610723610a76565b918252602082015261073484610ce9565b5261073e83610ce9565b5060015b8281106107aa57836040518091602082016020835281518091526020604084019201905f5b818110610775575050500390f35b825180516001600160801b0316855260209081015164ffffffffff168186015286955060409094019390920191600101610767565b806001600160801b036107bf60019385610d0a565b51511664ffffffffff8060206107d85f1986018a610d0a565b510151168160206107e98689610d0a565b5101511601166107f7610a76565b91825260208201526108098287610d0a565b526108148186610d0a565b5001610742565b602090610826610a76565b5f81525f83820152828289010152016106e5565b6101003660031901126102365761084f610a34565b61085836610b16565b610860610b56565b9160843567ffffffffffffffff8111610236573660238201121561023657610892903690602481600401359101610b98565b9061089b610a4a565b906108a4610a60565b60e4359267ffffffffffffffff8411610236576104e36108c8943690600401610c08565b8051918215610a255764ffffffffff81511664ffffffffff60206108eb85610ce9565b5101511611156109f65760200180515f198401919064ffffffffff1684831161062b5764ffffffffff60206109208587610d0a565b51015116036109c657505f9283928392505b81831061096557856001600160801b03808716911681810361095057005b6359b0e8dd60e01b5f5260045260245260445ffd5b9091929361097f906001600160801b036105ab8685610d0a565b9364ffffffffff8060206109938786610d0a565b510151169116808211156109ad5750926001019190610932565b846373a9cd5f60e01b5f5260045260245260445260645ffd5b6109dc64ffffffffff9283602093511694610d0a565b5101511690632828b1df60e11b5f5260045260245260445ffd5b6020610a0b64ffffffffff8093511693610ce9565b5101511690632719805f60e21b5f5260045260245260445ffd5b63ff743f9160e01b5f5260045ffd5b600435906001600160a01b038216820361023657565b60a435906001600160a01b038216820361023657565b60c435906001600160a01b038216820361023657565b604051906040820182811067ffffffffffffffff821117610a9657604052565b634e487b7160e01b5f52604160045260245ffd5b604051906060820182811067ffffffffffffffff821117610a9657604052565b6040519190601f01601f1916820167ffffffffffffffff811183821017610a9657604052565b6024359064ffffffffff8216820361023657565b359064ffffffffff8216820361023657565b604090602319011261023657610b2a610a76565b9060243564ffffffffff8116810361023657825260443564ffffffffff81168103610236576020830152565b606435906001600160801b038216820361023657565b35906001600160801b038216820361023657565b67ffffffffffffffff8111610a965760051b60200190565b929192610ba761028f83610b80565b93828552602085019260061b82019181831161023657925b828410610bcc5750505050565b604084830312610236576020604091610be3610a76565b610bec87610b6c565b8152610bf9838801610b04565b83820152815201930192610bbf565b81601f820112156102365780359067ffffffffffffffff8211610a9657610c38601f8301601f1916602001610aca565b928284526020838301011161023657815f926020809301838601378301015290565b929192610c6961028f83610b80565b93828552606060208601930282019181831161023657925b828410610c8e5750505050565b60608483031261023657610ca0610aaa565b90610caa85610b6c565b825260208501359067ffffffffffffffff821682036102365782602092836060950152610cd960408801610b04565b6040820152815201930192610c81565b805115610cf65760200190565b634e487b7160e01b5f52603260045260245ffd5b8051821015610cf65760209160051b010190565b6001600160a01b031615610da7576001600160801b031615610d985764ffffffffff1615610d8a576001600160a01b0391821691168114610d7857505160208111610d665750565b631f68a77160e21b5f5260045260245ffd5b635d66c1bb60e11b5f5260045260245ffd5b62fcdef560e71b5f5260045ffd5b6359d1976560e11b5f5260045ffd5b63feb974b360e01b5f5260045ffd5b906001600160801b03809116911601906001600160801b03821161062b5756fea2646970667358221220f03a5488d408a1cdc9b7d44cd370a129774920cf2a8fd9fdcfb3a93e6595d55a64736f6c634300081d0033",
+    "sourceMap": "443:13747:113:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;443:13747:113;;;;;;:::i;:::-;;;;:::i;:::-;;;;;;;;;;;;;;;-1:-1:-1;;;;;443:13747:113;;;;;;;;;;-1:-1:-1;;443:13747:113;;;;;;:::i;:::-;;;;-1:-1:-1;;;;;443:13747:113;;;;;;;;;;;-1:-1:-1;;;;;443:13747:113;;;;;;;;;;;;;;-1:-1:-1;;;;;443:13747:113;;;;;;;;;-1:-1:-1;;;;;443:13747:113;;;;;;;;;;;;;;;4774:5;443:13747;;;;;;:::i;:::-;;;;;;4774:5;;:::i;:::-;6301:13;;;;443:13747;;;;6409:29;;;;6405:155;;6664:14;443:13747;;6664:14;;443:13747;;6651:27;;;;;6647:149;;6297:738;;;443:13747;;;;;;7138:14;;443:13747;;7118:34;;;;;7114:155;;443:13747;;;-1:-1:-1;;;;;7387:41:113;443:13747;;;;;;;;7387:41;;:::i;:::-;443:13747;7387:57;7383:227;;443:13747;7383:227;-1:-1:-1;;;;;443:13747:113;;;;;;;7467:132;;;;443:13747;7467:132;443:13747;;;;;;;;7467:132;7114:155;7175:83;;;443:13747;7175:83;443:13747;;;;;;7175:83;6647:149;6705:76;;;443:13747;6705:76;443:13747;;;;;;6705:76;6405:155;6465:80;;;443:13747;6465:80;443:13747;;;;;;6465:80;6297:738;443:13747;-1:-1:-1;;;;;443:13747:113;;;6903:23;6899:136;;6297:738;;;6899:136;6949:75;;;443:13747;6949:75;443:13747;;;;6949:75;443:13747;;;;;;;-1:-1:-1;;443:13747:113;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::i;:::-;;;;;;;;;:::i;:::-;;:::i;:::-;;;;;-1:-1:-1;;443:13747:113;;;:::i;:::-;;;;;;;;;1505:23;;-1:-1:-1;;;;;1505:23:113;;;:::i;:::-;;443:13747;;1563:23;443:13747;;;1563:23;;;:::i;:::-;;:32;443:13747;;1636:23;;443:13747;1636:23;;;:::i;:::-;;:32;443:13747;;;;;;;:::i;:::-;;;;;1457:226;;443:13747;;1457:226;;443:13747;1429:254;;;:::i;:::-;;;;;:::i;:::-;;1808:1;1811:16;;;;;;443:13747;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1808:1;443:13747;;;;;-1:-1:-1;;;;;443:13747:113;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1829:3;1932:23;-1:-1:-1;;;;;1932:23:113;1808:1;1932:23;;;:::i;:::-;;443:13747;;;;1994:23;;;;:::i;:::-;;:32;443:13747;;;;;2059:29;-1:-1:-1;;443:13747:113;;2059:29;;:::i;:::-;;:39;443:13747;;2101:23;443:13747;2101:23;;;;:::i;:::-;;:32;443:13747;;;;;;;:::i;:::-;;;;;1880:272;;443:13747;;1880:272;;443:13747;1852:300;;;;:::i;:::-;;;;;;:::i;:::-;;443:13747;1796:13;;443:13747;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;443:13747:113;;;;;;:::i;:::-;;;;:::i;:::-;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;:::i;:::-;;;;:::i;:::-;;;;;;;;;;4081:5;443:13747;;;;;;:::i;:::-;;;;;;;4081:5;;:::i;:::-;443:13747;;9408:17;;;9404:95;;443:13747;;;;;;9617:11;;;:::i;:::-;;:21;443:13747;;-1:-1:-1;9597:41:113;9593:213;;443:13747;9888:14;443:13747;;-1:-1:-1;;443:13747:113;;;9888:14;443:13747;;;;;;;;;9906:26;;;;:::i;:::-;;:36;443:13747;;9888:54;9884:235;;-1:-1:-1;443:13747:113;;;;;;-1:-1:-1;10492:20:113;;;;;;443:13747;-1:-1:-1;;;;;443:13747:113;;;;;11309:34;;;11305:168;;443:13747;11305:168;11366:96;;;443:13747;11366:96;443:13747;;;;;;11366:96;10514:7;10616:15;;;;10595:43;10616:15;-1:-1:-1;;;;;10616:15:113;;;;:::i;:::-;;443:13747;;10595:43;;:::i;:::-;10772:15;443:13747;10772:15;443:13747;10772:15;;;;:::i;:::-;;:25;443:13747;;;;10815:51;;;;10811:242;;-1:-1:-1;11160:50:113;9930:1;443:13747;;10473:17;;;10811:242;10893:145;;;;443:13747;10893:145;443:13747;;;;;;;;10893:145;9884:235;10058:26;443:13747;;;;;;;;10058:26;:::i;:::-;;:36;443:13747;;9965:143;;;;443:13747;9965:143;443:13747;;;;;;9965:143;443:13747;;;;;;;;;;;;9593:213;443:13747;9760:11;443:13747;;;;;9760:11;;:::i;:::-;;:21;443:13747;;9661:134;;;;443:13747;9661:134;443:13747;;;;;;9661:134;9404:95;9448:40;;;443:13747;9448:40;443:13747;;9448:40;443:13747;;;-1:-1:-1;;443:13747:113;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::i;:::-;;;;;;;;;:::i;:::-;;;;;-1:-1:-1;;443:13747:113;;;:::i;:::-;;;;;;;;;3012:23;;443:13747;-1:-1:-1;;;;;3012:23:113;;;:::i;:::-;;443:13747;;3083:23;;443:13747;3083:23;;;:::i;:::-;;:32;443:13747;;;;;;:::i;:::-;;;;;2963:167;;443:13747;2935:195;;;:::i;:::-;;;;;:::i;:::-;;3240:1;3243:16;;;;;;443:13747;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;443:13747:113;;;;;;;;;;;;;;;;-1:-1:-1;443:13747:113;;;;;;;;;3240:1;443:13747;;;3261:3;3365:23;-1:-1:-1;;;;;3365:23:113;3240:1;3365:23;;;:::i;:::-;;443:13747;;;;;3428:29;-1:-1:-1;;443:13747:113;;3428:29;;:::i;:::-;;:39;443:13747;;3470:23;443:13747;3470:23;;;;:::i;:::-;;:32;443:13747;;;;;;:::i;:::-;;;;;3312:209;;443:13747;3284:237;;;;:::i;:::-;;;;;;:::i;:::-;;443:13747;3228:13;;443:13747;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;443:13747:113;;;;;;:::i;:::-;;;;:::i;:::-;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;:::i;:::-;;;;:::i;:::-;;;;;;;;;;5479:5;443:13747;;;;;;:::i;5479:5::-;443:13747;;12122:17;;;12118:95;;443:13747;;;;;;12331:11;;;:::i;:::-;;:21;443:13747;;-1:-1:-1;12311:41:113;12307:213;;443:13747;12597:14;443:13747;;-1:-1:-1;;443:13747:113;;;12597:14;443:13747;;;;;;;;;12615:26;;;;:::i;:::-;;:36;443:13747;;12597:54;12593:235;;-1:-1:-1;443:13747:113;;;;;;-1:-1:-1;13201:20:113;;;;;;443:13747;-1:-1:-1;;;;;443:13747:113;;;;;14018:34;;;14014:168;;443:13747;14014:168;14075:96;;;443:13747;14075:96;443:13747;;;;;;14075:96;13223:7;13325:15;;;;13304:43;13325:15;-1:-1:-1;;;;;13325:15:113;;;;:::i;13304:43::-;13481:15;443:13747;13481:15;443:13747;13481:15;;;;:::i;:::-;;:25;443:13747;;;;13524:51;;;;13520:242;;-1:-1:-1;13869:50:113;12639:1;443:13747;;13182:17;;;13520:242;13602:145;;;;443:13747;13602:145;443:13747;;;;;;;;13602:145;12593:235;12767:26;443:13747;;;;;;;;12767:26;:::i;:::-;;:36;443:13747;;12674:143;;;;443:13747;12674:143;443:13747;;;;;;12674:143;12307:213;443:13747;12474:11;443:13747;;;;;12474:11;;:::i;:::-;;:21;443:13747;;12375:134;;;;443:13747;12375:134;443:13747;;;;;;12375:134;12118:95;12162:40;;;443:13747;12162:40;443:13747;;12162:40;443:13747;;;;-1:-1:-1;;;;;443:13747:113;;;;;;:::o;:::-;;;;-1:-1:-1;;;;;443:13747:113;;;;;;:::o;:::-;;;;-1:-1:-1;;;;;443:13747:113;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;:::o;:::-;;;;-1:-1:-1;443:13747:113;;;;;-1:-1:-1;443:13747:113;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;-1:-1:-1;;443:13747:113;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;:::o;:::-;;;;;;;;;;:::o;:::-;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;-1:-1:-1;;;;;443:13747:113;;;;;;:::o;:::-;;;-1:-1:-1;;;;;443:13747:113;;;;;;:::o;:::-;;;;;;;;;;;:::o;:::-;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;:::i;:::-;;;;:::i;:::-;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;443:13747:113;;;;:::i;:::-;;;;;;;;;;;;;;-1:-1:-1;443:13747:113;;;;;;;;;;;;;;:::o;:::-;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;:::i;:::-;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;7701:1065::-;-1:-1:-1;;;;;443:13747:113;7998:20;7994:99;;-1:-1:-1;;;;;443:13747:113;8157:18;8153:97;;443:13747;;8310:14;8306:89;;-1:-1:-1;;;;;443:13747:113;;;;;8462:20;;8458:110;;443:13747;;8662:2;8640:24;;8636:124;;7701:1065;:::o;8636:124::-;8687:62;;;8016:1;8687:62;;443:13747;;8016:1;8687:62;8458:110;8505:52;;;8016:1;8505:52;;443:13747;;8016:1;8505:52;8306:89;8347:37;;;8016:1;8347:37;;8016:1;8347:37;8153:97;8198:41;;;8016:1;8198:41;;8016:1;8198:41;7994:99;8041:41;;;8016:1;8041:41;;8016:1;8041:41;443:13747;;-1:-1:-1;;;;;443:13747:113;;;;;;;-1:-1:-1;;;;;443:13747:113;;;;:::o",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "calculateSegmentTimestamps(LockupDynamic.SegmentWithDuration[],uint40)": "f0b95e09",
+    "calculateTrancheTimestamps(LockupTranched.TrancheWithDuration[],uint40)": "14412079",
+    "checkCreateLD(address,Lockup.Timestamps,uint128,LockupDynamic.Segment[],address,address,string)": "179cab3e",
+    "checkCreateLL(address,Lockup.Timestamps,uint40,uint128,LockupLinear.UnlockAmounts,address,address,string)": "f89d5841",
+    "checkCreateLT(address,Lockup.Timestamps,uint128,LockupTranched.Tranche[],address,address,string)": "0e1c82bc"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.29+commit.ab55807c\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint40\",\"name\":\"cliffTime\",\"type\":\"uint40\"},{\"internalType\":\"uint40\",\"name\":\"endTime\",\"type\":\"uint40\"}],\"name\":\"SablierHelpers_CliffTimeNotLessThanEndTime\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint128\",\"name\":\"cliffUnlockAmount\",\"type\":\"uint128\"}],\"name\":\"SablierHelpers_CliffTimeZeroUnlockAmountNotZero\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"nativeToken\",\"type\":\"address\"}],\"name\":\"SablierHelpers_CreateNativeToken\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint128\",\"name\":\"depositAmount\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"segmentAmountsSum\",\"type\":\"uint128\"}],\"name\":\"SablierHelpers_DepositAmountNotEqualToSegmentAmountsSum\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint128\",\"name\":\"depositAmount\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"trancheAmountsSum\",\"type\":\"uint128\"}],\"name\":\"SablierHelpers_DepositAmountNotEqualToTrancheAmountsSum\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"SablierHelpers_DepositAmountZero\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint40\",\"name\":\"endTime\",\"type\":\"uint40\"},{\"internalType\":\"uint40\",\"name\":\"lastSegmentTimestamp\",\"type\":\"uint40\"}],\"name\":\"SablierHelpers_EndTimeNotEqualToLastSegmentTimestamp\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint40\",\"name\":\"endTime\",\"type\":\"uint40\"},{\"internalType\":\"uint40\",\"name\":\"lastTrancheTimestamp\",\"type\":\"uint40\"}],\"name\":\"SablierHelpers_EndTimeNotEqualToLastTrancheTimestamp\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"SablierHelpers_SegmentCountZero\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"},{\"internalType\":\"uint40\",\"name\":\"previousTimestamp\",\"type\":\"uint40\"},{\"internalType\":\"uint40\",\"name\":\"currentTimestamp\",\"type\":\"uint40\"}],\"name\":\"SablierHelpers_SegmentTimestampsNotOrdered\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"SablierHelpers_SenderZeroAddress\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"shapeLength\",\"type\":\"uint256\"}],\"name\":\"SablierHelpers_ShapeExceeds32Bytes\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint40\",\"name\":\"startTime\",\"type\":\"uint40\"},{\"internalType\":\"uint40\",\"name\":\"cliffTime\",\"type\":\"uint40\"}],\"name\":\"SablierHelpers_StartTimeNotLessThanCliffTime\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint40\",\"name\":\"startTime\",\"type\":\"uint40\"},{\"internalType\":\"uint40\",\"name\":\"endTime\",\"type\":\"uint40\"}],\"name\":\"SablierHelpers_StartTimeNotLessThanEndTime\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint40\",\"name\":\"startTime\",\"type\":\"uint40\"},{\"internalType\":\"uint40\",\"name\":\"firstSegmentTimestamp\",\"type\":\"uint40\"}],\"name\":\"SablierHelpers_StartTimeNotLessThanFirstSegmentTimestamp\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint40\",\"name\":\"startTime\",\"type\":\"uint40\"},{\"internalType\":\"uint40\",\"name\":\"firstTrancheTimestamp\",\"type\":\"uint40\"}],\"name\":\"SablierHelpers_StartTimeNotLessThanFirstTrancheTimestamp\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"SablierHelpers_StartTimeZero\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"SablierHelpers_TrancheCountZero\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"},{\"internalType\":\"uint40\",\"name\":\"previousTimestamp\",\"type\":\"uint40\"},{\"internalType\":\"uint40\",\"name\":\"currentTimestamp\",\"type\":\"uint40\"}],\"name\":\"SablierHelpers_TrancheTimestampsNotOrdered\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint128\",\"name\":\"depositAmount\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"startUnlockAmount\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"cliffUnlockAmount\",\"type\":\"uint128\"}],\"name\":\"SablierHelpers_UnlockAmountsSumTooHigh\",\"type\":\"error\"},{\"inputs\":[{\"components\":[{\"internalType\":\"uint128\",\"name\":\"amount\",\"type\":\"uint128\"},{\"internalType\":\"UD2x18\",\"name\":\"exponent\",\"type\":\"uint64\"},{\"internalType\":\"uint40\",\"name\":\"duration\",\"type\":\"uint40\"}],\"internalType\":\"struct LockupDynamic.SegmentWithDuration[]\",\"name\":\"segmentsWithDuration\",\"type\":\"tuple[]\"},{\"internalType\":\"uint40\",\"name\":\"startTime\",\"type\":\"uint40\"}],\"name\":\"calculateSegmentTimestamps\",\"outputs\":[{\"components\":[{\"internalType\":\"uint128\",\"name\":\"amount\",\"type\":\"uint128\"},{\"internalType\":\"UD2x18\",\"name\":\"exponent\",\"type\":\"uint64\"},{\"internalType\":\"uint40\",\"name\":\"timestamp\",\"type\":\"uint40\"}],\"internalType\":\"struct LockupDynamic.Segment[]\",\"name\":\"segmentsWithTimestamps\",\"type\":\"tuple[]\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"uint128\",\"name\":\"amount\",\"type\":\"uint128\"},{\"internalType\":\"uint40\",\"name\":\"duration\",\"type\":\"uint40\"}],\"internalType\":\"struct LockupTranched.TrancheWithDuration[]\",\"name\":\"tranchesWithDuration\",\"type\":\"tuple[]\"},{\"internalType\":\"uint40\",\"name\":\"startTime\",\"type\":\"uint40\"}],\"name\":\"calculateTrancheTimestamps\",\"outputs\":[{\"components\":[{\"internalType\":\"uint128\",\"name\":\"amount\",\"type\":\"uint128\"},{\"internalType\":\"uint40\",\"name\":\"timestamp\",\"type\":\"uint40\"}],\"internalType\":\"struct LockupTranched.Tranche[]\",\"name\":\"tranchesWithTimestamps\",\"type\":\"tuple[]\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"components\":[{\"internalType\":\"uint40\",\"name\":\"start\",\"type\":\"uint40\"},{\"internalType\":\"uint40\",\"name\":\"end\",\"type\":\"uint40\"}],\"internalType\":\"struct Lockup.Timestamps\",\"name\":\"timestamps\",\"type\":\"tuple\"},{\"internalType\":\"uint128\",\"name\":\"depositAmount\",\"type\":\"uint128\"},{\"components\":[{\"internalType\":\"uint128\",\"name\":\"amount\",\"type\":\"uint128\"},{\"internalType\":\"UD2x18\",\"name\":\"exponent\",\"type\":\"uint64\"},{\"internalType\":\"uint40\",\"name\":\"timestamp\",\"type\":\"uint40\"}],\"internalType\":\"struct LockupDynamic.Segment[]\",\"name\":\"segments\",\"type\":\"tuple[]\"},{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"nativeToken\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"shape\",\"type\":\"string\"}],\"name\":\"checkCreateLD\",\"outputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"components\":[{\"internalType\":\"uint40\",\"name\":\"start\",\"type\":\"uint40\"},{\"internalType\":\"uint40\",\"name\":\"end\",\"type\":\"uint40\"}],\"internalType\":\"struct Lockup.Timestamps\",\"name\":\"timestamps\",\"type\":\"tuple\"},{\"internalType\":\"uint40\",\"name\":\"cliffTime\",\"type\":\"uint40\"},{\"internalType\":\"uint128\",\"name\":\"depositAmount\",\"type\":\"uint128\"},{\"components\":[{\"internalType\":\"uint128\",\"name\":\"start\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"cliff\",\"type\":\"uint128\"}],\"internalType\":\"struct LockupLinear.UnlockAmounts\",\"name\":\"unlockAmounts\",\"type\":\"tuple\"},{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"nativeToken\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"shape\",\"type\":\"string\"}],\"name\":\"checkCreateLL\",\"outputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"components\":[{\"internalType\":\"uint40\",\"name\":\"start\",\"type\":\"uint40\"},{\"internalType\":\"uint40\",\"name\":\"end\",\"type\":\"uint40\"}],\"internalType\":\"struct Lockup.Timestamps\",\"name\":\"timestamps\",\"type\":\"tuple\"},{\"internalType\":\"uint128\",\"name\":\"depositAmount\",\"type\":\"uint128\"},{\"components\":[{\"internalType\":\"uint128\",\"name\":\"amount\",\"type\":\"uint128\"},{\"internalType\":\"uint40\",\"name\":\"timestamp\",\"type\":\"uint40\"}],\"internalType\":\"struct LockupTranched.Tranche[]\",\"name\":\"tranches\",\"type\":\"tuple[]\"},{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"nativeToken\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"shape\",\"type\":\"string\"}],\"name\":\"checkCreateLT\",\"outputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"calculateSegmentTimestamps(LockupDynamic.SegmentWithDuration[],uint40)\":{\"details\":\"Calculate the timestamps and return the segments.\"},\"calculateTrancheTimestamps(LockupTranched.TrancheWithDuration[],uint40)\":{\"details\":\"Calculate the timestamps and return the tranches.\"},\"checkCreateLD(address,Lockup.Timestamps,uint128,LockupDynamic.Segment[],address,address,string)\":{\"details\":\"Checks the parameters of the {SablierLockup-_createLD} function.\"},\"checkCreateLL(address,Lockup.Timestamps,uint40,uint128,LockupLinear.UnlockAmounts,address,address,string)\":{\"details\":\"Checks the parameters of the {SablierLockup-_createLL} function.\"},\"checkCreateLT(address,Lockup.Timestamps,uint128,LockupTranched.Tranche[],address,address,string)\":{\"details\":\"Checks the parameters of the {SablierLockup-_createLT} function.\"}},\"title\":\"Helpers\",\"version\":1},\"userdoc\":{\"errors\":{\"SablierHelpers_CliffTimeNotLessThanEndTime(uint40,uint40)\":[{\"notice\":\"Thrown when trying to create a linear stream with a cliff time not strictly less than the end time.\"}],\"SablierHelpers_CliffTimeZeroUnlockAmountNotZero(uint128)\":[{\"notice\":\"Thrown when trying to create a stream with a non zero cliff unlock amount when the cliff time is zero.\"}],\"SablierHelpers_CreateNativeToken(address)\":[{\"notice\":\"Thrown when trying to create a stream with the native token.\"}],\"SablierHelpers_DepositAmountNotEqualToSegmentAmountsSum(uint128,uint128)\":[{\"notice\":\"Thrown when trying to create a dynamic stream with a deposit amount not equal to the sum of the segment amounts.\"}],\"SablierHelpers_DepositAmountNotEqualToTrancheAmountsSum(uint128,uint128)\":[{\"notice\":\"Thrown when trying to create a tranched stream with a deposit amount not equal to the sum of the tranche amounts.\"}],\"SablierHelpers_DepositAmountZero()\":[{\"notice\":\"Thrown when trying to create a stream with a zero deposit amount.\"}],\"SablierHelpers_EndTimeNotEqualToLastSegmentTimestamp(uint40,uint40)\":[{\"notice\":\"Thrown when trying to create a dynamic stream with end time not equal to the last segment's timestamp.\"}],\"SablierHelpers_EndTimeNotEqualToLastTrancheTimestamp(uint40,uint40)\":[{\"notice\":\"Thrown when trying to create a tranched stream with end time not equal to the last tranche's timestamp.\"}],\"SablierHelpers_SegmentCountZero()\":[{\"notice\":\"Thrown when trying to create a dynamic stream with no segments.\"}],\"SablierHelpers_SegmentTimestampsNotOrdered(uint256,uint40,uint40)\":[{\"notice\":\"Thrown when trying to create a dynamic stream with unordered segment timestamps.\"}],\"SablierHelpers_SenderZeroAddress()\":[{\"notice\":\"Thrown when trying to create a stream with the sender as the zero address.\"}],\"SablierHelpers_ShapeExceeds32Bytes(uint256)\":[{\"notice\":\"Thrown when trying to create a stream with a shape string exceeding 32 bytes.\"}],\"SablierHelpers_StartTimeNotLessThanCliffTime(uint40,uint40)\":[{\"notice\":\"Thrown when trying to create a linear stream with a start time not strictly less than the cliff time, when the cliff time does not have a zero value.\"}],\"SablierHelpers_StartTimeNotLessThanEndTime(uint40,uint40)\":[{\"notice\":\"Thrown when trying to create a linear stream with a start time not strictly less than the end time.\"}],\"SablierHelpers_StartTimeNotLessThanFirstSegmentTimestamp(uint40,uint40)\":[{\"notice\":\"Thrown when trying to create a dynamic stream with a start time not strictly less than the first segment timestamp.\"}],\"SablierHelpers_StartTimeNotLessThanFirstTrancheTimestamp(uint40,uint40)\":[{\"notice\":\"Thrown when trying to create a tranched stream with a start time not strictly less than the first tranche timestamp.\"}],\"SablierHelpers_StartTimeZero()\":[{\"notice\":\"Thrown when trying to create a stream with a zero start time.\"}],\"SablierHelpers_TrancheCountZero()\":[{\"notice\":\"Thrown when trying to create a tranched stream with no tranches.\"}],\"SablierHelpers_TrancheTimestampsNotOrdered(uint256,uint40,uint40)\":[{\"notice\":\"Thrown when trying to create a tranched stream with unordered tranche timestamps.\"}],\"SablierHelpers_UnlockAmountsSumTooHigh(uint128,uint128,uint128)\":[{\"notice\":\"Thrown when trying to create a stream with the sum of the unlock amounts greater than the deposit amount.\"}]},\"kind\":\"user\",\"methods\":{},\"notice\":\"Library with functions needed to validate input parameters across Lockup streams.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/libraries/Helpers.sol\":\"Helpers\"},\"evmVersion\":\"shanghai\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":500},\"remappings\":[\":@arbitrum/=node_modules/@arbitrum/\",\":@chainlink/=node_modules/@chainlink/\",\":@eth-optimism/=node_modules/@eth-optimism/\",\":@offchainlabs/=node_modules/@offchainlabs/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":@prb/=node_modules/@prb/\",\":@sablier/=node_modules/@sablier/\",\":@scroll-tech/=node_modules/@scroll-tech/\",\":@zksync/=node_modules/@zksync/\",\":forge-std/=node_modules/forge-std/\",\":solady/=node_modules/solady/\",\":solarray/=node_modules/solarray/\"],\"viaIR\":true},\"sources\":{\"node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0xe06a3f08a987af6ad2e1c1e774405d4fe08f1694b67517438b467cecf0da0ef7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://df6f0c459663c9858b6cba2cda1d14a7d05a985bed6d2de72bd8e78c25ee79db\",\"dweb:/ipfs/QmeTTxZ7qVk9rjEv2R4CpCwdf8UMCcRqDNMvzNxHc3Fnn9\"]},\"node_modules/@prb/math/src/Common.sol\":{\"keccak256\":\"0x8225a3898d2f11f585da1fb82234800e9717fa080dbe53d450fd429a3a632e99\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://2dcbf39ca575f68f32f0d1c66391de94082424956e7585e849813966f8c0fc05\",\"dweb:/ipfs/QmYvk8vXFDUJHrmqbtutYXfoLomLBosYLyBzuPoYBxsQ42\"]},\"node_modules/@prb/math/src/UD2x18.sol\":{\"keccak256\":\"0xfb624e24cd8bb790fa08e7827819de85504a86e20e961fa4ad126c65b6d90641\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://dd795b8df250e7eedc68e2dba1afbb60357ce8f22f21bed212b5a9046d2057d2\",\"dweb:/ipfs/QmUHtrSr8Gb6bvSe2rCWPA5YrJq72UiJARYr1gZqFVRsYH\"]},\"node_modules/@prb/math/src/sd1x18/Casting.sol\":{\"keccak256\":\"0x5d365f655f01598926c5d4fe5cda277f2cc7736fe38f943c11a32009077ddd5c\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://56b378bd6039819bc12e5f17dabd9492e1410b3281f9df496cf8210539101a11\",\"dweb:/ipfs/QmcMaE64ZWMg9cFhYxdTuG8nfzeDdNuTRHMMoFXi6tSZGu\"]},\"node_modules/@prb/math/src/sd1x18/Constants.sol\":{\"keccak256\":\"0xc14cc32061863d83912f9616de86f3c34f1ac58614b7d504c6ce07ee8efdb8e8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://22483b1282dda6a556b0232f008a5a3296bbfd76b1886e6b72bf351b7c554fab\",\"dweb:/ipfs/QmYX9cYkrFxBbhZNKsb6uUxtrc2chmAj7vuc7UKRPGMwos\"]},\"node_modules/@prb/math/src/sd1x18/Errors.sol\":{\"keccak256\":\"0xc3c8b1ab3d19889c356c222a3a2186d45dfc1d3a17b9ad88159bb64ee457baa6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://84fbe57569246403f778330bd7723018dfcb5f0ec50d7b1d82cc983c94a54bca\",\"dweb:/ipfs/QmWssAAnovc2EVjt58rTnxraE9B1RMivwTvYCYgpnr6oSE\"]},\"node_modules/@prb/math/src/sd1x18/ValueType.sol\":{\"keccak256\":\"0xaa9dc7b562faf45264390d80e2ea10c5295bb8a4f10d76261a3f9c04363734c0\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c6ca36acd15f5cb47cf124ddec289f84e1011f2d29056159e4570435629a3353\",\"dweb:/ipfs/QmUKdiLmZpAkNCq2TKxrPbQPUhiRFXGfjGSnY1VeHVu4y6\"]},\"node_modules/@prb/math/src/sd21x18/Casting.sol\":{\"keccak256\":\"0x4a16adddb9ab1f6939dd4567c77205015a11081cb840029b84bbb6fdaf78ee36\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://5003b2f4cd2fc1413da36bc63107c6e83a88d29693e8f97b54f300fa78f9c6d2\",\"dweb:/ipfs/QmaNJn91NLrZmeeGqnFQV1FTrLVSW852zHyWTrWJ5pf1pd\"]},\"node_modules/@prb/math/src/sd21x18/Constants.sol\":{\"keccak256\":\"0x501c2d5cfdea9450422182059c8df1cb6a859901a07bd59631c3fa24edcc79d4\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4669a65001c92919671fd879d33ce0e5030b602a7ba4d36bd2308128d8d1f396\",\"dweb:/ipfs/QmUC3bJ3qdkCmLMw3WHBcEqvuC4tExT2LXzUhgu5KQ3vi3\"]},\"node_modules/@prb/math/src/sd21x18/Errors.sol\":{\"keccak256\":\"0xc5422ee47eb139274e538e758fb40177a1ba22c2113ef3b3446102f0150bfe0a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a1981e052e9e86e1b0e4e55a057a7af4739aedd4ead2d60e3eaa40fb703594ee\",\"dweb:/ipfs/QmPK5qSujnyk1R8ues4RhDMy1tRKKyjQ31YJTviTKq7GML\"]},\"node_modules/@prb/math/src/sd21x18/ValueType.sol\":{\"keccak256\":\"0x532bba888370bed393464412f4ef3462d654802e71c953ad02d078e3d2701092\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://922a4e8dd813602f72d165aa1dfdf2c29b971a2abe73bebca7cd81a32ee2c880\",\"dweb:/ipfs/QmTBAJnx1r3sZpbQAuTgQtsTtvjZbpDwhCJRzkhzUumbdf\"]},\"node_modules/@prb/math/src/sd59x18/Casting.sol\":{\"keccak256\":\"0xdf70d8e70c6d6325f3f7eb028c484bc7189ef902f1d4b5b220af2e550bb5fc39\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0b15bcd36129c5cb163d57a117435afb171182018dd6d1e766a5f49cf1f4b63d\",\"dweb:/ipfs/QmbjzkMBH4FM2rdxGbx9LQ65wVERijNcu7R9C8dQmH3y4n\"]},\"node_modules/@prb/math/src/sd59x18/Constants.sol\":{\"keccak256\":\"0x9bcb8dd6b3e886d140ad1c32747a4f6d29a492529ceb835be878ae837aa6cc3a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c4045c633e3618e7e90a768d92415b2f20f781fe129b4f4e26fa88f7dbf9201f\",\"dweb:/ipfs/Qmbet95pizwPno82cJ383wJtgQRSQKESmhVZ1vDrgAu7Si\"]},\"node_modules/@prb/math/src/sd59x18/Errors.sol\":{\"keccak256\":\"0x0a79c28c85fc8a450b0801ff2e66114eac4ec565819f5d1d8738904658fe33e2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://9e0d4fd3c998019fb8555d9e26c03bec42a8513bdf4185aeac2da3a000abaebf\",\"dweb:/ipfs/QmahFJHXcX4RwPxaQbUf6LVZEk8NSpjCV3Eif7i9iqC6Mk\"]},\"node_modules/@prb/math/src/sd59x18/Helpers.sol\":{\"keccak256\":\"0x208570f1657cf730cb6c3d81aa14030e0d45cf906cdedea5059369d7df4bb716\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4c78ca900edafa9338d4e3649a55ab0c84f76468d8a22fb945ba6d01e70f8fed\",\"dweb:/ipfs/QmeP4hQYfNxcATd1FsasdD4ebyu2vrC9K1N68swxUJzzZD\"]},\"node_modules/@prb/math/src/sd59x18/Math.sol\":{\"keccak256\":\"0xd8e8b51db9b3e2fa31a60f6b8ce4ea0112c3364442ede5992aa0aa7a2c925c84\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://3c56913970e34ee7b142047b21f1856a511cbdc3473b7c50418a8490e19cd462\",\"dweb:/ipfs/QmfG1F9CBDjPYD7NXora9awFfdpvBMY9SCg5pMLCFRv9tD\"]},\"node_modules/@prb/math/src/sd59x18/ValueType.sol\":{\"keccak256\":\"0x76597ba64d37d66e0178512bc9bbc1a031a7634c45e5d5c6e9da87f46952dc9d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://36148899ad874814e9292636fb974d2eec61f1bcc0875ec39cf444d70ba40919\",\"dweb:/ipfs/QmadUe4kH2FPcdxvhCKy8yiezCvPWor4VcPzqLYSAaGDDb\"]},\"node_modules/@prb/math/src/ud21x18/Casting.sol\":{\"keccak256\":\"0x3821aa57604f6e5b7c9c5c5cc97a6d71116e673cf3fee5f76fcd42b4cefded65\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a80399c6b38ab45cc10d0a6683d50340cd89d9a085b6d0dcfb81e7c4e5b3ce09\",\"dweb:/ipfs/QmWNW2YD2LMkqrpAtJYeeuHN329Rx7mvfmrjsCo1p6akTL\"]},\"node_modules/@prb/math/src/ud21x18/Constants.sol\":{\"keccak256\":\"0x0997574a1ced6c43bde6d9c9175edc5ad64cbb920a0969a9db68eea543747601\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c09f03345a6779b002b38ffc3954258accbb2b1d0d5506d42c3bd7f117304f60\",\"dweb:/ipfs/QmTeBXRCE7H2HpqKUNsZN7Nk3rdBnFmbAUFom3E1PJeGuV\"]},\"node_modules/@prb/math/src/ud21x18/Errors.sol\":{\"keccak256\":\"0x35a1fb789b90f8c90865884d3023deb17fcca5c7146b5ddef823496d835a5415\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0af359d07ba25bdc90de7c05ed6216833932caa75d4a02fcfc51ceeaba5a4e80\",\"dweb:/ipfs/QmavBFw73Xfp1qJiN6P1gk2Dfr8ByWo3dyCPVgDHtko2gq\"]},\"node_modules/@prb/math/src/ud21x18/ValueType.sol\":{\"keccak256\":\"0x24838b2b1da371b9259d8ee21534a9f0cb5796aba75a4efca2374627952bee25\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://897e6b79308651671c7f3c91a0069e778b47356c9ba3f86e238398ab7f2623af\",\"dweb:/ipfs/QmZbLw3tJVRZFQnV9jWQUmF43gna841adSG2TAiwDAifGU\"]},\"node_modules/@prb/math/src/ud2x18/Casting.sol\":{\"keccak256\":\"0x0f3141ed054e7c29dbe1acb4b88b18eb05d60e998fba6b4e503a6799faa356d6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://b1e2468fc4c458082aaf4aa2e35af9ba3702f207e3c8533dd1e7da11ad605eae\",\"dweb:/ipfs/QmSm7iRH1eo4cJCwcAiiXWRH9Hn1urSS4tMdbaFbFGuTyL\"]},\"node_modules/@prb/math/src/ud2x18/Constants.sol\":{\"keccak256\":\"0x29b0e050c865899e1fb9022b460a7829cdee248c44c4299f068ba80695eec3fc\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://cbaef16b662fac235349bcf97bc980dd0cba15d4e6230caae61224cdac8ea6d9\",\"dweb:/ipfs/QmZQa5XBhi7k3yhtCd8wVpnwW8htfU4sjXxWhxRypMBYkC\"]},\"node_modules/@prb/math/src/ud2x18/Errors.sol\":{\"keccak256\":\"0x3b27e2a57438cd30d9c130f84aace24d547e5ed58e8689691d7d92ad2db38ddd\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://841cf9fb45443899c6b659300bbf503c3fd2c1a1e83b7f0e28620eed457f7437\",\"dweb:/ipfs/QmUqg8WscP5yQPw3UMUCWaB9RLU6nryGzseuyhAjNnDc1i\"]},\"node_modules/@prb/math/src/ud2x18/ValueType.sol\":{\"keccak256\":\"0x975a2e69b48f34a4c0bd80e8a5609ac67b7264c91992c0944f9ebe7b9e3fc9d0\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://65d012521c475295d7e70b7d526fcc0911d0f238ea938719d77251bba00c9b41\",\"dweb:/ipfs/QmexEvTQCCBPYRWAYnomZX5M7C2EkXQRAXqEYMNUZfazCs\"]},\"node_modules/@prb/math/src/ud60x18/Casting.sol\":{\"keccak256\":\"0x0803318ddc98b4ba8fbfe70e5ee08d78387fe6ae00982b9960518085a751d7b6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://2e68a2f780b2e33fa5416eb60f9daa81f014c2591119f4b67bed1217d5530780\",\"dweb:/ipfs/QmZe7JTWvbfKqMnu4sxUwWCtLcCay9hH71VZUpoFCdENcr\"]},\"node_modules/@prb/math/src/ud60x18/Constants.sol\":{\"keccak256\":\"0x2b80d26153d3fdcfb3a9ca772d9309d31ed1275f5b8b54c3ffb54d3652b37d90\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7e3a6673a156f635db94dc176baaa7274db8f9bec4461cd1152596253550ee3b\",\"dweb:/ipfs/Qmc9zT4kNSbMYaXcnbxNVqmb3P3m46ieaQxkwxqLwsvRA5\"]},\"node_modules/@prb/math/src/ud60x18/Errors.sol\":{\"keccak256\":\"0xbab6b0e303d32f3a9d9e2fe881f0392b8c59a73051a4d34f21a403b3961b3044\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://86a019bcf2510d0691287329dc057479cc0abc48a5e15f245e7f15c03052d2c8\",\"dweb:/ipfs/QmeXe5pbpDHvN5DZ8puXmH2RJ25zDHj55wpiStWtNQPvq6\"]},\"node_modules/@prb/math/src/ud60x18/Helpers.sol\":{\"keccak256\":\"0xf5faff881391d2c060029499a666cc5f0bea90a213150bb476fae8f02a5df268\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://76105fa22bb1b5f1fa99abf9c4fbc9577a02c7bc204f271754c407f0d75489f5\",\"dweb:/ipfs/QmVNGZSTniDuZus5DdbFubqJXCLtTaZit7YPm4ntjr5Lgr\"]},\"node_modules/@prb/math/src/ud60x18/Math.sol\":{\"keccak256\":\"0xc4e51dfd9af62938e277e90fa724099f239d33727a35909ed48c292a76faf2fc\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d731537cbc50b852c21d28625aeb2c329729afc23a7b86ff9d8ee5878f47e9d6\",\"dweb:/ipfs/QmS7Cj4pAdPZcTp7RqYXyxBc9EYX92CT8icfkNigktUsLr\"]},\"node_modules/@prb/math/src/ud60x18/ValueType.sol\":{\"keccak256\":\"0x1b200baf25d01a8b91b97b42114248636f742b5b7028487ef4daef6621e378a3\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://b5708ed017206bda2197654e80bea9f37b3a9993434bb066c903c2865e028f47\",\"dweb:/ipfs/QmTyotZk2J5YvWkNvB2qhXBMgRGWW2UgPqR4JPocrXSr8n\"]},\"src/libraries/Errors.sol\":{\"keccak256\":\"0x9cd38f915d49ebf0616127c350e7002e817196cc6a9995af5d6c3d7658f0c065\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://3e86cca751827baa2340c8a2cdbddcf64d9c4b17235b0efa597555f3fad32058\",\"dweb:/ipfs/QmWasWRVXdqYK3XLHKbPnGjYwU3hysokFejpYYiJRi1x7M\"]},\"src/libraries/Helpers.sol\":{\"keccak256\":\"0x490a66b526bf9372f19ec0c2f0d1271c76eb04d97d4fd62bd3150aca1df312ac\",\"license\":\"BUSL-1.1\",\"urls\":[\"bzz-raw://3b8567c632ac53185a8038617a191e4fc0db25e7b5d43bcecb1d01957fbeee4c\",\"dweb:/ipfs/QmZXRP37Nw6jZUJJ1o1PiQwzPgEAvjPf7qcjobuDfhV4DN\"]},\"src/types/Lockup.sol\":{\"keccak256\":\"0x07febde3b460eea566102a7976718df501d3f5206583906f0144848dda0aea28\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://3074795e845a994ebc08c92817e3a7dbd4a24458fbd245cb78ebc3128a809d3d\",\"dweb:/ipfs/QmRqxp6dBgt9hXnwD5HJW7NhcR24s8Yn7HZXykYa7FPkT4\"]},\"src/types/LockupDynamic.sol\":{\"keccak256\":\"0x3c5fbce95af3de27830d7f196a28de9eadae89f2d7dfe1f4cfbe7425d3fa2933\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://23330570fe2520a47669431c11341af72bce4e7e64a6c440a67b93910d24a000\",\"dweb:/ipfs/QmS2DvMeXM3hHZoqsHze1DYRRVGKxqKcPu6s1y1VWbPshu\"]},\"src/types/LockupLinear.sol\":{\"keccak256\":\"0x4392ba8a5f4892b391fb00e5531dd2bbc33ef27d59a053e3f75600d4331b0dcf\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://4d61f0b43ec1e8c5c41d9b275c14fadf6e8757000b27b52c323c0334ab417141\",\"dweb:/ipfs/QmZWhQXjusT6X7AVMupoaLYzxNTgmsJkm32Jk2fuRvn3P4\"]},\"src/types/LockupTranched.sol\":{\"keccak256\":\"0xc2c7c41b7cfcb37dd10a5ab522c784e3236927056e870e111c866da3cbf7cc31\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://9abba4dea165619e4ff2d6f46d1ca8e77b21bc7d3c964fc0a3f2fd57a8f57a1c\",\"dweb:/ipfs/Qmd1sLEuDbLJgqE8C8QoTahodbbTmazLFhCeoFvWE6EAJR\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": { "version": "0.8.29+commit.ab55807c" },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            { "internalType": "uint40", "name": "cliffTime", "type": "uint40" },
+            { "internalType": "uint40", "name": "endTime", "type": "uint40" }
+          ],
+          "type": "error",
+          "name": "SablierHelpers_CliffTimeNotLessThanEndTime"
+        },
+        {
+          "inputs": [{ "internalType": "uint128", "name": "cliffUnlockAmount", "type": "uint128" }],
+          "type": "error",
+          "name": "SablierHelpers_CliffTimeZeroUnlockAmountNotZero"
+        },
+        {
+          "inputs": [{ "internalType": "address", "name": "nativeToken", "type": "address" }],
+          "type": "error",
+          "name": "SablierHelpers_CreateNativeToken"
+        },
+        {
+          "inputs": [
+            { "internalType": "uint128", "name": "depositAmount", "type": "uint128" },
+            { "internalType": "uint128", "name": "segmentAmountsSum", "type": "uint128" }
+          ],
+          "type": "error",
+          "name": "SablierHelpers_DepositAmountNotEqualToSegmentAmountsSum"
+        },
+        {
+          "inputs": [
+            { "internalType": "uint128", "name": "depositAmount", "type": "uint128" },
+            { "internalType": "uint128", "name": "trancheAmountsSum", "type": "uint128" }
+          ],
+          "type": "error",
+          "name": "SablierHelpers_DepositAmountNotEqualToTrancheAmountsSum"
+        },
+        { "inputs": [], "type": "error", "name": "SablierHelpers_DepositAmountZero" },
+        {
+          "inputs": [
+            { "internalType": "uint40", "name": "endTime", "type": "uint40" },
+            { "internalType": "uint40", "name": "lastSegmentTimestamp", "type": "uint40" }
+          ],
+          "type": "error",
+          "name": "SablierHelpers_EndTimeNotEqualToLastSegmentTimestamp"
+        },
+        {
+          "inputs": [
+            { "internalType": "uint40", "name": "endTime", "type": "uint40" },
+            { "internalType": "uint40", "name": "lastTrancheTimestamp", "type": "uint40" }
+          ],
+          "type": "error",
+          "name": "SablierHelpers_EndTimeNotEqualToLastTrancheTimestamp"
+        },
+        { "inputs": [], "type": "error", "name": "SablierHelpers_SegmentCountZero" },
+        {
+          "inputs": [
+            { "internalType": "uint256", "name": "index", "type": "uint256" },
+            { "internalType": "uint40", "name": "previousTimestamp", "type": "uint40" },
+            { "internalType": "uint40", "name": "currentTimestamp", "type": "uint40" }
+          ],
+          "type": "error",
+          "name": "SablierHelpers_SegmentTimestampsNotOrdered"
+        },
+        { "inputs": [], "type": "error", "name": "SablierHelpers_SenderZeroAddress" },
+        {
+          "inputs": [{ "internalType": "uint256", "name": "shapeLength", "type": "uint256" }],
+          "type": "error",
+          "name": "SablierHelpers_ShapeExceeds32Bytes"
+        },
+        {
+          "inputs": [
+            { "internalType": "uint40", "name": "startTime", "type": "uint40" },
+            { "internalType": "uint40", "name": "cliffTime", "type": "uint40" }
+          ],
+          "type": "error",
+          "name": "SablierHelpers_StartTimeNotLessThanCliffTime"
+        },
+        {
+          "inputs": [
+            { "internalType": "uint40", "name": "startTime", "type": "uint40" },
+            { "internalType": "uint40", "name": "endTime", "type": "uint40" }
+          ],
+          "type": "error",
+          "name": "SablierHelpers_StartTimeNotLessThanEndTime"
+        },
+        {
+          "inputs": [
+            { "internalType": "uint40", "name": "startTime", "type": "uint40" },
+            { "internalType": "uint40", "name": "firstSegmentTimestamp", "type": "uint40" }
+          ],
+          "type": "error",
+          "name": "SablierHelpers_StartTimeNotLessThanFirstSegmentTimestamp"
+        },
+        {
+          "inputs": [
+            { "internalType": "uint40", "name": "startTime", "type": "uint40" },
+            { "internalType": "uint40", "name": "firstTrancheTimestamp", "type": "uint40" }
+          ],
+          "type": "error",
+          "name": "SablierHelpers_StartTimeNotLessThanFirstTrancheTimestamp"
+        },
+        { "inputs": [], "type": "error", "name": "SablierHelpers_StartTimeZero" },
+        { "inputs": [], "type": "error", "name": "SablierHelpers_TrancheCountZero" },
+        {
+          "inputs": [
+            { "internalType": "uint256", "name": "index", "type": "uint256" },
+            { "internalType": "uint40", "name": "previousTimestamp", "type": "uint40" },
+            { "internalType": "uint40", "name": "currentTimestamp", "type": "uint40" }
+          ],
+          "type": "error",
+          "name": "SablierHelpers_TrancheTimestampsNotOrdered"
+        },
+        {
+          "inputs": [
+            { "internalType": "uint128", "name": "depositAmount", "type": "uint128" },
+            { "internalType": "uint128", "name": "startUnlockAmount", "type": "uint128" },
+            { "internalType": "uint128", "name": "cliffUnlockAmount", "type": "uint128" }
+          ],
+          "type": "error",
+          "name": "SablierHelpers_UnlockAmountsSumTooHigh"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "struct LockupDynamic.SegmentWithDuration[]",
+              "name": "segmentsWithDuration",
+              "type": "tuple[]",
+              "components": [
+                { "internalType": "uint128", "name": "amount", "type": "uint128" },
+                { "internalType": "UD2x18", "name": "exponent", "type": "uint64" },
+                { "internalType": "uint40", "name": "duration", "type": "uint40" }
+              ]
+            },
+            { "internalType": "uint40", "name": "startTime", "type": "uint40" }
+          ],
+          "stateMutability": "pure",
+          "type": "function",
+          "name": "calculateSegmentTimestamps",
+          "outputs": [
+            {
+              "internalType": "struct LockupDynamic.Segment[]",
+              "name": "segmentsWithTimestamps",
+              "type": "tuple[]",
+              "components": [
+                { "internalType": "uint128", "name": "amount", "type": "uint128" },
+                { "internalType": "UD2x18", "name": "exponent", "type": "uint64" },
+                { "internalType": "uint40", "name": "timestamp", "type": "uint40" }
+              ]
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "struct LockupTranched.TrancheWithDuration[]",
+              "name": "tranchesWithDuration",
+              "type": "tuple[]",
+              "components": [
+                { "internalType": "uint128", "name": "amount", "type": "uint128" },
+                { "internalType": "uint40", "name": "duration", "type": "uint40" }
+              ]
+            },
+            { "internalType": "uint40", "name": "startTime", "type": "uint40" }
+          ],
+          "stateMutability": "pure",
+          "type": "function",
+          "name": "calculateTrancheTimestamps",
+          "outputs": [
+            {
+              "internalType": "struct LockupTranched.Tranche[]",
+              "name": "tranchesWithTimestamps",
+              "type": "tuple[]",
+              "components": [
+                { "internalType": "uint128", "name": "amount", "type": "uint128" },
+                { "internalType": "uint40", "name": "timestamp", "type": "uint40" }
+              ]
+            }
+          ]
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "sender", "type": "address" },
+            {
+              "internalType": "struct Lockup.Timestamps",
+              "name": "timestamps",
+              "type": "tuple",
+              "components": [
+                { "internalType": "uint40", "name": "start", "type": "uint40" },
+                { "internalType": "uint40", "name": "end", "type": "uint40" }
+              ]
+            },
+            { "internalType": "uint128", "name": "depositAmount", "type": "uint128" },
+            {
+              "internalType": "struct LockupDynamic.Segment[]",
+              "name": "segments",
+              "type": "tuple[]",
+              "components": [
+                { "internalType": "uint128", "name": "amount", "type": "uint128" },
+                { "internalType": "UD2x18", "name": "exponent", "type": "uint64" },
+                { "internalType": "uint40", "name": "timestamp", "type": "uint40" }
+              ]
+            },
+            { "internalType": "address", "name": "token", "type": "address" },
+            { "internalType": "address", "name": "nativeToken", "type": "address" },
+            { "internalType": "string", "name": "shape", "type": "string" }
+          ],
+          "stateMutability": "pure",
+          "type": "function",
+          "name": "checkCreateLD"
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "sender", "type": "address" },
+            {
+              "internalType": "struct Lockup.Timestamps",
+              "name": "timestamps",
+              "type": "tuple",
+              "components": [
+                { "internalType": "uint40", "name": "start", "type": "uint40" },
+                { "internalType": "uint40", "name": "end", "type": "uint40" }
+              ]
+            },
+            { "internalType": "uint40", "name": "cliffTime", "type": "uint40" },
+            { "internalType": "uint128", "name": "depositAmount", "type": "uint128" },
+            {
+              "internalType": "struct LockupLinear.UnlockAmounts",
+              "name": "unlockAmounts",
+              "type": "tuple",
+              "components": [
+                { "internalType": "uint128", "name": "start", "type": "uint128" },
+                { "internalType": "uint128", "name": "cliff", "type": "uint128" }
+              ]
+            },
+            { "internalType": "address", "name": "token", "type": "address" },
+            { "internalType": "address", "name": "nativeToken", "type": "address" },
+            { "internalType": "string", "name": "shape", "type": "string" }
+          ],
+          "stateMutability": "pure",
+          "type": "function",
+          "name": "checkCreateLL"
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "sender", "type": "address" },
+            {
+              "internalType": "struct Lockup.Timestamps",
+              "name": "timestamps",
+              "type": "tuple",
+              "components": [
+                { "internalType": "uint40", "name": "start", "type": "uint40" },
+                { "internalType": "uint40", "name": "end", "type": "uint40" }
+              ]
+            },
+            { "internalType": "uint128", "name": "depositAmount", "type": "uint128" },
+            {
+              "internalType": "struct LockupTranched.Tranche[]",
+              "name": "tranches",
+              "type": "tuple[]",
+              "components": [
+                { "internalType": "uint128", "name": "amount", "type": "uint128" },
+                { "internalType": "uint40", "name": "timestamp", "type": "uint40" }
+              ]
+            },
+            { "internalType": "address", "name": "token", "type": "address" },
+            { "internalType": "address", "name": "nativeToken", "type": "address" },
+            { "internalType": "string", "name": "shape", "type": "string" }
+          ],
+          "stateMutability": "pure",
+          "type": "function",
+          "name": "checkCreateLT"
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "calculateSegmentTimestamps(LockupDynamic.SegmentWithDuration[],uint40)": {
+            "details": "Calculate the timestamps and return the segments."
+          },
+          "calculateTrancheTimestamps(LockupTranched.TrancheWithDuration[],uint40)": {
+            "details": "Calculate the timestamps and return the tranches."
+          },
+          "checkCreateLD(address,Lockup.Timestamps,uint128,LockupDynamic.Segment[],address,address,string)": {
+            "details": "Checks the parameters of the {SablierLockup-_createLD} function."
+          },
+          "checkCreateLL(address,Lockup.Timestamps,uint40,uint128,LockupLinear.UnlockAmounts,address,address,string)": {
+            "details": "Checks the parameters of the {SablierLockup-_createLL} function."
+          },
+          "checkCreateLT(address,Lockup.Timestamps,uint128,LockupTranched.Tranche[],address,address,string)": {
+            "details": "Checks the parameters of the {SablierLockup-_createLT} function."
+          }
+        },
+        "version": 1
+      },
+      "userdoc": { "kind": "user", "methods": {}, "version": 1 }
+    },
+    "settings": {
+      "remappings": [
+        "@arbitrum/=node_modules/@arbitrum/",
+        "@chainlink/=node_modules/@chainlink/",
+        "@eth-optimism/=node_modules/@eth-optimism/",
+        "@offchainlabs/=node_modules/@offchainlabs/",
+        "@openzeppelin/=node_modules/@openzeppelin/",
+        "@prb/=node_modules/@prb/",
+        "@sablier/=node_modules/@sablier/",
+        "@scroll-tech/=node_modules/@scroll-tech/",
+        "@zksync/=node_modules/@zksync/",
+        "forge-std/=node_modules/forge-std/",
+        "solady/=node_modules/solady/",
+        "solarray/=node_modules/solarray/"
+      ],
+      "optimizer": { "enabled": true, "runs": 500 },
+      "metadata": { "bytecodeHash": "ipfs" },
+      "compilationTarget": { "src/libraries/Helpers.sol": "Helpers" },
+      "evmVersion": "shanghai",
+      "libraries": {},
+      "viaIR": true
+    },
+    "sources": {
+      "node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+        "keccak256": "0xe06a3f08a987af6ad2e1c1e774405d4fe08f1694b67517438b467cecf0da0ef7",
+        "urls": [
+          "bzz-raw://df6f0c459663c9858b6cba2cda1d14a7d05a985bed6d2de72bd8e78c25ee79db",
+          "dweb:/ipfs/QmeTTxZ7qVk9rjEv2R4CpCwdf8UMCcRqDNMvzNxHc3Fnn9"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/Common.sol": {
+        "keccak256": "0x8225a3898d2f11f585da1fb82234800e9717fa080dbe53d450fd429a3a632e99",
+        "urls": [
+          "bzz-raw://2dcbf39ca575f68f32f0d1c66391de94082424956e7585e849813966f8c0fc05",
+          "dweb:/ipfs/QmYvk8vXFDUJHrmqbtutYXfoLomLBosYLyBzuPoYBxsQ42"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/UD2x18.sol": {
+        "keccak256": "0xfb624e24cd8bb790fa08e7827819de85504a86e20e961fa4ad126c65b6d90641",
+        "urls": [
+          "bzz-raw://dd795b8df250e7eedc68e2dba1afbb60357ce8f22f21bed212b5a9046d2057d2",
+          "dweb:/ipfs/QmUHtrSr8Gb6bvSe2rCWPA5YrJq72UiJARYr1gZqFVRsYH"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd1x18/Casting.sol": {
+        "keccak256": "0x5d365f655f01598926c5d4fe5cda277f2cc7736fe38f943c11a32009077ddd5c",
+        "urls": [
+          "bzz-raw://56b378bd6039819bc12e5f17dabd9492e1410b3281f9df496cf8210539101a11",
+          "dweb:/ipfs/QmcMaE64ZWMg9cFhYxdTuG8nfzeDdNuTRHMMoFXi6tSZGu"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd1x18/Constants.sol": {
+        "keccak256": "0xc14cc32061863d83912f9616de86f3c34f1ac58614b7d504c6ce07ee8efdb8e8",
+        "urls": [
+          "bzz-raw://22483b1282dda6a556b0232f008a5a3296bbfd76b1886e6b72bf351b7c554fab",
+          "dweb:/ipfs/QmYX9cYkrFxBbhZNKsb6uUxtrc2chmAj7vuc7UKRPGMwos"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd1x18/Errors.sol": {
+        "keccak256": "0xc3c8b1ab3d19889c356c222a3a2186d45dfc1d3a17b9ad88159bb64ee457baa6",
+        "urls": [
+          "bzz-raw://84fbe57569246403f778330bd7723018dfcb5f0ec50d7b1d82cc983c94a54bca",
+          "dweb:/ipfs/QmWssAAnovc2EVjt58rTnxraE9B1RMivwTvYCYgpnr6oSE"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd1x18/ValueType.sol": {
+        "keccak256": "0xaa9dc7b562faf45264390d80e2ea10c5295bb8a4f10d76261a3f9c04363734c0",
+        "urls": [
+          "bzz-raw://c6ca36acd15f5cb47cf124ddec289f84e1011f2d29056159e4570435629a3353",
+          "dweb:/ipfs/QmUKdiLmZpAkNCq2TKxrPbQPUhiRFXGfjGSnY1VeHVu4y6"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd21x18/Casting.sol": {
+        "keccak256": "0x4a16adddb9ab1f6939dd4567c77205015a11081cb840029b84bbb6fdaf78ee36",
+        "urls": [
+          "bzz-raw://5003b2f4cd2fc1413da36bc63107c6e83a88d29693e8f97b54f300fa78f9c6d2",
+          "dweb:/ipfs/QmaNJn91NLrZmeeGqnFQV1FTrLVSW852zHyWTrWJ5pf1pd"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd21x18/Constants.sol": {
+        "keccak256": "0x501c2d5cfdea9450422182059c8df1cb6a859901a07bd59631c3fa24edcc79d4",
+        "urls": [
+          "bzz-raw://4669a65001c92919671fd879d33ce0e5030b602a7ba4d36bd2308128d8d1f396",
+          "dweb:/ipfs/QmUC3bJ3qdkCmLMw3WHBcEqvuC4tExT2LXzUhgu5KQ3vi3"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd21x18/Errors.sol": {
+        "keccak256": "0xc5422ee47eb139274e538e758fb40177a1ba22c2113ef3b3446102f0150bfe0a",
+        "urls": [
+          "bzz-raw://a1981e052e9e86e1b0e4e55a057a7af4739aedd4ead2d60e3eaa40fb703594ee",
+          "dweb:/ipfs/QmPK5qSujnyk1R8ues4RhDMy1tRKKyjQ31YJTviTKq7GML"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd21x18/ValueType.sol": {
+        "keccak256": "0x532bba888370bed393464412f4ef3462d654802e71c953ad02d078e3d2701092",
+        "urls": [
+          "bzz-raw://922a4e8dd813602f72d165aa1dfdf2c29b971a2abe73bebca7cd81a32ee2c880",
+          "dweb:/ipfs/QmTBAJnx1r3sZpbQAuTgQtsTtvjZbpDwhCJRzkhzUumbdf"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd59x18/Casting.sol": {
+        "keccak256": "0xdf70d8e70c6d6325f3f7eb028c484bc7189ef902f1d4b5b220af2e550bb5fc39",
+        "urls": [
+          "bzz-raw://0b15bcd36129c5cb163d57a117435afb171182018dd6d1e766a5f49cf1f4b63d",
+          "dweb:/ipfs/QmbjzkMBH4FM2rdxGbx9LQ65wVERijNcu7R9C8dQmH3y4n"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd59x18/Constants.sol": {
+        "keccak256": "0x9bcb8dd6b3e886d140ad1c32747a4f6d29a492529ceb835be878ae837aa6cc3a",
+        "urls": [
+          "bzz-raw://c4045c633e3618e7e90a768d92415b2f20f781fe129b4f4e26fa88f7dbf9201f",
+          "dweb:/ipfs/Qmbet95pizwPno82cJ383wJtgQRSQKESmhVZ1vDrgAu7Si"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd59x18/Errors.sol": {
+        "keccak256": "0x0a79c28c85fc8a450b0801ff2e66114eac4ec565819f5d1d8738904658fe33e2",
+        "urls": [
+          "bzz-raw://9e0d4fd3c998019fb8555d9e26c03bec42a8513bdf4185aeac2da3a000abaebf",
+          "dweb:/ipfs/QmahFJHXcX4RwPxaQbUf6LVZEk8NSpjCV3Eif7i9iqC6Mk"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd59x18/Helpers.sol": {
+        "keccak256": "0x208570f1657cf730cb6c3d81aa14030e0d45cf906cdedea5059369d7df4bb716",
+        "urls": [
+          "bzz-raw://4c78ca900edafa9338d4e3649a55ab0c84f76468d8a22fb945ba6d01e70f8fed",
+          "dweb:/ipfs/QmeP4hQYfNxcATd1FsasdD4ebyu2vrC9K1N68swxUJzzZD"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd59x18/Math.sol": {
+        "keccak256": "0xd8e8b51db9b3e2fa31a60f6b8ce4ea0112c3364442ede5992aa0aa7a2c925c84",
+        "urls": [
+          "bzz-raw://3c56913970e34ee7b142047b21f1856a511cbdc3473b7c50418a8490e19cd462",
+          "dweb:/ipfs/QmfG1F9CBDjPYD7NXora9awFfdpvBMY9SCg5pMLCFRv9tD"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd59x18/ValueType.sol": {
+        "keccak256": "0x76597ba64d37d66e0178512bc9bbc1a031a7634c45e5d5c6e9da87f46952dc9d",
+        "urls": [
+          "bzz-raw://36148899ad874814e9292636fb974d2eec61f1bcc0875ec39cf444d70ba40919",
+          "dweb:/ipfs/QmadUe4kH2FPcdxvhCKy8yiezCvPWor4VcPzqLYSAaGDDb"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud21x18/Casting.sol": {
+        "keccak256": "0x3821aa57604f6e5b7c9c5c5cc97a6d71116e673cf3fee5f76fcd42b4cefded65",
+        "urls": [
+          "bzz-raw://a80399c6b38ab45cc10d0a6683d50340cd89d9a085b6d0dcfb81e7c4e5b3ce09",
+          "dweb:/ipfs/QmWNW2YD2LMkqrpAtJYeeuHN329Rx7mvfmrjsCo1p6akTL"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud21x18/Constants.sol": {
+        "keccak256": "0x0997574a1ced6c43bde6d9c9175edc5ad64cbb920a0969a9db68eea543747601",
+        "urls": [
+          "bzz-raw://c09f03345a6779b002b38ffc3954258accbb2b1d0d5506d42c3bd7f117304f60",
+          "dweb:/ipfs/QmTeBXRCE7H2HpqKUNsZN7Nk3rdBnFmbAUFom3E1PJeGuV"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud21x18/Errors.sol": {
+        "keccak256": "0x35a1fb789b90f8c90865884d3023deb17fcca5c7146b5ddef823496d835a5415",
+        "urls": [
+          "bzz-raw://0af359d07ba25bdc90de7c05ed6216833932caa75d4a02fcfc51ceeaba5a4e80",
+          "dweb:/ipfs/QmavBFw73Xfp1qJiN6P1gk2Dfr8ByWo3dyCPVgDHtko2gq"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud21x18/ValueType.sol": {
+        "keccak256": "0x24838b2b1da371b9259d8ee21534a9f0cb5796aba75a4efca2374627952bee25",
+        "urls": [
+          "bzz-raw://897e6b79308651671c7f3c91a0069e778b47356c9ba3f86e238398ab7f2623af",
+          "dweb:/ipfs/QmZbLw3tJVRZFQnV9jWQUmF43gna841adSG2TAiwDAifGU"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud2x18/Casting.sol": {
+        "keccak256": "0x0f3141ed054e7c29dbe1acb4b88b18eb05d60e998fba6b4e503a6799faa356d6",
+        "urls": [
+          "bzz-raw://b1e2468fc4c458082aaf4aa2e35af9ba3702f207e3c8533dd1e7da11ad605eae",
+          "dweb:/ipfs/QmSm7iRH1eo4cJCwcAiiXWRH9Hn1urSS4tMdbaFbFGuTyL"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud2x18/Constants.sol": {
+        "keccak256": "0x29b0e050c865899e1fb9022b460a7829cdee248c44c4299f068ba80695eec3fc",
+        "urls": [
+          "bzz-raw://cbaef16b662fac235349bcf97bc980dd0cba15d4e6230caae61224cdac8ea6d9",
+          "dweb:/ipfs/QmZQa5XBhi7k3yhtCd8wVpnwW8htfU4sjXxWhxRypMBYkC"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud2x18/Errors.sol": {
+        "keccak256": "0x3b27e2a57438cd30d9c130f84aace24d547e5ed58e8689691d7d92ad2db38ddd",
+        "urls": [
+          "bzz-raw://841cf9fb45443899c6b659300bbf503c3fd2c1a1e83b7f0e28620eed457f7437",
+          "dweb:/ipfs/QmUqg8WscP5yQPw3UMUCWaB9RLU6nryGzseuyhAjNnDc1i"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud2x18/ValueType.sol": {
+        "keccak256": "0x975a2e69b48f34a4c0bd80e8a5609ac67b7264c91992c0944f9ebe7b9e3fc9d0",
+        "urls": [
+          "bzz-raw://65d012521c475295d7e70b7d526fcc0911d0f238ea938719d77251bba00c9b41",
+          "dweb:/ipfs/QmexEvTQCCBPYRWAYnomZX5M7C2EkXQRAXqEYMNUZfazCs"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/Casting.sol": {
+        "keccak256": "0x0803318ddc98b4ba8fbfe70e5ee08d78387fe6ae00982b9960518085a751d7b6",
+        "urls": [
+          "bzz-raw://2e68a2f780b2e33fa5416eb60f9daa81f014c2591119f4b67bed1217d5530780",
+          "dweb:/ipfs/QmZe7JTWvbfKqMnu4sxUwWCtLcCay9hH71VZUpoFCdENcr"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/Constants.sol": {
+        "keccak256": "0x2b80d26153d3fdcfb3a9ca772d9309d31ed1275f5b8b54c3ffb54d3652b37d90",
+        "urls": [
+          "bzz-raw://7e3a6673a156f635db94dc176baaa7274db8f9bec4461cd1152596253550ee3b",
+          "dweb:/ipfs/Qmc9zT4kNSbMYaXcnbxNVqmb3P3m46ieaQxkwxqLwsvRA5"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/Errors.sol": {
+        "keccak256": "0xbab6b0e303d32f3a9d9e2fe881f0392b8c59a73051a4d34f21a403b3961b3044",
+        "urls": [
+          "bzz-raw://86a019bcf2510d0691287329dc057479cc0abc48a5e15f245e7f15c03052d2c8",
+          "dweb:/ipfs/QmeXe5pbpDHvN5DZ8puXmH2RJ25zDHj55wpiStWtNQPvq6"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/Helpers.sol": {
+        "keccak256": "0xf5faff881391d2c060029499a666cc5f0bea90a213150bb476fae8f02a5df268",
+        "urls": [
+          "bzz-raw://76105fa22bb1b5f1fa99abf9c4fbc9577a02c7bc204f271754c407f0d75489f5",
+          "dweb:/ipfs/QmVNGZSTniDuZus5DdbFubqJXCLtTaZit7YPm4ntjr5Lgr"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/Math.sol": {
+        "keccak256": "0xc4e51dfd9af62938e277e90fa724099f239d33727a35909ed48c292a76faf2fc",
+        "urls": [
+          "bzz-raw://d731537cbc50b852c21d28625aeb2c329729afc23a7b86ff9d8ee5878f47e9d6",
+          "dweb:/ipfs/QmS7Cj4pAdPZcTp7RqYXyxBc9EYX92CT8icfkNigktUsLr"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/ValueType.sol": {
+        "keccak256": "0x1b200baf25d01a8b91b97b42114248636f742b5b7028487ef4daef6621e378a3",
+        "urls": [
+          "bzz-raw://b5708ed017206bda2197654e80bea9f37b3a9993434bb066c903c2865e028f47",
+          "dweb:/ipfs/QmTyotZk2J5YvWkNvB2qhXBMgRGWW2UgPqR4JPocrXSr8n"
+        ],
+        "license": "MIT"
+      },
+      "src/libraries/Errors.sol": {
+        "keccak256": "0x9cd38f915d49ebf0616127c350e7002e817196cc6a9995af5d6c3d7658f0c065",
+        "urls": [
+          "bzz-raw://3e86cca751827baa2340c8a2cdbddcf64d9c4b17235b0efa597555f3fad32058",
+          "dweb:/ipfs/QmWasWRVXdqYK3XLHKbPnGjYwU3hysokFejpYYiJRi1x7M"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "src/libraries/Helpers.sol": {
+        "keccak256": "0x490a66b526bf9372f19ec0c2f0d1271c76eb04d97d4fd62bd3150aca1df312ac",
+        "urls": [
+          "bzz-raw://3b8567c632ac53185a8038617a191e4fc0db25e7b5d43bcecb1d01957fbeee4c",
+          "dweb:/ipfs/QmZXRP37Nw6jZUJJ1o1PiQwzPgEAvjPf7qcjobuDfhV4DN"
+        ],
+        "license": "BUSL-1.1"
+      },
+      "src/types/Lockup.sol": {
+        "keccak256": "0x07febde3b460eea566102a7976718df501d3f5206583906f0144848dda0aea28",
+        "urls": [
+          "bzz-raw://3074795e845a994ebc08c92817e3a7dbd4a24458fbd245cb78ebc3128a809d3d",
+          "dweb:/ipfs/QmRqxp6dBgt9hXnwD5HJW7NhcR24s8Yn7HZXykYa7FPkT4"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "src/types/LockupDynamic.sol": {
+        "keccak256": "0x3c5fbce95af3de27830d7f196a28de9eadae89f2d7dfe1f4cfbe7425d3fa2933",
+        "urls": [
+          "bzz-raw://23330570fe2520a47669431c11341af72bce4e7e64a6c440a67b93910d24a000",
+          "dweb:/ipfs/QmS2DvMeXM3hHZoqsHze1DYRRVGKxqKcPu6s1y1VWbPshu"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "src/types/LockupLinear.sol": {
+        "keccak256": "0x4392ba8a5f4892b391fb00e5531dd2bbc33ef27d59a053e3f75600d4331b0dcf",
+        "urls": [
+          "bzz-raw://4d61f0b43ec1e8c5c41d9b275c14fadf6e8757000b27b52c323c0334ab417141",
+          "dweb:/ipfs/QmZWhQXjusT6X7AVMupoaLYzxNTgmsJkm32Jk2fuRvn3P4"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "src/types/LockupTranched.sol": {
+        "keccak256": "0xc2c7c41b7cfcb37dd10a5ab522c784e3236927056e870e111c866da3cbf7cc31",
+        "urls": [
+          "bzz-raw://9abba4dea165619e4ff2d6f46d1ca8e77b21bc7d3c964fc0a3f2fd57a8f57a1c",
+          "dweb:/ipfs/Qmd1sLEuDbLJgqE8C8QoTahodbbTmazLFhCeoFvWE6EAJR"
+        ],
+        "license": "GPL-3.0-or-later"
+      }
+    },
+    "version": 1
+  },
+  "id": 113
+}
