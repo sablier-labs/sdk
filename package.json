@@ -70,8 +70,9 @@
   },
   "scripts": {
     "build": "bunx del-cli dist && bun tsc -p tsconfig.build.json && bun tsc-alias -p tsconfig.build.json",
+    "knip": "knip",
     "prepack": "bun install --frozen-lockfile && bun run build",
-    "knip": "knip"
+    "setup": "husky"
   },
   "types": "./dist/index.d.ts"
 }

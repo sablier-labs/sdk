@@ -13,6 +13,7 @@
 git clone https://github.com/sablier-labs/sdk.git sablier-sdk
 cd sablier-sdk
 bun install
+bun setup
 ```
 
 ### Available Commands
