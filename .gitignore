@@ -1,8 +1,9 @@
 # directories
-dist
-logs
-node_modules
-repomix
+.serena/
+dist/
+logs/
+node_modules/
+repomix/
 
 # files
 *.env

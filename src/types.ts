@@ -9,6 +9,8 @@ export namespace Sablier {
   /** Ethereum address in the format 0x followed by 40 hex characters. */
   export type Address = `0x${string}`;
 
+  export type AbiMap = { [contractName: string]: readonly object[] };
+
   export type AliasMap = { [contractName: string]: string };
 
   export type Chain = ViemChain & {
@@ -168,6 +170,10 @@ export namespace Sablier {
     };
   }
 
+  /**
+   * Contract names for a given protocol and version.
+   * Note that this may contain both deployed contracts and abstract contracts that are not deployed.
+   */
   export namespace Manifest {
     export type LockupV1 = {
       core: Standard;
@@ -186,6 +192,7 @@ export namespace Sablier {
    */
   export namespace Release {
     type Common = {
+      abi: AbiMap;
       /** A map of contract names to their aliases, used in the Sablier Interface and the Graph. */
       aliases?: AliasMap;
       /** An array of contract names. */

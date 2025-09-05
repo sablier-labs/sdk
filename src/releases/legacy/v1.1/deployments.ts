@@ -21,7 +21,7 @@ function get(chainId: number, contractMap: Sablier.ContractMap): Sablier.Deploym
  */
 export const mainnets: Sablier.Deployment[] = [
   get(chains.mainnet.id, {
-    [manifest.SABLIER]: "0xaDB944B478818d95659067E70D2e5Fc43Fa3eDe9",
+    [manifest.SABLIER]: "0xCD18eAa163733Da39c232722cBC4E8940b1D8888",
   }),
   get(chains.arbitrum.id, {
     [manifest.SABLIER]: "0xaDB944B478818d95659067E70D2e5Fc43Fa3eDe9",

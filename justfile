@@ -29,18 +29,20 @@ setup:
     bun husky
 
 # Run tests
-test args="--silent":
-    bun vitest run {{ args }}
+test *args:
+    bun vitest run --hideSkippedTests {{args}}
 alias t := test
 
-# Run tests in watch mode
-test-watch:
-    bun vitest --silent
+# Run tests with UI
+test-ui *args:
+    bun vitest --hideSkippedTests --ui {{args}}
+alias tui := test-ui
 
 # Build with TypeScript CLI
 tsc-build:
     bun tsc -p tsconfig.build.json
     bun tsc-alias -p tsconfig.build.json
+    bun copyfiles --up 2 src/abi/**/*.json "dist/abi"
 
 # ---------------------------------------------------------------------------- #
 #                                     PRINT                                    #

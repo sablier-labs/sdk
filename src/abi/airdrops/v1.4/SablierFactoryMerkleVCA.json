@@ -1,0 +1,203 @@
+[
+  {
+    "inputs": [{ "internalType": "address", "name": "initialComptroller", "type": "address" }],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "comptroller", "type": "address" },
+      { "internalType": "address", "name": "caller", "type": "address" }
+    ],
+    "name": "Comptrollerable_CallerNotComptroller",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "previousComptroller", "type": "address" },
+      { "internalType": "address", "name": "newComptroller", "type": "address" },
+      { "internalType": "bytes4", "name": "minimalInterfaceId", "type": "bytes4" }
+    ],
+    "name": "Comptrollerable_UnsupportedInterfaceId",
+    "type": "error"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "nativeToken", "type": "address" }],
+    "name": "SablierFactoryMerkleBase_ForbidNativeToken",
+    "type": "error"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "nativeToken", "type": "address" }],
+    "name": "SablierFactoryMerkleBase_NativeTokenAlreadySet",
+    "type": "error"
+  },
+  { "inputs": [], "name": "SablierFactoryMerkleBase_NativeTokenZeroAddress", "type": "error" },
+  { "inputs": [], "name": "SablierFactoryMerkleVCA_ExpirationTimeZero", "type": "error" },
+  {
+    "inputs": [
+      { "internalType": "uint40", "name": "vestingEndTime", "type": "uint40" },
+      { "internalType": "uint40", "name": "expiration", "type": "uint40" }
+    ],
+    "name": "SablierFactoryMerkleVCA_ExpirationTooEarly",
+    "type": "error"
+  },
+  { "inputs": [], "name": "SablierFactoryMerkleVCA_StartTimeZero", "type": "error" },
+  {
+    "inputs": [{ "internalType": "UD60x18", "name": "unlockPercentage", "type": "uint256" }],
+    "name": "SablierFactoryMerkleVCA_UnlockPercentageTooHigh",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint40", "name": "vestingStartTime", "type": "uint40" },
+      { "internalType": "uint40", "name": "vestingEndTime", "type": "uint40" }
+    ],
+    "name": "SablierFactoryMerkleVCA_VestingEndTimeNotGreaterThanVestingStartTime",
+    "type": "error"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "contract ISablierMerkleVCA", "name": "merkleVCA", "type": "address" },
+      {
+        "components": [
+          { "internalType": "string", "name": "campaignName", "type": "string" },
+          { "internalType": "uint40", "name": "campaignStartTime", "type": "uint40" },
+          { "internalType": "uint40", "name": "expiration", "type": "uint40" },
+          { "internalType": "address", "name": "initialAdmin", "type": "address" },
+          { "internalType": "string", "name": "ipfsCID", "type": "string" },
+          { "internalType": "bytes32", "name": "merkleRoot", "type": "bytes32" },
+          { "internalType": "contract IERC20", "name": "token", "type": "address" },
+          { "internalType": "UD60x18", "name": "unlockPercentage", "type": "uint256" },
+          { "internalType": "uint40", "name": "vestingEndTime", "type": "uint40" },
+          { "internalType": "uint40", "name": "vestingStartTime", "type": "uint40" }
+        ],
+        "indexed": false,
+        "internalType": "struct MerkleVCA.ConstructorParams",
+        "name": "params",
+        "type": "tuple"
+      },
+      { "indexed": false, "internalType": "uint256", "name": "aggregateAmount", "type": "uint256" },
+      { "indexed": false, "internalType": "uint256", "name": "recipientCount", "type": "uint256" },
+      { "indexed": false, "internalType": "address", "name": "comptroller", "type": "address" },
+      { "indexed": false, "internalType": "uint256", "name": "minFeeUSD", "type": "uint256" }
+    ],
+    "name": "CreateMerkleVCA",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": false, "internalType": "contract ISablierComptroller", "name": "oldComptroller", "type": "address" },
+      { "indexed": false, "internalType": "contract ISablierComptroller", "name": "newComptroller", "type": "address" }
+    ],
+    "name": "SetComptroller",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "address", "name": "comptroller", "type": "address" },
+      { "indexed": false, "internalType": "address", "name": "nativeToken", "type": "address" }
+    ],
+    "name": "SetNativeToken",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "contract ISablierComptroller", "name": "comptroller", "type": "address" },
+      { "indexed": false, "internalType": "uint256", "name": "feeAmount", "type": "uint256" }
+    ],
+    "name": "TransferFeesToComptroller",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "comptroller",
+    "outputs": [{ "internalType": "contract ISablierComptroller", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "campaignCreator", "type": "address" },
+      {
+        "components": [
+          { "internalType": "string", "name": "campaignName", "type": "string" },
+          { "internalType": "uint40", "name": "campaignStartTime", "type": "uint40" },
+          { "internalType": "uint40", "name": "expiration", "type": "uint40" },
+          { "internalType": "address", "name": "initialAdmin", "type": "address" },
+          { "internalType": "string", "name": "ipfsCID", "type": "string" },
+          { "internalType": "bytes32", "name": "merkleRoot", "type": "bytes32" },
+          { "internalType": "contract IERC20", "name": "token", "type": "address" },
+          { "internalType": "UD60x18", "name": "unlockPercentage", "type": "uint256" },
+          { "internalType": "uint40", "name": "vestingEndTime", "type": "uint40" },
+          { "internalType": "uint40", "name": "vestingStartTime", "type": "uint40" }
+        ],
+        "internalType": "struct MerkleVCA.ConstructorParams",
+        "name": "params",
+        "type": "tuple"
+      }
+    ],
+    "name": "computeMerkleVCA",
+    "outputs": [{ "internalType": "address", "name": "merkleVCA", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          { "internalType": "string", "name": "campaignName", "type": "string" },
+          { "internalType": "uint40", "name": "campaignStartTime", "type": "uint40" },
+          { "internalType": "uint40", "name": "expiration", "type": "uint40" },
+          { "internalType": "address", "name": "initialAdmin", "type": "address" },
+          { "internalType": "string", "name": "ipfsCID", "type": "string" },
+          { "internalType": "bytes32", "name": "merkleRoot", "type": "bytes32" },
+          { "internalType": "contract IERC20", "name": "token", "type": "address" },
+          { "internalType": "UD60x18", "name": "unlockPercentage", "type": "uint256" },
+          { "internalType": "uint40", "name": "vestingEndTime", "type": "uint40" },
+          { "internalType": "uint40", "name": "vestingStartTime", "type": "uint40" }
+        ],
+        "internalType": "struct MerkleVCA.ConstructorParams",
+        "name": "params",
+        "type": "tuple"
+      },
+      { "internalType": "uint256", "name": "aggregateAmount", "type": "uint256" },
+      { "internalType": "uint256", "name": "recipientCount", "type": "uint256" }
+    ],
+    "name": "createMerkleVCA",
+    "outputs": [{ "internalType": "contract ISablierMerkleVCA", "name": "merkleVCA", "type": "address" }],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "nativeToken",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "contract ISablierComptroller", "name": "newComptroller", "type": "address" }],
+    "name": "setComptroller",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "newNativeToken", "type": "address" }],
+    "name": "setNativeToken",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "transferFeesToComptroller",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
