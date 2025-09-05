@@ -393,4 +393,4 @@ export const sablierMerkleBaseAbi = [
     name: "SafeERC20FailedOperation",
     type: "error",
   },
-];
+] as const;
