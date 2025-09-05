@@ -1,6 +1,7 @@
 const manifest = {
   core: {
     SABLIER_V2_COMPTROLLER: "SablierV2Comptroller",
+    SABLIER_V2_LOCKUP: "SablierV2Lockup",
     SABLIER_V2_LOCKUP_DYNAMIC: "SablierV2LockupDynamic",
     SABLIER_V2_LOCKUP_LINEAR: "SablierV2LockupLinear",
     SABLIER_V2_NFT_DESCRIPTOR: "SablierV2NFTDescriptor",

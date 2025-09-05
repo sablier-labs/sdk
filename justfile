@@ -41,6 +41,7 @@ test-watch:
 tsc-build:
     bun tsc -p tsconfig.build.json
     bun tsc-alias -p tsconfig.build.json
+    bun copyfiles --up 2 src/abi/**/*.json "dist/abi"
 
 # ---------------------------------------------------------------------------- #
 #                                     PRINT                                    #

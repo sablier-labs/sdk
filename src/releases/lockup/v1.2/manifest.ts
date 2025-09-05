@@ -1,5 +1,6 @@
 const manifest = {
   core: {
+    SABLIER_V2_LOCKUP: "SablierV2Lockup",
     SABLIER_V2_LOCKUP_DYNAMIC: "SablierV2LockupDynamic",
     SABLIER_V2_LOCKUP_LINEAR: "SablierV2LockupLinear",
     SABLIER_V2_LOCKUP_TRANCHED: "SablierV2LockupTranched",
@@ -8,6 +9,7 @@ const manifest = {
   periphery: {
     SABLIER_V2_BATCH_LOCKUP: "SablierV2BatchLockup",
     SABLIER_V2_MERKLE_LL: "SablierV2MerkleLL",
+    SABLIER_V2_MERKLE_LOCKUP: "SablierV2MerkleLockup",
     SABLIER_V2_MERKLE_LOCKUP_FACTORY: "SablierV2MerkleLockupFactory",
     SABLIER_V2_MERKLE_LT: "SablierV2MerkleLT",
   },
