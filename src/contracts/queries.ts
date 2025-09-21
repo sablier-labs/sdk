@@ -20,26 +20,31 @@ export const contractsQueries = {
     const { chainId, contractAddress, contractName, protocol, release } = opts;
 
     if (contractAddress && contractName) {
-      throw new Error("Cannot specify both contractAddress and contractName as query options");
+      throw new Error("Sablier SDK: Cannot specify both contractAddress and contractName as query options");
     }
 
     if (protocol && release) {
-      throw new Error("Cannot specify both protocol and release as query options");
+      throw new Error("Sablier SDK: Cannot specify both protocol and release as query options");
     }
 
     if (contractName) {
       if (!release) {
-        throw new Error("Cannot specify contractName without release");
+        throw new Error("Sablier SDK: Cannot specify contractName without release");
       }
       const dep = _.find(release.deployments, { chainId });
       return dep && _.find(dep.contracts, { name: contractName });
     }
 
     if (contractAddress) {
-      if (!protocol) {
-        throw new Error("Cannot specify contractAddress without protocol");
+      if (protocol) {
+        return _.get(catalog, [protocol, chainId, contractAddress]);
       }
-      return _.get(catalog, [protocol, chainId, contractAddress]);
+      return (
+        _.get(catalog, ["airdrop", chainId, contractAddress]) ||
+        _.get(catalog, ["flow", chainId, contractAddress]) ||
+        _.get(catalog, ["legacy", chainId, contractAddress]) ||
+        _.get(catalog, ["lockup", chainId, contractAddress])
+      );
     }
 
     return undefined;
@@ -61,7 +66,7 @@ export const contractsQueries = {
     const { protocol, chainId, release } = opts || {};
 
     if (protocol && release) {
-      throw new Error("Cannot specify both protocol and release as query options");
+      throw new Error("Sablier SDK: Cannot specify both protocol and release as query options");
     }
 
     // by protocol

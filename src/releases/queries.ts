@@ -44,7 +44,7 @@ export const releasesQueries = {
     const list = _.values(releases[opts.protocol]);
     const latest = list[list.length - 1];
     if (!latest.isLatest) {
-      throw new Error(`No latest release found for Sablier ${opts.protocol}. Please report on GitHub.`);
+      throw new Error(`Sablier SDK: No latest release found for Sablier ${opts.protocol}. Please report on GitHub.`);
     }
     return latest;
   },
