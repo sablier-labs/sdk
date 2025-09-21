@@ -19,7 +19,7 @@ export const chainsQueries = {
   getOrThrow: (chainId: number): Sablier.Chain => {
     const chain = _.find(chains, (c) => c.id === chainId);
     if (!chain) {
-      throw new Error(`Chain with ID ${chainId} not found`);
+      throw new Error(`Sablier SDK: Chain with ID ${chainId} not found`);
     }
     return chain;
   },
