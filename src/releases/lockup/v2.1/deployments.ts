@@ -11,17 +11,17 @@ function get(chainId: number, contractMap: Sablier.ContractMap): Sablier.Deploym
     chainId,
     contractMap,
     protocol: Protocol.Lockup,
-    version: "v2.0",
+    version: "v2.1",
   });
 }
 
 /**
- * @description Mainnet deployments for Lockup v2.0
+ * @description Mainnet deployments for Lockup v2.1
  */
 export const mainnets: Sablier.Deployment[] = [];
 
 /**
- * @description Testnet deployments for Lockup v2.0
+ * @description Testnet deployments for Lockup v2.1
  */
 export const testnets: Sablier.Deployment[] = [
   get(chains.sepolia.id, {

@@ -16,12 +16,12 @@ function get(chainId: number, contractMap: Sablier.ContractMap): Sablier.Deploym
 }
 
 /**
- * @description Mainnet deployments for Airdrops v1.3
+ * @description Mainnet deployments for Airdrops v1.4
  */
 export const mainnets: Sablier.Deployment[] = [];
 
 /**
- * @description Testnet deployments for Airdrops v1.3.0
+ * @description Testnet deployments for Airdrops v1.4
  */
 export const testnets: Sablier.Deployment[] = [
   get(chains.sepolia.id, {

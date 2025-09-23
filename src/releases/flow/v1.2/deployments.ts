@@ -11,17 +11,17 @@ function get(chainId: number, contractMap: Sablier.ContractMap): Sablier.Deploym
     chainId,
     contractMap,
     protocol: Protocol.Flow,
-    version: "v1.1",
+    version: "v1.2",
   });
 }
 
 /**
- * @description Mainnet deployments for Flow v1.1
+ * @description Mainnet deployments for Flow v1.2
  */
 export const mainnets: Sablier.Deployment[] = [];
 
 /**
- * @description Testnet deployments for Flow v1.1
+ * @description Testnet deployments for Flow v1.2
  */
 export const testnets: Sablier.Deployment[] = [
   get(chains.sepolia.id, {

@@ -221,7 +221,6 @@ export const ronin = define("ronin", _ronin);
 export const scroll = define("scroll", _scroll);
 export const sepolia = define("sepolia", _sepolia);
 export const sonic = define("sonic", _sonic);
-export const sophon = define("sophon", _sophon);
 export const superseed = define("superseed", _superseed);
 export const superseedSepolia = define("superseed-sepolia", _superseedSepolia);
 export const taiko = define("taiko", _taiko);
@@ -270,10 +269,23 @@ export const sei: Sablier.Chain = define(
   "sei",
   viemDefine({
     ..._sei,
+    blockExplorers: {
+      default: { name: "Explorer", url: "https://seiscan.io" },
+    },
     rpcUrls: {
       default: {
         http: ["https://evm-rpc.sei-apis.com", "https://sei.drpc.org"],
       },
+    },
+  }),
+);
+
+export const sophon: Sablier.Chain = define(
+  "sophon",
+  viemDefine({
+    ..._sophon,
+    blockExplorers: {
+      default: { name: "Explorer", url: "https://sophscan.xyz/" },
     },
   }),
 );
