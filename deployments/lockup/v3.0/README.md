@@ -1,11 +1,12 @@
-# v1.4.0
+# v3.0.0
 
-## Contracts deployed
+## Contracts and Libraries Deployed
 
-- `SablierFactoryMerkleInstant`
-- `SablierFactoryMerkleLL`
-- `SablierFactoryMerkleLT`
-- `SablierFactoryMerkleVCA`
+- `SablierBatchLockup`
+- `SablierLockup`
+- `LockupNFTDescriptor`
+- `Helpers`
+- `LockupMath`
 
 ## Sources
 

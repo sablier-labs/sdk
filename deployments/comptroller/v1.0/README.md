@@ -25,7 +25,7 @@ TODO: update commit after PR is merged
 ### Exceptions
 
 1. For Linea, `paris` is used as the EVM version.
-2. For Abstract, Sophon and ZkSync, `zksolc =v1.5.15` is used.
+2. For Abstract, Sophon and ZkSync, `zksolc v1.5.15` is used.
 
 ### Salt
 

@@ -1,9 +1,11 @@
-# v1.2.0
+# v2.0
 
 ## Contracts deployed
 
-- `SablierFlow`
-- `FlowNFTDescriptor`
+- `SablierFactoryMerkleInstant`
+- `SablierFactoryMerkleLL`
+- `SablierFactoryMerkleLT`
+- `SablierFactoryMerkleVCA`
 
 ## Sources
 

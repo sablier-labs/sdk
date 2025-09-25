@@ -1,12 +1,9 @@
-# v2.1.0
+# v2.0.0
 
-## Contracts and Libraries Deployed
+## Contracts deployed
 
-- `SablierBatchLockup`
-- `SablierLockup`
-- `LockupNFTDescriptor`
-- `Helpers`
-- `LockupMath`
+- `SablierFlow`
+- `FlowNFTDescriptor`
 
 ## Sources
 

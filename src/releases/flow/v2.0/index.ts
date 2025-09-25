@@ -18,5 +18,5 @@ export const release = resolvers.release.standard({
   isLatest: true,
   manifest: manifest,
   protocol: Protocol.Flow,
-  version: "v1.2",
+  version: "v2.0",
 });

@@ -10,22 +10,24 @@ function get(chainId: number, contractMap: Sablier.ContractMap): Sablier.Deploym
     aliasMap: aliases,
     chainId,
     contractMap,
-    protocol: Protocol.Flow,
-    version: "v1.2",
+    protocol: Protocol.Airdrops,
+    version: "v2.0",
   });
 }
 
 /**
- * @description Mainnet deployments for Flow v1.2
+ * @description Mainnet deployments for Airdrops v2.0
  */
 export const mainnets: Sablier.Deployment[] = [];
 
 /**
- * @description Testnet deployments for Flow v1.2
+ * @description Testnet deployments for Airdrops v2.0
  */
 export const testnets: Sablier.Deployment[] = [
   get(chains.sepolia.id, {
-    [manifest.SABLIER_FLOW]: ["0x3f69b642D012A7736D34C0F190084F7081Fd0DC1", 9118024],
-    [manifest.FLOW_NFT_DESCRIPTOR]: "0xc9dBf2D207D178875b698e5f7493ce2d8BA88994",
+    [manifest.SABLIER_FACTORY_MERKLE_INSTANT]: ["0x42D09ED40Dad47240d66059cDE41f14721F73F09", 9117969],
+    [manifest.SABLIER_FACTORY_MERKLE_LL]: ["0x293A3902E5BcD156912b529300eA264426EF0C2F", 9117971],
+    [manifest.SABLIER_FACTORY_MERKLE_LT]: ["0x8eeB2731986aBfDE2afdF734fbC5BEc15Ba3122b", 9117971],
+    [manifest.SABLIER_FACTORY_MERKLE_VCA]: ["0x4584345C2159c13EdDb9D64B4F414B5908417AF3", 9117971],
   }),
 ];
