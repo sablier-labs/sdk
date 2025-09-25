@@ -1,0 +1,325 @@
+{
+  "abi": [
+    {
+      "type": "function",
+      "name": "admin",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "transferAdmin",
+      "inputs": [{ "name": "newAdmin", "type": "address", "internalType": "address" }],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "event",
+      "name": "TransferAdmin",
+      "inputs": [
+        { "name": "oldAdmin", "type": "address", "indexed": true, "internalType": "address" },
+        { "name": "newAdmin", "type": "address", "indexed": true, "internalType": "address" }
+      ],
+      "anonymous": false
+    }
+  ],
+  "bytecode": { "object": "0x", "sourceMap": "", "linkReferences": {} },
+  "deployedBytecode": { "object": "0x", "sourceMap": "", "linkReferences": {} },
+  "methodIdentifiers": { "admin()": "f851a440", "transferAdmin(address)": "75829def" },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.29+commit.ab55807c\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"oldAdmin\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newAdmin\",\"type\":\"address\"}],\"name\":\"TransferAdmin\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"admin\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newAdmin\",\"type\":\"address\"}],\"name\":\"transferAdmin\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"events\":{\"TransferAdmin(address,address)\":{\"params\":{\"newAdmin\":\"The address of the new admin.\",\"oldAdmin\":\"The address of the old admin.\"}}},\"kind\":\"dev\",\"methods\":{\"transferAdmin(address)\":{\"details\":\"Notes: - Does not revert if the admin is the same. - This function can potentially leave the contract without an admin, thereby removing any functionality that is only available to the admin. Requirements: - `msg.sender` must be the contract admin.\",\"params\":{\"newAdmin\":\"The address of the new admin.\"}}},\"title\":\"IAdminable\",\"version\":1},\"userdoc\":{\"events\":{\"TransferAdmin(address,address)\":{\"notice\":\"Emitted when the admin is transferred.\"}},\"kind\":\"user\",\"methods\":{\"admin()\":{\"notice\":\"The address of the admin account or contract.\"},\"transferAdmin(address)\":{\"notice\":\"Transfers the contract admin to a new address.\"}},\"notice\":\"Contract module that provides a basic access control mechanism, with an admin that can be granted exclusive access to specific functions. The inheriting contract must set the initial admin in the constructor.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/interfaces/IAdminable.sol\":\"IAdminable\"},\"evmVersion\":\"shanghai\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":100000000},\"remappings\":[\":@arbitrum/=node_modules/@arbitrum/\",\":@chainlink/=node_modules/@chainlink/\",\":@eth-optimism/=node_modules/@eth-optimism/\",\":@offchainlabs/=node_modules/@offchainlabs/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":@scroll-tech/=node_modules/@scroll-tech/\",\":@zksync/=node_modules/@zksync/\",\":forge-std/=node_modules/forge-std/\"],\"viaIR\":true},\"sources\":{\"src/interfaces/IAdminable.sol\":{\"keccak256\":\"0x3228d63e9b0b951030c73c42bb071e64f0ff0eadbcbeefad3f29a48366539c26\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://acc90ad2bec0e84349b56611b35b56bfb75a5930fd1babb2bd638fbbb15bd126\",\"dweb:/ipfs/QmSLnHx6bo4BQeBKYferfEhZo1Z4xCXdDF1bzJoHUafHt4\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": { "version": "0.8.29+commit.ab55807c" },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            { "internalType": "address", "name": "oldAdmin", "type": "address", "indexed": true },
+            { "internalType": "address", "name": "newAdmin", "type": "address", "indexed": true }
+          ],
+          "type": "event",
+          "name": "TransferAdmin",
+          "anonymous": false
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "admin",
+          "outputs": [{ "internalType": "address", "name": "", "type": "address" }]
+        },
+        {
+          "inputs": [{ "internalType": "address", "name": "newAdmin", "type": "address" }],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "transferAdmin"
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "transferAdmin(address)": {
+            "details": "Notes: - Does not revert if the admin is the same. - This function can potentially leave the contract without an admin, thereby removing any functionality that is only available to the admin. Requirements: - `msg.sender` must be the contract admin.",
+            "params": { "newAdmin": "The address of the new admin." }
+          }
+        },
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "admin()": { "notice": "The address of the admin account or contract." },
+          "transferAdmin(address)": { "notice": "Transfers the contract admin to a new address." }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        "@arbitrum/=node_modules/@arbitrum/",
+        "@chainlink/=node_modules/@chainlink/",
+        "@eth-optimism/=node_modules/@eth-optimism/",
+        "@offchainlabs/=node_modules/@offchainlabs/",
+        "@openzeppelin/=node_modules/@openzeppelin/",
+        "@scroll-tech/=node_modules/@scroll-tech/",
+        "@zksync/=node_modules/@zksync/",
+        "forge-std/=node_modules/forge-std/"
+      ],
+      "optimizer": { "enabled": true, "runs": 100000000 },
+      "metadata": { "bytecodeHash": "ipfs" },
+      "compilationTarget": { "src/interfaces/IAdminable.sol": "IAdminable" },
+      "evmVersion": "shanghai",
+      "libraries": {},
+      "viaIR": true
+    },
+    "sources": {
+      "src/interfaces/IAdminable.sol": {
+        "keccak256": "0x3228d63e9b0b951030c73c42bb071e64f0ff0eadbcbeefad3f29a48366539c26",
+        "urls": [
+          "bzz-raw://acc90ad2bec0e84349b56611b35b56bfb75a5930fd1babb2bd638fbbb15bd126",
+          "dweb:/ipfs/QmSLnHx6bo4BQeBKYferfEhZo1Z4xCXdDF1bzJoHUafHt4"
+        ],
+        "license": "GPL-3.0-or-later"
+      }
+    },
+    "version": 1
+  },
+  "storageLayout": { "storage": [], "types": {} },
+  "ast": {
+    "absolutePath": "src/interfaces/IAdminable.sol",
+    "id": 63217,
+    "exportedSymbols": { "IAdminable": [63216] },
+    "nodeType": "SourceUnit",
+    "src": "45:1802:70",
+    "nodes": [
+      {
+        "id": 63195,
+        "nodeType": "PragmaDirective",
+        "src": "45:25:70",
+        "nodes": [],
+        "literals": ["solidity", ">=", "0.8", ".22"]
+      },
+      {
+        "id": 63216,
+        "nodeType": "ContractDefinition",
+        "src": "323:1523:70",
+        "nodes": [
+          {
+            "id": 63203,
+            "nodeType": "EventDefinition",
+            "src": "722:72:70",
+            "nodes": [],
+            "anonymous": false,
+            "documentation": {
+              "id": 63197,
+              "nodeType": "StructuredDocumentation",
+              "src": "559:158:70",
+              "text": "@notice Emitted when the admin is transferred.\n @param oldAdmin The address of the old admin.\n @param newAdmin The address of the new admin."
+            },
+            "eventSelector": "bdd36143ee09de60bdefca70680e0f71189b2ed7acee364b53917ad433fdaf80",
+            "name": "TransferAdmin",
+            "nameLocation": "728:13:70",
+            "parameters": {
+              "id": 63202,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 63199,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "oldAdmin",
+                  "nameLocation": "758:8:70",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 63203,
+                  "src": "742:24:70",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 63198,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "742:7:70",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 63201,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "newAdmin",
+                  "nameLocation": "784:8:70",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 63203,
+                  "src": "768:24:70",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 63200,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "768:7:70",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "741:52:70"
+            }
+          },
+          {
+            "id": 63209,
+            "nodeType": "FunctionDefinition",
+            "src": "1078:49:70",
+            "nodes": [],
+            "documentation": {
+              "id": 63204,
+              "nodeType": "StructuredDocumentation",
+              "src": "1016:57:70",
+              "text": "@notice The address of the admin account or contract."
+            },
+            "functionSelector": "f851a440",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "admin",
+            "nameLocation": "1087:5:70",
+            "parameters": { "id": 63205, "nodeType": "ParameterList", "parameters": [], "src": "1092:2:70" },
+            "returnParameters": {
+              "id": 63208,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 63207,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 63209,
+                  "src": "1118:7:70",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 63206,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1118:7:70",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1117:9:70"
+            },
+            "scope": 63216,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 63215,
+            "nodeType": "FunctionDefinition",
+            "src": "1794:50:70",
+            "nodes": [],
+            "documentation": {
+              "id": 63210,
+              "nodeType": "StructuredDocumentation",
+              "src": "1351:438:70",
+              "text": "@notice Transfers the contract admin to a new address.\n @dev Notes:\n - Does not revert if the admin is the same.\n - This function can potentially leave the contract without an admin, thereby removing any\n functionality that is only available to the admin.\n Requirements:\n - `msg.sender` must be the contract admin.\n @param newAdmin The address of the new admin."
+            },
+            "functionSelector": "75829def",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "transferAdmin",
+            "nameLocation": "1803:13:70",
+            "parameters": {
+              "id": 63213,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 63212,
+                  "mutability": "mutable",
+                  "name": "newAdmin",
+                  "nameLocation": "1825:8:70",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 63215,
+                  "src": "1817:16:70",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 63211,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1817:7:70",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1816:18:70"
+            },
+            "returnParameters": { "id": 63214, "nodeType": "ParameterList", "parameters": [], "src": "1843:0:70" },
+            "scope": 63216,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IAdminable",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 63196,
+          "nodeType": "StructuredDocumentation",
+          "src": "72:251:70",
+          "text": "@title IAdminable\n @notice Contract module that provides a basic access control mechanism, with an admin that can be\n granted exclusive access to specific functions. The inheriting contract must set the initial admin\n in the constructor."
+        },
+        "fullyImplemented": false,
+        "linearizedBaseContracts": [63216],
+        "name": "IAdminable",
+        "nameLocation": "333:10:70",
+        "scope": 63217,
+        "usedErrors": [],
+        "usedEvents": [63203]
+      }
+    ],
+    "license": "GPL-3.0-or-later"
+  },
+  "id": 70
+}

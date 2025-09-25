@@ -1,0 +1,908 @@
+{
+  "abi": [
+    {
+      "type": "error",
+      "name": "AccountAlreadyHasRole",
+      "inputs": [
+        { "name": "role", "type": "bytes32", "internalType": "bytes32" },
+        { "name": "account", "type": "address", "internalType": "address" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "AccountDoesNotHaveRole",
+      "inputs": [
+        { "name": "role", "type": "bytes32", "internalType": "bytes32" },
+        { "name": "account", "type": "address", "internalType": "address" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "CallerNotAdmin",
+      "inputs": [
+        { "name": "admin", "type": "address", "internalType": "address" },
+        { "name": "caller", "type": "address", "internalType": "address" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "Comptrollerable_CallerNotComptroller",
+      "inputs": [
+        { "name": "comptroller", "type": "address", "internalType": "address" },
+        { "name": "caller", "type": "address", "internalType": "address" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "Comptrollerable_UnsupportedInterfaceId",
+      "inputs": [
+        { "name": "previousComptroller", "type": "address", "internalType": "address" },
+        { "name": "newComptroller", "type": "address", "internalType": "address" },
+        { "name": "minimalInterfaceId", "type": "bytes4", "internalType": "bytes4" }
+      ]
+    },
+    { "type": "error", "name": "DelegateCall", "inputs": [] },
+    { "type": "error", "name": "SablierComptroller_ExecutionFailedSilently", "inputs": [] },
+    {
+      "type": "error",
+      "name": "SablierComptroller_FeeRecipientNotAdmin",
+      "inputs": [
+        { "name": "feeRecipient", "type": "address", "internalType": "address" },
+        { "name": "admin", "type": "address", "internalType": "address" }
+      ]
+    },
+    { "type": "error", "name": "SablierComptroller_FeeRecipientZero", "inputs": [] },
+    {
+      "type": "error",
+      "name": "SablierComptroller_FeeTransferFailed",
+      "inputs": [
+        { "name": "feeRecipient", "type": "address", "internalType": "address" },
+        { "name": "feeAmount", "type": "uint256", "internalType": "uint256" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "SablierComptroller_MaxFeeUSDExceeded",
+      "inputs": [
+        { "name": "newFeeUSD", "type": "uint256", "internalType": "uint256" },
+        { "name": "maxFeeUSD", "type": "uint256", "internalType": "uint256" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "UnauthorizedAccess",
+      "inputs": [
+        { "name": "caller", "type": "address", "internalType": "address" },
+        { "name": "neededRole", "type": "bytes32", "internalType": "bytes32" }
+      ]
+    }
+  ],
+  "bytecode": {
+    "object": "0x6080806040523460175760399081601c823930815050f35b5f80fdfe5f80fdfea2646970667358221220dc47c4e02772e2066d2b369da445539ae109834fcbf1ac79b3cfb5782d5f2b4f64736f6c634300081d0033",
+    "sourceMap": "156:2995:65:-:0;;;;;;;;;;;;;;;;;;;;;",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x5f80fdfea2646970667358221220dc47c4e02772e2066d2b369da445539ae109834fcbf1ac79b3cfb5782d5f2b4f64736f6c634300081d0033",
+    "sourceMap": "156:2995:65:-:0;;",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {},
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.29+commit.ab55807c\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"AccountAlreadyHasRole\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"AccountDoesNotHaveRole\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"caller\",\"type\":\"address\"}],\"name\":\"CallerNotAdmin\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"comptroller\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"caller\",\"type\":\"address\"}],\"name\":\"Comptrollerable_CallerNotComptroller\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"previousComptroller\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"newComptroller\",\"type\":\"address\"},{\"internalType\":\"bytes4\",\"name\":\"minimalInterfaceId\",\"type\":\"bytes4\"}],\"name\":\"Comptrollerable_UnsupportedInterfaceId\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"DelegateCall\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"SablierComptroller_ExecutionFailedSilently\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"feeRecipient\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\"}],\"name\":\"SablierComptroller_FeeRecipientNotAdmin\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"SablierComptroller_FeeRecipientZero\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"feeRecipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"feeAmount\",\"type\":\"uint256\"}],\"name\":\"SablierComptroller_FeeTransferFailed\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"newFeeUSD\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"maxFeeUSD\",\"type\":\"uint256\"}],\"name\":\"SablierComptroller_MaxFeeUSDExceeded\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"caller\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"neededRole\",\"type\":\"bytes32\"}],\"name\":\"UnauthorizedAccess\",\"type\":\"error\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"title\":\"Errors\",\"version\":1},\"userdoc\":{\"errors\":{\"AccountAlreadyHasRole(bytes32,address)\":[{\"notice\":\"Thrown when trying to grant role to an `account` that already has the `role`.\"}],\"AccountDoesNotHaveRole(bytes32,address)\":[{\"notice\":\"Thrown when trying to revoke role from an `account` that does not have the `role`.\"}],\"CallerNotAdmin(address,address)\":[{\"notice\":\"Thrown when `msg.sender` is not the admin.\"}],\"Comptrollerable_CallerNotComptroller(address,address)\":[{\"notice\":\"Thrown when `msg.sender` is not the comptroller.\"}],\"Comptrollerable_UnsupportedInterfaceId(address,address,bytes4)\":[{\"notice\":\"Thrown when the new comptroller does not support the minimal interface ID from the previous comptroller.\"}],\"DelegateCall()\":[{\"notice\":\"Thrown when trying to delegate call to a function that disallows delegate calls.\"}],\"SablierComptroller_ExecutionFailedSilently()\":[{\"notice\":\"Thrown when the target contract reverts without any return data.\"}],\"SablierComptroller_FeeRecipientNotAdmin(address,address)\":[{\"notice\":\"Thrown when an unauthorized address collects fee without setting the fee recipient to admin address.\"}],\"SablierComptroller_FeeRecipientZero()\":[{\"notice\":\"Thrown when trying to transfer fees to the zero address.\"}],\"SablierComptroller_FeeTransferFailed(address,uint256)\":[{\"notice\":\"Thrown if fee transfer fails.\"}],\"SablierComptroller_MaxFeeUSDExceeded(uint256,uint256)\":[{\"notice\":\"Thrown when trying to set fee to a value that exceeds the maximum USD fee.\"}],\"UnauthorizedAccess(address,bytes32)\":[{\"notice\":\"Thrown if `caller` is missing the `neededRole` and is not the admin.\"}]},\"kind\":\"user\",\"methods\":{},\"notice\":\"Library with custom errors used across the contracts.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/libraries/Errors.sol\":\"Errors\"},\"evmVersion\":\"shanghai\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":100000000},\"remappings\":[\":@arbitrum/=node_modules/@arbitrum/\",\":@chainlink/=node_modules/@chainlink/\",\":@eth-optimism/=node_modules/@eth-optimism/\",\":@offchainlabs/=node_modules/@offchainlabs/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":@scroll-tech/=node_modules/@scroll-tech/\",\":@zksync/=node_modules/@zksync/\",\":forge-std/=node_modules/forge-std/\"],\"viaIR\":true},\"sources\":{\"src/libraries/Errors.sol\":{\"keccak256\":\"0xedb89cb164fc16d162ac9ee5e8e649b10c577a78a76adcd6a2934d16263fd172\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://e939b25bd82858dbbe1c25f13a4bdf48c75eecd9f4dda1be26f4dfee573fb16b\",\"dweb:/ipfs/QmTci8g82qV4r6XPQtYvvxMM6Cp5fS8tq37DtA9kVB5WoX\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": { "version": "0.8.29+commit.ab55807c" },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            { "internalType": "bytes32", "name": "role", "type": "bytes32" },
+            { "internalType": "address", "name": "account", "type": "address" }
+          ],
+          "type": "error",
+          "name": "AccountAlreadyHasRole"
+        },
+        {
+          "inputs": [
+            { "internalType": "bytes32", "name": "role", "type": "bytes32" },
+            { "internalType": "address", "name": "account", "type": "address" }
+          ],
+          "type": "error",
+          "name": "AccountDoesNotHaveRole"
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "admin", "type": "address" },
+            { "internalType": "address", "name": "caller", "type": "address" }
+          ],
+          "type": "error",
+          "name": "CallerNotAdmin"
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "comptroller", "type": "address" },
+            { "internalType": "address", "name": "caller", "type": "address" }
+          ],
+          "type": "error",
+          "name": "Comptrollerable_CallerNotComptroller"
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "previousComptroller", "type": "address" },
+            { "internalType": "address", "name": "newComptroller", "type": "address" },
+            { "internalType": "bytes4", "name": "minimalInterfaceId", "type": "bytes4" }
+          ],
+          "type": "error",
+          "name": "Comptrollerable_UnsupportedInterfaceId"
+        },
+        { "inputs": [], "type": "error", "name": "DelegateCall" },
+        { "inputs": [], "type": "error", "name": "SablierComptroller_ExecutionFailedSilently" },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "feeRecipient", "type": "address" },
+            { "internalType": "address", "name": "admin", "type": "address" }
+          ],
+          "type": "error",
+          "name": "SablierComptroller_FeeRecipientNotAdmin"
+        },
+        { "inputs": [], "type": "error", "name": "SablierComptroller_FeeRecipientZero" },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "feeRecipient", "type": "address" },
+            { "internalType": "uint256", "name": "feeAmount", "type": "uint256" }
+          ],
+          "type": "error",
+          "name": "SablierComptroller_FeeTransferFailed"
+        },
+        {
+          "inputs": [
+            { "internalType": "uint256", "name": "newFeeUSD", "type": "uint256" },
+            { "internalType": "uint256", "name": "maxFeeUSD", "type": "uint256" }
+          ],
+          "type": "error",
+          "name": "SablierComptroller_MaxFeeUSDExceeded"
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "caller", "type": "address" },
+            { "internalType": "bytes32", "name": "neededRole", "type": "bytes32" }
+          ],
+          "type": "error",
+          "name": "UnauthorizedAccess"
+        }
+      ],
+      "devdoc": { "kind": "dev", "methods": {}, "version": 1 },
+      "userdoc": { "kind": "user", "methods": {}, "version": 1 }
+    },
+    "settings": {
+      "remappings": [
+        "@arbitrum/=node_modules/@arbitrum/",
+        "@chainlink/=node_modules/@chainlink/",
+        "@eth-optimism/=node_modules/@eth-optimism/",
+        "@offchainlabs/=node_modules/@offchainlabs/",
+        "@openzeppelin/=node_modules/@openzeppelin/",
+        "@scroll-tech/=node_modules/@scroll-tech/",
+        "@zksync/=node_modules/@zksync/",
+        "forge-std/=node_modules/forge-std/"
+      ],
+      "optimizer": { "enabled": true, "runs": 100000000 },
+      "metadata": { "bytecodeHash": "ipfs" },
+      "compilationTarget": { "src/libraries/Errors.sol": "Errors" },
+      "evmVersion": "shanghai",
+      "libraries": {},
+      "viaIR": true
+    },
+    "sources": {
+      "src/libraries/Errors.sol": {
+        "keccak256": "0xedb89cb164fc16d162ac9ee5e8e649b10c577a78a76adcd6a2934d16263fd172",
+        "urls": [
+          "bzz-raw://e939b25bd82858dbbe1c25f13a4bdf48c75eecd9f4dda1be26f4dfee573fb16b",
+          "dweb:/ipfs/QmTci8g82qV4r6XPQtYvvxMM6Cp5fS8tq37DtA9kVB5WoX"
+        ],
+        "license": "GPL-3.0-or-later"
+      }
+    },
+    "version": 1
+  },
+  "storageLayout": { "storage": [], "types": {} },
+  "ast": {
+    "absolutePath": "src/libraries/Errors.sol",
+    "id": 62212,
+    "exportedSymbols": { "Errors": [62211] },
+    "nodeType": "SourceUnit",
+    "src": "45:3107:65",
+    "nodes": [
+      {
+        "id": 62135,
+        "nodeType": "PragmaDirective",
+        "src": "45:25:65",
+        "nodes": [],
+        "literals": ["solidity", ">=", "0.8", ".22"]
+      },
+      {
+        "id": 62211,
+        "nodeType": "ContractDefinition",
+        "src": "156:2995:65",
+        "nodes": [
+          {
+            "id": 62143,
+            "nodeType": "ErrorDefinition",
+            "src": "447:52:65",
+            "nodes": [],
+            "documentation": {
+              "id": 62137,
+              "nodeType": "StructuredDocumentation",
+              "src": "388:54:65",
+              "text": "@notice Thrown when `msg.sender` is not the admin."
+            },
+            "errorSelector": "c6cce6a4",
+            "name": "CallerNotAdmin",
+            "nameLocation": "453:14:65",
+            "parameters": {
+              "id": 62142,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 62139,
+                  "mutability": "mutable",
+                  "name": "admin",
+                  "nameLocation": "476:5:65",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 62143,
+                  "src": "468:13:65",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 62138,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "468:7:65",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 62141,
+                  "mutability": "mutable",
+                  "name": "caller",
+                  "nameLocation": "491:6:65",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 62143,
+                  "src": "483:14:65",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 62140,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "483:7:65",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "467:31:65"
+            }
+          },
+          {
+            "id": 62146,
+            "nodeType": "ErrorDefinition",
+            "src": "797:51:65",
+            "nodes": [],
+            "documentation": {
+              "id": 62144,
+              "nodeType": "StructuredDocumentation",
+              "src": "716:76:65",
+              "text": "@notice Thrown when the target contract reverts without any return data."
+            },
+            "errorSelector": "a25f61e6",
+            "name": "SablierComptroller_ExecutionFailedSilently",
+            "nameLocation": "803:42:65",
+            "parameters": { "id": 62145, "nodeType": "ParameterList", "parameters": [], "src": "845:2:65" }
+          },
+          {
+            "id": 62153,
+            "nodeType": "ErrorDefinition",
+            "src": "945:81:65",
+            "nodes": [],
+            "documentation": {
+              "id": 62147,
+              "nodeType": "StructuredDocumentation",
+              "src": "854:86:65",
+              "text": "@notice Thrown when trying to set fee to a value that exceeds the maximum USD fee."
+            },
+            "errorSelector": "330ce9f1",
+            "name": "SablierComptroller_MaxFeeUSDExceeded",
+            "nameLocation": "951:36:65",
+            "parameters": {
+              "id": 62152,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 62149,
+                  "mutability": "mutable",
+                  "name": "newFeeUSD",
+                  "nameLocation": "996:9:65",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 62153,
+                  "src": "988:17:65",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" },
+                  "typeName": {
+                    "id": 62148,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "988:7:65",
+                    "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 62151,
+                  "mutability": "mutable",
+                  "name": "maxFeeUSD",
+                  "nameLocation": "1015:9:65",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 62153,
+                  "src": "1007:17:65",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" },
+                  "typeName": {
+                    "id": 62150,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1007:7:65",
+                    "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "987:38:65"
+            }
+          },
+          {
+            "id": 62160,
+            "nodeType": "ErrorDefinition",
+            "src": "1149:83:65",
+            "nodes": [],
+            "documentation": {
+              "id": 62154,
+              "nodeType": "StructuredDocumentation",
+              "src": "1032:112:65",
+              "text": "@notice Thrown when an unauthorized address collects fee without setting the fee recipient to admin address."
+            },
+            "errorSelector": "ac045a20",
+            "name": "SablierComptroller_FeeRecipientNotAdmin",
+            "nameLocation": "1155:39:65",
+            "parameters": {
+              "id": 62159,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 62156,
+                  "mutability": "mutable",
+                  "name": "feeRecipient",
+                  "nameLocation": "1203:12:65",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 62160,
+                  "src": "1195:20:65",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 62155,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1195:7:65",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 62158,
+                  "mutability": "mutable",
+                  "name": "admin",
+                  "nameLocation": "1225:5:65",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 62160,
+                  "src": "1217:13:65",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 62157,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1217:7:65",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1194:37:65"
+            }
+          },
+          {
+            "id": 62163,
+            "nodeType": "ErrorDefinition",
+            "src": "1311:44:65",
+            "nodes": [],
+            "documentation": {
+              "id": 62161,
+              "nodeType": "StructuredDocumentation",
+              "src": "1238:68:65",
+              "text": "@notice Thrown when trying to transfer fees to the zero address."
+            },
+            "errorSelector": "16650253",
+            "name": "SablierComptroller_FeeRecipientZero",
+            "nameLocation": "1317:35:65",
+            "parameters": { "id": 62162, "nodeType": "ParameterList", "parameters": [], "src": "1352:2:65" }
+          },
+          {
+            "id": 62170,
+            "nodeType": "ErrorDefinition",
+            "src": "1407:84:65",
+            "nodes": [],
+            "documentation": {
+              "id": 62164,
+              "nodeType": "StructuredDocumentation",
+              "src": "1361:41:65",
+              "text": "@notice Thrown if fee transfer fails."
+            },
+            "errorSelector": "d54ea680",
+            "name": "SablierComptroller_FeeTransferFailed",
+            "nameLocation": "1413:36:65",
+            "parameters": {
+              "id": 62169,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 62166,
+                  "mutability": "mutable",
+                  "name": "feeRecipient",
+                  "nameLocation": "1458:12:65",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 62170,
+                  "src": "1450:20:65",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 62165,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1450:7:65",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 62168,
+                  "mutability": "mutable",
+                  "name": "feeAmount",
+                  "nameLocation": "1480:9:65",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 62170,
+                  "src": "1472:17:65",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" },
+                  "typeName": {
+                    "id": 62167,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1472:7:65",
+                    "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1449:41:65"
+            }
+          },
+          {
+            "id": 62177,
+            "nodeType": "ErrorDefinition",
+            "src": "1775:80:65",
+            "nodes": [],
+            "documentation": {
+              "id": 62171,
+              "nodeType": "StructuredDocumentation",
+              "src": "1710:60:65",
+              "text": "@notice Thrown when `msg.sender` is not the comptroller."
+            },
+            "errorSelector": "a7e1519e",
+            "name": "Comptrollerable_CallerNotComptroller",
+            "nameLocation": "1781:36:65",
+            "parameters": {
+              "id": 62176,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 62173,
+                  "mutability": "mutable",
+                  "name": "comptroller",
+                  "nameLocation": "1826:11:65",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 62177,
+                  "src": "1818:19:65",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 62172,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1818:7:65",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 62175,
+                  "mutability": "mutable",
+                  "name": "caller",
+                  "nameLocation": "1847:6:65",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 62177,
+                  "src": "1839:14:65",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 62174,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1839:7:65",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1817:37:65"
+            }
+          },
+          {
+            "id": 62186,
+            "nodeType": "ErrorDefinition",
+            "src": "1982:139:65",
+            "nodes": [],
+            "documentation": {
+              "id": 62178,
+              "nodeType": "StructuredDocumentation",
+              "src": "1861:116:65",
+              "text": "@notice Thrown when the new comptroller does not support the minimal interface ID from the previous comptroller."
+            },
+            "errorSelector": "c9947bc2",
+            "name": "Comptrollerable_UnsupportedInterfaceId",
+            "nameLocation": "1988:38:65",
+            "parameters": {
+              "id": 62185,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 62180,
+                  "mutability": "mutable",
+                  "name": "previousComptroller",
+                  "nameLocation": "2044:19:65",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 62186,
+                  "src": "2036:27:65",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 62179,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2036:7:65",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 62182,
+                  "mutability": "mutable",
+                  "name": "newComptroller",
+                  "nameLocation": "2073:14:65",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 62186,
+                  "src": "2065:22:65",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 62181,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2065:7:65",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 62184,
+                  "mutability": "mutable",
+                  "name": "minimalInterfaceId",
+                  "nameLocation": "2096:18:65",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 62186,
+                  "src": "2089:25:65",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_bytes4", "typeString": "bytes4" },
+                  "typeName": {
+                    "id": 62183,
+                    "name": "bytes4",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2089:6:65",
+                    "typeDescriptions": { "typeIdentifier": "t_bytes4", "typeString": "bytes4" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2026:94:65"
+            }
+          },
+          {
+            "id": 62189,
+            "nodeType": "ErrorDefinition",
+            "src": "2438:21:65",
+            "nodes": [],
+            "documentation": {
+              "id": 62187,
+              "nodeType": "StructuredDocumentation",
+              "src": "2341:92:65",
+              "text": "@notice Thrown when trying to delegate call to a function that disallows delegate calls."
+            },
+            "errorSelector": "a1c0d6e5",
+            "name": "DelegateCall",
+            "nameLocation": "2444:12:65",
+            "parameters": { "id": 62188, "nodeType": "ParameterList", "parameters": [], "src": "2456:2:65" }
+          },
+          {
+            "id": 62196,
+            "nodeType": "ErrorDefinition",
+            "src": "2773:59:65",
+            "nodes": [],
+            "documentation": {
+              "id": 62190,
+              "nodeType": "StructuredDocumentation",
+              "src": "2679:89:65",
+              "text": "@notice Thrown when trying to grant role to an `account` that already has the `role`."
+            },
+            "errorSelector": "cbb4ac0d",
+            "name": "AccountAlreadyHasRole",
+            "nameLocation": "2779:21:65",
+            "parameters": {
+              "id": 62195,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 62192,
+                  "mutability": "mutable",
+                  "name": "role",
+                  "nameLocation": "2809:4:65",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 62196,
+                  "src": "2801:12:65",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_bytes32", "typeString": "bytes32" },
+                  "typeName": {
+                    "id": 62191,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2801:7:65",
+                    "typeDescriptions": { "typeIdentifier": "t_bytes32", "typeString": "bytes32" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 62194,
+                  "mutability": "mutable",
+                  "name": "account",
+                  "nameLocation": "2823:7:65",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 62196,
+                  "src": "2815:15:65",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 62193,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2815:7:65",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2800:31:65"
+            }
+          },
+          {
+            "id": 62203,
+            "nodeType": "ErrorDefinition",
+            "src": "2937:60:65",
+            "nodes": [],
+            "documentation": {
+              "id": 62197,
+              "nodeType": "StructuredDocumentation",
+              "src": "2838:94:65",
+              "text": "@notice Thrown when trying to revoke role from an `account` that does not have the `role`."
+            },
+            "errorSelector": "6514a824",
+            "name": "AccountDoesNotHaveRole",
+            "nameLocation": "2943:22:65",
+            "parameters": {
+              "id": 62202,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 62199,
+                  "mutability": "mutable",
+                  "name": "role",
+                  "nameLocation": "2974:4:65",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 62203,
+                  "src": "2966:12:65",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_bytes32", "typeString": "bytes32" },
+                  "typeName": {
+                    "id": 62198,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2966:7:65",
+                    "typeDescriptions": { "typeIdentifier": "t_bytes32", "typeString": "bytes32" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 62201,
+                  "mutability": "mutable",
+                  "name": "account",
+                  "nameLocation": "2988:7:65",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 62203,
+                  "src": "2980:15:65",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 62200,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2980:7:65",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2965:31:65"
+            }
+          },
+          {
+            "id": 62210,
+            "nodeType": "ErrorDefinition",
+            "src": "3088:61:65",
+            "nodes": [],
+            "documentation": {
+              "id": 62204,
+              "nodeType": "StructuredDocumentation",
+              "src": "3003:80:65",
+              "text": "@notice Thrown if `caller` is missing the `neededRole` and is not the admin."
+            },
+            "errorSelector": "6e6c2928",
+            "name": "UnauthorizedAccess",
+            "nameLocation": "3094:18:65",
+            "parameters": {
+              "id": 62209,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 62206,
+                  "mutability": "mutable",
+                  "name": "caller",
+                  "nameLocation": "3121:6:65",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 62210,
+                  "src": "3113:14:65",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 62205,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3113:7:65",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 62208,
+                  "mutability": "mutable",
+                  "name": "neededRole",
+                  "nameLocation": "3137:10:65",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 62210,
+                  "src": "3129:18:65",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_bytes32", "typeString": "bytes32" },
+                  "typeName": {
+                    "id": 62207,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3129:7:65",
+                    "typeDescriptions": { "typeIdentifier": "t_bytes32", "typeString": "bytes32" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3112:36:65"
+            }
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "Errors",
+        "contractDependencies": [],
+        "contractKind": "library",
+        "documentation": {
+          "id": 62136,
+          "nodeType": "StructuredDocumentation",
+          "src": "72:84:65",
+          "text": "@title Errors\n @notice Library with custom errors used across the contracts."
+        },
+        "fullyImplemented": true,
+        "linearizedBaseContracts": [62211],
+        "name": "Errors",
+        "nameLocation": "164:6:65",
+        "scope": 62212,
+        "usedErrors": [62143, 62146, 62153, 62160, 62163, 62170, 62177, 62186, 62189, 62196, 62203, 62210],
+        "usedEvents": []
+      }
+    ],
+    "license": "GPL-3.0-or-later"
+  },
+  "id": 65
+}
