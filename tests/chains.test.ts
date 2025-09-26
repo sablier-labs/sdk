@@ -49,7 +49,6 @@ describe("Package chains are in sync with broadcasts", () => {
   it("should not have any unknown chain in broadcasts", () => {
     errors.clear();
     const allowedSlugs = [...KNOWN_SLUGS, ...MISSING_CHAINS];
-    console.log("allowedSlugs", allowedSlugs);
     const extraChains = _.difference(broadcastSlugs, allowedSlugs);
 
     for (const slug of extraChains) {

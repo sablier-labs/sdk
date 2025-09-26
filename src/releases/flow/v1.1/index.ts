@@ -15,7 +15,7 @@ export const release = resolvers.release.standard({
   abi,
   aliases,
   deployments: deployments,
-  isLatest: true,
+  isLatest: false,
   manifest: manifest,
   protocol: Protocol.Flow,
   version: "v1.1",
