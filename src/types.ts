@@ -78,10 +78,10 @@ export namespace Sablier {
     explorerURL?: string;
     /** The name of the contract. */
     name: string;
-    /** The protocol the contract is part of. */
-    protocol: Sablier.Protocol;
-    /** The release version the contract is part of. */
-    version: Sablier.Version;
+    /** The protocol the contract is part of (optional). */
+    protocol?: Sablier.Protocol;
+    /** The release version the contract is part of (optional). */
+    version?: Sablier.Version;
   };
 
   /**
