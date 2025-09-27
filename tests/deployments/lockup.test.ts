@@ -9,3 +9,4 @@ createTestSuite(releases.lockup["v1.0"]);
 createTestSuite(releases.lockup["v1.1"]);
 createTestSuite(releases.lockup["v1.2"]);
 createTestSuite(releases.lockup["v2.0"]);
+createTestSuite(releases.lockup["v3.0"]);
