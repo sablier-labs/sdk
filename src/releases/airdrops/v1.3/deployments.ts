@@ -109,7 +109,7 @@ export const mainnets: Sablier.Deployment[] = [
 ];
 
 /**
- * @description Testnet deployments for Airdrops v1.3.0
+ * @description Testnet deployments for Airdrops v1.3
  */
 export const testnets: Sablier.Deployment[] = [
   get(chains.arbitrumSepolia.id, {
