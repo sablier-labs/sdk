@@ -47,6 +47,9 @@ import {
   zksyncSepoliaTestnet as _zksyncSepoliaTestnet,
 } from "viem/chains";
 
+const HYPEREVM_NATIVE_CURRENCY_SYMBOL = "HYPE";
+const TANGLE_NATIVE_CURRENCY_SYMBOL = "TNT";
+
 /* -------------------------------------------------------------------------- */
 /*                                     RPC                                    */
 /* -------------------------------------------------------------------------- */
@@ -112,10 +115,31 @@ const infuraRPCs: Record<number, RPCGenerator> = {
 /*                                   HELPERS                                  */
 /* -------------------------------------------------------------------------- */
 
-type ConfigBool = { [chainId: number]: boolean };
-type ConfigString = { [chainId: number]: string };
+type IdToBool = { [chainId: number]: boolean };
+type IdToString = { [chainId: number]: string };
+type SymbolToString = { [symbol: string]: string };
 
 const config = {
+  coinGeckoIds: {
+    [_mainnet.nativeCurrency.symbol]: "ethereum",
+    [_avalanche.nativeCurrency.symbol]: "avalanche-2",
+    [_berachain.nativeCurrency.symbol]: "berachain-bera",
+    [_bsc.nativeCurrency.symbol]: "binancecoin",
+    [_coreDao.nativeCurrency.symbol]: "coredaoorg",
+    [_chiliz.nativeCurrency.symbol]: "chiliz",
+    [_gnosis.nativeCurrency.symbol]: "dai",
+    [HYPEREVM_NATIVE_CURRENCY_SYMBOL]: "hyperliquid",
+    [_iotex.nativeCurrency.symbol]: "iotex",
+    [_meld.nativeCurrency.symbol]: "meld-2",
+    [_monadTestnet.nativeCurrency.symbol]: "monad",
+    [_polygon.nativeCurrency.symbol]: "matic-network",
+    [_ronin.nativeCurrency.symbol]: "ronin",
+    [_sei.nativeCurrency.symbol]: "sei",
+    [_sophon.nativeCurrency.symbol]: "sophon",
+    [_sonic.nativeCurrency.symbol]: "sonic-3",
+    [TANGLE_NATIVE_CURRENCY_SYMBOL]: "tangle-network",
+    [_xdc.nativeCurrency.symbol]: "xdce-crowd-sale",
+  } as SymbolToString,
   names: {
     [_arbitrum.id]: "Arbitrum",
     [_bsc.id]: "BNB Chain",
@@ -127,16 +151,16 @@ const config = {
     [_taiko.id]: "Taiko",
     [_taikoHekla.id]: "Taiko Hekla",
     [_xdc.id]: "XDC",
-  } as ConfigString,
+  } as IdToString,
   slugs: {
     [_zksyncSepoliaTestnet.id]: "zksync-sepolia",
-  } as ConfigString,
+  } as IdToString,
   ui: {
     // By default, testnets are not supported by the UI.
     supportedTestnets: {
       [_baseSepolia.id]: true,
       [_sepolia.id]: true,
-    } as ConfigBool,
+    } as IdToBool,
     // By default, mainnets are supported by the UI.
     unsupportedMainnets: {
       [_form.id]: true,
@@ -144,7 +168,7 @@ const config = {
       [_meld.id]: true,
       [_ronin.id]: true,
       [_taiko.id]: true,
-    } as ConfigBool,
+    } as IdToBool,
   },
   // These chains have the artifacts under the `artifacts-zk` directory.
   zk: {
@@ -152,16 +176,22 @@ const config = {
     [_sophon.id]: true,
     [_zksync.id]: true,
     [_zksyncSepoliaTestnet.id]: true,
-  } as ConfigBool,
+  } as IdToBool,
 };
 
 function define(slug: string, chain: ViemChain): Sablier.Chain {
   if (!chain.blockExplorers) {
     throw new Error(`Chain ${chain.name} has no block explorers`);
   }
+
   const defaultRPCs = chain.rpcUrls.default.http;
   if (!defaultRPCs) {
     throw new Error(`Chain ${chain.name} has no default RPC`);
+  }
+
+  const coinGeckoId = config.coinGeckoIds[chain.nativeCurrency.symbol];
+  if (!coinGeckoId) {
+    throw new Error(`Chain ${chain.name} has no coinGecko ID`);
   }
 
   const isTestnet = Boolean(chain.testnet);
@@ -176,6 +206,10 @@ function define(slug: string, chain: ViemChain): Sablier.Chain {
     isTestnet,
     isZK: Boolean(config.zk[chain.id]),
     name: config.names[chain.id] ?? chain.name,
+    nativeCurrency: {
+      ...chain.nativeCurrency,
+      coinGeckoId,
+    },
     rpc: {
       alchemy: alchemyRPCs[chain.id],
       defaults: defaultRPCs as string[],
@@ -186,7 +220,7 @@ function define(slug: string, chain: ViemChain): Sablier.Chain {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                                 DEFINITIONS                                */
+/*                             NORMAL DEFINITIONS                             */
 /* -------------------------------------------------------------------------- */
 
 export const abstract = define("abstract", _abstract);
@@ -230,6 +264,10 @@ export const xdc = define("xdc", _xdc);
 export const zksync = define("zksync", _zksync);
 export const zksyncSepolia = define("zksync-sepolia", _zksyncSepoliaTestnet);
 
+/* -------------------------------------------------------------------------- */
+/*                             CUSTOM DEFINITIONS                             */
+/* -------------------------------------------------------------------------- */
+
 /**
  * HyperEVM is using another chain's ID (Wanchain Testnet). Until they change this, we will have to define it like this.
  * @see https://github.com/wevm/viem/pull/3390
@@ -251,7 +289,7 @@ export const hyperevm: Sablier.Chain = define(
     nativeCurrency: {
       decimals: 18,
       name: "Hyperliquid",
-      symbol: "HYPE",
+      symbol: HYPEREVM_NATIVE_CURRENCY_SYMBOL,
     },
     rpc: {
       public: "https://rpc.hyperliquid.xyz/evm",
@@ -285,7 +323,7 @@ export const sophon: Sablier.Chain = define(
   viemDefine({
     ..._sophon,
     blockExplorers: {
-      default: { name: "Explorer", url: "https://sophscan.xyz/" },
+      default: { name: "Explorer", url: "https://sophscan.xyz" },
     },
   }),
 );

@@ -24,6 +24,9 @@ export namespace Sablier {
     isTestnet: boolean;
     /** Whether this is a zkEVM like zkSync. */
     isZK: boolean;
+    nativeCurrency: ViemChain["nativeCurrency"] & {
+      coinGeckoId: string;
+    };
     rpc: {
       /** Alchemy RPC URL generator. */
       alchemy?: (apiKey: string) => string;
