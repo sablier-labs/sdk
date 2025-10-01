@@ -2,6 +2,7 @@ import { sablier } from "@src/sablier";
 import type { Sablier } from "@src/types";
 import _ from "lodash";
 import { beforeAll, describe, expect, it } from "vitest";
+import { isBroadcastsUnified } from "../../helpers/broadcasts";
 import { isKnownMissing } from "../../helpers/missing";
 import type { BasicContract, StandardBroadcast, ZKBroadcast } from "../../types";
 import { findContract, findZKContract } from "./finders";
@@ -128,7 +129,8 @@ export function createTestSuite(release: Sablier.Release): void {
   describe(`${release.protocol} ${release.version}`, () => {
     for (const deployment of release.deployments) {
       const chain = sablier.chains.getOrThrow(deployment.chainId);
-      if (chain.isZK) {
+
+      if (chain.isZK && !isBroadcastsUnified(release)) {
         createZKTests(release, deployment, chain);
       } else {
         createStandardTests(release, deployment, chain);

@@ -7,10 +7,8 @@
 
 ## Sources
 
-TODO: update commit after PR is merged
-
-- Commit: [8cc042f](https://github.com/sablier-labs/evm-utils/commit/8cc042ffba670bb04feae52d88d62e8984f22d6d)
-- Package: [@sablier/evm-utils@1.0.0](https://www.npmjs.com/package/@sablier/evm-utils/v/1.0.0)
+- Commit: [d7d6c05](https://github.com/sablier-labs/evm-utils/commit/d7d6c051a39cbacadef672e92ed9d57628c80dc4)
+- Package: [@sablier/evm-utils@1.0](https://www.npmjs.com/package/@sablier/evm-utils/v/1.0.0)
 
 ## Configurations
 

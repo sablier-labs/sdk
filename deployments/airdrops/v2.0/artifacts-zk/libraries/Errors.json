@@ -1,0 +1,213 @@
+{
+  "abi": [
+    {
+      "type": "error",
+      "name": "AccountAlreadyHasRole",
+      "inputs": [
+        { "name": "role", "type": "bytes32", "internalType": "bytes32" },
+        { "name": "account", "type": "address", "internalType": "address" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "AccountDoesNotHaveRole",
+      "inputs": [
+        { "name": "role", "type": "bytes32", "internalType": "bytes32" },
+        { "name": "account", "type": "address", "internalType": "address" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "CallerNotAdmin",
+      "inputs": [
+        { "name": "admin", "type": "address", "internalType": "address" },
+        { "name": "caller", "type": "address", "internalType": "address" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "Comptrollerable_CallerNotComptroller",
+      "inputs": [
+        { "name": "comptroller", "type": "address", "internalType": "address" },
+        { "name": "caller", "type": "address", "internalType": "address" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "Comptrollerable_UnsupportedInterfaceId",
+      "inputs": [
+        { "name": "previousComptroller", "type": "address", "internalType": "address" },
+        { "name": "newComptroller", "type": "address", "internalType": "address" },
+        { "name": "minimalInterfaceId", "type": "bytes4", "internalType": "bytes4" }
+      ]
+    },
+    { "type": "error", "name": "DelegateCall", "inputs": [] },
+    { "type": "error", "name": "SablierComptroller_ExecutionFailedSilently", "inputs": [] },
+    {
+      "type": "error",
+      "name": "SablierComptroller_FeeRecipientNotAdmin",
+      "inputs": [
+        { "name": "feeRecipient", "type": "address", "internalType": "address" },
+        { "name": "admin", "type": "address", "internalType": "address" }
+      ]
+    },
+    { "type": "error", "name": "SablierComptroller_FeeRecipientZero", "inputs": [] },
+    {
+      "type": "error",
+      "name": "SablierComptroller_FeeTransferFailed",
+      "inputs": [
+        { "name": "feeRecipient", "type": "address", "internalType": "address" },
+        { "name": "feeAmount", "type": "uint256", "internalType": "uint256" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "SablierComptroller_MaxFeeUSDExceeded",
+      "inputs": [
+        { "name": "newFeeUSD", "type": "uint256", "internalType": "uint256" },
+        { "name": "maxFeeUSD", "type": "uint256", "internalType": "uint256" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "UnauthorizedAccess",
+      "inputs": [
+        { "name": "caller", "type": "address", "internalType": "address" },
+        { "name": "neededRole", "type": "bytes32", "internalType": "bytes32" }
+      ]
+    }
+  ],
+  "bytecode": {
+    "object": "0x6080806040523460175760399081601c823930815050f35b5f80fdfe5f80fdfea2646970667358221220fa1540b0a705fe56c12956982fd92b9c518be4b22f96468959af3d439728806c64736f6c634300081d0033",
+    "sourceMap": "156:2995:62:-:0;;;;;;;;;;;;;;;;;;;;;",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x5f80fdfea2646970667358221220fa1540b0a705fe56c12956982fd92b9c518be4b22f96468959af3d439728806c64736f6c634300081d0033",
+    "sourceMap": "156:2995:62:-:0;;",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {},
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.29+commit.ab55807c\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"AccountAlreadyHasRole\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"AccountDoesNotHaveRole\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"caller\",\"type\":\"address\"}],\"name\":\"CallerNotAdmin\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"comptroller\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"caller\",\"type\":\"address\"}],\"name\":\"Comptrollerable_CallerNotComptroller\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"previousComptroller\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"newComptroller\",\"type\":\"address\"},{\"internalType\":\"bytes4\",\"name\":\"minimalInterfaceId\",\"type\":\"bytes4\"}],\"name\":\"Comptrollerable_UnsupportedInterfaceId\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"DelegateCall\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"SablierComptroller_ExecutionFailedSilently\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"feeRecipient\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\"}],\"name\":\"SablierComptroller_FeeRecipientNotAdmin\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"SablierComptroller_FeeRecipientZero\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"feeRecipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"feeAmount\",\"type\":\"uint256\"}],\"name\":\"SablierComptroller_FeeTransferFailed\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"newFeeUSD\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"maxFeeUSD\",\"type\":\"uint256\"}],\"name\":\"SablierComptroller_MaxFeeUSDExceeded\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"caller\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"neededRole\",\"type\":\"bytes32\"}],\"name\":\"UnauthorizedAccess\",\"type\":\"error\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"title\":\"Errors\",\"version\":1},\"userdoc\":{\"errors\":{\"AccountAlreadyHasRole(bytes32,address)\":[{\"notice\":\"Thrown when trying to grant role to an `account` that already has the `role`.\"}],\"AccountDoesNotHaveRole(bytes32,address)\":[{\"notice\":\"Thrown when trying to revoke role from an `account` that does not have the `role`.\"}],\"CallerNotAdmin(address,address)\":[{\"notice\":\"Thrown when `msg.sender` is not the admin.\"}],\"Comptrollerable_CallerNotComptroller(address,address)\":[{\"notice\":\"Thrown when `msg.sender` is not the comptroller.\"}],\"Comptrollerable_UnsupportedInterfaceId(address,address,bytes4)\":[{\"notice\":\"Thrown when the new comptroller does not support the minimal interface ID from the previous comptroller.\"}],\"DelegateCall()\":[{\"notice\":\"Thrown when trying to delegate call to a function that disallows delegate calls.\"}],\"SablierComptroller_ExecutionFailedSilently()\":[{\"notice\":\"Thrown when the target contract reverts without any return data.\"}],\"SablierComptroller_FeeRecipientNotAdmin(address,address)\":[{\"notice\":\"Thrown when an unauthorized address collects fee without setting the fee recipient to admin address.\"}],\"SablierComptroller_FeeRecipientZero()\":[{\"notice\":\"Thrown when trying to transfer fees to the zero address.\"}],\"SablierComptroller_FeeTransferFailed(address,uint256)\":[{\"notice\":\"Thrown if fee transfer fails.\"}],\"SablierComptroller_MaxFeeUSDExceeded(uint256,uint256)\":[{\"notice\":\"Thrown when trying to set fee to a value that exceeds the maximum USD fee.\"}],\"UnauthorizedAccess(address,bytes32)\":[{\"notice\":\"Thrown if `caller` is missing the `neededRole` and is not the admin.\"}]},\"kind\":\"user\",\"methods\":{},\"notice\":\"Library with custom errors used across the contracts.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"node_modules/@sablier/evm-utils/src/libraries/Errors.sol\":\"Errors\"},\"evmVersion\":\"shanghai\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":100000000},\"remappings\":[\":@arbitrum/=node_modules/@arbitrum/\",\":@chainlink/=node_modules/@chainlink/\",\":@eth-optimism/=node_modules/@eth-optimism/\",\":@offchainlabs/=node_modules/@offchainlabs/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":@prb/=node_modules/@prb/\",\":@sablier/=node_modules/@sablier/\",\":@scroll-tech/=node_modules/@scroll-tech/\",\":@zksync/=node_modules/@zksync/\",\":forge-std/=node_modules/forge-std/\",\":murky/=node_modules/murky/\",\":openzeppelin-contracts/=node_modules/murky/lib/openzeppelin-contracts/\",\":solady/=node_modules/solady/\"],\"viaIR\":true},\"sources\":{\"node_modules/@sablier/evm-utils/src/libraries/Errors.sol\":{\"keccak256\":\"0xedb89cb164fc16d162ac9ee5e8e649b10c577a78a76adcd6a2934d16263fd172\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://e939b25bd82858dbbe1c25f13a4bdf48c75eecd9f4dda1be26f4dfee573fb16b\",\"dweb:/ipfs/QmTci8g82qV4r6XPQtYvvxMM6Cp5fS8tq37DtA9kVB5WoX\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": { "version": "0.8.29+commit.ab55807c" },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            { "internalType": "bytes32", "name": "role", "type": "bytes32" },
+            { "internalType": "address", "name": "account", "type": "address" }
+          ],
+          "type": "error",
+          "name": "AccountAlreadyHasRole"
+        },
+        {
+          "inputs": [
+            { "internalType": "bytes32", "name": "role", "type": "bytes32" },
+            { "internalType": "address", "name": "account", "type": "address" }
+          ],
+          "type": "error",
+          "name": "AccountDoesNotHaveRole"
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "admin", "type": "address" },
+            { "internalType": "address", "name": "caller", "type": "address" }
+          ],
+          "type": "error",
+          "name": "CallerNotAdmin"
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "comptroller", "type": "address" },
+            { "internalType": "address", "name": "caller", "type": "address" }
+          ],
+          "type": "error",
+          "name": "Comptrollerable_CallerNotComptroller"
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "previousComptroller", "type": "address" },
+            { "internalType": "address", "name": "newComptroller", "type": "address" },
+            { "internalType": "bytes4", "name": "minimalInterfaceId", "type": "bytes4" }
+          ],
+          "type": "error",
+          "name": "Comptrollerable_UnsupportedInterfaceId"
+        },
+        { "inputs": [], "type": "error", "name": "DelegateCall" },
+        { "inputs": [], "type": "error", "name": "SablierComptroller_ExecutionFailedSilently" },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "feeRecipient", "type": "address" },
+            { "internalType": "address", "name": "admin", "type": "address" }
+          ],
+          "type": "error",
+          "name": "SablierComptroller_FeeRecipientNotAdmin"
+        },
+        { "inputs": [], "type": "error", "name": "SablierComptroller_FeeRecipientZero" },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "feeRecipient", "type": "address" },
+            { "internalType": "uint256", "name": "feeAmount", "type": "uint256" }
+          ],
+          "type": "error",
+          "name": "SablierComptroller_FeeTransferFailed"
+        },
+        {
+          "inputs": [
+            { "internalType": "uint256", "name": "newFeeUSD", "type": "uint256" },
+            { "internalType": "uint256", "name": "maxFeeUSD", "type": "uint256" }
+          ],
+          "type": "error",
+          "name": "SablierComptroller_MaxFeeUSDExceeded"
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "caller", "type": "address" },
+            { "internalType": "bytes32", "name": "neededRole", "type": "bytes32" }
+          ],
+          "type": "error",
+          "name": "UnauthorizedAccess"
+        }
+      ],
+      "devdoc": { "kind": "dev", "methods": {}, "version": 1 },
+      "userdoc": { "kind": "user", "methods": {}, "version": 1 }
+    },
+    "settings": {
+      "remappings": [
+        "@arbitrum/=node_modules/@arbitrum/",
+        "@chainlink/=node_modules/@chainlink/",
+        "@eth-optimism/=node_modules/@eth-optimism/",
+        "@offchainlabs/=node_modules/@offchainlabs/",
+        "@openzeppelin/=node_modules/@openzeppelin/",
+        "@prb/=node_modules/@prb/",
+        "@sablier/=node_modules/@sablier/",
+        "@scroll-tech/=node_modules/@scroll-tech/",
+        "@zksync/=node_modules/@zksync/",
+        "forge-std/=node_modules/forge-std/",
+        "murky/=node_modules/murky/",
+        "openzeppelin-contracts/=node_modules/murky/lib/openzeppelin-contracts/",
+        "solady/=node_modules/solady/"
+      ],
+      "optimizer": { "enabled": true, "runs": 100000000 },
+      "metadata": { "bytecodeHash": "ipfs" },
+      "compilationTarget": { "node_modules/@sablier/evm-utils/src/libraries/Errors.sol": "Errors" },
+      "evmVersion": "shanghai",
+      "libraries": {},
+      "viaIR": true
+    },
+    "sources": {
+      "node_modules/@sablier/evm-utils/src/libraries/Errors.sol": {
+        "keccak256": "0xedb89cb164fc16d162ac9ee5e8e649b10c577a78a76adcd6a2934d16263fd172",
+        "urls": [
+          "bzz-raw://e939b25bd82858dbbe1c25f13a4bdf48c75eecd9f4dda1be26f4dfee573fb16b",
+          "dweb:/ipfs/QmTci8g82qV4r6XPQtYvvxMM6Cp5fS8tq37DtA9kVB5WoX"
+        ],
+        "license": "GPL-3.0-or-later"
+      }
+    },
+    "version": 1
+  },
+  "id": 62
+}

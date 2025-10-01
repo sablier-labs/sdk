@@ -2,6 +2,7 @@ import { checkBroadcast } from "@src/internal/helpers";
 import type { Sablier } from "@src/types";
 import * as fs from "fs-extra";
 import globby from "globby";
+import { isBroadcastsUnified } from "../../helpers/broadcasts";
 import type { StandardBroadcast, ZKBroadcast } from "../../types";
 
 export async function loadBroadcast<T extends StandardBroadcast | ZKBroadcast[]>(
@@ -9,7 +10,7 @@ export async function loadBroadcast<T extends StandardBroadcast | ZKBroadcast[]>
   chain: Sablier.Chain,
   componentName?: string,
 ): Promise<T | null> {
-  if (chain.isZK) {
+  if (chain.isZK && !isBroadcastsUnified(release)) {
     return (await loadZK(release, chain, componentName)) as T;
   } else {
     return (await loadStandard(release, chain, componentName)) as T;
