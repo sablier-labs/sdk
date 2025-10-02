@@ -1,6 +1,7 @@
 import * as path from "node:path";
 import type { Sablier } from "@src/types";
 import * as fs from "fs-extra";
+import { isBroadcastsUnified } from "../../tests/helpers/broadcasts";
 import { log } from "./logger";
 
 const ROOT_DIR = path.join(__dirname, "..", "..");
@@ -26,9 +27,11 @@ if (!fs.existsSync(path.join(ROOT_DIR, "package.json"))) {
 export function checkBroadcast(release: Sablier.Release, chain: Sablier.Chain, innerPath?: string): string | null {
   let chainType = "";
   let chainPath = "";
-  if (chain.isZK) {
+
+  if (chain.isZK && !isBroadcastsUnified(release)) {
+    // Earlier versions use separate broadcasts-zk directory
     chainType = "broadcasts-zk";
-    chainPath = path.join(chainType, chain.slug); // directory
+    chainPath = path.join(chainType, chain.slug);
   } else {
     chainType = "broadcasts";
     chainPath = path.join(chainType, `${chain.slug}.json`); // JSON file
