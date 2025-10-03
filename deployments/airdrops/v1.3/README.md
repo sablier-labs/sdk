@@ -31,6 +31,7 @@ For deployments on the zkSync based chains, the following settings were used:
 | Chains   | Tool                                                                             | EVM   | Optimizer Runs | Solc Version | zkSolc | Via IR |
 | :------- | :------------------------------------------------------------------------------- | :---- | :------------- | :----------- | :----- | :----- |
 | Abstract | [Hardhat-zksync](https://docs.abs.xyz/build-on-abstract/smart-contracts/hardhat) | Paris | 1000           | 0.8.26       | 1.5.11 | true   |
+| Sophon   | [Hardhat-zksync](https://docs.sophon.xyz/build/interact/hardhat)                 | Paris | 1000           | 0.8.26       | 1.5.12 | true   |
 | zkSync   | [Hardhat-zksync](https://docs.zksync.io/zksync-era/tooling/hardhat)              | Paris | 1000           | 0.8.26       | 1.5.11 | true   |
 
 ## Salts
@@ -62,6 +63,7 @@ opcode:
 | Scroll          | ChainID 534352, Version 1.3.0 |
 | Sei             | ChainID 1329, Version 1.3.0   |
 | Sonic           | ChainID 146, Version 1.3.0    |
+| Sophon          | No Salt                       |
 | Taiko Mainnet   | ChainID 167000, Version 1.3.0 |
 | Tangle          | No Salt                       |
 | Ultra           | No Salt                       |
