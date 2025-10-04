@@ -233,7 +233,6 @@ export const berachain = define("berachain", _berachain);
 export const blast = define("blast", _blast);
 export const blastSepolia = define("blast-sepolia", _blastSepolia);
 export const bsc = define("bsc", _bsc);
-export const chiliz = define("chiliz", _chiliz);
 export const coreDao = define("core-dao", _coreDao);
 export const form = define("form", _form);
 export const gnosis = define("gnosis", _gnosis);
@@ -267,6 +266,21 @@ export const zksyncSepolia = define("zksync-sepolia", _zksyncSepoliaTestnet);
 /* -------------------------------------------------------------------------- */
 /*                             CUSTOM DEFINITIONS                             */
 /* -------------------------------------------------------------------------- */
+
+export const chiliz: Sablier.Chain = define(
+  "chiliz",
+  viemDefine({
+    ..._chiliz,
+    blockExplorers: {
+      default: { name: "Explorer", url: "https://chiliscan.com" },
+    },
+    rpcUrls: {
+      default: {
+        http: ["https://rpc.ankr.com/chiliz"],
+      },
+    },
+  }),
+);
 
 /**
  * HyperEVM is using another chain's ID (Wanchain Testnet). Until they change this, we will have to define it like this.
