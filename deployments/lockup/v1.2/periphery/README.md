@@ -77,8 +77,7 @@ The CREATE2 salts used during deployment:
 
 | Chain            | Salt                             |
 | :--------------- | :------------------------------- |
-| Arbitrum Sepolia | ChainID 421611, Version 1.2.0    |
-| BeraChain Artio  | ChainID 80084, Version 1.2.0     |
+| Arbitrum Sepolia | ChainID 421614, Version 1.2.0    |
 | Blast Sepolia    | ChainID 168587773, Version 1.2.0 |
 | Mode Sepolia     | ChainID 919, Version 1.2.0       |
 | Morph Holesky    | ChainID 2810, Version 1.2.0      |

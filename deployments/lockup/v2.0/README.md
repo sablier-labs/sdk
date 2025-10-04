@@ -29,12 +29,12 @@ For deployments on the zkSync based chains, the following settings were used:
 | Chains   | Tool                                                                             | EVM   | Optimizer Runs | Solc Version | zkSolc | Via IR |
 | :------- | :------------------------------------------------------------------------------- | :---- | :------------- | :----------- | :----- | :----- |
 | Abstract | [Hardhat-zksync](https://docs.abs.xyz/build-on-abstract/smart-contracts/hardhat) | Paris | 1000           | 0.8.26       | 1.5.11 | true   |
+| Sophon   | [Hardhat-zksync](https://docs.sophon.xyz/build/interact/hardhat)                 | Paris | 1000           | 0.8.26       | 1.5.12 | true   |
 | zkSync   | [Hardhat-zksync](https://docs.zksync.io/zksync-era/tooling/hardhat)              | Paris | 1000           | 0.8.26       | 1.5.11 | true   |
 
 ## Salts
 
-The CREATE2 salts used during deployment. A "No Salt" value means that the contracts were deployed using the `CREATE`
-opcode:
+The CREATE2 salts used during deployment. A "No Salt" value means that the contracts were deployed using the `CREATE`:
 
 ### Mainnets
 
@@ -58,8 +58,9 @@ opcode:
 | Optimism        | ChainID 10, Version 2.0.0     |
 | Polygon         | ChainID 137, Version 2.0.0    |
 | Scroll          | ChainID 534352, Version 2.0.0 |
-| Sei             | ChainID 1329, Version 2.0.0   |
 | Sonic           | ChainID 146, Version 2.0.0    |
+| Sophon          | No Salt                       |
+| Sei             | ChainID 1329, Version 2.0.0   |
 | Taiko Mainnet   | ChainID 167000, Version 2.0.0 |
 | Tangle          | No Salt                       |
 | Ultra           | No Salt                       |
