@@ -276,7 +276,7 @@ export const chiliz: Sablier.Chain = define(
     },
     rpcUrls: {
       default: {
-        http: ["https://rpc.ankr.com/chiliz"],
+        http: ["https://rpc.chiliz.com"],
       },
     },
   }),
