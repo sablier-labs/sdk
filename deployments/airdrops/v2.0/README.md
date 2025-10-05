@@ -29,11 +29,11 @@
 1. For Linea, `paris` is used as the EVM version.
 2. For Abstract, and ZkSync, `zksolc v1.5.15` is used.
 
-### Salt
+## Salt
 
 All contracts are deployed using Foundry's `CREATE2` factory. The following salts are used:
 
-#### Mainnets
+### Mainnets
 
 | Chain           | Salt                          |
 | :-------------- | :---------------------------- |
@@ -63,7 +63,7 @@ All contracts are deployed using Foundry's `CREATE2` factory. The following salt
 | XDC             | ChainID 50, Version 2.0.0     |
 | zkSync Era      | ChainID 324, Version 2.0.0    |
 
-#### Testnets
+### Testnets
 
 | Chain            | Salt                            |
 | :--------------- | :------------------------------ |
