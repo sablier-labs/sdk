@@ -96,9 +96,6 @@ export const mainnets = [
   get(chains.sonic.id, {
     [SABLIER_COMPTROLLER]: ["0x0000008ABbFf7a84a2fE09f9A9b74D3BC2072399", 48050064],
   }),
-  get(chains.sophon.id, {
-    [SABLIER_COMPTROLLER]: ["0x0000008ABbFf7a84a2fE09f9A9b74D3BC2072399", 20937095],
-  }),
   get(chains.superseed.id, {
     [SABLIER_COMPTROLLER]: ["0x0000008ABbFf7a84a2fE09f9A9b74D3BC2072399", 16276550],
   }),
