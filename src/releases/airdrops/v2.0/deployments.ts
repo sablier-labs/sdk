@@ -145,12 +145,6 @@ export const mainnets: Sablier.Deployment[] = [
     [manifest.SABLIER_FACTORY_MERKLE_LT]: ["0x01e368a15bfb058968fe617c9e5dc403b45f75e0", 48898083],
     [manifest.SABLIER_FACTORY_MERKLE_VCA]: ["0xd3c8f98e6f9cac5aebd5d653e2331c1e6fdc16a9", 48898083],
   }),
-  get(chains.sophon.id, {
-    [manifest.SABLIER_FACTORY_MERKLE_INSTANT]: ["0x7a3b699b81c2d692e69cba3233c0cbf4a793d456", 21393206],
-    [manifest.SABLIER_FACTORY_MERKLE_LL]: ["0x26c37b1758ef0e6f314825ce04b680d126c8db84", 21393732],
-    [manifest.SABLIER_FACTORY_MERKLE_LT]: ["0xf71870c4935b341f4ec7982ae024b11b702c36ba", 21393734],
-    [manifest.SABLIER_FACTORY_MERKLE_VCA]: ["0xaee04f5f91f5321847a25bd1bc2b525f17988869", 21393735],
-  }),
   get(chains.superseed.id, {
     [manifest.SABLIER_FACTORY_MERKLE_INSTANT]: ["0x9f91de05cceb13b3fbe764bdcdd1659e447d3f63", 16543797],
     [manifest.SABLIER_FACTORY_MERKLE_LL]: ["0x1e83629989a3340f68d76dd770f271b06cb38e15", 16543797],
