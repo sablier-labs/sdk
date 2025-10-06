@@ -10,6 +10,8 @@
 
 ## Sources
 
+<!-- TODO: update commit after launch -->
+
 - Commit: [fe7cf4e](https://github.com/sablier-labs/lockup/commit/fe7cf4eeab1b316dbc1fa5da086a3b266f6b4079)
 - Package: [@sablier/lockup@3.0.0](https://npmjs.com/package/@sablier/lockup/v/3.0.0)
 
@@ -26,12 +28,11 @@
 ### Exceptions
 
 1. For Linea, `paris` is used as the EVM version.
-2. For Abstract, Sophon and ZkSync, `zksolc v1.5.15` is used.
+2. For Abstract and ZkSync, `zksolc v1.5.15` is used.
 
 ## Salts
 
-The CREATE2 salts used during deployment. A "No Salt" value means that the contracts were deployed using the `CREATE`
-opcode:
+All contracts are deployed using Foundry's `CREATE2` factory. The following salts are used:
 
 ### Mainnets
 
@@ -58,7 +59,6 @@ opcode:
 | Scroll          | ChainID 534352, Version 3.0.0 |
 | Sei             | ChainID 1329, Version 3.0.0   |
 | Sonic           | ChainID 146, Version 3.0.0    |
-| Sophon          | ChainID 50104, Version 3.0.0  |
 | Superseed       | ChainID 5330, Version 3.0.0   |
 | Unichain        | ChainID 130, Version 3.0.0    |
 | XDC             | ChainID 50, Version 3.0.0     |
