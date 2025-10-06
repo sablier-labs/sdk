@@ -43,7 +43,7 @@ export const mainnets: Sablier.Deployment[] = [
   get(chains.base.id, {
     [manifest.HELPERS]: ["0xa0a1ac47260b95d334763473b868117ef7343aa0", 36356960],
     [manifest.LOCKUP_MATH]: ["0x1feb172238638897b13b69c65feb508a0a96b35d", 36356960],
-    [manifest.LOCKUP_NFT_DESCRIPTOR]: ["0x87e437030b7439150605a641483de98672E26317", 299856284],
+    [manifest.LOCKUP_NFT_DESCRIPTOR]: ["0x87e437030b7439150605a641483de98672E26317", 25601436],
     [manifest.SABLIER_BATCH_LOCKUP]: ["0x8882549b29dfed283738918d90b5f6e2ab0baeb6", 36357849],
     [manifest.SABLIER_LOCKUP]: ["0xe261b366f231b12fcb58d6bbd71e57faee82431d", 36357687],
   }),
@@ -57,7 +57,7 @@ export const mainnets: Sablier.Deployment[] = [
   get(chains.blast.id, {
     [manifest.HELPERS]: ["0xa0a1ac47260b95d334763473b868117ef7343aa0", 25347847],
     [manifest.LOCKUP_MATH]: ["0x1feb172238638897b13b69c65feb508a0a96b35d", 25347847],
-    [manifest.LOCKUP_NFT_DESCRIPTOR]: ["0x87e437030b7439150605a641483de98672E26317", 299856284],
+    [manifest.LOCKUP_NFT_DESCRIPTOR]: ["0x959c412d5919b1Ec5D07bee3443ea68c91d57dd7", 14591221],
     [manifest.SABLIER_BATCH_LOCKUP]: ["0xd2187e309a93895fcd1c43fb5eae903b583d7e38", 25348110],
     [manifest.SABLIER_LOCKUP]: ["0xcD16d89cc79Ab0b52717A46b8A3F73E61014c7dc", 25347901],
   }),
