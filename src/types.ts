@@ -82,9 +82,9 @@ export namespace Sablier {
     /** The name of the contract. */
     name: string;
     /** The protocol the contract is part of (optional). */
-    protocol?: Sablier.Protocol;
+    protocol: Sablier.Protocol | undefined;
     /** The release version the contract is part of (optional). */
-    version?: Sablier.Version;
+    version: Sablier.Version | undefined;
   };
 
   /**
