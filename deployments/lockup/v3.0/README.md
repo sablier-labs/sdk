@@ -4,7 +4,6 @@
 
 - `SablierBatchLockup`
 - `SablierLockup`
-- `LockupNFTDescriptor`
 - `Helpers`
 - `LockupMath`
 
