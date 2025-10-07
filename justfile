@@ -1,5 +1,6 @@
 # See https://github.com/sablier-labs/devkit/blob/main/just/base.just
 import "./node_modules/@sablier/devkit/just/base.just"
+import "./node_modules/@sablier/devkit/just/npm.just"
 
 # ---------------------------------------------------------------------------- #
 #                                 DEPENDENCIES                                 #

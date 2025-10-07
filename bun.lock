@@ -217,7 +217,7 @@
 
     "@rollup/rollup-win32-x64-msvc": ["@rollup/rollup-win32-x64-msvc@4.52.3", "", { "os": "win32", "cpu": "x64" }, "sha512-zGIbEVVXVtauFgl3MRwGWEN36P5ZGenHRMgNw88X5wEhEBpq0XrMEZwOn07+ICrwM17XO5xfMZqh0OldCH5VTA=="],
 
-    "@sablier/devkit": ["@sablier/devkit@github:sablier-labs/devkit#55b748d", {}, "sablier-labs-devkit-55b748d"],
+    "@sablier/devkit": ["@sablier/devkit@github:sablier-labs/devkit#da0e832", {}, "sablier-labs-devkit-da0e832"],
 
     "@scure/base": ["@scure/base@1.2.6", "", {}, "sha512-g/nm5FgUa//MCj1gV09zTJTaM6KBAHqLN907YVQqf7zC49+DcO4B1so4ZX07Ef10Twr6nuqYEH9GEggFXA4Fmg=="],
 
