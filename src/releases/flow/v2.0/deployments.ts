@@ -143,6 +143,6 @@ export const testnets: Sablier.Deployment[] = [
   }),
   get(chains.sepolia.id, {
     [manifest.SABLIER_FLOW]: ["0xde489096eC9C718358c52a8BBe4ffD74857356e9", 9343957],
-    [manifest.FLOW_NFT_DESCRIPTOR]: ["0xc9dBf2D207D178875b698e5f7493ce2d8BA88994", 7583391],
+    [manifest.FLOW_NFT_DESCRIPTOR]: "0xc9dBf2D207D178875b698e5f7493ce2d8BA88994",
   }),
 ];
