@@ -19,10 +19,6 @@ function get(chainId: number, contractMap: Sablier.ContractMap): Sablier.Deploym
  * @description Mainnet deployments for Flow v1.0
  */
 export const mainnets: Sablier.Deployment[] = [
-  get(chains.mainnet.id, {
-    [manifest.FLOW_NFT_DESCRIPTOR]: "0xb69b27073fa0366cddf432f5976c34c9baf7eae6",
-    [manifest.SABLIER_FLOW]: ["0x2d9221a63e12aa796619cb381ec4a71b201281f5", 21_330_577],
-  }),
   get(chains.abstract.id, {
     [manifest.FLOW_NFT_DESCRIPTOR]: "0x20C9A3E27322Fc2b21Ced430D1B2e12d90804db6",
     [manifest.SABLIER_FLOW]: ["0x001F1408515Ccd5C1A19A682455ed4eFa39DadD6", 73_630],
@@ -70,6 +66,10 @@ export const mainnets: Sablier.Deployment[] = [
   get(chains.linea.id, {
     [manifest.FLOW_NFT_DESCRIPTOR]: "0xF430f0d2f798c42fDFAc35b5e32BD4f63Bf51130",
     [manifest.SABLIER_FLOW]: ["0x949bFa08f1632432A2656a9dB17CA34d54Da8296", 12_929_891],
+  }),
+  get(chains.mainnet.id, {
+    [manifest.FLOW_NFT_DESCRIPTOR]: "0xb69b27073fa0366cddf432f5976c34c9baf7eae6",
+    [manifest.SABLIER_FLOW]: ["0x2d9221a63e12aa796619cb381ec4a71b201281f5", 21_330_577],
   }),
   get(chains.mode.id, {
     [manifest.FLOW_NFT_DESCRIPTOR]: "0x46fa0164c5af9382d330e5a245a2ca8a18398950",

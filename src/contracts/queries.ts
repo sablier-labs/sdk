@@ -9,6 +9,10 @@ export const contractsQueries = {
    *
    * - { chainId, contractName, release }
    * - { chainId, contractAddress, protocol }
+   * - { chainId, contractAddress, protocol, release }
+   * - { chainId, contractAddress, release }
+   *
+   * Note: If a contract address exists in multiple releases for the same protocol, you must specify the release.
    */
   get: (opts: {
     chainId: number;
@@ -23,10 +27,6 @@ export const contractsQueries = {
       throw new Error("Sablier SDK: Cannot specify both contractAddress and contractName as query options");
     }
 
-    if (protocol && release) {
-      throw new Error("Sablier SDK: Cannot specify both protocol and release as query options");
-    }
-
     if (contractName) {
       if (!release) {
         throw new Error("Sablier SDK: Cannot specify contractName without release");
@@ -36,14 +36,40 @@ export const contractsQueries = {
     }
 
     if (contractAddress) {
+      const contractAddressToLowerCase = contractAddress.toLowerCase();
+
+      if (release) {
+        const deployment = _.find(release.deployments, { chainId });
+        return (
+          deployment && _.find(deployment.contracts, (c) => c.address.toLowerCase() === contractAddressToLowerCase)
+        );
+      }
+
       if (protocol) {
-        return _.get(catalog, [protocol, chainId, contractAddress]);
+        // Check if contract address exists in multiple releases for this protocol.
+        const allReleases = releasesQueries.getAll({ protocol });
+        const found = allReleases.filter((rel) => {
+          const deployment = _.find(rel.deployments, { chainId });
+          return (
+            deployment && _.some(deployment.contracts, (c) => c.address.toLowerCase() === contractAddressToLowerCase)
+          );
+        });
+
+        if (found.length > 1) {
+          const versions = found.map((r) => r.version).join(", ");
+          throw new Error(
+            `Sablier SDK: Contract address ${contractAddress} exists in multiple releases (${versions}) for protocol "${protocol}". ` +
+              `Please specify the release explicitly using { chainId, contractAddress, protocol, release } or { chainId, contractAddress, release } instead.`,
+          );
+        }
+
+        return _.get(catalog, [protocol, chainId, contractAddressToLowerCase]);
       }
       return (
-        _.get(catalog, ["airdrop", chainId, contractAddress]) ||
-        _.get(catalog, ["flow", chainId, contractAddress]) ||
-        _.get(catalog, ["legacy", chainId, contractAddress]) ||
-        _.get(catalog, ["lockup", chainId, contractAddress])
+        _.get(catalog, ["airdrop", chainId, contractAddressToLowerCase]) ||
+        _.get(catalog, ["flow", chainId, contractAddressToLowerCase]) ||
+        _.get(catalog, ["legacy", chainId, contractAddressToLowerCase]) ||
+        _.get(catalog, ["lockup", chainId, contractAddressToLowerCase])
       );
     }
 

@@ -25,20 +25,6 @@ function get(
  * @description Mainnet deployments for Lockup v1.2
  */
 export const mainnets: Sablier.Deployment.LockupV1[] = [
-  get(chains.mainnet.id, {
-    core: {
-      [manifest.core.SABLIER_V2_COMPTROLLER]: "0xC3Be6BffAeab7B297c03383B4254aa3Af2b9a5BA",
-      [manifest.core.SABLIER_V2_LOCKUP_DYNAMIC]: ["0x39EFdC3dbB57B2388CcC4bb40aC4CB1226Bc9E44", 17_613_133],
-      [manifest.core.SABLIER_V2_LOCKUP_LINEAR]: ["0xB10daee1FCF62243aE27776D7a92D39dC8740f95", 17_613_137],
-      [manifest.core.SABLIER_V2_NFT_DESCRIPTOR]: "0x98F2196fECc01C240d1429B624d007Ca268EEA29",
-    },
-    periphery: {
-      [manifest.periphery.SABLIER_V2_ARCHIVE]: "0x0Be20a8242B0781B6fd4d453e90DCC1CcF7DBcc6",
-      [manifest.periphery.SABLIER_V2_PROXY_PLUGIN]: "0x9bdebF4F9adEB99387f46e4020FBf3dDa885D2b8",
-      [manifest.periphery.SABLIER_V2_PROXY_TARGET]: "0x297b43aE44660cA7826ef92D8353324C018573Ef",
-      [manifest.periphery.SABLIER_V2_PROXY_TARGET_APPROVE]: "0x638a7aC8315767cEAfc57a6f5e3559454347C3f6",
-    },
-  }),
   get(chains.arbitrum.id, {
     core: {
       [manifest.core.SABLIER_V2_COMPTROLLER]: "0x17Ec73692F0aDf7E7C554822FBEAACB4BE781762",
@@ -107,6 +93,20 @@ export const mainnets: Sablier.Deployment.LockupV1[] = [
       [manifest.periphery.SABLIER_V2_PROXY_PLUGIN]: "0xc84f0e95815A576171A19EB9E0fA55a217Ab1536",
       [manifest.periphery.SABLIER_V2_PROXY_TARGET]: "0x5B144C3B9C8cfd48297Aeb59B90a024Ef3fCcE92",
       [manifest.periphery.SABLIER_V2_PROXY_TARGET_APPROVE]: "0x89AfE038714e547C29Fa881029DD4B5CFB008454",
+    },
+  }),
+  get(chains.mainnet.id, {
+    core: {
+      [manifest.core.SABLIER_V2_COMPTROLLER]: "0xC3Be6BffAeab7B297c03383B4254aa3Af2b9a5BA",
+      [manifest.core.SABLIER_V2_LOCKUP_DYNAMIC]: ["0x39EFdC3dbB57B2388CcC4bb40aC4CB1226Bc9E44", 17_613_133],
+      [manifest.core.SABLIER_V2_LOCKUP_LINEAR]: ["0xB10daee1FCF62243aE27776D7a92D39dC8740f95", 17_613_137],
+      [manifest.core.SABLIER_V2_NFT_DESCRIPTOR]: "0x98F2196fECc01C240d1429B624d007Ca268EEA29",
+    },
+    periphery: {
+      [manifest.periphery.SABLIER_V2_ARCHIVE]: "0x0Be20a8242B0781B6fd4d453e90DCC1CcF7DBcc6",
+      [manifest.periphery.SABLIER_V2_PROXY_PLUGIN]: "0x9bdebF4F9adEB99387f46e4020FBf3dDa885D2b8",
+      [manifest.periphery.SABLIER_V2_PROXY_TARGET]: "0x297b43aE44660cA7826ef92D8353324C018573Ef",
+      [manifest.periphery.SABLIER_V2_PROXY_TARGET_APPROVE]: "0x638a7aC8315767cEAfc57a6f5e3559454347C3f6",
     },
   }),
   get(chains.optimism.id, {

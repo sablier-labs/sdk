@@ -25,18 +25,6 @@ function get(
  * @description Mainnet deployments for Lockup v1.2
  */
 export const mainnets: Sablier.Deployment.LockupV1[] = [
-  get(chains.mainnet.id, {
-    core: {
-      [manifest.core.SABLIER_V2_LOCKUP_DYNAMIC]: ["0x9DeaBf7815b42Bf4E9a03EEc35a486fF74ee7459", 20_240_097],
-      [manifest.core.SABLIER_V2_LOCKUP_LINEAR]: ["0x3962f6585946823440d274aD7C719B02b49DE51E", 20_240_097],
-      [manifest.core.SABLIER_V2_LOCKUP_TRANCHED]: ["0xf86B359035208e4529686A1825F2D5BeE38c28A8", 20_240_098],
-      [manifest.core.SABLIER_V2_NFT_DESCRIPTOR]: "0xAE32Ca14d85311A506Bb852D49bbfB315466bA26",
-    },
-    periphery: {
-      [manifest.periphery.SABLIER_V2_BATCH_LOCKUP]: "0xB5Ec9706C3Be9d22326D208f491E5DEef7C8d9f0",
-      [manifest.periphery.SABLIER_V2_MERKLE_LOCKUP_FACTORY]: ["0xF35aB407CF28012Ba57CAF5ee2f6d6E4420253bc", 20_240_153],
-    },
-  }),
   get(chains.abstract.id, {
     core: {
       [manifest.core.SABLIER_V2_LOCKUP_DYNAMIC]: ["0xc69c06c030E825EDE13F1486078Aa9a2E2AAffaf", 72_821],
@@ -182,6 +170,18 @@ export const mainnets: Sablier.Deployment.LockupV1[] = [
     periphery: {
       [manifest.periphery.SABLIER_V2_BATCH_LOCKUP]: "0x5C847244649BD74aB41f09C893aF792AD87D32aA",
       [manifest.periphery.SABLIER_V2_MERKLE_LOCKUP_FACTORY]: ["0x278AC15622846806BD46FBDbdB8dB8d09614173A", 90_212_375],
+    },
+  }),
+  get(chains.mainnet.id, {
+    core: {
+      [manifest.core.SABLIER_V2_LOCKUP_DYNAMIC]: ["0x9DeaBf7815b42Bf4E9a03EEc35a486fF74ee7459", 20_240_097],
+      [manifest.core.SABLIER_V2_LOCKUP_LINEAR]: ["0x3962f6585946823440d274aD7C719B02b49DE51E", 20_240_097],
+      [manifest.core.SABLIER_V2_LOCKUP_TRANCHED]: ["0xf86B359035208e4529686A1825F2D5BeE38c28A8", 20_240_098],
+      [manifest.core.SABLIER_V2_NFT_DESCRIPTOR]: "0xAE32Ca14d85311A506Bb852D49bbfB315466bA26",
+    },
+    periphery: {
+      [manifest.periphery.SABLIER_V2_BATCH_LOCKUP]: "0xB5Ec9706C3Be9d22326D208f491E5DEef7C8d9f0",
+      [manifest.periphery.SABLIER_V2_MERKLE_LOCKUP_FACTORY]: ["0xF35aB407CF28012Ba57CAF5ee2f6d6E4420253bc", 20_240_153],
     },
   }),
   get(chains.meld.id, {

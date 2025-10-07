@@ -17,11 +17,10 @@ describe("Contract catalog", () => {
     it(`should have a valid catalog for ${release.protocol} ${release.version}`, () => {
       const deployment = release.deployments[0];
       const contract = deployment.contracts[0];
-      const lowercaseAddress = contract.address.toLowerCase();
       const entry = sablier.contracts.get({
         chainId: deployment.chainId,
-        contractAddress: lowercaseAddress,
-        protocol: release.protocol,
+        contractName: contract.name,
+        release: release,
       });
       expect(entry).toStrictEqual(contract);
     });

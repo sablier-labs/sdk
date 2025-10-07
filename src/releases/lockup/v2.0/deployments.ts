@@ -19,13 +19,6 @@ function get(chainId: number, contractMap: Sablier.ContractMap): Sablier.Deploym
  * @description Mainnet deployments for Lockup v2.0
  */
 export const mainnets: Sablier.Deployment[] = [
-  get(chains.mainnet.id, {
-    [manifest.HELPERS]: "0xf8076E4Fb5cfE8be1C26E61222DC51828Db8C1dc",
-    [manifest.LOCKUP_NFT_DESCRIPTOR]: "0xA9dC6878C979B5cc1d98a1803F0664ad725A1f56",
-    [manifest.SABLIER_BATCH_LOCKUP]: "0x3F6E8a8Cffe377c4649aCeB01e6F20c60fAA356c",
-    [manifest.SABLIER_LOCKUP]: ["0x7C01AA3783577E15fD7e272443D44B92d5b21056", 21_719_028],
-    [manifest.VESTING_MATH]: "0x5522CA06Ce080800AB59BA4C091e63f6f54C5E6d",
-  }),
   get(chains.abstract.id, {
     [manifest.HELPERS]: "0x07c194dFE7DCe9Ae7Ffe4bF32683cf1F8CDD4aEa",
     [manifest.LOCKUP_NFT_DESCRIPTOR]: "0x63Ff2E370788C163D5a1909B5FCb299DB327AEF9",
@@ -130,6 +123,13 @@ export const mainnets: Sablier.Deployment[] = [
     [manifest.SABLIER_BATCH_LOCKUP]: "0xEdf0A4b30defD14449604d1b97e2c39128c136CA",
     [manifest.SABLIER_LOCKUP]: ["0x6964252561e8762dD10267176EaC5078b6291e51", 15_111_716],
     [manifest.VESTING_MATH]: "0xdEe57959770667d97A90C94fE70C055496B7a791",
+  }),
+  get(chains.mainnet.id, {
+    [manifest.HELPERS]: "0xf8076E4Fb5cfE8be1C26E61222DC51828Db8C1dc",
+    [manifest.LOCKUP_NFT_DESCRIPTOR]: "0xA9dC6878C979B5cc1d98a1803F0664ad725A1f56",
+    [manifest.SABLIER_BATCH_LOCKUP]: "0x3F6E8a8Cffe377c4649aCeB01e6F20c60fAA356c",
+    [manifest.SABLIER_LOCKUP]: ["0x7C01AA3783577E15fD7e272443D44B92d5b21056", 21_719_028],
+    [manifest.VESTING_MATH]: "0x5522CA06Ce080800AB59BA4C091e63f6f54C5E6d",
   }),
   get(chains.mode.id, {
     [manifest.HELPERS]: "0xf8076E4Fb5cfE8be1C26E61222DC51828Db8C1dc",

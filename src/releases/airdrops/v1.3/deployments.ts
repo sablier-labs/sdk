@@ -19,9 +19,6 @@ function get(chainId: number, contractMap: Sablier.ContractMap): Sablier.Deploym
  * @description Mainnet deployments for Airdrops v1.3
  */
 export const mainnets: Sablier.Deployment[] = [
-  get(chains.mainnet.id, {
-    [manifest.SABLIER_MERKLE_FACTORY]: ["0x71DD3Ca88E7564416E5C2E350090C12Bf8F6144a", 217_192_43],
-  }),
   get(chains.abstract.id, {
     [manifest.SABLIER_MERKLE_FACTORY]: ["0x0C72b957347B51285854f015e4D20641655B939A", 332_977],
   }),
@@ -63,6 +60,9 @@ export const mainnets: Sablier.Deployment[] = [
   }),
   get(chains.linea.id, {
     [manifest.SABLIER_MERKLE_FACTORY]: ["0xAa122611E0e3a0771127aA4cd4995A896BB2c20B", 151_222_91],
+  }),
+  get(chains.mainnet.id, {
+    [manifest.SABLIER_MERKLE_FACTORY]: ["0x71DD3Ca88E7564416E5C2E350090C12Bf8F6144a", 217_192_43],
   }),
   get(chains.mode.id, {
     [manifest.SABLIER_MERKLE_FACTORY]: ["0xc472391DB89e7BE07170f18c4fdb010242507F2C", 18_926_259],
