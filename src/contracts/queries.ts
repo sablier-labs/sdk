@@ -1,3 +1,4 @@
+import { Protocol } from "@src/enums";
 import { releasesQueries } from "@src/releases/queries";
 import type { Sablier } from "@src/types";
 import _ from "lodash";
@@ -36,40 +37,38 @@ export const contractsQueries = {
     }
 
     if (contractAddress) {
-      const contractAddressToLowerCase = contractAddress.toLowerCase();
+      const address = contractAddress.toLowerCase();
 
       if (release) {
-        const deployment = _.find(release.deployments, { chainId });
-        return (
-          deployment && _.find(deployment.contracts, (c) => c.address.toLowerCase() === contractAddressToLowerCase)
-        );
+        const deployment = _.find(release.deployments, (d) => d.chainId === chainId);
+        return deployment && _.find(deployment.contracts, (c) => c.address.toLowerCase() === address);
       }
 
       if (protocol) {
         // Check if contract address exists in multiple releases for this protocol.
         const allReleases = releasesQueries.getAll({ protocol });
-        const found = allReleases.filter((rel) => {
+        const matches = allReleases.filter((rel) => {
           const deployment = _.find(rel.deployments, { chainId });
-          return (
-            deployment && _.some(deployment.contracts, (c) => c.address.toLowerCase() === contractAddressToLowerCase)
-          );
+          return deployment && _.some(deployment.contracts, (c) => c.address.toLowerCase() === address);
         });
 
-        if (found.length > 1) {
-          const versions = found.map((r) => r.version).join(", ");
+        if (matches.length > 1) {
+          const versions = matches.map((r) => r.version).join(", ");
           throw new Error(
-            `Sablier SDK: Contract address ${contractAddress} exists in multiple releases (${versions}) for protocol "${protocol}". ` +
-              `Please specify the release explicitly using { chainId, contractAddress, protocol, release } or { chainId, contractAddress, release } instead.`,
+            `Sablier SDK: Contract address ${contractAddress} found in multiple releases (${versions}) for protocol "${protocol}".
+Specify the release explicitly:
+  - { chainId, contractAddress, protocol, release }
+  - { chainId, contractAddress, release }`,
           );
         }
 
-        return _.get(catalog, [protocol, chainId, contractAddressToLowerCase]);
+        return _.get(catalog, [protocol, chainId, address]);
       }
       return (
-        _.get(catalog, ["airdrop", chainId, contractAddressToLowerCase]) ||
-        _.get(catalog, ["flow", chainId, contractAddressToLowerCase]) ||
-        _.get(catalog, ["legacy", chainId, contractAddressToLowerCase]) ||
-        _.get(catalog, ["lockup", chainId, contractAddressToLowerCase])
+        _.get(catalog, [Protocol.Airdrops, chainId, address]) ||
+        _.get(catalog, [Protocol.Flow, chainId, address]) ||
+        _.get(catalog, [Protocol.Legacy, chainId, address]) ||
+        _.get(catalog, [Protocol.Lockup, chainId, address])
       );
     }
 
