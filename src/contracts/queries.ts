@@ -10,8 +10,8 @@ export const contractsQueries = {
    *
    * - { chainId, contractName, release }
    * - { chainId, contractAddress, protocol }
-   * - { chainId, contractAddress, protocol, release }
    * - { chainId, contractAddress, release }
+   * - { chainId, contractAddress, protocol, release }
    *
    * Note: If a contract address exists in multiple releases for the same protocol, you must specify the release.
    */
@@ -24,46 +24,50 @@ export const contractsQueries = {
   }): Sablier.Contract | undefined => {
     const { chainId, contractAddress, contractName, protocol, release } = opts;
 
+    // Validation
     if (contractAddress && contractName) {
-      throw new Error("Sablier SDK: Cannot specify both contractAddress and contractName as query options");
+      throw new Error("Sablier SDK: Cannot specify both contractAddress and contractName");
     }
 
+    // Query by name requires release
     if (contractName) {
       if (!release) {
-        throw new Error("Sablier SDK: Cannot specify contractName without release");
+        throw new Error("Sablier SDK: contractName requires release to be specified");
       }
       const dep = _.find(release.deployments, { chainId });
-      return dep && _.find(dep.contracts, { name: contractName });
+      return dep ? _.find(dep.contracts, { name: contractName }) : undefined;
     }
 
+    // Query by address
     if (contractAddress) {
       const address = contractAddress.toLowerCase();
 
+      // Scoped to specific release
       if (release) {
-        const deployment = _.find(release.deployments, (d) => d.chainId === chainId);
-        return deployment && _.find(deployment.contracts, (c) => c.address.toLowerCase() === address);
+        const dep = _.find(release.deployments, { chainId });
+        return dep ? _.find(dep.contracts, (c) => c.address.toLowerCase() === address) : undefined;
       }
 
+      // Scoped to protocol - check for duplicates across releases
       if (protocol) {
-        // Check if contract address exists in multiple releases for this protocol.
-        const allReleases = releasesQueries.getAll({ protocol });
-        const matches = allReleases.filter((rel) => {
-          const deployment = _.find(rel.deployments, { chainId });
-          return deployment && _.some(deployment.contracts, (c) => c.address.toLowerCase() === address);
+        const releases = releasesQueries.getAll({ protocol });
+        const matches = releases.filter((rel) => {
+          const dep = _.find(rel.deployments, { chainId });
+          return dep && _.some(dep.contracts, (c) => c.address.toLowerCase() === address);
         });
 
         if (matches.length > 1) {
           const versions = matches.map((r) => r.version).join(", ");
           throw new Error(
-            `Sablier SDK: Contract address ${contractAddress} found in multiple releases (${versions}) for protocol "${protocol}".
-Specify the release explicitly:
-  - { chainId, contractAddress, protocol, release }
-  - { chainId, contractAddress, release }`,
+            `Sablier SDK: Contract ${contractAddress} exists in multiple releases (${versions}) for "${protocol}". ` +
+              `Specify release: { chainId, contractAddress, release }`,
           );
         }
 
         return _.get(catalog, [protocol, chainId, address]);
       }
+
+      // Fallback: search all protocols
       return (
         _.get(catalog, [Protocol.Airdrops, chainId, address]) ||
         _.get(catalog, [Protocol.Flow, chainId, address]) ||
