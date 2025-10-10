@@ -20,9 +20,6 @@ function get(chainId: number, contractMap: Sablier.ContractMap): Sablier.Deploym
  * @description Mainnet deployments for Legacy v1.1
  */
 export const mainnets: Sablier.Deployment[] = [
-  get(chains.mainnet.id, {
-    [manifest.SABLIER]: "0xCD18eAa163733Da39c232722cBC4E8940b1D8888",
-  }),
   get(chains.arbitrum.id, {
     [manifest.SABLIER]: "0xaDB944B478818d95659067E70D2e5Fc43Fa3eDe9",
   }),
@@ -31,6 +28,9 @@ export const mainnets: Sablier.Deployment[] = [
   }),
   get(chains.bsc.id, {
     [manifest.SABLIER]: "0x05BC7f5fb7F248d44d38703e5C921A8c16825161",
+  }),
+  get(chains.mainnet.id, {
+    [manifest.SABLIER]: "0xCD18eAa163733Da39c232722cBC4E8940b1D8888",
   }),
   get(chains.optimism.id, {
     [manifest.SABLIER]: "0x6C5927c0679e6d857E87367bb635decbcB20F31c",

@@ -25,21 +25,6 @@ function get(
  * @description Mainnet deployments for Lockup v1.1
  */
 export const mainnets: Sablier.Deployment.LockupV1[] = [
-  get(chains.mainnet.id, {
-    core: {
-      [manifest.core.SABLIER_V2_COMPTROLLER]: "0xC3Be6BffAeab7B297c03383B4254aa3Af2b9a5BA",
-      [manifest.core.SABLIER_V2_LOCKUP_DYNAMIC]: ["0x7CC7e125d83A581ff438608490Cc0f7bDff79127", 18_821_269],
-      [manifest.core.SABLIER_V2_LOCKUP_LINEAR]: ["0xAFb979d9afAd1aD27C5eFf4E27226E3AB9e5dCC9", 18_820_775],
-      [manifest.core.SABLIER_V2_NFT_DESCRIPTOR]: "0x23eD5DA55AF4286c0dE55fAcb414dEE2e317F4CB",
-    },
-    periphery: {
-      [manifest.periphery.SABLIER_V2_BATCH]: "0xEa07DdBBeA804E7fe66b958329F8Fa5cDA95Bd55",
-      [manifest.periphery.SABLIER_V2_MERKLE_STREAMER_FACTORY]: [
-        "0x1A272b596b10f02931480BC7a3617db4a8d154E3",
-        18_811_605,
-      ],
-    },
-  }),
   get(chains.arbitrum.id, {
     core: {
       [manifest.core.SABLIER_V2_COMPTROLLER]: "0x17Ec73692F0aDf7E7C554822FBEAACB4BE781762",
@@ -139,6 +124,21 @@ export const mainnets: Sablier.Deployment.LockupV1[] = [
       [manifest.periphery.SABLIER_V2_MERKLE_STREAMER_FACTORY]: [
         "0xdB07a1749D5Ca49909C7C4159652Fbd527c735B8",
         63_526_311,
+      ],
+    },
+  }),
+  get(chains.mainnet.id, {
+    core: {
+      [manifest.core.SABLIER_V2_COMPTROLLER]: "0xC3Be6BffAeab7B297c03383B4254aa3Af2b9a5BA",
+      [manifest.core.SABLIER_V2_LOCKUP_DYNAMIC]: ["0x7CC7e125d83A581ff438608490Cc0f7bDff79127", 18_821_269],
+      [manifest.core.SABLIER_V2_LOCKUP_LINEAR]: ["0xAFb979d9afAd1aD27C5eFf4E27226E3AB9e5dCC9", 18_820_775],
+      [manifest.core.SABLIER_V2_NFT_DESCRIPTOR]: "0x23eD5DA55AF4286c0dE55fAcb414dEE2e317F4CB",
+    },
+    periphery: {
+      [manifest.periphery.SABLIER_V2_BATCH]: "0xEa07DdBBeA804E7fe66b958329F8Fa5cDA95Bd55",
+      [manifest.periphery.SABLIER_V2_MERKLE_STREAMER_FACTORY]: [
+        "0x1A272b596b10f02931480BC7a3617db4a8d154E3",
+        18_811_605,
       ],
     },
   }),
