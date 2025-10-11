@@ -18,7 +18,9 @@ default:
     just --list
 
 # Build the project
-build: clean tsc-build
+@build:
+    just clean
+    just tsc-build
 alias b := build
 
 # Clean the dist directory
@@ -40,7 +42,7 @@ test-ui *args:
 alias tui := test-ui
 
 # Build with TypeScript CLI
-tsc-build:
+@tsc-build:
     bun tsc -p tsconfig.build.json
     bun tsc-alias -p tsconfig.build.json
     bun copyfiles --up 2 src/abi/**/*.json "dist/abi"
