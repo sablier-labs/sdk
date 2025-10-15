@@ -6,10 +6,8 @@
 
 ## Sources
 
-<!-- TODO: update commit after launch -->
-
-- Commit: [fe7cf4e](https://github.com/sablier-labs/flow/commit/2959b41c85f50ee527132b733fa6e817fbe5a727)
-- Package: [@sablier/flow@3.0.0](https://npmjs.com/package/@sablier/flow/v/2.0.0)
+- Commit: [a4143de](https://github.com/sablier-labs/flow/commit/a4143de45478f508bca8305fec2bd81b7ad25fe9)
+- Package: [@sablier/flow@2.0.0](https://npmjs.com/package/@sablier/flow/v/2.0.0)
 
 ## Configurations
 

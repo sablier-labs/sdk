@@ -9,10 +9,8 @@
 
 ## Sources
 
-<!-- TODO: update commit after launch -->
-
-- Commit: [9572d6e](https://github.com/sablier-labs/airdrops/commit/9572d6e8029e13e93606a07114de86d55eb2a75d)
-- Package: [@sablier/airdrops@2.0](https://npmjs.com/package/@sablier/airdrops/v/2.0.0)
+- Commit: [077c6b9](https://github.com/sablier-labs/airdrops/commit/077c6b9766ef7693ba9e82a9e001dc0097709c01)
+- Package: [@sablier/airdrops@2.0.1](https://npmjs.com/package/@sablier/airdrops/v/2.0.1)
 
 ## Configurations
 

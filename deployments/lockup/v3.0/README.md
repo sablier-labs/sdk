@@ -9,10 +9,8 @@
 
 ## Sources
 
-<!-- TODO: update commit after launch -->
-
-- Commit: [fe7cf4e](https://github.com/sablier-labs/lockup/commit/fe7cf4eeab1b316dbc1fa5da086a3b266f6b4079)
-- Package: [@sablier/lockup@3.0.0](https://npmjs.com/package/@sablier/lockup/v/3.0.0)
+- Commit: [0c3ea98](https://github.com/sablier-labs/lockup/commit/0c3ea987b00f12a57274556cd84bddaab92f5a16)
+- Package: [@sablier/lockup@3.0.1](https://npmjs.com/package/@sablier/lockup/v/3.0.1)
 
 ## Configurations
 
