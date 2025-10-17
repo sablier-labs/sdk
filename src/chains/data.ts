@@ -132,7 +132,7 @@ const config = {
     [_iotex.nativeCurrency.symbol]: "iotex",
     [_meld.nativeCurrency.symbol]: "meld-2",
     [_monadTestnet.nativeCurrency.symbol]: "monad",
-    [_polygon.nativeCurrency.symbol]: "matic-network",
+    [_polygon.nativeCurrency.symbol]: "polygon-ecosystem-token",
     [_ronin.nativeCurrency.symbol]: "ronin",
     [_sei.nativeCurrency.symbol]: "sei",
     [_sophon.nativeCurrency.symbol]: "sophon",
