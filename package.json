@@ -1,7 +1,10 @@
 {
   "name": "sablier",
   "description": "Contract addresses, chain data, and deployment information for the Sablier Protocol",
-  "version": "1.2.0",
+  "license": "GPL-3.0-or-later",
+  "main": "dist/index.js",
+  "types": "./dist/index.d.ts",
+  "version": "1.2.1",
   "author": {
     "name": "Sablier Labs Ltd",
     "url": "https://sablier.com"
@@ -60,8 +63,6 @@
     "vesting",
     "web3"
   ],
-  "license": "GPL-3.0-or-later",
-  "main": "dist/index.js",
   "publishConfig": {
     "access": "public"
   },
@@ -70,8 +71,8 @@
     "url": "git+https://github.com/sablier-labs/sdk.git"
   },
   "scripts": {
+    "build": "just build",
     "prepack": "bun install --frozen-lockfile && just build",
     "setup": "husky"
-  },
-  "types": "./dist/index.d.ts"
+  }
 }
