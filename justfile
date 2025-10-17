@@ -24,8 +24,9 @@ default:
 alias b := build
 
 # Clean the dist directory
-clean:
+@clean:
     bunx del-cli dist
+    echo "✅ Cleaned build files"
 
 # Setup Husky
 setup:
@@ -43,9 +44,11 @@ alias tui := test-ui
 
 # Build with TypeScript CLI
 @tsc-build:
+    echo "🔨 Building the package..."
     bun tsc -p tsconfig.build.json
     bun tsc-alias -p tsconfig.build.json
     bun copyfiles --up 2 src/abi/**/*.json "dist/abi"
+    echo "✅ Package built successfully in 'dist' directory"
 
 # ---------------------------------------------------------------------------- #
 #                                     PRINT                                    #
