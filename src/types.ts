@@ -1,5 +1,6 @@
 import type { Chain as ViemChain } from "viem";
-import type * as enums from "./evm/enums";
+import type * as evmEnums from "./evm/enums";
+import type * as solanaEnums from "./solana/enums";
 
 export namespace Sablier {
   /* -------------------------------------------------------------------------- */
@@ -100,7 +101,7 @@ export namespace Sablier {
       [contractName: string]: Address | [Address, number];
     };
 
-    export type Protocol = `${enums.Protocol}` | enums.Protocol;
+    export type Protocol = `${evmEnums.Protocol}` | evmEnums.Protocol;
 
     export type CompilerSettings = {
       /** The EVM version such as shanghai, paris, etc. */
@@ -194,13 +195,13 @@ export namespace Sablier {
     export type Release = Release.Standard | Release.LockupV1;
 
     export namespace Version {
-      export type Airdrops = `${enums.Version.Airdrops}` | enums.Version.Airdrops;
+      export type Airdrops = `${evmEnums.Version.Airdrops}` | evmEnums.Version.Airdrops;
 
-      export type Flow = `${enums.Version.Flow}` | enums.Version.Flow;
+      export type Flow = `${evmEnums.Version.Flow}` | evmEnums.Version.Flow;
 
-      export type Legacy = `${enums.Version.Legacy}` | enums.Version.Legacy;
+      export type Legacy = `${evmEnums.Version.Legacy}` | evmEnums.Version.Legacy;
 
-      export type Lockup = `${enums.Version.Lockup}` | enums.Version.Lockup;
+      export type Lockup = `${evmEnums.Version.Lockup}` | evmEnums.Version.Lockup;
     }
 
     export type Version = Version.Airdrops | Version.Flow | Version.Legacy | Version.Lockup;
@@ -273,5 +274,14 @@ export namespace Sablier {
         cluster: Cluster;
       };
     };
+
+    export type Protocol = `${solanaEnums.Protocol}` | solanaEnums.Protocol;
+
+    export namespace Version {
+      export type Airdrops = `${solanaEnums.Version.Airdrops}` | solanaEnums.Version.Airdrops;
+      export type Lockup = `${solanaEnums.Version.Lockup}` | solanaEnums.Version.Lockup;
+    }
+
+    export type Version = Version.Airdrops | Version.Lockup;
   }
 }
