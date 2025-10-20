@@ -1,12 +1,12 @@
 /**
  * @file This file exports the Sablier object, singleton that contains the queries for the
- * chains, contracts, and releases.
+ * chains, contracts, and releases for both evm and solana compatible chains.
  *
  * @example
  * ```typescript
  * import { sablier } from "sablier";
  *
- * const lockupContract = sablier.evmContracts.get({
+ * const lockupContract = sablier.evmContractsQueries.get({
  *   chainId: mainnet.id,
  *   contractName: "SablierLockup",
  *   release: releases.lockup["v2.0"],
@@ -19,6 +19,7 @@ import _ from "lodash";
 import { chainsQueries as evmChainsQueries } from "./evm/chains/queries";
 import { contractsQueries as evmContractsQueries } from "./evm/contracts/queries";
 import { releasesQueries as evmReleasesQueries } from "./evm/releases/queries";
+import { chainsQueries as solanaChainsQueries } from "./solana/chains/queries";
 
 const evmDeploymentsQueries = {
   /**
@@ -36,8 +37,16 @@ const evmDeploymentsQueries = {
 };
 
 export const sablier = {
+  /* -------------------------------------------------------------------------- */
+  /*                               EVM                               */
+  /* -------------------------------------------------------------------------- */
   evmChains: evmChainsQueries,
   evmContracts: evmContractsQueries,
   evmDeployments: evmDeploymentsQueries,
   evmReleases: evmReleasesQueries,
+
+  /* -------------------------------------------------------------------------- */
+  /*                               SOLANA                               */
+  /* -------------------------------------------------------------------------- */
+  solanaChains: solanaChainsQueries,
 };
