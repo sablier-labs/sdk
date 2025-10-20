@@ -1,4 +1,5 @@
 import type { Chain as ViemChain } from "viem";
+import type * as enums from "./enums";
 
 /**
  * @see https://github.com/wevm/viem/discussions/3678
@@ -46,4 +47,13 @@ export namespace Solana {
       cluster: Cluster;
     };
   };
+
+  export type Protocol = `${enums.Protocol}` | enums.Protocol;
+
+  export namespace Version {
+    export type Airdrops = `${enums.Version.Airdrops}` | enums.Version.Airdrops;
+    export type Lockup = `${enums.Version.Lockup}` | enums.Version.Lockup;
+  }
+
+  export type Version = Version.Airdrops | Version.Lockup;
 }
