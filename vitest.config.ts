@@ -23,6 +23,13 @@ function getTimeout() {
   return !CI ? 10_000 : 60_000; // 10 seconds normally, 1 minute in CI
 }
 
+function getReporters() {
+  if (CI) {
+    return ["github-actions", "json"];
+  }
+  return ["default"];
+}
+
 export default defineConfig({
   plugins: [tsconfigPaths()],
   test: {
@@ -30,6 +37,8 @@ export default defineConfig({
     globalSetup: "./tests/helpers/setup.ts",
     globals: true,
     include: getInclude(),
+    outputFile: CI ? "./test-results.json" : undefined,
+    reporters: getReporters(),
     retry: getRetry(),
     testTimeout: getTimeout(),
   },

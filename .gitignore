@@ -9,3 +9,4 @@ repomix/
 *.env
 *.log
 *.tsbuildinfo
+test-results.json
