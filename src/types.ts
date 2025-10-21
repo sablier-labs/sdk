@@ -34,6 +34,8 @@ export namespace Sablier {
       defaults: string[];
       /** Infura RPC URL generator. */
       infura?: (apiKey: string) => string;
+      /** RouteMesh RPC URL generator. */
+      routemesh?: (apiKey: string) => string;
     };
     /** Used in deployment files to identify the chain, e.g., arbitrum-sepolia. */
     slug: string;

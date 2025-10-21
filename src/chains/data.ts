@@ -111,6 +111,15 @@ const infuraRPCs: Record<number, RPCGenerator> = {
   [_zksync.id]: (apiKey) => `https://zksync-mainnet.infura.io/v3/${apiKey}`,
 };
 
+/**
+ * RouteMesh uses a deterministic URL pattern based on chain ID, supporting all chains.
+ * @see https://routeme.sh/dashboard/chains
+ */
+const routemeshRPC =
+  (chainId: number): RPCGenerator =>
+  (apiKey) =>
+    `https://lb.routeme.sh/rpc/${chainId}/${apiKey}`;
+
 /* -------------------------------------------------------------------------- */
 /*                                   HELPERS                                  */
 /* -------------------------------------------------------------------------- */
@@ -214,6 +223,7 @@ function define(slug: string, chain: ViemChain): Sablier.Chain {
       alchemy: alchemyRPCs[chain.id],
       defaults: defaultRPCs as string[],
       infura: infuraRPCs[chain.id],
+      routemesh: routemeshRPC(chain.id),
     },
     slug,
   };
