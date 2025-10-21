@@ -5,11 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Common Changelog](https://common-changelog.org/), and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+[1.3.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.3.0
 [1.2.2]: https://github.com/sablier-labs/sdk/releases/tag/v1.2.2
 [1.2.1]: https://github.com/sablier-labs/sdk/releases/tag/v1.2.1
 [1.2.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.2.0
 [1.1.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.1.0
 [1.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.0.0
+
+## [1.3.0] - 2025-10-21
+
+### Added
+
+- RouteMesh RPC provider support ([#63](https://github.com/sablier-labs/sdk/pull/63))
 
 ## [1.2.2] - 2025-10-21
 
