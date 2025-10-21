@@ -5,7 +5,6 @@
  * the CoinGecko API for each coin.
  */
 import axios from "axios";
-import _ from "lodash";
 import { describe, expect, it } from "vitest";
 
 const COINGECKO_API_KEY = process.env.VITE_COINGECKO_API_KEY;
