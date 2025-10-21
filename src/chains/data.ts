@@ -134,7 +134,7 @@ const config = {
     [_monadTestnet.nativeCurrency.symbol]: "monad",
     [_polygon.nativeCurrency.symbol]: "polygon-ecosystem-token",
     [_ronin.nativeCurrency.symbol]: "ronin",
-    [_sei.nativeCurrency.symbol]: "sei",
+    [_sei.nativeCurrency.symbol]: "sei-network",
     [_sophon.nativeCurrency.symbol]: "sophon",
     [_sonic.nativeCurrency.symbol]: "sonic-3",
     [TANGLE_NATIVE_CURRENCY_SYMBOL]: "tangle-network",
