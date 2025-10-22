@@ -1,20 +1,6 @@
 import type { Sablier } from "./types";
 
 /**
- * Get the explorer URL for a contract. Compatible with Etherscan, Blockscout, etc.
- * @param explorerURL - The base explorer URL, e.g. https://etherscan.io
- * @param contractAddress - The contract object
- * @returns The explorer URL for the contract, e.g. https://etherscan.io/address/0x123...
- */
-export function getContractExplorerURL(explorerURL: string, contractAddress: Sablier.Address) {
-  return `${explorerURL}/address/${contractAddress}`;
-}
-
-export function sortChains<T extends { name: string }>(chains: T[]): T[] {
-  return chains.sort((a, b) => a.name.localeCompare(b.name));
-}
-
-/**
  * Compare two semantic version strings.
  * @param a - First version string (e.g., "v1.0", "v2.1")
  * @param b - Second version string (e.g., "v1.0", "v2.1")
@@ -32,6 +18,16 @@ export function compareVersions(a: Sablier.Version, b: Sablier.Version): number 
     return aMajor - bMajor;
   }
   return aMinor - bMinor;
+}
+
+/**
+ * Get the explorer URL for a contract. Compatible with Etherscan, Blockscout, etc.
+ * @param explorerURL - The base explorer URL, e.g. https://etherscan.io
+ * @param contractAddress - The contract object
+ * @returns The explorer URL for the contract, e.g. https://etherscan.io/address/0x123...
+ */
+export function getContractExplorerURL(explorerURL: string, contractAddress: Sablier.Address) {
+  return `${explorerURL}/address/${contractAddress}`;
 }
 
 /**
@@ -58,4 +54,8 @@ export function isVersionBefore(version: Sablier.Version, before: Sablier.Versio
  */
 export function isVersionAfter(version: Sablier.Version, after: Sablier.Version): boolean {
   return compareVersions(version, after) > 0;
+}
+
+export function sortChains<T extends { name: string }>(chains: T[]): T[] {
+  return chains.sort((a, b) => a.name.localeCompare(b.name));
 }
