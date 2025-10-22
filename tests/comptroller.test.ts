@@ -1,5 +1,5 @@
-import { chains } from "@src/chains";
-import { comptroller } from "@src/comptroller";
+import { chains } from "@src/evm/chains";
+import { comptroller } from "@src/evm/comptroller";
 import { describe, expect, it } from "vitest";
 
 describe("comptroller", () => {

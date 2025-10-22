@@ -66,13 +66,13 @@ import { chains, sablier } from "sablier";
 const mainnet = chains.mainnet;
 
 // Get chain by ID
-const arbitrum = sablier.chains.queries.get({ chainId: 42161 });
+const arbitrum = sablier.evm.chains.get(42161);
 
 // Get chain by slug
-const polygon = sablier.chains.queries.get({ slug: "polygon" });
+const polygon = sablier.evm.chains.getBySlug("polygon");
 
 // Check if chain supports Sablier UI
-if (arbitrum.isSupportedByUI) {
+if (arbitrum?.isSupportedByUI) {
   console.log("Arbitrum available on app.sablier.com");
 }
 ```
@@ -82,10 +82,11 @@ if (arbitrum.isSupportedByUI) {
 ```typescript
 import { releases, sablier } from "sablier";
 
-// Get contract by name and chain
-const lockup = sablier.contracts.get({
-  name: "SablierLockup",
+// Get contract by name, release, and chain
+const lockup = sablier.evm.contracts.get({
+  contractName: "SablierLockup",
   release: releases.lockup["v2.0"],
+  chainId: 1, // Ethereum mainnet
 });
 ```
 
@@ -100,7 +101,7 @@ const lockupV2_0 = releases.lockup["v2.0"];
 const flowV1_1 = releases.flow["v1.1"];
 
 // Get all Lockup releases
-const allLockups = sablier.releases.getAll({ protocol: "lockup" });
+const allLockups = sablier.evm.releases.getAll({ protocol: "lockup" });
 ```
 
 ## Data Structure 📊

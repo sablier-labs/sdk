@@ -1,5 +1,5 @@
-import { contracts } from "@src/contracts";
-import { Protocol } from "@src/enums";
+import { contracts } from "@src/evm/contracts";
+import { Protocol } from "@src/evm/enums";
 import { sablier } from "@src/sablier";
 import type { Sablier } from "@src/types";
 import axios from "axios";
@@ -16,7 +16,7 @@ interface EtherscanResponse {
  * These contracts are indexed by the Sablier Indexers, so they require a deployment block number.
  * @see https://github.com/sablier-labs/indexers
  */
-const INDEXED: Record<Sablier.Protocol, Set<string>> = {
+const INDEXED: Record<Sablier.EVM.Protocol, Set<string>> = {
   [Protocol.Airdrops]: new Set([
     contracts.names.SABLIER_MERKLE_FACTORY,
     contracts.names.SABLIER_V2_MERKLE_LOCKUP_FACTORY,
@@ -52,9 +52,9 @@ describe("Block numbers correspond to Etherscan data", () => {
     return blockNumber ? Number.parseInt(blockNumber, 10) : undefined;
   }
 
-  for (const release of sablier.releases.getAll()) {
+  for (const release of sablier.evm.releases.getAll()) {
     describe(`${release.protocol} ${release.version}`, async () => {
-      const contracts = sablier.contracts.getAll({ release })!;
+      const contracts = sablier.evm.contracts.getAll({ release })!;
 
       for (const contract of contracts) {
         if (!ETHERSCAN_CHAINS.has(contract.chainId)) {
@@ -66,7 +66,7 @@ describe("Block numbers correspond to Etherscan data", () => {
           continue;
         }
 
-        const chain = sablier.chains.getOrThrow(contract.chainId);
+        const chain = sablier.evm.chains.getOrThrow(contract.chainId);
         const actualBlockNumber = await getContractCreationBlock(contract.address, chain.id);
         if (!actualBlockNumber) {
           it.skip(`Skipped ${contract.name} because the block number could not be fetched from Etherscan.`, () => {});

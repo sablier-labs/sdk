@@ -24,7 +24,11 @@ if (!fs.existsSync(path.join(ROOT_DIR, "package.json"))) {
  *       └── broadcasts/
  *         └── mainnet.json
  */
-export function checkBroadcast(release: Sablier.Release, chain: Sablier.Chain, innerPath?: string): string | null {
+export function checkBroadcast(
+  release: Sablier.EVM.Release,
+  chain: Sablier.EVM.Chain,
+  innerPath?: string,
+): string | null {
   let chainType = "";
   let chainPath = "";
 

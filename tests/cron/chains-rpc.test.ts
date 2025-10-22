@@ -1,4 +1,4 @@
-import { chains } from "@src/chains";
+import { chains } from "@src/evm/chains";
 import axios from "axios";
 import _ from "lodash";
 import { describe, expect, it } from "vitest";

@@ -1,4 +1,4 @@
-import { Version } from "@src/enums";
+import { Version } from "@src/evm/enums";
 import { compareVersions, isVersionAfter, isVersionBefore } from "@src/helpers";
 import { describe, expect, it } from "vitest";
 
