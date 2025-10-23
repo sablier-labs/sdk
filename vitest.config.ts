@@ -6,10 +6,10 @@ const VITE_CRON_TESTS = Boolean(process.env.VITE_CRON_TESTS);
 
 function getInclude() {
   if (CI && VITE_CRON_TESTS) {
-    return ["tests/cron/**/*.test.ts"];
+    return ["tests/**/cron/**/*.test.ts"];
   }
 
-  return ["tests/**/*.test.ts", "!tests/cron/**/*.ts"];
+  return ["tests/**/*.test.ts", "!tests/**/cron/**/*.ts"];
 }
 
 /**
@@ -34,7 +34,7 @@ export default defineConfig({
   plugins: [tsconfigPaths()],
   test: {
     environment: "node",
-    globalSetup: "./tests/helpers/setup.ts",
+    globalSetup: "./tests/setup.ts",
     globals: true,
     include: getInclude(),
     outputFile: CI ? "./test-results.json" : undefined,
