@@ -20,6 +20,8 @@ import { chainsQueries as evmChainsQueries } from "./evm/chains/queries";
 import { contractsQueries as evmContractsQueries } from "./evm/contracts/queries";
 import { releasesQueries as evmReleasesQueries } from "./evm/releases/queries";
 import { chainsQueries as solanaChainsQueries } from "./solana/chains/queries";
+import { contractsQueries as solanaContractsQueries } from "./solana/contracts/queries";
+import { releasesQueries as solanaReleasesQueries } from "./solana/releases/queries";
 
 const evmDeploymentsQueries = {
   /**
@@ -36,6 +38,21 @@ const evmDeploymentsQueries = {
   },
 };
 
+const solanaDeploymentsQueries = {
+  /**
+   * Get many deployments.
+   * - default            ⇒ all across all releases
+   * - release            ⇒ that release's deployments
+   */
+  get: (opts: { chainId: number; release: Sablier.Solana.Release }): Sablier.Solana.Deployment | undefined => {
+    const { release, chainId } = opts || {};
+    return _.find(release.deployments, { chainId });
+  },
+  getAll: (): Sablier.Solana.Deployment[] => {
+    return _.flatMap(solanaReleasesQueries.getAll(), (r) => r.deployments);
+  },
+};
+
 export const sablier = {
   /* -------------------------------------------------------------------------- */
   /*                               EVM                               */
@@ -49,4 +66,7 @@ export const sablier = {
   /*                               SOLANA                               */
   /* -------------------------------------------------------------------------- */
   solanaChains: solanaChainsQueries,
+  solanaContracts: solanaContractsQueries,
+  solanaDeployments: solanaDeploymentsQueries,
+  solanaReleases: solanaReleasesQueries,
 };
