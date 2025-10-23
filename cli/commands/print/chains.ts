@@ -4,7 +4,7 @@ import { Command } from "commander";
 export const chainCmd = new Command("chains").description("List all supported chain slugs").action(() => {
   console.log("🌐 Mainnets:");
   console.log(
-    sablier.chains
+    sablier.evmChains
       .getMainnets()
       .map((c) => `• ${c.slug}`)
       .join("\n"),
@@ -12,7 +12,7 @@ export const chainCmd = new Command("chains").description("List all supported ch
 
   console.log("\n🧪 Testnets:");
   console.log(
-    sablier.chains
+    sablier.evmChains
       .getTestnets()
       .map((c) => `• ${c.slug}`)
       .join("\n"),
