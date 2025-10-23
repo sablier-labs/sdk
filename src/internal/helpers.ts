@@ -1,7 +1,7 @@
 import * as path from "node:path";
 import type { Sablier } from "@src/types";
 import * as fs from "fs-extra";
-import { isBroadcastsUnified } from "../../tests/helpers/broadcasts";
+import { isBroadcastsUnified } from "../../tests/evm/helpers/broadcasts";
 import { log } from "./logger";
 
 const ROOT_DIR = path.join(__dirname, "..", "..");
