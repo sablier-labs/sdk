@@ -6,6 +6,22 @@ export namespace Sablier {
   /*                                    TYPES                                   */
   /* -------------------------------------------------------------------------- */
 
+  type BaseChain = ViemChain & {
+    blockExplorers: {
+      [key: string]: ChainBlockExplorer;
+      default: ChainBlockExplorer;
+    };
+    /** Whether this chain is supported by the Sablier Interface at https://app.sablier.com. */
+    isSupportedByUI: boolean;
+    /** Whether this is a testnet network. */
+    isTestnet: boolean;
+    /** Whether this is a zkEVM like zkSync. */
+    nativeCurrency: ViemChain["nativeCurrency"] & {
+      coinGeckoId: string;
+    };
+    slug: string;
+  };
+
   /**
    * @see https://github.com/wevm/viem/discussions/3678
    */
@@ -30,20 +46,8 @@ export namespace Sablier {
     export type Address = `0x${string}`;
 
     export type AbiMap = { [contractName: string]: readonly object[] };
-    export type Chain = ViemChain & {
-      blockExplorers: {
-        [key: string]: ChainBlockExplorer;
-        default: ChainBlockExplorer;
-      };
-      /** Whether this chain is supported by the Sablier Interface at https://app.sablier.com. */
-      isSupportedByUI: boolean;
-      /** Whether this is a testnet network. */
-      isTestnet: boolean;
-      /** Whether this is a zkEVM like zkSync. */
+    export type Chain = BaseChain & {
       isZK: boolean;
-      nativeCurrency: ViemChain["nativeCurrency"] & {
-        coinGeckoId: string;
-      };
       rpc: {
         /** Alchemy RPC URL generator. */
         alchemy?: (apiKey: string) => string;
@@ -244,5 +248,30 @@ export namespace Sablier {
         graph: TheGraph.Subgraph;
       };
     }
+  }
+
+  export namespace Solana {
+    export type Address = string;
+    export type ChainCode = "SOL" | "SOLDEV" | "SOLTEST";
+    export type Cluster = "mainnet-beta" | "devnet" | "testnet";
+
+    export type Chain = BaseChain & {
+      rpc: {
+        /** Helius RPC URL generator. */
+        helius?: (apiKey: string) => string;
+        /** Default RPC URL. */
+        defaults: string[];
+      };
+      /** Used in deployment files to identify the chain, e.g., arbitrum-sepolia. */
+      chainlink: {
+        program: Address; // Chainlink program used to retrieve on-chain price feeds
+        feed: Address; // Account providing the SOL/USD price feed data.
+      };
+      definition: {
+        chainCode: ChainCode;
+        chainId: number;
+        cluster: Cluster;
+      };
+    };
   }
 }
