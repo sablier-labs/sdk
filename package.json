@@ -68,6 +68,18 @@
       "types": "./dist/solana/index.d.ts",
       "default": "./dist/solana/index.js"
     },
+    "./solana/chains": {
+      "types": "./dist/solana/chains/index.d.ts",
+      "default": "./dist/solana/chains/index.js"
+    },
+    "./solana/contracts": {
+      "types": "./dist/solana/contracts/index.d.ts",
+      "default": "./dist/solana/contracts/index.js"
+    },
+    "./solana/releases": {
+      "types": "./dist/solana/releases/index.d.ts",
+      "default": "./dist/solana/releases/index.js"
+    },
     "./package.json": "./package.json",
     "./dist/*": "./dist/*"
   },

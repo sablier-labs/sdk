@@ -1,7 +1,7 @@
+import { getNestedValues } from "@src/helpers";
+import { createContractMapper, createStandardDeploymentResolver } from "@src/internal/resolver-factory";
 import { chainsQueries } from "@src/solana/chains/queries";
-import { getNestedValues } from "@src/solana/releases/helpers";
 import type { Sablier } from "@src/types";
-import _ from "lodash";
 
 /* -------------------------------------------------------------------------- */
 /*                                   TYPES                                    */
@@ -18,6 +18,21 @@ type DeploymentParams = {
 type ReleaseParams = Omit<Sablier.Solana.Release, "contractNames">;
 
 /* -------------------------------------------------------------------------- */
+/*                             PLATFORM SETUP                                 */
+/* -------------------------------------------------------------------------- */
+
+const contractMapper = createContractMapper<Sablier.Solana.Contract, Sablier.Solana.Protocol, Sablier.Solana.Version>(
+  chainsQueries,
+);
+
+const standardDeploymentResolver = createStandardDeploymentResolver<
+  Sablier.Solana.Deployment,
+  Sablier.Solana.Contract,
+  Sablier.Solana.Protocol,
+  Sablier.Solana.Version
+>(contractMapper);
+
+/* -------------------------------------------------------------------------- */
 /*                                 RESOLVERS                                  */
 /* -------------------------------------------------------------------------- */
 
@@ -27,13 +42,7 @@ export const resolvers = {
      * Creates a standard Solana deployment
      */
     standard: (params: DeploymentParams): Sablier.Solana.Deployment => {
-      const { contractMap, ...baseParams } = params;
-      const contracts = mapContractsToDeployment(contractMap, baseParams);
-
-      return {
-        chainId: baseParams.chainId,
-        contracts,
-      };
+      return standardDeploymentResolver(params);
     },
   },
 
@@ -49,33 +58,3 @@ export const resolvers = {
     },
   },
 };
-
-/* -------------------------------------------------------------------------- */
-/*                                  HELPERS                                   */
-/* -------------------------------------------------------------------------- */
-
-/**
- * Converts a contract map to an array of deployment contracts
- */
-function mapContractsToDeployment(
-  contractMap: Sablier.Solana.ContractMap,
-  params: Pick<DeploymentParams, "chainId" | "protocol" | "version" | "aliasMap">,
-): Sablier.Solana.Contract[] {
-  const { chainId, protocol, version, aliasMap } = params;
-  const chain = chainsQueries.getOrThrow(chainId);
-
-  return _.entries(contractMap).map(([name, addressOrTuple]) => {
-    const [address, blockNumber] = Array.isArray(addressOrTuple) ? addressOrTuple : [addressOrTuple];
-
-    return {
-      address,
-      alias: aliasMap[name],
-      block: blockNumber,
-      chainId,
-      explorerURL: `${chain.blockExplorers.default.url}/address/${address}`,
-      name,
-      protocol,
-      version,
-    };
-  });
-}

@@ -1,8 +1,7 @@
 import { chainsQueries } from "@src/evm/chains/queries";
-import { getNestedValues } from "@src/evm/releases/helpers";
-import { getContractExplorerURL } from "@src/helpers";
+import { getNestedValues } from "@src/helpers";
+import { createContractMapper, createStandardDeploymentResolver } from "@src/internal/resolver-factory";
 import type { Sablier } from "@src/types";
-import _ from "lodash";
 
 /* -------------------------------------------------------------------------- */
 /*                                   TYPES                                    */
@@ -29,6 +28,45 @@ type DeploymentStandardParams = DeploymentBaseParams & {
 type ReleaseParams<T> = Omit<T, "kind" | "contractNames">;
 
 /* -------------------------------------------------------------------------- */
+/*                             PLATFORM SETUP                                 */
+/* -------------------------------------------------------------------------- */
+
+const contractMapper = createContractMapper<Sablier.EVM.Contract, Sablier.EVM.Protocol, Sablier.EVM.Version>(
+  chainsQueries,
+);
+
+const standardDeploymentResolver = createStandardDeploymentResolver<
+  Sablier.EVM.Deployment,
+  Sablier.EVM.Contract,
+  Sablier.EVM.Protocol,
+  Sablier.EVM.Version
+>(contractMapper);
+
+/* -------------------------------------------------------------------------- */
+/*                           EVM-SPECIFIC RESOLVERS                           */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * Creates a LockupV1 deployment with separate core and periphery contracts
+ */
+function createLockupV1Deployment(params: DeploymentLockupV1Params): Sablier.EVM.Deployment.LockupV1 {
+  const { contractMap, ...baseParams } = params;
+
+  // Create standard deployment with merged contracts
+  const mergedContracts = { ...contractMap.core, ...contractMap.periphery };
+  const deployment = standardDeploymentResolver({
+    ...baseParams,
+    contractMap: mergedContracts,
+  }) as Sablier.EVM.Deployment.LockupV1;
+
+  // Add separated core and periphery contracts
+  deployment.core = contractMapper(contractMap.core, baseParams);
+  deployment.periphery = contractMapper(contractMap.periphery, baseParams);
+
+  return deployment;
+}
+
+/* -------------------------------------------------------------------------- */
 /*                                 RESOLVERS                                  */
 /* -------------------------------------------------------------------------- */
 
@@ -38,33 +76,14 @@ export const resolvers = {
      * Creates a LockupV1 deployment with separate core and periphery contracts
      */
     lockupV1: (params: DeploymentLockupV1Params): Sablier.EVM.Deployment.LockupV1 => {
-      const { contractMap, ...baseParams } = params;
-
-      // Create standard deployment with merged contracts
-      const mergedContracts = { ...contractMap.core, ...contractMap.periphery };
-      const deployment = resolvers.deployment.standard({
-        ...baseParams,
-        contractMap: mergedContracts,
-      }) as Sablier.EVM.Deployment.LockupV1;
-
-      // Add separated core and periphery contracts
-      deployment.core = mapContractsToDeployment(contractMap.core, baseParams);
-      deployment.periphery = mapContractsToDeployment(contractMap.periphery, baseParams);
-
-      return deployment;
+      return createLockupV1Deployment(params);
     },
 
     /**
      * Creates a standard deployment with all contracts in a single array
      */
     standard: (params: DeploymentStandardParams): Sablier.EVM.Deployment => {
-      const { contractMap, ...baseParams } = params;
-      const contracts = mapContractsToDeployment(contractMap, baseParams);
-
-      return {
-        chainId: baseParams.chainId,
-        contracts,
-      };
+      return standardDeploymentResolver(params);
     },
   },
 
@@ -92,33 +111,3 @@ export const resolvers = {
     },
   },
 };
-
-/* -------------------------------------------------------------------------- */
-/*                                  HELPERS                                   */
-/* -------------------------------------------------------------------------- */
-
-/**
- * Converts a contract map to an array of deployment contracts
- */
-function mapContractsToDeployment(
-  contractMap: Sablier.EVM.ContractMap,
-  params: Pick<DeploymentBaseParams, "chainId" | "protocol" | "version" | "aliasMap">,
-): Sablier.EVM.Contract[] {
-  const { chainId, protocol, version, aliasMap } = params;
-  const chain = chainsQueries.getOrThrow(chainId);
-
-  return _.entries(contractMap).map(([name, addressOrTuple]) => {
-    const [address, blockNumber] = Array.isArray(addressOrTuple) ? addressOrTuple : [addressOrTuple];
-
-    return {
-      address,
-      alias: aliasMap[name],
-      block: blockNumber,
-      chainId,
-      explorerURL: getContractExplorerURL(chain.blockExplorers.default.url, address),
-      name,
-      protocol,
-      version,
-    };
-  });
-}
