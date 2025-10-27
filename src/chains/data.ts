@@ -1,6 +1,7 @@
 import type { Sablier } from "@src/types";
 import type { Chain as ViemChain } from "viem";
 import { defineChain as viemDefine } from "viem";
+
 // Imported like this for tree-shaking
 import {
   abstract as _abstract,
@@ -267,7 +268,6 @@ export const sonic = define("sonic", _sonic);
 export const superseed = define("superseed", _superseed);
 export const superseedSepolia = define("superseed-sepolia", _superseedSepolia);
 export const taiko = define("taiko", _taiko);
-export const taikoHekla = define("taiko-hekla", _taikoHekla);
 export const unichain = define("unichain", _unichain);
 export const xdc = define("xdc", _xdc);
 export const zksync = define("zksync", _zksync);
@@ -315,9 +315,6 @@ export const hyperevm: Sablier.Chain = define(
       name: "Hyperliquid",
       symbol: HYPEREVM_NATIVE_CURRENCY_SYMBOL,
     },
-    rpc: {
-      public: "https://rpc.hyperliquid.xyz/evm",
-    },
     rpcUrls: {
       default: {
         http: ["https://rpc.hyperliquid.xyz/evm"],
@@ -352,6 +349,18 @@ export const sophon: Sablier.Chain = define(
   }),
 );
 
+export const taikoHekla: Sablier.Chain = define(
+  "taiko-hekla",
+  viemDefine({
+    ..._taikoHekla,
+    rpcUrls: {
+      default: {
+        http: ["https://taiko-hekla-rpc.publicnode.com", "https://rpc.hekla.taiko.xyz"],
+      },
+    },
+  }),
+);
+
 export const tangle: Sablier.Chain = define(
   "tangle",
   viemDefine({
@@ -370,9 +379,6 @@ export const tangle: Sablier.Chain = define(
       decimals: 18,
       name: "Tangle",
       symbol: "TNT",
-    },
-    rpc: {
-      public: "https://rpc.tangle.tools",
     },
     rpcUrls: {
       default: {
