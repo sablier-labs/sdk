@@ -173,6 +173,7 @@ const config = {
     } as IdToBool,
     // By default, mainnets are supported by the UI.
     unsupportedMainnets: {
+      [_coreDao.id]: true,
       [_form.id]: true,
       [_iotex.id]: true,
       [_meld.id]: true,
