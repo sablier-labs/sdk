@@ -6,15 +6,15 @@
  * ```typescript
  * import { sablier } from "sablier";
  *
- * // New API (preferred)
- * const lockupContract = sablier.evm.contracts.get({
+ * // EVM
+ * let lockupContract = sablier.evm.contracts.get({
  *   chainId: mainnet.id,
  *   contractName: "SablierLockup",
  *   release: releases.lockup["v2.0"],
  * });
  *
- * // Old API (backward compatible, deprecated)
- * const lockupContract = sablier.contracts.get({
+ * // Can also be accessed like this:
+ * lockupContract = sablier.contracts.get({
  *   chainId: mainnet.id,
  *   contractName: "SablierLockup",
  *   release: releases.lockup["v2.0"],
@@ -28,6 +28,9 @@ import { chainsQueries as evmChainsQueries } from "./evm/chains/queries";
 import { contractsQueries as evmContractsQueries } from "./evm/contracts/queries";
 import { releasesQueries as evmReleasesQueries } from "./evm/releases/queries";
 
+/**
+ * Has to be defined here to avoid circular dependencies.
+ */
 const evmDeploymentsQueries = {
   /**
    * Get many deployments.
@@ -51,10 +54,6 @@ const evm = {
 };
 
 export const sablier = {
-  // Kept like this for backwards compatibility
-  chains: evm.chains,
-  contract: evm.contracts,
-  deployments: evm.deployments,
+  ...evm, // re-exporting for backward compatibility
   evm,
-  releases: evm.releases,
 };

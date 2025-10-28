@@ -18,17 +18,9 @@ The format is based on [Common Changelog](https://common-changelog.org/), and th
 
 ## [2.0.0] - 2025-10-22
 
-### Breaking Changes
-
-This release prepares the SDK for multi-VM support by extracting all EVM-specific code into a dedicated namespace.
-
 #### Changed
 
-- **BREAKING**: Renamed `sablier.chains` → `sablier.evm.chains`
-- **BREAKING**: Renamed `sablier.contracts` → `sablier.evm.contracts`
-- **BREAKING**: Renamed `sablier.releases` → `sablier.evm.releases`
-- **BREAKING**: Renamed `sablier.deployments` → `sablier.evm.deployments`
-- **BREAKING**: All types moved to `Sablier.EVM.*` namespace:
+- `sablier.F00` now points to `sablier.evm.F00` for backward compatibility.
   - `Sablier.Address` → `Sablier.EVM.Address`
   - `Sablier.Chain` → `Sablier.EVM.Chain`
   - `Sablier.Contract` → `Sablier.EVM.Contract`
@@ -36,40 +28,11 @@ This release prepares the SDK for multi-VM support by extracting all EVM-specifi
   - `Sablier.Deployment` → `Sablier.EVM.Deployment`
   - `Sablier.Protocol` → `Sablier.EVM.Protocol`
   - `Sablier.Version` → `Sablier.EVM.Version`
-- **BREAKING**: Package exports updated:
-  - `sablier/chains` → `sablier/evm/chains`
-  - `sablier/contracts` → `sablier/evm/contracts`
-  - `sablier/releases` → `sablier/evm/releases`
 
 #### Added
 
 - New export: `sablier/evm` for direct EVM-specific imports
 - Added package.json exports for EVM subpaths
-
-#### Moved
-
-- All EVM-specific code moved from `src/` to `src/evm/`:
-  - ABIs: `src/abi/` → `src/evm/abi/`
-  - Chains: `src/chains/` → `src/evm/chains/`
-  - Contracts: `src/contracts/` → `src/evm/contracts/`
-  - Releases: `src/releases/` → `src/evm/releases/`
-  - Enums: `src/enums.ts` → `src/evm/enums.ts`
-  - Comptroller: `src/comptroller.ts` → `src/evm/comptroller.ts`
-
-### Migration
-
-See [MIGRATION.md](./MIGRATION.md) for detailed migration instructions.
-
-**Quick migration**:
-
-```bash
-# Replace in your codebase
-sablier.chains → sablier.evm.chains
-sablier.contracts → sablier.evm.contracts
-sablier.releases → sablier.evm.releases
-Sablier.Chain → Sablier.EVM.Chain
-Sablier.Contract → Sablier.EVM.Contract
-```
 
 ## [1.4.2] - 2025-10-22
 
