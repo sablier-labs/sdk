@@ -5,7 +5,6 @@ All notable changes to this project will be documented in this file.
 The format is based on [Common Changelog](https://common-changelog.org/), and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-[2.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v2.0.0
 [1.4.2]: https://github.com/sablier-labs/sdk/releases/tag/v1.4.2
 [1.4.1]: https://github.com/sablier-labs/sdk/releases/tag/v1.4.1
 [1.4.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.4.0
@@ -15,61 +14,6 @@ The format is based on [Common Changelog](https://common-changelog.org/), and th
 [1.2.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.2.0
 [1.1.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.1.0
 [1.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.0.0
-
-## [2.0.0] - 2025-10-22
-
-### Breaking Changes
-
-This release prepares the SDK for multi-VM support by extracting all EVM-specific code into a dedicated namespace.
-
-#### Changed
-
-- **BREAKING**: Renamed `sablier.chains` → `sablier.evm.chains`
-- **BREAKING**: Renamed `sablier.contracts` → `sablier.evm.contracts`
-- **BREAKING**: Renamed `sablier.releases` → `sablier.evm.releases`
-- **BREAKING**: Renamed `sablier.deployments` → `sablier.evm.deployments`
-- **BREAKING**: All types moved to `Sablier.EVM.*` namespace:
-  - `Sablier.Address` → `Sablier.EVM.Address`
-  - `Sablier.Chain` → `Sablier.EVM.Chain`
-  - `Sablier.Contract` → `Sablier.EVM.Contract`
-  - `Sablier.Release` → `Sablier.EVM.Release`
-  - `Sablier.Deployment` → `Sablier.EVM.Deployment`
-  - `Sablier.Protocol` → `Sablier.EVM.Protocol`
-  - `Sablier.Version` → `Sablier.EVM.Version`
-- **BREAKING**: Package exports updated:
-  - `sablier/chains` → `sablier/evm/chains`
-  - `sablier/contracts` → `sablier/evm/contracts`
-  - `sablier/releases` → `sablier/evm/releases`
-
-#### Added
-
-- New export: `sablier/evm` for direct EVM-specific imports
-- Added package.json exports for EVM subpaths
-
-#### Moved
-
-- All EVM-specific code moved from `src/` to `src/evm/`:
-  - ABIs: `src/abi/` → `src/evm/abi/`
-  - Chains: `src/chains/` → `src/evm/chains/`
-  - Contracts: `src/contracts/` → `src/evm/contracts/`
-  - Releases: `src/releases/` → `src/evm/releases/`
-  - Enums: `src/enums.ts` → `src/evm/enums.ts`
-  - Comptroller: `src/comptroller.ts` → `src/evm/comptroller.ts`
-
-### Migration
-
-See [MIGRATION.md](./MIGRATION.md) for detailed migration instructions.
-
-**Quick migration**:
-
-```bash
-# Replace in your codebase
-sablier.chains → sablier.evm.chains
-sablier.contracts → sablier.evm.contracts
-sablier.releases → sablier.evm.releases
-Sablier.Chain → Sablier.EVM.Chain
-Sablier.Contract → Sablier.EVM.Contract
-```
 
 ## [1.4.2] - 2025-10-22
 

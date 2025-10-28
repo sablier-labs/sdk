@@ -53,7 +53,7 @@ The addresses are provided in this package, but you can also view the deployment
 - [Sablier Lockup addresses](https://docs.sablier.com/guides/lockup/deployments)
 - [Sablier Flow addresses](https://docs.sablier.com/guides/flow/deployments)
 
-## API Reference 📖
+## API Reference - EVM 📖
 
 ### Chains
 
@@ -66,10 +66,10 @@ import { chains, sablier } from "sablier";
 const mainnet = chains.mainnet;
 
 // Get chain by ID
-const arbitrum = sablier.evm.chains.get(42161);
+const arbitrum = sablier.chains.get(42161);
 
 // Get chain by slug
-const polygon = sablier.evm.chains.getBySlug("polygon");
+const polygon = sablier.chains.getBySlug("polygon");
 
 // Check if chain supports Sablier UI
 if (arbitrum?.isSupportedByUI) {
@@ -83,7 +83,7 @@ if (arbitrum?.isSupportedByUI) {
 import { releases, sablier } from "sablier";
 
 // Get contract by name, release, and chain
-const lockup = sablier.evm.contracts.get({
+const lockup = sablier.contracts.get({
   contractName: "SablierLockup",
   release: releases.lockup["v2.0"],
   chainId: 1, // Ethereum mainnet
@@ -101,8 +101,12 @@ const lockupV2_0 = releases.lockup["v2.0"];
 const flowV1_1 = releases.flow["v1.1"];
 
 // Get all Lockup releases
-const allLockups = sablier.evm.releases.getAll({ protocol: "lockup" });
+const allLockups = sablier.releases.getAll({ protocol: "lockup" });
 ```
+
+## API Reference - SOLANA 📖
+
+TODO
 
 ## Data Structure 📊
 
