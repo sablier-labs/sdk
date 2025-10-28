@@ -131,50 +131,6 @@ export namespace Sablier {
 
   export type Deployment = Deployment.Standard | Deployment.LockupV1;
 
-  export namespace Indexer {
-    type Common = {
-      chainId: number;
-      protocol: Protocol;
-    };
-
-    export type Envio = Common & {
-      envio: string;
-    };
-
-    export namespace TheGraph {
-      type SubgraphCommon = {
-        /** URL to The Graph explorer. */
-        explorerURL?: string;
-        /** The kind of subgraph. */
-        kind: "custom" | "official";
-        /** URL to The Graph studio. */
-        studioURL?: string;
-      };
-
-      export type SubgraphCustom = SubgraphCommon & {
-        kind: "custom";
-        subgraphURL: string;
-        subgraph?: never;
-      };
-
-      export type SubgraphOfficial = SubgraphCommon & {
-        kind: "official";
-        subgraphURL?: never;
-        subgraph: {
-          id: string;
-          /** Function to generate the TheGraph URL with a user-provided API key. */
-          url: (apiKey: string) => string;
-        };
-      };
-
-      export type Subgraph = SubgraphCustom | SubgraphOfficial;
-    }
-
-    export type TheGraph = Common & {
-      graph: TheGraph.Subgraph;
-    };
-  }
-
   /**
    * Contract names for a given protocol and version.
    * Note that this may contain both deployed contracts and abstract contracts that are not deployed.
