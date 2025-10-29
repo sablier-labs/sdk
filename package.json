@@ -4,7 +4,7 @@
   "license": "GPL-3.0-or-later",
   "main": "dist/index.js",
   "types": "./dist/index.d.ts",
-  "version": "1.4.2",
+  "version": "2.0.0",
   "author": {
     "name": "Sablier Labs Ltd",
     "url": "https://sablier.com"
@@ -46,17 +46,21 @@
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
     },
-    "./chains": {
-      "types": "./dist/chains/index.d.ts",
-      "default": "./dist/chains/index.js"
+    "./evm": {
+      "types": "./dist/evm/index.d.ts",
+      "default": "./dist/evm/index.js"
     },
-    "./contracts": {
-      "types": "./dist/contracts/index.d.ts",
-      "default": "./dist/contracts/index.js"
+    "./evm/chains": {
+      "types": "./dist/evm/chains/index.d.ts",
+      "default": "./dist/evm/chains/index.js"
     },
-    "./releases": {
-      "types": "./dist/releases/index.d.ts",
-      "default": "./dist/releases/index.js"
+    "./evm/contracts": {
+      "types": "./dist/evm/contracts/index.d.ts",
+      "default": "./dist/evm/contracts/index.js"
+    },
+    "./evm/releases": {
+      "types": "./dist/evm/releases/index.d.ts",
+      "default": "./dist/evm/releases/index.js"
     },
     "./package.json": "./package.json",
     "./dist/*": "./dist/*"

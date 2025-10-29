@@ -1,4 +1,4 @@
-import { Protocol } from "@src/enums";
+import { Protocol } from "@src/evm/enums";
 import { checkBroadcast } from "@src/internal/helpers";
 import { logger } from "@src/internal/logger";
 import { sablier } from "@src/sablier";
@@ -16,15 +16,15 @@ const EMOJIS = {
   warning: "⚠️",
 } as const;
 
-async function checkMissingBroadcasts(protocol: Sablier.Protocol): Promise<void> {
-  const missing: Record<string, Sablier.Chain[]> = {};
+async function checkMissingBroadcasts(protocol: Sablier.EVM.Protocol): Promise<void> {
+  const missing: Record<string, Sablier.EVM.Chain[]> = {};
 
   console.log(`${EMOJIS.folder} Checking ${protocol} broadcasts...\n`);
 
-  const releases = sablier.releases.getAll({ protocol });
+  const releases = sablier.evm.releases.getAll({ protocol });
   for (const r of releases) {
     for (const d of r.deployments) {
-      const chain = sablier.chains.getOrThrow(d.chainId);
+      const chain = sablier.evm.chains.getOrThrow(d.chainId);
 
       let hasValidBroadcasts = false;
 
@@ -113,7 +113,7 @@ function printSectionHeader(text: string): void {
 export const missingBroadcastsCmd = new Command("missing-broadcasts")
   .description("Check for missing broadcasts for a given protocol")
   .option("-p, --protocol <protocol>", `Protocol to check (${_.values(Protocol).join(", ")})`)
-  .action(async (options: { protocol?: Sablier.Protocol }) => {
+  .action(async (options: { protocol?: Sablier.EVM.Protocol }) => {
     if (!options.protocol) {
       logger.error("Error: Protocol is required. Use -p or --protocol to specify.");
       process.exit(1);

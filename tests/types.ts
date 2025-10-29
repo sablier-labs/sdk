@@ -6,7 +6,7 @@ import type { Sablier } from "@src/types";
  */
 
 export type BasicContract = {
-  address: Sablier.Address;
+  address: Sablier.EVM.Address;
   name: string;
 };
 
@@ -25,7 +25,7 @@ export type StandardBroadcast = {
 export type ZKBroadcast = {
   contractName: string;
   entries: Array<{
-    address: Sablier.Address;
+    address: Sablier.EVM.Address;
     salt: string;
   }>;
 };

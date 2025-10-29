@@ -1,5 +1,5 @@
-import { contracts } from "@src/contracts";
-import { Protocol } from "@src/enums";
+import { contracts } from "@src/evm/contracts";
+import { Protocol } from "@src/evm/enums";
 import { sablier } from "@src/sablier";
 import type { Sablier } from "@src/types";
 import { describe, expect, it } from "vitest";
@@ -8,7 +8,7 @@ import { describe, expect, it } from "vitest";
  * These contracts are indexed by the Sablier Indexers, so they require a deployment block number.
  * @see https://github.com/sablier-labs/indexers
  */
-const INDEXED: Record<Sablier.Protocol, Set<string>> = {
+const INDEXED: Record<Sablier.EVM.Protocol, Set<string>> = {
   [Protocol.Airdrops]: new Set([
     contracts.names.SABLIER_MERKLE_FACTORY,
     contracts.names.SABLIER_V2_MERKLE_LOCKUP_FACTORY,
@@ -29,9 +29,9 @@ const INDEXED: Record<Sablier.Protocol, Set<string>> = {
 };
 
 describe("Indexed contracts have a deployment block number", () => {
-  for (const release of sablier.releases.getAll()) {
+  for (const release of sablier.evm.releases.getAll()) {
     describe(`${release.protocol} ${release.version}`, () => {
-      const contracts = sablier.contracts.getAll({ release })!;
+      const contracts = sablier.evm.contracts.getAll({ release })!;
 
       for (const contract of contracts) {
         if (!INDEXED[release.protocol].has(contract.name)) {
@@ -39,7 +39,7 @@ describe("Indexed contracts have a deployment block number", () => {
           continue;
         }
 
-        const chain = sablier.chains.getOrThrow(contract.chainId);
+        const chain = sablier.evm.chains.getOrThrow(contract.chainId);
         it(`Contract ${contract.name} should have a deployment block number set on ${chain.name}`, () => {
           const errorMsg = `No block number found for ${contract.name}`;
           expect(contract.block, errorMsg).toBeDefined();

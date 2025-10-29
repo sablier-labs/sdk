@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Common Changelog](https://common-changelog.org/), and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+[2.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v2.0.0
 [1.4.2]: https://github.com/sablier-labs/sdk/releases/tag/v1.4.2
 [1.4.1]: https://github.com/sablier-labs/sdk/releases/tag/v1.4.1
 [1.4.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.4.0
@@ -14,6 +15,24 @@ The format is based on [Common Changelog](https://common-changelog.org/), and th
 [1.2.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.2.0
 [1.1.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.1.0
 [1.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.0.0
+
+## [2.0.0] - 2025-10-22
+
+#### Changed
+
+- `sablier.F00` now points to `sablier.evm.F00` for backward compatibility.
+  - `Sablier.Address` → `Sablier.EVM.Address`
+  - `Sablier.Chain` → `Sablier.EVM.Chain`
+  - `Sablier.Contract` → `Sablier.EVM.Contract`
+  - `Sablier.Release` → `Sablier.EVM.Release`
+  - `Sablier.Deployment` → `Sablier.EVM.Deployment`
+  - `Sablier.Protocol` → `Sablier.EVM.Protocol`
+  - `Sablier.Version` → `Sablier.EVM.Version`
+
+#### Added
+
+- New export: `sablier/evm` for direct EVM-specific imports
+- Added package.json exports for EVM subpaths
 
 ## [1.4.2] - 2025-10-22
 

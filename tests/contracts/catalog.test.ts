@@ -1,4 +1,4 @@
-import { releases } from "@src/releases";
+import { releases } from "@src/evm/releases";
 import { sablier } from "@src/sablier";
 import { describe, expect, it } from "vitest";
 
@@ -17,7 +17,7 @@ describe("Contract catalog", () => {
     it(`should have a valid catalog for ${release.protocol} ${release.version}`, () => {
       const deployment = release.deployments[0];
       const contract = deployment.contracts[0];
-      const entry = sablier.contracts.get({
+      const entry = sablier.evm.contracts.get({
         chainId: deployment.chainId,
         contractName: contract.name,
         release: release,

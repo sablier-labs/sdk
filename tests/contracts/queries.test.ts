@@ -1,4 +1,4 @@
-import { releases } from "@src/releases";
+import { releases } from "@src/evm/releases";
 import { sablier } from "@src/sablier";
 import { describe, expect, it } from "vitest";
 
@@ -24,7 +24,7 @@ describe("contractsQueries.get", () => {
         const deployment = release.deployments[0];
         const contract = deployment.contracts[0];
 
-        const result = sablier.contracts.get({
+        const result = sablier.evm.contracts.get({
           chainId: deployment.chainId,
           contractName: contract.name,
           release,
@@ -41,7 +41,7 @@ describe("contractsQueries.get", () => {
       const deployment = release.deployments[0];
       const contract = deployment.contracts[0];
 
-      const result = sablier.contracts.get({
+      const result = sablier.evm.contracts.get({
         chainId: deployment.chainId,
         contractAddress: contract.address,
         protocol: release.protocol,
@@ -65,7 +65,7 @@ describe("contractsQueries.get", () => {
       expect(descriptor1!.address).toBe(descriptor2!.address);
 
       expect(() => {
-        sablier.contracts.get({
+        sablier.evm.contracts.get({
           chainId: deployment1.chainId,
           contractAddress: descriptor1!.address,
           protocol: release1.protocol,
@@ -80,7 +80,7 @@ describe("contractsQueries.get", () => {
       const deployment = release.deployments[0];
       const contract = deployment.contracts[0];
 
-      const result = sablier.contracts.get({
+      const result = sablier.evm.contracts.get({
         chainId: deployment.chainId,
         contractAddress: contract.address,
         protocol: release.protocol,
@@ -97,7 +97,7 @@ describe("contractsQueries.get", () => {
       const deployment = release.deployments[0];
       const contract = deployment.contracts[0];
 
-      const result = sablier.contracts.get({
+      const result = sablier.evm.contracts.get({
         chainId: deployment.chainId,
         contractAddress: contract.address,
         release,

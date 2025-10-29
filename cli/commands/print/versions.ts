@@ -11,7 +11,7 @@ type VersionRow = {
 async function printVersions(): Promise<void> {
   const rows: VersionRow[] = [];
 
-  for (const release of sablier.releases.getAll()) {
+  for (const release of sablier.evm.releases.getAll()) {
     const protocol = _.capitalize(release.protocol);
     const version = release.version;
 
