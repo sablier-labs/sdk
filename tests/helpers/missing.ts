@@ -53,7 +53,7 @@ const MISSING_CONTRACTS: ProtocolMap = {
   lockup: MISSING_LOCKUP,
 };
 
-// Chains for which we completely lack broadcasts.
+// chains for which we completely lack broadcasts.
 export const MISSING_CHAINS: number[] = [chains.iotex.id, chains.ronin.id, chains.tangle.id];
 
 export function isKnownMissing(release: Sablier.EVM.Release, chain: Sablier.EVM.Chain, contractName: string): boolean {
