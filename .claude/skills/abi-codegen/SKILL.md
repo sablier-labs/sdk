@@ -1,13 +1,16 @@
 ---
 name: abi-codegen
-description: Convert JSON ABI files to TypeScript const exports with proper typing. Use when working with smart contract ABIs, converting JSON to TypeScript, generating typed contract interfaces, or adding new contract ABIs to the SDK.
+description:
+  Convert JSON ABI files to TypeScript const exports with proper typing. Use when working with smart contract ABIs,
+  converting JSON to TypeScript, generating typed contract interfaces, or adding new contract ABIs to the SDK.
 ---
 
 # JSON to TypeScript ABI Converter
 
 ## Purpose
 
-Automates the conversion of JSON ABI files to TypeScript files with properly typed `const` exports, ensuring type safety and consistency across the SDK.
+Automates the conversion of JSON ABI files to TypeScript files with properly typed `const` exports, ensuring type safety
+and consistency across the SDK.
 
 ## When to Use
 
@@ -50,16 +53,19 @@ bun .claude/skills/abi-codegen/codegen.ts "src/evm/abi/**/*.json"
 ## File Path Conventions
 
 ### Input Path Pattern
+
 ```
 src/evm/abi/{protocol}/{version}/{ContractName}.json
 ```
 
 ### Output Path Pattern
+
 ```
 src/evm/releases/{protocol}/{version}/abi/{ContractName}.ts
 ```
 
 ### Naming Convention
+
 - JSON file: `SablierLockup.json`
 - TS export: `sablierLockupAbi`
 - Pattern: PascalCase filename → camelCase + "Abi" suffix
@@ -69,6 +75,7 @@ src/evm/releases/{protocol}/{version}/abi/{ContractName}.ts
 ### Example 1: Convert Lockup ABI
 
 **Input:** `src/evm/abi/lockup/v3.0/SablierLockup.json`
+
 ```json
 [
   {
@@ -85,11 +92,13 @@ src/evm/releases/{protocol}/{version}/abi/{ContractName}.ts
 ```
 
 **Command:**
+
 ```bash
 bun .claude/skills/abi-codegen/codegen.ts src/evm/abi/lockup/v3.0/SablierLockup.json
 ```
 
 **Output:** `src/evm/releases/lockup/v3.0/abi/SablierLockup.ts`
+
 ```typescript
 export const sablierLockupAbi = [
   {
@@ -112,6 +121,7 @@ bun .claude/skills/abi-codegen/codegen.ts "src/evm/abi/lockup/v3.0/*.json"
 ```
 
 **Output:**
+
 ```
 ✓ Converted: SablierLockup.json → SablierLockup.ts
 ✓ Converted: SablierLockupDynamic.json → SablierLockupDynamic.ts
@@ -127,18 +137,21 @@ Done! Converted 4 ABI files.
 ## Script Details
 
 ### Input Processing
+
 - Accepts absolute or relative file paths
 - Supports glob patterns via Bun's `Glob` API
 - Validates JSON structure before conversion
 - Handles missing or malformed files gracefully
 
 ### Output Generation
+
 - Creates necessary directories automatically
 - Preserves JSON structure exactly (no data loss)
 - Applies consistent naming convention
 - Adds `as const` for maximum type inference
 
 ### Post-Processing
+
 - Runs `just biome-write` on all generated TypeScript files
 - Ensures consistent formatting with project standards
 - Reports any formatting errors
@@ -155,6 +168,7 @@ The script handles common errors:
 ## Troubleshooting
 
 ### Script Not Found
+
 ```bash
 # Ensure you're in the project root
 pwd  # Should show .../sablier/sdk
@@ -164,12 +178,14 @@ ls .claude/skills/abi-codegen/codegen.ts
 ```
 
 ### Invalid JSON
+
 ```bash
 # Validate JSON before converting
 jq . src/evm/abi/lockup/v3.0/SablierLockup.json
 ```
 
 ### TypeScript Errors After Conversion
+
 ```bash
 # Run type check to verify
 just tsc-check
@@ -181,6 +197,7 @@ just tsc-check
 ```
 
 ### Glob Pattern Not Working
+
 ```bash
 # Use quotes around glob patterns
 bun .claude/skills/abi-codegen/codegen.ts "src/evm/abi/**/*.json"
@@ -221,6 +238,7 @@ git commit -m "feat: update ABIs for {protocol} {version}"
 ### Why `as const`?
 
 The `as const` assertion provides:
+
 - **Literal types**: String values become literal types (e.g., `"function"` not `string`)
 - **Readonly arrays**: Prevents accidental mutations
 - **Better inference**: Viem uses literal types for better type checking
@@ -250,6 +268,7 @@ The `as const` assertion provides:
 ## Future Enhancements
 
 Potential improvements:
+
 - Watch mode for automatic conversion on JSON changes
 - Validation against official ABI schema
 - Diff detection to only convert changed files
