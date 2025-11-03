@@ -3,56 +3,20 @@ export const sablierMerkleInstantAbi = [
     inputs: [
       {
         components: [
-          {
-            internalType: "string",
-            name: "campaignName",
-            type: "string",
-          },
-          {
-            internalType: "uint40",
-            name: "campaignStartTime",
-            type: "uint40",
-          },
-          {
-            internalType: "uint40",
-            name: "expiration",
-            type: "uint40",
-          },
-          {
-            internalType: "address",
-            name: "initialAdmin",
-            type: "address",
-          },
-          {
-            internalType: "string",
-            name: "ipfsCID",
-            type: "string",
-          },
-          {
-            internalType: "bytes32",
-            name: "merkleRoot",
-            type: "bytes32",
-          },
-          {
-            internalType: "contract IERC20",
-            name: "token",
-            type: "address",
-          },
+          { internalType: "string", name: "campaignName", type: "string" },
+          { internalType: "uint40", name: "campaignStartTime", type: "uint40" },
+          { internalType: "uint40", name: "expiration", type: "uint40" },
+          { internalType: "address", name: "initialAdmin", type: "address" },
+          { internalType: "string", name: "ipfsCID", type: "string" },
+          { internalType: "bytes32", name: "merkleRoot", type: "bytes32" },
+          { internalType: "contract IERC20", name: "token", type: "address" },
         ],
         internalType: "struct MerkleInstant.ConstructorParams",
         name: "params",
         type: "tuple",
       },
-      {
-        internalType: "address",
-        name: "campaignCreator",
-        type: "address",
-      },
-      {
-        internalType: "address",
-        name: "comptroller",
-        type: "address",
-      },
+      { internalType: "address", name: "campaignCreator", type: "address" },
+      { internalType: "address", name: "comptroller", type: "address" },
     ],
     stateMutability: "nonpayable",
     type: "constructor",
@@ -60,142 +24,72 @@ export const sablierMerkleInstantAbi = [
   {
     inputs: [],
     name: "CAMPAIGN_START_TIME",
-    outputs: [
-      {
-        internalType: "uint40",
-        name: "",
-        type: "uint40",
-      },
-    ],
+    outputs: [{ internalType: "uint40", name: "", type: "uint40" }],
     stateMutability: "view",
     type: "function",
   },
   {
     inputs: [],
     name: "COMPTROLLER",
-    outputs: [
-      {
-        internalType: "address",
-        name: "",
-        type: "address",
-      },
-    ],
+    outputs: [{ internalType: "address", name: "", type: "address" }],
     stateMutability: "view",
     type: "function",
   },
   {
     inputs: [],
     name: "EXPIRATION",
-    outputs: [
-      {
-        internalType: "uint40",
-        name: "",
-        type: "uint40",
-      },
-    ],
+    outputs: [{ internalType: "uint40", name: "", type: "uint40" }],
     stateMutability: "view",
     type: "function",
   },
   {
     inputs: [],
     name: "IS_SABLIER_MERKLE",
-    outputs: [
-      {
-        internalType: "bool",
-        name: "",
-        type: "bool",
-      },
-    ],
+    outputs: [{ internalType: "bool", name: "", type: "bool" }],
     stateMutability: "view",
     type: "function",
   },
   {
     inputs: [],
     name: "MERKLE_ROOT",
-    outputs: [
-      {
-        internalType: "bytes32",
-        name: "",
-        type: "bytes32",
-      },
-    ],
+    outputs: [{ internalType: "bytes32", name: "", type: "bytes32" }],
     stateMutability: "view",
     type: "function",
   },
   {
     inputs: [],
     name: "TOKEN",
-    outputs: [
-      {
-        internalType: "contract IERC20",
-        name: "",
-        type: "address",
-      },
-    ],
+    outputs: [{ internalType: "contract IERC20", name: "", type: "address" }],
     stateMutability: "view",
     type: "function",
   },
   {
     inputs: [],
     name: "admin",
-    outputs: [
-      {
-        internalType: "address",
-        name: "",
-        type: "address",
-      },
-    ],
+    outputs: [{ internalType: "address", name: "", type: "address" }],
     stateMutability: "view",
     type: "function",
   },
   {
     inputs: [],
     name: "calculateMinFeeWei",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
+    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
     stateMutability: "view",
     type: "function",
   },
   {
     inputs: [],
     name: "campaignName",
-    outputs: [
-      {
-        internalType: "string",
-        name: "",
-        type: "string",
-      },
-    ],
+    outputs: [{ internalType: "string", name: "", type: "string" }],
     stateMutability: "view",
     type: "function",
   },
   {
     inputs: [
-      {
-        internalType: "uint256",
-        name: "index",
-        type: "uint256",
-      },
-      {
-        internalType: "address",
-        name: "recipient",
-        type: "address",
-      },
-      {
-        internalType: "uint128",
-        name: "amount",
-        type: "uint128",
-      },
-      {
-        internalType: "bytes32[]",
-        name: "merkleProof",
-        type: "bytes32[]",
-      },
+      { internalType: "uint256", name: "index", type: "uint256" },
+      { internalType: "address", name: "recipient", type: "address" },
+      { internalType: "uint128", name: "amount", type: "uint128" },
+      { internalType: "bytes32[]", name: "merkleProof", type: "bytes32[]" },
     ],
     name: "claim",
     outputs: [],
@@ -204,26 +98,10 @@ export const sablierMerkleInstantAbi = [
   },
   {
     inputs: [
-      {
-        internalType: "uint256",
-        name: "index",
-        type: "uint256",
-      },
-      {
-        internalType: "address",
-        name: "to",
-        type: "address",
-      },
-      {
-        internalType: "uint128",
-        name: "amount",
-        type: "uint128",
-      },
-      {
-        internalType: "bytes32[]",
-        name: "merkleProof",
-        type: "bytes32[]",
-      },
+      { internalType: "uint256", name: "index", type: "uint256" },
+      { internalType: "address", name: "to", type: "address" },
+      { internalType: "uint128", name: "amount", type: "uint128" },
+      { internalType: "bytes32[]", name: "merkleProof", type: "bytes32[]" },
     ],
     name: "claimTo",
     outputs: [],
@@ -232,41 +110,13 @@ export const sablierMerkleInstantAbi = [
   },
   {
     inputs: [
-      {
-        internalType: "uint256",
-        name: "index",
-        type: "uint256",
-      },
-      {
-        internalType: "address",
-        name: "recipient",
-        type: "address",
-      },
-      {
-        internalType: "address",
-        name: "to",
-        type: "address",
-      },
-      {
-        internalType: "uint128",
-        name: "amount",
-        type: "uint128",
-      },
-      {
-        internalType: "uint40",
-        name: "validFrom",
-        type: "uint40",
-      },
-      {
-        internalType: "bytes32[]",
-        name: "merkleProof",
-        type: "bytes32[]",
-      },
-      {
-        internalType: "bytes",
-        name: "signature",
-        type: "bytes",
-      },
+      { internalType: "uint256", name: "index", type: "uint256" },
+      { internalType: "address", name: "recipient", type: "address" },
+      { internalType: "address", name: "to", type: "address" },
+      { internalType: "uint128", name: "amount", type: "uint128" },
+      { internalType: "uint40", name: "validFrom", type: "uint40" },
+      { internalType: "bytes32[]", name: "merkleProof", type: "bytes32[]" },
+      { internalType: "bytes", name: "signature", type: "bytes" },
     ],
     name: "claimViaSig",
     outputs: [],
@@ -275,16 +125,8 @@ export const sablierMerkleInstantAbi = [
   },
   {
     inputs: [
-      {
-        internalType: "address",
-        name: "to",
-        type: "address",
-      },
-      {
-        internalType: "uint128",
-        name: "amount",
-        type: "uint128",
-      },
+      { internalType: "address", name: "to", type: "address" },
+      { internalType: "uint128", name: "amount", type: "uint128" },
     ],
     name: "clawback",
     outputs: [],
@@ -294,82 +136,40 @@ export const sablierMerkleInstantAbi = [
   {
     inputs: [],
     name: "domainSeparator",
-    outputs: [
-      {
-        internalType: "bytes32",
-        name: "",
-        type: "bytes32",
-      },
-    ],
+    outputs: [{ internalType: "bytes32", name: "", type: "bytes32" }],
     stateMutability: "view",
     type: "function",
   },
   {
     inputs: [],
     name: "firstClaimTime",
-    outputs: [
-      {
-        internalType: "uint40",
-        name: "",
-        type: "uint40",
-      },
-    ],
+    outputs: [{ internalType: "uint40", name: "", type: "uint40" }],
     stateMutability: "view",
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "index",
-        type: "uint256",
-      },
-    ],
+    inputs: [{ internalType: "uint256", name: "index", type: "uint256" }],
     name: "hasClaimed",
-    outputs: [
-      {
-        internalType: "bool",
-        name: "",
-        type: "bool",
-      },
-    ],
+    outputs: [{ internalType: "bool", name: "", type: "bool" }],
     stateMutability: "view",
     type: "function",
   },
   {
     inputs: [],
     name: "hasExpired",
-    outputs: [
-      {
-        internalType: "bool",
-        name: "",
-        type: "bool",
-      },
-    ],
+    outputs: [{ internalType: "bool", name: "", type: "bool" }],
     stateMutability: "view",
     type: "function",
   },
   {
     inputs: [],
     name: "ipfsCID",
-    outputs: [
-      {
-        internalType: "string",
-        name: "",
-        type: "string",
-      },
-    ],
+    outputs: [{ internalType: "string", name: "", type: "string" }],
     stateMutability: "view",
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "newMinFeeUSD",
-        type: "uint256",
-      },
-    ],
+    inputs: [{ internalType: "uint256", name: "newMinFeeUSD", type: "uint256" }],
     name: "lowerMinFeeUSD",
     outputs: [],
     stateMutability: "nonpayable",
@@ -378,24 +178,12 @@ export const sablierMerkleInstantAbi = [
   {
     inputs: [],
     name: "minFeeUSD",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
+    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
     stateMutability: "view",
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "address",
-        name: "newAdmin",
-        type: "address",
-      },
-    ],
+    inputs: [{ internalType: "address", name: "newAdmin", type: "address" }],
     name: "transferAdmin",
     outputs: [],
     stateMutability: "nonpayable",
@@ -404,36 +192,11 @@ export const sablierMerkleInstantAbi = [
   {
     anonymous: false,
     inputs: [
-      {
-        indexed: false,
-        internalType: "uint256",
-        name: "index",
-        type: "uint256",
-      },
-      {
-        indexed: true,
-        internalType: "address",
-        name: "recipient",
-        type: "address",
-      },
-      {
-        indexed: false,
-        internalType: "uint128",
-        name: "amount",
-        type: "uint128",
-      },
-      {
-        indexed: false,
-        internalType: "address",
-        name: "to",
-        type: "address",
-      },
-      {
-        indexed: false,
-        internalType: "bool",
-        name: "viaSig",
-        type: "bool",
-      },
+      { indexed: false, internalType: "uint256", name: "index", type: "uint256" },
+      { indexed: true, internalType: "address", name: "recipient", type: "address" },
+      { indexed: false, internalType: "uint128", name: "amount", type: "uint128" },
+      { indexed: false, internalType: "address", name: "to", type: "address" },
+      { indexed: false, internalType: "bool", name: "viaSig", type: "bool" },
     ],
     name: "ClaimInstant",
     type: "event",
@@ -441,24 +204,9 @@ export const sablierMerkleInstantAbi = [
   {
     anonymous: false,
     inputs: [
-      {
-        indexed: true,
-        internalType: "address",
-        name: "admin",
-        type: "address",
-      },
-      {
-        indexed: true,
-        internalType: "address",
-        name: "to",
-        type: "address",
-      },
-      {
-        indexed: false,
-        internalType: "uint128",
-        name: "amount",
-        type: "uint128",
-      },
+      { indexed: true, internalType: "address", name: "admin", type: "address" },
+      { indexed: true, internalType: "address", name: "to", type: "address" },
+      { indexed: false, internalType: "uint128", name: "amount", type: "uint128" },
     ],
     name: "Clawback",
     type: "event",
@@ -466,24 +214,9 @@ export const sablierMerkleInstantAbi = [
   {
     anonymous: false,
     inputs: [
-      {
-        indexed: true,
-        internalType: "address",
-        name: "comptroller",
-        type: "address",
-      },
-      {
-        indexed: false,
-        internalType: "uint256",
-        name: "newMinFeeUSD",
-        type: "uint256",
-      },
-      {
-        indexed: false,
-        internalType: "uint256",
-        name: "previousMinFeeUSD",
-        type: "uint256",
-      },
+      { indexed: true, internalType: "address", name: "comptroller", type: "address" },
+      { indexed: false, internalType: "uint256", name: "newMinFeeUSD", type: "uint256" },
+      { indexed: false, internalType: "uint256", name: "previousMinFeeUSD", type: "uint256" },
     ],
     name: "LowerMinFeeUSD",
     type: "event",
@@ -491,205 +224,95 @@ export const sablierMerkleInstantAbi = [
   {
     anonymous: false,
     inputs: [
-      {
-        indexed: true,
-        internalType: "address",
-        name: "oldAdmin",
-        type: "address",
-      },
-      {
-        indexed: true,
-        internalType: "address",
-        name: "newAdmin",
-        type: "address",
-      },
+      { indexed: true, internalType: "address", name: "oldAdmin", type: "address" },
+      { indexed: true, internalType: "address", name: "newAdmin", type: "address" },
     ],
     name: "TransferAdmin",
     type: "event",
   },
   {
     inputs: [
-      {
-        internalType: "address",
-        name: "admin",
-        type: "address",
-      },
-      {
-        internalType: "address",
-        name: "caller",
-        type: "address",
-      },
+      { internalType: "address", name: "admin", type: "address" },
+      { internalType: "address", name: "caller", type: "address" },
     ],
     name: "CallerNotAdmin",
     type: "error",
   },
   {
     inputs: [
-      {
-        internalType: "address",
-        name: "comptroller",
-        type: "address",
-      },
-      {
-        internalType: "address",
-        name: "caller",
-        type: "address",
-      },
+      { internalType: "address", name: "comptroller", type: "address" },
+      { internalType: "address", name: "caller", type: "address" },
     ],
     name: "SablierMerkleBase_CallerNotComptroller",
     type: "error",
   },
   {
     inputs: [
-      {
-        internalType: "uint256",
-        name: "blockTimestamp",
-        type: "uint256",
-      },
-      {
-        internalType: "uint40",
-        name: "expiration",
-        type: "uint40",
-      },
+      { internalType: "uint256", name: "blockTimestamp", type: "uint256" },
+      { internalType: "uint40", name: "expiration", type: "uint40" },
     ],
     name: "SablierMerkleBase_CampaignExpired",
     type: "error",
   },
   {
     inputs: [
-      {
-        internalType: "uint256",
-        name: "blockTimestamp",
-        type: "uint256",
-      },
-      {
-        internalType: "uint40",
-        name: "campaignStartTime",
-        type: "uint40",
-      },
+      { internalType: "uint256", name: "blockTimestamp", type: "uint256" },
+      { internalType: "uint40", name: "campaignStartTime", type: "uint40" },
     ],
     name: "SablierMerkleBase_CampaignNotStarted",
     type: "error",
   },
   {
     inputs: [
-      {
-        internalType: "uint256",
-        name: "blockTimestamp",
-        type: "uint256",
-      },
-      {
-        internalType: "uint40",
-        name: "expiration",
-        type: "uint40",
-      },
-      {
-        internalType: "uint40",
-        name: "firstClaimTime",
-        type: "uint40",
-      },
+      { internalType: "uint256", name: "blockTimestamp", type: "uint256" },
+      { internalType: "uint40", name: "expiration", type: "uint40" },
+      { internalType: "uint40", name: "firstClaimTime", type: "uint40" },
     ],
     name: "SablierMerkleBase_ClawbackNotAllowed",
     type: "error",
   },
   {
     inputs: [
-      {
-        internalType: "address",
-        name: "feeRecipient",
-        type: "address",
-      },
-      {
-        internalType: "uint256",
-        name: "feeAmount",
-        type: "uint256",
-      },
+      { internalType: "address", name: "feeRecipient", type: "address" },
+      { internalType: "uint256", name: "feeAmount", type: "uint256" },
     ],
     name: "SablierMerkleBase_FeeTransferFailed",
     type: "error",
   },
   {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "index",
-        type: "uint256",
-      },
-    ],
+    inputs: [{ internalType: "uint256", name: "index", type: "uint256" }],
     name: "SablierMerkleBase_IndexClaimed",
     type: "error",
   },
   {
     inputs: [
-      {
-        internalType: "uint256",
-        name: "feePaid",
-        type: "uint256",
-      },
-      {
-        internalType: "uint256",
-        name: "minFeeWei",
-        type: "uint256",
-      },
+      { internalType: "uint256", name: "feePaid", type: "uint256" },
+      { internalType: "uint256", name: "minFeeWei", type: "uint256" },
     ],
     name: "SablierMerkleBase_InsufficientFeePayment",
     type: "error",
   },
-  {
-    inputs: [],
-    name: "SablierMerkleBase_InvalidProof",
-    type: "error",
-  },
-  {
-    inputs: [],
-    name: "SablierMerkleBase_InvalidSignature",
-    type: "error",
-  },
+  { inputs: [], name: "SablierMerkleBase_InvalidProof", type: "error" },
+  { inputs: [], name: "SablierMerkleBase_InvalidSignature", type: "error" },
   {
     inputs: [
-      {
-        internalType: "uint256",
-        name: "currentMinFeeUSD",
-        type: "uint256",
-      },
-      {
-        internalType: "uint256",
-        name: "newMinFeeUSD",
-        type: "uint256",
-      },
+      { internalType: "uint256", name: "currentMinFeeUSD", type: "uint256" },
+      { internalType: "uint256", name: "newMinFeeUSD", type: "uint256" },
     ],
     name: "SablierMerkleBase_NewMinFeeUSDNotLower",
     type: "error",
   },
   {
     inputs: [
-      {
-        internalType: "uint40",
-        name: "validFrom",
-        type: "uint40",
-      },
-      {
-        internalType: "uint40",
-        name: "blockTimestamp",
-        type: "uint40",
-      },
+      { internalType: "uint40", name: "validFrom", type: "uint40" },
+      { internalType: "uint40", name: "blockTimestamp", type: "uint40" },
     ],
     name: "SablierMerkleBase_SignatureNotYetValid",
     type: "error",
   },
+  { inputs: [], name: "SablierMerkleBase_ToZeroAddress", type: "error" },
   {
-    inputs: [],
-    name: "SablierMerkleBase_ToZeroAddress",
-    type: "error",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "token",
-        type: "address",
-      },
-    ],
+    inputs: [{ internalType: "address", name: "token", type: "address" }],
     name: "SafeERC20FailedOperation",
     type: "error",
   },

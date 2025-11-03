@@ -2,41 +2,21 @@ export const sablierV2LockupAbi = [
   {
     inputs: [],
     name: "MAX_FEE",
-    outputs: [
-      {
-        internalType: "UD60x18",
-        name: "",
-        type: "uint256",
-      },
-    ],
+    outputs: [{ internalType: "UD60x18", name: "", type: "uint256" }],
     stateMutability: "view",
     type: "function",
   },
   {
     inputs: [],
     name: "admin",
-    outputs: [
-      {
-        internalType: "address",
-        name: "",
-        type: "address",
-      },
-    ],
+    outputs: [{ internalType: "address", name: "", type: "address" }],
     stateMutability: "view",
     type: "function",
   },
   {
     inputs: [
-      {
-        internalType: "address",
-        name: "to",
-        type: "address",
-      },
-      {
-        internalType: "uint256",
-        name: "tokenId",
-        type: "uint256",
-      },
+      { internalType: "address", name: "to", type: "address" },
+      { internalType: "uint256", name: "tokenId", type: "uint256" },
     ],
     name: "approve",
     outputs: [],
@@ -44,71 +24,35 @@ export const sablierV2LockupAbi = [
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "address",
-        name: "owner",
-        type: "address",
-      },
-    ],
+    inputs: [{ internalType: "address", name: "owner", type: "address" }],
     name: "balanceOf",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
+    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
     stateMutability: "view",
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "streamId",
-        type: "uint256",
-      },
-    ],
+    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
     name: "burn",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "streamId",
-        type: "uint256",
-      },
-    ],
+    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
     name: "cancel",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "uint256[]",
-        name: "streamIds",
-        type: "uint256[]",
-      },
-    ],
+    inputs: [{ internalType: "uint256[]", name: "streamIds", type: "uint256[]" }],
     name: "cancelMultiple",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "contract IERC20",
-        name: "asset",
-        type: "address",
-      },
-    ],
+    inputs: [{ internalType: "contract IERC20", name: "asset", type: "address" }],
     name: "claimProtocolRevenues",
     outputs: [],
     stateMutability: "nonpayable",
@@ -117,397 +61,155 @@ export const sablierV2LockupAbi = [
   {
     inputs: [],
     name: "comptroller",
-    outputs: [
-      {
-        internalType: "contract ISablierV2Comptroller",
-        name: "",
-        type: "address",
-      },
-    ],
+    outputs: [{ internalType: "contract ISablierV2Comptroller", name: "", type: "address" }],
     stateMutability: "view",
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "tokenId",
-        type: "uint256",
-      },
-    ],
+    inputs: [{ internalType: "uint256", name: "tokenId", type: "uint256" }],
     name: "getApproved",
-    outputs: [
-      {
-        internalType: "address",
-        name: "",
-        type: "address",
-      },
-    ],
+    outputs: [{ internalType: "address", name: "", type: "address" }],
     stateMutability: "view",
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "streamId",
-        type: "uint256",
-      },
-    ],
+    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
     name: "getAsset",
-    outputs: [
-      {
-        internalType: "contract IERC20",
-        name: "asset",
-        type: "address",
-      },
-    ],
+    outputs: [{ internalType: "contract IERC20", name: "asset", type: "address" }],
     stateMutability: "view",
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "streamId",
-        type: "uint256",
-      },
-    ],
+    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
     name: "getDepositedAmount",
-    outputs: [
-      {
-        internalType: "uint128",
-        name: "depositedAmount",
-        type: "uint128",
-      },
-    ],
+    outputs: [{ internalType: "uint128", name: "depositedAmount", type: "uint128" }],
     stateMutability: "view",
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "streamId",
-        type: "uint256",
-      },
-    ],
+    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
     name: "getEndTime",
-    outputs: [
-      {
-        internalType: "uint40",
-        name: "endTime",
-        type: "uint40",
-      },
-    ],
+    outputs: [{ internalType: "uint40", name: "endTime", type: "uint40" }],
     stateMutability: "view",
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "streamId",
-        type: "uint256",
-      },
-    ],
+    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
     name: "getRecipient",
-    outputs: [
-      {
-        internalType: "address",
-        name: "recipient",
-        type: "address",
-      },
-    ],
+    outputs: [{ internalType: "address", name: "recipient", type: "address" }],
     stateMutability: "view",
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "streamId",
-        type: "uint256",
-      },
-    ],
+    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
     name: "getRefundedAmount",
-    outputs: [
-      {
-        internalType: "uint128",
-        name: "refundedAmount",
-        type: "uint128",
-      },
-    ],
+    outputs: [{ internalType: "uint128", name: "refundedAmount", type: "uint128" }],
     stateMutability: "view",
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "streamId",
-        type: "uint256",
-      },
-    ],
+    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
     name: "getSender",
-    outputs: [
-      {
-        internalType: "address",
-        name: "sender",
-        type: "address",
-      },
-    ],
+    outputs: [{ internalType: "address", name: "sender", type: "address" }],
     stateMutability: "view",
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "streamId",
-        type: "uint256",
-      },
-    ],
+    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
     name: "getStartTime",
-    outputs: [
-      {
-        internalType: "uint40",
-        name: "startTime",
-        type: "uint40",
-      },
-    ],
+    outputs: [{ internalType: "uint40", name: "startTime", type: "uint40" }],
     stateMutability: "view",
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "streamId",
-        type: "uint256",
-      },
-    ],
+    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
     name: "getWithdrawnAmount",
-    outputs: [
-      {
-        internalType: "uint128",
-        name: "withdrawnAmount",
-        type: "uint128",
-      },
-    ],
+    outputs: [{ internalType: "uint128", name: "withdrawnAmount", type: "uint128" }],
     stateMutability: "view",
     type: "function",
   },
   {
     inputs: [
-      {
-        internalType: "address",
-        name: "owner",
-        type: "address",
-      },
-      {
-        internalType: "address",
-        name: "operator",
-        type: "address",
-      },
+      { internalType: "address", name: "owner", type: "address" },
+      { internalType: "address", name: "operator", type: "address" },
     ],
     name: "isApprovedForAll",
-    outputs: [
-      {
-        internalType: "bool",
-        name: "",
-        type: "bool",
-      },
-    ],
+    outputs: [{ internalType: "bool", name: "", type: "bool" }],
     stateMutability: "view",
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "streamId",
-        type: "uint256",
-      },
-    ],
+    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
     name: "isCancelable",
-    outputs: [
-      {
-        internalType: "bool",
-        name: "result",
-        type: "bool",
-      },
-    ],
+    outputs: [{ internalType: "bool", name: "result", type: "bool" }],
     stateMutability: "view",
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "streamId",
-        type: "uint256",
-      },
-    ],
+    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
     name: "isCold",
-    outputs: [
-      {
-        internalType: "bool",
-        name: "result",
-        type: "bool",
-      },
-    ],
+    outputs: [{ internalType: "bool", name: "result", type: "bool" }],
     stateMutability: "view",
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "streamId",
-        type: "uint256",
-      },
-    ],
+    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
     name: "isDepleted",
-    outputs: [
-      {
-        internalType: "bool",
-        name: "result",
-        type: "bool",
-      },
-    ],
+    outputs: [{ internalType: "bool", name: "result", type: "bool" }],
     stateMutability: "view",
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "streamId",
-        type: "uint256",
-      },
-    ],
+    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
     name: "isStream",
-    outputs: [
-      {
-        internalType: "bool",
-        name: "result",
-        type: "bool",
-      },
-    ],
+    outputs: [{ internalType: "bool", name: "result", type: "bool" }],
     stateMutability: "view",
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "streamId",
-        type: "uint256",
-      },
-    ],
+    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
     name: "isWarm",
-    outputs: [
-      {
-        internalType: "bool",
-        name: "result",
-        type: "bool",
-      },
-    ],
+    outputs: [{ internalType: "bool", name: "result", type: "bool" }],
     stateMutability: "view",
     type: "function",
   },
   {
     inputs: [],
     name: "name",
-    outputs: [
-      {
-        internalType: "string",
-        name: "",
-        type: "string",
-      },
-    ],
+    outputs: [{ internalType: "string", name: "", type: "string" }],
     stateMutability: "view",
     type: "function",
   },
   {
     inputs: [],
     name: "nextStreamId",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
+    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
     stateMutability: "view",
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "tokenId",
-        type: "uint256",
-      },
-    ],
+    inputs: [{ internalType: "uint256", name: "tokenId", type: "uint256" }],
     name: "ownerOf",
-    outputs: [
-      {
-        internalType: "address",
-        name: "",
-        type: "address",
-      },
-    ],
+    outputs: [{ internalType: "address", name: "", type: "address" }],
     stateMutability: "view",
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "contract IERC20",
-        name: "asset",
-        type: "address",
-      },
-    ],
+    inputs: [{ internalType: "contract IERC20", name: "asset", type: "address" }],
     name: "protocolRevenues",
-    outputs: [
-      {
-        internalType: "uint128",
-        name: "revenues",
-        type: "uint128",
-      },
-    ],
+    outputs: [{ internalType: "uint128", name: "revenues", type: "uint128" }],
     stateMutability: "view",
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "streamId",
-        type: "uint256",
-      },
-    ],
+    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
     name: "refundableAmountOf",
-    outputs: [
-      {
-        internalType: "uint128",
-        name: "refundableAmount",
-        type: "uint128",
-      },
-    ],
+    outputs: [{ internalType: "uint128", name: "refundableAmount", type: "uint128" }],
     stateMutability: "view",
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "streamId",
-        type: "uint256",
-      },
-    ],
+    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
     name: "renounce",
     outputs: [],
     stateMutability: "nonpayable",
@@ -515,21 +217,9 @@ export const sablierV2LockupAbi = [
   },
   {
     inputs: [
-      {
-        internalType: "address",
-        name: "from",
-        type: "address",
-      },
-      {
-        internalType: "address",
-        name: "to",
-        type: "address",
-      },
-      {
-        internalType: "uint256",
-        name: "tokenId",
-        type: "uint256",
-      },
+      { internalType: "address", name: "from", type: "address" },
+      { internalType: "address", name: "to", type: "address" },
+      { internalType: "uint256", name: "tokenId", type: "uint256" },
     ],
     name: "safeTransferFrom",
     outputs: [],
@@ -538,26 +228,10 @@ export const sablierV2LockupAbi = [
   },
   {
     inputs: [
-      {
-        internalType: "address",
-        name: "from",
-        type: "address",
-      },
-      {
-        internalType: "address",
-        name: "to",
-        type: "address",
-      },
-      {
-        internalType: "uint256",
-        name: "tokenId",
-        type: "uint256",
-      },
-      {
-        internalType: "bytes",
-        name: "data",
-        type: "bytes",
-      },
+      { internalType: "address", name: "from", type: "address" },
+      { internalType: "address", name: "to", type: "address" },
+      { internalType: "uint256", name: "tokenId", type: "uint256" },
+      { internalType: "bytes", name: "data", type: "bytes" },
     ],
     name: "safeTransferFrom",
     outputs: [],
@@ -566,16 +240,8 @@ export const sablierV2LockupAbi = [
   },
   {
     inputs: [
-      {
-        internalType: "address",
-        name: "operator",
-        type: "address",
-      },
-      {
-        internalType: "bool",
-        name: "approved",
-        type: "bool",
-      },
+      { internalType: "address", name: "operator", type: "address" },
+      { internalType: "bool", name: "approved", type: "bool" },
     ],
     name: "setApprovalForAll",
     outputs: [],
@@ -583,128 +249,56 @@ export const sablierV2LockupAbi = [
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "contract ISablierV2Comptroller",
-        name: "newComptroller",
-        type: "address",
-      },
-    ],
+    inputs: [{ internalType: "contract ISablierV2Comptroller", name: "newComptroller", type: "address" }],
     name: "setComptroller",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "contract ISablierV2NFTDescriptor",
-        name: "newNFTDescriptor",
-        type: "address",
-      },
-    ],
+    inputs: [{ internalType: "contract ISablierV2NFTDescriptor", name: "newNFTDescriptor", type: "address" }],
     name: "setNFTDescriptor",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "streamId",
-        type: "uint256",
-      },
-    ],
+    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
     name: "statusOf",
-    outputs: [
-      {
-        internalType: "enum Lockup.Status",
-        name: "status",
-        type: "uint8",
-      },
-    ],
+    outputs: [{ internalType: "enum Lockup.Status", name: "status", type: "uint8" }],
     stateMutability: "view",
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "streamId",
-        type: "uint256",
-      },
-    ],
+    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
     name: "streamedAmountOf",
-    outputs: [
-      {
-        internalType: "uint128",
-        name: "streamedAmount",
-        type: "uint128",
-      },
-    ],
+    outputs: [{ internalType: "uint128", name: "streamedAmount", type: "uint128" }],
     stateMutability: "view",
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "bytes4",
-        name: "interfaceId",
-        type: "bytes4",
-      },
-    ],
+    inputs: [{ internalType: "bytes4", name: "interfaceId", type: "bytes4" }],
     name: "supportsInterface",
-    outputs: [
-      {
-        internalType: "bool",
-        name: "",
-        type: "bool",
-      },
-    ],
+    outputs: [{ internalType: "bool", name: "", type: "bool" }],
     stateMutability: "view",
     type: "function",
   },
   {
     inputs: [],
     name: "symbol",
-    outputs: [
-      {
-        internalType: "string",
-        name: "",
-        type: "string",
-      },
-    ],
+    outputs: [{ internalType: "string", name: "", type: "string" }],
     stateMutability: "view",
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "streamId",
-        type: "uint256",
-      },
-    ],
+    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
     name: "tokenURI",
-    outputs: [
-      {
-        internalType: "string",
-        name: "uri",
-        type: "string",
-      },
-    ],
+    outputs: [{ internalType: "string", name: "uri", type: "string" }],
     stateMutability: "view",
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "address",
-        name: "newAdmin",
-        type: "address",
-      },
-    ],
+    inputs: [{ internalType: "address", name: "newAdmin", type: "address" }],
     name: "transferAdmin",
     outputs: [],
     stateMutability: "nonpayable",
@@ -712,21 +306,9 @@ export const sablierV2LockupAbi = [
   },
   {
     inputs: [
-      {
-        internalType: "address",
-        name: "from",
-        type: "address",
-      },
-      {
-        internalType: "address",
-        name: "to",
-        type: "address",
-      },
-      {
-        internalType: "uint256",
-        name: "tokenId",
-        type: "uint256",
-      },
+      { internalType: "address", name: "from", type: "address" },
+      { internalType: "address", name: "to", type: "address" },
+      { internalType: "uint256", name: "tokenId", type: "uint256" },
     ],
     name: "transferFrom",
     outputs: [],
@@ -734,41 +316,17 @@ export const sablierV2LockupAbi = [
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "streamId",
-        type: "uint256",
-      },
-    ],
+    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
     name: "wasCanceled",
-    outputs: [
-      {
-        internalType: "bool",
-        name: "result",
-        type: "bool",
-      },
-    ],
+    outputs: [{ internalType: "bool", name: "result", type: "bool" }],
     stateMutability: "view",
     type: "function",
   },
   {
     inputs: [
-      {
-        internalType: "uint256",
-        name: "streamId",
-        type: "uint256",
-      },
-      {
-        internalType: "address",
-        name: "to",
-        type: "address",
-      },
-      {
-        internalType: "uint128",
-        name: "amount",
-        type: "uint128",
-      },
+      { internalType: "uint256", name: "streamId", type: "uint256" },
+      { internalType: "address", name: "to", type: "address" },
+      { internalType: "uint128", name: "amount", type: "uint128" },
     ],
     name: "withdraw",
     outputs: [],
@@ -777,16 +335,8 @@ export const sablierV2LockupAbi = [
   },
   {
     inputs: [
-      {
-        internalType: "uint256",
-        name: "streamId",
-        type: "uint256",
-      },
-      {
-        internalType: "address",
-        name: "to",
-        type: "address",
-      },
+      { internalType: "uint256", name: "streamId", type: "uint256" },
+      { internalType: "address", name: "to", type: "address" },
     ],
     name: "withdrawMax",
     outputs: [],
@@ -795,16 +345,8 @@ export const sablierV2LockupAbi = [
   },
   {
     inputs: [
-      {
-        internalType: "uint256",
-        name: "streamId",
-        type: "uint256",
-      },
-      {
-        internalType: "address",
-        name: "newRecipient",
-        type: "address",
-      },
+      { internalType: "uint256", name: "streamId", type: "uint256" },
+      { internalType: "address", name: "newRecipient", type: "address" },
     ],
     name: "withdrawMaxAndTransfer",
     outputs: [],
@@ -813,21 +355,9 @@ export const sablierV2LockupAbi = [
   },
   {
     inputs: [
-      {
-        internalType: "uint256[]",
-        name: "streamIds",
-        type: "uint256[]",
-      },
-      {
-        internalType: "address",
-        name: "to",
-        type: "address",
-      },
-      {
-        internalType: "uint128[]",
-        name: "amounts",
-        type: "uint128[]",
-      },
+      { internalType: "uint256[]", name: "streamIds", type: "uint256[]" },
+      { internalType: "address", name: "to", type: "address" },
+      { internalType: "uint128[]", name: "amounts", type: "uint128[]" },
     ],
     name: "withdrawMultiple",
     outputs: [],
@@ -835,45 +365,18 @@ export const sablierV2LockupAbi = [
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "streamId",
-        type: "uint256",
-      },
-    ],
+    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
     name: "withdrawableAmountOf",
-    outputs: [
-      {
-        internalType: "uint128",
-        name: "withdrawableAmount",
-        type: "uint128",
-      },
-    ],
+    outputs: [{ internalType: "uint128", name: "withdrawableAmount", type: "uint128" }],
     stateMutability: "view",
     type: "function",
   },
   {
     anonymous: false,
     inputs: [
-      {
-        indexed: true,
-        internalType: "address",
-        name: "owner",
-        type: "address",
-      },
-      {
-        indexed: true,
-        internalType: "address",
-        name: "approved",
-        type: "address",
-      },
-      {
-        indexed: true,
-        internalType: "uint256",
-        name: "tokenId",
-        type: "uint256",
-      },
+      { indexed: true, internalType: "address", name: "owner", type: "address" },
+      { indexed: true, internalType: "address", name: "approved", type: "address" },
+      { indexed: true, internalType: "uint256", name: "tokenId", type: "uint256" },
     ],
     name: "Approval",
     type: "event",
@@ -881,24 +384,9 @@ export const sablierV2LockupAbi = [
   {
     anonymous: false,
     inputs: [
-      {
-        indexed: true,
-        internalType: "address",
-        name: "owner",
-        type: "address",
-      },
-      {
-        indexed: true,
-        internalType: "address",
-        name: "operator",
-        type: "address",
-      },
-      {
-        indexed: false,
-        internalType: "bool",
-        name: "approved",
-        type: "bool",
-      },
+      { indexed: true, internalType: "address", name: "owner", type: "address" },
+      { indexed: true, internalType: "address", name: "operator", type: "address" },
+      { indexed: false, internalType: "bool", name: "approved", type: "bool" },
     ],
     name: "ApprovalForAll",
     type: "event",
@@ -906,18 +394,8 @@ export const sablierV2LockupAbi = [
   {
     anonymous: false,
     inputs: [
-      {
-        indexed: false,
-        internalType: "uint256",
-        name: "_fromTokenId",
-        type: "uint256",
-      },
-      {
-        indexed: false,
-        internalType: "uint256",
-        name: "_toTokenId",
-        type: "uint256",
-      },
+      { indexed: false, internalType: "uint256", name: "_fromTokenId", type: "uint256" },
+      { indexed: false, internalType: "uint256", name: "_toTokenId", type: "uint256" },
     ],
     name: "BatchMetadataUpdate",
     type: "event",
@@ -925,36 +403,11 @@ export const sablierV2LockupAbi = [
   {
     anonymous: false,
     inputs: [
-      {
-        indexed: true,
-        internalType: "uint256",
-        name: "streamId",
-        type: "uint256",
-      },
-      {
-        indexed: true,
-        internalType: "address",
-        name: "sender",
-        type: "address",
-      },
-      {
-        indexed: true,
-        internalType: "address",
-        name: "recipient",
-        type: "address",
-      },
-      {
-        indexed: false,
-        internalType: "uint128",
-        name: "senderAmount",
-        type: "uint128",
-      },
-      {
-        indexed: false,
-        internalType: "uint128",
-        name: "recipientAmount",
-        type: "uint128",
-      },
+      { indexed: true, internalType: "uint256", name: "streamId", type: "uint256" },
+      { indexed: true, internalType: "address", name: "sender", type: "address" },
+      { indexed: true, internalType: "address", name: "recipient", type: "address" },
+      { indexed: false, internalType: "uint128", name: "senderAmount", type: "uint128" },
+      { indexed: false, internalType: "uint128", name: "recipientAmount", type: "uint128" },
     ],
     name: "CancelLockupStream",
     type: "event",
@@ -962,75 +415,31 @@ export const sablierV2LockupAbi = [
   {
     anonymous: false,
     inputs: [
-      {
-        indexed: true,
-        internalType: "address",
-        name: "admin",
-        type: "address",
-      },
-      {
-        indexed: true,
-        internalType: "contract IERC20",
-        name: "asset",
-        type: "address",
-      },
-      {
-        indexed: false,
-        internalType: "uint128",
-        name: "protocolRevenues",
-        type: "uint128",
-      },
+      { indexed: true, internalType: "address", name: "admin", type: "address" },
+      { indexed: true, internalType: "contract IERC20", name: "asset", type: "address" },
+      { indexed: false, internalType: "uint128", name: "protocolRevenues", type: "uint128" },
     ],
     name: "ClaimProtocolRevenues",
     type: "event",
   },
   {
     anonymous: false,
-    inputs: [
-      {
-        indexed: false,
-        internalType: "uint256",
-        name: "_tokenId",
-        type: "uint256",
-      },
-    ],
+    inputs: [{ indexed: false, internalType: "uint256", name: "_tokenId", type: "uint256" }],
     name: "MetadataUpdate",
     type: "event",
   },
   {
     anonymous: false,
-    inputs: [
-      {
-        indexed: true,
-        internalType: "uint256",
-        name: "streamId",
-        type: "uint256",
-      },
-    ],
+    inputs: [{ indexed: true, internalType: "uint256", name: "streamId", type: "uint256" }],
     name: "RenounceLockupStream",
     type: "event",
   },
   {
     anonymous: false,
     inputs: [
-      {
-        indexed: true,
-        internalType: "address",
-        name: "admin",
-        type: "address",
-      },
-      {
-        indexed: false,
-        internalType: "contract ISablierV2Comptroller",
-        name: "oldComptroller",
-        type: "address",
-      },
-      {
-        indexed: false,
-        internalType: "contract ISablierV2Comptroller",
-        name: "newComptroller",
-        type: "address",
-      },
+      { indexed: true, internalType: "address", name: "admin", type: "address" },
+      { indexed: false, internalType: "contract ISablierV2Comptroller", name: "oldComptroller", type: "address" },
+      { indexed: false, internalType: "contract ISablierV2Comptroller", name: "newComptroller", type: "address" },
     ],
     name: "SetComptroller",
     type: "event",
@@ -1038,24 +447,9 @@ export const sablierV2LockupAbi = [
   {
     anonymous: false,
     inputs: [
-      {
-        indexed: true,
-        internalType: "address",
-        name: "admin",
-        type: "address",
-      },
-      {
-        indexed: false,
-        internalType: "contract ISablierV2NFTDescriptor",
-        name: "oldNFTDescriptor",
-        type: "address",
-      },
-      {
-        indexed: false,
-        internalType: "contract ISablierV2NFTDescriptor",
-        name: "newNFTDescriptor",
-        type: "address",
-      },
+      { indexed: true, internalType: "address", name: "admin", type: "address" },
+      { indexed: false, internalType: "contract ISablierV2NFTDescriptor", name: "oldNFTDescriptor", type: "address" },
+      { indexed: false, internalType: "contract ISablierV2NFTDescriptor", name: "newNFTDescriptor", type: "address" },
     ],
     name: "SetNFTDescriptor",
     type: "event",
@@ -1063,24 +457,9 @@ export const sablierV2LockupAbi = [
   {
     anonymous: false,
     inputs: [
-      {
-        indexed: true,
-        internalType: "address",
-        name: "from",
-        type: "address",
-      },
-      {
-        indexed: true,
-        internalType: "address",
-        name: "to",
-        type: "address",
-      },
-      {
-        indexed: true,
-        internalType: "uint256",
-        name: "tokenId",
-        type: "uint256",
-      },
+      { indexed: true, internalType: "address", name: "from", type: "address" },
+      { indexed: true, internalType: "address", name: "to", type: "address" },
+      { indexed: true, internalType: "uint256", name: "tokenId", type: "uint256" },
     ],
     name: "Transfer",
     type: "event",
@@ -1088,18 +467,8 @@ export const sablierV2LockupAbi = [
   {
     anonymous: false,
     inputs: [
-      {
-        indexed: true,
-        internalType: "address",
-        name: "oldAdmin",
-        type: "address",
-      },
-      {
-        indexed: true,
-        internalType: "address",
-        name: "newAdmin",
-        type: "address",
-      },
+      { indexed: true, internalType: "address", name: "oldAdmin", type: "address" },
+      { indexed: true, internalType: "address", name: "newAdmin", type: "address" },
     ],
     name: "TransferAdmin",
     type: "event",
@@ -1107,182 +476,81 @@ export const sablierV2LockupAbi = [
   {
     anonymous: false,
     inputs: [
-      {
-        indexed: true,
-        internalType: "uint256",
-        name: "streamId",
-        type: "uint256",
-      },
-      {
-        indexed: true,
-        internalType: "address",
-        name: "to",
-        type: "address",
-      },
-      {
-        indexed: false,
-        internalType: "uint128",
-        name: "amount",
-        type: "uint128",
-      },
+      { indexed: true, internalType: "uint256", name: "streamId", type: "uint256" },
+      { indexed: true, internalType: "address", name: "to", type: "address" },
+      { indexed: false, internalType: "uint128", name: "amount", type: "uint128" },
     ],
     name: "WithdrawFromLockupStream",
     type: "event",
   },
   {
     inputs: [
-      {
-        internalType: "address",
-        name: "admin",
-        type: "address",
-      },
-      {
-        internalType: "address",
-        name: "caller",
-        type: "address",
-      },
+      { internalType: "address", name: "admin", type: "address" },
+      { internalType: "address", name: "caller", type: "address" },
     ],
     name: "CallerNotAdmin",
     type: "error",
   },
+  { inputs: [], name: "DelegateCall", type: "error" },
   {
-    inputs: [],
-    name: "DelegateCall",
-    type: "error",
-  },
-  {
-    inputs: [
-      {
-        internalType: "contract IERC20",
-        name: "asset",
-        type: "address",
-      },
-    ],
+    inputs: [{ internalType: "contract IERC20", name: "asset", type: "address" }],
     name: "SablierV2Base_NoProtocolRevenues",
     type: "error",
   },
   {
     inputs: [
-      {
-        internalType: "uint256",
-        name: "streamId",
-        type: "uint256",
-      },
-      {
-        internalType: "address",
-        name: "sender",
-        type: "address",
-      },
-      {
-        internalType: "address",
-        name: "to",
-        type: "address",
-      },
+      { internalType: "uint256", name: "streamId", type: "uint256" },
+      { internalType: "address", name: "sender", type: "address" },
+      { internalType: "address", name: "to", type: "address" },
     ],
     name: "SablierV2Lockup_InvalidSenderWithdrawal",
     type: "error",
   },
   {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "streamId",
-        type: "uint256",
-      },
-    ],
+    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
     name: "SablierV2Lockup_Null",
     type: "error",
   },
   {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "streamId",
-        type: "uint256",
-      },
-    ],
+    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
     name: "SablierV2Lockup_StreamCanceled",
     type: "error",
   },
   {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "streamId",
-        type: "uint256",
-      },
-    ],
+    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
     name: "SablierV2Lockup_StreamDepleted",
     type: "error",
   },
   {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "streamId",
-        type: "uint256",
-      },
-    ],
+    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
     name: "SablierV2Lockup_StreamNotDepleted",
     type: "error",
   },
   {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "streamId",
-        type: "uint256",
-      },
-    ],
+    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
     name: "SablierV2Lockup_StreamSettled",
     type: "error",
   },
   {
     inputs: [
-      {
-        internalType: "uint256",
-        name: "streamId",
-        type: "uint256",
-      },
-      {
-        internalType: "address",
-        name: "caller",
-        type: "address",
-      },
+      { internalType: "uint256", name: "streamId", type: "uint256" },
+      { internalType: "address", name: "caller", type: "address" },
     ],
     name: "SablierV2Lockup_Unauthorized",
     type: "error",
   },
   {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "streamId",
-        type: "uint256",
-      },
-    ],
+    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
     name: "SablierV2Lockup_WithdrawAmountZero",
     type: "error",
   },
   {
     inputs: [
-      {
-        internalType: "uint256",
-        name: "streamIdsCount",
-        type: "uint256",
-      },
-      {
-        internalType: "uint256",
-        name: "amountsCount",
-        type: "uint256",
-      },
+      { internalType: "uint256", name: "streamIdsCount", type: "uint256" },
+      { internalType: "uint256", name: "amountsCount", type: "uint256" },
     ],
     name: "SablierV2Lockup_WithdrawArrayCountsNotEqual",
     type: "error",
   },
-  {
-    inputs: [],
-    name: "SablierV2Lockup_WithdrawToZeroAddress",
-    type: "error",
-  },
+  { inputs: [], name: "SablierV2Lockup_WithdrawToZeroAddress", type: "error" },
 ] as const;

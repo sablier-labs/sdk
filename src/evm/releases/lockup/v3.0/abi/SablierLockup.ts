@@ -52,11 +52,7 @@ export const sablierLockupAbi = [
     name: "ERC721InvalidOperator",
     type: "error",
   },
-  {
-    inputs: [{ internalType: "address", name: "owner", type: "address" }],
-    name: "ERC721InvalidOwner",
-    type: "error",
-  },
+  { inputs: [{ internalType: "address", name: "owner", type: "address" }], name: "ERC721InvalidOwner", type: "error" },
   {
     inputs: [{ internalType: "address", name: "receiver", type: "address" }],
     name: "ERC721InvalidReceiver",
@@ -412,18 +408,8 @@ export const sablierLockupAbi = [
     anonymous: false,
     inputs: [
       { indexed: true, internalType: "contract ISablierComptroller", name: "comptroller", type: "address" },
-      {
-        indexed: true,
-        internalType: "contract ILockupNFTDescriptor",
-        name: "oldNFTDescriptor",
-        type: "address",
-      },
-      {
-        indexed: true,
-        internalType: "contract ILockupNFTDescriptor",
-        name: "newNFTDescriptor",
-        type: "address",
-      },
+      { indexed: true, internalType: "contract ILockupNFTDescriptor", name: "oldNFTDescriptor", type: "address" },
+      { indexed: true, internalType: "contract ILockupNFTDescriptor", name: "newNFTDescriptor", type: "address" },
     ],
     name: "SetNFTDescriptor",
     type: "event",
@@ -1092,13 +1078,7 @@ export const sablierLockupAbi = [
     stateMutability: "view",
     type: "function",
   },
-  {
-    inputs: [],
-    name: "transferFeesToComptroller",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
+  { inputs: [], name: "transferFeesToComptroller", outputs: [], stateMutability: "nonpayable", type: "function" },
   {
     inputs: [
       { internalType: "address", name: "from", type: "address" },
