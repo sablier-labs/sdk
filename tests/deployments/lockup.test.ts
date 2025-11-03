@@ -1,4 +1,4 @@
-import { releases } from "@src/releases";
+import { releases } from "@src/evm/releases";
 import { createTestSuite } from "./utils/generators";
 
 /**

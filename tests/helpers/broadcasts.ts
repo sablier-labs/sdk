@@ -7,7 +7,7 @@ import type { Sablier } from "@src/types";
  * This resulted in separate broadcast structures. In the release versions checked here we switched to Foundry for
  * every chain, so the broadcast output is now unified.
  */
-export function isBroadcastsUnified(release: Sablier.Release): boolean {
+export function isBroadcastsUnified(release: Sablier.EVM.Release): boolean {
   const majorVersion = Number(release.version[1]);
   return (
     (release.protocol === "airdrops" && majorVersion >= 2) ||

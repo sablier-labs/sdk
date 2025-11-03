@@ -10,7 +10,7 @@ import type { Sablier } from "./types";
  * compareVersions("v2.0", "v1.0") // 1
  * compareVersions("v1.1", "v1.1") // 0
  */
-export function compareVersions(a: Sablier.Version, b: Sablier.Version): number {
+export function compareVersions(a: Sablier.EVM.Version, b: Sablier.EVM.Version): number {
   const [aMajor, aMinor] = a.slice(1).split(".").map(Number);
   const [bMajor, bMinor] = b.slice(1).split(".").map(Number);
 
@@ -26,7 +26,7 @@ export function compareVersions(a: Sablier.Version, b: Sablier.Version): number 
  * @param contractAddress - The contract object
  * @returns The explorer URL for the contract, e.g. https://etherscan.io/address/0x123...
  */
-export function getContractExplorerURL(explorerURL: string, contractAddress: Sablier.Address) {
+export function getContractExplorerURL(explorerURL: string, contractAddress: Sablier.EVM.Address) {
   return `${explorerURL}/address/${contractAddress}`;
 }
 
@@ -39,7 +39,7 @@ export function getContractExplorerURL(explorerURL: string, contractAddress: Sab
  * isVersionBefore("v1.0", "v2.0") // true
  * isVersionBefore("v2.0", "v1.0") // false
  */
-export function isVersionBefore(version: Sablier.Version, before: Sablier.Version): boolean {
+export function isVersionBefore(version: Sablier.EVM.Version, before: Sablier.EVM.Version): boolean {
   return compareVersions(version, before) < 0;
 }
 
@@ -52,7 +52,7 @@ export function isVersionBefore(version: Sablier.Version, before: Sablier.Versio
  * isVersionAfter("v2.0", "v1.0") // true
  * isVersionAfter("v1.0", "v2.0") // false
  */
-export function isVersionAfter(version: Sablier.Version, after: Sablier.Version): boolean {
+export function isVersionAfter(version: Sablier.EVM.Version, after: Sablier.EVM.Version): boolean {
   return compareVersions(version, after) > 0;
 }
 

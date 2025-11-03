@@ -11,7 +11,7 @@
  * Additionally, it pings the public JSON-RPC servers of all chains to ensure they are reachable.
  */
 import path from "node:path";
-import { chains } from "@src/chains";
+import { chains } from "@src/evm/chains";
 import { getDeploymentsDir } from "@src/internal/helpers";
 import globby from "globby";
 import _ from "lodash";

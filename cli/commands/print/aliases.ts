@@ -12,7 +12,7 @@ type AliasRow = {
 async function printAliases(): Promise<void> {
   const rows: AliasRow[] = [];
 
-  for (const release of sablier.releases.getAll()) {
+  for (const release of sablier.evm.releases.getAll()) {
     const releaseName = `${_.capitalize(release.protocol)} ${release.version}`;
     if (!release.aliases) {
       logger.verbose(`Skipping ${releaseName} because it has no aliases`);

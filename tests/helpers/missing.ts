@@ -1,11 +1,11 @@
-import { chains } from "@src/chains";
-import lockupV1_1 from "@src/releases/lockup/v1.1/manifest";
+import { chains } from "@src/evm/chains";
+import lockupV1_1 from "@src/evm/releases/lockup/v1.1/manifest";
 import type { Sablier } from "@src/types";
 import _ from "lodash";
 
 type ChainMap = Record<number, string[]>;
-type VersionMap = Partial<Record<Sablier.Version, ChainMap>>;
-type ProtocolMap = Partial<Record<Sablier.Protocol, VersionMap>>;
+type VersionMap = Partial<Record<Sablier.EVM.Version, ChainMap>>;
+type ProtocolMap = Partial<Record<Sablier.EVM.Protocol, VersionMap>>;
 
 const MISSING_FLOW: VersionMap = {
   "v1.0": {
@@ -56,7 +56,7 @@ const MISSING_CONTRACTS: ProtocolMap = {
 // Chains for which we completely lack broadcasts.
 export const MISSING_CHAINS: number[] = [chains.iotex.id, chains.ronin.id, chains.tangle.id];
 
-export function isKnownMissing(release: Sablier.Release, chain: Sablier.Chain, contractName: string): boolean {
+export function isKnownMissing(release: Sablier.EVM.Release, chain: Sablier.EVM.Chain, contractName: string): boolean {
   if (MISSING_CHAINS.includes(chain.id)) {
     return true;
   }

@@ -42,15 +42,15 @@ function expectZKContract(contract: BasicContract, zkBroadcast: ZKBroadcast): vo
  */
 type TestConfig<BD, CD> = {
   finder: (data: BD, contractName: string) => CD | null;
-  loader: (release: Sablier.Release, chain: Sablier.Chain, componentName?: string) => Promise<BD | null>;
+  loader: (release: Sablier.EVM.Release, chain: Sablier.EVM.Chain, componentName?: string) => Promise<BD | null>;
   expector: (contract: BasicContract, data: CD) => void;
 };
 
 function createInnerTests<BD, CD>(
   testDescription: string,
   testConfig: TestConfig<BD, CD>,
-  release: Sablier.Release,
-  chain: Sablier.Chain,
+  release: Sablier.EVM.Release,
+  chain: Sablier.EVM.Chain,
   contracts: BasicContract[],
   componentName?: string,
 ): void {
@@ -90,9 +90,9 @@ function createInnerTests<BD, CD>(
 }
 
 function createContractTests<BD, CD>(
-  release: Sablier.Release,
-  deployment: Sablier.Deployment,
-  chain: Sablier.Chain,
+  release: Sablier.EVM.Release,
+  deployment: Sablier.EVM.Deployment,
+  chain: Sablier.EVM.Chain,
   testConfig: TestConfig<BD, CD>,
 ): void {
   const chainId = deployment.chainId;
@@ -100,7 +100,7 @@ function createContractTests<BD, CD>(
 
   describe(`${chainName} (ID: ${chainId})`, () => {
     if (release.kind === "lockupV1") {
-      const lockupV1Deployment = deployment as Sablier.Deployment.LockupV1;
+      const lockupV1Deployment = deployment as Sablier.EVM.Deployment.LockupV1;
       createInnerTests("Contracts in core", testConfig, release, chain, lockupV1Deployment.core, "core");
       createInnerTests("Contracts in periphery", testConfig, release, chain, lockupV1Deployment.periphery, "periphery");
     } else {
@@ -109,7 +109,11 @@ function createContractTests<BD, CD>(
   });
 }
 
-function createStandardTests(release: Sablier.Release, deployment: Sablier.Deployment, chain: Sablier.Chain): void {
+function createStandardTests(
+  release: Sablier.EVM.Release,
+  deployment: Sablier.EVM.Deployment,
+  chain: Sablier.EVM.Chain,
+): void {
   createContractTests<StandardBroadcast, BasicContract>(release, deployment, chain, {
     expector: expectContract,
     finder: findContract,
@@ -117,7 +121,11 @@ function createStandardTests(release: Sablier.Release, deployment: Sablier.Deplo
   });
 }
 
-function createZKTests(release: Sablier.Release, deployment: Sablier.Deployment, chain: Sablier.Chain): void {
+function createZKTests(
+  release: Sablier.EVM.Release,
+  deployment: Sablier.EVM.Deployment,
+  chain: Sablier.EVM.Chain,
+): void {
   createContractTests<ZKBroadcast[], ZKBroadcast>(release, deployment, chain, {
     expector: expectZKContract,
     finder: findZKContract,
@@ -125,10 +133,10 @@ function createZKTests(release: Sablier.Release, deployment: Sablier.Deployment,
   });
 }
 
-export function createTestSuite(release: Sablier.Release): void {
+export function createTestSuite(release: Sablier.EVM.Release): void {
   describe(`${release.protocol} ${release.version}`, () => {
     for (const deployment of release.deployments) {
-      const chain = sablier.chains.getOrThrow(deployment.chainId);
+      const chain = sablier.evm.chains.getOrThrow(deployment.chainId);
 
       if (chain.isZK && !isBroadcastsUnified(release)) {
         createZKTests(release, deployment, chain);

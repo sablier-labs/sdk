@@ -6,8 +6,8 @@ import { isBroadcastsUnified } from "../../helpers/broadcasts";
 import type { StandardBroadcast, ZKBroadcast } from "../../types";
 
 export async function loadBroadcast<T extends StandardBroadcast | ZKBroadcast[]>(
-  release: Sablier.Release,
-  chain: Sablier.Chain,
+  release: Sablier.EVM.Release,
+  chain: Sablier.EVM.Chain,
   componentName?: string,
 ): Promise<T | null> {
   if (chain.isZK && !isBroadcastsUnified(release)) {
@@ -18,8 +18,8 @@ export async function loadBroadcast<T extends StandardBroadcast | ZKBroadcast[]>
 }
 
 async function loadStandard(
-  release: Sablier.Release,
-  chain: Sablier.Chain,
+  release: Sablier.EVM.Release,
+  chain: Sablier.EVM.Chain,
   componentName?: string,
 ): Promise<StandardBroadcast | null> {
   const foundPath = await checkBroadcast(release, chain, componentName);
@@ -35,8 +35,8 @@ async function loadStandard(
  * Loads ZK deployment JSON files for contract names
  */
 async function loadZK(
-  release: Sablier.Release,
-  chain: Sablier.Chain,
+  release: Sablier.EVM.Release,
+  chain: Sablier.EVM.Chain,
   componentName?: string,
 ): Promise<ZKBroadcast[] | null> {
   const foundDir = await checkBroadcast(release, chain, componentName);
