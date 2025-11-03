@@ -226,11 +226,5 @@ export const sablierFactoryMerkleLTAbi = [
     stateMutability: "nonpayable",
     type: "function",
   },
-  {
-    inputs: [],
-    name: "transferFeesToComptroller",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
+  { inputs: [], name: "transferFeesToComptroller", outputs: [], stateMutability: "nonpayable", type: "function" },
 ] as const;

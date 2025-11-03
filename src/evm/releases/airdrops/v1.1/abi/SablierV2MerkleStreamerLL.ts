@@ -1,58 +1,22 @@
 export const sablierV2MerkleStreamerLLAbi = [
   {
     inputs: [
-      {
-        internalType: "address",
-        name: "initialAdmin",
-        type: "address",
-      },
-      {
-        internalType: "contract ISablierV2LockupLinear",
-        name: "lockupLinear",
-        type: "address",
-      },
-      {
-        internalType: "contract IERC20",
-        name: "asset",
-        type: "address",
-      },
-      {
-        internalType: "bytes32",
-        name: "merkleRoot",
-        type: "bytes32",
-      },
-      {
-        internalType: "uint40",
-        name: "expiration",
-        type: "uint40",
-      },
+      { internalType: "address", name: "initialAdmin", type: "address" },
+      { internalType: "contract ISablierV2LockupLinear", name: "lockupLinear", type: "address" },
+      { internalType: "contract IERC20", name: "asset", type: "address" },
+      { internalType: "bytes32", name: "merkleRoot", type: "bytes32" },
+      { internalType: "uint40", name: "expiration", type: "uint40" },
       {
         components: [
-          {
-            internalType: "uint40",
-            name: "cliff",
-            type: "uint40",
-          },
-          {
-            internalType: "uint40",
-            name: "total",
-            type: "uint40",
-          },
+          { internalType: "uint40", name: "cliff", type: "uint40" },
+          { internalType: "uint40", name: "total", type: "uint40" },
         ],
         internalType: "struct LockupLinear.Durations",
         name: "streamDurations_",
         type: "tuple",
       },
-      {
-        internalType: "bool",
-        name: "cancelable",
-        type: "bool",
-      },
-      {
-        internalType: "bool",
-        name: "transferable",
-        type: "bool",
-      },
+      { internalType: "bool", name: "cancelable", type: "bool" },
+      { internalType: "bool", name: "transferable", type: "bool" },
     ],
     stateMutability: "nonpayable",
     type: "constructor",
@@ -60,153 +24,75 @@ export const sablierV2MerkleStreamerLLAbi = [
   {
     inputs: [],
     name: "ASSET",
-    outputs: [
-      {
-        internalType: "contract IERC20",
-        name: "",
-        type: "address",
-      },
-    ],
+    outputs: [{ internalType: "contract IERC20", name: "", type: "address" }],
     stateMutability: "view",
     type: "function",
   },
   {
     inputs: [],
     name: "CANCELABLE",
-    outputs: [
-      {
-        internalType: "bool",
-        name: "",
-        type: "bool",
-      },
-    ],
+    outputs: [{ internalType: "bool", name: "", type: "bool" }],
     stateMutability: "view",
     type: "function",
   },
   {
     inputs: [],
     name: "EXPIRATION",
-    outputs: [
-      {
-        internalType: "uint40",
-        name: "",
-        type: "uint40",
-      },
-    ],
+    outputs: [{ internalType: "uint40", name: "", type: "uint40" }],
     stateMutability: "view",
     type: "function",
   },
   {
     inputs: [],
     name: "LOCKUP",
-    outputs: [
-      {
-        internalType: "contract ISablierV2Lockup",
-        name: "",
-        type: "address",
-      },
-    ],
+    outputs: [{ internalType: "contract ISablierV2Lockup", name: "", type: "address" }],
     stateMutability: "view",
     type: "function",
   },
   {
     inputs: [],
     name: "LOCKUP_LINEAR",
-    outputs: [
-      {
-        internalType: "contract ISablierV2LockupLinear",
-        name: "",
-        type: "address",
-      },
-    ],
+    outputs: [{ internalType: "contract ISablierV2LockupLinear", name: "", type: "address" }],
     stateMutability: "view",
     type: "function",
   },
   {
     inputs: [],
     name: "MERKLE_ROOT",
-    outputs: [
-      {
-        internalType: "bytes32",
-        name: "",
-        type: "bytes32",
-      },
-    ],
+    outputs: [{ internalType: "bytes32", name: "", type: "bytes32" }],
     stateMutability: "view",
     type: "function",
   },
   {
     inputs: [],
     name: "TRANSFERABLE",
-    outputs: [
-      {
-        internalType: "bool",
-        name: "",
-        type: "bool",
-      },
-    ],
+    outputs: [{ internalType: "bool", name: "", type: "bool" }],
     stateMutability: "view",
     type: "function",
   },
   {
     inputs: [],
     name: "admin",
-    outputs: [
-      {
-        internalType: "address",
-        name: "",
-        type: "address",
-      },
-    ],
+    outputs: [{ internalType: "address", name: "", type: "address" }],
     stateMutability: "view",
     type: "function",
   },
   {
     inputs: [
-      {
-        internalType: "uint256",
-        name: "index",
-        type: "uint256",
-      },
-      {
-        internalType: "address",
-        name: "recipient",
-        type: "address",
-      },
-      {
-        internalType: "uint128",
-        name: "amount",
-        type: "uint128",
-      },
-      {
-        internalType: "bytes32[]",
-        name: "merkleProof",
-        type: "bytes32[]",
-      },
+      { internalType: "uint256", name: "index", type: "uint256" },
+      { internalType: "address", name: "recipient", type: "address" },
+      { internalType: "uint128", name: "amount", type: "uint128" },
+      { internalType: "bytes32[]", name: "merkleProof", type: "bytes32[]" },
     ],
     name: "claim",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "streamId",
-        type: "uint256",
-      },
-    ],
+    outputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
     stateMutability: "nonpayable",
     type: "function",
   },
   {
     inputs: [
-      {
-        internalType: "address",
-        name: "to",
-        type: "address",
-      },
-      {
-        internalType: "uint128",
-        name: "amount",
-        type: "uint128",
-      },
+      { internalType: "address", name: "to", type: "address" },
+      { internalType: "uint128", name: "amount", type: "uint128" },
     ],
     name: "clawback",
     outputs: [],
@@ -214,34 +100,16 @@ export const sablierV2MerkleStreamerLLAbi = [
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "index",
-        type: "uint256",
-      },
-    ],
+    inputs: [{ internalType: "uint256", name: "index", type: "uint256" }],
     name: "hasClaimed",
-    outputs: [
-      {
-        internalType: "bool",
-        name: "",
-        type: "bool",
-      },
-    ],
+    outputs: [{ internalType: "bool", name: "", type: "bool" }],
     stateMutability: "view",
     type: "function",
   },
   {
     inputs: [],
     name: "hasExpired",
-    outputs: [
-      {
-        internalType: "bool",
-        name: "",
-        type: "bool",
-      },
-    ],
+    outputs: [{ internalType: "bool", name: "", type: "bool" }],
     stateMutability: "view",
     type: "function",
   },
@@ -249,28 +117,14 @@ export const sablierV2MerkleStreamerLLAbi = [
     inputs: [],
     name: "streamDurations",
     outputs: [
-      {
-        internalType: "uint40",
-        name: "cliff",
-        type: "uint40",
-      },
-      {
-        internalType: "uint40",
-        name: "total",
-        type: "uint40",
-      },
+      { internalType: "uint40", name: "cliff", type: "uint40" },
+      { internalType: "uint40", name: "total", type: "uint40" },
     ],
     stateMutability: "view",
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "address",
-        name: "newAdmin",
-        type: "address",
-      },
-    ],
+    inputs: [{ internalType: "address", name: "newAdmin", type: "address" }],
     name: "transferAdmin",
     outputs: [],
     stateMutability: "nonpayable",
@@ -279,30 +133,10 @@ export const sablierV2MerkleStreamerLLAbi = [
   {
     anonymous: false,
     inputs: [
-      {
-        indexed: false,
-        internalType: "uint256",
-        name: "index",
-        type: "uint256",
-      },
-      {
-        indexed: true,
-        internalType: "address",
-        name: "recipient",
-        type: "address",
-      },
-      {
-        indexed: false,
-        internalType: "uint128",
-        name: "amount",
-        type: "uint128",
-      },
-      {
-        indexed: true,
-        internalType: "uint256",
-        name: "streamId",
-        type: "uint256",
-      },
+      { indexed: false, internalType: "uint256", name: "index", type: "uint256" },
+      { indexed: true, internalType: "address", name: "recipient", type: "address" },
+      { indexed: false, internalType: "uint128", name: "amount", type: "uint128" },
+      { indexed: true, internalType: "uint256", name: "streamId", type: "uint256" },
     ],
     name: "Claim",
     type: "event",
@@ -310,24 +144,9 @@ export const sablierV2MerkleStreamerLLAbi = [
   {
     anonymous: false,
     inputs: [
-      {
-        indexed: true,
-        internalType: "address",
-        name: "admin",
-        type: "address",
-      },
-      {
-        indexed: true,
-        internalType: "address",
-        name: "to",
-        type: "address",
-      },
-      {
-        indexed: false,
-        internalType: "uint128",
-        name: "amount",
-        type: "uint128",
-      },
+      { indexed: true, internalType: "address", name: "admin", type: "address" },
+      { indexed: true, internalType: "address", name: "to", type: "address" },
+      { indexed: false, internalType: "uint128", name: "amount", type: "uint128" },
     ],
     name: "Clawback",
     type: "event",
@@ -335,88 +154,40 @@ export const sablierV2MerkleStreamerLLAbi = [
   {
     anonymous: false,
     inputs: [
-      {
-        indexed: true,
-        internalType: "address",
-        name: "oldAdmin",
-        type: "address",
-      },
-      {
-        indexed: true,
-        internalType: "address",
-        name: "newAdmin",
-        type: "address",
-      },
+      { indexed: true, internalType: "address", name: "oldAdmin", type: "address" },
+      { indexed: true, internalType: "address", name: "newAdmin", type: "address" },
     ],
     name: "TransferAdmin",
     type: "event",
   },
   {
     inputs: [
-      {
-        internalType: "address",
-        name: "admin",
-        type: "address",
-      },
-      {
-        internalType: "address",
-        name: "caller",
-        type: "address",
-      },
+      { internalType: "address", name: "admin", type: "address" },
+      { internalType: "address", name: "caller", type: "address" },
     ],
     name: "CallerNotAdmin",
     type: "error",
   },
   {
     inputs: [
-      {
-        internalType: "uint256",
-        name: "currentTime",
-        type: "uint256",
-      },
-      {
-        internalType: "uint40",
-        name: "expiration",
-        type: "uint40",
-      },
+      { internalType: "uint256", name: "currentTime", type: "uint256" },
+      { internalType: "uint40", name: "expiration", type: "uint40" },
     ],
     name: "SablierV2MerkleStreamer_CampaignExpired",
     type: "error",
   },
   {
     inputs: [
-      {
-        internalType: "uint256",
-        name: "currentTime",
-        type: "uint256",
-      },
-      {
-        internalType: "uint40",
-        name: "expiration",
-        type: "uint40",
-      },
+      { internalType: "uint256", name: "currentTime", type: "uint256" },
+      { internalType: "uint40", name: "expiration", type: "uint40" },
     ],
     name: "SablierV2MerkleStreamer_CampaignNotExpired",
     type: "error",
   },
+  { inputs: [], name: "SablierV2MerkleStreamer_InvalidProof", type: "error" },
+  { inputs: [], name: "SablierV2MerkleStreamer_ProtocolFeeNotZero", type: "error" },
   {
-    inputs: [],
-    name: "SablierV2MerkleStreamer_InvalidProof",
-    type: "error",
-  },
-  {
-    inputs: [],
-    name: "SablierV2MerkleStreamer_ProtocolFeeNotZero",
-    type: "error",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "index",
-        type: "uint256",
-      },
-    ],
+    inputs: [{ internalType: "uint256", name: "index", type: "uint256" }],
     name: "SablierV2MerkleStreamer_StreamClaimed",
     type: "error",
   },

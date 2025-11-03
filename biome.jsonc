@@ -14,6 +14,14 @@
           }
         }
       }
+    },
+    {
+      "includes": ["src/evm/releases/**/abi/**/*.ts"],
+      "javascript": {
+        "formatter": {
+          "expand": "never" // Never expand objects in the ABI to save number of lines
+        }
+      }
     }
   ]
 }
