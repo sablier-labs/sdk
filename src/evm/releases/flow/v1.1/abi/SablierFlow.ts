@@ -1,995 +1,2393 @@
 export const sablierFlowAbi = [
   {
-    inputs: [
-      { internalType: "address", name: "initialAdmin", type: "address" },
-      { internalType: "contract IFlowNFTDescriptor", name: "initialNFTDescriptor", type: "address" },
-    ],
-    stateMutability: "nonpayable",
     type: "constructor",
-  },
-  {
-    inputs: [],
-    name: "MAX_FEE",
-    outputs: [{ internalType: "UD60x18", name: "", type: "uint256" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
     inputs: [
-      { internalType: "uint256", name: "streamId", type: "uint256" },
-      { internalType: "UD21x18", name: "newRatePerSecond", type: "uint128" },
-    ],
-    name: "adjustRatePerSecond",
-    outputs: [],
-    stateMutability: "payable",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "admin",
-    outputs: [{ internalType: "address", name: "", type: "address" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "contract IERC20", name: "token", type: "address" }],
-    name: "aggregateBalance",
-    outputs: [{ internalType: "uint256", name: "amount", type: "uint256" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      { internalType: "address", name: "to", type: "address" },
-      { internalType: "uint256", name: "tokenId", type: "uint256" },
-    ],
-    name: "approve",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "address", name: "owner", type: "address" }],
-    name: "balanceOf",
-    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "bytes[]", name: "calls", type: "bytes[]" }],
-    name: "batch",
-    outputs: [{ internalType: "bytes[]", name: "results", type: "bytes[]" }],
-    stateMutability: "payable",
-    type: "function",
-  },
-  { inputs: [], name: "collectFees", outputs: [], stateMutability: "nonpayable", type: "function" },
-  {
-    inputs: [
-      { internalType: "contract IERC20", name: "token", type: "address" },
-      { internalType: "address", name: "to", type: "address" },
-    ],
-    name: "collectProtocolRevenue",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
-    name: "coveredDebtOf",
-    outputs: [{ internalType: "uint128", name: "coveredDebt", type: "uint128" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      { internalType: "address", name: "sender", type: "address" },
-      { internalType: "address", name: "recipient", type: "address" },
-      { internalType: "UD21x18", name: "ratePerSecond", type: "uint128" },
-      { internalType: "contract IERC20", name: "token", type: "address" },
-      { internalType: "bool", name: "transferable", type: "bool" },
-    ],
-    name: "create",
-    outputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
-    stateMutability: "payable",
-    type: "function",
-  },
-  {
-    inputs: [
-      { internalType: "address", name: "sender", type: "address" },
-      { internalType: "address", name: "recipient", type: "address" },
-      { internalType: "UD21x18", name: "ratePerSecond", type: "uint128" },
-      { internalType: "contract IERC20", name: "token", type: "address" },
-      { internalType: "bool", name: "transferable", type: "bool" },
-      { internalType: "uint128", name: "amount", type: "uint128" },
-    ],
-    name: "createAndDeposit",
-    outputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
-    stateMutability: "payable",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
-    name: "depletionTimeOf",
-    outputs: [{ internalType: "uint256", name: "depletionTime", type: "uint256" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      { internalType: "uint256", name: "streamId", type: "uint256" },
-      { internalType: "uint128", name: "amount", type: "uint128" },
-      { internalType: "address", name: "sender", type: "address" },
-      { internalType: "address", name: "recipient", type: "address" },
-    ],
-    name: "deposit",
-    outputs: [],
-    stateMutability: "payable",
-    type: "function",
-  },
-  {
-    inputs: [
-      { internalType: "uint256", name: "streamId", type: "uint256" },
-      { internalType: "uint128", name: "amount", type: "uint128" },
-    ],
-    name: "depositAndPause",
-    outputs: [],
-    stateMutability: "payable",
-    type: "function",
-  },
-  {
-    inputs: [
-      { internalType: "uint256", name: "streamId", type: "uint256" },
-      { internalType: "uint128", name: "totalAmount", type: "uint128" },
-      { internalType: "address", name: "sender", type: "address" },
-      { internalType: "address", name: "recipient", type: "address" },
       {
-        components: [
-          { internalType: "address", name: "account", type: "address" },
-          { internalType: "UD60x18", name: "fee", type: "uint256" },
-        ],
-        internalType: "struct Broker",
+        name: "initialAdmin",
+        type: "address",
+        internalType: "address",
+      },
+      {
+        name: "initialNFTDescriptor",
+        type: "address",
+        internalType: "contract IFlowNFTDescriptor",
+      },
+    ],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
+    name: "MAX_FEE",
+    inputs: [],
+    outputs: [
+      {
+        name: "",
+        type: "uint256",
+        internalType: "UD60x18",
+      },
+    ],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "adjustRatePerSecond",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+      {
+        name: "newRatePerSecond",
+        type: "uint128",
+        internalType: "UD21x18",
+      },
+    ],
+    outputs: [],
+    stateMutability: "payable",
+  },
+  {
+    type: "function",
+    name: "admin",
+    inputs: [],
+    outputs: [
+      {
+        name: "",
+        type: "address",
+        internalType: "address",
+      },
+    ],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "aggregateBalance",
+    inputs: [
+      {
+        name: "token",
+        type: "address",
+        internalType: "contract IERC20",
+      },
+    ],
+    outputs: [
+      {
+        name: "amount",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "approve",
+    inputs: [
+      {
+        name: "to",
+        type: "address",
+        internalType: "address",
+      },
+      {
+        name: "tokenId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
+    name: "balanceOf",
+    inputs: [
+      {
+        name: "owner",
+        type: "address",
+        internalType: "address",
+      },
+    ],
+    outputs: [
+      {
+        name: "",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "batch",
+    inputs: [
+      {
+        name: "calls",
+        type: "bytes[]",
+        internalType: "bytes[]",
+      },
+    ],
+    outputs: [
+      {
+        name: "results",
+        type: "bytes[]",
+        internalType: "bytes[]",
+      },
+    ],
+    stateMutability: "payable",
+  },
+  {
+    type: "function",
+    name: "collectFees",
+    inputs: [],
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
+    name: "collectProtocolRevenue",
+    inputs: [
+      {
+        name: "token",
+        type: "address",
+        internalType: "contract IERC20",
+      },
+      {
+        name: "to",
+        type: "address",
+        internalType: "address",
+      },
+    ],
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
+    name: "coveredDebtOf",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
+    outputs: [
+      {
+        name: "coveredDebt",
+        type: "uint128",
+        internalType: "uint128",
+      },
+    ],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "create",
+    inputs: [
+      {
+        name: "sender",
+        type: "address",
+        internalType: "address",
+      },
+      {
+        name: "recipient",
+        type: "address",
+        internalType: "address",
+      },
+      {
+        name: "ratePerSecond",
+        type: "uint128",
+        internalType: "UD21x18",
+      },
+      {
+        name: "token",
+        type: "address",
+        internalType: "contract IERC20",
+      },
+      {
+        name: "transferable",
+        type: "bool",
+        internalType: "bool",
+      },
+    ],
+    outputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
+    stateMutability: "payable",
+  },
+  {
+    type: "function",
+    name: "createAndDeposit",
+    inputs: [
+      {
+        name: "sender",
+        type: "address",
+        internalType: "address",
+      },
+      {
+        name: "recipient",
+        type: "address",
+        internalType: "address",
+      },
+      {
+        name: "ratePerSecond",
+        type: "uint128",
+        internalType: "UD21x18",
+      },
+      {
+        name: "token",
+        type: "address",
+        internalType: "contract IERC20",
+      },
+      {
+        name: "transferable",
+        type: "bool",
+        internalType: "bool",
+      },
+      {
+        name: "amount",
+        type: "uint128",
+        internalType: "uint128",
+      },
+    ],
+    outputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
+    stateMutability: "payable",
+  },
+  {
+    type: "function",
+    name: "depletionTimeOf",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
+    outputs: [
+      {
+        name: "depletionTime",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "deposit",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+      {
+        name: "amount",
+        type: "uint128",
+        internalType: "uint128",
+      },
+      {
+        name: "sender",
+        type: "address",
+        internalType: "address",
+      },
+      {
+        name: "recipient",
+        type: "address",
+        internalType: "address",
+      },
+    ],
+    outputs: [],
+    stateMutability: "payable",
+  },
+  {
+    type: "function",
+    name: "depositAndPause",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+      {
+        name: "amount",
+        type: "uint128",
+        internalType: "uint128",
+      },
+    ],
+    outputs: [],
+    stateMutability: "payable",
+  },
+  {
+    type: "function",
+    name: "depositViaBroker",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+      {
+        name: "totalAmount",
+        type: "uint128",
+        internalType: "uint128",
+      },
+      {
+        name: "sender",
+        type: "address",
+        internalType: "address",
+      },
+      {
+        name: "recipient",
+        type: "address",
+        internalType: "address",
+      },
+      {
         name: "broker",
         type: "tuple",
+        internalType: "struct Broker",
+        components: [
+          {
+            name: "account",
+            type: "address",
+            internalType: "address",
+          },
+          {
+            name: "fee",
+            type: "uint256",
+            internalType: "UD60x18",
+          },
+        ],
       },
     ],
-    name: "depositViaBroker",
     outputs: [],
     stateMutability: "payable",
-    type: "function",
   },
   {
-    inputs: [{ internalType: "uint256", name: "tokenId", type: "uint256" }],
+    type: "function",
     name: "getApproved",
-    outputs: [{ internalType: "address", name: "", type: "address" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
-    name: "getBalance",
-    outputs: [{ internalType: "uint128", name: "balance", type: "uint128" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
-    name: "getRatePerSecond",
-    outputs: [{ internalType: "UD21x18", name: "ratePerSecond", type: "uint128" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
-    name: "getRecipient",
-    outputs: [{ internalType: "address", name: "recipient", type: "address" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
-    name: "getSender",
-    outputs: [{ internalType: "address", name: "sender", type: "address" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
-    name: "getSnapshotDebtScaled",
-    outputs: [{ internalType: "uint256", name: "snapshotDebtScaled", type: "uint256" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
-    name: "getSnapshotTime",
-    outputs: [{ internalType: "uint40", name: "snapshotTime", type: "uint40" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
-    name: "getStream",
+    inputs: [
+      {
+        name: "tokenId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
     outputs: [
       {
-        components: [
-          { internalType: "uint128", name: "balance", type: "uint128" },
-          { internalType: "UD21x18", name: "ratePerSecond", type: "uint128" },
-          { internalType: "address", name: "sender", type: "address" },
-          { internalType: "uint40", name: "snapshotTime", type: "uint40" },
-          { internalType: "bool", name: "isStream", type: "bool" },
-          { internalType: "bool", name: "isTransferable", type: "bool" },
-          { internalType: "bool", name: "isVoided", type: "bool" },
-          { internalType: "contract IERC20", name: "token", type: "address" },
-          { internalType: "uint8", name: "tokenDecimals", type: "uint8" },
-          { internalType: "uint256", name: "snapshotDebtScaled", type: "uint256" },
-        ],
-        internalType: "struct Flow.Stream",
-        name: "stream",
-        type: "tuple",
+        name: "",
+        type: "address",
+        internalType: "address",
       },
     ],
     stateMutability: "view",
-    type: "function",
   },
   {
-    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
+    type: "function",
+    name: "getBalance",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
+    outputs: [
+      {
+        name: "balance",
+        type: "uint128",
+        internalType: "uint128",
+      },
+    ],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "getRatePerSecond",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
+    outputs: [
+      {
+        name: "ratePerSecond",
+        type: "uint128",
+        internalType: "UD21x18",
+      },
+    ],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "getRecipient",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
+    outputs: [
+      {
+        name: "recipient",
+        type: "address",
+        internalType: "address",
+      },
+    ],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "getSender",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
+    outputs: [
+      {
+        name: "sender",
+        type: "address",
+        internalType: "address",
+      },
+    ],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "getSnapshotDebtScaled",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
+    outputs: [
+      {
+        name: "snapshotDebtScaled",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "getSnapshotTime",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
+    outputs: [
+      {
+        name: "snapshotTime",
+        type: "uint40",
+        internalType: "uint40",
+      },
+    ],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "getStream",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
+    outputs: [
+      {
+        name: "stream",
+        type: "tuple",
+        internalType: "struct Flow.Stream",
+        components: [
+          {
+            name: "balance",
+            type: "uint128",
+            internalType: "uint128",
+          },
+          {
+            name: "ratePerSecond",
+            type: "uint128",
+            internalType: "UD21x18",
+          },
+          {
+            name: "sender",
+            type: "address",
+            internalType: "address",
+          },
+          {
+            name: "snapshotTime",
+            type: "uint40",
+            internalType: "uint40",
+          },
+          {
+            name: "isStream",
+            type: "bool",
+            internalType: "bool",
+          },
+          {
+            name: "isTransferable",
+            type: "bool",
+            internalType: "bool",
+          },
+          {
+            name: "isVoided",
+            type: "bool",
+            internalType: "bool",
+          },
+          {
+            name: "token",
+            type: "address",
+            internalType: "contract IERC20",
+          },
+          {
+            name: "tokenDecimals",
+            type: "uint8",
+            internalType: "uint8",
+          },
+          {
+            name: "snapshotDebtScaled",
+            type: "uint256",
+            internalType: "uint256",
+          },
+        ],
+      },
+    ],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
     name: "getToken",
-    outputs: [{ internalType: "contract IERC20", name: "token", type: "address" }],
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
+    outputs: [
+      {
+        name: "token",
+        type: "address",
+        internalType: "contract IERC20",
+      },
+    ],
     stateMutability: "view",
-    type: "function",
   },
   {
-    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
+    type: "function",
     name: "getTokenDecimals",
-    outputs: [{ internalType: "uint8", name: "tokenDecimals", type: "uint8" }],
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
+    outputs: [
+      {
+        name: "tokenDecimals",
+        type: "uint8",
+        internalType: "uint8",
+      },
+    ],
     stateMutability: "view",
-    type: "function",
   },
   {
-    inputs: [
-      { internalType: "address", name: "owner", type: "address" },
-      { internalType: "address", name: "operator", type: "address" },
-    ],
+    type: "function",
     name: "isApprovedForAll",
-    outputs: [{ internalType: "bool", name: "", type: "bool" }],
+    inputs: [
+      {
+        name: "owner",
+        type: "address",
+        internalType: "address",
+      },
+      {
+        name: "operator",
+        type: "address",
+        internalType: "address",
+      },
+    ],
+    outputs: [
+      {
+        name: "",
+        type: "bool",
+        internalType: "bool",
+      },
+    ],
     stateMutability: "view",
-    type: "function",
   },
   {
-    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
+    type: "function",
     name: "isPaused",
-    outputs: [{ internalType: "bool", name: "result", type: "bool" }],
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
+    outputs: [
+      {
+        name: "result",
+        type: "bool",
+        internalType: "bool",
+      },
+    ],
     stateMutability: "view",
-    type: "function",
   },
   {
-    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
+    type: "function",
     name: "isStream",
-    outputs: [{ internalType: "bool", name: "result", type: "bool" }],
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
+    outputs: [
+      {
+        name: "result",
+        type: "bool",
+        internalType: "bool",
+      },
+    ],
     stateMutability: "view",
-    type: "function",
   },
   {
-    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
+    type: "function",
     name: "isTransferable",
-    outputs: [{ internalType: "bool", name: "result", type: "bool" }],
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
+    outputs: [
+      {
+        name: "result",
+        type: "bool",
+        internalType: "bool",
+      },
+    ],
     stateMutability: "view",
-    type: "function",
   },
   {
-    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
+    type: "function",
     name: "isVoided",
-    outputs: [{ internalType: "bool", name: "result", type: "bool" }],
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
+    outputs: [
+      {
+        name: "result",
+        type: "bool",
+        internalType: "bool",
+      },
+    ],
     stateMutability: "view",
-    type: "function",
   },
   {
-    inputs: [],
+    type: "function",
     name: "name",
-    outputs: [{ internalType: "string", name: "", type: "string" }],
+    inputs: [],
+    outputs: [
+      {
+        name: "",
+        type: "string",
+        internalType: "string",
+      },
+    ],
     stateMutability: "view",
-    type: "function",
   },
   {
-    inputs: [],
+    type: "function",
     name: "nextStreamId",
-    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+    inputs: [],
+    outputs: [
+      {
+        name: "",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
     stateMutability: "view",
-    type: "function",
   },
   {
-    inputs: [],
+    type: "function",
     name: "nftDescriptor",
-    outputs: [{ internalType: "contract IFlowNFTDescriptor", name: "", type: "address" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
-    name: "ongoingDebtScaledOf",
-    outputs: [{ internalType: "uint256", name: "ongoingDebtScaled", type: "uint256" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "uint256", name: "tokenId", type: "uint256" }],
-    name: "ownerOf",
-    outputs: [{ internalType: "address", name: "", type: "address" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
-    name: "pause",
-    outputs: [],
-    stateMutability: "payable",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "contract IERC20", name: "token", type: "address" }],
-    name: "protocolFee",
-    outputs: [{ internalType: "UD60x18", name: "fee", type: "uint256" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "contract IERC20", name: "token", type: "address" }],
-    name: "protocolRevenue",
-    outputs: [{ internalType: "uint128", name: "revenue", type: "uint128" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      { internalType: "contract IERC20", name: "token", type: "address" },
-      { internalType: "address", name: "to", type: "address" },
-    ],
-    name: "recover",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      { internalType: "uint256", name: "streamId", type: "uint256" },
-      { internalType: "uint128", name: "amount", type: "uint128" },
-    ],
-    name: "refund",
-    outputs: [],
-    stateMutability: "payable",
-    type: "function",
-  },
-  {
-    inputs: [
-      { internalType: "uint256", name: "streamId", type: "uint256" },
-      { internalType: "uint128", name: "amount", type: "uint128" },
-    ],
-    name: "refundAndPause",
-    outputs: [],
-    stateMutability: "payable",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
-    name: "refundMax",
-    outputs: [],
-    stateMutability: "payable",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
-    name: "refundableAmountOf",
-    outputs: [{ internalType: "uint128", name: "refundableAmount", type: "uint128" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      { internalType: "uint256", name: "streamId", type: "uint256" },
-      { internalType: "UD21x18", name: "ratePerSecond", type: "uint128" },
-    ],
-    name: "restart",
-    outputs: [],
-    stateMutability: "payable",
-    type: "function",
-  },
-  {
-    inputs: [
-      { internalType: "uint256", name: "streamId", type: "uint256" },
-      { internalType: "UD21x18", name: "ratePerSecond", type: "uint128" },
-      { internalType: "uint128", name: "amount", type: "uint128" },
-    ],
-    name: "restartAndDeposit",
-    outputs: [],
-    stateMutability: "payable",
-    type: "function",
-  },
-  {
-    inputs: [
-      { internalType: "address", name: "from", type: "address" },
-      { internalType: "address", name: "to", type: "address" },
-      { internalType: "uint256", name: "tokenId", type: "uint256" },
-    ],
-    name: "safeTransferFrom",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      { internalType: "address", name: "from", type: "address" },
-      { internalType: "address", name: "to", type: "address" },
-      { internalType: "uint256", name: "tokenId", type: "uint256" },
-      { internalType: "bytes", name: "data", type: "bytes" },
-    ],
-    name: "safeTransferFrom",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      { internalType: "address", name: "operator", type: "address" },
-      { internalType: "bool", name: "approved", type: "bool" },
-    ],
-    name: "setApprovalForAll",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "contract IFlowNFTDescriptor", name: "newNFTDescriptor", type: "address" }],
-    name: "setNFTDescriptor",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      { internalType: "contract IERC20", name: "token", type: "address" },
-      { internalType: "UD60x18", name: "newProtocolFee", type: "uint256" },
-    ],
-    name: "setProtocolFee",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
-    name: "statusOf",
-    outputs: [{ internalType: "enum Flow.Status", name: "status", type: "uint8" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "bytes4", name: "interfaceId", type: "bytes4" }],
-    name: "supportsInterface",
-    outputs: [{ internalType: "bool", name: "", type: "bool" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
     inputs: [],
+    outputs: [
+      {
+        name: "",
+        type: "address",
+        internalType: "contract IFlowNFTDescriptor",
+      },
+    ],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "ongoingDebtScaledOf",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
+    outputs: [
+      {
+        name: "ongoingDebtScaled",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "ownerOf",
+    inputs: [
+      {
+        name: "tokenId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
+    outputs: [
+      {
+        name: "",
+        type: "address",
+        internalType: "address",
+      },
+    ],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "pause",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
+    outputs: [],
+    stateMutability: "payable",
+  },
+  {
+    type: "function",
+    name: "protocolFee",
+    inputs: [
+      {
+        name: "token",
+        type: "address",
+        internalType: "contract IERC20",
+      },
+    ],
+    outputs: [
+      {
+        name: "fee",
+        type: "uint256",
+        internalType: "UD60x18",
+      },
+    ],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "protocolRevenue",
+    inputs: [
+      {
+        name: "token",
+        type: "address",
+        internalType: "contract IERC20",
+      },
+    ],
+    outputs: [
+      {
+        name: "revenue",
+        type: "uint128",
+        internalType: "uint128",
+      },
+    ],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "recover",
+    inputs: [
+      {
+        name: "token",
+        type: "address",
+        internalType: "contract IERC20",
+      },
+      {
+        name: "to",
+        type: "address",
+        internalType: "address",
+      },
+    ],
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
+    name: "refund",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+      {
+        name: "amount",
+        type: "uint128",
+        internalType: "uint128",
+      },
+    ],
+    outputs: [],
+    stateMutability: "payable",
+  },
+  {
+    type: "function",
+    name: "refundAndPause",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+      {
+        name: "amount",
+        type: "uint128",
+        internalType: "uint128",
+      },
+    ],
+    outputs: [],
+    stateMutability: "payable",
+  },
+  {
+    type: "function",
+    name: "refundMax",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
+    outputs: [],
+    stateMutability: "payable",
+  },
+  {
+    type: "function",
+    name: "refundableAmountOf",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
+    outputs: [
+      {
+        name: "refundableAmount",
+        type: "uint128",
+        internalType: "uint128",
+      },
+    ],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "restart",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+      {
+        name: "ratePerSecond",
+        type: "uint128",
+        internalType: "UD21x18",
+      },
+    ],
+    outputs: [],
+    stateMutability: "payable",
+  },
+  {
+    type: "function",
+    name: "restartAndDeposit",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+      {
+        name: "ratePerSecond",
+        type: "uint128",
+        internalType: "UD21x18",
+      },
+      {
+        name: "amount",
+        type: "uint128",
+        internalType: "uint128",
+      },
+    ],
+    outputs: [],
+    stateMutability: "payable",
+  },
+  {
+    type: "function",
+    name: "safeTransferFrom",
+    inputs: [
+      {
+        name: "from",
+        type: "address",
+        internalType: "address",
+      },
+      {
+        name: "to",
+        type: "address",
+        internalType: "address",
+      },
+      {
+        name: "tokenId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
+    name: "safeTransferFrom",
+    inputs: [
+      {
+        name: "from",
+        type: "address",
+        internalType: "address",
+      },
+      {
+        name: "to",
+        type: "address",
+        internalType: "address",
+      },
+      {
+        name: "tokenId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+      {
+        name: "data",
+        type: "bytes",
+        internalType: "bytes",
+      },
+    ],
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
+    name: "setApprovalForAll",
+    inputs: [
+      {
+        name: "operator",
+        type: "address",
+        internalType: "address",
+      },
+      {
+        name: "approved",
+        type: "bool",
+        internalType: "bool",
+      },
+    ],
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
+    name: "setNFTDescriptor",
+    inputs: [
+      {
+        name: "newNFTDescriptor",
+        type: "address",
+        internalType: "contract IFlowNFTDescriptor",
+      },
+    ],
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
+    name: "setProtocolFee",
+    inputs: [
+      {
+        name: "token",
+        type: "address",
+        internalType: "contract IERC20",
+      },
+      {
+        name: "newProtocolFee",
+        type: "uint256",
+        internalType: "UD60x18",
+      },
+    ],
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
+    name: "statusOf",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
+    outputs: [
+      {
+        name: "status",
+        type: "uint8",
+        internalType: "enum Flow.Status",
+      },
+    ],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "supportsInterface",
+    inputs: [
+      {
+        name: "interfaceId",
+        type: "bytes4",
+        internalType: "bytes4",
+      },
+    ],
+    outputs: [
+      {
+        name: "",
+        type: "bool",
+        internalType: "bool",
+      },
+    ],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
     name: "symbol",
-    outputs: [{ internalType: "string", name: "", type: "string" }],
+    inputs: [],
+    outputs: [
+      {
+        name: "",
+        type: "string",
+        internalType: "string",
+      },
+    ],
     stateMutability: "view",
-    type: "function",
   },
   {
-    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
+    type: "function",
     name: "tokenURI",
-    outputs: [{ internalType: "string", name: "uri", type: "string" }],
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
+    outputs: [
+      {
+        name: "uri",
+        type: "string",
+        internalType: "string",
+      },
+    ],
     stateMutability: "view",
-    type: "function",
   },
   {
-    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
+    type: "function",
     name: "totalDebtOf",
-    outputs: [{ internalType: "uint256", name: "totalDebt", type: "uint256" }],
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
+    outputs: [
+      {
+        name: "totalDebt",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
     stateMutability: "view",
-    type: "function",
   },
   {
-    inputs: [{ internalType: "address", name: "newAdmin", type: "address" }],
+    type: "function",
     name: "transferAdmin",
+    inputs: [
+      {
+        name: "newAdmin",
+        type: "address",
+        internalType: "address",
+      },
+    ],
     outputs: [],
     stateMutability: "nonpayable",
-    type: "function",
   },
   {
-    inputs: [
-      { internalType: "address", name: "from", type: "address" },
-      { internalType: "address", name: "to", type: "address" },
-      { internalType: "uint256", name: "tokenId", type: "uint256" },
-    ],
+    type: "function",
     name: "transferFrom",
+    inputs: [
+      {
+        name: "from",
+        type: "address",
+        internalType: "address",
+      },
+      {
+        name: "to",
+        type: "address",
+        internalType: "address",
+      },
+      {
+        name: "tokenId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
     outputs: [],
     stateMutability: "nonpayable",
-    type: "function",
   },
   {
-    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
+    type: "function",
     name: "uncoveredDebtOf",
-    outputs: [{ internalType: "uint256", name: "uncoveredDebt", type: "uint256" }],
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
+    outputs: [
+      {
+        name: "uncoveredDebt",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
     stateMutability: "view",
-    type: "function",
   },
   {
-    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
+    type: "function",
     name: "void",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
     outputs: [],
     stateMutability: "payable",
-    type: "function",
   },
   {
-    inputs: [
-      { internalType: "uint256", name: "streamId", type: "uint256" },
-      { internalType: "address", name: "to", type: "address" },
-      { internalType: "uint128", name: "amount", type: "uint128" },
-    ],
+    type: "function",
     name: "withdraw",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+      {
+        name: "to",
+        type: "address",
+        internalType: "address",
+      },
+      {
+        name: "amount",
+        type: "uint128",
+        internalType: "uint128",
+      },
+    ],
     outputs: [
-      { internalType: "uint128", name: "withdrawnAmount", type: "uint128" },
-      { internalType: "uint128", name: "protocolFeeAmount", type: "uint128" },
+      {
+        name: "withdrawnAmount",
+        type: "uint128",
+        internalType: "uint128",
+      },
+      {
+        name: "protocolFeeAmount",
+        type: "uint128",
+        internalType: "uint128",
+      },
     ],
     stateMutability: "payable",
-    type: "function",
   },
   {
-    inputs: [
-      { internalType: "uint256", name: "streamId", type: "uint256" },
-      { internalType: "address", name: "to", type: "address" },
-    ],
+    type: "function",
     name: "withdrawMax",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+      {
+        name: "to",
+        type: "address",
+        internalType: "address",
+      },
+    ],
     outputs: [
-      { internalType: "uint128", name: "withdrawnAmount", type: "uint128" },
-      { internalType: "uint128", name: "protocolFeeAmount", type: "uint128" },
+      {
+        name: "withdrawnAmount",
+        type: "uint128",
+        internalType: "uint128",
+      },
+      {
+        name: "protocolFeeAmount",
+        type: "uint128",
+        internalType: "uint128",
+      },
     ],
     stateMutability: "payable",
-    type: "function",
   },
   {
-    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
+    type: "function",
     name: "withdrawableAmountOf",
-    outputs: [{ internalType: "uint128", name: "withdrawableAmount", type: "uint128" }],
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
+    outputs: [
+      {
+        name: "withdrawableAmount",
+        type: "uint128",
+        internalType: "uint128",
+      },
+    ],
     stateMutability: "view",
-    type: "function",
   },
   {
-    anonymous: false,
-    inputs: [
-      { indexed: true, internalType: "uint256", name: "streamId", type: "uint256" },
-      { indexed: false, internalType: "uint256", name: "totalDebt", type: "uint256" },
-      { indexed: false, internalType: "UD21x18", name: "oldRatePerSecond", type: "uint128" },
-      { indexed: false, internalType: "UD21x18", name: "newRatePerSecond", type: "uint128" },
-    ],
+    type: "event",
     name: "AdjustFlowStream",
-    type: "event",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        indexed: true,
+        internalType: "uint256",
+      },
+      {
+        name: "totalDebt",
+        type: "uint256",
+        indexed: false,
+        internalType: "uint256",
+      },
+      {
+        name: "oldRatePerSecond",
+        type: "uint128",
+        indexed: false,
+        internalType: "UD21x18",
+      },
+      {
+        name: "newRatePerSecond",
+        type: "uint128",
+        indexed: false,
+        internalType: "UD21x18",
+      },
+    ],
+    anonymous: false,
   },
   {
-    anonymous: false,
-    inputs: [
-      { indexed: true, internalType: "address", name: "owner", type: "address" },
-      { indexed: true, internalType: "address", name: "approved", type: "address" },
-      { indexed: true, internalType: "uint256", name: "tokenId", type: "uint256" },
-    ],
+    type: "event",
     name: "Approval",
-    type: "event",
+    inputs: [
+      {
+        name: "owner",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+      {
+        name: "approved",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+      {
+        name: "tokenId",
+        type: "uint256",
+        indexed: true,
+        internalType: "uint256",
+      },
+    ],
+    anonymous: false,
   },
   {
-    anonymous: false,
-    inputs: [
-      { indexed: true, internalType: "address", name: "owner", type: "address" },
-      { indexed: true, internalType: "address", name: "operator", type: "address" },
-      { indexed: false, internalType: "bool", name: "approved", type: "bool" },
-    ],
+    type: "event",
     name: "ApprovalForAll",
-    type: "event",
+    inputs: [
+      {
+        name: "owner",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+      {
+        name: "operator",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+      {
+        name: "approved",
+        type: "bool",
+        indexed: false,
+        internalType: "bool",
+      },
+    ],
+    anonymous: false,
   },
   {
-    anonymous: false,
-    inputs: [
-      { indexed: false, internalType: "uint256", name: "_fromTokenId", type: "uint256" },
-      { indexed: false, internalType: "uint256", name: "_toTokenId", type: "uint256" },
-    ],
+    type: "event",
     name: "BatchMetadataUpdate",
-    type: "event",
+    inputs: [
+      {
+        name: "_fromTokenId",
+        type: "uint256",
+        indexed: false,
+        internalType: "uint256",
+      },
+      {
+        name: "_toTokenId",
+        type: "uint256",
+        indexed: false,
+        internalType: "uint256",
+      },
+    ],
+    anonymous: false,
   },
   {
-    anonymous: false,
-    inputs: [
-      { indexed: true, internalType: "address", name: "admin", type: "address" },
-      { indexed: true, internalType: "uint256", name: "feeAmount", type: "uint256" },
-    ],
+    type: "event",
     name: "CollectFees",
-    type: "event",
+    inputs: [
+      {
+        name: "admin",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+      {
+        name: "feeAmount",
+        type: "uint256",
+        indexed: true,
+        internalType: "uint256",
+      },
+    ],
+    anonymous: false,
   },
   {
-    anonymous: false,
-    inputs: [
-      { indexed: true, internalType: "address", name: "admin", type: "address" },
-      { indexed: true, internalType: "contract IERC20", name: "token", type: "address" },
-      { indexed: false, internalType: "address", name: "to", type: "address" },
-      { indexed: false, internalType: "uint128", name: "revenue", type: "uint128" },
-    ],
+    type: "event",
     name: "CollectProtocolRevenue",
-    type: "event",
+    inputs: [
+      {
+        name: "admin",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+      {
+        name: "token",
+        type: "address",
+        indexed: true,
+        internalType: "contract IERC20",
+      },
+      {
+        name: "to",
+        type: "address",
+        indexed: false,
+        internalType: "address",
+      },
+      {
+        name: "revenue",
+        type: "uint128",
+        indexed: false,
+        internalType: "uint128",
+      },
+    ],
+    anonymous: false,
   },
   {
-    anonymous: false,
-    inputs: [
-      { indexed: false, internalType: "uint256", name: "streamId", type: "uint256" },
-      { indexed: true, internalType: "address", name: "sender", type: "address" },
-      { indexed: true, internalType: "address", name: "recipient", type: "address" },
-      { indexed: false, internalType: "UD21x18", name: "ratePerSecond", type: "uint128" },
-      { indexed: true, internalType: "contract IERC20", name: "token", type: "address" },
-      { indexed: false, internalType: "bool", name: "transferable", type: "bool" },
-    ],
+    type: "event",
     name: "CreateFlowStream",
-    type: "event",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        indexed: false,
+        internalType: "uint256",
+      },
+      {
+        name: "sender",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+      {
+        name: "recipient",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+      {
+        name: "ratePerSecond",
+        type: "uint128",
+        indexed: false,
+        internalType: "UD21x18",
+      },
+      {
+        name: "token",
+        type: "address",
+        indexed: true,
+        internalType: "contract IERC20",
+      },
+      {
+        name: "transferable",
+        type: "bool",
+        indexed: false,
+        internalType: "bool",
+      },
+    ],
+    anonymous: false,
   },
   {
-    anonymous: false,
-    inputs: [
-      { indexed: true, internalType: "uint256", name: "streamId", type: "uint256" },
-      { indexed: true, internalType: "address", name: "funder", type: "address" },
-      { indexed: false, internalType: "uint128", name: "amount", type: "uint128" },
-    ],
+    type: "event",
     name: "DepositFlowStream",
-    type: "event",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        indexed: true,
+        internalType: "uint256",
+      },
+      {
+        name: "funder",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+      {
+        name: "amount",
+        type: "uint128",
+        indexed: false,
+        internalType: "uint128",
+      },
+    ],
+    anonymous: false,
   },
   {
-    anonymous: false,
-    inputs: [{ indexed: false, internalType: "uint256", name: "_tokenId", type: "uint256" }],
+    type: "event",
     name: "MetadataUpdate",
-    type: "event",
+    inputs: [
+      {
+        name: "_tokenId",
+        type: "uint256",
+        indexed: false,
+        internalType: "uint256",
+      },
+    ],
+    anonymous: false,
   },
   {
-    anonymous: false,
-    inputs: [
-      { indexed: true, internalType: "uint256", name: "streamId", type: "uint256" },
-      { indexed: true, internalType: "address", name: "sender", type: "address" },
-      { indexed: true, internalType: "address", name: "recipient", type: "address" },
-      { indexed: false, internalType: "uint256", name: "totalDebt", type: "uint256" },
-    ],
+    type: "event",
     name: "PauseFlowStream",
-    type: "event",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        indexed: true,
+        internalType: "uint256",
+      },
+      {
+        name: "sender",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+      {
+        name: "recipient",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+      {
+        name: "totalDebt",
+        type: "uint256",
+        indexed: false,
+        internalType: "uint256",
+      },
+    ],
+    anonymous: false,
   },
   {
-    anonymous: false,
-    inputs: [
-      { indexed: true, internalType: "address", name: "admin", type: "address" },
-      { indexed: true, internalType: "contract IERC20", name: "token", type: "address" },
-      { indexed: false, internalType: "address", name: "to", type: "address" },
-      { indexed: false, internalType: "uint256", name: "surplus", type: "uint256" },
-    ],
+    type: "event",
     name: "Recover",
-    type: "event",
+    inputs: [
+      {
+        name: "admin",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+      {
+        name: "token",
+        type: "address",
+        indexed: true,
+        internalType: "contract IERC20",
+      },
+      {
+        name: "to",
+        type: "address",
+        indexed: false,
+        internalType: "address",
+      },
+      {
+        name: "surplus",
+        type: "uint256",
+        indexed: false,
+        internalType: "uint256",
+      },
+    ],
+    anonymous: false,
   },
   {
-    anonymous: false,
-    inputs: [
-      { indexed: true, internalType: "uint256", name: "streamId", type: "uint256" },
-      { indexed: true, internalType: "address", name: "sender", type: "address" },
-      { indexed: false, internalType: "uint128", name: "amount", type: "uint128" },
-    ],
+    type: "event",
     name: "RefundFromFlowStream",
-    type: "event",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        indexed: true,
+        internalType: "uint256",
+      },
+      {
+        name: "sender",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+      {
+        name: "amount",
+        type: "uint128",
+        indexed: false,
+        internalType: "uint128",
+      },
+    ],
+    anonymous: false,
   },
   {
-    anonymous: false,
-    inputs: [
-      { indexed: true, internalType: "uint256", name: "streamId", type: "uint256" },
-      { indexed: true, internalType: "address", name: "sender", type: "address" },
-      { indexed: false, internalType: "UD21x18", name: "ratePerSecond", type: "uint128" },
-    ],
+    type: "event",
     name: "RestartFlowStream",
-    type: "event",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        indexed: true,
+        internalType: "uint256",
+      },
+      {
+        name: "sender",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+      {
+        name: "ratePerSecond",
+        type: "uint128",
+        indexed: false,
+        internalType: "UD21x18",
+      },
+    ],
+    anonymous: false,
   },
   {
-    anonymous: false,
-    inputs: [
-      { indexed: true, internalType: "address", name: "admin", type: "address" },
-      { indexed: false, internalType: "contract IFlowNFTDescriptor", name: "oldNFTDescriptor", type: "address" },
-      { indexed: false, internalType: "contract IFlowNFTDescriptor", name: "newNFTDescriptor", type: "address" },
-    ],
+    type: "event",
     name: "SetNFTDescriptor",
-    type: "event",
+    inputs: [
+      {
+        name: "admin",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+      {
+        name: "oldNFTDescriptor",
+        type: "address",
+        indexed: false,
+        internalType: "contract IFlowNFTDescriptor",
+      },
+      {
+        name: "newNFTDescriptor",
+        type: "address",
+        indexed: false,
+        internalType: "contract IFlowNFTDescriptor",
+      },
+    ],
+    anonymous: false,
   },
   {
-    anonymous: false,
-    inputs: [
-      { indexed: true, internalType: "address", name: "admin", type: "address" },
-      { indexed: true, internalType: "contract IERC20", name: "token", type: "address" },
-      { indexed: false, internalType: "UD60x18", name: "oldProtocolFee", type: "uint256" },
-      { indexed: false, internalType: "UD60x18", name: "newProtocolFee", type: "uint256" },
-    ],
+    type: "event",
     name: "SetProtocolFee",
-    type: "event",
+    inputs: [
+      {
+        name: "admin",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+      {
+        name: "token",
+        type: "address",
+        indexed: true,
+        internalType: "contract IERC20",
+      },
+      {
+        name: "oldProtocolFee",
+        type: "uint256",
+        indexed: false,
+        internalType: "UD60x18",
+      },
+      {
+        name: "newProtocolFee",
+        type: "uint256",
+        indexed: false,
+        internalType: "UD60x18",
+      },
+    ],
+    anonymous: false,
   },
   {
-    anonymous: false,
-    inputs: [
-      { indexed: true, internalType: "address", name: "from", type: "address" },
-      { indexed: true, internalType: "address", name: "to", type: "address" },
-      { indexed: true, internalType: "uint256", name: "tokenId", type: "uint256" },
-    ],
+    type: "event",
     name: "Transfer",
-    type: "event",
+    inputs: [
+      {
+        name: "from",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+      {
+        name: "to",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+      {
+        name: "tokenId",
+        type: "uint256",
+        indexed: true,
+        internalType: "uint256",
+      },
+    ],
+    anonymous: false,
   },
   {
-    anonymous: false,
-    inputs: [
-      { indexed: true, internalType: "address", name: "oldAdmin", type: "address" },
-      { indexed: true, internalType: "address", name: "newAdmin", type: "address" },
-    ],
+    type: "event",
     name: "TransferAdmin",
-    type: "event",
+    inputs: [
+      {
+        name: "oldAdmin",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+      {
+        name: "newAdmin",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+    ],
+    anonymous: false,
   },
   {
-    anonymous: false,
-    inputs: [
-      { indexed: true, internalType: "uint256", name: "streamId", type: "uint256" },
-      { indexed: true, internalType: "address", name: "sender", type: "address" },
-      { indexed: true, internalType: "address", name: "recipient", type: "address" },
-      { indexed: false, internalType: "address", name: "caller", type: "address" },
-      { indexed: false, internalType: "uint256", name: "newTotalDebt", type: "uint256" },
-      { indexed: false, internalType: "uint256", name: "writtenOffDebt", type: "uint256" },
-    ],
+    type: "event",
     name: "VoidFlowStream",
-    type: "event",
-  },
-  {
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        indexed: true,
+        internalType: "uint256",
+      },
+      {
+        name: "sender",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+      {
+        name: "recipient",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+      {
+        name: "caller",
+        type: "address",
+        indexed: false,
+        internalType: "address",
+      },
+      {
+        name: "newTotalDebt",
+        type: "uint256",
+        indexed: false,
+        internalType: "uint256",
+      },
+      {
+        name: "writtenOffDebt",
+        type: "uint256",
+        indexed: false,
+        internalType: "uint256",
+      },
+    ],
     anonymous: false,
-    inputs: [
-      { indexed: true, internalType: "uint256", name: "streamId", type: "uint256" },
-      { indexed: true, internalType: "address", name: "to", type: "address" },
-      { indexed: true, internalType: "contract IERC20", name: "token", type: "address" },
-      { indexed: false, internalType: "address", name: "caller", type: "address" },
-      { indexed: false, internalType: "uint128", name: "withdrawAmount", type: "uint128" },
-      { indexed: false, internalType: "uint128", name: "protocolFeeAmount", type: "uint128" },
-    ],
-    name: "WithdrawFromFlowStream",
+  },
+  {
     type: "event",
+    name: "WithdrawFromFlowStream",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        indexed: true,
+        internalType: "uint256",
+      },
+      {
+        name: "to",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+      {
+        name: "token",
+        type: "address",
+        indexed: true,
+        internalType: "contract IERC20",
+      },
+      {
+        name: "caller",
+        type: "address",
+        indexed: false,
+        internalType: "address",
+      },
+      {
+        name: "withdrawAmount",
+        type: "uint128",
+        indexed: false,
+        internalType: "uint128",
+      },
+      {
+        name: "protocolFeeAmount",
+        type: "uint128",
+        indexed: false,
+        internalType: "uint128",
+      },
+    ],
+    anonymous: false,
   },
-  { inputs: [{ internalType: "address", name: "target", type: "address" }], name: "AddressEmptyCode", type: "error" },
   {
-    inputs: [{ internalType: "address", name: "account", type: "address" }],
+    type: "error",
+    name: "AddressEmptyCode",
+    inputs: [
+      {
+        name: "target",
+        type: "address",
+        internalType: "address",
+      },
+    ],
+  },
+  {
+    type: "error",
     name: "AddressInsufficientBalance",
-    type: "error",
+    inputs: [
+      {
+        name: "account",
+        type: "address",
+        internalType: "address",
+      },
+    ],
   },
   {
-    inputs: [
-      { internalType: "address", name: "admin", type: "address" },
-      { internalType: "address", name: "caller", type: "address" },
-    ],
+    type: "error",
     name: "CallerNotAdmin",
-    type: "error",
-  },
-  { inputs: [], name: "DelegateCall", type: "error" },
-  {
     inputs: [
-      { internalType: "address", name: "sender", type: "address" },
-      { internalType: "uint256", name: "tokenId", type: "uint256" },
-      { internalType: "address", name: "owner", type: "address" },
+      {
+        name: "admin",
+        type: "address",
+        internalType: "address",
+      },
+      {
+        name: "caller",
+        type: "address",
+        internalType: "address",
+      },
     ],
+  },
+  {
+    type: "error",
+    name: "DelegateCall",
+    inputs: [],
+  },
+  {
+    type: "error",
     name: "ERC721IncorrectOwner",
-    type: "error",
+    inputs: [
+      {
+        name: "sender",
+        type: "address",
+        internalType: "address",
+      },
+      {
+        name: "tokenId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+      {
+        name: "owner",
+        type: "address",
+        internalType: "address",
+      },
+    ],
   },
   {
-    inputs: [
-      { internalType: "address", name: "operator", type: "address" },
-      { internalType: "uint256", name: "tokenId", type: "uint256" },
-    ],
+    type: "error",
     name: "ERC721InsufficientApproval",
-    type: "error",
+    inputs: [
+      {
+        name: "operator",
+        type: "address",
+        internalType: "address",
+      },
+      {
+        name: "tokenId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
   },
   {
-    inputs: [{ internalType: "address", name: "approver", type: "address" }],
+    type: "error",
     name: "ERC721InvalidApprover",
-    type: "error",
+    inputs: [
+      {
+        name: "approver",
+        type: "address",
+        internalType: "address",
+      },
+    ],
   },
   {
-    inputs: [{ internalType: "address", name: "operator", type: "address" }],
+    type: "error",
     name: "ERC721InvalidOperator",
-    type: "error",
+    inputs: [
+      {
+        name: "operator",
+        type: "address",
+        internalType: "address",
+      },
+    ],
   },
-  { inputs: [{ internalType: "address", name: "owner", type: "address" }], name: "ERC721InvalidOwner", type: "error" },
   {
-    inputs: [{ internalType: "address", name: "receiver", type: "address" }],
+    type: "error",
+    name: "ERC721InvalidOwner",
+    inputs: [
+      {
+        name: "owner",
+        type: "address",
+        internalType: "address",
+      },
+    ],
+  },
+  {
+    type: "error",
     name: "ERC721InvalidReceiver",
-    type: "error",
+    inputs: [
+      {
+        name: "receiver",
+        type: "address",
+        internalType: "address",
+      },
+    ],
   },
   {
-    inputs: [{ internalType: "address", name: "sender", type: "address" }],
+    type: "error",
     name: "ERC721InvalidSender",
-    type: "error",
+    inputs: [
+      {
+        name: "sender",
+        type: "address",
+        internalType: "address",
+      },
+    ],
   },
   {
-    inputs: [{ internalType: "uint256", name: "tokenId", type: "uint256" }],
+    type: "error",
     name: "ERC721NonexistentToken",
-    type: "error",
-  },
-  { inputs: [], name: "FailedInnerCall", type: "error" },
-  {
     inputs: [
-      { internalType: "uint256", name: "x", type: "uint256" },
-      { internalType: "uint256", name: "y", type: "uint256" },
+      {
+        name: "tokenId",
+        type: "uint256",
+        internalType: "uint256",
+      },
     ],
+  },
+  {
+    type: "error",
+    name: "FailedInnerCall",
+    inputs: [],
+  },
+  {
+    type: "error",
     name: "PRBMath_MulDiv18_Overflow",
-    type: "error",
+    inputs: [
+      {
+        name: "x",
+        type: "uint256",
+        internalType: "uint256",
+      },
+      {
+        name: "y",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
   },
   {
-    inputs: [{ internalType: "UD60x18", name: "x", type: "uint256" }],
+    type: "error",
     name: "PRBMath_UD60x18_IntoUint128_Overflow",
-    type: "error",
+    inputs: [
+      {
+        name: "x",
+        type: "uint256",
+        internalType: "UD60x18",
+      },
+    ],
   },
   {
-    inputs: [
-      { internalType: "address", name: "admin", type: "address" },
-      { internalType: "uint256", name: "feeAmount", type: "uint256" },
-    ],
+    type: "error",
     name: "SablierFlowBase_FeeTransferFail",
-    type: "error",
+    inputs: [
+      {
+        name: "admin",
+        type: "address",
+        internalType: "address",
+      },
+      {
+        name: "feeAmount",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
   },
   {
-    inputs: [{ internalType: "address", name: "token", type: "address" }],
+    type: "error",
     name: "SablierFlowBase_NoProtocolRevenue",
-    type: "error",
+    inputs: [
+      {
+        name: "token",
+        type: "address",
+        internalType: "address",
+      },
+    ],
   },
   {
-    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
+    type: "error",
     name: "SablierFlowBase_NotTransferable",
-    type: "error",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
   },
   {
-    inputs: [
-      { internalType: "UD60x18", name: "newProtocolFee", type: "uint256" },
-      { internalType: "UD60x18", name: "maxFee", type: "uint256" },
-    ],
+    type: "error",
     name: "SablierFlowBase_ProtocolFeeTooHigh",
-    type: "error",
+    inputs: [
+      {
+        name: "newProtocolFee",
+        type: "uint256",
+        internalType: "UD60x18",
+      },
+      {
+        name: "maxFee",
+        type: "uint256",
+        internalType: "UD60x18",
+      },
+    ],
   },
   {
-    inputs: [{ internalType: "address", name: "token", type: "address" }],
+    type: "error",
     name: "SablierFlowBase_SurplusZero",
-    type: "error",
-  },
-  { inputs: [], name: "SablierFlow_BrokerAddressZero", type: "error" },
-  {
     inputs: [
-      { internalType: "UD60x18", name: "brokerFee", type: "uint256" },
-      { internalType: "UD60x18", name: "maxFee", type: "uint256" },
+      {
+        name: "token",
+        type: "address",
+        internalType: "address",
+      },
     ],
+  },
+  {
+    type: "error",
+    name: "SablierFlow_BrokerAddressZero",
+    inputs: [],
+  },
+  {
+    type: "error",
     name: "SablierFlow_BrokerFeeTooHigh",
-    type: "error",
+    inputs: [
+      {
+        name: "brokerFee",
+        type: "uint256",
+        internalType: "UD60x18",
+      },
+      {
+        name: "maxFee",
+        type: "uint256",
+        internalType: "UD60x18",
+      },
+    ],
   },
   {
-    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
+    type: "error",
     name: "SablierFlow_DepositAmountZero",
-    type: "error",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
   },
   {
-    inputs: [
-      { internalType: "uint256", name: "streamId", type: "uint256" },
-      { internalType: "uint128", name: "availableAmount", type: "uint128" },
-      { internalType: "uint128", name: "amount", type: "uint128" },
-    ],
+    type: "error",
     name: "SablierFlow_InvalidCalculation",
-    type: "error",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+      {
+        name: "availableAmount",
+        type: "uint128",
+        internalType: "uint128",
+      },
+      {
+        name: "amount",
+        type: "uint128",
+        internalType: "uint128",
+      },
+    ],
   },
   {
-    inputs: [{ internalType: "address", name: "token", type: "address" }],
+    type: "error",
     name: "SablierFlow_InvalidTokenDecimals",
-    type: "error",
+    inputs: [
+      {
+        name: "token",
+        type: "address",
+        internalType: "address",
+      },
+    ],
   },
   {
-    inputs: [
-      { internalType: "address", name: "recipient", type: "address" },
-      { internalType: "address", name: "streamRecipient", type: "address" },
-    ],
+    type: "error",
     name: "SablierFlow_NotStreamRecipient",
-    type: "error",
+    inputs: [
+      {
+        name: "recipient",
+        type: "address",
+        internalType: "address",
+      },
+      {
+        name: "streamRecipient",
+        type: "address",
+        internalType: "address",
+      },
+    ],
   },
   {
-    inputs: [
-      { internalType: "address", name: "sender", type: "address" },
-      { internalType: "address", name: "streamSender", type: "address" },
-    ],
+    type: "error",
     name: "SablierFlow_NotStreamSender",
-    type: "error",
-  },
-  { inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }], name: "SablierFlow_Null", type: "error" },
-  {
     inputs: [
-      { internalType: "uint256", name: "streamId", type: "uint256" },
-      { internalType: "uint128", name: "amount", type: "uint128" },
-      { internalType: "uint128", name: "withdrawableAmount", type: "uint128" },
+      {
+        name: "sender",
+        type: "address",
+        internalType: "address",
+      },
+      {
+        name: "streamSender",
+        type: "address",
+        internalType: "address",
+      },
     ],
+  },
+  {
+    type: "error",
+    name: "SablierFlow_Null",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
+  },
+  {
+    type: "error",
     name: "SablierFlow_Overdraw",
-    type: "error",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+      {
+        name: "amount",
+        type: "uint128",
+        internalType: "uint128",
+      },
+      {
+        name: "withdrawableAmount",
+        type: "uint128",
+        internalType: "uint128",
+      },
+    ],
   },
   {
-    inputs: [
-      { internalType: "uint256", name: "streamId", type: "uint256" },
-      { internalType: "UD21x18", name: "ratePerSecond", type: "uint128" },
-    ],
+    type: "error",
     name: "SablierFlow_RatePerSecondNotDifferent",
-    type: "error",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+      {
+        name: "ratePerSecond",
+        type: "uint128",
+        internalType: "UD21x18",
+      },
+    ],
   },
   {
-    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
+    type: "error",
     name: "SablierFlow_RefundAmountZero",
-    type: "error",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
   },
   {
-    inputs: [
-      { internalType: "uint256", name: "streamId", type: "uint256" },
-      { internalType: "uint128", name: "refundAmount", type: "uint128" },
-      { internalType: "uint128", name: "refundableAmount", type: "uint128" },
-    ],
+    type: "error",
     name: "SablierFlow_RefundOverflow",
-    type: "error",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+      {
+        name: "refundAmount",
+        type: "uint128",
+        internalType: "uint128",
+      },
+      {
+        name: "refundableAmount",
+        type: "uint128",
+        internalType: "uint128",
+      },
+    ],
   },
-  { inputs: [], name: "SablierFlow_SenderZeroAddress", type: "error" },
   {
-    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
+    type: "error",
+    name: "SablierFlow_SenderZeroAddress",
+    inputs: [],
+  },
+  {
+    type: "error",
     name: "SablierFlow_StreamBalanceZero",
-    type: "error",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
   },
   {
-    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
+    type: "error",
     name: "SablierFlow_StreamNotPaused",
-    type: "error",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
   },
   {
-    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
+    type: "error",
     name: "SablierFlow_StreamPaused",
-    type: "error",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
   },
   {
-    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
+    type: "error",
     name: "SablierFlow_StreamVoided",
-    type: "error",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
   },
   {
-    inputs: [
-      { internalType: "uint256", name: "streamId", type: "uint256" },
-      { internalType: "address", name: "caller", type: "address" },
-    ],
+    type: "error",
     name: "SablierFlow_Unauthorized",
-    type: "error",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+      {
+        name: "caller",
+        type: "address",
+        internalType: "address",
+      },
+    ],
   },
   {
-    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
+    type: "error",
     name: "SablierFlow_WithdrawAmountZero",
-    type: "error",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
   },
   {
-    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
+    type: "error",
     name: "SablierFlow_WithdrawToZeroAddress",
-    type: "error",
+    inputs: [
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
   },
   {
-    inputs: [
-      { internalType: "uint256", name: "streamId", type: "uint256" },
-      { internalType: "address", name: "caller", type: "address" },
-      { internalType: "address", name: "to", type: "address" },
-    ],
+    type: "error",
     name: "SablierFlow_WithdrawalAddressNotRecipient",
-    type: "error",
-  },
-  {
     inputs: [
-      { internalType: "uint8", name: "bits", type: "uint8" },
-      { internalType: "uint256", name: "value", type: "uint256" },
+      {
+        name: "streamId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+      {
+        name: "caller",
+        type: "address",
+        internalType: "address",
+      },
+      {
+        name: "to",
+        type: "address",
+        internalType: "address",
+      },
     ],
-    name: "SafeCastOverflowedUintDowncast",
-    type: "error",
   },
   {
-    inputs: [{ internalType: "address", name: "token", type: "address" }],
-    name: "SafeERC20FailedOperation",
     type: "error",
+    name: "SafeCastOverflowedUintDowncast",
+    inputs: [
+      {
+        name: "bits",
+        type: "uint8",
+        internalType: "uint8",
+      },
+      {
+        name: "value",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
+  },
+  {
+    type: "error",
+    name: "SafeERC20FailedOperation",
+    inputs: [
+      {
+        name: "token",
+        type: "address",
+        internalType: "address",
+      },
+    ],
   },
 ] as const;

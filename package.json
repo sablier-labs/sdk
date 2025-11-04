@@ -4,7 +4,7 @@
   "license": "GPL-3.0-or-later",
   "main": "dist/index.js",
   "types": "./dist/index.d.ts",
-  "version": "2.0.0",
+  "version": "2.0.0-beta.8",
   "author": {
     "name": "Sablier Labs Ltd",
     "url": "https://sablier.com"
