@@ -16,11 +16,11 @@ export enum Protocol {
 
 export namespace Version {
   export enum Airdrops {
-    V1_0 = "v1.0",
+    V0_1 = "v0.1",
   }
 
   export enum Lockup {
-    V1_0 = "v1.0",
+    V0_1 = "v0.1",
   }
 }
 
