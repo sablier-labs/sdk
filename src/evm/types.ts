@@ -1,4 +1,4 @@
-import type { AliasMap, ContractBase, ContractMapBase, ManifestBase, Repository, Shared } from "@src/shared/types";
+import type { AliasMap, Repository, Shared } from "@src/shared/types";
 import type * as enums from "./enums";
 
 export namespace EVM {
@@ -22,7 +22,7 @@ export namespace EVM {
   /**
    * The base contract type for EVM chains.
    */
-  export type Contract = ContractBase<Address, Protocol, Version>;
+  export type Contract = Shared.Contract<Address, Protocol, Version>;
 
   /**
    * Reverse mapping of contracts so that we can look up contracts by address.
@@ -36,7 +36,7 @@ export namespace EVM {
   };
 
   /** @internal */
-  export type ContractMap = ContractMapBase<Address>;
+  export type ContractMap = Shared.ContractMap<Address>;
 
   export type Protocol = `${enums.Protocol}` | enums.Protocol;
 
@@ -91,7 +91,7 @@ export namespace EVM {
       periphery: Standard;
     };
 
-    export type Standard = ManifestBase;
+    export type Standard = Shared.Manifest;
   }
 
   export type Manifest = Manifest.LockupV1 | Manifest.Standard;

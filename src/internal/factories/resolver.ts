@@ -1,5 +1,5 @@
 import { getContractExplorerURL } from "@src/helpers";
-import type { AliasMap, ContractMapBase } from "@src/shared/types";
+import type { AliasMap, Shared } from "@src/shared/types";
 import _ from "lodash";
 
 /* -------------------------------------------------------------------------- */
@@ -32,7 +32,10 @@ type ContractMapperParams<TProtocol, TVersion> = {
 export function createContractMapper<TContract, TProtocol, TVersion, TAddress extends string>(
   chainsQueries: ChainsQueries,
 ) {
-  return (contractMap: ContractMapBase<TAddress>, params: ContractMapperParams<TProtocol, TVersion>): TContract[] => {
+  return (
+    contractMap: Shared.ContractMap<TAddress>,
+    params: ContractMapperParams<TProtocol, TVersion>,
+  ): TContract[] => {
     const { chainId, protocol, version, aliasMap } = params;
     const chain = chainsQueries.getOrThrow(chainId);
 
@@ -74,7 +77,7 @@ export function createStandardDeploymentResolver<TDeployment, TContract, TProtoc
     version: TVersion;
     chainId: number;
     aliasMap: AliasMap;
-    contractMap: ContractMapBase<TAddress>;
+    contractMap: Shared.ContractMap<TAddress>;
   }): TDeployment => {
     const { contractMap, ...baseParams } = params;
     const items = contractMapper(contractMap, baseParams);

@@ -1,4 +1,4 @@
-import type { AliasMap, ContractBase, ContractMapBase, ManifestBase, Repository, Shared } from "@src/shared/types";
+import type { AliasMap, Repository, Shared } from "@src/shared/types";
 import type * as enums from "./enums";
 
 export namespace Solana {
@@ -25,9 +25,9 @@ export namespace Solana {
   /**
    * The base contract type for Solana.
    */
-  export type Program = ContractBase<Address, Protocol, Version>;
+  export type Program = Shared.Contract<Address, Protocol, Version>;
 
-  export type ProgramMap = ContractMapBase<Address>;
+  export type ProgramMap = Shared.ContractMap<Address>;
   export type ProgramCatalog = {
     [protocol in Protocol]: {
       [chainId: number]: {
@@ -49,7 +49,7 @@ export namespace Solana {
   /**
    * Contract names for a given protocol and version.
    */
-  export type Manifest = ManifestBase;
+  export type Manifest = Shared.Manifest;
 
   export type Protocol = `${enums.Protocol}` | enums.Protocol;
 
