@@ -1,4 +1,4 @@
-import type { ChainBase } from "@src/shared/types";
+import type { Shared } from "@src/shared/types";
 import type * as enums from "./enums";
 
 export namespace Solana {
@@ -6,8 +6,8 @@ export namespace Solana {
   export type ChainCode = `${enums.ChainCode}` | enums.ChainCode;
   export type Cluster = `${enums.Cluster}` | enums.Cluster;
 
-  export type Chain = ChainBase & {
-    rpc: ChainBase["rpc"] & {
+  export type Chain = Shared.Chain & {
+    rpc: Shared.Chain["rpc"] & {
       /** Helius RPC URL generator. */
       helius?: (apiKey: string) => string;
     };

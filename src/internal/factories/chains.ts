@@ -1,11 +1,11 @@
 import { sortChains } from "@src/helpers";
-import type { ChainBase } from "@src/shared/types";
+import type { Shared } from "@src/shared/types";
 import _ from "lodash";
 
 /**
  * Generic factory function to create type-safe chain query objects.
  *
- * @template T - Chain type extending ChainBase constraint
+ * @template T - Chain type extending ChainCommon constraint
  * @param chains - Record of chain definitions keyed by chain identifier
  * @returns Query object with type-safe methods for chain operations
  *
@@ -15,7 +15,7 @@ import _ from "lodash";
  * const solanaQueries = createChainQueries<Sablier.Solana.Chain>(solanaChains);
  * ```
  */
-export function createChainQueries<T extends ChainBase>(chains: Record<string, T>) {
+export function createChainQueries<T extends Shared.Chain>(chains: Record<string, T>) {
   return {
     /**
      * Find a chain by its numeric ID.

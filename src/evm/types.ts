@@ -1,4 +1,4 @@
-import type { ChainBase } from "@src/shared/types";
+import type { Shared } from "@src/shared/types";
 import type * as enums from "./enums";
 
 type Repository = {
@@ -12,10 +12,10 @@ export namespace EVM {
   export type Address = `0x${string}`;
 
   export type AbiMap = { [contractName: string]: readonly object[] };
-  export type Chain = ChainBase & {
+  export type Chain = Shared.Chain & {
     /** Whether this is a zkEVM like zkSync. */
     isZK: boolean;
-    rpc: ChainBase["rpc"] & {
+    rpc: Shared.Chain["rpc"] & {
       /** Alchemy RPC URL generator. */
       alchemy?: (apiKey: string) => string;
       /** Infura RPC URL generator. */
