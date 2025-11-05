@@ -1,73 +1,31 @@
-export default {
+export const sablierMerkleInstantIdl = {
   accounts: [
-    {
-      discriminator: [50, 40, 49, 11, 157, 220, 229, 192],
-      name: "Campaign",
-    },
-    {
-      discriminator: [223, 233, 11, 229, 124, 165, 207, 28],
-      name: "ClaimReceipt",
-    },
-    {
-      discriminator: [238, 239, 123, 238, 89, 1, 168, 253],
-      name: "Treasury",
-    },
+    { discriminator: [50, 40, 49, 11, 157, 220, 229, 192], name: "Campaign" },
+    { discriminator: [223, 233, 11, 229, 124, 165, 207, 28], name: "ClaimReceipt" },
+    { discriminator: [238, 239, 123, 238, 89, 1, 168, 253], name: "Treasury" },
   ],
   address: "7XrxoQejBoGouW4V3aozTSwub7xSDjYqB4Go7YLjF9rV",
   docs: ["Sablier Merkle Instant program for creating and managing Merkle tree-based airdrop campaigns."],
   errors: [
-    {
-      code: 6000,
-      msg: "Campaign has expired!",
-      name: "CampaignExpired",
-    },
-    {
-      code: 6001,
-      msg: "Invalid Merkle proof!",
-      name: "InvalidMerkleProof",
-    },
-    {
-      code: 6002,
-      msg: "Campaign has not started yet!",
-      name: "CampaignNotStarted",
-    },
+    { code: 6000, msg: "Campaign has expired!", name: "CampaignExpired" },
+    { code: 6001, msg: "Invalid Merkle proof!", name: "InvalidMerkleProof" },
+    { code: 6002, msg: "Campaign has not started yet!", name: "CampaignNotStarted" },
     {
       code: 6003,
       msg: "Clawback not allowed past the grace period and before campaign expiration!",
       name: "ClawbackNotAllowed",
     },
-    {
-      code: 6004,
-      msg: "Can't collect zero fees!",
-      name: "CantCollectZeroFees",
-    },
+    { code: 6004, msg: "Can't collect zero fees!", name: "CantCollectZeroFees" },
   ],
   events: [
-    {
-      discriminator: [133, 98, 9, 238, 133, 207, 191, 113],
-      name: "Claim",
-    },
-    {
-      discriminator: [239, 144, 30, 69, 80, 59, 142, 64],
-      name: "Clawback",
-    },
-    {
-      discriminator: [88, 178, 212, 72, 110, 4, 68, 143],
-      name: "CreateCampaign",
-    },
-    {
-      discriminator: [233, 23, 117, 225, 107, 178, 254, 8],
-      name: "FeesCollected",
-    },
+    { discriminator: [133, 98, 9, 238, 133, 207, 191, 113], name: "Claim" },
+    { discriminator: [239, 144, 30, 69, 80, 59, 142, 64], name: "Clawback" },
+    { discriminator: [88, 178, 212, 72, 110, 4, 68, 143], name: "CreateCampaign" },
+    { discriminator: [233, 23, 117, 225, 107, 178, 254, 8], name: "FeesCollected" },
   ],
   instructions: [
     {
-      accounts: [
-        {
-          docs: ["Read account: the account storing the campaign data."],
-          name: "campaign",
-        },
-      ],
+      accounts: [{ docs: ["Read account: the account storing the campaign data."], name: "campaign" }],
       args: [],
       discriminator: [188, 126, 110, 5, 183, 113, 158, 3],
       docs: [
@@ -78,11 +36,7 @@ export default {
         "- `campaign` The account that stores the campaign details.",
       ],
       name: "campaign_view",
-      returns: {
-        defined: {
-          name: "Campaign",
-        },
-      },
+      returns: { defined: { name: "Campaign" } },
     },
     {
       accounts: [
@@ -92,10 +46,7 @@ export default {
           signer: true,
           writable: true,
         },
-        {
-          docs: ["Read account: the recipient of the airdrop."],
-          name: "recipient",
-        },
+        { docs: ["Read account: the recipient of the airdrop."], name: "recipient" },
         {
           docs: ["Create if needed account: the ATA for airdrop token owned by the recipient."],
           name: "recipient_ata",
@@ -108,18 +59,9 @@ export default {
               ],
             },
             seeds: [
-              {
-                kind: "account",
-                path: "recipient",
-              },
-              {
-                kind: "account",
-                path: "airdrop_token_program",
-              },
-              {
-                kind: "account",
-                path: "airdrop_token_mint",
-              },
+              { kind: "account", path: "recipient" },
+              { kind: "account", path: "airdrop_token_program" },
+              { kind: "account", path: "airdrop_token_mint" },
             ],
           },
           writable: true,
@@ -127,25 +69,11 @@ export default {
         {
           docs: ["Write account: the treasury account that will receive the claim fee."],
           name: "treasury",
-          pda: {
-            seeds: [
-              {
-                kind: "const",
-                value: [116, 114, 101, 97, 115, 117, 114, 121],
-              },
-            ],
-          },
+          pda: { seeds: [{ kind: "const", value: [116, 114, 101, 97, 115, 117, 114, 121] }] },
           writable: true,
         },
-        {
-          docs: ["Read account: the mint account of the airdrop token."],
-          name: "airdrop_token_mint",
-        },
-        {
-          docs: ["Write account: the account storing the campaign data."],
-          name: "campaign",
-          writable: true,
-        },
+        { docs: ["Read account: the mint account of the airdrop token."], name: "airdrop_token_mint" },
+        { docs: ["Write account: the account storing the campaign data."], name: "campaign", writable: true },
         {
           docs: ["Write account: the campaign's ATA for the airdrop token."],
           name: "campaign_ata",
@@ -158,18 +86,9 @@ export default {
               ],
             },
             seeds: [
-              {
-                kind: "account",
-                path: "campaign",
-              },
-              {
-                kind: "account",
-                path: "airdrop_token_program",
-              },
-              {
-                kind: "account",
-                path: "airdrop_token_mint",
-              },
+              { kind: "account", path: "campaign" },
+              { kind: "account", path: "airdrop_token_program" },
+              { kind: "account", path: "airdrop_token_mint" },
             ],
           },
           writable: true,
@@ -179,26 +98,14 @@ export default {
           name: "claim_receipt",
           pda: {
             seeds: [
-              {
-                kind: "const",
-                value: [99, 108, 97, 105, 109, 95, 114, 101, 99, 101, 105, 112, 116],
-              },
-              {
-                kind: "account",
-                path: "campaign",
-              },
-              {
-                kind: "arg",
-                path: "index",
-              },
+              { kind: "const", value: [99, 108, 97, 105, 109, 95, 114, 101, 99, 101, 105, 112, 116] },
+              { kind: "account", path: "campaign" },
+              { kind: "arg", path: "index" },
             ],
           },
           writable: true,
         },
-        {
-          docs: ["Program account: the Token program of the airdrop token."],
-          name: "airdrop_token_program",
-        },
+        { docs: ["Program account: the Token program of the airdrop token."], name: "airdrop_token_program" },
         {
           address: "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
           docs: ["Program account: the Associated Token program."],
@@ -208,10 +115,7 @@ export default {
           docs: ["Read account: The Chainlink program used to retrieve on-chain price feeds."],
           name: "chainlink_program",
         },
-        {
-          docs: ["Read account: The account providing the SOL/USD price feed data."],
-          name: "chainlink_sol_usd_feed",
-        },
+        { docs: ["Read account: The account providing the SOL/USD price feed data."], name: "chainlink_sol_usd_feed" },
         {
           address: "11111111111111111111111111111111",
           docs: ["Program account: the System program."],
@@ -219,22 +123,9 @@ export default {
         },
       ],
       args: [
-        {
-          name: "index",
-          type: "u32",
-        },
-        {
-          name: "amount",
-          type: "u64",
-        },
-        {
-          name: "merkle_proof",
-          type: {
-            vec: {
-              array: ["u8", 32],
-            },
-          },
-        },
+        { name: "index", type: "u32" },
+        { name: "amount", type: "u64" },
+        { name: "merkle_proof", type: { vec: { array: ["u8", 32] } } },
       ],
       discriminator: [62, 198, 214, 193, 213, 159, 108, 210],
       docs: [
@@ -277,23 +168,13 @@ export default {
         {
           docs: ["Read account: the treasury account that receives the claim fee."],
           name: "treasury",
-          pda: {
-            seeds: [
-              {
-                kind: "const",
-                value: [116, 114, 101, 97, 115, 117, 114, 121],
-              },
-            ],
-          },
+          pda: { seeds: [{ kind: "const", value: [116, 114, 101, 97, 115, 117, 114, 121] }] },
         },
         {
           docs: ["Read account: The Chainlink program used to retrieve on-chain price feeds."],
           name: "chainlink_program",
         },
-        {
-          docs: ["Read account: The account providing the SOL/USD price feed data."],
-          name: "chainlink_sol_usd_feed",
-        },
+        { docs: ["Read account: The account providing the SOL/USD price feed data."], name: "chainlink_sol_usd_feed" },
       ],
       args: [],
       discriminator: [255, 199, 146, 222, 145, 180, 58, 231],
@@ -316,10 +197,7 @@ export default {
           signer: true,
           writable: true,
         },
-        {
-          docs: ["Read account: the clawback recipient."],
-          name: "clawback_recipient",
-        },
+        { docs: ["Read account: the clawback recipient."], name: "clawback_recipient" },
         {
           docs: ["Create if needed account: the clawback recipient's ATA for the airdrop token."],
           name: "clawback_recipient_ata",
@@ -332,30 +210,15 @@ export default {
               ],
             },
             seeds: [
-              {
-                kind: "account",
-                path: "clawback_recipient",
-              },
-              {
-                kind: "account",
-                path: "airdrop_token_program",
-              },
-              {
-                kind: "account",
-                path: "airdrop_token_mint",
-              },
+              { kind: "account", path: "clawback_recipient" },
+              { kind: "account", path: "airdrop_token_program" },
+              { kind: "account", path: "airdrop_token_mint" },
             ],
           },
           writable: true,
         },
-        {
-          docs: ["Read account: the mint account of the airdrop token."],
-          name: "airdrop_token_mint",
-        },
-        {
-          docs: ["Read account: the account storing the campaign data."],
-          name: "campaign",
-        },
+        { docs: ["Read account: the mint account of the airdrop token."], name: "airdrop_token_mint" },
+        { docs: ["Read account: the account storing the campaign data."], name: "campaign" },
         {
           docs: ["Write account: the campaign's ATA for the airdrop token."],
           name: "campaign_ata",
@@ -368,26 +231,14 @@ export default {
               ],
             },
             seeds: [
-              {
-                kind: "account",
-                path: "campaign",
-              },
-              {
-                kind: "account",
-                path: "airdrop_token_program",
-              },
-              {
-                kind: "account",
-                path: "airdrop_token_mint",
-              },
+              { kind: "account", path: "campaign" },
+              { kind: "account", path: "airdrop_token_program" },
+              { kind: "account", path: "airdrop_token_mint" },
             ],
           },
           writable: true,
         },
-        {
-          docs: ["Program account: the Token program of the airdrop token."],
-          name: "airdrop_token_program",
-        },
+        { docs: ["Program account: the Token program of the airdrop token."], name: "airdrop_token_program" },
         {
           address: "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
           docs: ["Program account: the Associated Token program."],
@@ -399,12 +250,7 @@ export default {
           name: "system_program",
         },
       ],
-      args: [
-        {
-          name: "amount",
-          type: "u64",
-        },
-      ],
+      args: [{ name: "amount", type: "u64" }],
       discriminator: [111, 92, 142, 79, 33, 234, 82, 27],
       docs: [
         "Claws back the unclaimed tokens from the campaign.",
@@ -447,14 +293,7 @@ export default {
         {
           docs: ["Write account: the treasury account that holds the fees."],
           name: "treasury",
-          pda: {
-            seeds: [
-              {
-                kind: "const",
-                value: [116, 114, 101, 97, 115, 117, 114, 121],
-              },
-            ],
-          },
+          pda: { seeds: [{ kind: "const", value: [116, 114, 101, 97, 115, 117, 114, 121] }] },
           writable: true,
         },
       ],
@@ -483,49 +322,20 @@ export default {
     },
     {
       accounts: [
-        {
-          docs: ["Write account: the creator of the campaign."],
-          name: "creator",
-          signer: true,
-          writable: true,
-        },
-        {
-          docs: ["Read account: the mint account of the airdrop token."],
-          name: "airdrop_token_mint",
-        },
+        { docs: ["Write account: the creator of the campaign."], name: "creator", signer: true, writable: true },
+        { docs: ["Read account: the mint account of the airdrop token."], name: "airdrop_token_mint" },
         {
           docs: ["Create account: the account storing the campaign data."],
           name: "campaign",
           pda: {
             seeds: [
-              {
-                kind: "const",
-                value: [99, 97, 109, 112, 97, 105, 103, 110],
-              },
-              {
-                kind: "account",
-                path: "creator",
-              },
-              {
-                kind: "arg",
-                path: "merkle_root",
-              },
-              {
-                kind: "arg",
-                path: "campaign_start_time",
-              },
-              {
-                kind: "arg",
-                path: "expiration_time",
-              },
-              {
-                kind: "arg",
-                path: "name",
-              },
-              {
-                kind: "account",
-                path: "airdrop_token_mint",
-              },
+              { kind: "const", value: [99, 97, 109, 112, 97, 105, 103, 110] },
+              { kind: "account", path: "creator" },
+              { kind: "arg", path: "merkle_root" },
+              { kind: "arg", path: "campaign_start_time" },
+              { kind: "arg", path: "expiration_time" },
+              { kind: "arg", path: "name" },
+              { kind: "account", path: "airdrop_token_mint" },
             ],
           },
           writable: true,
@@ -542,26 +352,14 @@ export default {
               ],
             },
             seeds: [
-              {
-                kind: "account",
-                path: "campaign",
-              },
-              {
-                kind: "account",
-                path: "airdrop_token_program",
-              },
-              {
-                kind: "account",
-                path: "airdrop_token_mint",
-              },
+              { kind: "account", path: "campaign" },
+              { kind: "account", path: "airdrop_token_program" },
+              { kind: "account", path: "airdrop_token_mint" },
             ],
           },
           writable: true,
         },
-        {
-          docs: ["Program account: the Token program of the airdrop token."],
-          name: "airdrop_token_program",
-        },
+        { docs: ["Program account: the Token program of the airdrop token."], name: "airdrop_token_program" },
         {
           address: "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
           docs: ["Program account: the Associated Token program."],
@@ -574,36 +372,13 @@ export default {
         },
       ],
       args: [
-        {
-          name: "merkle_root",
-          type: {
-            array: ["u8", 32],
-          },
-        },
-        {
-          name: "campaign_start_time",
-          type: "u64",
-        },
-        {
-          name: "expiration_time",
-          type: "u64",
-        },
-        {
-          name: "name",
-          type: "string",
-        },
-        {
-          name: "ipfs_cid",
-          type: "string",
-        },
-        {
-          name: "aggregate_amount",
-          type: "u64",
-        },
-        {
-          name: "recipient_count",
-          type: "u32",
-        },
+        { name: "merkle_root", type: { array: ["u8", 32] } },
+        { name: "campaign_start_time", type: "u64" },
+        { name: "expiration_time", type: "u64" },
+        { name: "name", type: "string" },
+        { name: "ipfs_cid", type: "string" },
+        { name: "aggregate_amount", type: "u64" },
+        { name: "recipient_count", type: "u32" },
       ],
       discriminator: [111, 131, 187, 98, 160, 193, 114, 244],
       docs: [
@@ -634,12 +409,7 @@ export default {
       name: "create_campaign",
     },
     {
-      accounts: [
-        {
-          docs: ["Read account: the account storing the campaign data."],
-          name: "campaign",
-        },
-      ],
+      accounts: [{ docs: ["Read account: the account storing the campaign data."], name: "campaign" }],
       args: [],
       discriminator: [135, 101, 171, 220, 86, 97, 104, 199],
       docs: [
@@ -654,37 +424,20 @@ export default {
     },
     {
       accounts: [
-        {
-          docs: ["Read account: the account storing the campaign data."],
-          name: "campaign",
-        },
+        { docs: ["Read account: the account storing the campaign data."], name: "campaign" },
         {
           docs: ["Read account: the claim receipt."],
           name: "claim_receipt",
           pda: {
             seeds: [
-              {
-                kind: "const",
-                value: [99, 108, 97, 105, 109, 95, 114, 101, 99, 101, 105, 112, 116],
-              },
-              {
-                kind: "account",
-                path: "campaign",
-              },
-              {
-                kind: "arg",
-                path: "_index",
-              },
+              { kind: "const", value: [99, 108, 97, 105, 109, 95, 114, 101, 99, 101, 105, 112, 116] },
+              { kind: "account", path: "campaign" },
+              { kind: "arg", path: "_index" },
             ],
           },
         },
       ],
-      args: [
-        {
-          name: "_index",
-          type: "u32",
-        },
-      ],
+      args: [{ name: "_index", type: "u32" }],
       discriminator: [182, 195, 167, 56, 232, 3, 223, 102],
       docs: [
         "Returns a flag indicating whether a claim has been made for the given index.",
@@ -701,12 +454,7 @@ export default {
       returns: "bool",
     },
     {
-      accounts: [
-        {
-          docs: ["Read account: the account storing the campaign data."],
-          name: "campaign",
-        },
-      ],
+      accounts: [{ docs: ["Read account: the account storing the campaign data."], name: "campaign" }],
       args: [],
       discriminator: [24, 138, 30, 86, 92, 38, 143, 129],
       docs: [
@@ -720,12 +468,7 @@ export default {
       returns: "bool",
     },
     {
-      accounts: [
-        {
-          docs: ["Read account: the account storing the campaign data."],
-          name: "campaign",
-        },
-      ],
+      accounts: [{ docs: ["Read account: the account storing the campaign data."], name: "campaign" }],
       args: [],
       discriminator: [223, 150, 181, 32, 240, 136, 73, 236],
       docs: [
@@ -745,23 +488,11 @@ export default {
     },
     {
       accounts: [
-        {
-          docs: ["Write account: the initializer of the program."],
-          name: "initializer",
-          signer: true,
-          writable: true,
-        },
+        { docs: ["Write account: the initializer of the program."], name: "initializer", signer: true, writable: true },
         {
           docs: ["Create account: the treasury account that will hold the fees."],
           name: "treasury",
-          pda: {
-            seeds: [
-              {
-                kind: "const",
-                value: [116, 114, 101, 97, 115, 117, 114, 121],
-              },
-            ],
-          },
+          pda: { seeds: [{ kind: "const", value: [116, 114, 101, 97, 115, 117, 114, 121] }] },
           writable: true,
         },
         {
@@ -771,18 +502,9 @@ export default {
         },
       ],
       args: [
-        {
-          name: "fee_collector",
-          type: "pubkey",
-        },
-        {
-          name: "chainlink_program",
-          type: "pubkey",
-        },
-        {
-          name: "chainlink_sol_usd_feed",
-          type: "pubkey",
-        },
+        { name: "fee_collector", type: "pubkey" },
+        { name: "chainlink_program", type: "pubkey" },
+        { name: "chainlink_sol_usd_feed", type: "pubkey" },
       ],
       discriminator: [175, 175, 109, 31, 13, 152, 155, 237],
       docs: [
@@ -805,77 +527,32 @@ export default {
         {
           docs: ["Read account: the account storing the treasury details."],
           name: "treasury",
-          pda: {
-            seeds: [
-              {
-                kind: "const",
-                value: [116, 114, 101, 97, 115, 117, 114, 121],
-              },
-            ],
-          },
+          pda: { seeds: [{ kind: "const", value: [116, 114, 101, 97, 115, 117, 114, 121] }] },
         },
       ],
       args: [],
       discriminator: [247, 160, 213, 237, 247, 121, 164, 82],
       docs: ["Returns the treasury details."],
       name: "treasury_view",
-      returns: {
-        defined: {
-          name: "Treasury",
-        },
-      },
+      returns: { defined: { name: "Treasury" } },
     },
   ],
-  metadata: {
-    description: "Created with Anchor",
-    name: "sablier_merkle_instant",
-    spec: "0.1.0",
-    version: "0.1.0",
-  },
+  metadata: { description: "Created with Anchor", name: "sablier_merkle_instant", spec: "0.1.0", version: "0.1.0" },
   types: [
     {
       docs: ["Groups all the data for a Merkle Instant campaign."],
       name: "Campaign",
       type: {
         fields: [
-          {
-            name: "airdrop_token_mint",
-            type: "pubkey",
-          },
-          {
-            name: "bump",
-            type: "u8",
-          },
-          {
-            name: "campaign_start_time",
-            type: "u64",
-          },
-          {
-            name: "creator",
-            type: "pubkey",
-          },
-          {
-            name: "expiration_time",
-            type: "u64",
-          },
-          {
-            name: "first_claim_time",
-            type: "u64",
-          },
-          {
-            name: "ipfs_cid",
-            type: "string",
-          },
-          {
-            name: "merkle_root",
-            type: {
-              array: ["u8", 32],
-            },
-          },
-          {
-            name: "name",
-            type: "string",
-          },
+          { name: "airdrop_token_mint", type: "pubkey" },
+          { name: "bump", type: "u8" },
+          { name: "campaign_start_time", type: "u64" },
+          { name: "creator", type: "pubkey" },
+          { name: "expiration_time", type: "u64" },
+          { name: "first_claim_time", type: "u64" },
+          { name: "ipfs_cid", type: "string" },
+          { name: "merkle_root", type: { array: ["u8", 32] } },
+          { name: "name", type: "string" },
         ],
         kind: "struct",
       },
@@ -884,65 +561,26 @@ export default {
       name: "Claim",
       type: {
         fields: [
-          {
-            name: "amount",
-            type: "u64",
-          },
-          {
-            name: "campaign",
-            type: "pubkey",
-          },
-          {
-            name: "claimer",
-            type: "pubkey",
-          },
-          {
-            name: "claim_receipt",
-            type: "pubkey",
-          },
-          {
-            name: "fee_in_lamports",
-            type: "u64",
-          },
-          {
-            name: "index",
-            type: "u32",
-          },
-          {
-            name: "recipient",
-            type: "pubkey",
-          },
+          { name: "amount", type: "u64" },
+          { name: "campaign", type: "pubkey" },
+          { name: "claimer", type: "pubkey" },
+          { name: "claim_receipt", type: "pubkey" },
+          { name: "fee_in_lamports", type: "u64" },
+          { name: "index", type: "u32" },
+          { name: "recipient", type: "pubkey" },
         ],
         kind: "struct",
       },
     },
-    {
-      name: "ClaimReceipt",
-      type: {
-        fields: [],
-        kind: "struct",
-      },
-    },
+    { name: "ClaimReceipt", type: { fields: [], kind: "struct" } },
     {
       name: "Clawback",
       type: {
         fields: [
-          {
-            name: "amount",
-            type: "u64",
-          },
-          {
-            name: "campaign",
-            type: "pubkey",
-          },
-          {
-            name: "campaign_creator",
-            type: "pubkey",
-          },
-          {
-            name: "clawback_recipient",
-            type: "pubkey",
-          },
+          { name: "amount", type: "u64" },
+          { name: "campaign", type: "pubkey" },
+          { name: "campaign_creator", type: "pubkey" },
+          { name: "clawback_recipient", type: "pubkey" },
         ],
         kind: "struct",
       },
@@ -951,52 +589,17 @@ export default {
       name: "CreateCampaign",
       type: {
         fields: [
-          {
-            name: "aggregate_amount",
-            type: "u64",
-          },
-          {
-            name: "campaign",
-            type: "pubkey",
-          },
-          {
-            name: "campaign_name",
-            type: "string",
-          },
-          {
-            name: "campaign_start_time",
-            type: "u64",
-          },
-          {
-            name: "creator",
-            type: "pubkey",
-          },
-          {
-            name: "expiration_time",
-            type: "u64",
-          },
-          {
-            name: "ipfs_cid",
-            type: "string",
-          },
-          {
-            name: "merkle_root",
-            type: {
-              array: ["u8", 32],
-            },
-          },
-          {
-            name: "recipient_count",
-            type: "u32",
-          },
-          {
-            name: "token_decimals",
-            type: "u8",
-          },
-          {
-            name: "token_mint",
-            type: "pubkey",
-          },
+          { name: "aggregate_amount", type: "u64" },
+          { name: "campaign", type: "pubkey" },
+          { name: "campaign_name", type: "string" },
+          { name: "campaign_start_time", type: "u64" },
+          { name: "creator", type: "pubkey" },
+          { name: "expiration_time", type: "u64" },
+          { name: "ipfs_cid", type: "string" },
+          { name: "merkle_root", type: { array: ["u8", 32] } },
+          { name: "recipient_count", type: "u32" },
+          { name: "token_decimals", type: "u8" },
+          { name: "token_mint", type: "pubkey" },
         ],
         kind: "struct",
       },
@@ -1005,18 +608,9 @@ export default {
       name: "FeesCollected",
       type: {
         fields: [
-          {
-            name: "fee_amount",
-            type: "u64",
-          },
-          {
-            name: "fee_collector",
-            type: "pubkey",
-          },
-          {
-            name: "fee_recipient",
-            type: "pubkey",
-          },
+          { name: "fee_amount", type: "u64" },
+          { name: "fee_collector", type: "pubkey" },
+          { name: "fee_recipient", type: "pubkey" },
         ],
         kind: "struct",
       },
@@ -1025,22 +619,10 @@ export default {
       name: "Treasury",
       type: {
         fields: [
-          {
-            name: "bump",
-            type: "u8",
-          },
-          {
-            name: "fee_collector",
-            type: "pubkey",
-          },
-          {
-            name: "chainlink_program",
-            type: "pubkey",
-          },
-          {
-            name: "chainlink_sol_usd_feed",
-            type: "pubkey",
-          },
+          { name: "bump", type: "u8" },
+          { name: "fee_collector", type: "pubkey" },
+          { name: "chainlink_program", type: "pubkey" },
+          { name: "chainlink_sol_usd_feed", type: "pubkey" },
         ],
         kind: "struct",
       },

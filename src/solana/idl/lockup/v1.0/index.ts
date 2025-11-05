@@ -1,2 +1,2 @@
-export { default as SablierLockupLinearV10IDL } from "./SablierLockupLinearV10";
-export type { default as SablierLockupLinearV10Type } from "./SablierLockupLinearV10Type";
+export { sablierLockupLinearIDL as SablierLockupLinearIDL } from "./SablierLockupLinear";
+export type { Idl as SablierLockupLinearType } from "./SablierLockupLinearType";

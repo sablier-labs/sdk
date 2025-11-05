@@ -1,2 +1,2 @@
-export { default as SablierMerkleInstantV10IDL } from "./SablierMerkleInstantV10";
-export type { default as SablierMerkleInstantV10Type } from "./SablierMerkleInstantV10Type";
+export { sablierMerkleInstantIdl as SablierMerkleInstantIDL } from "./SablierMerkleInstant";
+export type { Idl as SablierMerkleInstantType } from "./SablierMerkleInstantType";

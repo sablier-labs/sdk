@@ -1,118 +1,34 @@
-export default {
+export const sablierLockupLinearIDL = {
   accounts: [
-    {
-      discriminator: [159, 26, 37, 150, 44, 84, 171, 172],
-      name: "NftCollectionData",
-    },
-    {
-      discriminator: [61, 89, 148, 141, 154, 81, 86, 113],
-      name: "StreamData",
-    },
-    {
-      discriminator: [238, 239, 123, 238, 89, 1, 168, 253],
-      name: "Treasury",
-    },
+    { discriminator: [159, 26, 37, 150, 44, 84, 171, 172], name: "NftCollectionData" },
+    { discriminator: [61, 89, 148, 141, 154, 81, 86, 113], name: "StreamData" },
+    { discriminator: [238, 239, 123, 238, 89, 1, 168, 253], name: "Treasury" },
   ],
   address: "4EauRKrNErKfsR4XetEZJNmvACGHbHnHV4R5dvJuqupC",
   docs: ["Sablier Lockup program for creating and managing token streams."],
   errors: [
-    {
-      code: 6000,
-      msg: "Can't perform the action on a depleted stream!",
-      name: "StreamDepleted",
-    },
-    {
-      code: 6001,
-      msg: "Can't renounce an already-renounced Stream!",
-      name: "StreamCanceled",
-    },
-    {
-      code: 6002,
-      msg: "Can't cancel a non-cancelable Stream!",
-      name: "StreamIsNotCancelable",
-    },
-    {
-      code: 6003,
-      msg: "Can't cancel a settled Stream!",
-      name: "StreamSettled",
-    },
-    {
-      code: 6004,
-      msg: "Can't collect zero fees!",
-      name: "CantCollectZeroFees",
-    },
-    {
-      code: 6005,
-      msg: "Invalid cliff time of the Stream!",
-      name: "CliffTimeNotLessThanEndTime",
-    },
-    {
-      code: 6006,
-      msg: "Cliff time zero but unlock amount not zero!",
-      name: "CliffTimeZeroUnlockAmountNotZero",
-    },
-    {
-      code: 6007,
-      msg: "Invalid deposit amount!",
-      name: "DepositAmountZero",
-    },
-    {
-      code: 6008,
-      msg: "Start time must be less than cliff time!",
-      name: "StartTimeNotLessThanCliffTime",
-    },
-    {
-      code: 6009,
-      msg: "Start time must be less than end time!",
-      name: "StartTimeNotLessThanEndTime",
-    },
-    {
-      code: 6010,
-      msg: "Start time can't be zero!",
-      name: "StartTimeZero",
-    },
-    {
-      code: 6011,
-      msg: "Unlock amounts sum is greater than deposit amount!",
-      name: "UnlockAmountsSumTooHigh",
-    },
-    {
-      code: 6012,
-      msg: "Can't renounce a non-cancelable Stream!",
-      name: "StreamAlreadyNonCancelable",
-    },
-    {
-      code: 6013,
-      msg: "Attempting to withdraw more than available in the stream!",
-      name: "Overdraw",
-    },
-    {
-      code: 6014,
-      msg: "Can't withdraw a zero amount!",
-      name: "WithdrawAmountZero",
-    },
+    { code: 6000, msg: "Can't perform the action on a depleted stream!", name: "StreamDepleted" },
+    { code: 6001, msg: "Can't renounce an already-renounced Stream!", name: "StreamCanceled" },
+    { code: 6002, msg: "Can't cancel a non-cancelable Stream!", name: "StreamIsNotCancelable" },
+    { code: 6003, msg: "Can't cancel a settled Stream!", name: "StreamSettled" },
+    { code: 6004, msg: "Can't collect zero fees!", name: "CantCollectZeroFees" },
+    { code: 6005, msg: "Invalid cliff time of the Stream!", name: "CliffTimeNotLessThanEndTime" },
+    { code: 6006, msg: "Cliff time zero but unlock amount not zero!", name: "CliffTimeZeroUnlockAmountNotZero" },
+    { code: 6007, msg: "Invalid deposit amount!", name: "DepositAmountZero" },
+    { code: 6008, msg: "Start time must be less than cliff time!", name: "StartTimeNotLessThanCliffTime" },
+    { code: 6009, msg: "Start time must be less than end time!", name: "StartTimeNotLessThanEndTime" },
+    { code: 6010, msg: "Start time can't be zero!", name: "StartTimeZero" },
+    { code: 6011, msg: "Unlock amounts sum is greater than deposit amount!", name: "UnlockAmountsSumTooHigh" },
+    { code: 6012, msg: "Can't renounce a non-cancelable Stream!", name: "StreamAlreadyNonCancelable" },
+    { code: 6013, msg: "Attempting to withdraw more than available in the stream!", name: "Overdraw" },
+    { code: 6014, msg: "Can't withdraw a zero amount!", name: "WithdrawAmountZero" },
   ],
   events: [
-    {
-      discriminator: [82, 106, 117, 112, 153, 245, 190, 66],
-      name: "CancelLockupStream",
-    },
-    {
-      discriminator: [234, 181, 19, 52, 67, 64, 151, 173],
-      name: "CreateLockupLinearStream",
-    },
-    {
-      discriminator: [233, 23, 117, 225, 107, 178, 254, 8],
-      name: "FeesCollected",
-    },
-    {
-      discriminator: [28, 66, 144, 150, 118, 56, 81, 93],
-      name: "RenounceLockupStream",
-    },
-    {
-      discriminator: [232, 101, 27, 150, 85, 222, 243, 9],
-      name: "WithdrawFromLockupStream",
-    },
+    { discriminator: [82, 106, 117, 112, 153, 245, 190, 66], name: "CancelLockupStream" },
+    { discriminator: [234, 181, 19, 52, 67, 64, 151, 173], name: "CreateLockupLinearStream" },
+    { discriminator: [233, 23, 117, 225, 107, 178, 254, 8], name: "FeesCollected" },
+    { discriminator: [28, 66, 144, 150, 118, 56, 81, 93], name: "RenounceLockupStream" },
+    { discriminator: [232, 101, 27, 150, 85, 222, 243, 9], name: "WithdrawFromLockupStream" },
   ],
   instructions: [
     {
@@ -135,39 +51,21 @@ export default {
               ],
             },
             seeds: [
-              {
-                kind: "account",
-                path: "sender",
-              },
-              {
-                kind: "account",
-                path: "deposited_token_program",
-              },
-              {
-                kind: "account",
-                path: "deposited_token_mint",
-              },
+              { kind: "account", path: "sender" },
+              { kind: "account", path: "deposited_token_program" },
+              { kind: "account", path: "deposited_token_mint" },
             ],
           },
           writable: true,
         },
-        {
-          docs: ["Read account: the mint account of the deposited token."],
-          name: "deposited_token_mint",
-        },
+        { docs: ["Read account: the mint account of the deposited token."], name: "deposited_token_mint" },
         {
           docs: ["Write account: the stream data account storing stream details."],
           name: "stream_data",
           pda: {
             seeds: [
-              {
-                kind: "const",
-                value: [115, 116, 114, 101, 97, 109, 95, 100, 97, 116, 97],
-              },
-              {
-                kind: "account",
-                path: "stream_nft_mint",
-              },
+              { kind: "const", value: [115, 116, 114, 101, 97, 109, 95, 100, 97, 116, 97] },
+              { kind: "account", path: "stream_nft_mint" },
             ],
           },
           writable: true,
@@ -184,35 +82,20 @@ export default {
               ],
             },
             seeds: [
-              {
-                kind: "account",
-                path: "stream_data",
-              },
-              {
-                kind: "account",
-                path: "deposited_token_program",
-              },
-              {
-                kind: "account",
-                path: "deposited_token_mint",
-              },
+              { kind: "account", path: "stream_data" },
+              { kind: "account", path: "deposited_token_program" },
+              { kind: "account", path: "deposited_token_mint" },
             ],
           },
           writable: true,
         },
-        {
-          docs: ["Read account: the mint account for the stream NFT."],
-          name: "stream_nft_mint",
-        },
+        { docs: ["Read account: the mint account for the stream NFT."], name: "stream_nft_mint" },
         {
           address: "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
           docs: ["Program account: the Associated Token program."],
           name: "associated_token_program",
         },
-        {
-          docs: ["Program account: the Token program of the deposited token."],
-          name: "deposited_token_program",
-        },
+        { docs: ["Program account: the Token program of the deposited token."], name: "deposited_token_program" },
         {
           address: "11111111111111111111111111111111",
           docs: ["Program account: the System program."],
@@ -262,14 +145,7 @@ export default {
         {
           docs: ["Write account: the treasury account that holds the fees."],
           name: "treasury",
-          pda: {
-            seeds: [
-              {
-                kind: "const",
-                value: [116, 114, 101, 97, 115, 117, 114, 121],
-              },
-            ],
-          },
+          pda: { seeds: [{ kind: "const", value: [116, 114, 101, 97, 115, 117, 114, 121] }] },
           writable: true,
         },
       ],
@@ -314,30 +190,15 @@ export default {
               ],
             },
             seeds: [
-              {
-                kind: "account",
-                path: "creator",
-              },
-              {
-                kind: "account",
-                path: "deposit_token_program",
-              },
-              {
-                kind: "account",
-                path: "deposit_token_mint",
-              },
+              { kind: "account", path: "creator" },
+              { kind: "account", path: "deposit_token_program" },
+              { kind: "account", path: "deposit_token_mint" },
             ],
           },
           writable: true,
         },
-        {
-          docs: ["Read account: the recipient of the stream."],
-          name: "recipient",
-        },
-        {
-          docs: ["Read account: the sender of the stream."],
-          name: "sender",
-        },
+        { docs: ["Read account: the recipient of the stream."], name: "recipient" },
+        { docs: ["Read account: the sender of the stream."], name: "sender" },
         {
           docs: ["Write account: the NFT collection data storing the total supply."],
           name: "nft_collection_data",
@@ -355,27 +216,12 @@ export default {
           docs: ["Write account: the master edition account for the NFT collection."],
           name: "nft_collection_master_edition",
           pda: {
-            program: {
-              kind: "account",
-              path: "token_metadata_program",
-            },
+            program: { kind: "account", path: "token_metadata_program" },
             seeds: [
-              {
-                kind: "const",
-                value: [109, 101, 116, 97, 100, 97, 116, 97],
-              },
-              {
-                kind: "account",
-                path: "token_metadata_program",
-              },
-              {
-                kind: "account",
-                path: "nft_collection_mint",
-              },
-              {
-                kind: "const",
-                value: [101, 100, 105, 116, 105, 111, 110],
-              },
+              { kind: "const", value: [109, 101, 116, 97, 100, 97, 116, 97] },
+              { kind: "account", path: "token_metadata_program" },
+              { kind: "account", path: "nft_collection_mint" },
+              { kind: "const", value: [101, 100, 105, 116, 105, 111, 110] },
             ],
           },
         },
@@ -383,23 +229,11 @@ export default {
           docs: ["Write account: the metadata account for the NFT collection."],
           name: "nft_collection_metadata",
           pda: {
-            program: {
-              kind: "account",
-              path: "token_metadata_program",
-            },
+            program: { kind: "account", path: "token_metadata_program" },
             seeds: [
-              {
-                kind: "const",
-                value: [109, 101, 116, 97, 100, 97, 116, 97],
-              },
-              {
-                kind: "account",
-                path: "token_metadata_program",
-              },
-              {
-                kind: "account",
-                path: "nft_collection_mint",
-              },
+              { kind: "const", value: [109, 101, 116, 97, 100, 97, 116, 97] },
+              { kind: "account", path: "token_metadata_program" },
+              { kind: "account", path: "nft_collection_mint" },
             ],
           },
           writable: true,
@@ -416,27 +250,15 @@ export default {
             ],
           },
         },
-        {
-          docs: ["Read account: the mint account for the deposit token."],
-          name: "deposit_token_mint",
-        },
+        { docs: ["Read account: the mint account for the deposit token."], name: "deposit_token_mint" },
         {
           docs: ["Create account: the mint account for the stream NFT."],
           name: "stream_nft_mint",
           pda: {
             seeds: [
-              {
-                kind: "const",
-                value: [115, 116, 114, 101, 97, 109, 95, 110, 102, 116, 95, 109, 105, 110, 116],
-              },
-              {
-                kind: "account",
-                path: "sender",
-              },
-              {
-                kind: "arg",
-                path: "salt",
-              },
+              { kind: "const", value: [115, 116, 114, 101, 97, 109, 95, 110, 102, 116, 95, 109, 105, 110, 116] },
+              { kind: "account", path: "sender" },
+              { kind: "arg", path: "salt" },
             ],
           },
           writable: true,
@@ -453,18 +275,9 @@ export default {
               ],
             },
             seeds: [
-              {
-                kind: "account",
-                path: "recipient",
-              },
-              {
-                kind: "account",
-                path: "nft_token_program",
-              },
-              {
-                kind: "account",
-                path: "stream_nft_mint",
-              },
+              { kind: "account", path: "recipient" },
+              { kind: "account", path: "nft_token_program" },
+              { kind: "account", path: "stream_nft_mint" },
             ],
           },
           writable: true,
@@ -474,14 +287,8 @@ export default {
           name: "stream_data",
           pda: {
             seeds: [
-              {
-                kind: "const",
-                value: [115, 116, 114, 101, 97, 109, 95, 100, 97, 116, 97],
-              },
-              {
-                kind: "account",
-                path: "stream_nft_mint",
-              },
+              { kind: "const", value: [115, 116, 114, 101, 97, 109, 95, 100, 97, 116, 97] },
+              { kind: "account", path: "stream_nft_mint" },
             ],
           },
           writable: true,
@@ -498,18 +305,9 @@ export default {
               ],
             },
             seeds: [
-              {
-                kind: "account",
-                path: "stream_data",
-              },
-              {
-                kind: "account",
-                path: "deposit_token_program",
-              },
-              {
-                kind: "account",
-                path: "deposit_token_mint",
-              },
+              { kind: "account", path: "stream_data" },
+              { kind: "account", path: "deposit_token_program" },
+              { kind: "account", path: "deposit_token_mint" },
             ],
           },
           writable: true,
@@ -518,27 +316,12 @@ export default {
           docs: ["Create account: the master edition account for the stream NFT."],
           name: "stream_nft_master_edition",
           pda: {
-            program: {
-              kind: "account",
-              path: "token_metadata_program",
-            },
+            program: { kind: "account", path: "token_metadata_program" },
             seeds: [
-              {
-                kind: "const",
-                value: [109, 101, 116, 97, 100, 97, 116, 97],
-              },
-              {
-                kind: "account",
-                path: "token_metadata_program",
-              },
-              {
-                kind: "account",
-                path: "stream_nft_mint",
-              },
-              {
-                kind: "const",
-                value: [101, 100, 105, 116, 105, 111, 110],
-              },
+              { kind: "const", value: [109, 101, 116, 97, 100, 97, 116, 97] },
+              { kind: "account", path: "token_metadata_program" },
+              { kind: "account", path: "stream_nft_mint" },
+              { kind: "const", value: [101, 100, 105, 116, 105, 111, 110] },
             ],
           },
           writable: true,
@@ -547,23 +330,11 @@ export default {
           docs: ["Create account: the metadata account for the stream NFT."],
           name: "stream_nft_metadata",
           pda: {
-            program: {
-              kind: "account",
-              path: "token_metadata_program",
-            },
+            program: { kind: "account", path: "token_metadata_program" },
             seeds: [
-              {
-                kind: "const",
-                value: [109, 101, 116, 97, 100, 97, 116, 97],
-              },
-              {
-                kind: "account",
-                path: "token_metadata_program",
-              },
-              {
-                kind: "account",
-                path: "stream_nft_mint",
-              },
+              { kind: "const", value: [109, 101, 116, 97, 100, 97, 116, 97] },
+              { kind: "account", path: "token_metadata_program" },
+              { kind: "account", path: "stream_nft_mint" },
             ],
           },
           writable: true,
@@ -573,14 +344,8 @@ export default {
           docs: ["Program account: the Associated Token program."],
           name: "associated_token_program",
         },
-        {
-          docs: ["Program account: the Token program of the deposit token."],
-          name: "deposit_token_program",
-        },
-        {
-          docs: ["Program account: the Token program of the stream NFT."],
-          name: "nft_token_program",
-        },
+        { docs: ["Program account: the Token program of the deposit token."], name: "deposit_token_program" },
+        { docs: ["Program account: the Token program of the stream NFT."], name: "nft_token_program" },
         {
           address: "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s",
           docs: ["Program account: the Token Metadata program."],
@@ -591,41 +356,16 @@ export default {
           docs: ["Program account: the System program."],
           name: "system_program",
         },
-        {
-          address: "SysvarRent111111111111111111111111111111111",
-          docs: ["Sysvar account: Rent."],
-          name: "rent",
-        },
+        { address: "SysvarRent111111111111111111111111111111111", docs: ["Sysvar account: Rent."], name: "rent" },
       ],
       args: [
-        {
-          name: "salt",
-          type: "u128",
-        },
-        {
-          name: "deposit_amount",
-          type: "u64",
-        },
-        {
-          name: "cliff_duration",
-          type: "u64",
-        },
-        {
-          name: "total_duration",
-          type: "u64",
-        },
-        {
-          name: "start_unlock_amount",
-          type: "u64",
-        },
-        {
-          name: "cliff_unlock_amount",
-          type: "u64",
-        },
-        {
-          name: "is_cancelable",
-          type: "bool",
-        },
+        { name: "salt", type: "u128" },
+        { name: "deposit_amount", type: "u64" },
+        { name: "cliff_duration", type: "u64" },
+        { name: "total_duration", type: "u64" },
+        { name: "start_unlock_amount", type: "u64" },
+        { name: "cliff_unlock_amount", type: "u64" },
+        { name: "is_cancelable", type: "bool" },
       ],
       discriminator: [87, 17, 170, 167, 156, 152, 169, 61],
       docs: [
@@ -670,30 +410,15 @@ export default {
               ],
             },
             seeds: [
-              {
-                kind: "account",
-                path: "creator",
-              },
-              {
-                kind: "account",
-                path: "deposit_token_program",
-              },
-              {
-                kind: "account",
-                path: "deposit_token_mint",
-              },
+              { kind: "account", path: "creator" },
+              { kind: "account", path: "deposit_token_program" },
+              { kind: "account", path: "deposit_token_mint" },
             ],
           },
           writable: true,
         },
-        {
-          docs: ["Read account: the recipient of the stream."],
-          name: "recipient",
-        },
-        {
-          docs: ["Read account: the sender of the stream."],
-          name: "sender",
-        },
+        { docs: ["Read account: the recipient of the stream."], name: "recipient" },
+        { docs: ["Read account: the sender of the stream."], name: "sender" },
         {
           docs: ["Write account: the NFT collection data storing the total supply."],
           name: "nft_collection_data",
@@ -711,27 +436,12 @@ export default {
           docs: ["Write account: the master edition account for the NFT collection."],
           name: "nft_collection_master_edition",
           pda: {
-            program: {
-              kind: "account",
-              path: "token_metadata_program",
-            },
+            program: { kind: "account", path: "token_metadata_program" },
             seeds: [
-              {
-                kind: "const",
-                value: [109, 101, 116, 97, 100, 97, 116, 97],
-              },
-              {
-                kind: "account",
-                path: "token_metadata_program",
-              },
-              {
-                kind: "account",
-                path: "nft_collection_mint",
-              },
-              {
-                kind: "const",
-                value: [101, 100, 105, 116, 105, 111, 110],
-              },
+              { kind: "const", value: [109, 101, 116, 97, 100, 97, 116, 97] },
+              { kind: "account", path: "token_metadata_program" },
+              { kind: "account", path: "nft_collection_mint" },
+              { kind: "const", value: [101, 100, 105, 116, 105, 111, 110] },
             ],
           },
         },
@@ -739,23 +449,11 @@ export default {
           docs: ["Write account: the metadata account for the NFT collection."],
           name: "nft_collection_metadata",
           pda: {
-            program: {
-              kind: "account",
-              path: "token_metadata_program",
-            },
+            program: { kind: "account", path: "token_metadata_program" },
             seeds: [
-              {
-                kind: "const",
-                value: [109, 101, 116, 97, 100, 97, 116, 97],
-              },
-              {
-                kind: "account",
-                path: "token_metadata_program",
-              },
-              {
-                kind: "account",
-                path: "nft_collection_mint",
-              },
+              { kind: "const", value: [109, 101, 116, 97, 100, 97, 116, 97] },
+              { kind: "account", path: "token_metadata_program" },
+              { kind: "account", path: "nft_collection_mint" },
             ],
           },
           writable: true,
@@ -772,27 +470,15 @@ export default {
             ],
           },
         },
-        {
-          docs: ["Read account: the mint account for the deposit token."],
-          name: "deposit_token_mint",
-        },
+        { docs: ["Read account: the mint account for the deposit token."], name: "deposit_token_mint" },
         {
           docs: ["Create account: the mint account for the stream NFT."],
           name: "stream_nft_mint",
           pda: {
             seeds: [
-              {
-                kind: "const",
-                value: [115, 116, 114, 101, 97, 109, 95, 110, 102, 116, 95, 109, 105, 110, 116],
-              },
-              {
-                kind: "account",
-                path: "sender",
-              },
-              {
-                kind: "arg",
-                path: "salt",
-              },
+              { kind: "const", value: [115, 116, 114, 101, 97, 109, 95, 110, 102, 116, 95, 109, 105, 110, 116] },
+              { kind: "account", path: "sender" },
+              { kind: "arg", path: "salt" },
             ],
           },
           writable: true,
@@ -809,18 +495,9 @@ export default {
               ],
             },
             seeds: [
-              {
-                kind: "account",
-                path: "recipient",
-              },
-              {
-                kind: "account",
-                path: "nft_token_program",
-              },
-              {
-                kind: "account",
-                path: "stream_nft_mint",
-              },
+              { kind: "account", path: "recipient" },
+              { kind: "account", path: "nft_token_program" },
+              { kind: "account", path: "stream_nft_mint" },
             ],
           },
           writable: true,
@@ -830,14 +507,8 @@ export default {
           name: "stream_data",
           pda: {
             seeds: [
-              {
-                kind: "const",
-                value: [115, 116, 114, 101, 97, 109, 95, 100, 97, 116, 97],
-              },
-              {
-                kind: "account",
-                path: "stream_nft_mint",
-              },
+              { kind: "const", value: [115, 116, 114, 101, 97, 109, 95, 100, 97, 116, 97] },
+              { kind: "account", path: "stream_nft_mint" },
             ],
           },
           writable: true,
@@ -854,18 +525,9 @@ export default {
               ],
             },
             seeds: [
-              {
-                kind: "account",
-                path: "stream_data",
-              },
-              {
-                kind: "account",
-                path: "deposit_token_program",
-              },
-              {
-                kind: "account",
-                path: "deposit_token_mint",
-              },
+              { kind: "account", path: "stream_data" },
+              { kind: "account", path: "deposit_token_program" },
+              { kind: "account", path: "deposit_token_mint" },
             ],
           },
           writable: true,
@@ -874,27 +536,12 @@ export default {
           docs: ["Create account: the master edition account for the stream NFT."],
           name: "stream_nft_master_edition",
           pda: {
-            program: {
-              kind: "account",
-              path: "token_metadata_program",
-            },
+            program: { kind: "account", path: "token_metadata_program" },
             seeds: [
-              {
-                kind: "const",
-                value: [109, 101, 116, 97, 100, 97, 116, 97],
-              },
-              {
-                kind: "account",
-                path: "token_metadata_program",
-              },
-              {
-                kind: "account",
-                path: "stream_nft_mint",
-              },
-              {
-                kind: "const",
-                value: [101, 100, 105, 116, 105, 111, 110],
-              },
+              { kind: "const", value: [109, 101, 116, 97, 100, 97, 116, 97] },
+              { kind: "account", path: "token_metadata_program" },
+              { kind: "account", path: "stream_nft_mint" },
+              { kind: "const", value: [101, 100, 105, 116, 105, 111, 110] },
             ],
           },
           writable: true,
@@ -903,23 +550,11 @@ export default {
           docs: ["Create account: the metadata account for the stream NFT."],
           name: "stream_nft_metadata",
           pda: {
-            program: {
-              kind: "account",
-              path: "token_metadata_program",
-            },
+            program: { kind: "account", path: "token_metadata_program" },
             seeds: [
-              {
-                kind: "const",
-                value: [109, 101, 116, 97, 100, 97, 116, 97],
-              },
-              {
-                kind: "account",
-                path: "token_metadata_program",
-              },
-              {
-                kind: "account",
-                path: "stream_nft_mint",
-              },
+              { kind: "const", value: [109, 101, 116, 97, 100, 97, 116, 97] },
+              { kind: "account", path: "token_metadata_program" },
+              { kind: "account", path: "stream_nft_mint" },
             ],
           },
           writable: true,
@@ -929,14 +564,8 @@ export default {
           docs: ["Program account: the Associated Token program."],
           name: "associated_token_program",
         },
-        {
-          docs: ["Program account: the Token program of the deposit token."],
-          name: "deposit_token_program",
-        },
-        {
-          docs: ["Program account: the Token program of the stream NFT."],
-          name: "nft_token_program",
-        },
+        { docs: ["Program account: the Token program of the deposit token."], name: "deposit_token_program" },
+        { docs: ["Program account: the Token program of the stream NFT."], name: "nft_token_program" },
         {
           address: "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s",
           docs: ["Program account: the Token Metadata program."],
@@ -947,45 +576,17 @@ export default {
           docs: ["Program account: the System program."],
           name: "system_program",
         },
-        {
-          address: "SysvarRent111111111111111111111111111111111",
-          docs: ["Sysvar account: Rent."],
-          name: "rent",
-        },
+        { address: "SysvarRent111111111111111111111111111111111", docs: ["Sysvar account: Rent."], name: "rent" },
       ],
       args: [
-        {
-          name: "salt",
-          type: "u128",
-        },
-        {
-          name: "deposit_amount",
-          type: "u64",
-        },
-        {
-          name: "start_time",
-          type: "u64",
-        },
-        {
-          name: "cliff_time",
-          type: "u64",
-        },
-        {
-          name: "end_time",
-          type: "u64",
-        },
-        {
-          name: "start_unlock_amount",
-          type: "u64",
-        },
-        {
-          name: "cliff_unlock_amount",
-          type: "u64",
-        },
-        {
-          name: "is_cancelable",
-          type: "bool",
-        },
+        { name: "salt", type: "u128" },
+        { name: "deposit_amount", type: "u64" },
+        { name: "start_time", type: "u64" },
+        { name: "cliff_time", type: "u64" },
+        { name: "end_time", type: "u64" },
+        { name: "start_unlock_amount", type: "u64" },
+        { name: "cliff_unlock_amount", type: "u64" },
+        { name: "is_cancelable", type: "bool" },
       ],
       discriminator: [150, 165, 147, 28, 68, 41, 48, 41],
       docs: [
@@ -1033,23 +634,11 @@ export default {
     },
     {
       accounts: [
-        {
-          docs: ["Write account: the initializer of the program."],
-          name: "initializer",
-          signer: true,
-          writable: true,
-        },
+        { docs: ["Write account: the initializer of the program."], name: "initializer", signer: true, writable: true },
         {
           docs: ["Create account: the treasury account that will hold the fees."],
           name: "treasury",
-          pda: {
-            seeds: [
-              {
-                kind: "const",
-                value: [116, 114, 101, 97, 115, 117, 114, 121],
-              },
-            ],
-          },
+          pda: { seeds: [{ kind: "const", value: [116, 114, 101, 97, 115, 117, 114, 121] }] },
           writable: true,
         },
         {
@@ -1069,27 +658,12 @@ export default {
           docs: ["Create account: the master edition account for the NFT collection."],
           name: "nft_collection_master_edition",
           pda: {
-            program: {
-              kind: "account",
-              path: "token_metadata_program",
-            },
+            program: { kind: "account", path: "token_metadata_program" },
             seeds: [
-              {
-                kind: "const",
-                value: [109, 101, 116, 97, 100, 97, 116, 97],
-              },
-              {
-                kind: "account",
-                path: "token_metadata_program",
-              },
-              {
-                kind: "account",
-                path: "nft_collection_mint",
-              },
-              {
-                kind: "const",
-                value: [101, 100, 105, 116, 105, 111, 110],
-              },
+              { kind: "const", value: [109, 101, 116, 97, 100, 97, 116, 97] },
+              { kind: "account", path: "token_metadata_program" },
+              { kind: "account", path: "nft_collection_mint" },
+              { kind: "const", value: [101, 100, 105, 116, 105, 111, 110] },
             ],
           },
           writable: true,
@@ -1098,23 +672,11 @@ export default {
           docs: ["Create account: the metadata account for the NFT collection."],
           name: "nft_collection_metadata",
           pda: {
-            program: {
-              kind: "account",
-              path: "token_metadata_program",
-            },
+            program: { kind: "account", path: "token_metadata_program" },
             seeds: [
-              {
-                kind: "const",
-                value: [109, 101, 116, 97, 100, 97, 116, 97],
-              },
-              {
-                kind: "account",
-                path: "token_metadata_program",
-              },
-              {
-                kind: "account",
-                path: "nft_collection_mint",
-              },
+              { kind: "const", value: [109, 101, 116, 97, 100, 97, 116, 97] },
+              { kind: "account", path: "token_metadata_program" },
+              { kind: "account", path: "nft_collection_mint" },
             ],
           },
           writable: true,
@@ -1144,18 +706,9 @@ export default {
               ],
             },
             seeds: [
-              {
-                kind: "account",
-                path: "treasury",
-              },
-              {
-                kind: "account",
-                path: "nft_token_program",
-              },
-              {
-                kind: "account",
-                path: "nft_collection_mint",
-              },
+              { kind: "account", path: "treasury" },
+              { kind: "account", path: "nft_token_program" },
+              { kind: "account", path: "nft_collection_mint" },
             ],
           },
           writable: true,
@@ -1165,20 +718,13 @@ export default {
           docs: ["Program account: the Associated Token program."],
           name: "associated_token_program",
         },
-        {
-          docs: ["Program account: the Token program of the collection NFT."],
-          name: "nft_token_program",
-        },
+        { docs: ["Program account: the Token program of the collection NFT."], name: "nft_token_program" },
         {
           address: "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s",
           docs: ["Program account: the Token Metadata program."],
           name: "token_metadata_program",
         },
-        {
-          address: "SysvarRent111111111111111111111111111111111",
-          docs: ["Sysvar account: Rent."],
-          name: "rent",
-        },
+        { address: "SysvarRent111111111111111111111111111111111", docs: ["Sysvar account: Rent."], name: "rent" },
         {
           address: "11111111111111111111111111111111",
           docs: ["Program account: the System program."],
@@ -1186,18 +732,9 @@ export default {
         },
       ],
       args: [
-        {
-          name: "fee_collector",
-          type: "pubkey",
-        },
-        {
-          name: "chainlink_program",
-          type: "pubkey",
-        },
-        {
-          name: "chainlink_sol_usd_feed",
-          type: "pubkey",
-        },
+        { name: "fee_collector", type: "pubkey" },
+        { name: "chainlink_program", type: "pubkey" },
+        { name: "chainlink_sol_usd_feed", type: "pubkey" },
       ],
       discriminator: [175, 175, 109, 31, 13, 152, 155, 237],
       docs: [
@@ -1223,21 +760,12 @@ export default {
           name: "stream_data",
           pda: {
             seeds: [
-              {
-                kind: "const",
-                value: [115, 116, 114, 101, 97, 109, 95, 100, 97, 116, 97],
-              },
-              {
-                kind: "account",
-                path: "stream_nft_mint",
-              },
+              { kind: "const", value: [115, 116, 114, 101, 97, 109, 95, 100, 97, 116, 97] },
+              { kind: "account", path: "stream_nft_mint" },
             ],
           },
         },
-        {
-          docs: ["Read account: the mint account for the stream NFT."],
-          name: "stream_nft_mint",
-        },
+        { docs: ["Read account: the mint account for the stream NFT."], name: "stream_nft_mint" },
       ],
       args: [],
       discriminator: [160, 136, 114, 120, 234, 178, 146, 58],
@@ -1258,32 +786,19 @@ export default {
     },
     {
       accounts: [
-        {
-          docs: ["Write account: the sender of the stream."],
-          name: "sender",
-          signer: true,
-        },
+        { docs: ["Write account: the sender of the stream."], name: "sender", signer: true },
         {
           docs: ["Write account: the stream data account storing stream details."],
           name: "stream_data",
           pda: {
             seeds: [
-              {
-                kind: "const",
-                value: [115, 116, 114, 101, 97, 109, 95, 100, 97, 116, 97],
-              },
-              {
-                kind: "account",
-                path: "stream_nft_mint",
-              },
+              { kind: "const", value: [115, 116, 114, 101, 97, 109, 95, 100, 97, 116, 97] },
+              { kind: "account", path: "stream_nft_mint" },
             ],
           },
           writable: true,
         },
-        {
-          docs: ["Read account: the mint account for the stream NFT."],
-          name: "stream_nft_mint",
-        },
+        { docs: ["Read account: the mint account for the stream NFT."], name: "stream_nft_mint" },
       ],
       args: [],
       discriminator: [241, 157, 138, 210, 8, 235, 187, 123],
@@ -1308,21 +823,12 @@ export default {
           name: "stream_data",
           pda: {
             seeds: [
-              {
-                kind: "const",
-                value: [115, 116, 114, 101, 97, 109, 95, 100, 97, 116, 97],
-              },
-              {
-                kind: "account",
-                path: "stream_nft_mint",
-              },
+              { kind: "const", value: [115, 116, 114, 101, 97, 109, 95, 100, 97, 116, 97] },
+              { kind: "account", path: "stream_nft_mint" },
             ],
           },
         },
-        {
-          docs: ["Read account: the mint account for the stream NFT."],
-          name: "stream_nft_mint",
-        },
+        { docs: ["Read account: the mint account for the stream NFT."], name: "stream_nft_mint" },
       ],
       args: [],
       discriminator: [90, 214, 253, 237, 126, 236, 132, 237],
@@ -1338,11 +844,7 @@ export default {
         "- The stream does not exist.",
       ],
       name: "status_of",
-      returns: {
-        defined: {
-          name: "StreamStatus",
-        },
-      },
+      returns: { defined: { name: "StreamStatus" } },
     },
     {
       accounts: [
@@ -1351,31 +853,16 @@ export default {
           name: "stream_nft_mint",
           pda: {
             seeds: [
-              {
-                kind: "const",
-                value: [115, 116, 114, 101, 97, 109, 95, 110, 102, 116, 95, 109, 105, 110, 116],
-              },
-              {
-                kind: "arg",
-                path: "_sender",
-              },
-              {
-                kind: "arg",
-                path: "_salt",
-              },
+              { kind: "const", value: [115, 116, 114, 101, 97, 109, 95, 110, 102, 116, 95, 109, 105, 110, 116] },
+              { kind: "arg", path: "_sender" },
+              { kind: "arg", path: "_salt" },
             ],
           },
         },
       ],
       args: [
-        {
-          name: "_sender",
-          type: "pubkey",
-        },
-        {
-          name: "_salt",
-          type: "u128",
-        },
+        { name: "_sender", type: "pubkey" },
+        { name: "_salt", type: "u128" },
       ],
       discriminator: [104, 209, 104, 97, 122, 35, 165, 195],
       docs: [
@@ -1396,21 +883,12 @@ export default {
           name: "stream_data",
           pda: {
             seeds: [
-              {
-                kind: "const",
-                value: [115, 116, 114, 101, 97, 109, 95, 100, 97, 116, 97],
-              },
-              {
-                kind: "account",
-                path: "stream_nft_mint",
-              },
+              { kind: "const", value: [115, 116, 114, 101, 97, 109, 95, 100, 97, 116, 97] },
+              { kind: "account", path: "stream_nft_mint" },
             ],
           },
         },
-        {
-          docs: ["Read account: the mint account for the stream NFT."],
-          name: "stream_nft_mint",
-        },
+        { docs: ["Read account: the mint account for the stream NFT."], name: "stream_nft_mint" },
       ],
       args: [],
       discriminator: [91, 69, 219, 48, 189, 26, 13, 33],
@@ -1439,25 +917,14 @@ export default {
         {
           docs: ["Read account: the account storing the treasury details."],
           name: "treasury",
-          pda: {
-            seeds: [
-              {
-                kind: "const",
-                value: [116, 114, 101, 97, 115, 117, 114, 121],
-              },
-            ],
-          },
+          pda: { seeds: [{ kind: "const", value: [116, 114, 101, 97, 115, 117, 114, 121] }] },
         },
       ],
       args: [],
       discriminator: [247, 160, 213, 237, 247, 121, 164, 82],
       docs: ["Returns the treasury details."],
       name: "treasury_view",
-      returns: {
-        defined: {
-          name: "Treasury",
-        },
-      },
+      returns: { defined: { name: "Treasury" } },
     },
     {
       accounts: [
@@ -1467,10 +934,7 @@ export default {
           signer: true,
           writable: true,
         },
-        {
-          docs: ["Read account: the recipient of the stream who owns the stream NFT."],
-          name: "stream_recipient",
-        },
+        { docs: ["Read account: the recipient of the stream who owns the stream NFT."], name: "stream_recipient" },
         {
           docs: ["Read account: the account that will receive the withdrawn tokens.", "recipient."],
           name: "withdrawal_recipient",
@@ -1487,18 +951,9 @@ export default {
               ],
             },
             seeds: [
-              {
-                kind: "account",
-                path: "withdrawal_recipient",
-              },
-              {
-                kind: "account",
-                path: "deposited_token_program",
-              },
-              {
-                kind: "account",
-                path: "deposited_token_mint",
-              },
+              { kind: "account", path: "withdrawal_recipient" },
+              { kind: "account", path: "deposited_token_program" },
+              { kind: "account", path: "deposited_token_mint" },
             ],
           },
           writable: true,
@@ -1506,20 +961,10 @@ export default {
         {
           docs: ["Write account: the treasury account that receives the withdrawal fee."],
           name: "treasury",
-          pda: {
-            seeds: [
-              {
-                kind: "const",
-                value: [116, 114, 101, 97, 115, 117, 114, 121],
-              },
-            ],
-          },
+          pda: { seeds: [{ kind: "const", value: [116, 114, 101, 97, 115, 117, 114, 121] }] },
           writable: true,
         },
-        {
-          docs: ["Read account: the mint account for the deposited token."],
-          name: "deposited_token_mint",
-        },
+        { docs: ["Read account: the mint account for the deposited token."], name: "deposited_token_mint" },
         {
           docs: ["Read account: the ATA for the stream NFT owned by recipient.", ""],
           name: "recipient_stream_nft_ata",
@@ -1532,18 +977,9 @@ export default {
               ],
             },
             seeds: [
-              {
-                kind: "account",
-                path: "stream_recipient",
-              },
-              {
-                kind: "account",
-                path: "nft_token_program",
-              },
-              {
-                kind: "account",
-                path: "stream_nft_mint",
-              },
+              { kind: "account", path: "stream_recipient" },
+              { kind: "account", path: "nft_token_program" },
+              { kind: "account", path: "stream_nft_mint" },
             ],
           },
         },
@@ -1552,14 +988,8 @@ export default {
           name: "stream_data",
           pda: {
             seeds: [
-              {
-                kind: "const",
-                value: [115, 116, 114, 101, 97, 109, 95, 100, 97, 116, 97],
-              },
-              {
-                kind: "account",
-                path: "stream_nft_mint",
-              },
+              { kind: "const", value: [115, 116, 114, 101, 97, 109, 95, 100, 97, 116, 97] },
+              { kind: "account", path: "stream_nft_mint" },
             ],
           },
           writable: true,
@@ -1576,26 +1006,14 @@ export default {
               ],
             },
             seeds: [
-              {
-                kind: "account",
-                path: "stream_data",
-              },
-              {
-                kind: "account",
-                path: "deposited_token_program",
-              },
-              {
-                kind: "account",
-                path: "deposited_token_mint",
-              },
+              { kind: "account", path: "stream_data" },
+              { kind: "account", path: "deposited_token_program" },
+              { kind: "account", path: "deposited_token_mint" },
             ],
           },
           writable: true,
         },
-        {
-          docs: ["Read account: the mint account for the stream NFT."],
-          name: "stream_nft_mint",
-        },
+        { docs: ["Read account: the mint account for the stream NFT."], name: "stream_nft_mint" },
         {
           address: "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
           docs: ["Program account: the Associated Token program."],
@@ -1605,30 +1023,16 @@ export default {
           docs: ["Read account: The Chainlink program used to retrieve on-chain price feeds."],
           name: "chainlink_program",
         },
-        {
-          docs: ["Read account: The account providing the SOL/USD price feed data."],
-          name: "chainlink_sol_usd_feed",
-        },
-        {
-          docs: ["Program account: the Token program of the deposited token."],
-          name: "deposited_token_program",
-        },
-        {
-          docs: ["Program account: the Token program of the stream NFT."],
-          name: "nft_token_program",
-        },
+        { docs: ["Read account: The account providing the SOL/USD price feed data."], name: "chainlink_sol_usd_feed" },
+        { docs: ["Program account: the Token program of the deposited token."], name: "deposited_token_program" },
+        { docs: ["Program account: the Token program of the stream NFT."], name: "nft_token_program" },
         {
           address: "11111111111111111111111111111111",
           docs: ["Program account: the System program."],
           name: "system_program",
         },
       ],
-      args: [
-        {
-          name: "amount",
-          type: "u64",
-        },
-      ],
+      args: [{ name: "amount", type: "u64" }],
       discriminator: [183, 18, 70, 156, 148, 109, 161, 34],
       docs: [
         "Withdraws the provided amount of tokens from the stream data ATA to the provided account.",
@@ -1672,10 +1076,7 @@ export default {
           signer: true,
           writable: true,
         },
-        {
-          docs: ["Read account: the recipient of the stream who owns the stream NFT."],
-          name: "stream_recipient",
-        },
+        { docs: ["Read account: the recipient of the stream who owns the stream NFT."], name: "stream_recipient" },
         {
           docs: ["Read account: the account that will receive the withdrawn tokens.", "recipient."],
           name: "withdrawal_recipient",
@@ -1692,18 +1093,9 @@ export default {
               ],
             },
             seeds: [
-              {
-                kind: "account",
-                path: "withdrawal_recipient",
-              },
-              {
-                kind: "account",
-                path: "deposited_token_program",
-              },
-              {
-                kind: "account",
-                path: "deposited_token_mint",
-              },
+              { kind: "account", path: "withdrawal_recipient" },
+              { kind: "account", path: "deposited_token_program" },
+              { kind: "account", path: "deposited_token_mint" },
             ],
           },
           writable: true,
@@ -1711,20 +1103,10 @@ export default {
         {
           docs: ["Write account: the treasury account that receives the withdrawal fee."],
           name: "treasury",
-          pda: {
-            seeds: [
-              {
-                kind: "const",
-                value: [116, 114, 101, 97, 115, 117, 114, 121],
-              },
-            ],
-          },
+          pda: { seeds: [{ kind: "const", value: [116, 114, 101, 97, 115, 117, 114, 121] }] },
           writable: true,
         },
-        {
-          docs: ["Read account: the mint account for the deposited token."],
-          name: "deposited_token_mint",
-        },
+        { docs: ["Read account: the mint account for the deposited token."], name: "deposited_token_mint" },
         {
           docs: ["Read account: the ATA for the stream NFT owned by recipient.", ""],
           name: "recipient_stream_nft_ata",
@@ -1737,18 +1119,9 @@ export default {
               ],
             },
             seeds: [
-              {
-                kind: "account",
-                path: "stream_recipient",
-              },
-              {
-                kind: "account",
-                path: "nft_token_program",
-              },
-              {
-                kind: "account",
-                path: "stream_nft_mint",
-              },
+              { kind: "account", path: "stream_recipient" },
+              { kind: "account", path: "nft_token_program" },
+              { kind: "account", path: "stream_nft_mint" },
             ],
           },
         },
@@ -1757,14 +1130,8 @@ export default {
           name: "stream_data",
           pda: {
             seeds: [
-              {
-                kind: "const",
-                value: [115, 116, 114, 101, 97, 109, 95, 100, 97, 116, 97],
-              },
-              {
-                kind: "account",
-                path: "stream_nft_mint",
-              },
+              { kind: "const", value: [115, 116, 114, 101, 97, 109, 95, 100, 97, 116, 97] },
+              { kind: "account", path: "stream_nft_mint" },
             ],
           },
           writable: true,
@@ -1781,26 +1148,14 @@ export default {
               ],
             },
             seeds: [
-              {
-                kind: "account",
-                path: "stream_data",
-              },
-              {
-                kind: "account",
-                path: "deposited_token_program",
-              },
-              {
-                kind: "account",
-                path: "deposited_token_mint",
-              },
+              { kind: "account", path: "stream_data" },
+              { kind: "account", path: "deposited_token_program" },
+              { kind: "account", path: "deposited_token_mint" },
             ],
           },
           writable: true,
         },
-        {
-          docs: ["Read account: the mint account for the stream NFT."],
-          name: "stream_nft_mint",
-        },
+        { docs: ["Read account: the mint account for the stream NFT."], name: "stream_nft_mint" },
         {
           address: "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
           docs: ["Program account: the Associated Token program."],
@@ -1810,18 +1165,9 @@ export default {
           docs: ["Read account: The Chainlink program used to retrieve on-chain price feeds."],
           name: "chainlink_program",
         },
-        {
-          docs: ["Read account: The account providing the SOL/USD price feed data."],
-          name: "chainlink_sol_usd_feed",
-        },
-        {
-          docs: ["Program account: the Token program of the deposited token."],
-          name: "deposited_token_program",
-        },
-        {
-          docs: ["Program account: the Token program of the stream NFT."],
-          name: "nft_token_program",
-        },
+        { docs: ["Read account: The account providing the SOL/USD price feed data."], name: "chainlink_sol_usd_feed" },
+        { docs: ["Program account: the Token program of the deposited token."], name: "deposited_token_program" },
+        { docs: ["Program account: the Token program of the stream NFT."], name: "nft_token_program" },
         {
           address: "11111111111111111111111111111111",
           docs: ["Program account: the System program."],
@@ -1854,21 +1200,12 @@ export default {
           name: "stream_data",
           pda: {
             seeds: [
-              {
-                kind: "const",
-                value: [115, 116, 114, 101, 97, 109, 95, 100, 97, 116, 97],
-              },
-              {
-                kind: "account",
-                path: "stream_nft_mint",
-              },
+              { kind: "const", value: [115, 116, 114, 101, 97, 109, 95, 100, 97, 116, 97] },
+              { kind: "account", path: "stream_nft_mint" },
             ],
           },
         },
-        {
-          docs: ["Read account: the mint account for the stream NFT."],
-          name: "stream_nft_mint",
-        },
+        { docs: ["Read account: the mint account for the stream NFT."], name: "stream_nft_mint" },
       ],
       args: [],
       discriminator: [30, 195, 140, 141, 173, 123, 253, 60],
@@ -1892,23 +1229,13 @@ export default {
         {
           docs: ["Read account: the treasury account that receives the withdrawal fee."],
           name: "treasury",
-          pda: {
-            seeds: [
-              {
-                kind: "const",
-                value: [116, 114, 101, 97, 115, 117, 114, 121],
-              },
-            ],
-          },
+          pda: { seeds: [{ kind: "const", value: [116, 114, 101, 97, 115, 117, 114, 121] }] },
         },
         {
           docs: ["Read account: The Chainlink program used to retrieve on-chain price feeds."],
           name: "chainlink_program",
         },
-        {
-          docs: ["Read account: The account providing the SOL/USD price feed data."],
-          name: "chainlink_sol_usd_feed",
-        },
+        { docs: ["Read account: The account providing the SOL/USD price feed data."], name: "chainlink_sol_usd_feed" },
       ],
       args: [],
       discriminator: [55, 255, 88, 224, 223, 23, 97, 140],
@@ -1924,37 +1251,17 @@ export default {
       returns: "u64",
     },
   ],
-  metadata: {
-    description: "Created with Anchor",
-    name: "sablier_lockup",
-    spec: "0.1.0",
-    version: "0.1.0",
-  },
+  metadata: { description: "Created with Anchor", name: "sablier_lockup", spec: "0.1.0", version: "0.1.0" },
   types: [
     {
       name: "Amounts",
       type: {
         fields: [
-          {
-            name: "start_unlock",
-            type: "u64",
-          },
-          {
-            name: "cliff_unlock",
-            type: "u64",
-          },
-          {
-            name: "deposited",
-            type: "u64",
-          },
-          {
-            name: "refunded",
-            type: "u64",
-          },
-          {
-            name: "withdrawn",
-            type: "u64",
-          },
+          { name: "start_unlock", type: "u64" },
+          { name: "cliff_unlock", type: "u64" },
+          { name: "deposited", type: "u64" },
+          { name: "refunded", type: "u64" },
+          { name: "withdrawn", type: "u64" },
         ],
         kind: "struct",
       },
@@ -1963,26 +1270,11 @@ export default {
       name: "CancelLockupStream",
       type: {
         fields: [
-          {
-            name: "deposited_token_mint",
-            type: "pubkey",
-          },
-          {
-            name: "recipient_amount",
-            type: "u64",
-          },
-          {
-            name: "sender_amount",
-            type: "u64",
-          },
-          {
-            name: "stream_data",
-            type: "pubkey",
-          },
-          {
-            name: "stream_nft_mint",
-            type: "pubkey",
-          },
+          { name: "deposited_token_mint", type: "pubkey" },
+          { name: "recipient_amount", type: "u64" },
+          { name: "sender_amount", type: "u64" },
+          { name: "stream_data", type: "pubkey" },
+          { name: "stream_nft_mint", type: "pubkey" },
         ],
         kind: "struct",
       },
@@ -1991,30 +1283,12 @@ export default {
       name: "CreateLockupLinearStream",
       type: {
         fields: [
-          {
-            name: "deposit_token_decimals",
-            type: "u8",
-          },
-          {
-            name: "deposit_token_mint",
-            type: "pubkey",
-          },
-          {
-            name: "recipient",
-            type: "pubkey",
-          },
-          {
-            name: "salt",
-            type: "u128",
-          },
-          {
-            name: "stream_data",
-            type: "pubkey",
-          },
-          {
-            name: "stream_nft_mint",
-            type: "pubkey",
-          },
+          { name: "deposit_token_decimals", type: "u8" },
+          { name: "deposit_token_mint", type: "pubkey" },
+          { name: "recipient", type: "pubkey" },
+          { name: "salt", type: "u128" },
+          { name: "stream_data", type: "pubkey" },
+          { name: "stream_nft_mint", type: "pubkey" },
         ],
         kind: "struct",
       },
@@ -2023,18 +1297,9 @@ export default {
       name: "FeesCollected",
       type: {
         fields: [
-          {
-            name: "fee_amount",
-            type: "u64",
-          },
-          {
-            name: "fee_collector",
-            type: "pubkey",
-          },
-          {
-            name: "fee_recipient",
-            type: "pubkey",
-          },
+          { name: "fee_amount", type: "u64" },
+          { name: "fee_collector", type: "pubkey" },
+          { name: "fee_recipient", type: "pubkey" },
         ],
         kind: "struct",
       },
@@ -2043,14 +1308,8 @@ export default {
       name: "NftCollectionData",
       type: {
         fields: [
-          {
-            name: "total_supply",
-            type: "u64",
-          },
-          {
-            name: "bump",
-            type: "u8",
-          },
+          { name: "total_supply", type: "u64" },
+          { name: "bump", type: "u8" },
         ],
         kind: "struct",
       },
@@ -2059,18 +1318,9 @@ export default {
       name: "RenounceLockupStream",
       type: {
         fields: [
-          {
-            name: "deposited_token_mint",
-            type: "pubkey",
-          },
-          {
-            name: "stream_data",
-            type: "pubkey",
-          },
-          {
-            name: "stream_nft_mint",
-            type: "pubkey",
-          },
+          { name: "deposited_token_mint", type: "pubkey" },
+          { name: "stream_data", type: "pubkey" },
+          { name: "stream_nft_mint", type: "pubkey" },
         ],
         kind: "struct",
       },
@@ -2079,50 +1329,15 @@ export default {
       name: "StreamData",
       type: {
         fields: [
-          {
-            name: "amounts",
-            type: {
-              defined: {
-                name: "Amounts",
-              },
-            },
-          },
-          {
-            name: "deposited_token_mint",
-            type: "pubkey",
-          },
-          {
-            name: "bump",
-            type: "u8",
-          },
-          {
-            name: "salt",
-            type: "u128",
-          },
-          {
-            name: "is_cancelable",
-            type: "bool",
-          },
-          {
-            name: "is_depleted",
-            type: "bool",
-          },
-          {
-            name: "timestamps",
-            type: {
-              defined: {
-                name: "Timestamps",
-              },
-            },
-          },
-          {
-            name: "sender",
-            type: "pubkey",
-          },
-          {
-            name: "was_canceled",
-            type: "bool",
-          },
+          { name: "amounts", type: { defined: { name: "Amounts" } } },
+          { name: "deposited_token_mint", type: "pubkey" },
+          { name: "bump", type: "u8" },
+          { name: "salt", type: "u128" },
+          { name: "is_cancelable", type: "bool" },
+          { name: "is_depleted", type: "bool" },
+          { name: "timestamps", type: { defined: { name: "Timestamps" } } },
+          { name: "sender", type: "pubkey" },
+          { name: "was_canceled", type: "bool" },
         ],
         kind: "struct",
       },
@@ -2132,21 +1347,11 @@ export default {
       type: {
         kind: "enum",
         variants: [
-          {
-            name: "Pending",
-          },
-          {
-            name: "Streaming",
-          },
-          {
-            name: "Settled",
-          },
-          {
-            name: "Canceled",
-          },
-          {
-            name: "Depleted",
-          },
+          { name: "Pending" },
+          { name: "Streaming" },
+          { name: "Settled" },
+          { name: "Canceled" },
+          { name: "Depleted" },
         ],
       },
     },
@@ -2155,18 +1360,9 @@ export default {
       name: "Timestamps",
       type: {
         fields: [
-          {
-            name: "cliff",
-            type: "u64",
-          },
-          {
-            name: "end",
-            type: "u64",
-          },
-          {
-            name: "start",
-            type: "u64",
-          },
+          { name: "cliff", type: "u64" },
+          { name: "end", type: "u64" },
+          { name: "start", type: "u64" },
         ],
         kind: "struct",
       },
@@ -2175,22 +1371,10 @@ export default {
       name: "Treasury",
       type: {
         fields: [
-          {
-            name: "bump",
-            type: "u8",
-          },
-          {
-            name: "fee_collector",
-            type: "pubkey",
-          },
-          {
-            name: "chainlink_program",
-            type: "pubkey",
-          },
-          {
-            name: "chainlink_sol_usd_feed",
-            type: "pubkey",
-          },
+          { name: "bump", type: "u8" },
+          { name: "fee_collector", type: "pubkey" },
+          { name: "chainlink_program", type: "pubkey" },
+          { name: "chainlink_sol_usd_feed", type: "pubkey" },
         ],
         kind: "struct",
       },
@@ -2199,26 +1383,11 @@ export default {
       name: "WithdrawFromLockupStream",
       type: {
         fields: [
-          {
-            name: "deposited_token_mint",
-            type: "pubkey",
-          },
-          {
-            name: "fee_in_lamports",
-            type: "u64",
-          },
-          {
-            name: "stream_data",
-            type: "pubkey",
-          },
-          {
-            name: "stream_nft_mint",
-            type: "pubkey",
-          },
-          {
-            name: "withdrawn_amount",
-            type: "u64",
-          },
+          { name: "deposited_token_mint", type: "pubkey" },
+          { name: "fee_in_lamports", type: "u64" },
+          { name: "stream_data", type: "pubkey" },
+          { name: "stream_nft_mint", type: "pubkey" },
+          { name: "withdrawn_amount", type: "u64" },
         ],
         kind: "struct",
       },

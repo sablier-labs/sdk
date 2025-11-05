@@ -1,17 +1,11 @@
 /**
  * Program IDL in camelCase format in order to be used in JS/TS.
  *
- * Note that this is only a type helper and is not the actual IDL. The original
- * IDL can be found at `target/idl/sablier_merkle_instant.json`.
+ * Note that this is only a type helper and is not the actual IDL.
  */
-type Idl = {
+export type Idl = {
   address: "7XrxoQejBoGouW4V3aozTSwub7xSDjYqB4Go7YLjF9rV";
-  metadata: {
-    name: "sablierMerkleInstant";
-    version: "0.1.0";
-    spec: "0.1.0";
-    description: "Created with Anchor";
-  };
+  metadata: { name: "sablierMerkleInstant"; version: "0.1.0"; spec: "0.1.0"; description: "Created with Anchor" };
   docs: ["Sablier Merkle Instant program for creating and managing Merkle tree-based airdrop campaigns."];
   instructions: [
     {
@@ -24,18 +18,9 @@ type Idl = {
         "- `campaign` The account that stores the campaign details.",
       ];
       discriminator: [188, 126, 110, 5, 183, 113, 158, 3];
-      accounts: [
-        {
-          name: "campaign";
-          docs: ["Read account: the account storing the campaign data."];
-        },
-      ];
+      accounts: [{ name: "campaign"; docs: ["Read account: the account storing the campaign data."] }];
       args: [];
-      returns: {
-        defined: {
-          name: "campaign";
-        };
-      };
+      returns: { defined: { name: "campaign" } };
     },
     {
       name: "claim";
@@ -80,28 +65,16 @@ type Idl = {
           writable: true;
           signer: true;
         },
-        {
-          name: "recipient";
-          docs: ["Read account: the recipient of the airdrop."];
-        },
+        { name: "recipient"; docs: ["Read account: the recipient of the airdrop."] },
         {
           name: "recipientAta";
           docs: ["Create if needed account: the ATA for airdrop token owned by the recipient."];
           writable: true;
           pda: {
             seeds: [
-              {
-                kind: "account";
-                path: "recipient";
-              },
-              {
-                kind: "account";
-                path: "airdropTokenProgram";
-              },
-              {
-                kind: "account";
-                path: "airdropTokenMint";
-              },
+              { kind: "account"; path: "recipient" },
+              { kind: "account"; path: "airdropTokenProgram" },
+              { kind: "account"; path: "airdropTokenMint" },
             ];
             program: {
               kind: "const";
@@ -146,42 +119,19 @@ type Idl = {
           name: "treasury";
           docs: ["Write account: the treasury account that will receive the claim fee."];
           writable: true;
-          pda: {
-            seeds: [
-              {
-                kind: "const";
-                value: [116, 114, 101, 97, 115, 117, 114, 121];
-              },
-            ];
-          };
+          pda: { seeds: [{ kind: "const"; value: [116, 114, 101, 97, 115, 117, 114, 121] }] };
         },
-        {
-          name: "airdropTokenMint";
-          docs: ["Read account: the mint account of the airdrop token."];
-        },
-        {
-          name: "campaign";
-          docs: ["Write account: the account storing the campaign data."];
-          writable: true;
-        },
+        { name: "airdropTokenMint"; docs: ["Read account: the mint account of the airdrop token."] },
+        { name: "campaign"; docs: ["Write account: the account storing the campaign data."]; writable: true },
         {
           name: "campaignAta";
           docs: ["Write account: the campaign's ATA for the airdrop token."];
           writable: true;
           pda: {
             seeds: [
-              {
-                kind: "account";
-                path: "campaign";
-              },
-              {
-                kind: "account";
-                path: "airdropTokenProgram";
-              },
-              {
-                kind: "account";
-                path: "airdropTokenMint";
-              },
+              { kind: "account"; path: "campaign" },
+              { kind: "account"; path: "airdropTokenProgram" },
+              { kind: "account"; path: "airdropTokenMint" },
             ];
             program: {
               kind: "const";
@@ -228,25 +178,13 @@ type Idl = {
           writable: true;
           pda: {
             seeds: [
-              {
-                kind: "const";
-                value: [99, 108, 97, 105, 109, 95, 114, 101, 99, 101, 105, 112, 116];
-              },
-              {
-                kind: "account";
-                path: "campaign";
-              },
-              {
-                kind: "arg";
-                path: "index";
-              },
+              { kind: "const"; value: [99, 108, 97, 105, 109, 95, 114, 101, 99, 101, 105, 112, 116] },
+              { kind: "account"; path: "campaign" },
+              { kind: "arg"; path: "index" },
             ];
           };
         },
-        {
-          name: "airdropTokenProgram";
-          docs: ["Program account: the Token program of the airdrop token."];
-        },
+        { name: "airdropTokenProgram"; docs: ["Program account: the Token program of the airdrop token."] },
         {
           name: "associatedTokenProgram";
           docs: ["Program account: the Associated Token program."];
@@ -256,10 +194,7 @@ type Idl = {
           name: "chainlinkProgram";
           docs: ["Read account: The Chainlink program used to retrieve on-chain price feeds."];
         },
-        {
-          name: "chainlinkSolUsdFeed";
-          docs: ["Read account: The account providing the SOL/USD price feed data."];
-        },
+        { name: "chainlinkSolUsdFeed"; docs: ["Read account: The account providing the SOL/USD price feed data."] },
         {
           name: "systemProgram";
           docs: ["Program account: the System program."];
@@ -267,22 +202,9 @@ type Idl = {
         },
       ];
       args: [
-        {
-          name: "index";
-          type: "u32";
-        },
-        {
-          name: "amount";
-          type: "u64";
-        },
-        {
-          name: "merkleProof";
-          type: {
-            vec: {
-              array: ["u8", 32];
-            };
-          };
-        },
+        { name: "index"; type: "u32" },
+        { name: "amount"; type: "u64" },
+        { name: "merkleProof"; type: { vec: { array: ["u8", 32] } } },
       ];
     },
     {
@@ -300,23 +222,13 @@ type Idl = {
         {
           name: "treasury";
           docs: ["Read account: the treasury account that receives the claim fee."];
-          pda: {
-            seeds: [
-              {
-                kind: "const";
-                value: [116, 114, 101, 97, 115, 117, 114, 121];
-              },
-            ];
-          };
+          pda: { seeds: [{ kind: "const"; value: [116, 114, 101, 97, 115, 117, 114, 121] }] };
         },
         {
           name: "chainlinkProgram";
           docs: ["Read account: The Chainlink program used to retrieve on-chain price feeds."];
         },
-        {
-          name: "chainlinkSolUsdFeed";
-          docs: ["Read account: The account providing the SOL/USD price feed data."];
-        },
+        { name: "chainlinkSolUsdFeed"; docs: ["Read account: The account providing the SOL/USD price feed data."] },
       ];
       args: [];
       returns: "u64";
@@ -355,28 +267,16 @@ type Idl = {
           writable: true;
           signer: true;
         },
-        {
-          name: "clawbackRecipient";
-          docs: ["Read account: the clawback recipient."];
-        },
+        { name: "clawbackRecipient"; docs: ["Read account: the clawback recipient."] },
         {
           name: "clawbackRecipientAta";
           docs: ["Create if needed account: the clawback recipient's ATA for the airdrop token."];
           writable: true;
           pda: {
             seeds: [
-              {
-                kind: "account";
-                path: "clawbackRecipient";
-              },
-              {
-                kind: "account";
-                path: "airdropTokenProgram";
-              },
-              {
-                kind: "account";
-                path: "airdropTokenMint";
-              },
+              { kind: "account"; path: "clawbackRecipient" },
+              { kind: "account"; path: "airdropTokenProgram" },
+              { kind: "account"; path: "airdropTokenMint" },
             ];
             program: {
               kind: "const";
@@ -417,32 +317,17 @@ type Idl = {
             };
           };
         },
-        {
-          name: "airdropTokenMint";
-          docs: ["Read account: the mint account of the airdrop token."];
-        },
-        {
-          name: "campaign";
-          docs: ["Read account: the account storing the campaign data."];
-        },
+        { name: "airdropTokenMint"; docs: ["Read account: the mint account of the airdrop token."] },
+        { name: "campaign"; docs: ["Read account: the account storing the campaign data."] },
         {
           name: "campaignAta";
           docs: ["Write account: the campaign's ATA for the airdrop token."];
           writable: true;
           pda: {
             seeds: [
-              {
-                kind: "account";
-                path: "campaign";
-              },
-              {
-                kind: "account";
-                path: "airdropTokenProgram";
-              },
-              {
-                kind: "account";
-                path: "airdropTokenMint";
-              },
+              { kind: "account"; path: "campaign" },
+              { kind: "account"; path: "airdropTokenProgram" },
+              { kind: "account"; path: "airdropTokenMint" },
             ];
             program: {
               kind: "const";
@@ -483,10 +368,7 @@ type Idl = {
             };
           };
         },
-        {
-          name: "airdropTokenProgram";
-          docs: ["Program account: the Token program of the airdrop token."];
-        },
+        { name: "airdropTokenProgram"; docs: ["Program account: the Token program of the airdrop token."] },
         {
           name: "associatedTokenProgram";
           docs: ["Program account: the Associated Token program."];
@@ -498,12 +380,7 @@ type Idl = {
           address: "11111111111111111111111111111111";
         },
       ];
-      args: [
-        {
-          name: "amount";
-          type: "u64";
-        },
-      ];
+      args: [{ name: "amount"; type: "u64" }];
     },
     {
       name: "collectFees";
@@ -542,14 +419,7 @@ type Idl = {
           name: "treasury";
           docs: ["Write account: the treasury account that holds the fees."];
           writable: true;
-          pda: {
-            seeds: [
-              {
-                kind: "const";
-                value: [116, 114, 101, 97, 115, 117, 114, 121];
-              },
-            ];
-          };
+          pda: { seeds: [{ kind: "const"; value: [116, 114, 101, 97, 115, 117, 114, 121] }] };
         },
       ];
       args: [];
@@ -583,50 +453,21 @@ type Idl = {
       ];
       discriminator: [111, 131, 187, 98, 160, 193, 114, 244];
       accounts: [
-        {
-          name: "creator";
-          docs: ["Write account: the creator of the campaign."];
-          writable: true;
-          signer: true;
-        },
-        {
-          name: "airdropTokenMint";
-          docs: ["Read account: the mint account of the airdrop token."];
-        },
+        { name: "creator"; docs: ["Write account: the creator of the campaign."]; writable: true; signer: true },
+        { name: "airdropTokenMint"; docs: ["Read account: the mint account of the airdrop token."] },
         {
           name: "campaign";
           docs: ["Create account: the account storing the campaign data."];
           writable: true;
           pda: {
             seeds: [
-              {
-                kind: "const";
-                value: [99, 97, 109, 112, 97, 105, 103, 110];
-              },
-              {
-                kind: "account";
-                path: "creator";
-              },
-              {
-                kind: "arg";
-                path: "merkleRoot";
-              },
-              {
-                kind: "arg";
-                path: "campaignStartTime";
-              },
-              {
-                kind: "arg";
-                path: "expirationTime";
-              },
-              {
-                kind: "arg";
-                path: "name";
-              },
-              {
-                kind: "account";
-                path: "airdropTokenMint";
-              },
+              { kind: "const"; value: [99, 97, 109, 112, 97, 105, 103, 110] },
+              { kind: "account"; path: "creator" },
+              { kind: "arg"; path: "merkleRoot" },
+              { kind: "arg"; path: "campaignStartTime" },
+              { kind: "arg"; path: "expirationTime" },
+              { kind: "arg"; path: "name" },
+              { kind: "account"; path: "airdropTokenMint" },
             ];
           };
         },
@@ -636,18 +477,9 @@ type Idl = {
           writable: true;
           pda: {
             seeds: [
-              {
-                kind: "account";
-                path: "campaign";
-              },
-              {
-                kind: "account";
-                path: "airdropTokenProgram";
-              },
-              {
-                kind: "account";
-                path: "airdropTokenMint";
-              },
+              { kind: "account"; path: "campaign" },
+              { kind: "account"; path: "airdropTokenProgram" },
+              { kind: "account"; path: "airdropTokenMint" },
             ];
             program: {
               kind: "const";
@@ -688,10 +520,7 @@ type Idl = {
             };
           };
         },
-        {
-          name: "airdropTokenProgram";
-          docs: ["Program account: the Token program of the airdrop token."];
-        },
+        { name: "airdropTokenProgram"; docs: ["Program account: the Token program of the airdrop token."] },
         {
           name: "associatedTokenProgram";
           docs: ["Program account: the Associated Token program."];
@@ -704,36 +533,13 @@ type Idl = {
         },
       ];
       args: [
-        {
-          name: "merkleRoot";
-          type: {
-            array: ["u8", 32];
-          };
-        },
-        {
-          name: "campaignStartTime";
-          type: "u64";
-        },
-        {
-          name: "expirationTime";
-          type: "u64";
-        },
-        {
-          name: "name";
-          type: "string";
-        },
-        {
-          name: "ipfsCid";
-          type: "string";
-        },
-        {
-          name: "aggregateAmount";
-          type: "u64";
-        },
-        {
-          name: "recipientCount";
-          type: "u32";
-        },
+        { name: "merkleRoot"; type: { array: ["u8", 32] } },
+        { name: "campaignStartTime"; type: "u64" },
+        { name: "expirationTime"; type: "u64" },
+        { name: "name"; type: "string" },
+        { name: "ipfsCid"; type: "string" },
+        { name: "aggregateAmount"; type: "u64" },
+        { name: "recipientCount"; type: "u32" },
       ];
     },
     {
@@ -746,12 +552,7 @@ type Idl = {
         "- `campaign` The account that stores the campaign details.",
       ];
       discriminator: [135, 101, 171, 220, 86, 97, 104, 199];
-      accounts: [
-        {
-          name: "campaign";
-          docs: ["Read account: the account storing the campaign data."];
-        },
-      ];
+      accounts: [{ name: "campaign"; docs: ["Read account: the account storing the campaign data."] }];
       args: [];
       returns: "bool";
     },
@@ -770,37 +571,20 @@ type Idl = {
       ];
       discriminator: [182, 195, 167, 56, 232, 3, 223, 102];
       accounts: [
-        {
-          name: "campaign";
-          docs: ["Read account: the account storing the campaign data."];
-        },
+        { name: "campaign"; docs: ["Read account: the account storing the campaign data."] },
         {
           name: "claimReceipt";
           docs: ["Read account: the claim receipt."];
           pda: {
             seeds: [
-              {
-                kind: "const";
-                value: [99, 108, 97, 105, 109, 95, 114, 101, 99, 101, 105, 112, 116];
-              },
-              {
-                kind: "account";
-                path: "campaign";
-              },
-              {
-                kind: "arg";
-                path: "index";
-              },
+              { kind: "const"; value: [99, 108, 97, 105, 109, 95, 114, 101, 99, 101, 105, 112, 116] },
+              { kind: "account"; path: "campaign" },
+              { kind: "arg"; path: "index" },
             ];
           };
         },
       ];
-      args: [
-        {
-          name: "index";
-          type: "u32";
-        },
-      ];
+      args: [{ name: "index"; type: "u32" }];
       returns: "bool";
     },
     {
@@ -813,12 +597,7 @@ type Idl = {
         "- `campaign` The account that stores the campaign details.",
       ];
       discriminator: [24, 138, 30, 86, 92, 38, 143, 129];
-      accounts: [
-        {
-          name: "campaign";
-          docs: ["Read account: the account storing the campaign data."];
-        },
-      ];
+      accounts: [{ name: "campaign"; docs: ["Read account: the account storing the campaign data."] }];
       args: [];
       returns: "bool";
     },
@@ -837,12 +616,7 @@ type Idl = {
         "seven days after the first claim.",
       ];
       discriminator: [223, 150, 181, 32, 240, 136, 73, 236];
-      accounts: [
-        {
-          name: "campaign";
-          docs: ["Read account: the account storing the campaign data."];
-        },
-      ];
+      accounts: [{ name: "campaign"; docs: ["Read account: the account storing the campaign data."] }];
       args: [];
       returns: "bool";
     },
@@ -863,24 +637,12 @@ type Idl = {
       ];
       discriminator: [175, 175, 109, 31, 13, 152, 155, 237];
       accounts: [
-        {
-          name: "initializer";
-          docs: ["Write account: the initializer of the program."];
-          writable: true;
-          signer: true;
-        },
+        { name: "initializer"; docs: ["Write account: the initializer of the program."]; writable: true; signer: true },
         {
           name: "treasury";
           docs: ["Create account: the treasury account that will hold the fees."];
           writable: true;
-          pda: {
-            seeds: [
-              {
-                kind: "const";
-                value: [116, 114, 101, 97, 115, 117, 114, 121];
-              },
-            ];
-          };
+          pda: { seeds: [{ kind: "const"; value: [116, 114, 101, 97, 115, 117, 114, 121] }] };
         },
         {
           name: "systemProgram";
@@ -889,18 +651,9 @@ type Idl = {
         },
       ];
       args: [
-        {
-          name: "feeCollector";
-          type: "pubkey";
-        },
-        {
-          name: "chainlinkProgram";
-          type: "pubkey";
-        },
-        {
-          name: "chainlinkSolUsdFeed";
-          type: "pubkey";
-        },
+        { name: "feeCollector"; type: "pubkey" },
+        { name: "chainlinkProgram"; type: "pubkey" },
+        { name: "chainlinkSolUsdFeed"; type: "pubkey" },
       ];
     },
     {
@@ -911,82 +664,34 @@ type Idl = {
         {
           name: "treasury";
           docs: ["Read account: the account storing the treasury details."];
-          pda: {
-            seeds: [
-              {
-                kind: "const";
-                value: [116, 114, 101, 97, 115, 117, 114, 121];
-              },
-            ];
-          };
+          pda: { seeds: [{ kind: "const"; value: [116, 114, 101, 97, 115, 117, 114, 121] }] };
         },
       ];
       args: [];
-      returns: {
-        defined: {
-          name: "treasury";
-        };
-      };
+      returns: { defined: { name: "treasury" } };
     },
   ];
   accounts: [
-    {
-      name: "campaign";
-      discriminator: [50, 40, 49, 11, 157, 220, 229, 192];
-    },
-    {
-      name: "claimReceipt";
-      discriminator: [223, 233, 11, 229, 124, 165, 207, 28];
-    },
-    {
-      name: "treasury";
-      discriminator: [238, 239, 123, 238, 89, 1, 168, 253];
-    },
+    { name: "campaign"; discriminator: [50, 40, 49, 11, 157, 220, 229, 192] },
+    { name: "claimReceipt"; discriminator: [223, 233, 11, 229, 124, 165, 207, 28] },
+    { name: "treasury"; discriminator: [238, 239, 123, 238, 89, 1, 168, 253] },
   ];
   events: [
-    {
-      name: "claim";
-      discriminator: [133, 98, 9, 238, 133, 207, 191, 113];
-    },
-    {
-      name: "clawback";
-      discriminator: [239, 144, 30, 69, 80, 59, 142, 64];
-    },
-    {
-      name: "createCampaign";
-      discriminator: [88, 178, 212, 72, 110, 4, 68, 143];
-    },
-    {
-      name: "feesCollected";
-      discriminator: [233, 23, 117, 225, 107, 178, 254, 8];
-    },
+    { name: "claim"; discriminator: [133, 98, 9, 238, 133, 207, 191, 113] },
+    { name: "clawback"; discriminator: [239, 144, 30, 69, 80, 59, 142, 64] },
+    { name: "createCampaign"; discriminator: [88, 178, 212, 72, 110, 4, 68, 143] },
+    { name: "feesCollected"; discriminator: [233, 23, 117, 225, 107, 178, 254, 8] },
   ];
   errors: [
-    {
-      code: 6000;
-      name: "campaignExpired";
-      msg: "Campaign has expired!";
-    },
-    {
-      code: 6001;
-      name: "invalidMerkleProof";
-      msg: "Invalid Merkle proof!";
-    },
-    {
-      code: 6002;
-      name: "campaignNotStarted";
-      msg: "Campaign has not started yet!";
-    },
+    { code: 6000; name: "campaignExpired"; msg: "Campaign has expired!" },
+    { code: 6001; name: "invalidMerkleProof"; msg: "Invalid Merkle proof!" },
+    { code: 6002; name: "campaignNotStarted"; msg: "Campaign has not started yet!" },
     {
       code: 6003;
       name: "clawbackNotAllowed";
       msg: "Clawback not allowed past the grace period and before campaign expiration!";
     },
-    {
-      code: 6004;
-      name: "cantCollectZeroFees";
-      msg: "Can't collect zero fees!";
-    },
+    { code: 6004; name: "cantCollectZeroFees"; msg: "Can't collect zero fees!" },
   ];
   types: [
     {
@@ -995,44 +700,15 @@ type Idl = {
       type: {
         kind: "struct";
         fields: [
-          {
-            name: "airdropTokenMint";
-            type: "pubkey";
-          },
-          {
-            name: "bump";
-            type: "u8";
-          },
-          {
-            name: "campaignStartTime";
-            type: "u64";
-          },
-          {
-            name: "creator";
-            type: "pubkey";
-          },
-          {
-            name: "expirationTime";
-            type: "u64";
-          },
-          {
-            name: "firstClaimTime";
-            type: "u64";
-          },
-          {
-            name: "ipfsCid";
-            type: "string";
-          },
-          {
-            name: "merkleRoot";
-            type: {
-              array: ["u8", 32];
-            };
-          },
-          {
-            name: "name";
-            type: "string";
-          },
+          { name: "airdropTokenMint"; type: "pubkey" },
+          { name: "bump"; type: "u8" },
+          { name: "campaignStartTime"; type: "u64" },
+          { name: "creator"; type: "pubkey" },
+          { name: "expirationTime"; type: "u64" },
+          { name: "firstClaimTime"; type: "u64" },
+          { name: "ipfsCid"; type: "string" },
+          { name: "merkleRoot"; type: { array: ["u8", 32] } },
+          { name: "name"; type: "string" },
         ];
       };
     },
@@ -1041,65 +717,26 @@ type Idl = {
       type: {
         kind: "struct";
         fields: [
-          {
-            name: "amount";
-            type: "u64";
-          },
-          {
-            name: "campaign";
-            type: "pubkey";
-          },
-          {
-            name: "claimer";
-            type: "pubkey";
-          },
-          {
-            name: "claimReceipt";
-            type: "pubkey";
-          },
-          {
-            name: "feeInLamports";
-            type: "u64";
-          },
-          {
-            name: "index";
-            type: "u32";
-          },
-          {
-            name: "recipient";
-            type: "pubkey";
-          },
+          { name: "amount"; type: "u64" },
+          { name: "campaign"; type: "pubkey" },
+          { name: "claimer"; type: "pubkey" },
+          { name: "claimReceipt"; type: "pubkey" },
+          { name: "feeInLamports"; type: "u64" },
+          { name: "index"; type: "u32" },
+          { name: "recipient"; type: "pubkey" },
         ];
       };
     },
-    {
-      name: "claimReceipt";
-      type: {
-        kind: "struct";
-        fields: [];
-      };
-    },
+    { name: "claimReceipt"; type: { kind: "struct"; fields: [] } },
     {
       name: "clawback";
       type: {
         kind: "struct";
         fields: [
-          {
-            name: "amount";
-            type: "u64";
-          },
-          {
-            name: "campaign";
-            type: "pubkey";
-          },
-          {
-            name: "campaignCreator";
-            type: "pubkey";
-          },
-          {
-            name: "clawbackRecipient";
-            type: "pubkey";
-          },
+          { name: "amount"; type: "u64" },
+          { name: "campaign"; type: "pubkey" },
+          { name: "campaignCreator"; type: "pubkey" },
+          { name: "clawbackRecipient"; type: "pubkey" },
         ];
       };
     },
@@ -1108,52 +745,17 @@ type Idl = {
       type: {
         kind: "struct";
         fields: [
-          {
-            name: "aggregateAmount";
-            type: "u64";
-          },
-          {
-            name: "campaign";
-            type: "pubkey";
-          },
-          {
-            name: "campaignName";
-            type: "string";
-          },
-          {
-            name: "campaignStartTime";
-            type: "u64";
-          },
-          {
-            name: "creator";
-            type: "pubkey";
-          },
-          {
-            name: "expirationTime";
-            type: "u64";
-          },
-          {
-            name: "ipfsCid";
-            type: "string";
-          },
-          {
-            name: "merkleRoot";
-            type: {
-              array: ["u8", 32];
-            };
-          },
-          {
-            name: "recipientCount";
-            type: "u32";
-          },
-          {
-            name: "tokenDecimals";
-            type: "u8";
-          },
-          {
-            name: "tokenMint";
-            type: "pubkey";
-          },
+          { name: "aggregateAmount"; type: "u64" },
+          { name: "campaign"; type: "pubkey" },
+          { name: "campaignName"; type: "string" },
+          { name: "campaignStartTime"; type: "u64" },
+          { name: "creator"; type: "pubkey" },
+          { name: "expirationTime"; type: "u64" },
+          { name: "ipfsCid"; type: "string" },
+          { name: "merkleRoot"; type: { array: ["u8", 32] } },
+          { name: "recipientCount"; type: "u32" },
+          { name: "tokenDecimals"; type: "u8" },
+          { name: "tokenMint"; type: "pubkey" },
         ];
       };
     },
@@ -1162,18 +764,9 @@ type Idl = {
       type: {
         kind: "struct";
         fields: [
-          {
-            name: "feeAmount";
-            type: "u64";
-          },
-          {
-            name: "feeCollector";
-            type: "pubkey";
-          },
-          {
-            name: "feeRecipient";
-            type: "pubkey";
-          },
+          { name: "feeAmount"; type: "u64" },
+          { name: "feeCollector"; type: "pubkey" },
+          { name: "feeRecipient"; type: "pubkey" },
         ];
       };
     },
@@ -1182,26 +775,12 @@ type Idl = {
       type: {
         kind: "struct";
         fields: [
-          {
-            name: "bump";
-            type: "u8";
-          },
-          {
-            name: "feeCollector";
-            type: "pubkey";
-          },
-          {
-            name: "chainlinkProgram";
-            type: "pubkey";
-          },
-          {
-            name: "chainlinkSolUsdFeed";
-            type: "pubkey";
-          },
+          { name: "bump"; type: "u8" },
+          { name: "feeCollector"; type: "pubkey" },
+          { name: "chainlinkProgram"; type: "pubkey" },
+          { name: "chainlinkSolUsdFeed"; type: "pubkey" },
         ];
       };
     },
   ];
 };
-
-export default Idl;
