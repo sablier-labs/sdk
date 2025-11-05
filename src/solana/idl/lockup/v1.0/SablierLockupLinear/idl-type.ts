@@ -1,9 +1,4 @@
-/**
- * Program IDL in camelCase format in order to be used in JS/TS.
- *
- * Note that this is only a type helper and is not the actual IDL.
- */
-export type Idl = {
+export type IDL = {
   address: "4EauRKrNErKfsR4XetEZJNmvACGHbHnHV4R5dvJuqupC";
   metadata: { name: "sablierLockup"; version: "0.1.0"; spec: "0.1.0"; description: "Created with Anchor" };
   docs: ["Sablier Lockup program for creating and managing token streams."];

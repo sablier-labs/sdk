@@ -1,6 +1,7 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "extends": ["@sablier/devkit/biome"],
+  "root": true,
   "files": {
     "includes": ["**/*.{js,json,jsonc,ts}", "!node_modules/**/*"]
   },
@@ -16,7 +17,14 @@
       }
     },
     {
-      "includes": ["src/evm/releases/**/abi/**/*.ts", "src/solana/idl/**/*.ts"],
+      "includes": ["src/evm/releases/**/abi/**/*.ts"],
+      "assist": {
+        "actions": {
+          "source": {
+            "useSortedKeys": "off"
+          }
+        }
+      },
       "javascript": {
         "formatter": {
           "expand": "never" // Never expand objects in the ABI to save number of lines
