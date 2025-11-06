@@ -1,5 +1,14 @@
-import type { Shared } from "@src/shared/types";
+import type { Chain as ViemChain } from "viem";
 import type * as enums from "./enums";
+
+/**
+ * @see https://github.com/wevm/viem/discussions/3678
+ */
+type ChainBlockExplorer = {
+  name: string;
+  url: string;
+  apiUrl?: string | undefined;
+};
 
 type Repository = {
   commit: string;
@@ -12,17 +21,32 @@ export namespace EVM {
   export type Address = `0x${string}`;
 
   export type AbiMap = { [contractName: string]: readonly object[] };
-  export type Chain = Shared.Chain & {
+  export type Chain = ViemChain & {
+    blockExplorers: {
+      [key: string]: ChainBlockExplorer;
+      default: ChainBlockExplorer;
+    };
+    /** Whether this chain is supported by the Sablier Interface at https://app.sablier.com. */
+    isSupportedByUI: boolean;
+    /** Whether this is a testnet network. */
+    isTestnet: boolean;
     /** Whether this is a zkEVM like zkSync. */
     isZK: boolean;
-    rpc: Shared.Chain["rpc"] & {
+    nativeCurrency: ViemChain["nativeCurrency"] & {
+      coinGeckoId: string;
+    };
+    rpc: {
       /** Alchemy RPC URL generator. */
       alchemy?: (apiKey: string) => string;
+      /** Default RPC URL. */
+      defaults: string[];
       /** Infura RPC URL generator. */
       infura?: (apiKey: string) => string;
       /** RouteMesh RPC URL generator. */
       routemesh?: (apiKey: string) => string;
     };
+    /** Used in deployment files to identify the chain, e.g., arbitrum-sepolia. */
+    slug: string;
   };
 
   /**
