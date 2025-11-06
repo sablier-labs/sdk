@@ -1,4 +1,4 @@
-import { chainsQueries } from "@src/evm/chains/queries";
+import { chainsQueries } from "@src/solana/chains/queries";
 
 export function sortDeployments<T extends { chainId: number }>(deployments: T[]): T[] {
   return deployments.sort((a, b) => {
