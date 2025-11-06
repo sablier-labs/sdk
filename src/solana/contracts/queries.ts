@@ -12,7 +12,7 @@ export const contractsQueries = createContractsQueries<
   Sablier.Solana.ProgramCatalog
 >({
   catalog,
-  contractsField: "contracts",
+  contractsField: "programs",
   normalizeAddress: (address) => address, // Solana addresses are case-sensitive
   protocols: [Protocol.Airdrops, Protocol.Lockup],
   releasesQueries,

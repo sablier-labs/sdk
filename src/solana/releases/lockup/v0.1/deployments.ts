@@ -11,7 +11,7 @@ function get(chainId: number, programMap: Sablier.Solana.ProgramMap): Sablier.So
     chainId,
     contractMap: programMap,
     protocol: Protocol.Lockup,
-    version: "v1.0",
+    version: "v0.1",
   });
 }
 

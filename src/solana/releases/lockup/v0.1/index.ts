@@ -18,5 +18,5 @@ export const release = resolvers.release.standard({
   isLatest: true,
   manifest,
   protocol: Protocol.Lockup,
-  version: "v1.0",
+  version: "v0.1",
 });

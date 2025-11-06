@@ -56,10 +56,7 @@ export const resolvers = {
      * Creates a Solana release with contract names extracted from manifest
      */
     standard: (params: ReleaseParams): Sablier.Solana.Release => {
-      return {
-        ...params,
-        programNames: getNestedValues(params.manifest),
-      };
+      return { ...params, programNames: getNestedValues(params.manifest) };
     },
   },
 };

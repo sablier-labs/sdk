@@ -1,5 +1,5 @@
-import airdropsV1_0 from "@src/solana/releases/airdrops/v1.0/manifest";
-import lockupV1_0 from "@src/solana/releases/lockup/v1.0/manifest";
+import airdropsV1_0 from "@src/solana/releases/airdrops/v0.1/manifest";
+import lockupV1_0 from "@src/solana/releases/lockup/v0.1/manifest";
 import type { Sablier } from "@src/types";
 import _ from "lodash";
 
