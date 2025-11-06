@@ -17,6 +17,13 @@
     },
     {
       "includes": ["src/evm/releases/**/abi/**/*.ts"],
+      "assist": {
+        "actions": {
+          "source": {
+            "useSortedKeys": "off"
+          }
+        }
+      },
       "javascript": {
         "formatter": {
           "expand": "never" // Never expand objects in the ABI to save number of lines
