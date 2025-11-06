@@ -68,10 +68,6 @@
       "types": "./dist/evm/releases/index.d.ts",
       "default": "./dist/evm/releases/index.js"
     },
-    "./solana": {
-      "types": "./dist/solana/index.d.ts",
-      "default": "./dist/solana/index.js"
-    },
     "./package.json": "./package.json",
     "./dist/*": "./dist/*"
   },

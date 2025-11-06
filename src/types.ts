@@ -1,9 +1,7 @@
 import * as EVMTypes from "./evm/types";
-import * as SolanaTypes from "./solana/types";
 
 export namespace Sablier {
   export import EVM = EVMTypes.EVM;
-  export import Solana = SolanaTypes.Solana;
 
   /* -------------------------------------------------------------------------- */
   /*                           BACKWARD COMPATIBILITY                           */

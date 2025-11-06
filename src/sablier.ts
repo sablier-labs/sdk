@@ -1,6 +1,6 @@
 /**
  * @file This file exports the Sablier object, singleton that contains the queries for the
- * chains, contracts, and releases for both evm and solana compatible chains.
+ * chains, contracts, and releases.
  *
  * @example
  * ```typescript
@@ -27,7 +27,6 @@ import _ from "lodash";
 import { chainsQueries as evmChainsQueries } from "./evm/chains/queries";
 import { contractsQueries as evmContractsQueries } from "./evm/contracts/queries";
 import { releasesQueries as evmReleasesQueries } from "./evm/releases/queries";
-import { chainsQueries as solanaChainsQueries } from "./solana/chains/queries";
 
 /**
  * Has to be defined here to avoid circular dependencies.
@@ -54,12 +53,7 @@ const evm = {
   releases: evmReleasesQueries,
 };
 
-const solana = {
-  chains: solanaChainsQueries,
-};
-
 export const sablier = {
   ...evm, // re-exporting for backward compatibility
   evm,
-  solana,
 };
