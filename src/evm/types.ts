@@ -1,7 +1,13 @@
-import type { AliasMap, Repository, Shared } from "@src/shared/types";
+import type { Shared } from "@src/shared/types";
 import type * as enums from "./enums";
 
+type Repository = {
+  commit: string;
+  url: `https://github.com/sablier-labs/${string}`;
+};
+
 export namespace EVM {
+  export type AliasMap = { [contractName: string]: string };
   /** Ethereum address in the format 0x followed by 40 hex characters. */
   export type Address = `0x${string}`;
 
@@ -20,9 +26,26 @@ export namespace EVM {
   };
 
   /**
-   * The base contract type for EVM chains.
+   * The base contract type.
    */
-  export type Contract = Shared.Contract<Address, Protocol, Version>;
+  export type Contract = {
+    /** The address of the contract. */
+    address: Address;
+    /** Optional alias for the contract, used in the Sablier Interface and the indexers. */
+    alias?: string;
+    /** The block number at which the contract was deployed. */
+    block?: number;
+    /** The ID of the chain the contract is deployed on. */
+    chainId: number;
+    /** URL to the explorer page for the contract. */
+    explorerURL?: string;
+    /** The name of the contract. */
+    name: string;
+    /** The protocol the contract is part of (optional). */
+    protocol: EVM.Protocol | undefined;
+    /** The release version the contract is part of (optional). */
+    version: EVM.Version | undefined;
+  };
 
   /**
    * Reverse mapping of contracts so that we can look up contracts by address.
@@ -36,7 +59,9 @@ export namespace EVM {
   };
 
   /** @internal */
-  export type ContractMap = Shared.ContractMap<Address>;
+  export type ContractMap = {
+    [contractName: string]: Address | [Address, number];
+  };
 
   export type Protocol = `${enums.Protocol}` | enums.Protocol;
 
@@ -91,7 +116,9 @@ export namespace EVM {
       periphery: Standard;
     };
 
-    export type Standard = Shared.Manifest;
+    export type Standard = {
+      [contractKey: string]: string;
+    };
   }
 
   export type Manifest = Manifest.LockupV1 | Manifest.Standard;
