@@ -104,8 +104,8 @@ export namespace EVM {
    * A collection of deployments for a given protocol and version.
    */
   export namespace Release {
-    type Common = {
-      abi: AbiMap;
+    type Common<TAbiMap extends AbiMap = AbiMap> = {
+      abi: TAbiMap;
       /** A map of contract names to their aliases, used in the Sablier Interface and the Graph. */
       aliases?: AliasMap;
       /** An array of contract names. */
@@ -126,13 +126,13 @@ export namespace EVM {
      * Lockup v1.x release used to separate Lockup contracts into core and periphery sub-categories.
      * @see https://github.com/sablier-labs/v2-periphery
      */
-    export type LockupV1 = Common & {
+    export type LockupV1<TAbiMap extends AbiMap = AbiMap> = Common<TAbiMap> & {
       deployments: Deployment.LockupV1[];
       kind: "lockupV1";
       manifest: Manifest.LockupV1;
     };
 
-    export type Standard = Common & {
+    export type Standard<TAbiMap extends AbiMap = AbiMap> = Common<TAbiMap> & {
       deployments: Deployment.Standard[];
       kind: "standard";
       manifest: Manifest.Standard;
