@@ -15,7 +15,15 @@ import { chains } from "@src/evm/chains";
 import { getDeploymentsDir } from "@src/internal/helpers";
 import globby from "globby";
 import _ from "lodash";
+import * as viem from "viem/chains";
 import { beforeAll, describe, expect, it } from "vitest";
+import {
+  alchemyRPCs,
+  fetchAlchemySupportedChains,
+  fetchInfuraSupportedChains,
+  formatResults,
+  infuraRPCs,
+} from "./helpers/chains";
 import { MISSING_CHAINS } from "./helpers/missing";
 
 const KNOWN_SLUGS = _.values(chains)
@@ -90,3 +98,126 @@ async function getAllBroadcastSlugs(): Promise<string[]> {
 
   return results;
 }
+
+describe("RPC Chain Coverage", () => {
+  const VITE_ALCHEMY_API_KEY = process.env.VITE_ALCHEMY_API_KEY;
+  const VITE_INFURA_API_KEY = process.env.VITE_INFURA_API_KEY;
+
+  it("should have API keys configured", () => {
+    expect(VITE_ALCHEMY_API_KEY, "VITE_ALCHEMY_API_KEY must be set in environment variables").toBeDefined();
+    expect(VITE_INFURA_API_KEY, "VITE_INFURA_API_KEY must be set in environment variables").toBeDefined();
+  });
+
+  describe("Infura RPC Coverage", () => {
+    it("should have working RPC endpoints for all chains in infuraRPCs", async () => {
+      if (!VITE_INFURA_API_KEY) {
+        throw new Error("VITE_INFURA_API_KEY not set");
+      }
+
+      const { supported, failed } = await fetchInfuraSupportedChains(VITE_INFURA_API_KEY);
+
+      expect(failed, formatResults("Infura", supported, failed)).toHaveLength(0);
+    });
+  });
+
+  describe("Alchemy RPC Coverage", () => {
+    it("should have working RPC endpoints for all chains in alchemyRPCs", async () => {
+      if (!VITE_ALCHEMY_API_KEY) {
+        throw new Error("VITE_ALCHEMY_API_KEY not set");
+      }
+
+      const { supported, failed } = await fetchAlchemySupportedChains(VITE_ALCHEMY_API_KEY);
+
+      expect(failed, formatResults("Alchemy", supported, failed)).toHaveLength(0);
+    });
+  });
+
+  describe("RPC Object Structure", () => {
+    it("should have valid RPC generator functions in alchemyRPCs", () => {
+      const chainIds = Object.keys(alchemyRPCs).map(Number);
+
+      expect(chainIds.length).toBeGreaterThan(0);
+
+      for (const chainId of chainIds) {
+        const generator = alchemyRPCs[chainId];
+        expect(generator).toBeTypeOf("function");
+
+        const url = generator("test-api-key");
+        expect(url).toMatch(/^https:\/\/.+\.alchemy\.com\/v2\/.+$/);
+        expect(url).toContain("test-api-key");
+      }
+    });
+
+    it("should have valid RPC generator functions in infuraRPCs", () => {
+      const chainIds = Object.keys(infuraRPCs).map(Number);
+
+      expect(chainIds.length).toBeGreaterThan(0);
+
+      for (const chainId of chainIds) {
+        const generator = infuraRPCs[chainId];
+        expect(generator).toBeTypeOf("function");
+
+        const url = generator("test-api-key");
+        expect(url).toMatch(/^https:\/\/.+\.infura\.io\/v3\/.+$/);
+        expect(url).toContain("test-api-key");
+      }
+    });
+
+    it("should have corresponding viem chain definitions for all RPC chains", () => {
+      const alchemyChainIds = Object.keys(alchemyRPCs).map(Number);
+      const infuraChainIds = Object.keys(infuraRPCs).map(Number);
+      const allRPCChains = [...new Set([...alchemyChainIds, ...infuraChainIds])];
+
+      const viemChainIds = Object.values(viem)
+        .filter((chain: any) => typeof chain === "object" && chain.id)
+        .map((chain: any) => chain.id);
+
+      const missingFromViem = allRPCChains.filter((id) => !viemChainIds.includes(id));
+
+      expect(
+        missingFromViem,
+        `Some chains in RPC objects are missing from viem/chains: ${missingFromViem.join(", ")}`,
+      ).toHaveLength(0);
+    });
+  });
+
+  describe("Coverage Summary", () => {
+    it("should log comprehensive coverage statistics", async () => {
+      if (!VITE_ALCHEMY_API_KEY || !VITE_INFURA_API_KEY) {
+        console.log("⚠️  Skipping summary - API keys not configured");
+        return;
+      }
+
+      const infuraResults = await fetchInfuraSupportedChains(VITE_INFURA_API_KEY);
+      const alchemyResults = await fetchAlchemySupportedChains(VITE_ALCHEMY_API_KEY);
+
+      const infuraTotal = infuraResults.supported.length + infuraResults.failed.length;
+      const alchemyTotal = alchemyResults.supported.length + alchemyResults.failed.length;
+
+      console.log("\n" + "=".repeat(60));
+      console.log("📊 RPC PROVIDER COVERAGE SUMMARY");
+
+      console.log(`\n🟠 Infura:`);
+      console.log(`   Total chains in infuraRPCs: ${infuraTotal}`);
+      console.log(`   Working endpoints: ${infuraResults.supported.length}`);
+      console.log(`   Failed endpoints: ${infuraResults.failed.length}`);
+      console.log(`   Success rate: ${((infuraResults.supported.length / infuraTotal) * 100).toFixed(1)}%`);
+
+      console.log(`\n🔵 Alchemy:`);
+      console.log(`   Total chains in alchemyRPCs: ${alchemyTotal}`);
+      console.log(`   Working endpoints: ${alchemyResults.supported.length}`);
+      console.log(`   Failed endpoints: ${alchemyResults.failed.length}`);
+      console.log(`   Success rate: ${((alchemyResults.supported.length / alchemyTotal) * 100).toFixed(1)}%`);
+
+      const allChains = new Set([...Object.keys(alchemyRPCs).map(Number), ...Object.keys(infuraRPCs).map(Number)]);
+
+      console.log(`\n📈 Overall:`);
+      console.log(`   Unique chains covered: ${allChains.size}`);
+      console.log(`   Total RPC endpoints: ${alchemyTotal + infuraTotal}`);
+
+      console.log("=".repeat(60) + "\n");
+
+      expect(true).toBe(true);
+    }, 60000);
+  });
+});
