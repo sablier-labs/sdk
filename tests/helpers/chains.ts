@@ -83,7 +83,7 @@ async function testRPCEndpoint(url: string, chainName: string): Promise<boolean>
 /**
  * Gets chain name from viem chains object
  */
-function getChainName(chainId: number): string {
+export function getChainName(chainId: number): string {
   const allChains = Object.values(viem);
   const chain = allChains.find((c: any) => c.id === chainId);
   return chain?.name || `Chain ${chainId}`;
@@ -101,7 +101,7 @@ export async function fetchInfuraSupportedChains(apiKey: string): Promise<{
 
   const chainIds = Object.keys(infuraRPCs).map(Number);
 
-  console.log(`\n🟠 Testing ${chainIds.length} Infura RPC endpoints sequentially...`);
+  console.log(`\n🟠 Testing ${chainIds.length} Infura RPC`);
 
   for (const chainId of chainIds) {
     const chainName = getChainName(chainId);
@@ -110,10 +110,10 @@ export async function fetchInfuraSupportedChains(apiKey: string): Promise<{
 
     if (isWorking) {
       supported.push(chainId);
-      console.log(`  ✅ ${chainName} (${chainId})`);
+      console.log(`${chainName} (${chainId})`);
     } else {
       failed.push(chainId);
-      console.log(`  ❌ ${chainName} (${chainId})`);
+      console.log(`${chainName} (${chainId})`);
     }
   }
 
@@ -132,7 +132,7 @@ export async function fetchAlchemySupportedChains(apiKey: string): Promise<{
 
   const chainIds = Object.keys(alchemyRPCs).map(Number);
 
-  console.log(`\n🔵 Testing ${chainIds.length} Alchemy RPC endpoints sequentially...`);
+  console.log(`\n Testing ${chainIds.length} Alchemy RPC endpoints.`);
 
   for (const chainId of chainIds) {
     const chainName = getChainName(chainId);
@@ -141,10 +141,10 @@ export async function fetchAlchemySupportedChains(apiKey: string): Promise<{
 
     if (isWorking) {
       supported.push(chainId);
-      console.log(`  ✅ ${chainName} (${chainId})`);
+      console.log(`${chainName} (${chainId})`);
     } else {
       failed.push(chainId);
-      console.log(`  ❌ ${chainName} (${chainId})`);
+      console.log(`${chainName} (${chainId})`);
     }
   }
 

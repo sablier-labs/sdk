@@ -22,6 +22,7 @@ import {
   fetchAlchemySupportedChains,
   fetchInfuraSupportedChains,
   formatResults,
+  getChainName,
   infuraRPCs,
 } from "./helpers/chains";
 import { MISSING_CHAINS } from "./helpers/missing";
@@ -179,5 +180,104 @@ describe("RPC Chain Coverage", () => {
         `Some chains in RPC objects are missing from viem/chains: ${missingFromViem.join(", ")}`,
       ).toHaveLength(0);
     });
+  });
+});
+
+describe("Chain Name Resolution", () => {
+  /**
+   * Use Case: Validate chain name lookup functionality
+   *
+   * The getChainName function is responsible for converting chain IDs to
+   * human-readable names using viem's chain definitions. This is critical for:
+   * - Displaying user-friendly error messages
+   * - Logging and debugging with recognizable chain names
+   * - Creating readable test output
+   *
+   * What it tests:
+   * - Successfully resolves known chain IDs to their proper names
+   * - Returns fallback format for unknown/invalid chain IDs
+   * - Handles edge cases (negative numbers, zero, very large numbers)
+   */
+
+  it("should return correct chain name for known chain IDs", () => {
+    // Test well-known chain IDs
+    expect(getChainName(viem.mainnet.id)).toBe("Ethereum");
+    expect(getChainName(viem.polygon.id)).toBe("Polygon");
+    expect(getChainName(viem.arbitrum.id)).toBe("Arbitrum One");
+    expect(getChainName(viem.optimism.id)).toBe("OP Mainnet");
+    expect(getChainName(viem.base.id)).toBe("Base");
+  });
+
+  it("should return fallback format for unknown chain IDs", () => {
+    // Test chain IDs that don't exist in viem
+    const unknownChainId = 999999;
+    expect(getChainName(unknownChainId)).toBe(`Chain ${unknownChainId}`);
+
+    const anotherUnknownId = 123456;
+    expect(getChainName(anotherUnknownId)).toBe(`Chain ${anotherUnknownId}`);
+  });
+
+  it("should handle edge case chain IDs", () => {
+    // Test edge cases
+    expect(getChainName(0)).toBe("Chain 0");
+    expect(getChainName(-1)).toBe("Chain -1");
+    expect(getChainName(Number.MAX_SAFE_INTEGER)).toBe(`Chain ${Number.MAX_SAFE_INTEGER}`);
+  });
+
+  it("should return consistent results for the same chain ID", () => {
+    // Test idempotency - calling multiple times should return same result
+    const chainId = viem.mainnet.id;
+    const firstCall = getChainName(chainId);
+    const secondCall = getChainName(chainId);
+    const thirdCall = getChainName(chainId);
+
+    expect(firstCall).toBe(secondCall);
+    expect(secondCall).toBe(thirdCall);
+    expect(firstCall).toBe("Ethereum");
+  });
+
+  it("should handle all chain IDs in alchemyRPCs", () => {
+    // Ensure all configured Alchemy chains have resolvable names
+    const alchemyChainIds = Object.keys(alchemyRPCs).map(Number);
+
+    for (const chainId of alchemyChainIds) {
+      const name = getChainName(chainId);
+
+      // Should not be undefined or null
+      expect(name).toBeDefined();
+      expect(name).not.toBeNull();
+
+      // Should be a non-empty string
+      expect(typeof name).toBe("string");
+      expect(name.length).toBeGreaterThan(0);
+
+      // Should either be a proper chain name or fallback format
+      const isFallback = name.startsWith("Chain ");
+      const isProperName = !isFallback;
+
+      // All chains in alchemyRPCs should have proper names (not fallbacks)
+      expect(isProperName).toBe(true);
+    }
+  });
+
+  it("should handle all chain IDs in infuraRPCs", () => {
+    // Ensure all configured Infura chains have resolvable names
+    const infuraChainIds = Object.keys(infuraRPCs).map(Number);
+
+    for (const chainId of infuraChainIds) {
+      const name = getChainName(chainId);
+
+      // Should not be undefined or null
+      expect(name).toBeDefined();
+      expect(name).not.toBeNull();
+
+      // Should be a non-empty string
+      expect(typeof name).toBe("string");
+      expect(name.length).toBeGreaterThan(0);
+
+      // All chains in infuraRPCs should have proper names (not fallbacks)
+      const isFallback = name.startsWith("Chain ");
+      expect(isFallback).toBe(false);
+    }
   });
 });
