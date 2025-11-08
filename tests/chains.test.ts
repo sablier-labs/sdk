@@ -180,44 +180,4 @@ describe("RPC Chain Coverage", () => {
       ).toHaveLength(0);
     });
   });
-
-  describe("Coverage Summary", () => {
-    it("should log comprehensive coverage statistics", async () => {
-      if (!VITE_ALCHEMY_API_KEY || !VITE_INFURA_API_KEY) {
-        console.log("⚠️  Skipping summary - API keys not configured");
-        return;
-      }
-
-      const infuraResults = await fetchInfuraSupportedChains(VITE_INFURA_API_KEY);
-      const alchemyResults = await fetchAlchemySupportedChains(VITE_ALCHEMY_API_KEY);
-
-      const infuraTotal = infuraResults.supported.length + infuraResults.failed.length;
-      const alchemyTotal = alchemyResults.supported.length + alchemyResults.failed.length;
-
-      console.log("\n" + "=".repeat(60));
-      console.log("📊 RPC PROVIDER COVERAGE SUMMARY");
-
-      console.log(`\n🟠 Infura:`);
-      console.log(`   Total chains in infuraRPCs: ${infuraTotal}`);
-      console.log(`   Working endpoints: ${infuraResults.supported.length}`);
-      console.log(`   Failed endpoints: ${infuraResults.failed.length}`);
-      console.log(`   Success rate: ${((infuraResults.supported.length / infuraTotal) * 100).toFixed(1)}%`);
-
-      console.log(`\n🔵 Alchemy:`);
-      console.log(`   Total chains in alchemyRPCs: ${alchemyTotal}`);
-      console.log(`   Working endpoints: ${alchemyResults.supported.length}`);
-      console.log(`   Failed endpoints: ${alchemyResults.failed.length}`);
-      console.log(`   Success rate: ${((alchemyResults.supported.length / alchemyTotal) * 100).toFixed(1)}%`);
-
-      const allChains = new Set([...Object.keys(alchemyRPCs).map(Number), ...Object.keys(infuraRPCs).map(Number)]);
-
-      console.log(`\n📈 Overall:`);
-      console.log(`   Unique chains covered: ${allChains.size}`);
-      console.log(`   Total RPC endpoints: ${alchemyTotal + infuraTotal}`);
-
-      console.log("=".repeat(60) + "\n");
-
-      expect(true).toBe(true);
-    }, 60000);
-  });
 });
