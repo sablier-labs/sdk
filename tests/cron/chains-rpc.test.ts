@@ -3,7 +3,7 @@ import axios from "axios";
 import _ from "lodash";
 import { describe, expect, it } from "vitest";
 
-const MALFUNCTIONING_RPC: number[] = [chains.meld.id];
+const MALFUNCTIONING_RPC: number[] = [chains.meld.id, chains.taikoHekla.id];
 
 describe("Ping JSON-RPC server", () => {
   for (const chain of _.values(chains)) {
