@@ -1,3 +1,4 @@
+import axios from "axios";
 import * as viem from "viem/chains";
 
 type RPCGenerator = (apiKey: string) => string;
@@ -38,30 +39,43 @@ interface JsonRpcResponse {
 }
 
 /**
+ * Helper function to format axios errors in a type-safe way
+ */
+function formatAxiosError<T>(error: T, chainName: string): string {
+  if (axios.isAxiosError(error)) {
+    if (error.response) {
+      return `  🐛 [${chainName}] HTTP Error: ${error.response.status} ${error.response.statusText}`;
+    } else if (error.request) {
+      return `  🐛 [${chainName}] No response received: ${error.message}`;
+    } else {
+      return `  🐛 [${chainName}] Request error: ${error.message}`;
+    }
+  }
+  return `  🐛 [${chainName}] Exception: ${error instanceof Error ? error.message : String(error)}`;
+}
+
+/**
  * Tests if an RPC endpoint is working by making a simple eth_blockNumber call
  * Logs any errors encountered during the request
  */
 async function testRPCEndpoint(url: string, chainName: string): Promise<boolean> {
   try {
-    const response = await fetch(url, {
-      body: JSON.stringify({
+    const response = await axios.post(
+      url,
+      {
         id: 1,
         jsonrpc: "2.0",
         method: "eth_blockNumber",
         params: [],
-      }),
-      headers: {
-        "Content-Type": "application/json",
       },
-      method: "POST",
-    });
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+    );
 
-    if (!response.ok) {
-      console.error(`  🐛 [${chainName}] HTTP Error: ${response.status} ${response.statusText}`);
-      return false;
-    }
-
-    const data = (await response.json()) as JsonRpcResponse;
+    const data = response.data as JsonRpcResponse;
 
     if (data.error) {
       console.error(`  🐛 [${chainName}] RPC Error: ${data.error.code} - ${data.error.message}`);
@@ -75,7 +89,7 @@ async function testRPCEndpoint(url: string, chainName: string): Promise<boolean>
 
     return true;
   } catch (error) {
-    console.error(`  🐛 [${chainName}] Exception: ${error instanceof Error ? error.message : String(error)}`);
+    console.error(formatAxiosError(error, chainName));
     return false;
   }
 }
