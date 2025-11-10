@@ -78,6 +78,9 @@ export const mainnets = [
   get(chains.mode.id, {
     [SABLIER_COMPTROLLER]: ["0x0000008ABbFf7a84a2fE09f9A9b74D3BC2072399", 29282069],
   }),
+  get(chains.monad.id, {
+    [SABLIER_COMPTROLLER]: ["0x0000008ABbFf7a84a2fE09f9A9b74D3BC2072399", 34574999],
+  }),
   get(chains.morph.id, {
     [SABLIER_COMPTROLLER]: ["0x0000008ABbFf7a84a2fE09f9A9b74D3BC2072399", 17216266],
   }),

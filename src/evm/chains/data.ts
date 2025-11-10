@@ -49,6 +49,7 @@ import {
 } from "viem/chains";
 
 const HYPEREVM_NATIVE_CURRENCY_SYMBOL = "HYPE";
+const MONAD_NATIVE_CURRENCY_SYMBOL = "MON";
 const TANGLE_NATIVE_CURRENCY_SYMBOL = "TNT";
 
 /* -------------------------------------------------------------------------- */
@@ -141,7 +142,7 @@ const config = {
     [HYPEREVM_NATIVE_CURRENCY_SYMBOL]: "hyperliquid",
     [_iotex.nativeCurrency.symbol]: "iotex",
     [_meld.nativeCurrency.symbol]: "meld-2",
-    [_monadTestnet.nativeCurrency.symbol]: "monad",
+    [MONAD_NATIVE_CURRENCY_SYMBOL]: "monad",
     [_polygon.nativeCurrency.symbol]: "polygon-ecosystem-token",
     [_ronin.nativeCurrency.symbol]: "ronin",
     [_sei.nativeCurrency.symbol]: "sei-network",
@@ -318,6 +319,29 @@ export const hyperevm: Sablier.EVM.Chain = define(
     rpcUrls: {
       default: {
         http: ["https://rpc.hyperliquid.xyz/evm"],
+      },
+    },
+    testnet: false,
+  }),
+);
+
+export const monad: Sablier.EVM.Chain = define(
+  "monad",
+  viemDefine({
+    blockExplorers: {
+      default: { name: "Explorer", url: "https://mainnet-beta.monvision.io" },
+    },
+    id: 143,
+    name: "Monad",
+    nativeCurrency: {
+      decimals: 18,
+      name: "Monad",
+      symbol: MONAD_NATIVE_CURRENCY_SYMBOL,
+    },
+    rpcUrls: {
+      default: {
+        // TODO: Update this to the correct RPC URL.
+        http: ["https://rpc.monad.com"],
       },
     },
     testnet: false,
