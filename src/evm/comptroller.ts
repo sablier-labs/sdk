@@ -2,6 +2,7 @@ import { chains } from "@src/evm/chains";
 import type { Sablier } from "@src/types";
 
 // Fixed comptroller address on all chains, with the exception of Linea.
+// See https://github.com/sablier-labs/sdk/tree/main/deployments/comptroller/v1.0#exceptions for more details.
 const DEFAULT_COMPTROLLER_ADDRESS = "0x0000008ABbFf7a84a2fE09f9A9b74D3BC2072399";
 const SABLIER_COMPTROLLER = "SablierComptroller";
 
