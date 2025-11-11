@@ -9,4 +9,4 @@ export const abi = {
   [manifest.SABLIER_V2_MERKLE_LOCKUP_FACTORY]: sablierV2MerkleLockupFactoryAbi,
   [manifest.SABLIER_V2_MERKLE_LOCKUP]: sablierV2MerkleLockupAbi,
   [manifest.SABLIER_V2_MERKLE_LT]: sablierV2MerkleLTAbi,
-};
+} as const;

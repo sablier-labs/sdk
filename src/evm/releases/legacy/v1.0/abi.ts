@@ -5,4 +5,4 @@ import manifest from "./manifest";
 export const abi = {
   [manifest.PAYROLL]: payrollAbi,
   [manifest.SABLIER]: sablierAbi,
-};
+} as const;

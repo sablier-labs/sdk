@@ -4,6 +4,6 @@ const manifest = {
   LOCKUP_NFT_DESCRIPTOR: "LockupNFTDescriptor",
   SABLIER_BATCH_LOCKUP: "SablierBatchLockup",
   SABLIER_LOCKUP: "SablierLockup",
-};
+} as const;
 
 export default manifest;
