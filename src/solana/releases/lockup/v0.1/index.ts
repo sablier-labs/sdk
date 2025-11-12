@@ -20,6 +20,3 @@ export const release = resolvers.release.standard({
   protocol: Protocol.Lockup,
   version: "v0.1",
 });
-
-// Re-export IDL type namespace for consumer access
-export * from "./idl";
