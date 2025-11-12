@@ -1,4 +1,5 @@
 import axios from "axios";
+import { time } from "console";
 import * as viem from "viem/chains";
 
 type RPCGenerator = (apiKey: string) => string;
@@ -72,6 +73,7 @@ async function testRPCEndpoint(url: string, chainName: string): Promise<boolean>
         headers: {
           "Content-Type": "application/json",
         },
+        timeout: 10000,
       },
     );
 
