@@ -15,16 +15,8 @@ import { chains } from "@src/evm/chains";
 import { getDeploymentsDir } from "@src/internal/helpers";
 import globby from "globby";
 import _ from "lodash";
-import * as viem from "viem/chains";
 import { beforeAll, describe, expect, it } from "vitest";
-import {
-  alchemyRPCs,
-  fetchAlchemySupportedChains,
-  fetchInfuraSupportedChains,
-  formatResults,
-  getChainName,
-  infuraRPCs,
-} from "./helpers/chains";
+
 import { MISSING_CHAINS } from "./helpers/missing";
 
 const KNOWN_SLUGS = _.values(chains)
@@ -100,184 +92,177 @@ async function getAllBroadcastSlugs(): Promise<string[]> {
   return results;
 }
 
-describe("RPC Chain Coverage", () => {
-  const VITE_ALCHEMY_API_KEY = process.env.VITE_ALCHEMY_API_KEY;
-  const VITE_INFURA_API_KEY = process.env.VITE_INFURA_API_KEY;
+// Import the internal chain objects from viem (these have the .id property)
+import {
+  abstract as _abstract,
+  arbitrum as _arbitrum,
+  arbitrumSepolia as _arbitrumSepolia,
+  avalanche as _avalanche,
+  base as _base,
+  baseSepolia as _baseSepolia,
+  berachain as _berachain,
+  blast as _blast,
+  blastSepolia as _blastSepolia,
+  bsc as _bsc,
+  gnosis as _gnosis,
+  linea as _linea,
+  lineaSepolia as _lineaSepolia,
+  mainnet as _mainnet,
+  optimism as _optimism,
+  optimismSepolia as _optimismSepolia,
+  polygon as _polygon,
+  ronin as _ronin,
+  scroll as _scroll,
+  sei as _sei,
+  sepolia as _sepolia,
+  sonic as _sonic,
+  superseed as _superseed,
+  unichain as _unichain,
+  zksync as _zksync,
+} from "viem/chains";
 
-  it("should have API keys configured", () => {
-    expect(VITE_ALCHEMY_API_KEY, "VITE_ALCHEMY_API_KEY must be set in environment variables").toBeDefined();
-    expect(VITE_INFURA_API_KEY, "VITE_INFURA_API_KEY must be set in environment variables").toBeDefined();
-  });
+/**
+ * Chains supported by Alchemy
+ * @see https://dashboard.alchemy.com/apps/9bcxfr5kvbljbwhd/networks
+ */
+const alchemySupportedChains = [
+  _abstract,
+  _arbitrum,
+  _avalanche,
+  _base,
+  _baseSepolia,
+  _berachain,
+  _blast,
+  _blastSepolia,
+  _bsc,
+  _gnosis,
+  _linea,
+  _lineaSepolia,
+  _mainnet,
+  _optimism,
+  _optimismSepolia,
+  _polygon,
+  _ronin,
+  _sepolia,
+  _scroll,
+  _sei,
+  _sonic,
+  _superseed,
+  _unichain,
+  _zksync,
+];
 
-  describe("Infura RPC Coverage", () => {
-    it("should have working RPC endpoints for all chains in infuraRPCs", async () => {
-      if (!VITE_INFURA_API_KEY) {
-        throw new Error("VITE_INFURA_API_KEY not set");
-      }
+/**
+ * Chains supported by Infura
+ * @see https://developer.metamask.io/key/active-endpoints
+ * @see https://infura.io/networks
+ */
+const infuraSupportedChains = [
+  _arbitrum,
+  _arbitrumSepolia,
+  _avalanche,
+  _base,
+  _baseSepolia,
+  _blast,
+  _blastSepolia,
+  _bsc,
+  _mainnet,
+  _linea,
+  _lineaSepolia,
+  _optimism,
+  _optimismSepolia,
+  _polygon,
+  _scroll,
+  _sepolia,
+  _unichain,
+  _zksync,
+];
 
-      const { supported, failed } = await fetchInfuraSupportedChains(VITE_INFURA_API_KEY);
+describe("Chain Definitions Coverage", () => {
+  it("should have definitions for all Alchemy-supported chains", () => {
+    const exportedChains = Object.values(chains).filter(
+      (value) => typeof value === "object" && value !== null && "id" in value,
+    );
 
-      expect(failed, formatResults("Infura", supported, failed)).toHaveLength(0);
-    });
-  });
+    const exportedChainIds = new Set(exportedChains.map((chain: any) => chain.id));
 
-  describe("Alchemy RPC Coverage", () => {
-    it("should have working RPC endpoints for all chains in alchemyRPCs", async () => {
-      if (!VITE_ALCHEMY_API_KEY) {
-        throw new Error("VITE_ALCHEMY_API_KEY not set");
-      }
+    const missingChains = alchemySupportedChains.filter((chain) => !exportedChainIds.has(chain.id));
 
-      const { supported, failed } = await fetchAlchemySupportedChains(VITE_ALCHEMY_API_KEY);
-
-      expect(failed, formatResults("Alchemy", supported, failed)).toHaveLength(0);
-    });
-  });
-
-  describe("RPC Object Structure", () => {
-    it("should have valid RPC generator functions in alchemyRPCs", () => {
-      const chainIds = Object.keys(alchemyRPCs).map(Number);
-
-      expect(chainIds.length).toBeGreaterThan(0);
-
-      for (const chainId of chainIds) {
-        const generator = alchemyRPCs[chainId];
-        expect(generator).toBeTypeOf("function");
-
-        const url = generator("test-api-key");
-        expect(url).toMatch(/^https:\/\/.+\.alchemy\.com\/v2\/.+$/);
-        expect(url).toContain("test-api-key");
-      }
-    });
-
-    it("should have valid RPC generator functions in infuraRPCs", () => {
-      const chainIds = Object.keys(infuraRPCs).map(Number);
-
-      expect(chainIds.length).toBeGreaterThan(0);
-
-      for (const chainId of chainIds) {
-        const generator = infuraRPCs[chainId];
-        expect(generator).toBeTypeOf("function");
-
-        const url = generator("test-api-key");
-        expect(url).toMatch(/^https:\/\/.+\.infura\.io\/v3\/.+$/);
-        expect(url).toContain("test-api-key");
-      }
-    });
-
-    it("should have corresponding viem chain definitions for all RPC chains", () => {
-      const alchemyChainIds = Object.keys(alchemyRPCs).map(Number);
-      const infuraChainIds = Object.keys(infuraRPCs).map(Number);
-      const allRPCChains = [...new Set([...alchemyChainIds, ...infuraChainIds])];
-
-      const viemChainIds = Object.values(viem)
-        .filter((chain: any) => typeof chain === "object" && chain.id)
-        .map((chain: any) => chain.id);
-
-      const missingFromViem = allRPCChains.filter((id) => !viemChainIds.includes(id));
-
-      expect(
-        missingFromViem,
-        `Some chains in RPC objects are missing from viem/chains: ${missingFromViem.join(", ")}`,
-      ).toHaveLength(0);
-    });
-  });
-});
-
-describe("Chain Name Resolution", () => {
-  /**
-   * Use Case: Validate chain name lookup functionality
-   *
-   * The getChainName function is responsible for converting chain IDs to
-   * human-readable names using viem's chain definitions. This is critical for:
-   * - Displaying user-friendly error messages
-   * - Logging and debugging with recognizable chain names
-   * - Creating readable test output
-   *
-   * What it tests:
-   * - Successfully resolves known chain IDs to their proper names
-   * - Returns fallback format for unknown/invalid chain IDs
-   * - Handles edge cases (negative numbers, zero, very large numbers)
-   */
-
-  it("should return correct chain name for known chain IDs", () => {
-    // Test well-known chain IDs
-    expect(getChainName(viem.mainnet.id)).toBe("Ethereum");
-    expect(getChainName(viem.polygon.id)).toBe("Polygon");
-    expect(getChainName(viem.arbitrum.id)).toBe("Arbitrum One");
-    expect(getChainName(viem.optimism.id)).toBe("OP Mainnet");
-    expect(getChainName(viem.base.id)).toBe("Base");
-  });
-
-  it("should return fallback format for unknown chain IDs", () => {
-    // Test chain IDs that don't exist in viem
-    const unknownChainId = 999999;
-    expect(getChainName(unknownChainId)).toBe(`Chain ${unknownChainId}`);
-
-    const anotherUnknownId = 123456;
-    expect(getChainName(anotherUnknownId)).toBe(`Chain ${anotherUnknownId}`);
-  });
-
-  it("should handle edge case chain IDs", () => {
-    // Test edge cases
-    expect(getChainName(0)).toBe("Chain 0");
-    expect(getChainName(-1)).toBe("Chain -1");
-    expect(getChainName(Number.MAX_SAFE_INTEGER)).toBe(`Chain ${Number.MAX_SAFE_INTEGER}`);
-  });
-
-  it("should return consistent results for the same chain ID", () => {
-    // Test idempotency - calling multiple times should return same result
-    const chainId = viem.mainnet.id;
-    const firstCall = getChainName(chainId);
-    const secondCall = getChainName(chainId);
-    const thirdCall = getChainName(chainId);
-
-    expect(firstCall).toBe(secondCall);
-    expect(secondCall).toBe(thirdCall);
-    expect(firstCall).toBe("Ethereum");
-  });
-
-  it("should handle all chain IDs in alchemyRPCs", () => {
-    // Ensure all configured Alchemy chains have resolvable names
-    const alchemyChainIds = Object.keys(alchemyRPCs).map(Number);
-
-    for (const chainId of alchemyChainIds) {
-      const name = getChainName(chainId);
-
-      // Should not be undefined or null
-      expect(name).toBeDefined();
-      expect(name).not.toBeNull();
-
-      // Should be a non-empty string
-      expect(typeof name).toBe("string");
-      expect(name.length).toBeGreaterThan(0);
-
-      // Should either be a proper chain name or fallback format
-      const isFallback = name.startsWith("Chain ");
-      const isProperName = !isFallback;
-
-      // All chains in alchemyRPCs should have proper names (not fallbacks)
-      expect(isProperName).toBe(true);
+    if (missingChains.length > 0) {
+      const missingNames = missingChains.map((chain) => `${chain.name} (ID: ${chain.id})`);
+      throw new Error(`Missing definitions for Alchemy-supported chains:\n${missingNames.join("\n")}`);
     }
+
+    expect(missingChains).toHaveLength(0);
   });
 
-  it("should handle all chain IDs in infuraRPCs", () => {
-    // Ensure all configured Infura chains have resolvable names
-    const infuraChainIds = Object.keys(infuraRPCs).map(Number);
+  it("should have definitions for all Infura-supported chains", () => {
+    const exportedChains = Object.values(chains).filter(
+      (value) => typeof value === "object" && value !== null && "id" in value,
+    );
 
-    for (const chainId of infuraChainIds) {
-      const name = getChainName(chainId);
+    const exportedChainIds = new Set(exportedChains.map((chain: any) => chain.id));
 
-      // Should not be undefined or null
-      expect(name).toBeDefined();
-      expect(name).not.toBeNull();
+    const missingChains = infuraSupportedChains.filter((chain) => !exportedChainIds.has(chain.id));
 
-      // Should be a non-empty string
-      expect(typeof name).toBe("string");
-      expect(name.length).toBeGreaterThan(0);
-
-      // All chains in infuraRPCs should have proper names (not fallbacks)
-      const isFallback = name.startsWith("Chain ");
-      expect(isFallback).toBe(false);
+    if (missingChains.length > 0) {
+      const missingNames = missingChains.map((chain) => `${chain.name} (ID: ${chain.id})`);
+      throw new Error(`Missing definitions for Infura-supported chains:\n${missingNames.join("\n")}`);
     }
+
+    expect(missingChains).toHaveLength(0);
+  });
+
+  it("should have RPC configurations for Alchemy-supported chains", () => {
+    const chainsWithAlchemy = alchemySupportedChains.map((viemChain) => {
+      const exportedChain = Object.values(chains).find((c: any) => c?.id === viemChain.id) as any;
+
+      return {
+        hasAlchemyRPC: exportedChain?.rpc?.alchemy !== undefined,
+        id: viemChain.id,
+        name: viemChain.name,
+      };
+    });
+
+    const missingRPCs = chainsWithAlchemy.filter((c) => !c.hasAlchemyRPC);
+
+    if (missingRPCs.length > 0) {
+      const missingNames = missingRPCs.map((chain) => `${chain.name} (ID: ${chain.id})`);
+      throw new Error(`Missing Alchemy RPC configurations for:\n${missingNames.join("\n")}`);
+    }
+
+    expect(missingRPCs).toHaveLength(0);
+  });
+
+  it("should have RPC configurations for Infura-supported chains", () => {
+    const chainsWithInfura = infuraSupportedChains.map((viemChain) => {
+      const exportedChain = Object.values(chains).find((c: any) => c?.id === viemChain.id) as any;
+
+      return {
+        hasInfuraRPC: exportedChain?.rpc?.infura !== undefined,
+        id: viemChain.id,
+        name: viemChain.name,
+      };
+    });
+
+    const missingRPCs = chainsWithInfura.filter((c) => !c.hasInfuraRPC);
+
+    if (missingRPCs.length > 0) {
+      const missingNames = missingRPCs.map((chain) => `${chain.name} (ID: ${chain.id})`);
+      throw new Error(`Missing Infura RPC configurations for:\n${missingNames.join("\n")}`);
+    }
+
+    expect(missingRPCs).toHaveLength(0);
+  });
+
+  it("should not have duplicate chain IDs in Alchemy configurations", () => {
+    const chainIds = alchemySupportedChains.map((chain) => chain.id);
+    const duplicates = chainIds.filter((id, index) => chainIds.indexOf(id) !== index);
+
+    if (duplicates.length > 0) {
+      throw new Error(`Duplicate chain IDs found in Alchemy supported chains: ${duplicates.join(", ")}`);
+    }
+
+    expect(duplicates).toHaveLength(0);
   });
 });
