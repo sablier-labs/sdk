@@ -4,6 +4,6 @@ const manifest = {
   SABLIER_BATCH_LOCKUP: "SablierBatchLockup",
   SABLIER_LOCKUP: "SablierLockup",
   VESTING_MATH: "VestingMath",
-};
+} as const;
 
 export default manifest;

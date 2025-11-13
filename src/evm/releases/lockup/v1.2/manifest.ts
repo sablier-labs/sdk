@@ -13,6 +13,6 @@ const manifest = {
     SABLIER_V2_MERKLE_LOCKUP_FACTORY: "SablierV2MerkleLockupFactory",
     SABLIER_V2_MERKLE_LT: "SablierV2MerkleLT",
   },
-};
+} as const;
 
 export default manifest;

@@ -9,4 +9,4 @@ export const abi = {
   [manifest.core.SABLIER_V2_LOCKUP_DYNAMIC]: sablierV2LockupDynamicAbi,
   [manifest.core.SABLIER_V2_LOCKUP_LINEAR]: sablierV2LockupLinearAbi,
   [manifest.core.SABLIER_V2_LOCKUP_TRANCHED]: sablierV2LockupTranchedAbi,
-};
+} as const;

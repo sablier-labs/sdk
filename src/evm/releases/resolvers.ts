@@ -96,7 +96,9 @@ export const resolvers = {
     /**
      * Creates a LockupV1 release with contract names extracted from manifest
      */
-    lockupV1: (params: ReleaseParams<Sablier.EVM.Release.LockupV1>): Sablier.EVM.Release.LockupV1 => {
+    lockupV1: <TAbiMap extends Sablier.EVM.AbiMap>(
+      params: ReleaseParams<Sablier.EVM.Release.LockupV1<TAbiMap>>,
+    ): Sablier.EVM.Release.LockupV1<TAbiMap> => {
       return {
         ...params,
         contractNames: getNestedValues(params.manifest),
@@ -107,7 +109,9 @@ export const resolvers = {
     /**
      * Creates a standard release with contract names extracted from manifest
      */
-    standard: (params: ReleaseParams<Sablier.EVM.Release.Standard>): Sablier.EVM.Release.Standard => {
+    standard: <TAbiMap extends Sablier.EVM.AbiMap>(
+      params: ReleaseParams<Sablier.EVM.Release.Standard<TAbiMap>>,
+    ): Sablier.EVM.Release.Standard<TAbiMap> => {
       return {
         ...params,
         contractNames: getNestedValues(params.manifest),

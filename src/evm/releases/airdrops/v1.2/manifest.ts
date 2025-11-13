@@ -5,6 +5,6 @@ const manifest = {
   SABLIER_V2_MERKLE_LOCKUP: lockupV1_2.periphery.SABLIER_V2_MERKLE_LOCKUP,
   SABLIER_V2_MERKLE_LOCKUP_FACTORY: lockupV1_2.periphery.SABLIER_V2_MERKLE_LOCKUP_FACTORY,
   SABLIER_V2_MERKLE_LT: lockupV1_2.periphery.SABLIER_V2_MERKLE_LT,
-};
+} as const;
 
 export default manifest;

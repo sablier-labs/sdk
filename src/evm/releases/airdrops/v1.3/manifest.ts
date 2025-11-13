@@ -5,6 +5,6 @@ const manifest = {
   SABLIER_MERKLE_LL: "SablierMerkleLL",
   SABLIER_MERKLE_LOCKUP: "SablierMerkleLockup",
   SABLIER_MERKLE_LT: "SablierMerkleLT",
-};
+} as const;
 
 export default manifest;
