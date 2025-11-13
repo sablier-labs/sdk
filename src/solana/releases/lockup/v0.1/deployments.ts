@@ -16,19 +16,19 @@ function get(chainId: number, programMap: Sablier.Solana.ProgramMap): Sablier.So
 }
 
 /**
- * @description Mainnet deployments for Lockup v1.0
+ * @description Mainnet deployments for Lockup v0.1
  */
 export const mainnets: Sablier.Solana.Deployment[] = [
   get(chains.solanaMainnetBeta.id, {
-    [manifest.SABLIER_LOCKUP_LINEAR]: ["4EauRKrNErKfsR4XetEZJNmvACGHbHnHV4R5dvJuqupC", 365675725],
+    [manifest.SABLIER_LOCKUP_LINEAR]: ["4EauRKrNErKfsR4XetEZJNmvACGHbHnHV4R5dvJuqupC", 365_675_725],
   }),
 ];
 
 /**
- * @description Testnet deployments for Lockup v1.0
+ * @description Testnet deployments for Lockup v0.1
  */
 export const testnets: Sablier.Solana.Deployment[] = [
   get(chains.solanaDevnet.id, {
-    [manifest.SABLIER_LOCKUP_LINEAR]: ["4EauRKrNErKfsR4XetEZJNmvACGHbHnHV4R5dvJuqupC", 408019064],
+    [manifest.SABLIER_LOCKUP_LINEAR]: ["4EauRKrNErKfsR4XetEZJNmvACGHbHnHV4R5dvJuqupC", 408_019_064],
   }),
 ];

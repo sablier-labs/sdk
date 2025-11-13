@@ -1,8 +1,7 @@
-import { checkBroadcast } from "@src/internal/helpers";
+import { checkBroadcast, isBroadcastsUnified } from "@src/internal/helpers";
 import type { Sablier } from "@src/types";
 import * as fs from "fs-extra";
 import globby from "globby";
-import { isBroadcastsUnified } from "../../helpers/broadcasts";
 import type { StandardBroadcast, ZKBroadcast } from "../../types";
 
 export async function loadBroadcast<T extends StandardBroadcast | ZKBroadcast[]>(
