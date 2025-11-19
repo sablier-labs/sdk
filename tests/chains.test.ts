@@ -16,8 +16,8 @@ import { getDeploymentsDir } from "@src/internal/helpers";
 import globby from "globby";
 import _ from "lodash";
 import { beforeAll, describe, expect, it } from "vitest";
-
 import { MISSING_CHAINS } from "./helpers/missing";
+import { testRPCEndpoint } from "./helpers/verify-chains";
 
 const KNOWN_SLUGS = _.values(chains)
   .filter((chain) => !MISSING_CHAINS.includes(chain.id))
@@ -94,7 +94,6 @@ async function getAllBroadcastSlugs(): Promise<string[]> {
 
 // Import the internal chain objects from viem (these have the .id property)
 import {
-  abstract as _abstract,
   arbitrum as _arbitrum,
   arbitrumSepolia as _arbitrumSepolia,
   avalanche as _avalanche,
@@ -121,12 +120,7 @@ import {
   zksync as _zksync,
 } from "viem/chains";
 
-/**
- * Chains supported by Alchemy
- * @see https://dashboard.alchemy.com/apps/9bcxfr5kvbljbwhd/networks
- */
 const alchemySupportedChains = [
-  _abstract,
   _arbitrum,
   _avalanche,
   _base,
@@ -152,11 +146,6 @@ const alchemySupportedChains = [
   _zksync,
 ];
 
-/**
- * Chains supported by Infura
- * @see https://developer.metamask.io/key/active-endpoints
- * @see https://infura.io/networks
- */
 const infuraSupportedChains = [
   _arbitrum,
   _arbitrumSepolia,
@@ -256,13 +245,96 @@ describe("Chain Definitions Coverage", () => {
   });
 
   it("should not have duplicate chain IDs in Alchemy configurations", () => {
-    const chainIds = alchemySupportedChains.map((chain) => chain.id);
-    const duplicates = chainIds.filter((id, index) => chainIds.indexOf(id) !== index);
+    const chainIds: number[] = alchemySupportedChains.map((chain) => chain.id);
+    const duplicates: number[] = chainIds.filter((id: number, index: number) => chainIds.indexOf(id) !== index);
 
     if (duplicates.length > 0) {
       throw new Error(`Duplicate chain IDs found in Alchemy supported chains: ${duplicates.join(", ")}`);
     }
 
     expect(duplicates).toHaveLength(0);
+  });
+});
+
+describe("RPC Endpoint Connectivity", () => {
+  const alchemyKey: string | undefined = process.env.VITE_ALCHEMY_API_KEY;
+  const infuraKey: string | undefined = process.env.VITE_INFURA_API_KEY;
+  const skipTests: boolean = !alchemyKey && !infuraKey;
+
+  if (skipTests) {
+    it("skipping RPC connectivity tests - no API keys provided", () => {
+      console.warn("Set VITE_ALCHEMY_API_KEY or VITE_INFURA_API_KEY to run RPC tests");
+    });
+    return;
+  }
+
+  describe("Alchemy RPC endpoints", () => {
+    if (!alchemyKey) {
+      it("skipping Alchemy tests - no API key provided", () => {
+        console.warn("Set VITE_ALCHEMY_API_KEY to run Alchemy RPC tests");
+      });
+      return;
+    }
+
+    const chainsWithAlchemy = alchemySupportedChains.filter((viemChain) => {
+      const exportedChain = Object.values(chains).find(
+        (c): c is typeof chains.mainnet => typeof c === "object" && c !== null && "id" in c && c.id === viemChain.id,
+      );
+      return exportedChain?.rpc?.alchemy !== undefined;
+    });
+
+    it.each(chainsWithAlchemy)(
+      "should connect to Alchemy RPC for $name",
+      async (viemChain) => {
+        const exportedChain = Object.values(chains).find(
+          (c): c is typeof chains.mainnet => typeof c === "object" && c !== null && "id" in c && c.id === viemChain.id,
+        );
+
+        if (!exportedChain?.rpc?.alchemy) {
+          throw new Error(`No Alchemy RPC found for ${viemChain.name}`);
+        }
+
+        const url: string = exportedChain.rpc.alchemy(alchemyKey);
+        const works: boolean = (await testRPCEndpoint(url, viemChain.id)) as unknown as boolean;
+
+        expect(works).toBe(true);
+      },
+      15000,
+    );
+  });
+
+  describe("Infura RPC endpoints", () => {
+    if (!infuraKey) {
+      it("skipping Infura tests - no API key provided", () => {
+        console.warn("Set VITE_INFURA_API_KEY to run Infura RPC tests");
+      });
+      return;
+    }
+
+    const chainsWithInfura = infuraSupportedChains.filter((viemChain) => {
+      const exportedChain = Object.values(chains).find(
+        (c): c is typeof chains.mainnet => typeof c === "object" && c !== null && "id" in c && c.id === viemChain.id,
+      );
+      return exportedChain?.rpc?.infura !== undefined;
+    });
+
+    it.each(chainsWithInfura)(
+      "should connect to Infura RPC for $name",
+      async (viemChain) => {
+        const exportedChain = Object.values(chains).find(
+          (c): c is typeof chains.mainnet => typeof c === "object" && c !== null && "id" in c && c.id === viemChain.id,
+        );
+
+        if (!exportedChain?.rpc?.infura) {
+          throw new Error(`No Infura RPC found for ${viemChain.name}`);
+        }
+
+        const url: string = exportedChain.rpc.infura(infuraKey);
+        const works: boolean = (await testRPCEndpoint(url, viemChain.id)) as unknown as boolean;
+
+        expect(works).toBe(true);
+      },
+      15000,
+    );
   });
 });
