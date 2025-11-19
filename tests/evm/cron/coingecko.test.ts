@@ -24,7 +24,7 @@ const COINGECKO_IDS = {
   hyperliquid: "HYPE",
   iotex: "IOTX",
   "meld-2": "MELD",
-  monad: "MONAD",
+  monad: "MON",
   "polygon-ecosystem-token": "POL",
   ronin: "RON",
   "sei-network": "SEI",

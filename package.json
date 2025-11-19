@@ -13,12 +13,12 @@
     "@coral-xyz/anchor": "^0.32.1",
     "@solana/web3.js": "^1.98.4",
     "lodash": "^4.17.21",
-    "viem": "^2.37.9"
+    "viem": "^2.39"
   },
   "peerDependencies": {
     "@coral-xyz/anchor": "^0.30",
     "@solana/web3.js": "^1.98",
-    "viem": "^2.32"
+    "viem": "^2.39"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.3.2",
