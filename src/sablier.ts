@@ -28,7 +28,7 @@ import { chainsQueries as evmChainsQueries } from "./evm/chains/queries";
 import { contractsQueries as evmContractsQueries } from "./evm/contracts/queries";
 import { releasesQueries as evmReleasesQueries } from "./evm/releases/queries";
 import { chainsQueries as solanaChainsQueries } from "./solana/chains/queries";
-import { contractsQueries as solanaContractsQueries } from "./solana/contracts/queries";
+import { programsQueries as solanaProgramsQueries } from "./solana/programs/queries";
 import { releasesQueries as solanaReleasesQueries } from "./solana/releases/queries";
 
 /**
@@ -73,8 +73,8 @@ const evm = {
 
 const solana = {
   chains: solanaChainsQueries,
-  contracts: solanaContractsQueries,
   deployments: solanaDeploymentsQueries,
+  programs: solanaProgramsQueries,
   releases: solanaReleasesQueries,
 };
 

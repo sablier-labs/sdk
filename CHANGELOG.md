@@ -5,6 +5,8 @@ All notable changes to this project will be documented in this file.
 The format is based on [Common Changelog](https://common-changelog.org/), and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+[1.5.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.5.0
+[1.4.3]: https://github.com/sablier-labs/sdk/releases/tag/v1.4.3
 [1.4.2]: https://github.com/sablier-labs/sdk/releases/tag/v1.4.2
 [1.4.1]: https://github.com/sablier-labs/sdk/releases/tag/v1.4.1
 [1.4.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.4.0
@@ -14,6 +16,19 @@ The format is based on [Common Changelog](https://common-changelog.org/), and th
 [1.2.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.2.0
 [1.1.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.1.0
 [1.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.0.0
+
+## [1.5.0] - 2025-11-10
+
+### Added
+
+- Add new EVM chain: Monad
+
+## [1.4.3] - 2025-11-09
+
+### Fixed
+
+- Block number for Flow 2.0 on Linea
+- Block number for Lockup 3.0 on Arbitrum Sepolia
 
 ## [1.4.2] - 2025-10-22
 

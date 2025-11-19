@@ -1,7 +1,6 @@
 import * as path from "node:path";
 import type { Sablier } from "@src/types";
 import * as fs from "fs-extra";
-import { isBroadcastsUnified } from "../../tests/helpers/broadcasts";
 import { log } from "./logger";
 
 const ROOT_DIR = path.join(__dirname, "..", "..");
@@ -13,7 +12,7 @@ if (!fs.existsSync(path.join(ROOT_DIR, "package.json"))) {
 
 /**
  * @example
- * data/
+ * deployments/
  * ├── lockup/
  * │ └── v2.0/
  * │   └── broadcasts/
@@ -58,4 +57,20 @@ export function checkBroadcast(
 
 export function getDeploymentsDir(): string {
   return DEPLOYMENTS_DIR;
+}
+
+/**
+ * @notice Determines if a release uses the same broadcast directory for ZK and non-ZK chains.
+ *
+ * Previously, deployments on ZK chains used to be made using Hardhat, while deployments on non-ZK chains used Foundry.
+ * This resulted in separate broadcast structures. In the release versions checked here we switched to Foundry for
+ * every chain, so the broadcast output is now unified.
+ */
+export function isBroadcastsUnified(release: Sablier.EVM.Release): boolean {
+  const majorVersion = Number(release.version[1]);
+  return (
+    (release.protocol === "airdrops" && majorVersion >= 2) ||
+    (release.protocol === "flow" && majorVersion >= 2) ||
+    (release.protocol === "lockup" && majorVersion >= 3)
+  );
 }

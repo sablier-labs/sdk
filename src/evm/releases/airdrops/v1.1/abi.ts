@@ -7,4 +7,4 @@ export const abi = {
   [manifest.SABLIER_V2_MERKLE_STREAMER]: sablierV2MerkleStreamerAbi,
   [manifest.SABLIER_V2_MERKLE_STREAMER_FACTORY]: sablierV2MerkleStreamerFactoryAbi,
   [manifest.SABLIER_V2_MERKLE_STREAMER_LL]: sablierV2MerkleStreamerLLAbi,
-};
+} as const;

@@ -12,6 +12,6 @@ const manifest = {
     SABLIER_V2_MERKLE_STREAMER_FACTORY: "SablierV2MerkleStreamerFactory",
     SABLIER_V2_MERKLE_STREAMER_LL: "SablierV2MerkleStreamerLL",
   },
-};
+} as const;
 
 export default manifest;

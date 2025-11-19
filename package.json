@@ -4,7 +4,7 @@
   "license": "GPL-3.0-or-later",
   "main": "dist/index.js",
   "types": "./dist/index.d.ts",
-  "version": "2.0.0",
+  "version": "2.0.0-beta.20",
   "author": {
     "name": "Sablier Labs Ltd",
     "url": "https://sablier.com"
@@ -72,6 +72,26 @@
     "./solana": {
       "types": "./dist/solana/index.d.ts",
       "default": "./dist/solana/index.js"
+    },
+    "./solana/releases": {
+      "types": "./dist/solana/releases/index.d.ts",
+      "default": "./dist/solana/releases/index.js"
+    },
+    "./solana/releases/lockup/*": {
+      "types": "./dist/solana/releases/lockup/*/index.d.ts",
+      "default": "./dist/solana/releases/lockup/*/index.js"
+    },
+    "./solana/releases/airdrops/*": {
+      "types": "./dist/solana/releases/airdrops/*/index.d.ts",
+      "default": "./dist/solana/releases/airdrops/*/index.js"
+    },
+    "./solana/releases/lockup/*/idl": {
+      "types": "./dist/solana/releases/lockup/*/idl.d.ts",
+      "default": "./dist/solana/releases/lockup/*/idl.js"
+    },
+    "./solana/releases/airdrops/*/idl": {
+      "types": "./dist/solana/releases/airdrops/*/idl.d.ts",
+      "default": "./dist/solana/releases/airdrops/*/idl.js"
     },
     "./package.json": "./package.json",
     "./dist/*": "./dist/*"

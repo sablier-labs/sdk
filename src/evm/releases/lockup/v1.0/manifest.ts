@@ -12,6 +12,6 @@ const manifest = {
     SABLIER_V2_PROXY_TARGET: "SablierV2ProxyTarget",
     SABLIER_V2_PROXY_TARGET_APPROVE: "SablierV2ProxyTargetApprove",
   },
-};
+} as const;
 
 export default manifest;

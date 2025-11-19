@@ -50,6 +50,7 @@ All contracts are deployed using Foundry's `CREATE2` factory. The following salt
 | LightLink       | ChainID 1890, Version 3.0.0   |
 | Linea           | ChainID 59144, Version 3.0.0  |
 | Mode            | ChainID 34443, Version 3.0.0  |
+| Monad           | ChainID 143, Version 3.0.1    |
 | Morph           | ChainID 2818, Version 3.0.0   |
 | Optimism        | ChainID 10, Version 3.0.0     |
 | Polygon         | ChainID 137, Version 3.0.0    |

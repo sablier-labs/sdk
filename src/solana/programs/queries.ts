@@ -4,7 +4,7 @@ import { releasesQueries } from "@src/solana/releases/queries";
 import type { Sablier } from "@src/types";
 import { catalog } from "./catalog";
 
-export const contractsQueries = createContractsQueries<
+export const programsQueries = createContractsQueries<
   Sablier.Solana.Protocol,
   Sablier.Solana.Program,
   Sablier.Solana.Deployment,
