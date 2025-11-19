@@ -245,14 +245,20 @@ describe("Chain Definitions Coverage", () => {
   });
 
   it("should not have duplicate chain IDs in Alchemy configurations", () => {
-    const chainIds: number[] = alchemySupportedChains.map((chain) => chain.id);
-    const duplicates: number[] = chainIds.filter((id: number, index: number) => chainIds.indexOf(id) !== index);
+    const chainIds = alchemySupportedChains.map((chain) => chain.id);
+    const seen = new Set<number>();
+    const duplicates = chainIds.filter((id) => {
+      if (seen.has(id)) return true;
+      seen.add(id);
+      return false;
+    });
+    const uniqueDuplicates = [...new Set(duplicates)];
 
-    if (duplicates.length > 0) {
-      throw new Error(`Duplicate chain IDs found in Alchemy supported chains: ${duplicates.join(", ")}`);
+    if (uniqueDuplicates.length > 0) {
+      throw new Error(`Duplicate chain IDs found in Alchemy supported chains: ${uniqueDuplicates.join(", ")}`);
     }
 
-    expect(duplicates).toHaveLength(0);
+    expect(uniqueDuplicates).toHaveLength(0);
   });
 });
 
@@ -295,7 +301,7 @@ describe("RPC Endpoint Connectivity", () => {
         }
 
         const url: string = exportedChain.rpc.alchemy(alchemyKey);
-        const works: boolean = (await testRPCEndpoint(url, viemChain.id)) as unknown as boolean;
+        const works: boolean = await testRPCEndpoint(url, viemChain.id);
 
         expect(works).toBe(true);
       },
@@ -330,7 +336,7 @@ describe("RPC Endpoint Connectivity", () => {
         }
 
         const url: string = exportedChain.rpc.infura(infuraKey);
-        const works: boolean = (await testRPCEndpoint(url, viemChain.id)) as unknown as boolean;
+        const works: boolean = await testRPCEndpoint(url, viemChain.id);
 
         expect(works).toBe(true);
       },

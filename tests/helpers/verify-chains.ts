@@ -39,7 +39,7 @@ async function testRPCEndpoint(url: string, expectedChainId: number): Promise<bo
       return false;
     }
 
-    const returnedChainId: number = parseInt(response.data.result, 16);
+    const returnedChainId = parseInt(response.data.result, 16);
     return returnedChainId === expectedChainId;
   } catch {
     return false;
