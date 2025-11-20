@@ -11,7 +11,7 @@ const COINGECKO_API_KEY = process.env.VITE_COINGECKO_API_KEY;
 const COINGECKO_BASE_URL = "https://api.coingecko.com/api/v3";
 
 /**
- * CoinGecko IDs from src/chains/data.ts config.coinGeckoIds
+ * CoinGecko IDs from src/evm/data.ts config.coinGeckoIds
  */
 const COINGECKO_IDS = {
   "avalanche-2": "AVAX",
@@ -24,7 +24,7 @@ const COINGECKO_IDS = {
   hyperliquid: "HYPE",
   iotex: "IOTX",
   "meld-2": "MELD",
-  monad: "MONAD",
+  monad: "MON",
   "polygon-ecosystem-token": "POL",
   ronin: "RON",
   "sei-network": "SEI",

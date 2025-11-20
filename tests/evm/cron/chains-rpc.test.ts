@@ -3,8 +3,7 @@ import axios from "axios";
 import _ from "lodash";
 import { describe, expect, it } from "vitest";
 
-// TODO: remove monad once we have a proper RPC URL.
-const MALFUNCTIONING_RPC: number[] = [chains.meld.id, chains.monad.id, chains.taikoHekla.id];
+const MALFUNCTIONING_RPC: number[] = [chains.meld.id, chains.taikoHekla.id];
 
 describe("Ping JSON-RPC server", () => {
   for (const chain of _.values(chains)) {

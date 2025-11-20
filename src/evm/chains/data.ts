@@ -26,6 +26,7 @@ import {
   meld as _meld,
   mode as _mode,
   modeTestnet as _modeTestnet,
+  monad as _monad,
   monadTestnet as _monadTestnet,
   morph as _morph,
   morphHolesky as _morphHolesky,
@@ -49,7 +50,6 @@ import {
 } from "viem/chains";
 
 const HYPEREVM_NATIVE_CURRENCY_SYMBOL = "HYPE";
-const MONAD_NATIVE_CURRENCY_SYMBOL = "MON";
 const TANGLE_NATIVE_CURRENCY_SYMBOL = "TNT";
 
 /* -------------------------------------------------------------------------- */
@@ -75,6 +75,7 @@ const alchemyRPCs: Record<number, RPCGenerator> = {
   [_linea.id]: (apiKey) => `https://linea-mainnet.g.alchemy.com/v2/${apiKey}`,
   [_lineaSepolia.id]: (apiKey) => `https://linea-sepolia.g.alchemy.com/v2/${apiKey}`,
   [_mainnet.id]: (apiKey) => `https://eth-mainnet.g.alchemy.com/v2/${apiKey}`,
+  [_monad.id]: (apiKey) => `https://monad-mainnet.g.alchemy.com/v2/${apiKey}`,
   [_optimism.id]: (apiKey) => `https://opt-mainnet.g.alchemy.com/v2/${apiKey}`,
   [_optimismSepolia.id]: (apiKey) => `https://opt-sepolia.g.alchemy.com/v2/${apiKey}`,
   [_polygon.id]: (apiKey) => `https://polygon-mainnet.g.alchemy.com/v2/${apiKey}`,
@@ -142,7 +143,7 @@ const config = {
     [HYPEREVM_NATIVE_CURRENCY_SYMBOL]: "hyperliquid",
     [_iotex.nativeCurrency.symbol]: "iotex",
     [_meld.nativeCurrency.symbol]: "meld-2",
-    [MONAD_NATIVE_CURRENCY_SYMBOL]: "monad",
+    [_monad.nativeCurrency.symbol]: "monad",
     [_polygon.nativeCurrency.symbol]: "polygon-ecosystem-token",
     [_ronin.nativeCurrency.symbol]: "ronin",
     [_sei.nativeCurrency.symbol]: "sei-network",
@@ -256,6 +257,7 @@ export const mainnet = define("mainnet", _mainnet);
 export const meld = define("meld", _meld);
 export const mode = define("mode", _mode);
 export const modeTestnet = define("mode-testnet", _modeTestnet);
+export const monad = define("monad", _monad);
 export const monadTestnet = define("monad-testnet", _monadTestnet);
 export const morph = define("morph", _morph);
 export const morphHolesky = define("morph-holesky", _morphHolesky);
@@ -319,29 +321,6 @@ export const hyperevm: Sablier.EVM.Chain = define(
     rpcUrls: {
       default: {
         http: ["https://rpc.hyperliquid.xyz/evm"],
-      },
-    },
-    testnet: false,
-  }),
-);
-
-export const monad: Sablier.EVM.Chain = define(
-  "monad",
-  viemDefine({
-    blockExplorers: {
-      default: { name: "Explorer", url: "https://mainnet-beta.monvision.io" },
-    },
-    id: 143,
-    name: "Monad",
-    nativeCurrency: {
-      decimals: 18,
-      name: "Monad",
-      symbol: MONAD_NATIVE_CURRENCY_SYMBOL,
-    },
-    rpcUrls: {
-      default: {
-        // TODO: Update this to the correct RPC URL.
-        http: ["https://rpc.monad.com"],
       },
     },
     testnet: false,
