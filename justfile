@@ -47,7 +47,7 @@ alias tui := test-ui
     echo "🔨 Building the package..."
     bun tsc -p tsconfig.build.json
     bun tsc-alias -p tsconfig.build.json
-    bun copyfiles --up 2 src/abi/**/*.json "dist/abi"
+    bun copyfiles --up 3 src/evm/abi/**/*.json "dist/abi"
     echo "✅ Package built successfully in 'dist' directory"
 
 # ---------------------------------------------------------------------------- #
