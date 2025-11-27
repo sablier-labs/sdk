@@ -1,6 +1,9 @@
 import _ from "lodash";
 import type { Sablier } from "./types";
 
+/** Version type supporting both EVM and Solana protocols */
+type Version = Sablier.EVM.Version | Sablier.Solana.Version;
+
 /**
  * Compare two semantic version strings.
  * @param a - First version string (e.g., "v1.0", "v2.1")
@@ -11,7 +14,7 @@ import type { Sablier } from "./types";
  * compareVersions("v2.0", "v1.0") // 1
  * compareVersions("v1.1", "v1.1") // 0
  */
-export function compareVersions(a: Sablier.EVM.Version, b: Sablier.EVM.Version): number {
+export function compareVersions(a: Version, b: Version): number {
   const [aMajor, aMinor] = a.slice(1).split(".").map(Number);
   const [bMajor, bMinor] = b.slice(1).split(".").map(Number);
 
@@ -40,7 +43,7 @@ export function getContractExplorerURL(explorerURL: string, contractAddress: Sab
  * isVersionBefore("v1.0", "v2.0") // true
  * isVersionBefore("v2.0", "v1.0") // false
  */
-export function isVersionBefore(version: Sablier.EVM.Version, before: Sablier.EVM.Version): boolean {
+export function isVersionBefore(version: Version, before: Version): boolean {
   return compareVersions(version, before) < 0;
 }
 
@@ -53,7 +56,7 @@ export function isVersionBefore(version: Sablier.EVM.Version, before: Sablier.EV
  * isVersionAfter("v2.0", "v1.0") // true
  * isVersionAfter("v1.0", "v2.0") // false
  */
-export function isVersionAfter(version: Sablier.EVM.Version, after: Sablier.EVM.Version): boolean {
+export function isVersionAfter(version: Version, after: Version): boolean {
   return compareVersions(version, after) > 0;
 }
 
