@@ -29,7 +29,6 @@ import {
   monad as _monad,
   monadTestnet as _monadTestnet,
   morph as _morph,
-  morphHolesky as _morphHolesky,
   optimism as _optimism,
   optimismSepolia as _optimismSepolia,
   polygon as _polygon,
@@ -260,7 +259,6 @@ export const modeTestnet = define("mode-testnet", _modeTestnet);
 export const monad = define("monad", _monad);
 export const monadTestnet = define("monad-testnet", _monadTestnet);
 export const morph = define("morph", _morph);
-export const morphHolesky = define("morph-holesky", _morphHolesky);
 export const optimism = define("optimism", _optimism);
 export const optimismSepolia = define("optimism-sepolia", _optimismSepolia);
 export const polygon = define("polygon", _polygon);
