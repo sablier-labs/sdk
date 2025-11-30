@@ -373,18 +373,6 @@ export const testnets: Sablier.EVM.Deployment.LockupV1[] = [
       [manifest.periphery.SABLIER_V2_MERKLE_LOCKUP_FACTORY]: ["0x900de6cC1021afa13f41e1067bEE681BbD661C69", 17_492_870],
     },
   }),
-  get(chains.morphHolesky.id, {
-    core: {
-      [manifest.core.SABLIER_V2_LOCKUP_DYNAMIC]: ["0x36477f8FEf1fC3B0fe7F24b8F6d9561f0BeC30e7", 6_702_495],
-      [manifest.core.SABLIER_V2_LOCKUP_LINEAR]: ["0x4b4126036726085636BC2A4788a448d5C26705E4", 6_702_496],
-      [manifest.core.SABLIER_V2_LOCKUP_TRANCHED]: ["0x6AF155530D6360E789deD0CF88219f855CCb158F", 6_702_497],
-      [manifest.core.SABLIER_V2_NFT_DESCRIPTOR]: "0x33BE6a7810B464B913052EC0436A067de25C164c",
-    },
-    periphery: {
-      [manifest.periphery.SABLIER_V2_BATCH_LOCKUP]: "0x728Ec8260Ea1115252D33c0D563d78CA18990dE4",
-      [manifest.periphery.SABLIER_V2_MERKLE_LOCKUP_FACTORY]: ["0x4B5F6B967dC61c2B39fa233092745B460eA1b433", 6_702_947],
-    },
-  }),
   get(chains.optimismSepolia.id, {
     core: {
       [manifest.core.SABLIER_V2_LOCKUP_DYNAMIC]: ["0x89EC3830040dec63E9dF0C904d649fda4d49DF16", 14_622_624],

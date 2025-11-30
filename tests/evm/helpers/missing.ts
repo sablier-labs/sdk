@@ -14,7 +14,6 @@ const MISSING_FLOW: VersionMap = {
     [chains.zksyncSepolia.id]: ["all"],
   },
   "v1.1": {
-    [chains.morphHolesky.id]: ["all"],
     [chains.superseed.id]: ["all"],
     [chains.superseedSepolia.id]: ["all"],
   },
