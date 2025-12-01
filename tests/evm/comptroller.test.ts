@@ -11,7 +11,9 @@ describe("comptroller", () => {
         const expectedAddress =
           entry.chainId === chains.linea.id
             ? "0xF21b304A08993f98A79C7Eb841f812CCeab49B8b"
-            : "0x0000008ABbFf7a84a2fE09f9A9b74D3BC2072399";
+            : entry.chainId === chains.denergy.id
+              ? "0x946654ab30dd6ed10236c89f2c8b2719df653691"
+              : "0x0000008ABbFf7a84a2fE09f9A9b74D3BC2072399";
 
         expect(entry.address).toBe(expectedAddress);
         expect((entry.block ?? 0) > 0).toBe(true);

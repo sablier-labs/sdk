@@ -50,6 +50,7 @@ import {
 
 const HYPEREVM_NATIVE_CURRENCY_SYMBOL = "HYPE";
 const TANGLE_NATIVE_CURRENCY_SYMBOL = "TNT";
+const DENERGY_NATIVE_CURRENCY_SYMBOL = "WATT";
 
 /* -------------------------------------------------------------------------- */
 /*                                     RPC                                    */
@@ -138,6 +139,7 @@ const config = {
     [_bsc.nativeCurrency.symbol]: "binancecoin",
     [_coreDao.nativeCurrency.symbol]: "coredaoorg",
     [_chiliz.nativeCurrency.symbol]: "chiliz",
+    [DENERGY_NATIVE_CURRENCY_SYMBOL]: "watt",
     [_gnosis.nativeCurrency.symbol]: "dai",
     [HYPEREVM_NATIVE_CURRENCY_SYMBOL]: "hyperliquid",
     [_iotex.nativeCurrency.symbol]: "iotex",
@@ -304,7 +306,7 @@ export const denergy: Sablier.EVM.Chain = define(
     nativeCurrency: {
       decimals: 18,
       name: "Watt",
-      symbol: "WATT",
+      symbol: DENERGY_NATIVE_CURRENCY_SYMBOL,
     },
     rpcUrls: {
       default: {
