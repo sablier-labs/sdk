@@ -63,6 +63,9 @@ export const mainnets = [
   get(chains.coreDao.id, {
     [SABLIER_COMPTROLLER]: [DEFAULT_COMPTROLLER_ADDRESS, 28473497],
   }),
+  get(chains.denergy.id, {
+    [SABLIER_COMPTROLLER]: ["0x946654ab30dd6ed10236c89f2c8b2719df653691", 691574],
+  }),
   get(chains.gnosis.id, {
     [SABLIER_COMPTROLLER]: [DEFAULT_COMPTROLLER_ADDRESS, 42287148],
   }),

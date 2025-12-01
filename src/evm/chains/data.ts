@@ -293,6 +293,28 @@ export const chiliz: Sablier.EVM.Chain = define(
   }),
 );
 
+export const denergy: Sablier.EVM.Chain = define(
+  "denergy",
+  viemDefine({
+    blockExplorers: {
+      default: { name: "Explorer", url: "https://explorer.denergychain.com/" },
+    },
+    id: 369369,
+    name: "Denergy",
+    nativeCurrency: {
+      decimals: 18,
+      name: "Watt",
+      symbol: "WATT",
+    },
+    rpcUrls: {
+      default: {
+        http: ["https://rpc.d.energy"],
+      },
+    },
+    testnet: false,
+  }),
+);
+
 /**
  * HyperEVM is using another chain's ID (Wanchain Testnet). Until they change this, we will have to define it like this.
  * @see https://github.com/wevm/viem/pull/3390
