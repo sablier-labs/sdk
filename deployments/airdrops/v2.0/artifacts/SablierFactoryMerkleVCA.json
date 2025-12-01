@@ -9,7 +9,9 @@
       "type": "function",
       "name": "comptroller",
       "inputs": [],
-      "outputs": [{ "name": "", "type": "address", "internalType": "contract ISablierComptroller" }],
+      "outputs": [
+        { "name": "", "type": "address", "internalType": "contract ISablierComptroller" }
+      ],
       "stateMutability": "view"
     },
     {
@@ -62,7 +64,9 @@
         { "name": "aggregateAmount", "type": "uint256", "internalType": "uint256" },
         { "name": "recipientCount", "type": "uint256", "internalType": "uint256" }
       ],
-      "outputs": [{ "name": "merkleVCA", "type": "address", "internalType": "contract ISablierMerkleVCA" }],
+      "outputs": [
+        { "name": "merkleVCA", "type": "address", "internalType": "contract ISablierMerkleVCA" }
+      ],
       "stateMutability": "nonpayable"
     },
     {
@@ -75,7 +79,13 @@
     {
       "type": "function",
       "name": "setComptroller",
-      "inputs": [{ "name": "newComptroller", "type": "address", "internalType": "contract ISablierComptroller" }],
+      "inputs": [
+        {
+          "name": "newComptroller",
+          "type": "address",
+          "internalType": "contract ISablierComptroller"
+        }
+      ],
       "outputs": [],
       "stateMutability": "nonpayable"
     },
@@ -97,7 +107,12 @@
       "type": "event",
       "name": "CreateMerkleVCA",
       "inputs": [
-        { "name": "merkleVCA", "type": "address", "indexed": true, "internalType": "contract ISablierMerkleVCA" },
+        {
+          "name": "merkleVCA",
+          "type": "address",
+          "indexed": true,
+          "internalType": "contract ISablierMerkleVCA"
+        },
         {
           "name": "params",
           "type": "tuple",
@@ -116,8 +131,18 @@
             { "name": "vestingStartTime", "type": "uint40", "internalType": "uint40" }
           ]
         },
-        { "name": "aggregateAmount", "type": "uint256", "indexed": false, "internalType": "uint256" },
-        { "name": "recipientCount", "type": "uint256", "indexed": false, "internalType": "uint256" },
+        {
+          "name": "aggregateAmount",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        },
+        {
+          "name": "recipientCount",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        },
         { "name": "comptroller", "type": "address", "indexed": false, "internalType": "address" },
         { "name": "minFeeUSD", "type": "uint256", "indexed": false, "internalType": "uint256" }
       ],
@@ -155,7 +180,12 @@
       "type": "event",
       "name": "TransferFeesToComptroller",
       "inputs": [
-        { "name": "comptroller", "type": "address", "indexed": true, "internalType": "contract ISablierComptroller" },
+        {
+          "name": "comptroller",
+          "type": "address",
+          "indexed": true,
+          "internalType": "contract ISablierComptroller"
+        },
         { "name": "feeAmount", "type": "uint256", "indexed": false, "internalType": "uint256" }
       ],
       "anonymous": false
@@ -238,7 +268,9 @@
     "output": {
       "abi": [
         {
-          "inputs": [{ "internalType": "address", "name": "initialComptroller", "type": "address" }],
+          "inputs": [
+            { "internalType": "address", "name": "initialComptroller", "type": "address" }
+          ],
           "stateMutability": "nonpayable",
           "type": "constructor"
         },
@@ -269,7 +301,11 @@
           "type": "error",
           "name": "SablierFactoryMerkleBase_NativeTokenAlreadySet"
         },
-        { "inputs": [], "type": "error", "name": "SablierFactoryMerkleBase_NativeTokenZeroAddress" },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "SablierFactoryMerkleBase_NativeTokenZeroAddress"
+        },
         { "inputs": [], "type": "error", "name": "SablierFactoryMerkleVCA_ExpirationTimeZero" },
         {
           "inputs": [
@@ -295,7 +331,12 @@
         },
         {
           "inputs": [
-            { "internalType": "contract ISablierMerkleVCA", "name": "merkleVCA", "type": "address", "indexed": true },
+            {
+              "internalType": "contract ISablierMerkleVCA",
+              "name": "merkleVCA",
+              "type": "address",
+              "indexed": true
+            },
             {
               "internalType": "struct MerkleVCA.ConstructorParams",
               "name": "params",
@@ -314,9 +355,24 @@
               ],
               "indexed": false
             },
-            { "internalType": "uint256", "name": "aggregateAmount", "type": "uint256", "indexed": false },
-            { "internalType": "uint256", "name": "recipientCount", "type": "uint256", "indexed": false },
-            { "internalType": "address", "name": "comptroller", "type": "address", "indexed": false },
+            {
+              "internalType": "uint256",
+              "name": "aggregateAmount",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "uint256",
+              "name": "recipientCount",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "address",
+              "name": "comptroller",
+              "type": "address",
+              "indexed": false
+            },
             { "internalType": "uint256", "name": "minFeeUSD", "type": "uint256", "indexed": false }
           ],
           "type": "event",
@@ -344,8 +400,18 @@
         },
         {
           "inputs": [
-            { "internalType": "address", "name": "comptroller", "type": "address", "indexed": true },
-            { "internalType": "address", "name": "nativeToken", "type": "address", "indexed": false }
+            {
+              "internalType": "address",
+              "name": "comptroller",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "address",
+              "name": "nativeToken",
+              "type": "address",
+              "indexed": false
+            }
           ],
           "type": "event",
           "name": "SetNativeToken",
@@ -370,7 +436,9 @@
           "stateMutability": "view",
           "type": "function",
           "name": "comptroller",
-          "outputs": [{ "internalType": "contract ISablierComptroller", "name": "", "type": "address" }]
+          "outputs": [
+            { "internalType": "contract ISablierComptroller", "name": "", "type": "address" }
+          ]
         },
         {
           "inputs": [
@@ -423,7 +491,9 @@
           "stateMutability": "nonpayable",
           "type": "function",
           "name": "createMerkleVCA",
-          "outputs": [{ "internalType": "contract ISablierMerkleVCA", "name": "merkleVCA", "type": "address" }]
+          "outputs": [
+            { "internalType": "contract ISablierMerkleVCA", "name": "merkleVCA", "type": "address" }
+          ]
         },
         {
           "inputs": [],
@@ -433,7 +503,13 @@
           "outputs": [{ "internalType": "address", "name": "", "type": "address" }]
         },
         {
-          "inputs": [{ "internalType": "contract ISablierComptroller", "name": "newComptroller", "type": "address" }],
+          "inputs": [
+            {
+              "internalType": "contract ISablierComptroller",
+              "name": "newComptroller",
+              "type": "address"
+            }
+          ],
           "stateMutability": "nonpayable",
           "type": "function",
           "name": "setComptroller"
@@ -444,7 +520,12 @@
           "type": "function",
           "name": "setNativeToken"
         },
-        { "inputs": [], "stateMutability": "nonpayable", "type": "function", "name": "transferFeesToComptroller" }
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "transferFeesToComptroller"
+        }
       ],
       "devdoc": {
         "kind": "dev",
@@ -452,7 +533,9 @@
           "computeMerkleVCA(address,(string,uint40,uint40,address,string,bytes32,address,uint256,uint40,uint40))": {
             "details": "Reverts if the requirements from {createMerkleVCA} are not met."
           },
-          "constructor": { "params": { "initialComptroller": "The address of the initial comptroller contract." } },
+          "constructor": {
+            "params": { "initialComptroller": "The address of the initial comptroller contract." }
+          },
           "createMerkleVCA((string,uint40,uint40,address,string,bytes32,address,uint256,uint40,uint40),uint256,uint256)": {
             "details": "Emits a {CreateMerkleVCA} event. Notes: - The contract is created with CREATE2. - The campaign's fee will be set to the min USD fee unless a custom fee is set for `msg.sender`. - Users interested into funding the campaign before its deployment must meet the below requirements, otherwise the campaign deployment will revert. Requirements: - `params.token` must not be the forbidden native token. - `params.expiration` must be greater than 0. - `params.expiration` must be at least 1 week beyond the end time to ensure loyal recipients have enough time to claim. - `params.vestingEndTime` must be greater than `params.vestingStartTime`. - Both `params.vestingStartTime` and `params.vestingEndTime` must be greater than 0. - `params.unlockPercentage` must not be greater than 1e18, equivalent to 100%.",
             "params": {
@@ -488,8 +571,12 @@
             "notice": "Retrieves the address of the ERC-20 interface of the native token, if it exists."
           },
           "setComptroller(address)": { "notice": "Sets the comptroller to a new address." },
-          "setNativeToken(address)": { "notice": "Sets the native token address. Once set, it cannot be changed." },
-          "transferFeesToComptroller()": { "notice": "Transfers the fees to the comptroller contract." }
+          "setNativeToken(address)": {
+            "notice": "Sets the native token address. Once set, it cannot be changed."
+          },
+          "transferFeesToComptroller()": {
+            "notice": "Transfers the fees to the comptroller contract."
+          }
         },
         "version": 1
       }

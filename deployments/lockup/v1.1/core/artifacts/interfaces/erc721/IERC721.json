@@ -267,7 +267,9 @@
           "approve(address,uint256)": {
             "details": "Gives permission to `to` to transfer `tokenId` token to another account. The approval is cleared when the token is transferred. Only a single account can be approved at a time, so approving the zero address clears previous approvals. Requirements: - The caller must own the token or be an approved operator. - `tokenId` must exist. Emits an {Approval} event."
           },
-          "balanceOf(address)": { "details": "Returns the number of tokens in ``owner``'s account." },
+          "balanceOf(address)": {
+            "details": "Returns the number of tokens in ``owner``'s account."
+          },
           "getApproved(uint256)": {
             "details": "Returns the account approved for `tokenId` token. Requirements: - `tokenId` must exist."
           },
@@ -308,7 +310,9 @@
       ],
       "optimizer": { "enabled": true, "runs": 1000 },
       "metadata": { "bytecodeHash": "none" },
-      "compilationTarget": { "node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol": "IERC721" },
+      "compilationTarget": {
+        "node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol": "IERC721"
+      },
       "libraries": {},
       "viaIR": true
     },
@@ -892,20 +896,31 @@
                   "src": "1878:19:8",
                   "stateVariable": false,
                   "storageLocation": "calldata",
-                  "typeDescriptions": { "typeIdentifier": "t_bytes_calldata_ptr", "typeString": "bytes" },
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
                   "typeName": {
                     "id": 1526,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "1878:5:8",
-                    "typeDescriptions": { "typeIdentifier": "t_bytes_storage_ptr", "typeString": "bytes" }
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
                   },
                   "visibility": "internal"
                 }
               ],
               "src": "1834:64:8"
             },
-            "returnParameters": { "id": 1529, "nodeType": "ParameterList", "parameters": [], "src": "1907:0:8" },
+            "returnParameters": {
+              "id": 1529,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1907:0:8"
+            },
             "scope": 1585,
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -1000,7 +1015,12 @@
               ],
               "src": "2631:43:8"
             },
-            "returnParameters": { "id": 1539, "nodeType": "ParameterList", "parameters": [], "src": "2683:0:8" },
+            "returnParameters": {
+              "id": 1539,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2683:0:8"
+            },
             "scope": 1585,
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -1095,7 +1115,12 @@
               ],
               "src": "3448:43:8"
             },
-            "returnParameters": { "id": 1549, "nodeType": "ParameterList", "parameters": [], "src": "3500:0:8" },
+            "returnParameters": {
+              "id": 1549,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3500:0:8"
+            },
             "scope": 1585,
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -1168,7 +1193,12 @@
               ],
               "src": "3980:29:8"
             },
-            "returnParameters": { "id": 1557, "nodeType": "ParameterList", "parameters": [], "src": "4018:0:8" },
+            "returnParameters": {
+              "id": 1557,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "4018:0:8"
+            },
             "scope": 1585,
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -1241,7 +1271,12 @@
               ],
               "src": "4365:33:8"
             },
-            "returnParameters": { "id": 1565, "nodeType": "ParameterList", "parameters": [], "src": "4407:0:8" },
+            "returnParameters": {
+              "id": 1565,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "4407:0:8"
+            },
             "scope": 1585,
             "stateMutability": "nonpayable",
             "virtual": false,

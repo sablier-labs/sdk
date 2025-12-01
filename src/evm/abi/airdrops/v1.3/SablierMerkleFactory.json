@@ -14,7 +14,9 @@
   {
     "type": "function",
     "name": "collectFees",
-    "inputs": [{ "name": "merkleBase", "type": "address", "internalType": "contract ISablierMerkleBase" }],
+    "inputs": [
+      { "name": "merkleBase", "type": "address", "internalType": "contract ISablierMerkleBase" }
+    ],
     "outputs": [],
     "stateMutability": "nonpayable"
   },
@@ -39,7 +41,13 @@
       { "name": "aggregateAmount", "type": "uint256", "internalType": "uint256" },
       { "name": "recipientCount", "type": "uint256", "internalType": "uint256" }
     ],
-    "outputs": [{ "name": "merkleInstant", "type": "address", "internalType": "contract ISablierMerkleInstant" }],
+    "outputs": [
+      {
+        "name": "merkleInstant",
+        "type": "address",
+        "internalType": "contract ISablierMerkleInstant"
+      }
+    ],
     "stateMutability": "nonpayable"
   },
   {
@@ -78,7 +86,9 @@
       { "name": "aggregateAmount", "type": "uint256", "internalType": "uint256" },
       { "name": "recipientCount", "type": "uint256", "internalType": "uint256" }
     ],
-    "outputs": [{ "name": "merkleLL", "type": "address", "internalType": "contract ISablierMerkleLL" }],
+    "outputs": [
+      { "name": "merkleLL", "type": "address", "internalType": "contract ISablierMerkleLL" }
+    ],
     "stateMutability": "nonpayable"
   },
   {
@@ -115,7 +125,9 @@
       { "name": "aggregateAmount", "type": "uint256", "internalType": "uint256" },
       { "name": "recipientCount", "type": "uint256", "internalType": "uint256" }
     ],
-    "outputs": [{ "name": "merkleLT", "type": "address", "internalType": "contract ISablierMerkleLT" }],
+    "outputs": [
+      { "name": "merkleLT", "type": "address", "internalType": "contract ISablierMerkleLT" }
+    ],
     "stateMutability": "nonpayable"
   },
   {
@@ -202,7 +214,12 @@
     "name": "CollectFees",
     "inputs": [
       { "name": "admin", "type": "address", "indexed": true, "internalType": "address" },
-      { "name": "merkleBase", "type": "address", "indexed": true, "internalType": "contract ISablierMerkleBase" },
+      {
+        "name": "merkleBase",
+        "type": "address",
+        "indexed": true,
+        "internalType": "contract ISablierMerkleBase"
+      },
       { "name": "feeAmount", "type": "uint256", "indexed": false, "internalType": "uint256" }
     ],
     "anonymous": false
@@ -211,7 +228,12 @@
     "type": "event",
     "name": "CreateMerkleInstant",
     "inputs": [
-      { "name": "merkleInstant", "type": "address", "indexed": true, "internalType": "contract ISablierMerkleInstant" },
+      {
+        "name": "merkleInstant",
+        "type": "address",
+        "indexed": true,
+        "internalType": "contract ISablierMerkleInstant"
+      },
       {
         "name": "baseParams",
         "type": "tuple",
@@ -237,7 +259,12 @@
     "type": "event",
     "name": "CreateMerkleLL",
     "inputs": [
-      { "name": "merkleLL", "type": "address", "indexed": true, "internalType": "contract ISablierMerkleLL" },
+      {
+        "name": "merkleLL",
+        "type": "address",
+        "indexed": true,
+        "internalType": "contract ISablierMerkleLL"
+      },
       {
         "name": "baseParams",
         "type": "tuple",
@@ -253,7 +280,12 @@
           { "name": "shape", "type": "string", "internalType": "string" }
         ]
       },
-      { "name": "lockup", "type": "address", "indexed": false, "internalType": "contract ISablierLockup" },
+      {
+        "name": "lockup",
+        "type": "address",
+        "indexed": false,
+        "internalType": "contract ISablierLockup"
+      },
       { "name": "cancelable", "type": "bool", "indexed": false, "internalType": "bool" },
       { "name": "transferable", "type": "bool", "indexed": false, "internalType": "bool" },
       {
@@ -279,7 +311,12 @@
     "type": "event",
     "name": "CreateMerkleLT",
     "inputs": [
-      { "name": "merkleLT", "type": "address", "indexed": true, "internalType": "contract ISablierMerkleLT" },
+      {
+        "name": "merkleLT",
+        "type": "address",
+        "indexed": true,
+        "internalType": "contract ISablierMerkleLT"
+      },
       {
         "name": "baseParams",
         "type": "tuple",
@@ -295,7 +332,12 @@
           { "name": "shape", "type": "string", "internalType": "string" }
         ]
       },
-      { "name": "lockup", "type": "address", "indexed": false, "internalType": "contract ISablierLockup" },
+      {
+        "name": "lockup",
+        "type": "address",
+        "indexed": false,
+        "internalType": "contract ISablierLockup"
+      },
       { "name": "cancelable", "type": "bool", "indexed": false, "internalType": "bool" },
       { "name": "transferable", "type": "bool", "indexed": false, "internalType": "bool" },
       { "name": "streamStartTime", "type": "uint40", "indexed": false, "internalType": "uint40" },

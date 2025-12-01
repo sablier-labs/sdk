@@ -23,7 +23,12 @@ export type Claim = {
   recipient: PublicKey;
 };
 
-export type Clawback = { amount: BN; campaign: PublicKey; campaignCreator: PublicKey; clawbackRecipient: PublicKey };
+export type Clawback = {
+  amount: BN;
+  campaign: PublicKey;
+  campaignCreator: PublicKey;
+  clawbackRecipient: PublicKey;
+};
 
 export type CreateCampaign = {
   aggregateAmount: BN;

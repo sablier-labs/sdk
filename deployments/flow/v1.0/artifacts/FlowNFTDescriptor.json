@@ -56,7 +56,9 @@
       "userdoc": {
         "kind": "user",
         "methods": {
-          "tokenURI(address,uint256)": { "notice": "Produces the URI describing a particular stream NFT." }
+          "tokenURI(address,uint256)": {
+            "notice": "Produces the URI describing a particular stream NFT."
+          }
         },
         "version": 1
       }

@@ -48,7 +48,9 @@
       "userdoc": {
         "kind": "user",
         "methods": {
-          "tokenURI(address,uint256)": { "notice": "Produces the URI describing a particular stream NFT." }
+          "tokenURI(address,uint256)": {
+            "notice": "Produces the URI describing a particular stream NFT."
+          }
         },
         "version": 1
       }
@@ -64,7 +66,9 @@
       ],
       "optimizer": { "enabled": true, "runs": 1000 },
       "metadata": { "bytecodeHash": "none" },
-      "compilationTarget": { "src/interfaces/ISablierV2NFTDescriptor.sol": "ISablierV2NFTDescriptor" },
+      "compilationTarget": {
+        "src/interfaces/ISablierV2NFTDescriptor.sol": "ISablierV2NFTDescriptor"
+      },
       "libraries": {},
       "viaIR": true
     },
@@ -244,13 +248,19 @@
                   "src": "837:17:90",
                   "stateVariable": false,
                   "storageLocation": "memory",
-                  "typeDescriptions": { "typeIdentifier": "t_string_memory_ptr", "typeString": "string" },
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
                   "typeName": {
                     "id": 49919,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "837:6:90",
-                    "typeDescriptions": { "typeIdentifier": "t_string_storage_ptr", "typeString": "string" }
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
                   },
                   "visibility": "internal"
                 }

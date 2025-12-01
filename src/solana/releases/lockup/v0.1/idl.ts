@@ -8,7 +8,9 @@ import manifest from "./manifest";
 
 export const sablierLockupLinear = { errorCodes, SablierLockupLinearIDL, structs };
 
-export const idl: Sablier.Solana.IdlMap = { [manifest.SABLIER_LOCKUP_LINEAR]: SablierLockupLinearIDL };
+export const idl: Sablier.Solana.IdlMap = {
+  [manifest.SABLIER_LOCKUP_LINEAR]: SablierLockupLinearIDL,
+};
 
 export namespace SablierLockupLinear {
   export import IDL = idlType.IDL;

@@ -4,8 +4,16 @@
       "type": "constructor",
       "inputs": [
         { "name": "initialAdmin", "type": "address", "internalType": "address" },
-        { "name": "initialComptroller", "type": "address", "internalType": "contract ISablierV2Comptroller" },
-        { "name": "initialNFTDescriptor", "type": "address", "internalType": "contract ISablierV2NFTDescriptor" }
+        {
+          "name": "initialComptroller",
+          "type": "address",
+          "internalType": "contract ISablierV2Comptroller"
+        },
+        {
+          "name": "initialNFTDescriptor",
+          "type": "address",
+          "internalType": "contract ISablierV2NFTDescriptor"
+        }
       ],
       "stateMutability": "nonpayable"
     },
@@ -83,7 +91,9 @@
       "type": "function",
       "name": "comptroller",
       "inputs": [],
-      "outputs": [{ "name": "", "type": "address", "internalType": "contract ISablierV2Comptroller" }],
+      "outputs": [
+        { "name": "", "type": "address", "internalType": "contract ISablierV2Comptroller" }
+      ],
       "stateMutability": "view"
     },
     {
@@ -454,14 +464,26 @@
     {
       "type": "function",
       "name": "setComptroller",
-      "inputs": [{ "name": "newComptroller", "type": "address", "internalType": "contract ISablierV2Comptroller" }],
+      "inputs": [
+        {
+          "name": "newComptroller",
+          "type": "address",
+          "internalType": "contract ISablierV2Comptroller"
+        }
+      ],
       "outputs": [],
       "stateMutability": "nonpayable"
     },
     {
       "type": "function",
       "name": "setNFTDescriptor",
-      "inputs": [{ "name": "newNFTDescriptor", "type": "address", "internalType": "contract ISablierV2NFTDescriptor" }],
+      "inputs": [
+        {
+          "name": "newNFTDescriptor",
+          "type": "address",
+          "internalType": "contract ISablierV2NFTDescriptor"
+        }
+      ],
       "outputs": [],
       "stateMutability": "nonpayable"
     },
@@ -612,7 +634,12 @@
         { "name": "recipient", "type": "address", "indexed": true, "internalType": "address" },
         { "name": "asset", "type": "address", "indexed": true, "internalType": "contract IERC20" },
         { "name": "senderAmount", "type": "uint128", "indexed": false, "internalType": "uint128" },
-        { "name": "recipientAmount", "type": "uint128", "indexed": false, "internalType": "uint128" }
+        {
+          "name": "recipientAmount",
+          "type": "uint128",
+          "indexed": false,
+          "internalType": "uint128"
+        }
       ],
       "anonymous": false
     },
@@ -622,7 +649,12 @@
       "inputs": [
         { "name": "admin", "type": "address", "indexed": true, "internalType": "address" },
         { "name": "asset", "type": "address", "indexed": true, "internalType": "contract IERC20" },
-        { "name": "protocolRevenues", "type": "uint128", "indexed": false, "internalType": "uint128" }
+        {
+          "name": "protocolRevenues",
+          "type": "uint128",
+          "indexed": false,
+          "internalType": "uint128"
+        }
       ],
       "anonymous": false
     },
@@ -666,13 +698,17 @@
     {
       "type": "event",
       "name": "MetadataUpdate",
-      "inputs": [{ "name": "_tokenId", "type": "uint256", "indexed": false, "internalType": "uint256" }],
+      "inputs": [
+        { "name": "_tokenId", "type": "uint256", "indexed": false, "internalType": "uint256" }
+      ],
       "anonymous": false
     },
     {
       "type": "event",
       "name": "RenounceLockupStream",
-      "inputs": [{ "name": "streamId", "type": "uint256", "indexed": true, "internalType": "uint256" }],
+      "inputs": [
+        { "name": "streamId", "type": "uint256", "indexed": true, "internalType": "uint256" }
+      ],
       "anonymous": false
     },
     {
@@ -974,8 +1010,16 @@
         {
           "inputs": [
             { "internalType": "address", "name": "initialAdmin", "type": "address" },
-            { "internalType": "contract ISablierV2Comptroller", "name": "initialComptroller", "type": "address" },
-            { "internalType": "contract ISablierV2NFTDescriptor", "name": "initialNFTDescriptor", "type": "address" }
+            {
+              "internalType": "contract ISablierV2Comptroller",
+              "name": "initialComptroller",
+              "type": "address"
+            },
+            {
+              "internalType": "contract ISablierV2NFTDescriptor",
+              "name": "initialNFTDescriptor",
+              "type": "address"
+            }
           ],
           "stateMutability": "nonpayable",
           "type": "constructor"
@@ -1149,7 +1193,12 @@
         },
         {
           "inputs": [
-            { "internalType": "uint256", "name": "_fromTokenId", "type": "uint256", "indexed": false },
+            {
+              "internalType": "uint256",
+              "name": "_fromTokenId",
+              "type": "uint256",
+              "indexed": false
+            },
             { "internalType": "uint256", "name": "_toTokenId", "type": "uint256", "indexed": false }
           ],
           "type": "event",
@@ -1161,9 +1210,24 @@
             { "internalType": "uint256", "name": "streamId", "type": "uint256", "indexed": false },
             { "internalType": "address", "name": "sender", "type": "address", "indexed": true },
             { "internalType": "address", "name": "recipient", "type": "address", "indexed": true },
-            { "internalType": "contract IERC20", "name": "asset", "type": "address", "indexed": true },
-            { "internalType": "uint128", "name": "senderAmount", "type": "uint128", "indexed": false },
-            { "internalType": "uint128", "name": "recipientAmount", "type": "uint128", "indexed": false }
+            {
+              "internalType": "contract IERC20",
+              "name": "asset",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "uint128",
+              "name": "senderAmount",
+              "type": "uint128",
+              "indexed": false
+            },
+            {
+              "internalType": "uint128",
+              "name": "recipientAmount",
+              "type": "uint128",
+              "indexed": false
+            }
           ],
           "type": "event",
           "name": "CancelLockupStream",
@@ -1172,8 +1236,18 @@
         {
           "inputs": [
             { "internalType": "address", "name": "admin", "type": "address", "indexed": true },
-            { "internalType": "contract IERC20", "name": "asset", "type": "address", "indexed": true },
-            { "internalType": "uint128", "name": "protocolRevenues", "type": "uint128", "indexed": false }
+            {
+              "internalType": "contract IERC20",
+              "name": "asset",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "uint128",
+              "name": "protocolRevenues",
+              "type": "uint128",
+              "indexed": false
+            }
           ],
           "type": "event",
           "name": "ClaimProtocolRevenues",
@@ -1196,7 +1270,12 @@
               ],
               "indexed": false
             },
-            { "internalType": "contract IERC20", "name": "asset", "type": "address", "indexed": true },
+            {
+              "internalType": "contract IERC20",
+              "name": "asset",
+              "type": "address",
+              "indexed": true
+            },
             { "internalType": "bool", "name": "cancelable", "type": "bool", "indexed": false },
             { "internalType": "bool", "name": "transferable", "type": "bool", "indexed": false },
             {
@@ -1217,13 +1296,17 @@
           "anonymous": false
         },
         {
-          "inputs": [{ "internalType": "uint256", "name": "_tokenId", "type": "uint256", "indexed": false }],
+          "inputs": [
+            { "internalType": "uint256", "name": "_tokenId", "type": "uint256", "indexed": false }
+          ],
           "type": "event",
           "name": "MetadataUpdate",
           "anonymous": false
         },
         {
-          "inputs": [{ "internalType": "uint256", "name": "streamId", "type": "uint256", "indexed": true }],
+          "inputs": [
+            { "internalType": "uint256", "name": "streamId", "type": "uint256", "indexed": true }
+          ],
           "type": "event",
           "name": "RenounceLockupStream",
           "anonymous": false
@@ -1291,7 +1374,12 @@
           "inputs": [
             { "internalType": "uint256", "name": "streamId", "type": "uint256", "indexed": true },
             { "internalType": "address", "name": "to", "type": "address", "indexed": true },
-            { "internalType": "contract IERC20", "name": "asset", "type": "address", "indexed": true },
+            {
+              "internalType": "contract IERC20",
+              "name": "asset",
+              "type": "address",
+              "indexed": true
+            },
             { "internalType": "uint128", "name": "amount", "type": "uint128", "indexed": false }
           ],
           "type": "event",
@@ -1368,7 +1456,9 @@
           "stateMutability": "view",
           "type": "function",
           "name": "comptroller",
-          "outputs": [{ "internalType": "contract ISablierV2Comptroller", "name": "", "type": "address" }]
+          "outputs": [
+            { "internalType": "contract ISablierV2Comptroller", "name": "", "type": "address" }
+          ]
         },
         {
           "inputs": [
@@ -1484,7 +1574,9 @@
           "outputs": [{ "internalType": "contract IERC20", "name": "asset", "type": "address" }]
         },
         {
-          "inputs": [{ "internalType": "contract IERC20Rebasing", "name": "asset", "type": "address" }],
+          "inputs": [
+            { "internalType": "contract IERC20Rebasing", "name": "asset", "type": "address" }
+          ],
           "stateMutability": "view",
           "type": "function",
           "name": "getClaimableRebasingAssetYield",
@@ -1530,7 +1622,9 @@
           ]
         },
         {
-          "inputs": [{ "internalType": "contract IERC20Rebasing", "name": "asset", "type": "address" }],
+          "inputs": [
+            { "internalType": "contract IERC20Rebasing", "name": "asset", "type": "address" }
+          ],
           "stateMutability": "view",
           "type": "function",
           "name": "getRebasingAssetConfiguration",
@@ -1730,14 +1824,24 @@
           "name": "setApprovalForAll"
         },
         {
-          "inputs": [{ "internalType": "contract ISablierV2Comptroller", "name": "newComptroller", "type": "address" }],
+          "inputs": [
+            {
+              "internalType": "contract ISablierV2Comptroller",
+              "name": "newComptroller",
+              "type": "address"
+            }
+          ],
           "stateMutability": "nonpayable",
           "type": "function",
           "name": "setComptroller"
         },
         {
           "inputs": [
-            { "internalType": "contract ISablierV2NFTDescriptor", "name": "newNFTDescriptor", "type": "address" }
+            {
+              "internalType": "contract ISablierV2NFTDescriptor",
+              "name": "newNFTDescriptor",
+              "type": "address"
+            }
           ],
           "stateMutability": "nonpayable",
           "type": "function",
@@ -1844,7 +1948,9 @@
           "stateMutability": "view",
           "type": "function",
           "name": "withdrawableAmountOf",
-          "outputs": [{ "internalType": "uint128", "name": "withdrawableAmount", "type": "uint128" }]
+          "outputs": [
+            { "internalType": "uint128", "name": "withdrawableAmount", "type": "uint128" }
+          ]
         }
       ],
       "devdoc": {
@@ -1866,7 +1972,9 @@
           },
           "claimProtocolRevenues(address)": {
             "details": "Emits a {ClaimProtocolRevenues} event. Requirements: - `msg.sender` must be the contract admin.",
-            "params": { "asset": "The contract address of the ERC-20 asset for which to claim protocol revenues." }
+            "params": {
+              "asset": "The contract address of the ERC-20 asset for which to claim protocol revenues."
+            }
           },
           "claimRebasingAssetYield(address,uint256,address)": {
             "details": "Reverts if `msg.sender` is not the contract admin.",
@@ -2003,8 +2111,12 @@
             "details": "Emits a {RenounceLockupStream} and {MetadataUpdate} event. Notes: - This is an irreversible operation. - This function attempts to invoke a hook on the stream's recipient, provided that the recipient is a contract. Requirements: - Must not be delegate called. - `streamId` must reference a warm stream. - `msg.sender` must be the stream's sender. - The stream must be cancelable.",
             "params": { "streamId": "The id of the stream to renounce." }
           },
-          "safeTransferFrom(address,address,uint256)": { "details": "See {IERC721-safeTransferFrom}." },
-          "safeTransferFrom(address,address,uint256,bytes)": { "details": "See {IERC721-safeTransferFrom}." },
+          "safeTransferFrom(address,address,uint256)": {
+            "details": "See {IERC721-safeTransferFrom}."
+          },
+          "safeTransferFrom(address,address,uint256,bytes)": {
+            "details": "See {IERC721-safeTransferFrom}."
+          },
           "setApprovalForAll(address,bool)": { "details": "See {IERC721-setApprovalForAll}." },
           "setComptroller(address)": {
             "details": "Emits a {SetComptroller} event. Notes: - Does not revert if the comptroller is the same. Requirements: - `msg.sender` must be the contract admin.",
@@ -2076,7 +2188,9 @@
           },
           "admin()": { "notice": "The address of the admin account or contract." },
           "burn(uint256)": { "notice": "Burns the NFT associated with the stream." },
-          "cancel(uint256)": { "notice": "Cancels the stream and refunds any remaining assets to the sender." },
+          "cancel(uint256)": {
+            "notice": "Cancels the stream and refunds any remaining assets to the sender."
+          },
           "cancelMultiple(uint256[])": {
             "notice": "Cancels multiple streams and refunds any remaining assets to the sender."
           },
@@ -2089,7 +2203,9 @@
           "comptroller()": {
             "notice": "Retrieves the address of the comptroller contract, responsible for the Sablier V2 protocol configuration."
           },
-          "configureRebasingAsset(address,uint8)": { "notice": "Sets the yield mode for a rebasing ERC-20 asset." },
+          "configureRebasingAsset(address,uint8)": {
+            "notice": "Sets the yield mode for a rebasing ERC-20 asset."
+          },
           "configureYieldAndGas(address,uint8,uint8,address)": {
             "notice": "configures yield and gas modes and sets the governor."
           },
@@ -2099,15 +2215,21 @@
           "createWithRange((address,address,uint128,address,bool,bool,(uint40,uint40,uint40),(address,uint256)))": {
             "notice": "Creates a stream with the provided start time and end time as the range. The stream is funded by `msg.sender` and is wrapped in an ERC-721 NFT."
           },
-          "getAsset(uint256)": { "notice": "Retrieves the address of the ERC-20 asset used for streaming." },
+          "getAsset(uint256)": {
+            "notice": "Retrieves the address of the ERC-20 asset used for streaming."
+          },
           "getClaimableRebasingAssetYield(address)": {
             "notice": "Retrieves the claimable yield from rebasing `asset`."
           },
-          "getCliffTime(uint256)": { "notice": "Retrieves the stream's cliff time, which is a Unix timestamp." },
+          "getCliffTime(uint256)": {
+            "notice": "Retrieves the stream's cliff time, which is a Unix timestamp."
+          },
           "getDepositedAmount(uint256)": {
             "notice": "Retrieves the amount deposited in the stream, denoted in units of the asset's decimals."
           },
-          "getEndTime(uint256)": { "notice": "Retrieves the stream's end time, which is a Unix timestamp." },
+          "getEndTime(uint256)": {
+            "notice": "Retrieves the stream's end time, which is a Unix timestamp."
+          },
           "getRange(uint256)": {
             "notice": "Retrieves the stream's range, which is a struct containing (i) the stream's start time, (ii) cliff time, and (iii) end time, all as Unix timestamps."
           },
@@ -2119,7 +2241,9 @@
             "notice": "Retrieves the amount refunded to the sender after a cancellation, denoted in units of the asset's decimals. This amount is always zero unless the stream was canceled."
           },
           "getSender(uint256)": { "notice": "Retrieves the stream's sender." },
-          "getStartTime(uint256)": { "notice": "Retrieves the stream's start time, which is a Unix timestamp." },
+          "getStartTime(uint256)": {
+            "notice": "Retrieves the stream's start time, which is a Unix timestamp."
+          },
           "getStream(uint256)": { "notice": "Retrieves the stream entity." },
           "getWithdrawnAmount(uint256)": {
             "notice": "Retrieves the amount withdrawn from the stream, denoted in units of the asset's decimals."
@@ -2130,8 +2254,12 @@
           "isCold(uint256)": {
             "notice": "Retrieves a flag indicating whether the stream is cold, i.e. settled, canceled, or depleted."
           },
-          "isDepleted(uint256)": { "notice": "Retrieves a flag indicating whether the stream is depleted." },
-          "isStream(uint256)": { "notice": "Retrieves a flag indicating whether the stream exists." },
+          "isDepleted(uint256)": {
+            "notice": "Retrieves a flag indicating whether the stream is depleted."
+          },
+          "isStream(uint256)": {
+            "notice": "Retrieves a flag indicating whether the stream exists."
+          },
           "isTransferable(uint256)": {
             "notice": "Retrieves a flag indicating whether the stream NFT can be transferred."
           },
@@ -2145,7 +2273,9 @@
           "refundableAmountOf(uint256)": {
             "notice": "Calculates the amount that the sender would be refunded if the stream were canceled, denoted in units of the asset's decimals."
           },
-          "renounce(uint256)": { "notice": "Removes the right of the stream's sender to cancel the stream." },
+          "renounce(uint256)": {
+            "notice": "Removes the right of the stream's sender to cancel the stream."
+          },
           "setComptroller(address)": {
             "notice": "Assigns a new comptroller contract responsible for the protocol configuration."
           },
@@ -2157,7 +2287,9 @@
             "notice": "Calculates the amount streamed to the recipient, denoted in units of the asset's decimals. When the stream is warm, the streaming function is: $$ f(x) = x * d + c $$ Where: - $x$ is the elapsed time divided by the stream's total duration. - $d$ is the deposited amount. - $c$ is the cliff amount. Upon cancellation of the stream, the amount streamed is calculated as the difference between the deposited amount and the refunded amount. Ultimately, when the stream becomes depleted, the streamed amount is equivalent to the total amount withdrawn."
           },
           "transferAdmin(address)": { "notice": "Transfers the contract admin to a new address." },
-          "wasCanceled(uint256)": { "notice": "Retrieves a flag indicating whether the stream was canceled." },
+          "wasCanceled(uint256)": {
+            "notice": "Retrieves a flag indicating whether the stream was canceled."
+          },
           "withdraw(uint256,address,uint128)": {
             "notice": "Withdraws the provided amount of assets from the stream to the `to` address."
           },

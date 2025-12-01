@@ -80,7 +80,12 @@
       "inputs": [
         { "name": "admin", "type": "address", "indexed": true, "internalType": "address" },
         { "name": "asset", "type": "address", "indexed": true, "internalType": "contract IERC20" },
-        { "name": "oldProtocolFee", "type": "uint256", "indexed": false, "internalType": "UD60x18" },
+        {
+          "name": "oldProtocolFee",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "UD60x18"
+        },
         { "name": "newProtocolFee", "type": "uint256", "indexed": false, "internalType": "UD60x18" }
       ],
       "anonymous": false
@@ -155,8 +160,18 @@
         {
           "inputs": [
             { "internalType": "address", "name": "admin", "type": "address", "indexed": true },
-            { "internalType": "UD60x18", "name": "oldFlashFee", "type": "uint256", "indexed": false },
-            { "internalType": "UD60x18", "name": "newFlashFee", "type": "uint256", "indexed": false }
+            {
+              "internalType": "UD60x18",
+              "name": "oldFlashFee",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "UD60x18",
+              "name": "newFlashFee",
+              "type": "uint256",
+              "indexed": false
+            }
           ],
           "type": "event",
           "name": "SetFlashFee",
@@ -165,9 +180,24 @@
         {
           "inputs": [
             { "internalType": "address", "name": "admin", "type": "address", "indexed": true },
-            { "internalType": "contract IERC20", "name": "asset", "type": "address", "indexed": true },
-            { "internalType": "UD60x18", "name": "oldProtocolFee", "type": "uint256", "indexed": false },
-            { "internalType": "UD60x18", "name": "newProtocolFee", "type": "uint256", "indexed": false }
+            {
+              "internalType": "contract IERC20",
+              "name": "asset",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "UD60x18",
+              "name": "oldProtocolFee",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "UD60x18",
+              "name": "newProtocolFee",
+              "type": "uint256",
+              "indexed": false
+            }
           ],
           "type": "event",
           "name": "SetProtocolFee",
@@ -176,7 +206,12 @@
         {
           "inputs": [
             { "internalType": "address", "name": "admin", "type": "address", "indexed": true },
-            { "internalType": "contract IERC20", "name": "asset", "type": "address", "indexed": true },
+            {
+              "internalType": "contract IERC20",
+              "name": "asset",
+              "type": "address",
+              "indexed": true
+            },
             { "internalType": "bool", "name": "newFlag", "type": "bool", "indexed": false }
           ],
           "type": "event",
@@ -257,7 +292,9 @@
           },
           "setFlashFee(uint256)": {
             "details": "Emits a {SetFlashFee} event. Notes: - Does not revert if the fee is the same. Requirements: - `msg.sender` must be the contract admin.",
-            "params": { "newFlashFee": "The new flash fee to set, denoted as a fixed-point number where 1e18 is 100%." }
+            "params": {
+              "newFlashFee": "The new flash fee to set, denoted as a fixed-point number where 1e18 is 100%."
+            }
           },
           "setProtocolFee(address,uint256)": {
             "details": "Emits a {SetProtocolFee} event. Notes: - The fee is not denoted in units of the asset's decimals; it is a fixed-point number. Refer to the PRBMath documentation for more detail on the logic of UD60x18. - Does not revert if the fee is the same. Requirements: - `msg.sender` must be the contract admin.",
@@ -296,7 +333,9 @@
           "setProtocolFee(address,uint256)": {
             "notice": "Sets a new protocol fee that will be charged on all streams created with the provided ERC-20 asset."
           },
-          "toggleFlashAsset(address)": { "notice": "Toggles the flash loanability of an ERC-20 asset." },
+          "toggleFlashAsset(address)": {
+            "notice": "Toggles the flash loanability of an ERC-20 asset."
+          },
           "transferAdmin(address)": { "notice": "Transfers the contract admin to a new address." }
         },
         "version": 1

@@ -175,7 +175,9 @@
       "type": "function",
       "name": "nftDescriptor",
       "inputs": [],
-      "outputs": [{ "name": "", "type": "address", "internalType": "contract ILockupNFTDescriptor" }],
+      "outputs": [
+        { "name": "", "type": "address", "internalType": "contract ILockupNFTDescriptor" }
+      ],
       "stateMutability": "view"
     },
     {
@@ -251,7 +253,9 @@
           "stateMutability": "view",
           "type": "function",
           "name": "getLockupModel",
-          "outputs": [{ "internalType": "enum Lockup.Model", "name": "lockupModel", "type": "uint8" }]
+          "outputs": [
+            { "internalType": "enum Lockup.Model", "name": "lockupModel", "type": "uint8" }
+          ]
         },
         {
           "inputs": [{ "internalType": "uint256", "name": "streamId", "type": "uint256" }],
@@ -394,7 +398,9 @@
           "stateMutability": "view",
           "type": "function",
           "name": "nftDescriptor",
-          "outputs": [{ "internalType": "contract ILockupNFTDescriptor", "name": "", "type": "address" }]
+          "outputs": [
+            { "internalType": "contract ILockupNFTDescriptor", "name": "", "type": "address" }
+          ]
         },
         {
           "inputs": [{ "internalType": "uint256", "name": "streamId", "type": "uint256" }],
@@ -462,7 +468,9 @@
             "details": "Reverts if `streamId` references a null stream.",
             "params": { "streamId": "The stream ID for the query." }
           },
-          "isAllowedToHook(address)": { "details": "See {ISablierLockupRecipient} for more information." },
+          "isAllowedToHook(address)": {
+            "details": "See {ISablierLockupRecipient} for more information."
+          },
           "isCancelable(uint256)": {
             "details": "Reverts if `streamId` references a null stream.",
             "params": { "streamId": "The stream ID for the query." }
@@ -501,8 +509,12 @@
           "getDepositedAmount(uint256)": {
             "notice": "Retrieves the amount deposited in the stream, denoted in units of the token's decimals."
           },
-          "getEndTime(uint256)": { "notice": "Retrieves the stream's end time, which is a Unix timestamp." },
-          "getLockupModel(uint256)": { "notice": "Retrieves the distribution models used to create the stream." },
+          "getEndTime(uint256)": {
+            "notice": "Retrieves the stream's end time, which is a Unix timestamp."
+          },
+          "getLockupModel(uint256)": {
+            "notice": "Retrieves the distribution models used to create the stream."
+          },
           "getRefundedAmount(uint256)": {
             "notice": "Retrieves the amount refunded to the sender after a cancellation, denoted in units of the token's decimals. This amount is always zero unless the stream was canceled."
           },
@@ -510,7 +522,9 @@
             "notice": "Retrieves the segments used to compose the dynamic distribution function."
           },
           "getSender(uint256)": { "notice": "Retrieves the stream's sender." },
-          "getStartTime(uint256)": { "notice": "Retrieves the stream's start time, which is a Unix timestamp." },
+          "getStartTime(uint256)": {
+            "notice": "Retrieves the stream's start time, which is a Unix timestamp."
+          },
           "getTranches(uint256)": {
             "notice": "Retrieves the tranches used to compose the tranched distribution function."
           },
@@ -529,8 +543,12 @@
           "isCancelable(uint256)": {
             "notice": "Retrieves a flag indicating whether the stream can be canceled. When the stream is cold, this flag is always `false`."
           },
-          "isDepleted(uint256)": { "notice": "Retrieves a flag indicating whether the stream is depleted." },
-          "isStream(uint256)": { "notice": "Retrieves a flag indicating whether the stream exists." },
+          "isDepleted(uint256)": {
+            "notice": "Retrieves a flag indicating whether the stream is depleted."
+          },
+          "isStream(uint256)": {
+            "notice": "Retrieves a flag indicating whether the stream exists."
+          },
           "isTransferable(uint256)": {
             "notice": "Retrieves a flag indicating whether the stream NFT can be transferred."
           },
@@ -539,7 +557,9 @@
           },
           "nextStreamId()": { "notice": "Counter for stream IDs, used in the create functions." },
           "nftDescriptor()": { "notice": "Contract that generates the non-fungible token URI." },
-          "wasCanceled(uint256)": { "notice": "Retrieves a flag indicating whether the stream was canceled." }
+          "wasCanceled(uint256)": {
+            "notice": "Retrieves a flag indicating whether the stream was canceled."
+          }
         },
         "version": 1
       }

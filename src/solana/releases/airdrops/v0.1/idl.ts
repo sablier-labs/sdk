@@ -8,7 +8,9 @@ import manifest from "./manifest";
 
 export const sablierMerkleInstant = { errorCodes, SablierMerkleInstantIDL, structs };
 
-export const idl: Sablier.Solana.IdlMap = { [manifest.SABLIER_MERKLE_INSTANT]: SablierMerkleInstantIDL };
+export const idl: Sablier.Solana.IdlMap = {
+  [manifest.SABLIER_MERKLE_INSTANT]: SablierMerkleInstantIDL,
+};
 
 export namespace SablierMerkleInstant {
   export import IDL = idlType.IDL;

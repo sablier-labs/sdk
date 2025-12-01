@@ -109,7 +109,9 @@
       "userdoc": {
         "kind": "user",
         "methods": {
-          "onSablierLockupCancel(uint256,address,uint128,uint128)": { "notice": "Responds to cancellations." },
+          "onSablierLockupCancel(uint256,address,uint128,uint128)": {
+            "notice": "Responds to cancellations."
+          },
           "onSablierLockupWithdraw(uint256,address,address,uint128)": {
             "notice": "Responds to withdrawals triggered by any address except the contract implementing this interface."
           }
@@ -127,7 +129,9 @@
       ],
       "optimizer": { "enabled": true, "runs": 1000 },
       "metadata": { "bytecodeHash": "none" },
-      "compilationTarget": { "src/interfaces/ISablierLockupRecipient.sol": "ISablierLockupRecipient" },
+      "compilationTarget": {
+        "src/interfaces/ISablierLockupRecipient.sol": "ISablierLockupRecipient"
+      },
       "evmVersion": "shanghai",
       "libraries": {},
       "viaIR": true

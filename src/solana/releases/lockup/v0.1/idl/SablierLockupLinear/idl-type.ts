@@ -1,6 +1,11 @@
 export type IDL = {
   address: "4EauRKrNErKfsR4XetEZJNmvACGHbHnHV4R5dvJuqupC";
-  metadata: { name: "sablierLockup"; version: "0.1.0"; spec: "0.1.0"; description: "Created with Anchor" };
+  metadata: {
+    name: "sablierLockup";
+    version: "0.1.0";
+    spec: "0.1.0";
+    description: "Created with Anchor";
+  };
   docs: ["Sablier Lockup program for creating and managing token streams."];
   instructions: [
     {
@@ -86,7 +91,10 @@ export type IDL = {
             };
           };
         },
-        { name: "depositedTokenMint"; docs: ["Read account: the mint account of the deposited token."] },
+        {
+          name: "depositedTokenMint";
+          docs: ["Read account: the mint account of the deposited token."];
+        },
         {
           name: "streamData";
           docs: ["Write account: the stream data account storing stream details."];
@@ -153,7 +161,10 @@ export type IDL = {
           docs: ["Program account: the Associated Token program."];
           address: "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL";
         },
-        { name: "depositedTokenProgram"; docs: ["Program account: the Token program of the deposited token."] },
+        {
+          name: "depositedTokenProgram";
+          docs: ["Program account: the Token program of the deposited token."];
+        },
         {
           name: "systemProgram";
           docs: ["Program account: the System program."];
@@ -291,7 +302,27 @@ export type IDL = {
             seeds: [
               {
                 kind: "const";
-                value: [110, 102, 116, 95, 99, 111, 108, 108, 101, 99, 116, 105, 111, 110, 95, 100, 97, 116, 97];
+                value: [
+                  110,
+                  102,
+                  116,
+                  95,
+                  99,
+                  111,
+                  108,
+                  108,
+                  101,
+                  99,
+                  116,
+                  105,
+                  111,
+                  110,
+                  95,
+                  100,
+                  97,
+                  116,
+                  97,
+                ];
               },
             ];
           };
@@ -329,19 +360,45 @@ export type IDL = {
             seeds: [
               {
                 kind: "const";
-                value: [110, 102, 116, 95, 99, 111, 108, 108, 101, 99, 116, 105, 111, 110, 95, 109, 105, 110, 116];
+                value: [
+                  110,
+                  102,
+                  116,
+                  95,
+                  99,
+                  111,
+                  108,
+                  108,
+                  101,
+                  99,
+                  116,
+                  105,
+                  111,
+                  110,
+                  95,
+                  109,
+                  105,
+                  110,
+                  116,
+                ];
               },
             ];
           };
         },
-        { name: "depositTokenMint"; docs: ["Read account: the mint account for the deposit token."] },
+        {
+          name: "depositTokenMint";
+          docs: ["Read account: the mint account for the deposit token."];
+        },
         {
           name: "streamNftMint";
           docs: ["Create account: the mint account for the stream NFT."];
           writable: true;
           pda: {
             seeds: [
-              { kind: "const"; value: [115, 116, 114, 101, 97, 109, 95, 110, 102, 116, 95, 109, 105, 110, 116] },
+              {
+                kind: "const";
+                value: [115, 116, 114, 101, 97, 109, 95, 110, 102, 116, 95, 109, 105, 110, 116];
+              },
               { kind: "account"; path: "sender" },
               { kind: "arg"; path: "salt" },
             ];
@@ -488,8 +545,14 @@ export type IDL = {
           docs: ["Program account: the Associated Token program."];
           address: "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL";
         },
-        { name: "depositTokenProgram"; docs: ["Program account: the Token program of the deposit token."] },
-        { name: "nftTokenProgram"; docs: ["Program account: the Token program of the stream NFT."] },
+        {
+          name: "depositTokenProgram";
+          docs: ["Program account: the Token program of the deposit token."];
+        },
+        {
+          name: "nftTokenProgram";
+          docs: ["Program account: the Token program of the stream NFT."];
+        },
         {
           name: "tokenMetadataProgram";
           docs: ["Program account: the Token Metadata program."];
@@ -500,7 +563,11 @@ export type IDL = {
           docs: ["Program account: the System program."];
           address: "11111111111111111111111111111111";
         },
-        { name: "rent"; docs: ["Sysvar account: Rent."]; address: "SysvarRent111111111111111111111111111111111" },
+        {
+          name: "rent";
+          docs: ["Sysvar account: Rent."];
+          address: "SysvarRent111111111111111111111111111111111";
+        },
       ];
       args: [
         { name: "salt"; type: "u128" },
@@ -622,7 +689,27 @@ export type IDL = {
             seeds: [
               {
                 kind: "const";
-                value: [110, 102, 116, 95, 99, 111, 108, 108, 101, 99, 116, 105, 111, 110, 95, 100, 97, 116, 97];
+                value: [
+                  110,
+                  102,
+                  116,
+                  95,
+                  99,
+                  111,
+                  108,
+                  108,
+                  101,
+                  99,
+                  116,
+                  105,
+                  111,
+                  110,
+                  95,
+                  100,
+                  97,
+                  116,
+                  97,
+                ];
               },
             ];
           };
@@ -660,19 +747,45 @@ export type IDL = {
             seeds: [
               {
                 kind: "const";
-                value: [110, 102, 116, 95, 99, 111, 108, 108, 101, 99, 116, 105, 111, 110, 95, 109, 105, 110, 116];
+                value: [
+                  110,
+                  102,
+                  116,
+                  95,
+                  99,
+                  111,
+                  108,
+                  108,
+                  101,
+                  99,
+                  116,
+                  105,
+                  111,
+                  110,
+                  95,
+                  109,
+                  105,
+                  110,
+                  116,
+                ];
               },
             ];
           };
         },
-        { name: "depositTokenMint"; docs: ["Read account: the mint account for the deposit token."] },
+        {
+          name: "depositTokenMint";
+          docs: ["Read account: the mint account for the deposit token."];
+        },
         {
           name: "streamNftMint";
           docs: ["Create account: the mint account for the stream NFT."];
           writable: true;
           pda: {
             seeds: [
-              { kind: "const"; value: [115, 116, 114, 101, 97, 109, 95, 110, 102, 116, 95, 109, 105, 110, 116] },
+              {
+                kind: "const";
+                value: [115, 116, 114, 101, 97, 109, 95, 110, 102, 116, 95, 109, 105, 110, 116];
+              },
               { kind: "account"; path: "sender" },
               { kind: "arg"; path: "salt" },
             ];
@@ -819,8 +932,14 @@ export type IDL = {
           docs: ["Program account: the Associated Token program."];
           address: "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL";
         },
-        { name: "depositTokenProgram"; docs: ["Program account: the Token program of the deposit token."] },
-        { name: "nftTokenProgram"; docs: ["Program account: the Token program of the stream NFT."] },
+        {
+          name: "depositTokenProgram";
+          docs: ["Program account: the Token program of the deposit token."];
+        },
+        {
+          name: "nftTokenProgram";
+          docs: ["Program account: the Token program of the stream NFT."];
+        },
         {
           name: "tokenMetadataProgram";
           docs: ["Program account: the Token Metadata program."];
@@ -831,7 +950,11 @@ export type IDL = {
           docs: ["Program account: the System program."];
           address: "11111111111111111111111111111111";
         },
-        { name: "rent"; docs: ["Sysvar account: Rent."]; address: "SysvarRent111111111111111111111111111111111" },
+        {
+          name: "rent";
+          docs: ["Sysvar account: Rent."];
+          address: "SysvarRent111111111111111111111111111111111";
+        },
       ];
       args: [
         { name: "salt"; type: "u128" },
@@ -862,7 +985,12 @@ export type IDL = {
       ];
       discriminator: [175, 175, 109, 31, 13, 152, 155, 237];
       accounts: [
-        { name: "initializer"; docs: ["Write account: the initializer of the program."]; writable: true; signer: true },
+        {
+          name: "initializer";
+          docs: ["Write account: the initializer of the program."];
+          writable: true;
+          signer: true;
+        },
         {
           name: "treasury";
           docs: ["Create account: the treasury account that will hold the fees."];
@@ -877,7 +1005,27 @@ export type IDL = {
             seeds: [
               {
                 kind: "const";
-                value: [110, 102, 116, 95, 99, 111, 108, 108, 101, 99, 116, 105, 111, 110, 95, 100, 97, 116, 97];
+                value: [
+                  110,
+                  102,
+                  116,
+                  95,
+                  99,
+                  111,
+                  108,
+                  108,
+                  101,
+                  99,
+                  116,
+                  105,
+                  111,
+                  110,
+                  95,
+                  100,
+                  97,
+                  116,
+                  97,
+                ];
               },
             ];
           };
@@ -917,7 +1065,27 @@ export type IDL = {
             seeds: [
               {
                 kind: "const";
-                value: [110, 102, 116, 95, 99, 111, 108, 108, 101, 99, 116, 105, 111, 110, 95, 109, 105, 110, 116];
+                value: [
+                  110,
+                  102,
+                  116,
+                  95,
+                  99,
+                  111,
+                  108,
+                  108,
+                  101,
+                  99,
+                  116,
+                  105,
+                  111,
+                  110,
+                  95,
+                  109,
+                  105,
+                  110,
+                  116,
+                ];
               },
             ];
           };
@@ -976,13 +1144,20 @@ export type IDL = {
           docs: ["Program account: the Associated Token program."];
           address: "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL";
         },
-        { name: "nftTokenProgram"; docs: ["Program account: the Token program of the collection NFT."] },
+        {
+          name: "nftTokenProgram";
+          docs: ["Program account: the Token program of the collection NFT."];
+        },
         {
           name: "tokenMetadataProgram";
           docs: ["Program account: the Token Metadata program."];
           address: "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s";
         },
-        { name: "rent"; docs: ["Sysvar account: Rent."]; address: "SysvarRent111111111111111111111111111111111" },
+        {
+          name: "rent";
+          docs: ["Sysvar account: Rent."];
+          address: "SysvarRent111111111111111111111111111111111";
+        },
         {
           name: "systemProgram";
           docs: ["Program account: the System program."];
@@ -1105,7 +1280,10 @@ export type IDL = {
           docs: ["Read account: the mint account for the stream NFT."];
           pda: {
             seeds: [
-              { kind: "const"; value: [115, 116, 114, 101, 97, 109, 95, 110, 102, 116, 95, 109, 105, 110, 116] },
+              {
+                kind: "const";
+                value: [115, 116, 114, 101, 97, 109, 95, 110, 102, 116, 95, 109, 105, 110, 116];
+              },
               { kind: "arg"; path: "sender" },
               { kind: "arg"; path: "salt" },
             ];
@@ -1207,14 +1385,19 @@ export type IDL = {
           writable: true;
           signer: true;
         },
-        { name: "streamRecipient"; docs: ["Read account: the recipient of the stream who owns the stream NFT."] },
+        {
+          name: "streamRecipient";
+          docs: ["Read account: the recipient of the stream who owns the stream NFT."];
+        },
         {
           name: "withdrawalRecipient";
           docs: ["Read account: the account that will receive the withdrawn tokens.", "recipient."];
         },
         {
           name: "withdrawalRecipientAta";
-          docs: ["Create if needed account: the ATA for deposited tokens owned by withdrawal recipient."];
+          docs: [
+            "Create if needed account: the ATA for deposited tokens owned by withdrawal recipient.",
+          ];
           writable: true;
           pda: {
             seeds: [
@@ -1267,7 +1450,10 @@ export type IDL = {
           writable: true;
           pda: { seeds: [{ kind: "const"; value: [116, 114, 101, 97, 115, 117, 114, 121] }] };
         },
-        { name: "depositedTokenMint"; docs: ["Read account: the mint account for the deposited token."] },
+        {
+          name: "depositedTokenMint";
+          docs: ["Read account: the mint account for the deposited token."];
+        },
         {
           name: "recipientStreamNftAta";
           docs: ["Read account: the ATA for the stream NFT owned by recipient.", ""];
@@ -1386,9 +1572,18 @@ export type IDL = {
           name: "chainlinkProgram";
           docs: ["Read account: The Chainlink program used to retrieve on-chain price feeds."];
         },
-        { name: "chainlinkSolUsdFeed"; docs: ["Read account: The account providing the SOL/USD price feed data."] },
-        { name: "depositedTokenProgram"; docs: ["Program account: the Token program of the deposited token."] },
-        { name: "nftTokenProgram"; docs: ["Program account: the Token program of the stream NFT."] },
+        {
+          name: "chainlinkSolUsdFeed";
+          docs: ["Read account: The account providing the SOL/USD price feed data."];
+        },
+        {
+          name: "depositedTokenProgram";
+          docs: ["Program account: the Token program of the deposited token."];
+        },
+        {
+          name: "nftTokenProgram";
+          docs: ["Program account: the Token program of the stream NFT."];
+        },
         {
           name: "systemProgram";
           docs: ["Program account: the System program."];
@@ -1422,14 +1617,19 @@ export type IDL = {
           writable: true;
           signer: true;
         },
-        { name: "streamRecipient"; docs: ["Read account: the recipient of the stream who owns the stream NFT."] },
+        {
+          name: "streamRecipient";
+          docs: ["Read account: the recipient of the stream who owns the stream NFT."];
+        },
         {
           name: "withdrawalRecipient";
           docs: ["Read account: the account that will receive the withdrawn tokens.", "recipient."];
         },
         {
           name: "withdrawalRecipientAta";
-          docs: ["Create if needed account: the ATA for deposited tokens owned by withdrawal recipient."];
+          docs: [
+            "Create if needed account: the ATA for deposited tokens owned by withdrawal recipient.",
+          ];
           writable: true;
           pda: {
             seeds: [
@@ -1482,7 +1682,10 @@ export type IDL = {
           writable: true;
           pda: { seeds: [{ kind: "const"; value: [116, 114, 101, 97, 115, 117, 114, 121] }] };
         },
-        { name: "depositedTokenMint"; docs: ["Read account: the mint account for the deposited token."] },
+        {
+          name: "depositedTokenMint";
+          docs: ["Read account: the mint account for the deposited token."];
+        },
         {
           name: "recipientStreamNftAta";
           docs: ["Read account: the ATA for the stream NFT owned by recipient.", ""];
@@ -1601,9 +1804,18 @@ export type IDL = {
           name: "chainlinkProgram";
           docs: ["Read account: The Chainlink program used to retrieve on-chain price feeds."];
         },
-        { name: "chainlinkSolUsdFeed"; docs: ["Read account: The account providing the SOL/USD price feed data."] },
-        { name: "depositedTokenProgram"; docs: ["Program account: the Token program of the deposited token."] },
-        { name: "nftTokenProgram"; docs: ["Program account: the Token program of the stream NFT."] },
+        {
+          name: "chainlinkSolUsdFeed";
+          docs: ["Read account: The account providing the SOL/USD price feed data."];
+        },
+        {
+          name: "depositedTokenProgram";
+          docs: ["Program account: the Token program of the deposited token."];
+        },
+        {
+          name: "nftTokenProgram";
+          docs: ["Program account: the Token program of the stream NFT."];
+        },
         {
           name: "systemProgram";
           docs: ["Program account: the System program."];
@@ -1664,7 +1876,10 @@ export type IDL = {
           name: "chainlinkProgram";
           docs: ["Read account: The Chainlink program used to retrieve on-chain price feeds."];
         },
-        { name: "chainlinkSolUsdFeed"; docs: ["Read account: The account providing the SOL/USD price feed data."] },
+        {
+          name: "chainlinkSolUsdFeed";
+          docs: ["Read account: The account providing the SOL/USD price feed data."];
+        },
       ];
       args: [];
       returns: "u64";
@@ -1689,14 +1904,38 @@ export type IDL = {
     { code: 6003; name: "streamSettled"; msg: "Can't cancel a settled Stream!" },
     { code: 6004; name: "cantCollectZeroFees"; msg: "Can't collect zero fees!" },
     { code: 6005; name: "cliffTimeNotLessThanEndTime"; msg: "Invalid cliff time of the Stream!" },
-    { code: 6006; name: "cliffTimeZeroUnlockAmountNotZero"; msg: "Cliff time zero but unlock amount not zero!" },
+    {
+      code: 6006;
+      name: "cliffTimeZeroUnlockAmountNotZero";
+      msg: "Cliff time zero but unlock amount not zero!";
+    },
     { code: 6007; name: "depositAmountZero"; msg: "Invalid deposit amount!" },
-    { code: 6008; name: "startTimeNotLessThanCliffTime"; msg: "Start time must be less than cliff time!" },
-    { code: 6009; name: "startTimeNotLessThanEndTime"; msg: "Start time must be less than end time!" },
+    {
+      code: 6008;
+      name: "startTimeNotLessThanCliffTime";
+      msg: "Start time must be less than cliff time!";
+    },
+    {
+      code: 6009;
+      name: "startTimeNotLessThanEndTime";
+      msg: "Start time must be less than end time!";
+    },
     { code: 6010; name: "startTimeZero"; msg: "Start time can't be zero!" },
-    { code: 6011; name: "unlockAmountsSumTooHigh"; msg: "Unlock amounts sum is greater than deposit amount!" },
-    { code: 6012; name: "streamAlreadyNonCancelable"; msg: "Can't renounce a non-cancelable Stream!" },
-    { code: 6013; name: "overdraw"; msg: "Attempting to withdraw more than available in the stream!" },
+    {
+      code: 6011;
+      name: "unlockAmountsSumTooHigh";
+      msg: "Unlock amounts sum is greater than deposit amount!";
+    },
+    {
+      code: 6012;
+      name: "streamAlreadyNonCancelable";
+      msg: "Can't renounce a non-cancelable Stream!";
+    },
+    {
+      code: 6013;
+      name: "overdraw";
+      msg: "Attempting to withdraw more than available in the stream!";
+    },
     { code: 6014; name: "withdrawAmountZero"; msg: "Can't withdraw a zero amount!" },
   ];
   types: [
@@ -1753,7 +1992,10 @@ export type IDL = {
     },
     {
       name: "nftCollectionData";
-      type: { kind: "struct"; fields: [{ name: "totalSupply"; type: "u64" }, { name: "bump"; type: "u8" }] };
+      type: {
+        kind: "struct";
+        fields: [{ name: "totalSupply"; type: "u64" }, { name: "bump"; type: "u8" }];
+      };
     },
     {
       name: "renounceLockupStream";
@@ -1801,7 +2043,11 @@ export type IDL = {
       docs: ["Groups the timestamps for a Lockup stream."];
       type: {
         kind: "struct";
-        fields: [{ name: "cliff"; type: "u64" }, { name: "end"; type: "u64" }, { name: "start"; type: "u64" }];
+        fields: [
+          { name: "cliff"; type: "u64" },
+          { name: "end"; type: "u64" },
+          { name: "start"; type: "u64" },
+        ];
       };
     },
     {

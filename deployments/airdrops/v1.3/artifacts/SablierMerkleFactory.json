@@ -15,7 +15,9 @@
     {
       "type": "function",
       "name": "collectFees",
-      "inputs": [{ "name": "merkleBase", "type": "address", "internalType": "contract ISablierMerkleBase" }],
+      "inputs": [
+        { "name": "merkleBase", "type": "address", "internalType": "contract ISablierMerkleBase" }
+      ],
       "outputs": [],
       "stateMutability": "nonpayable"
     },
@@ -40,7 +42,13 @@
         { "name": "aggregateAmount", "type": "uint256", "internalType": "uint256" },
         { "name": "recipientCount", "type": "uint256", "internalType": "uint256" }
       ],
-      "outputs": [{ "name": "merkleInstant", "type": "address", "internalType": "contract ISablierMerkleInstant" }],
+      "outputs": [
+        {
+          "name": "merkleInstant",
+          "type": "address",
+          "internalType": "contract ISablierMerkleInstant"
+        }
+      ],
       "stateMutability": "nonpayable"
     },
     {
@@ -79,7 +87,9 @@
         { "name": "aggregateAmount", "type": "uint256", "internalType": "uint256" },
         { "name": "recipientCount", "type": "uint256", "internalType": "uint256" }
       ],
-      "outputs": [{ "name": "merkleLL", "type": "address", "internalType": "contract ISablierMerkleLL" }],
+      "outputs": [
+        { "name": "merkleLL", "type": "address", "internalType": "contract ISablierMerkleLL" }
+      ],
       "stateMutability": "nonpayable"
     },
     {
@@ -116,7 +126,9 @@
         { "name": "aggregateAmount", "type": "uint256", "internalType": "uint256" },
         { "name": "recipientCount", "type": "uint256", "internalType": "uint256" }
       ],
-      "outputs": [{ "name": "merkleLT", "type": "address", "internalType": "contract ISablierMerkleLT" }],
+      "outputs": [
+        { "name": "merkleLT", "type": "address", "internalType": "contract ISablierMerkleLT" }
+      ],
       "stateMutability": "nonpayable"
     },
     {
@@ -203,7 +215,12 @@
       "name": "CollectFees",
       "inputs": [
         { "name": "admin", "type": "address", "indexed": true, "internalType": "address" },
-        { "name": "merkleBase", "type": "address", "indexed": true, "internalType": "contract ISablierMerkleBase" },
+        {
+          "name": "merkleBase",
+          "type": "address",
+          "indexed": true,
+          "internalType": "contract ISablierMerkleBase"
+        },
         { "name": "feeAmount", "type": "uint256", "indexed": false, "internalType": "uint256" }
       ],
       "anonymous": false
@@ -233,8 +250,18 @@
             { "name": "shape", "type": "string", "internalType": "string" }
           ]
         },
-        { "name": "aggregateAmount", "type": "uint256", "indexed": false, "internalType": "uint256" },
-        { "name": "recipientCount", "type": "uint256", "indexed": false, "internalType": "uint256" },
+        {
+          "name": "aggregateAmount",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        },
+        {
+          "name": "recipientCount",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        },
         { "name": "fee", "type": "uint256", "indexed": false, "internalType": "uint256" }
       ],
       "anonymous": false
@@ -243,7 +270,12 @@
       "type": "event",
       "name": "CreateMerkleLL",
       "inputs": [
-        { "name": "merkleLL", "type": "address", "indexed": true, "internalType": "contract ISablierMerkleLL" },
+        {
+          "name": "merkleLL",
+          "type": "address",
+          "indexed": true,
+          "internalType": "contract ISablierMerkleLL"
+        },
         {
           "name": "baseParams",
           "type": "tuple",
@@ -259,7 +291,12 @@
             { "name": "shape", "type": "string", "internalType": "string" }
           ]
         },
-        { "name": "lockup", "type": "address", "indexed": false, "internalType": "contract ISablierLockup" },
+        {
+          "name": "lockup",
+          "type": "address",
+          "indexed": false,
+          "internalType": "contract ISablierLockup"
+        },
         { "name": "cancelable", "type": "bool", "indexed": false, "internalType": "bool" },
         { "name": "transferable", "type": "bool", "indexed": false, "internalType": "bool" },
         {
@@ -275,8 +312,18 @@
             { "name": "totalDuration", "type": "uint40", "internalType": "uint40" }
           ]
         },
-        { "name": "aggregateAmount", "type": "uint256", "indexed": false, "internalType": "uint256" },
-        { "name": "recipientCount", "type": "uint256", "indexed": false, "internalType": "uint256" },
+        {
+          "name": "aggregateAmount",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        },
+        {
+          "name": "recipientCount",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        },
         { "name": "fee", "type": "uint256", "indexed": false, "internalType": "uint256" }
       ],
       "anonymous": false
@@ -285,7 +332,12 @@
       "type": "event",
       "name": "CreateMerkleLT",
       "inputs": [
-        { "name": "merkleLT", "type": "address", "indexed": true, "internalType": "contract ISablierMerkleLT" },
+        {
+          "name": "merkleLT",
+          "type": "address",
+          "indexed": true,
+          "internalType": "contract ISablierMerkleLT"
+        },
         {
           "name": "baseParams",
           "type": "tuple",
@@ -301,7 +353,12 @@
             { "name": "shape", "type": "string", "internalType": "string" }
           ]
         },
-        { "name": "lockup", "type": "address", "indexed": false, "internalType": "contract ISablierLockup" },
+        {
+          "name": "lockup",
+          "type": "address",
+          "indexed": false,
+          "internalType": "contract ISablierLockup"
+        },
         { "name": "cancelable", "type": "bool", "indexed": false, "internalType": "bool" },
         { "name": "transferable", "type": "bool", "indexed": false, "internalType": "bool" },
         { "name": "streamStartTime", "type": "uint40", "indexed": false, "internalType": "uint40" },
@@ -316,8 +373,18 @@
           ]
         },
         { "name": "totalDuration", "type": "uint256", "indexed": false, "internalType": "uint256" },
-        { "name": "aggregateAmount", "type": "uint256", "indexed": false, "internalType": "uint256" },
-        { "name": "recipientCount", "type": "uint256", "indexed": false, "internalType": "uint256" },
+        {
+          "name": "aggregateAmount",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        },
+        {
+          "name": "recipientCount",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        },
         { "name": "fee", "type": "uint256", "indexed": false, "internalType": "uint256" }
       ],
       "anonymous": false
@@ -336,7 +403,12 @@
       "name": "SetCustomFee",
       "inputs": [
         { "name": "admin", "type": "address", "indexed": true, "internalType": "address" },
-        { "name": "campaignCreator", "type": "address", "indexed": true, "internalType": "address" },
+        {
+          "name": "campaignCreator",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        },
         { "name": "customFee", "type": "uint256", "indexed": false, "internalType": "uint256" }
       ],
       "anonymous": false
@@ -415,7 +487,12 @@
         {
           "inputs": [
             { "internalType": "address", "name": "admin", "type": "address", "indexed": true },
-            { "internalType": "contract ISablierMerkleBase", "name": "merkleBase", "type": "address", "indexed": true },
+            {
+              "internalType": "contract ISablierMerkleBase",
+              "name": "merkleBase",
+              "type": "address",
+              "indexed": true
+            },
             { "internalType": "uint256", "name": "feeAmount", "type": "uint256", "indexed": false }
           ],
           "type": "event",
@@ -445,8 +522,18 @@
               ],
               "indexed": false
             },
-            { "internalType": "uint256", "name": "aggregateAmount", "type": "uint256", "indexed": false },
-            { "internalType": "uint256", "name": "recipientCount", "type": "uint256", "indexed": false },
+            {
+              "internalType": "uint256",
+              "name": "aggregateAmount",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "uint256",
+              "name": "recipientCount",
+              "type": "uint256",
+              "indexed": false
+            },
             { "internalType": "uint256", "name": "fee", "type": "uint256", "indexed": false }
           ],
           "type": "event",
@@ -455,7 +542,12 @@
         },
         {
           "inputs": [
-            { "internalType": "contract ISablierMerkleLL", "name": "merkleLL", "type": "address", "indexed": true },
+            {
+              "internalType": "contract ISablierMerkleLL",
+              "name": "merkleLL",
+              "type": "address",
+              "indexed": true
+            },
             {
               "internalType": "struct MerkleBase.ConstructorParams",
               "name": "baseParams",
@@ -471,7 +563,12 @@
               ],
               "indexed": false
             },
-            { "internalType": "contract ISablierLockup", "name": "lockup", "type": "address", "indexed": false },
+            {
+              "internalType": "contract ISablierLockup",
+              "name": "lockup",
+              "type": "address",
+              "indexed": false
+            },
             { "internalType": "bool", "name": "cancelable", "type": "bool", "indexed": false },
             { "internalType": "bool", "name": "transferable", "type": "bool", "indexed": false },
             {
@@ -487,8 +584,18 @@
               ],
               "indexed": false
             },
-            { "internalType": "uint256", "name": "aggregateAmount", "type": "uint256", "indexed": false },
-            { "internalType": "uint256", "name": "recipientCount", "type": "uint256", "indexed": false },
+            {
+              "internalType": "uint256",
+              "name": "aggregateAmount",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "uint256",
+              "name": "recipientCount",
+              "type": "uint256",
+              "indexed": false
+            },
             { "internalType": "uint256", "name": "fee", "type": "uint256", "indexed": false }
           ],
           "type": "event",
@@ -497,7 +604,12 @@
         },
         {
           "inputs": [
-            { "internalType": "contract ISablierMerkleLT", "name": "merkleLT", "type": "address", "indexed": true },
+            {
+              "internalType": "contract ISablierMerkleLT",
+              "name": "merkleLT",
+              "type": "address",
+              "indexed": true
+            },
             {
               "internalType": "struct MerkleBase.ConstructorParams",
               "name": "baseParams",
@@ -513,10 +625,20 @@
               ],
               "indexed": false
             },
-            { "internalType": "contract ISablierLockup", "name": "lockup", "type": "address", "indexed": false },
+            {
+              "internalType": "contract ISablierLockup",
+              "name": "lockup",
+              "type": "address",
+              "indexed": false
+            },
             { "internalType": "bool", "name": "cancelable", "type": "bool", "indexed": false },
             { "internalType": "bool", "name": "transferable", "type": "bool", "indexed": false },
-            { "internalType": "uint40", "name": "streamStartTime", "type": "uint40", "indexed": false },
+            {
+              "internalType": "uint40",
+              "name": "streamStartTime",
+              "type": "uint40",
+              "indexed": false
+            },
             {
               "internalType": "struct MerkleLT.TrancheWithPercentage[]",
               "name": "tranchesWithPercentages",
@@ -527,9 +649,24 @@
               ],
               "indexed": false
             },
-            { "internalType": "uint256", "name": "totalDuration", "type": "uint256", "indexed": false },
-            { "internalType": "uint256", "name": "aggregateAmount", "type": "uint256", "indexed": false },
-            { "internalType": "uint256", "name": "recipientCount", "type": "uint256", "indexed": false },
+            {
+              "internalType": "uint256",
+              "name": "totalDuration",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "uint256",
+              "name": "aggregateAmount",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "uint256",
+              "name": "recipientCount",
+              "type": "uint256",
+              "indexed": false
+            },
             { "internalType": "uint256", "name": "fee", "type": "uint256", "indexed": false }
           ],
           "type": "event",
@@ -539,7 +676,12 @@
         {
           "inputs": [
             { "internalType": "address", "name": "admin", "type": "address", "indexed": true },
-            { "internalType": "address", "name": "campaignCreator", "type": "address", "indexed": true }
+            {
+              "internalType": "address",
+              "name": "campaignCreator",
+              "type": "address",
+              "indexed": true
+            }
           ],
           "type": "event",
           "name": "ResetCustomFee",
@@ -548,7 +690,12 @@
         {
           "inputs": [
             { "internalType": "address", "name": "admin", "type": "address", "indexed": true },
-            { "internalType": "address", "name": "campaignCreator", "type": "address", "indexed": true },
+            {
+              "internalType": "address",
+              "name": "campaignCreator",
+              "type": "address",
+              "indexed": true
+            },
             { "internalType": "uint256", "name": "customFee", "type": "uint256", "indexed": false }
           ],
           "type": "event",
@@ -581,7 +728,13 @@
           "outputs": [{ "internalType": "address", "name": "", "type": "address" }]
         },
         {
-          "inputs": [{ "internalType": "contract ISablierMerkleBase", "name": "merkleBase", "type": "address" }],
+          "inputs": [
+            {
+              "internalType": "contract ISablierMerkleBase",
+              "name": "merkleBase",
+              "type": "address"
+            }
+          ],
           "stateMutability": "nonpayable",
           "type": "function",
           "name": "collectFees"
@@ -608,7 +761,13 @@
           "stateMutability": "nonpayable",
           "type": "function",
           "name": "createMerkleInstant",
-          "outputs": [{ "internalType": "contract ISablierMerkleInstant", "name": "merkleInstant", "type": "address" }]
+          "outputs": [
+            {
+              "internalType": "contract ISablierMerkleInstant",
+              "name": "merkleInstant",
+              "type": "address"
+            }
+          ]
         },
         {
           "inputs": [
@@ -647,7 +806,9 @@
           "stateMutability": "nonpayable",
           "type": "function",
           "name": "createMerkleLL",
-          "outputs": [{ "internalType": "contract ISablierMerkleLL", "name": "merkleLL", "type": "address" }]
+          "outputs": [
+            { "internalType": "contract ISablierMerkleLL", "name": "merkleLL", "type": "address" }
+          ]
         },
         {
           "inputs": [
@@ -684,7 +845,9 @@
           "stateMutability": "nonpayable",
           "type": "function",
           "name": "createMerkleLT",
-          "outputs": [{ "internalType": "contract ISablierMerkleLT", "name": "merkleLT", "type": "address" }]
+          "outputs": [
+            { "internalType": "contract ISablierMerkleLT", "name": "merkleLT", "type": "address" }
+          ]
         },
         {
           "inputs": [],
@@ -767,9 +930,13 @@
         "methods": {
           "collectFees(address)": {
             "details": "Emits a {CollectFees} event. Notes: - If the admin is a contract, it must be able to receive native token payments, e.g., ETH for Ethereum Mainnet.",
-            "params": { "merkleBase": "The address of the Merkle contract where the fees are collected from." }
+            "params": {
+              "merkleBase": "The address of the Merkle contract where the fees are collected from."
+            }
           },
-          "constructor": { "params": { "initialAdmin": "The address of the initial contract admin." } },
+          "constructor": {
+            "params": { "initialAdmin": "The address of the initial contract admin." }
+          },
           "createMerkleInstant((address,uint40,address,string,bytes32,string,string),uint256,uint256)": {
             "details": "Emits a {CreateMerkleInstant} event. Notes: - The MerkleInstant contract is created with CREATE2. - The immutable fee will be set to the default value unless a custom fee is set.",
             "params": {
@@ -777,7 +944,9 @@
               "baseParams": "Struct encapsulating the {SablierMerkleBase} parameters, which are documented in {DataTypes}.",
               "recipientCount": "The total number of recipients who are eligible to claim."
             },
-            "returns": { "merkleInstant": "The address of the newly created MerkleInstant contract." }
+            "returns": {
+              "merkleInstant": "The address of the newly created MerkleInstant contract."
+            }
           },
           "createMerkleLL((address,uint40,address,string,bytes32,string,string),address,bool,bool,(uint40,uint64,uint40,uint64,uint40),uint256,uint256)": {
             "details": "Emits a {CreateMerkleLL} event. Notes: - The MerkleLL contract is created with CREATE2. - The immutable fee will be set to the default value unless a custom fee is set.",
@@ -825,7 +994,10 @@
           },
           "setCustomFee(address,uint256)": {
             "details": "Emits a {SetCustomFee} event. Notes: - The new fee will only be applied to future campaigns. Requirements: - `msg.sender` must be the admin.",
-            "params": { "campaignCreator": "The user for whom the fee is set.", "newFee": "The new fee to be set." }
+            "params": {
+              "campaignCreator": "The user for whom the fee is set.",
+              "newFee": "The new fee to be set."
+            }
           },
           "setDefaultFee(uint256)": {
             "details": "Emits a {SetDefaultFee} event. Notes: - The new default fee will only be applied to the future campaigns and will not affect the ones already deployed. Requirements: - `msg.sender` must be the admin.",
@@ -854,8 +1026,12 @@
           "createMerkleLT((address,uint40,address,string,bytes32,string,string),address,bool,bool,uint40,(uint64,uint40)[],uint256,uint256)": {
             "notice": "Creates a new Merkle Lockup campaign with a Lockup Tranched distribution."
           },
-          "defaultFee()": { "notice": "Retrieves the default fee charged for claiming an airdrop." },
-          "getCustomFee(address)": { "notice": "Retrieves the custom fee struct for the provided campaign creator." },
+          "defaultFee()": {
+            "notice": "Retrieves the default fee charged for claiming an airdrop."
+          },
+          "getCustomFee(address)": {
+            "notice": "Retrieves the custom fee struct for the provided campaign creator."
+          },
           "getFee(address)": {
             "notice": "Retrieves the fee for the provided campaign creator, using the default fee if no custom fee is set."
           },
@@ -865,8 +1041,12 @@
           "resetCustomFee(address)": {
             "notice": "Resets the custom fee for the provided campaign creator to the default fee."
           },
-          "setCustomFee(address,uint256)": { "notice": "Sets a custom fee for the provided campaign creator." },
-          "setDefaultFee(uint256)": { "notice": "Sets the default fee to be applied when claiming airdrops." },
+          "setCustomFee(address,uint256)": {
+            "notice": "Sets a custom fee for the provided campaign creator."
+          },
+          "setDefaultFee(uint256)": {
+            "notice": "Sets the default fee to be applied when claiming airdrops."
+          },
           "transferAdmin(address)": { "notice": "Transfers the contract admin to a new address." }
         },
         "version": 1

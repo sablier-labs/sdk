@@ -336,7 +336,11 @@
       "56709": [{ "start": 436, "length": 32 }, { "start": 1651, "length": 32 }],
       "56713": [{ "start": 1173, "length": 32 }, { "start": 1907, "length": 32 }],
       "56716": [{ "start": 2205, "length": 32 }, { "start": 4090, "length": 32 }],
-      "56721": [{ "start": 933, "length": 32 }, { "start": 2332, "length": 32 }, { "start": 3699, "length": 32 }]
+      "56721": [
+        { "start": 933, "length": 32 },
+        { "start": 2332, "length": 32 },
+        { "start": 3699, "length": 32 }
+      ]
     }
   },
   "methodIdentifiers": {
@@ -690,7 +694,10 @@
           },
           "clawback(address,uint128)": {
             "details": "Emits a {Clawback} event. Requirements: - `msg.sender` must be the admin. - No claim must be made, OR   The current timestamp must not exceed 7 days after the first claim, OR   The campaign must be expired.",
-            "params": { "amount": "The amount of tokens to claw back.", "to": "The address to receive the tokens." }
+            "params": {
+              "amount": "The amount of tokens to claw back.",
+              "to": "The address to receive the tokens."
+            }
           },
           "collectFees(address)": {
             "params": { "factoryAdmin": "The address of the `FACTORY` admin." },
@@ -699,7 +706,9 @@
           "constructor": {
             "details": "Constructs the contract by initializing the immutable state variables, and max approving the Lockup contract."
           },
-          "getSchedule()": { "details": "A start time value of zero will be considered as `block.timestamp`." },
+          "getSchedule()": {
+            "details": "A start time value of zero will be considered as `block.timestamp`."
+          },
           "hasClaimed(uint256)": {
             "details": "Uses a bitmap to save gas.",
             "params": { "index": "The index of the recipient to check." }
@@ -722,27 +731,41 @@
             "notice": "Retrieves the minimum fee required to claim the airdrop, which is paid in the native token of the chain, e.g. ETH for Ethereum Mainnet."
           },
           "LOCKUP()": { "notice": "The address of the {SablierLockup} contract." },
-          "MERKLE_ROOT()": { "notice": "The root of the Merkle tree used to validate the proofs of inclusion." },
-          "STREAM_CANCELABLE()": { "notice": "A flag indicating whether the streams can be canceled." },
-          "STREAM_TRANSFERABLE()": { "notice": "A flag indicating whether the stream NFTs are transferable." },
+          "MERKLE_ROOT()": {
+            "notice": "The root of the Merkle tree used to validate the proofs of inclusion."
+          },
+          "STREAM_CANCELABLE()": {
+            "notice": "A flag indicating whether the streams can be canceled."
+          },
+          "STREAM_TRANSFERABLE()": {
+            "notice": "A flag indicating whether the stream NFTs are transferable."
+          },
           "TOKEN()": { "notice": "The ERC-20 token to distribute." },
           "admin()": { "notice": "The address of the admin account or contract." },
           "campaignName()": { "notice": "Retrieves the name of the campaign." },
           "claim(uint256,address,uint128,bytes32[])": { "notice": "Makes the claim." },
-          "clawback(address,uint128)": { "notice": "Claws back the unclaimed tokens from the campaign." },
+          "clawback(address,uint128)": {
+            "notice": "Claws back the unclaimed tokens from the campaign."
+          },
           "collectFees(address)": {
             "notice": "Collects the accrued fees by transferring them to `FACTORY` admin. Requirements: - `msg.sender` must be the `FACTORY` contract."
           },
-          "getFirstClaimTime()": { "notice": "Returns the timestamp when the first claim is made." },
+          "getFirstClaimTime()": {
+            "notice": "Returns the timestamp when the first claim is made."
+          },
           "getSchedule()": {
             "notice": "A tuple containing the start time, start unlock percentage, cliff duration, cliff unlock percentage, and end duration. These values are used to calculate the vesting schedule in `Lockup.CreateWithTimestampsLL`."
           },
           "hasClaimed(uint256)": {
             "notice": "Returns a flag indicating whether a claim has been made for a given index."
           },
-          "hasExpired()": { "notice": "Returns a flag indicating whether the campaign has expired." },
+          "hasExpired()": {
+            "notice": "Returns a flag indicating whether the campaign has expired."
+          },
           "ipfsCID()": { "notice": "The content identifier for indexing the campaign on IPFS." },
-          "shape()": { "notice": "Retrieves the shape of the lockup stream that the campaign produces upon claiming." },
+          "shape()": {
+            "notice": "Retrieves the shape of the lockup stream that the campaign produces upon claiming."
+          },
           "transferAdmin(address)": { "notice": "Transfers the contract admin to a new address." }
         },
         "version": 1

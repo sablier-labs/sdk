@@ -5,7 +5,11 @@
       "name": "createMerkleStreamerLL",
       "inputs": [
         { "name": "initialAdmin", "type": "address", "internalType": "address" },
-        { "name": "lockupLinear", "type": "address", "internalType": "contract ISablierV2LockupLinear" },
+        {
+          "name": "lockupLinear",
+          "type": "address",
+          "internalType": "contract ISablierV2LockupLinear"
+        },
         { "name": "asset", "type": "address", "internalType": "contract IERC20" },
         { "name": "merkleRoot", "type": "bytes32", "internalType": "bytes32" },
         { "name": "expiration", "type": "uint40", "internalType": "uint40" },
@@ -25,7 +29,11 @@
         { "name": "recipientsCount", "type": "uint256", "internalType": "uint256" }
       ],
       "outputs": [
-        { "name": "merkleStreamerLL", "type": "address", "internalType": "contract ISablierV2MerkleStreamerLL" }
+        {
+          "name": "merkleStreamerLL",
+          "type": "address",
+          "internalType": "contract ISablierV2MerkleStreamerLL"
+        }
       ],
       "stateMutability": "nonpayable"
     },
@@ -62,8 +70,18 @@
         { "name": "cancelable", "type": "bool", "indexed": false, "internalType": "bool" },
         { "name": "transferable", "type": "bool", "indexed": false, "internalType": "bool" },
         { "name": "ipfsCID", "type": "string", "indexed": false, "internalType": "string" },
-        { "name": "aggregateAmount", "type": "uint256", "indexed": false, "internalType": "uint256" },
-        { "name": "recipientsCount", "type": "uint256", "indexed": false, "internalType": "uint256" }
+        {
+          "name": "aggregateAmount",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        },
+        {
+          "name": "recipientsCount",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        }
       ],
       "anonymous": false
     }
@@ -102,8 +120,18 @@
               "type": "address",
               "indexed": true
             },
-            { "internalType": "contract IERC20", "name": "asset", "type": "address", "indexed": true },
-            { "internalType": "bytes32", "name": "merkleRoot", "type": "bytes32", "indexed": false },
+            {
+              "internalType": "contract IERC20",
+              "name": "asset",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "bytes32",
+              "name": "merkleRoot",
+              "type": "bytes32",
+              "indexed": false
+            },
             { "internalType": "uint40", "name": "expiration", "type": "uint40", "indexed": false },
             {
               "internalType": "struct LockupLinear.Durations",
@@ -118,8 +146,18 @@
             { "internalType": "bool", "name": "cancelable", "type": "bool", "indexed": false },
             { "internalType": "bool", "name": "transferable", "type": "bool", "indexed": false },
             { "internalType": "string", "name": "ipfsCID", "type": "string", "indexed": false },
-            { "internalType": "uint256", "name": "aggregateAmount", "type": "uint256", "indexed": false },
-            { "internalType": "uint256", "name": "recipientsCount", "type": "uint256", "indexed": false }
+            {
+              "internalType": "uint256",
+              "name": "aggregateAmount",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "uint256",
+              "name": "recipientsCount",
+              "type": "uint256",
+              "indexed": false
+            }
           ],
           "type": "event",
           "name": "CreateMerkleStreamerLL",
@@ -128,7 +166,11 @@
         {
           "inputs": [
             { "internalType": "address", "name": "initialAdmin", "type": "address" },
-            { "internalType": "contract ISablierV2LockupLinear", "name": "lockupLinear", "type": "address" },
+            {
+              "internalType": "contract ISablierV2LockupLinear",
+              "name": "lockupLinear",
+              "type": "address"
+            },
             { "internalType": "contract IERC20", "name": "asset", "type": "address" },
             { "internalType": "bytes32", "name": "merkleRoot", "type": "bytes32" },
             { "internalType": "uint40", "name": "expiration", "type": "uint40" },
@@ -151,7 +193,11 @@
           "type": "function",
           "name": "createMerkleStreamerLL",
           "outputs": [
-            { "internalType": "contract ISablierV2MerkleStreamerLL", "name": "merkleStreamerLL", "type": "address" }
+            {
+              "internalType": "contract ISablierV2MerkleStreamerLL",
+              "name": "merkleStreamerLL",
+              "type": "address"
+            }
           ]
         }
       ],
@@ -177,7 +223,9 @@
       ],
       "optimizer": { "enabled": true, "runs": 10000 },
       "metadata": { "bytecodeHash": "none" },
-      "compilationTarget": { "src/SablierV2MerkleStreamerFactory.sol": "SablierV2MerkleStreamerFactory" },
+      "compilationTarget": {
+        "src/SablierV2MerkleStreamerFactory.sol": "SablierV2MerkleStreamerFactory"
+      },
       "evmVersion": "paris",
       "libraries": {},
       "viaIR": true
@@ -786,13 +834,19 @@
                       "src": "1603:12:91",
                       "stateVariable": false,
                       "storageLocation": "default",
-                      "typeDescriptions": { "typeIdentifier": "t_bytes32", "typeString": "bytes32" },
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      },
                       "typeName": {
                         "id": 44105,
                         "name": "bytes32",
                         "nodeType": "ElementaryTypeName",
                         "src": "1603:7:91",
-                        "typeDescriptions": { "typeIdentifier": "t_bytes32", "typeString": "bytes32" }
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
                       },
                       "visibility": "internal"
                     }
@@ -809,7 +863,10 @@
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 44076,
                             "src": "1675:12:91",
-                            "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
                           },
                           {
                             "id": 44111,
@@ -842,7 +899,10 @@
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 44084,
                             "src": "1758:10:91",
-                            "typeDescriptions": { "typeIdentifier": "t_bytes32", "typeString": "bytes32" }
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_bytes32",
+                              "typeString": "bytes32"
+                            }
                           },
                           {
                             "id": 44114,
@@ -851,7 +911,10 @@
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 44086,
                             "src": "1786:10:91",
-                            "typeDescriptions": { "typeIdentifier": "t_uint40", "typeString": "uint40" }
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint40",
+                              "typeString": "uint40"
+                            }
                           },
                           {
                             "arguments": [
@@ -882,7 +945,10 @@
                                 "overloadedDeclarations": [],
                                 "referencedDeclaration": -1,
                                 "src": "1814:3:91",
-                                "typeDescriptions": { "typeIdentifier": "t_magic_abi", "typeString": "abi" }
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_magic_abi",
+                                  "typeString": "abi"
+                                }
                               },
                               "id": 44116,
                               "isConstant": false,
@@ -909,7 +975,10 @@
                             "nodeType": "FunctionCall",
                             "src": "1814:27:91",
                             "tryCall": false,
-                            "typeDescriptions": { "typeIdentifier": "t_bytes_memory_ptr", "typeString": "bytes memory" }
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_bytes_memory_ptr",
+                              "typeString": "bytes memory"
+                            }
                           },
                           {
                             "id": 44119,
@@ -937,10 +1006,16 @@
                               "typeIdentifier": "t_contract$_ISablierV2LockupLinear_$17049",
                               "typeString": "contract ISablierV2LockupLinear"
                             },
-                            { "typeIdentifier": "t_contract$_IERC20_$105", "typeString": "contract IERC20" },
+                            {
+                              "typeIdentifier": "t_contract$_IERC20_$105",
+                              "typeString": "contract IERC20"
+                            },
                             { "typeIdentifier": "t_bytes32", "typeString": "bytes32" },
                             { "typeIdentifier": "t_uint40", "typeString": "uint40" },
-                            { "typeIdentifier": "t_bytes_memory_ptr", "typeString": "bytes memory" },
+                            {
+                              "typeIdentifier": "t_bytes_memory_ptr",
+                              "typeString": "bytes memory"
+                            },
                             { "typeIdentifier": "t_bool", "typeString": "bool" },
                             { "typeIdentifier": "t_bool", "typeString": "bool" }
                           ],
@@ -951,7 +1026,10 @@
                             "overloadedDeclarations": [],
                             "referencedDeclaration": -1,
                             "src": "1641:3:91",
-                            "typeDescriptions": { "typeIdentifier": "t_magic_abi", "typeString": "abi" }
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_abi",
+                              "typeString": "abi"
+                            }
                           },
                           "id": 44109,
                           "isConstant": false,
@@ -978,11 +1056,16 @@
                         "nodeType": "FunctionCall",
                         "src": "1641:272:91",
                         "tryCall": false,
-                        "typeDescriptions": { "typeIdentifier": "t_bytes_memory_ptr", "typeString": "bytes memory" }
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
                       }
                     ],
                     "expression": {
-                      "argumentTypes": [{ "typeIdentifier": "t_bytes_memory_ptr", "typeString": "bytes memory" }],
+                      "argumentTypes": [
+                        { "typeIdentifier": "t_bytes_memory_ptr", "typeString": "bytes memory" }
+                      ],
                       "id": 44107,
                       "name": "keccak256",
                       "nodeType": "Identifier",
@@ -1040,7 +1123,10 @@
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 44076,
                           "src": "2062:12:91",
-                          "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
                         },
                         {
                           "id": 44131,
@@ -1073,7 +1159,10 @@
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 44084,
                           "src": "2097:10:91",
-                          "typeDescriptions": { "typeIdentifier": "t_bytes32", "typeString": "bytes32" }
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes32",
+                            "typeString": "bytes32"
+                          }
                         },
                         {
                           "id": 44134,
@@ -1082,7 +1171,10 @@
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 44086,
                           "src": "2109:10:91",
-                          "typeDescriptions": { "typeIdentifier": "t_uint40", "typeString": "uint40" }
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint40",
+                            "typeString": "uint40"
+                          }
                         },
                         {
                           "id": 44135,
@@ -1122,7 +1214,10 @@
                             "typeIdentifier": "t_contract$_ISablierV2LockupLinear_$17049",
                             "typeString": "contract ISablierV2LockupLinear"
                           },
-                          { "typeIdentifier": "t_contract$_IERC20_$105", "typeString": "contract IERC20" },
+                          {
+                            "typeIdentifier": "t_contract$_IERC20_$105",
+                            "typeString": "contract IERC20"
+                          },
                           { "typeIdentifier": "t_bytes32", "typeString": "bytes32" },
                           { "typeIdentifier": "t_uint40", "typeString": "uint40" },
                           {
@@ -1139,7 +1234,10 @@
                               "typeIdentifier": "t_contract$_ISablierV2LockupLinear_$17049",
                               "typeString": "contract ISablierV2LockupLinear"
                             },
-                            { "typeIdentifier": "t_contract$_IERC20_$105", "typeString": "contract IERC20" },
+                            {
+                              "typeIdentifier": "t_contract$_IERC20_$105",
+                              "typeString": "contract IERC20"
+                            },
                             { "typeIdentifier": "t_bytes32", "typeString": "bytes32" },
                             { "typeIdentifier": "t_uint40", "typeString": "uint40" },
                             {
@@ -1194,7 +1292,10 @@
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 44106,
                             "src": "2042:4:91",
-                            "typeDescriptions": { "typeIdentifier": "t_bytes32", "typeString": "bytes32" }
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_bytes32",
+                              "typeString": "bytes32"
+                            }
                           }
                         ],
                         "src": "2005:43:91",
@@ -1251,7 +1352,10 @@
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 44076,
                         "src": "2359:12:91",
-                        "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
                       },
                       {
                         "id": 44144,
@@ -1284,7 +1388,10 @@
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 44084,
                         "src": "2430:10:91",
-                        "typeDescriptions": { "typeIdentifier": "t_bytes32", "typeString": "bytes32" }
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
                       },
                       {
                         "id": 44147,
@@ -1332,7 +1439,10 @@
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 44095,
                         "src": "2557:7:91",
-                        "typeDescriptions": { "typeIdentifier": "t_string_memory_ptr", "typeString": "string memory" }
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
                       },
                       {
                         "id": 44152,
@@ -1341,7 +1451,10 @@
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 44097,
                         "src": "2578:15:91",
-                        "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" }
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
                       },
                       {
                         "id": 44153,
@@ -1350,7 +1463,10 @@
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 44099,
                         "src": "2607:15:91",
-                        "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" }
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
                       }
                     ],
                     "expression": {
@@ -1364,7 +1480,10 @@
                           "typeIdentifier": "t_contract$_ISablierV2LockupLinear_$17049",
                           "typeString": "contract ISablierV2LockupLinear"
                         },
-                        { "typeIdentifier": "t_contract$_IERC20_$105", "typeString": "contract IERC20" },
+                        {
+                          "typeIdentifier": "t_contract$_IERC20_$105",
+                          "typeString": "contract IERC20"
+                        },
                         { "typeIdentifier": "t_bytes32", "typeString": "bytes32" },
                         { "typeIdentifier": "t_uint40", "typeString": "uint40" },
                         {
@@ -1492,7 +1611,10 @@
                   "src": "1181:12:91",
                   "stateVariable": false,
                   "storageLocation": "default",
-                  "typeDescriptions": { "typeIdentifier": "t_contract$_IERC20_$105", "typeString": "contract IERC20" },
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IERC20_$105",
+                    "typeString": "contract IERC20"
+                  },
                   "typeName": {
                     "id": 44081,
                     "nodeType": "UserDefinedTypeName",
@@ -1506,7 +1628,10 @@
                     },
                     "referencedDeclaration": 105,
                     "src": "1181:6:91",
-                    "typeDescriptions": { "typeIdentifier": "t_contract$_IERC20_$105", "typeString": "contract IERC20" }
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IERC20_$105",
+                      "typeString": "contract IERC20"
+                    }
                   },
                   "visibility": "internal"
                 },
@@ -1640,13 +1765,19 @@
                   "src": "1365:21:91",
                   "stateVariable": false,
                   "storageLocation": "memory",
-                  "typeDescriptions": { "typeIdentifier": "t_string_memory_ptr", "typeString": "string" },
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
                   "typeName": {
                     "id": 44094,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1365:6:91",
-                    "typeDescriptions": { "typeIdentifier": "t_string_storage_ptr", "typeString": "string" }
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
                   },
                   "visibility": "internal"
                 },

@@ -40,7 +40,20 @@ type L3_0 = LeafKeys<typeof lockupV3_0>;
 
 // Final exported type: only these known keys allowed
 type ContractNames = Record<
-  A1_1 | A1_2 | A1_3 | A2_0 | F1_0 | F1_1 | F2_0 | LEGACY_1_0 | LEGACY_1_1 | L1_0 | L1_1 | L1_2 | L2_0 | L3_0,
+  | A1_1
+  | A1_2
+  | A1_3
+  | A2_0
+  | F1_0
+  | F1_1
+  | F2_0
+  | LEGACY_1_0
+  | LEGACY_1_1
+  | L1_0
+  | L1_1
+  | L1_2
+  | L2_0
+  | L3_0,
   string
 >;
 

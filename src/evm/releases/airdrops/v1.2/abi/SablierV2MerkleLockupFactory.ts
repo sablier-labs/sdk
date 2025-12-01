@@ -51,7 +51,11 @@ export const sablierV2MerkleLockupFactoryAbi = [
         name: "baseParams",
         type: "tuple",
       },
-      { internalType: "contract ISablierV2LockupTranched", name: "lockupTranched", type: "address" },
+      {
+        internalType: "contract ISablierV2LockupTranched",
+        name: "lockupTranched",
+        type: "address",
+      },
       {
         components: [
           { internalType: "UD2x18", name: "unlockPercentage", type: "uint64" },
@@ -89,7 +93,12 @@ export const sablierV2MerkleLockupFactoryAbi = [
   {
     anonymous: false,
     inputs: [
-      { indexed: true, internalType: "contract ISablierV2MerkleLL", name: "merkleLL", type: "address" },
+      {
+        indexed: true,
+        internalType: "contract ISablierV2MerkleLL",
+        name: "merkleLL",
+        type: "address",
+      },
       {
         components: [
           { internalType: "contract IERC20", name: "asset", type: "address" },
@@ -106,7 +115,12 @@ export const sablierV2MerkleLockupFactoryAbi = [
         name: "baseParams",
         type: "tuple",
       },
-      { indexed: false, internalType: "contract ISablierV2LockupLinear", name: "lockupLinear", type: "address" },
+      {
+        indexed: false,
+        internalType: "contract ISablierV2LockupLinear",
+        name: "lockupLinear",
+        type: "address",
+      },
       {
         components: [
           { internalType: "uint40", name: "cliff", type: "uint40" },
@@ -126,7 +140,12 @@ export const sablierV2MerkleLockupFactoryAbi = [
   {
     anonymous: false,
     inputs: [
-      { indexed: true, internalType: "contract ISablierV2MerkleLT", name: "merkleLT", type: "address" },
+      {
+        indexed: true,
+        internalType: "contract ISablierV2MerkleLT",
+        name: "merkleLT",
+        type: "address",
+      },
       {
         components: [
           { internalType: "contract IERC20", name: "asset", type: "address" },
@@ -143,7 +162,12 @@ export const sablierV2MerkleLockupFactoryAbi = [
         name: "baseParams",
         type: "tuple",
       },
-      { indexed: false, internalType: "contract ISablierV2LockupTranched", name: "lockupTranched", type: "address" },
+      {
+        indexed: false,
+        internalType: "contract ISablierV2LockupTranched",
+        name: "lockupTranched",
+        type: "address",
+      },
       {
         components: [
           { internalType: "UD2x18", name: "unlockPercentage", type: "uint64" },
