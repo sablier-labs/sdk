@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Common Changelog](https://common-changelog.org/), and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+[2.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v2.0.0
 [1.6.1]: https://github.com/sablier-labs/sdk/releases/tag/v1.6.1
 [1.6.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.6.0
 [1.5.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.5.0
@@ -18,6 +19,21 @@ The format is based on [Common Changelog](https://common-changelog.org/), and th
 [1.2.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.2.0
 [1.1.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.1.0
 [1.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.0.0
+
+## [2.0.0] - 2025-12-01
+
+### Changed
+
+- Extend comparison functions to support both EVM and Solana versions
+  ([#102](https://github.com/sablier-labs/sdk/pull/102))
+
+### Added
+
+- Support for new EVM chain: Denergy
+
+### Removed
+
+- Deprecated Morph Holesky testnet support
 
 ## [1.6.1] - 2025-11-24
 
