@@ -11,11 +11,12 @@
  * Additionally, it pings the public JSON-RPC servers of all chains to ensure they are reachable.
  */
 import path from "node:path";
+import { beforeAll, describe, expect, it } from "@effect/vitest";
 import { chains } from "@src/evm/chains";
 import { getDeploymentsDir } from "@src/internal/helpers";
+import { Effect } from "effect";
 import globby from "globby";
 import _ from "lodash";
-import { beforeAll, describe, expect, it } from "vitest";
 import { MISSING_CHAINS } from "./helpers/missing";
 
 const KNOWN_SLUGS = _.values(chains)
@@ -27,66 +28,80 @@ describe("Package chains are in sync with broadcasts", () => {
   const errors: Set<string> = new Set();
 
   beforeAll(async () => {
-    // Get all deployment files
-    broadcastSlugs = await getAllBroadcastSlugs();
+    broadcastSlugs = await Effect.runPromise(getAllBroadcastSlugsEffect());
   });
 
-  it("should have every package chain in at least one broadcast", () => {
-    errors.clear();
-    const missingChains = _.difference(KNOWN_SLUGS, broadcastSlugs);
+  it.effect("should have every package chain in at least one broadcast", () =>
+    Effect.gen(function* () {
+      errors.clear();
+      const missingChains = _.difference(KNOWN_SLUGS, broadcastSlugs);
 
-    for (const slug of missingChains) {
-      errors.add(`Chain "${slug}" is defined in package but NOT found in any broadcast`);
-    }
+      for (const slug of missingChains) {
+        errors.add(`Chain "${slug}" is defined in package but NOT found in any broadcast`);
+      }
 
-    if (errors.size > 0) {
-      const msg = `❌ Missing chains:\n${[...errors].map((e) => `  🔍 ${e}`).join("\n")}`;
-      throw new Error(msg);
-    }
-    expect(errors.size).toBe(0);
-  });
+      if (errors.size > 0) {
+        const msg = `❌ Missing chains:\n${[...errors].map((e) => `  🔍 ${e}`).join("\n")}`;
+        return yield* Effect.fail(new Error(msg));
+      }
 
-  it("should not have any unknown chain in broadcasts", () => {
-    errors.clear();
-    const allowedSlugs = [...KNOWN_SLUGS, ...MISSING_CHAINS];
-    const extraChains = _.difference(broadcastSlugs, allowedSlugs);
+      expect(errors.size).toBe(0);
+    }),
+  );
 
-    for (const slug of extraChains) {
-      errors.add(`Chain "${slug}" found in broadcasts but NOT defined in package`);
-    }
+  it.effect("should not have any unknown chain in broadcasts", () =>
+    Effect.gen(function* () {
+      errors.clear();
+      const allowedSlugs = [...KNOWN_SLUGS, ...MISSING_CHAINS];
+      const extraChains = _.difference(broadcastSlugs, allowedSlugs);
 
-    if (errors.size > 0) {
-      const msg = `❌ Extra chains:\n${[...errors].map((e) => `  ⚠️ ${e}`).join("\n")}`;
-      throw new Error(msg);
-    }
-    expect(errors.size).toBe(0);
-  });
+      for (const slug of extraChains) {
+        errors.add(`Chain "${slug}" found in broadcasts but NOT defined in package`);
+      }
+
+      if (errors.size > 0) {
+        const msg = `❌ Extra chains:\n${[...errors].map((e) => `  ⚠️ ${e}`).join("\n")}`;
+        return yield* Effect.fail(new Error(msg));
+      }
+
+      expect(errors.size).toBe(0);
+    }),
+  );
 });
 
-async function getAllBroadcastSlugs(): Promise<string[]> {
-  const deploymentsPath = getDeploymentsDir();
-  const dirs = await globby(
-    [path.join(deploymentsPath, "**/broadcasts"), path.join(deploymentsPath, "**/broadcasts-zk")],
-    {
-      onlyDirectories: true,
-    },
-  );
-  const results: string[] = [];
+function getAllBroadcastSlugsEffect() {
+  return Effect.gen(function* () {
+    const deploymentsPath = getDeploymentsDir();
+    const dirs = yield* Effect.promise(() =>
+      globby(
+        [
+          path.join(deploymentsPath, "**/broadcasts"),
+          path.join(deploymentsPath, "**/broadcasts-zk"),
+        ],
+        {
+          onlyDirectories: true,
+        },
+      ),
+    );
+    const results: string[] = [];
 
-  for (const dir of dirs) {
-    const entries = await globby(["*"], { cwd: dir, objectMode: true, onlyFiles: false });
+    for (const dir of dirs) {
+      const entries = yield* Effect.promise(() =>
+        globby(["*"], { cwd: dir, objectMode: true, onlyFiles: false }),
+      );
 
-    for (const entry of entries) {
-      // It's a JSON file, use the basename without extension
-      if (entry.path.endsWith(".json")) {
-        results.push(path.basename(entry.path, ".json"));
-      }
-      // It's a directory, add its name
-      else if (entry.dirent.isDirectory()) {
-        results.push(entry.path);
+      for (const entry of entries) {
+        // It's a JSON file, use the basename without extension
+        if (entry.path.endsWith(".json")) {
+          results.push(path.basename(entry.path, ".json"));
+        }
+        // It's a directory, add its name
+        else if (entry.dirent.isDirectory()) {
+          results.push(entry.path);
+        }
       }
     }
-  }
 
-  return results;
+    return results;
+  });
 }
