@@ -25,7 +25,10 @@
       "contractName": "SablierFlow",
       "contractAddress": "0x40e75bb2f2aa3507d3a332872829c71be19ef623",
       "function": null,
-      "arguments": ["0xb1bEF51ebCA01EB12001a639bDBbFF6eEcA12B9F", "0xd932fDA016eE9d9F70f745544b4F56715b1E723b"],
+      "arguments": [
+        "0xb1bEF51ebCA01EB12001a639bDBbFF6eEcA12B9F",
+        "0xd932fDA016eE9d9F70f745544b4F56715b1E723b"
+      ],
       "transaction": {
         "from": "0xb1bef51ebca01eb12001a639bdbbff6eeca12b9f",
         "to": "0x4e59b44847b379578588920ca78fbf26c0b4956c",

@@ -1,7 +1,10 @@
 /**
  * @file This file re-exports some of the Lockup v1.1 deployments as Airdrops v1.1 deployments.
  */
-import { mainnets as lockupMainnets, testnets as lockupTestnets } from "@src/evm/releases/lockup/v1.1/deployments";
+import {
+  mainnets as lockupMainnets,
+  testnets as lockupTestnets,
+} from "@src/evm/releases/lockup/v1.1/deployments";
 import type { Sablier } from "@src/types";
 import _ from "lodash";
 import manifest from "./manifest";
@@ -9,7 +12,10 @@ import manifest from "./manifest";
 function filter(deployments: Sablier.EVM.Deployment.LockupV1[]): Sablier.EVM.Deployment.Standard[] {
   return _.filter(deployments, (d) => {
     const peripheryContracts = d.periphery;
-    return _.some(peripheryContracts, (c) => c.name === manifest.SABLIER_V2_MERKLE_STREAMER_FACTORY);
+    return _.some(
+      peripheryContracts,
+      (c) => c.name === manifest.SABLIER_V2_MERKLE_STREAMER_FACTORY,
+    );
   });
 }
 

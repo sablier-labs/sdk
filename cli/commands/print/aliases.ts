@@ -42,7 +42,9 @@ async function printAliases(): Promise<void> {
   rows.sort((a, b) => a.alias.localeCompare(b.alias));
 
   const headers = ["Alias", "Contract Name", "Release"];
-  const colWidths = headers.map((h, i) => Math.max(h.length, ...rows.map((row) => _.values(row)[i].length)));
+  const colWidths = headers.map((h, i) =>
+    Math.max(h.length, ...rows.map((row) => _.values(row)[i].length)),
+  );
 
   // Print Markdown table header with fixed width
   const headerRow = headers.map((h, i) => h.padEnd(colWidths[i])).join(" | ");

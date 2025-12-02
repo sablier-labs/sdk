@@ -59,7 +59,11 @@
             { "name": "transferable", "type": "bool", "internalType": "bool" }
           ]
         },
-        { "name": "lockupLinear", "type": "address", "internalType": "contract ISablierV2LockupLinear" },
+        {
+          "name": "lockupLinear",
+          "type": "address",
+          "internalType": "contract ISablierV2LockupLinear"
+        },
         {
           "name": "streamDurations",
           "type": "tuple",
@@ -72,7 +76,9 @@
         { "name": "aggregateAmount", "type": "uint256", "internalType": "uint256" },
         { "name": "recipientCount", "type": "uint256", "internalType": "uint256" }
       ],
-      "outputs": [{ "name": "merkleLL", "type": "address", "internalType": "contract ISablierV2MerkleLL" }],
+      "outputs": [
+        { "name": "merkleLL", "type": "address", "internalType": "contract ISablierV2MerkleLL" }
+      ],
       "stateMutability": "nonpayable"
     },
     {
@@ -94,7 +100,11 @@
             { "name": "transferable", "type": "bool", "internalType": "bool" }
           ]
         },
-        { "name": "lockupTranched", "type": "address", "internalType": "contract ISablierV2LockupTranched" },
+        {
+          "name": "lockupTranched",
+          "type": "address",
+          "internalType": "contract ISablierV2LockupTranched"
+        },
         {
           "name": "tranchesWithPercentages",
           "type": "tuple[]",
@@ -107,7 +117,9 @@
         { "name": "aggregateAmount", "type": "uint256", "internalType": "uint256" },
         { "name": "recipientCount", "type": "uint256", "internalType": "uint256" }
       ],
-      "outputs": [{ "name": "merkleLT", "type": "address", "internalType": "contract ISablierV2MerkleLT" }],
+      "outputs": [
+        { "name": "merkleLT", "type": "address", "internalType": "contract ISablierV2MerkleLT" }
+      ],
       "stateMutability": "nonpayable"
     },
     {
@@ -152,7 +164,12 @@
       "type": "event",
       "name": "CreateMerkleLL",
       "inputs": [
-        { "name": "merkleLL", "type": "address", "indexed": true, "internalType": "contract ISablierV2MerkleLL" },
+        {
+          "name": "merkleLL",
+          "type": "address",
+          "indexed": true,
+          "internalType": "contract ISablierV2MerkleLL"
+        },
         {
           "name": "baseParams",
           "type": "tuple",
@@ -185,7 +202,12 @@
             { "name": "total", "type": "uint40", "internalType": "uint40" }
           ]
         },
-        { "name": "aggregateAmount", "type": "uint256", "indexed": false, "internalType": "uint256" },
+        {
+          "name": "aggregateAmount",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        },
         { "name": "recipientCount", "type": "uint256", "indexed": false, "internalType": "uint256" }
       ],
       "anonymous": false
@@ -194,7 +216,12 @@
       "type": "event",
       "name": "CreateMerkleLT",
       "inputs": [
-        { "name": "merkleLT", "type": "address", "indexed": true, "internalType": "contract ISablierV2MerkleLT" },
+        {
+          "name": "merkleLT",
+          "type": "address",
+          "indexed": true,
+          "internalType": "contract ISablierV2MerkleLT"
+        },
         {
           "name": "baseParams",
           "type": "tuple",
@@ -228,7 +255,12 @@
           ]
         },
         { "name": "totalDuration", "type": "uint256", "indexed": false, "internalType": "uint256" },
-        { "name": "aggregateAmount", "type": "uint256", "indexed": false, "internalType": "uint256" },
+        {
+          "name": "aggregateAmount",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        },
         { "name": "recipientCount", "type": "uint256", "indexed": false, "internalType": "uint256" }
       ],
       "anonymous": false
@@ -265,7 +297,12 @@
       "abi": [
         {
           "inputs": [
-            { "internalType": "contract ISablierV2MerkleLL", "name": "merkleLL", "type": "address", "indexed": true },
+            {
+              "internalType": "contract ISablierV2MerkleLL",
+              "name": "merkleLL",
+              "type": "address",
+              "indexed": true
+            },
             {
               "internalType": "struct MerkleLockup.ConstructorParams",
               "name": "baseParams",
@@ -298,8 +335,18 @@
               ],
               "indexed": false
             },
-            { "internalType": "uint256", "name": "aggregateAmount", "type": "uint256", "indexed": false },
-            { "internalType": "uint256", "name": "recipientCount", "type": "uint256", "indexed": false }
+            {
+              "internalType": "uint256",
+              "name": "aggregateAmount",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "uint256",
+              "name": "recipientCount",
+              "type": "uint256",
+              "indexed": false
+            }
           ],
           "type": "event",
           "name": "CreateMerkleLL",
@@ -307,7 +354,12 @@
         },
         {
           "inputs": [
-            { "internalType": "contract ISablierV2MerkleLT", "name": "merkleLT", "type": "address", "indexed": true },
+            {
+              "internalType": "contract ISablierV2MerkleLT",
+              "name": "merkleLT",
+              "type": "address",
+              "indexed": true
+            },
             {
               "internalType": "struct MerkleLockup.ConstructorParams",
               "name": "baseParams",
@@ -340,9 +392,24 @@
               ],
               "indexed": false
             },
-            { "internalType": "uint256", "name": "totalDuration", "type": "uint256", "indexed": false },
-            { "internalType": "uint256", "name": "aggregateAmount", "type": "uint256", "indexed": false },
-            { "internalType": "uint256", "name": "recipientCount", "type": "uint256", "indexed": false }
+            {
+              "internalType": "uint256",
+              "name": "totalDuration",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "uint256",
+              "name": "aggregateAmount",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "uint256",
+              "name": "recipientCount",
+              "type": "uint256",
+              "indexed": false
+            }
           ],
           "type": "event",
           "name": "CreateMerkleLT",
@@ -412,7 +479,11 @@
                 { "internalType": "bool", "name": "transferable", "type": "bool" }
               ]
             },
-            { "internalType": "contract ISablierV2LockupLinear", "name": "lockupLinear", "type": "address" },
+            {
+              "internalType": "contract ISablierV2LockupLinear",
+              "name": "lockupLinear",
+              "type": "address"
+            },
             {
               "internalType": "struct LockupLinear.Durations",
               "name": "streamDurations",
@@ -428,7 +499,9 @@
           "stateMutability": "nonpayable",
           "type": "function",
           "name": "createMerkleLL",
-          "outputs": [{ "internalType": "contract ISablierV2MerkleLL", "name": "merkleLL", "type": "address" }]
+          "outputs": [
+            { "internalType": "contract ISablierV2MerkleLL", "name": "merkleLL", "type": "address" }
+          ]
         },
         {
           "inputs": [
@@ -447,7 +520,11 @@
                 { "internalType": "bool", "name": "transferable", "type": "bool" }
               ]
             },
-            { "internalType": "contract ISablierV2LockupTranched", "name": "lockupTranched", "type": "address" },
+            {
+              "internalType": "contract ISablierV2LockupTranched",
+              "name": "lockupTranched",
+              "type": "address"
+            },
             {
               "internalType": "struct MerkleLT.TrancheWithPercentage[]",
               "name": "tranchesWithPercentages",
@@ -463,17 +540,23 @@
           "stateMutability": "nonpayable",
           "type": "function",
           "name": "createMerkleLT",
-          "outputs": [{ "internalType": "contract ISablierV2MerkleLT", "name": "merkleLT", "type": "address" }]
+          "outputs": [
+            { "internalType": "contract ISablierV2MerkleLT", "name": "merkleLT", "type": "address" }
+          ]
         },
         {
-          "inputs": [{ "internalType": "contract IERC20Rebasing", "name": "asset", "type": "address" }],
+          "inputs": [
+            { "internalType": "contract IERC20Rebasing", "name": "asset", "type": "address" }
+          ],
           "stateMutability": "view",
           "type": "function",
           "name": "getClaimableRebasingAssetYield",
           "outputs": [{ "internalType": "uint256", "name": "claimableYield", "type": "uint256" }]
         },
         {
-          "inputs": [{ "internalType": "contract IERC20Rebasing", "name": "asset", "type": "address" }],
+          "inputs": [
+            { "internalType": "contract IERC20Rebasing", "name": "asset", "type": "address" }
+          ],
           "stateMutability": "view",
           "type": "function",
           "name": "getRebasingAssetConfiguration",
@@ -580,7 +663,9 @@
           "claimRebasingAssetYield(address,uint256,address)": {
             "notice": "Claim the provided amount of yield assets to the `to` address."
           },
-          "configureRebasingAsset(address,uint8)": { "notice": "Sets the yield mode for a rebasing ERC-20 asset." },
+          "configureRebasingAsset(address,uint8)": {
+            "notice": "Sets the yield mode for a rebasing ERC-20 asset."
+          },
           "configureYieldAndGas(address,uint8,uint8,address)": {
             "notice": "configures yield and gas modes and sets the governor."
           },
@@ -614,7 +699,9 @@
       ],
       "optimizer": { "enabled": true, "runs": 10000 },
       "metadata": { "bytecodeHash": "none" },
-      "compilationTarget": { "src/interfaces/ISablierV2MerkleLockupFactory.sol": "ISablierV2MerkleLockupFactory" },
+      "compilationTarget": {
+        "src/interfaces/ISablierV2MerkleLockupFactory.sol": "ISablierV2MerkleLockupFactory"
+      },
       "evmVersion": "shanghai",
       "libraries": {},
       "viaIR": true

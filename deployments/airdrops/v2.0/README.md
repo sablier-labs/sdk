@@ -26,6 +26,7 @@
 
 1. For Linea, `paris` is used as the EVM version.
 2. For Abstract, and ZkSync, `zksolc v1.5.15` is used.
+3. For Denergy, `CREATE` is used instead of `CREATE2`.
 
 ## Salt
 
@@ -44,6 +45,7 @@ All contracts are deployed using Foundry's `CREATE2` factory. The following salt
 | BNB Smart Chain | ChainID 56, Version 2.0.0     |
 | Chiliz          | ChainID 88888, Version 2.0.0  |
 | Core DAO        | ChainID 1116, Version 2.0.0   |
+| Denergy         | No Salt                       |
 | Ethereum        | ChainID 1, Version 2.0.0      |
 | Gnosis          | ChainID 100, Version 2.0.0    |
 | HyperEVM        | ChainID 999, Version 2.0.0    |

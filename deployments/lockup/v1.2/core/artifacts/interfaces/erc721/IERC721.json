@@ -266,7 +266,10 @@
         "methods": {
           "approve(address,uint256)": {
             "details": "The zero address indicates there is no approved address. Throws unless `msg.sender` is the current NFT owner, or an authorized operator of the current owner.",
-            "params": { "_approved": "The new approved NFT controller", "_tokenId": "The NFT to approve" }
+            "params": {
+              "_approved": "The new approved NFT controller",
+              "_tokenId": "The NFT to approve"
+            }
           },
           "balanceOf(address)": {
             "details": "NFTs assigned to the zero address are considered invalid, and this function throws for queries about the zero address.",
@@ -276,14 +279,18 @@
           "getApproved(uint256)": {
             "details": "Throws if `_tokenId` is not a valid NFT.",
             "params": { "_tokenId": "The NFT to find the approved address for" },
-            "returns": { "_0": "The approved address for this NFT, or the zero address if there is none" }
+            "returns": {
+              "_0": "The approved address for this NFT, or the zero address if there is none"
+            }
           },
           "isApprovedForAll(address,address)": {
             "params": {
               "_operator": "The address that acts on behalf of the owner",
               "_owner": "The address that owns the NFTs"
             },
-            "returns": { "_0": "True if `_operator` is an approved operator for `_owner`, false otherwise" }
+            "returns": {
+              "_0": "True if `_operator` is an approved operator for `_owner`, false otherwise"
+            }
           },
           "ownerOf(uint256)": {
             "details": "NFTs assigned to zero address are considered invalid, and queries about them do throw.",
@@ -335,7 +342,9 @@
       "userdoc": {
         "kind": "user",
         "methods": {
-          "approve(address,uint256)": { "notice": "Change or reaffirm the approved address for an NFT" },
+          "approve(address,uint256)": {
+            "notice": "Change or reaffirm the approved address for an NFT"
+          },
           "balanceOf(address)": { "notice": "Count all NFTs assigned to an owner" },
           "getApproved(uint256)": { "notice": "Get the approved address for a single NFT" },
           "isApprovedForAll(address,address)": {

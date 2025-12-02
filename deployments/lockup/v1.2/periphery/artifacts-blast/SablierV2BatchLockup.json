@@ -49,7 +49,11 @@
       "type": "function",
       "name": "createWithDurationsLD",
       "inputs": [
-        { "name": "lockupDynamic", "type": "address", "internalType": "contract ISablierV2LockupDynamic" },
+        {
+          "name": "lockupDynamic",
+          "type": "address",
+          "internalType": "contract ISablierV2LockupDynamic"
+        },
         { "name": "asset", "type": "address", "internalType": "contract IERC20" },
         {
           "name": "batch",
@@ -90,7 +94,11 @@
       "type": "function",
       "name": "createWithDurationsLL",
       "inputs": [
-        { "name": "lockupLinear", "type": "address", "internalType": "contract ISablierV2LockupLinear" },
+        {
+          "name": "lockupLinear",
+          "type": "address",
+          "internalType": "contract ISablierV2LockupLinear"
+        },
         { "name": "asset", "type": "address", "internalType": "contract IERC20" },
         {
           "name": "batch",
@@ -130,7 +138,11 @@
       "type": "function",
       "name": "createWithDurationsLT",
       "inputs": [
-        { "name": "lockupTranched", "type": "address", "internalType": "contract ISablierV2LockupTranched" },
+        {
+          "name": "lockupTranched",
+          "type": "address",
+          "internalType": "contract ISablierV2LockupTranched"
+        },
         { "name": "asset", "type": "address", "internalType": "contract IERC20" },
         {
           "name": "batch",
@@ -170,7 +182,11 @@
       "type": "function",
       "name": "createWithTimestampsLD",
       "inputs": [
-        { "name": "lockupDynamic", "type": "address", "internalType": "contract ISablierV2LockupDynamic" },
+        {
+          "name": "lockupDynamic",
+          "type": "address",
+          "internalType": "contract ISablierV2LockupDynamic"
+        },
         { "name": "asset", "type": "address", "internalType": "contract IERC20" },
         {
           "name": "batch",
@@ -212,7 +228,11 @@
       "type": "function",
       "name": "createWithTimestampsLL",
       "inputs": [
-        { "name": "lockupLinear", "type": "address", "internalType": "contract ISablierV2LockupLinear" },
+        {
+          "name": "lockupLinear",
+          "type": "address",
+          "internalType": "contract ISablierV2LockupLinear"
+        },
         { "name": "asset", "type": "address", "internalType": "contract IERC20" },
         {
           "name": "batch",
@@ -253,7 +273,11 @@
       "type": "function",
       "name": "createWithTimestampsLT",
       "inputs": [
-        { "name": "lockupTranched", "type": "address", "internalType": "contract ISablierV2LockupTranched" },
+        {
+          "name": "lockupTranched",
+          "type": "address",
+          "internalType": "contract ISablierV2LockupTranched"
+        },
         { "name": "asset", "type": "address", "internalType": "contract IERC20" },
         {
           "name": "batch",
@@ -456,7 +480,11 @@
         },
         {
           "inputs": [
-            { "internalType": "contract ISablierV2LockupDynamic", "name": "lockupDynamic", "type": "address" },
+            {
+              "internalType": "contract ISablierV2LockupDynamic",
+              "name": "lockupDynamic",
+              "type": "address"
+            },
             { "internalType": "contract IERC20", "name": "asset", "type": "address" },
             {
               "internalType": "struct BatchLockup.CreateWithDurationsLD[]",
@@ -497,7 +525,11 @@
         },
         {
           "inputs": [
-            { "internalType": "contract ISablierV2LockupLinear", "name": "lockupLinear", "type": "address" },
+            {
+              "internalType": "contract ISablierV2LockupLinear",
+              "name": "lockupLinear",
+              "type": "address"
+            },
             { "internalType": "contract IERC20", "name": "asset", "type": "address" },
             {
               "internalType": "struct BatchLockup.CreateWithDurationsLL[]",
@@ -537,7 +569,11 @@
         },
         {
           "inputs": [
-            { "internalType": "contract ISablierV2LockupTranched", "name": "lockupTranched", "type": "address" },
+            {
+              "internalType": "contract ISablierV2LockupTranched",
+              "name": "lockupTranched",
+              "type": "address"
+            },
             { "internalType": "contract IERC20", "name": "asset", "type": "address" },
             {
               "internalType": "struct BatchLockup.CreateWithDurationsLT[]",
@@ -577,7 +613,11 @@
         },
         {
           "inputs": [
-            { "internalType": "contract ISablierV2LockupDynamic", "name": "lockupDynamic", "type": "address" },
+            {
+              "internalType": "contract ISablierV2LockupDynamic",
+              "name": "lockupDynamic",
+              "type": "address"
+            },
             { "internalType": "contract IERC20", "name": "asset", "type": "address" },
             {
               "internalType": "struct BatchLockup.CreateWithTimestampsLD[]",
@@ -619,7 +659,11 @@
         },
         {
           "inputs": [
-            { "internalType": "contract ISablierV2LockupLinear", "name": "lockupLinear", "type": "address" },
+            {
+              "internalType": "contract ISablierV2LockupLinear",
+              "name": "lockupLinear",
+              "type": "address"
+            },
             { "internalType": "contract IERC20", "name": "asset", "type": "address" },
             {
               "internalType": "struct BatchLockup.CreateWithTimestampsLL[]",
@@ -660,7 +704,11 @@
         },
         {
           "inputs": [
-            { "internalType": "contract ISablierV2LockupTranched", "name": "lockupTranched", "type": "address" },
+            {
+              "internalType": "contract ISablierV2LockupTranched",
+              "name": "lockupTranched",
+              "type": "address"
+            },
             { "internalType": "contract IERC20", "name": "asset", "type": "address" },
             {
               "internalType": "struct BatchLockup.CreateWithTimestampsLT[]",
@@ -700,14 +748,18 @@
           "outputs": [{ "internalType": "uint256[]", "name": "streamIds", "type": "uint256[]" }]
         },
         {
-          "inputs": [{ "internalType": "contract IERC20Rebasing", "name": "asset", "type": "address" }],
+          "inputs": [
+            { "internalType": "contract IERC20Rebasing", "name": "asset", "type": "address" }
+          ],
           "stateMutability": "view",
           "type": "function",
           "name": "getClaimableRebasingAssetYield",
           "outputs": [{ "internalType": "uint256", "name": "claimableYield", "type": "uint256" }]
         },
         {
-          "inputs": [{ "internalType": "contract IERC20Rebasing", "name": "asset", "type": "address" }],
+          "inputs": [
+            { "internalType": "contract IERC20Rebasing", "name": "asset", "type": "address" }
+          ],
           "stateMutability": "view",
           "type": "function",
           "name": "getRebasingAssetConfiguration",
@@ -828,7 +880,9 @@
           "claimRebasingAssetYield(address,uint256,address)": {
             "notice": "Claim the provided amount of yield assets to the `to` address."
           },
-          "configureRebasingAsset(address,uint8)": { "notice": "Sets the yield mode for a rebasing ERC-20 asset." },
+          "configureRebasingAsset(address,uint8)": {
+            "notice": "Sets the yield mode for a rebasing ERC-20 asset."
+          },
           "configureYieldAndGas(address,uint8,uint8,address)": {
             "notice": "configures yield and gas modes and sets the governor."
           },

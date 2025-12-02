@@ -256,7 +256,13 @@ export const sablierV2LockupAbi = [
     type: "function",
   },
   {
-    inputs: [{ internalType: "contract ISablierV2NFTDescriptor", name: "newNFTDescriptor", type: "address" }],
+    inputs: [
+      {
+        internalType: "contract ISablierV2NFTDescriptor",
+        name: "newNFTDescriptor",
+        type: "address",
+      },
+    ],
     name: "setNFTDescriptor",
     outputs: [],
     stateMutability: "nonpayable",
@@ -437,8 +443,18 @@ export const sablierV2LockupAbi = [
     anonymous: false,
     inputs: [
       { indexed: true, internalType: "address", name: "admin", type: "address" },
-      { indexed: false, internalType: "contract ISablierV2NFTDescriptor", name: "oldNFTDescriptor", type: "address" },
-      { indexed: false, internalType: "contract ISablierV2NFTDescriptor", name: "newNFTDescriptor", type: "address" },
+      {
+        indexed: false,
+        internalType: "contract ISablierV2NFTDescriptor",
+        name: "oldNFTDescriptor",
+        type: "address",
+      },
+      {
+        indexed: false,
+        internalType: "contract ISablierV2NFTDescriptor",
+        name: "newNFTDescriptor",
+        type: "address",
+      },
     ],
     name: "SetNFTDescriptor",
     type: "event",
@@ -473,7 +489,11 @@ export const sablierV2LockupAbi = [
     name: "WithdrawFromLockupStream",
     type: "event",
   },
-  { inputs: [{ internalType: "address", name: "target", type: "address" }], name: "AddressEmptyCode", type: "error" },
+  {
+    inputs: [{ internalType: "address", name: "target", type: "address" }],
+    name: "AddressEmptyCode",
+    type: "error",
+  },
   {
     inputs: [{ internalType: "address", name: "account", type: "address" }],
     name: "AddressInsufficientBalance",
@@ -515,7 +535,11 @@ export const sablierV2LockupAbi = [
     name: "ERC721InvalidOperator",
     type: "error",
   },
-  { inputs: [{ internalType: "address", name: "owner", type: "address" }], name: "ERC721InvalidOwner", type: "error" },
+  {
+    inputs: [{ internalType: "address", name: "owner", type: "address" }],
+    name: "ERC721InvalidOwner",
+    type: "error",
+  },
   {
     inputs: [{ internalType: "address", name: "receiver", type: "address" }],
     name: "ERC721InvalidReceiver",

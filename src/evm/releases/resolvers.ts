@@ -1,6 +1,9 @@
 import { chainsQueries } from "@src/evm/chains/queries";
 import { getNestedValues } from "@src/helpers";
-import { createContractMapper, createStandardDeploymentResolver } from "@src/internal/factories/resolver";
+import {
+  createContractMapper,
+  createStandardDeploymentResolver,
+} from "@src/internal/factories/resolver";
 import type { AliasMap } from "@src/shared/types";
 import type { Sablier } from "@src/types";
 
@@ -54,7 +57,9 @@ const standardDeploymentResolver = createStandardDeploymentResolver<
 /**
  * Creates a LockupV1 deployment with separate core and periphery contracts
  */
-function createLockupV1Deployment(params: DeploymentLockupV1Params): Sablier.EVM.Deployment.LockupV1 {
+function createLockupV1Deployment(
+  params: DeploymentLockupV1Params,
+): Sablier.EVM.Deployment.LockupV1 {
   const { contractMap, ...baseParams } = params;
 
   // Create standard deployment with merged contracts

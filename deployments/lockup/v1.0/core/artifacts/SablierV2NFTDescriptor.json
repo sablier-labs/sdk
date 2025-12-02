@@ -3821,8 +3821,20 @@
                           "isPure": false,
                           "kind": "functionCall",
                           "lValueRequested": false,
-                          "nameLocations": ["3831:14:76", "3884:11:76", "3931:8:76", "3978:14:76", "4031:12:76"],
-                          "names": ["streamingModel", "assetSymbol", "streamId", "sablierAddress", "assetAddress"],
+                          "nameLocations": [
+                            "3831:14:76",
+                            "3884:11:76",
+                            "3931:8:76",
+                            "3978:14:76",
+                            "4031:12:76"
+                          ],
+                          "names": [
+                            "streamingModel",
+                            "assetSymbol",
+                            "streamId",
+                            "sablierAddress",
+                            "assetAddress"
+                          ],
                           "nodeType": "FunctionCall",
                           "src": "3793:291:76",
                           "tryCall": false,

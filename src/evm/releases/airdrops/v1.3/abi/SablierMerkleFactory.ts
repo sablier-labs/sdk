@@ -38,7 +38,9 @@ export const sablierMerkleFactoryAbi = [
       { internalType: "uint256", name: "recipientCount", type: "uint256" },
     ],
     name: "createMerkleInstant",
-    outputs: [{ internalType: "contract ISablierMerkleInstant", name: "merkleInstant", type: "address" }],
+    outputs: [
+      { internalType: "contract ISablierMerkleInstant", name: "merkleInstant", type: "address" },
+    ],
     stateMutability: "nonpayable",
     type: "function",
   },
@@ -201,7 +203,12 @@ export const sablierMerkleFactoryAbi = [
     anonymous: false,
     inputs: [
       { indexed: true, internalType: "address", name: "admin", type: "address" },
-      { indexed: true, internalType: "contract ISablierMerkleBase", name: "merkleBase", type: "address" },
+      {
+        indexed: true,
+        internalType: "contract ISablierMerkleBase",
+        name: "merkleBase",
+        type: "address",
+      },
       { indexed: false, internalType: "uint256", name: "feeAmount", type: "uint256" },
     ],
     name: "CollectFees",
@@ -210,7 +217,12 @@ export const sablierMerkleFactoryAbi = [
   {
     anonymous: false,
     inputs: [
-      { indexed: true, internalType: "contract ISablierMerkleInstant", name: "merkleInstant", type: "address" },
+      {
+        indexed: true,
+        internalType: "contract ISablierMerkleInstant",
+        name: "merkleInstant",
+        type: "address",
+      },
       {
         components: [
           { internalType: "contract IERC20", name: "token", type: "address" },
@@ -236,7 +248,12 @@ export const sablierMerkleFactoryAbi = [
   {
     anonymous: false,
     inputs: [
-      { indexed: true, internalType: "contract ISablierMerkleLL", name: "merkleLL", type: "address" },
+      {
+        indexed: true,
+        internalType: "contract ISablierMerkleLL",
+        name: "merkleLL",
+        type: "address",
+      },
       {
         components: [
           { internalType: "contract IERC20", name: "token", type: "address" },
@@ -278,7 +295,12 @@ export const sablierMerkleFactoryAbi = [
   {
     anonymous: false,
     inputs: [
-      { indexed: true, internalType: "contract ISablierMerkleLT", name: "merkleLT", type: "address" },
+      {
+        indexed: true,
+        internalType: "contract ISablierMerkleLT",
+        name: "merkleLT",
+        type: "address",
+      },
       {
         components: [
           { internalType: "contract IERC20", name: "token", type: "address" },

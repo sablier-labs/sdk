@@ -9,7 +9,9 @@
       "type": "function",
       "name": "comptroller",
       "inputs": [],
-      "outputs": [{ "name": "", "type": "address", "internalType": "contract ISablierComptroller" }],
+      "outputs": [
+        { "name": "", "type": "address", "internalType": "contract ISablierComptroller" }
+      ],
       "stateMutability": "view"
     },
     {
@@ -56,7 +58,13 @@
         { "name": "aggregateAmount", "type": "uint256", "internalType": "uint256" },
         { "name": "recipientCount", "type": "uint256", "internalType": "uint256" }
       ],
-      "outputs": [{ "name": "merkleInstant", "type": "address", "internalType": "contract ISablierMerkleInstant" }],
+      "outputs": [
+        {
+          "name": "merkleInstant",
+          "type": "address",
+          "internalType": "contract ISablierMerkleInstant"
+        }
+      ],
       "stateMutability": "nonpayable"
     },
     {
@@ -69,7 +77,13 @@
     {
       "type": "function",
       "name": "setComptroller",
-      "inputs": [{ "name": "newComptroller", "type": "address", "internalType": "contract ISablierComptroller" }],
+      "inputs": [
+        {
+          "name": "newComptroller",
+          "type": "address",
+          "internalType": "contract ISablierComptroller"
+        }
+      ],
       "outputs": [],
       "stateMutability": "nonpayable"
     },
@@ -112,8 +126,18 @@
             { "name": "token", "type": "address", "internalType": "contract IERC20" }
           ]
         },
-        { "name": "aggregateAmount", "type": "uint256", "indexed": false, "internalType": "uint256" },
-        { "name": "recipientCount", "type": "uint256", "indexed": false, "internalType": "uint256" },
+        {
+          "name": "aggregateAmount",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        },
+        {
+          "name": "recipientCount",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        },
         { "name": "comptroller", "type": "address", "indexed": false, "internalType": "address" },
         { "name": "minFeeUSD", "type": "uint256", "indexed": false, "internalType": "uint256" }
       ],
@@ -151,7 +175,12 @@
       "type": "event",
       "name": "TransferFeesToComptroller",
       "inputs": [
-        { "name": "comptroller", "type": "address", "indexed": true, "internalType": "contract ISablierComptroller" },
+        {
+          "name": "comptroller",
+          "type": "address",
+          "indexed": true,
+          "internalType": "contract ISablierComptroller"
+        },
         { "name": "feeAmount", "type": "uint256", "indexed": false, "internalType": "uint256" }
       ],
       "anonymous": false
@@ -211,7 +240,9 @@
     "output": {
       "abi": [
         {
-          "inputs": [{ "internalType": "address", "name": "initialComptroller", "type": "address" }],
+          "inputs": [
+            { "internalType": "address", "name": "initialComptroller", "type": "address" }
+          ],
           "stateMutability": "nonpayable",
           "type": "constructor"
         },
@@ -242,7 +273,11 @@
           "type": "error",
           "name": "SablierFactoryMerkleBase_NativeTokenAlreadySet"
         },
-        { "inputs": [], "type": "error", "name": "SablierFactoryMerkleBase_NativeTokenZeroAddress" },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "SablierFactoryMerkleBase_NativeTokenZeroAddress"
+        },
         {
           "inputs": [
             {
@@ -266,9 +301,24 @@
               ],
               "indexed": false
             },
-            { "internalType": "uint256", "name": "aggregateAmount", "type": "uint256", "indexed": false },
-            { "internalType": "uint256", "name": "recipientCount", "type": "uint256", "indexed": false },
-            { "internalType": "address", "name": "comptroller", "type": "address", "indexed": false },
+            {
+              "internalType": "uint256",
+              "name": "aggregateAmount",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "uint256",
+              "name": "recipientCount",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "address",
+              "name": "comptroller",
+              "type": "address",
+              "indexed": false
+            },
             { "internalType": "uint256", "name": "minFeeUSD", "type": "uint256", "indexed": false }
           ],
           "type": "event",
@@ -296,8 +346,18 @@
         },
         {
           "inputs": [
-            { "internalType": "address", "name": "comptroller", "type": "address", "indexed": true },
-            { "internalType": "address", "name": "nativeToken", "type": "address", "indexed": false }
+            {
+              "internalType": "address",
+              "name": "comptroller",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "address",
+              "name": "nativeToken",
+              "type": "address",
+              "indexed": false
+            }
           ],
           "type": "event",
           "name": "SetNativeToken",
@@ -322,7 +382,9 @@
           "stateMutability": "view",
           "type": "function",
           "name": "comptroller",
-          "outputs": [{ "internalType": "contract ISablierComptroller", "name": "", "type": "address" }]
+          "outputs": [
+            { "internalType": "contract ISablierComptroller", "name": "", "type": "address" }
+          ]
         },
         {
           "inputs": [
@@ -369,7 +431,13 @@
           "stateMutability": "nonpayable",
           "type": "function",
           "name": "createMerkleInstant",
-          "outputs": [{ "internalType": "contract ISablierMerkleInstant", "name": "merkleInstant", "type": "address" }]
+          "outputs": [
+            {
+              "internalType": "contract ISablierMerkleInstant",
+              "name": "merkleInstant",
+              "type": "address"
+            }
+          ]
         },
         {
           "inputs": [],
@@ -379,7 +447,13 @@
           "outputs": [{ "internalType": "address", "name": "", "type": "address" }]
         },
         {
-          "inputs": [{ "internalType": "contract ISablierComptroller", "name": "newComptroller", "type": "address" }],
+          "inputs": [
+            {
+              "internalType": "contract ISablierComptroller",
+              "name": "newComptroller",
+              "type": "address"
+            }
+          ],
           "stateMutability": "nonpayable",
           "type": "function",
           "name": "setComptroller"
@@ -390,7 +464,12 @@
           "type": "function",
           "name": "setNativeToken"
         },
-        { "inputs": [], "stateMutability": "nonpayable", "type": "function", "name": "transferFeesToComptroller" }
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "transferFeesToComptroller"
+        }
       ],
       "devdoc": {
         "kind": "dev",
@@ -398,7 +477,9 @@
           "computeMerkleInstant(address,(string,uint40,uint40,address,string,bytes32,address))": {
             "details": "Reverts if the requirements from {createMerkleInstant} are not met."
           },
-          "constructor": { "params": { "initialComptroller": "The address of the initial comptroller contract." } },
+          "constructor": {
+            "params": { "initialComptroller": "The address of the initial comptroller contract." }
+          },
           "createMerkleInstant((string,uint40,uint40,address,string,bytes32,address),uint256,uint256)": {
             "details": "Emits a {CreateMerkleInstant} event. Notes: - The contract is created with CREATE2. - The campaign's fee will be set to the min USD fee unless a custom fee is set for `msg.sender`. - A value of zero for `params.expiration` means the campaign does not expire. Requirements: - `params.token` must not be the forbidden native token.",
             "params": {
@@ -406,7 +487,9 @@
               "params": "Struct encapsulating the input parameters, which are documented in {DataTypes}.",
               "recipientCount": "The total number of recipient addresses eligible for the airdrop."
             },
-            "returns": { "merkleInstant": "The address of the newly created MerkleInstant contract." }
+            "returns": {
+              "merkleInstant": "The address of the newly created MerkleInstant contract."
+            }
           },
           "setComptroller(address)": {
             "details": "Emits a {SetComptroller} event. Requirements: - `msg.sender` must be the current comptroller. - The new comptroller must return `true` from {supportsInterface} with the comptroller's minimal interface ID which is defined as the XOR of the following function selectors: 1. {calculateMinFeeWeiFor} 2. {convertUSDFeeToWei} 3. {execute} 4. {getMinFeeUSDFor}",
@@ -434,8 +517,12 @@
             "notice": "Retrieves the address of the ERC-20 interface of the native token, if it exists."
           },
           "setComptroller(address)": { "notice": "Sets the comptroller to a new address." },
-          "setNativeToken(address)": { "notice": "Sets the native token address. Once set, it cannot be changed." },
-          "transferFeesToComptroller()": { "notice": "Transfers the fees to the comptroller contract." }
+          "setNativeToken(address)": {
+            "notice": "Sets the native token address. Once set, it cannot be changed."
+          },
+          "transferFeesToComptroller()": {
+            "notice": "Transfers the fees to the comptroller contract."
+          }
         },
         "version": 1
       }

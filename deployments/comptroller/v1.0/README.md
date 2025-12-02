@@ -24,6 +24,7 @@
 
 1. For Linea, `paris` is used as the EVM version.
 2. For Abstract and ZkSync, `zksolc v1.5.15` is used.
+3. For Denergy, `CREATE` is used instead of `CREATE2`.
 
 ### Salt
 

@@ -40,7 +40,10 @@ const evmDeploymentsQueries = {
    * - default            ⇒ all across all releases
    * - release            ⇒ that release's deployments
    */
-  get: (opts: { chainId: number; release: Sablier.EVM.Release }): Sablier.EVM.Deployment | undefined => {
+  get: (opts: {
+    chainId: number;
+    release: Sablier.EVM.Release;
+  }): Sablier.EVM.Deployment | undefined => {
     const { release, chainId } = opts || {};
     return _.find(release.deployments, { chainId });
   },
@@ -55,7 +58,10 @@ const solanaDeploymentsQueries = {
    * - default            ⇒ all across all releases
    * - release            ⇒ that release's deployments
    */
-  get: (opts: { chainId: number; release: Sablier.Solana.Release }): Sablier.Solana.Deployment | undefined => {
+  get: (opts: {
+    chainId: number;
+    release: Sablier.Solana.Release;
+  }): Sablier.Solana.Deployment | undefined => {
     const { release, chainId } = opts || {};
     return _.find(release.deployments, { chainId });
   },

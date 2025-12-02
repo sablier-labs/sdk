@@ -2,7 +2,11 @@
   {
     "inputs": [
       { "internalType": "address", "name": "initialAdmin", "type": "address" },
-      { "internalType": "contract ISablierV2NFTDescriptor", "name": "initialNFTDescriptor", "type": "address" },
+      {
+        "internalType": "contract ISablierV2NFTDescriptor",
+        "name": "initialNFTDescriptor",
+        "type": "address"
+      },
       { "internalType": "uint256", "name": "maxTrancheCount", "type": "uint256" }
     ],
     "stateMutability": "nonpayable",
@@ -329,13 +333,17 @@
   },
   {
     "anonymous": false,
-    "inputs": [{ "indexed": false, "internalType": "uint256", "name": "_tokenId", "type": "uint256" }],
+    "inputs": [
+      { "indexed": false, "internalType": "uint256", "name": "_tokenId", "type": "uint256" }
+    ],
     "name": "MetadataUpdate",
     "type": "event"
   },
   {
     "anonymous": false,
-    "inputs": [{ "indexed": true, "internalType": "uint256", "name": "streamId", "type": "uint256" }],
+    "inputs": [
+      { "indexed": true, "internalType": "uint256", "name": "streamId", "type": "uint256" }
+    ],
     "name": "RenounceLockupStream",
     "type": "event"
   },
@@ -751,7 +759,9 @@
   {
     "inputs": [],
     "name": "nftDescriptor",
-    "outputs": [{ "internalType": "contract ISablierV2NFTDescriptor", "name": "", "type": "address" }],
+    "outputs": [
+      { "internalType": "contract ISablierV2NFTDescriptor", "name": "", "type": "address" }
+    ],
     "stateMutability": "view",
     "type": "function"
   },
@@ -810,7 +820,13 @@
     "type": "function"
   },
   {
-    "inputs": [{ "internalType": "contract ISablierV2NFTDescriptor", "name": "newNFTDescriptor", "type": "address" }],
+    "inputs": [
+      {
+        "internalType": "contract ISablierV2NFTDescriptor",
+        "name": "newNFTDescriptor",
+        "type": "address"
+      }
+    ],
     "name": "setNFTDescriptor",
     "outputs": [],
     "stateMutability": "nonpayable",

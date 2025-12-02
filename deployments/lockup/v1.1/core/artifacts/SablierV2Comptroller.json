@@ -80,7 +80,12 @@
       "inputs": [
         { "name": "admin", "type": "address", "indexed": true, "internalType": "address" },
         { "name": "asset", "type": "address", "indexed": true, "internalType": "contract IERC20" },
-        { "name": "oldProtocolFee", "type": "uint256", "indexed": false, "internalType": "UD60x18" },
+        {
+          "name": "oldProtocolFee",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "UD60x18"
+        },
         { "name": "newProtocolFee", "type": "uint256", "indexed": false, "internalType": "UD60x18" }
       ],
       "anonymous": false
@@ -155,8 +160,18 @@
         {
           "inputs": [
             { "internalType": "address", "name": "admin", "type": "address", "indexed": true },
-            { "internalType": "UD60x18", "name": "oldFlashFee", "type": "uint256", "indexed": false },
-            { "internalType": "UD60x18", "name": "newFlashFee", "type": "uint256", "indexed": false }
+            {
+              "internalType": "UD60x18",
+              "name": "oldFlashFee",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "UD60x18",
+              "name": "newFlashFee",
+              "type": "uint256",
+              "indexed": false
+            }
           ],
           "type": "event",
           "name": "SetFlashFee",
@@ -165,9 +180,24 @@
         {
           "inputs": [
             { "internalType": "address", "name": "admin", "type": "address", "indexed": true },
-            { "internalType": "contract IERC20", "name": "asset", "type": "address", "indexed": true },
-            { "internalType": "UD60x18", "name": "oldProtocolFee", "type": "uint256", "indexed": false },
-            { "internalType": "UD60x18", "name": "newProtocolFee", "type": "uint256", "indexed": false }
+            {
+              "internalType": "contract IERC20",
+              "name": "asset",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "UD60x18",
+              "name": "oldProtocolFee",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "UD60x18",
+              "name": "newProtocolFee",
+              "type": "uint256",
+              "indexed": false
+            }
           ],
           "type": "event",
           "name": "SetProtocolFee",
@@ -176,7 +206,12 @@
         {
           "inputs": [
             { "internalType": "address", "name": "admin", "type": "address", "indexed": true },
-            { "internalType": "contract IERC20", "name": "asset", "type": "address", "indexed": true },
+            {
+              "internalType": "contract IERC20",
+              "name": "asset",
+              "type": "address",
+              "indexed": true
+            },
             { "internalType": "bool", "name": "newFlag", "type": "bool", "indexed": false }
           ],
           "type": "event",
@@ -257,7 +292,9 @@
           },
           "setFlashFee(uint256)": {
             "details": "Emits a {SetFlashFee} event. Notes: - Does not revert if the fee is the same. Requirements: - `msg.sender` must be the contract admin.",
-            "params": { "newFlashFee": "The new flash fee to set, denoted as a fixed-point number where 1e18 is 100%." }
+            "params": {
+              "newFlashFee": "The new flash fee to set, denoted as a fixed-point number where 1e18 is 100%."
+            }
           },
           "setProtocolFee(address,uint256)": {
             "details": "Emits a {SetProtocolFee} event. Notes: - The fee is not denoted in units of the asset's decimals; it is a fixed-point number. Refer to the PRBMath documentation for more detail on the logic of UD60x18. - Does not revert if the fee is the same. Requirements: - `msg.sender` must be the contract admin.",
@@ -296,7 +333,9 @@
           "setProtocolFee(address,uint256)": {
             "notice": "Sets a new protocol fee that will be charged on all streams created with the provided ERC-20 asset."
           },
-          "toggleFlashAsset(address)": { "notice": "Toggles the flash loanability of an ERC-20 asset." },
+          "toggleFlashAsset(address)": {
+            "notice": "Toggles the flash loanability of an ERC-20 asset."
+          },
           "transferAdmin(address)": { "notice": "Transfers the contract admin to a new address." }
         },
         "version": 1
@@ -750,11 +789,19 @@
             "mutability": "mutable",
             "name": "flashFee",
             "nameLocation": "3469:8:75",
-            "overrides": { "id": 43725, "nodeType": "OverrideSpecifier", "overrides": [], "src": "3460:8:75" },
+            "overrides": {
+              "id": 43725,
+              "nodeType": "OverrideSpecifier",
+              "overrides": [],
+              "src": "3460:8:75"
+            },
             "scope": 43863,
             "stateVariable": true,
             "storageLocation": "default",
-            "typeDescriptions": { "typeIdentifier": "t_userDefinedValueType$_UD60x18_$10380", "typeString": "UD60x18" },
+            "typeDescriptions": {
+              "typeIdentifier": "t_userDefinedValueType$_UD60x18_$10380",
+              "typeString": "UD60x18"
+            },
             "typeName": {
               "id": 43724,
               "nodeType": "UserDefinedTypeName",
@@ -792,7 +839,12 @@
             "mutability": "mutable",
             "name": "isFlashAsset",
             "nameLocation": "3582:12:75",
-            "overrides": { "id": 43732, "nodeType": "OverrideSpecifier", "overrides": [], "src": "3573:8:75" },
+            "overrides": {
+              "id": 43732,
+              "nodeType": "OverrideSpecifier",
+              "overrides": [],
+              "src": "3573:8:75"
+            },
             "scope": 43863,
             "stateVariable": true,
             "storageLocation": "default",
@@ -817,7 +869,10 @@
                 },
                 "referencedDeclaration": 105,
                 "src": "3534:6:75",
-                "typeDescriptions": { "typeIdentifier": "t_contract$_IERC20_$105", "typeString": "contract IERC20" }
+                "typeDescriptions": {
+                  "typeIdentifier": "t_contract$_IERC20_$105",
+                  "typeString": "contract IERC20"
+                }
               },
               "nodeType": "Mapping",
               "src": "3526:39:75",
@@ -854,7 +909,12 @@
             "mutability": "mutable",
             "name": "protocolFees",
             "nameLocation": "3696:12:75",
-            "overrides": { "id": 43740, "nodeType": "OverrideSpecifier", "overrides": [], "src": "3687:8:75" },
+            "overrides": {
+              "id": 43740,
+              "nodeType": "OverrideSpecifier",
+              "overrides": [],
+              "src": "3687:8:75"
+            },
             "scope": 43863,
             "stateVariable": true,
             "storageLocation": "default",
@@ -879,7 +939,10 @@
                 },
                 "referencedDeclaration": 105,
                 "src": "3651:6:75",
-                "typeDescriptions": { "typeIdentifier": "t_contract$_IERC20_$105", "typeString": "contract IERC20" }
+                "typeDescriptions": {
+                  "typeIdentifier": "t_contract$_IERC20_$105",
+                  "typeString": "contract IERC20"
+                }
               },
               "nodeType": "Mapping",
               "src": "3643:36:75",
@@ -970,12 +1033,17 @@
                             "lValueRequested": false,
                             "nodeType": "Literal",
                             "src": "4166:1:75",
-                            "typeDescriptions": { "typeIdentifier": "t_rational_0_by_1", "typeString": "int_const 0" },
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_0_by_1",
+                              "typeString": "int_const 0"
+                            },
                             "value": "0"
                           }
                         ],
                         "expression": {
-                          "argumentTypes": [{ "typeIdentifier": "t_rational_0_by_1", "typeString": "int_const 0" }],
+                          "argumentTypes": [
+                            { "typeIdentifier": "t_rational_0_by_1", "typeString": "int_const 0" }
+                          ],
                           "id": 43755,
                           "isConstant": false,
                           "isLValue": false,
@@ -1006,7 +1074,10 @@
                         "nodeType": "FunctionCall",
                         "src": "4158:10:75",
                         "tryCall": false,
-                        "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
                       },
                       {
                         "id": 43758,
@@ -1015,7 +1086,10 @@
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 43744,
                         "src": "4180:12:75",
-                        "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
                       }
                     ],
                     "expression": {
@@ -1109,7 +1183,12 @@
               ],
               "src": "4053:22:75"
             },
-            "returnParameters": { "id": 43746, "nodeType": "ParameterList", "parameters": [], "src": "4076:0:75" },
+            "returnParameters": {
+              "id": 43746,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "4076:0:75"
+            },
             "scope": 43863,
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -1235,7 +1314,10 @@
                           "overloadedDeclarations": [],
                           "referencedDeclaration": -15,
                           "src": "4761:3:75",
-                          "typeDescriptions": { "typeIdentifier": "t_magic_message", "typeString": "msg" }
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
                         },
                         "id": 43785,
                         "isConstant": false,
@@ -1246,7 +1328,10 @@
                         "memberName": "sender",
                         "nodeType": "MemberAccess",
                         "src": "4761:10:75",
-                        "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
                       },
                       {
                         "id": 43786,
@@ -1276,8 +1361,14 @@
                     "expression": {
                       "argumentTypes": [
                         { "typeIdentifier": "t_address", "typeString": "address" },
-                        { "typeIdentifier": "t_userDefinedValueType$_UD60x18_$10380", "typeString": "UD60x18" },
-                        { "typeIdentifier": "t_userDefinedValueType$_UD60x18_$10380", "typeString": "UD60x18" }
+                        {
+                          "typeIdentifier": "t_userDefinedValueType$_UD60x18_$10380",
+                          "typeString": "UD60x18"
+                        },
+                        {
+                          "typeIdentifier": "t_userDefinedValueType$_UD60x18_$10380",
+                          "typeString": "UD60x18"
+                        }
                       ],
                       "expression": {
                         "id": 43781,
@@ -1353,7 +1444,12 @@
             ],
             "name": "setFlashFee",
             "nameLocation": "4482:11:75",
-            "overrides": { "id": 43768, "nodeType": "OverrideSpecifier", "overrides": [], "src": "4524:8:75" },
+            "overrides": {
+              "id": 43768,
+              "nodeType": "OverrideSpecifier",
+              "overrides": [],
+              "src": "4524:8:75"
+            },
             "parameters": {
               "id": 43767,
               "nodeType": "ParameterList",
@@ -1396,7 +1492,12 @@
               ],
               "src": "4493:21:75"
             },
-            "returnParameters": { "id": 43771, "nodeType": "ParameterList", "parameters": [], "src": "4543:0:75" },
+            "returnParameters": {
+              "id": 43771,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "4543:0:75"
+            },
             "scope": 43863,
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -1572,7 +1673,10 @@
                           "overloadedDeclarations": [],
                           "referencedDeclaration": -15,
                           "src": "5236:3:75",
-                          "typeDescriptions": { "typeIdentifier": "t_magic_message", "typeString": "msg" }
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
                         },
                         "id": 43821,
                         "isConstant": false,
@@ -1583,7 +1687,10 @@
                         "memberName": "sender",
                         "nodeType": "MemberAccess",
                         "src": "5236:10:75",
-                        "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
                       },
                       {
                         "id": 43822,
@@ -1625,9 +1732,18 @@
                     "expression": {
                       "argumentTypes": [
                         { "typeIdentifier": "t_address", "typeString": "address" },
-                        { "typeIdentifier": "t_contract$_IERC20_$105", "typeString": "contract IERC20" },
-                        { "typeIdentifier": "t_userDefinedValueType$_UD60x18_$10380", "typeString": "UD60x18" },
-                        { "typeIdentifier": "t_userDefinedValueType$_UD60x18_$10380", "typeString": "UD60x18" }
+                        {
+                          "typeIdentifier": "t_contract$_IERC20_$105",
+                          "typeString": "contract IERC20"
+                        },
+                        {
+                          "typeIdentifier": "t_userDefinedValueType$_UD60x18_$10380",
+                          "typeString": "UD60x18"
+                        },
+                        {
+                          "typeIdentifier": "t_userDefinedValueType$_UD60x18_$10380",
+                          "typeString": "UD60x18"
+                        }
                       ],
                       "expression": {
                         "id": 43817,
@@ -1703,7 +1819,12 @@
             ],
             "name": "setProtocolFee",
             "nameLocation": "4890:14:75",
-            "overrides": { "id": 43800, "nodeType": "OverrideSpecifier", "overrides": [], "src": "4952:8:75" },
+            "overrides": {
+              "id": 43800,
+              "nodeType": "OverrideSpecifier",
+              "overrides": [],
+              "src": "4952:8:75"
+            },
             "parameters": {
               "id": 43799,
               "nodeType": "ParameterList",
@@ -1719,7 +1840,10 @@
                   "src": "4905:12:75",
                   "stateVariable": false,
                   "storageLocation": "default",
-                  "typeDescriptions": { "typeIdentifier": "t_contract$_IERC20_$105", "typeString": "contract IERC20" },
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IERC20_$105",
+                    "typeString": "contract IERC20"
+                  },
                   "typeName": {
                     "id": 43794,
                     "nodeType": "UserDefinedTypeName",
@@ -1733,7 +1857,10 @@
                     },
                     "referencedDeclaration": 105,
                     "src": "4905:6:75",
-                    "typeDescriptions": { "typeIdentifier": "t_contract$_IERC20_$105", "typeString": "contract IERC20" }
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IERC20_$105",
+                      "typeString": "contract IERC20"
+                    }
                   },
                   "visibility": "internal"
                 },
@@ -1775,7 +1902,12 @@
               ],
               "src": "4904:38:75"
             },
-            "returnParameters": { "id": 43803, "nodeType": "ParameterList", "parameters": [], "src": "4971:0:75" },
+            "returnParameters": {
+              "id": 43803,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "4971:0:75"
+            },
             "scope": 43863,
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -1937,7 +2069,10 @@
                           "overloadedDeclarations": [],
                           "referencedDeclaration": -15,
                           "src": "5756:3:75",
-                          "typeDescriptions": { "typeIdentifier": "t_magic_message", "typeString": "msg" }
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
                         },
                         "id": 43855,
                         "isConstant": false,
@@ -1948,7 +2083,10 @@
                         "memberName": "sender",
                         "nodeType": "MemberAccess",
                         "src": "5756:10:75",
-                        "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
                       },
                       {
                         "id": 43856,
@@ -1987,7 +2125,10 @@
                     "expression": {
                       "argumentTypes": [
                         { "typeIdentifier": "t_address", "typeString": "address" },
-                        { "typeIdentifier": "t_contract$_IERC20_$105", "typeString": "contract IERC20" },
+                        {
+                          "typeIdentifier": "t_contract$_IERC20_$105",
+                          "typeString": "contract IERC20"
+                        },
                         { "typeIdentifier": "t_bool", "typeString": "bool" }
                       ],
                       "expression": {
@@ -2064,7 +2205,12 @@
             ],
             "name": "toggleFlashAsset",
             "nameLocation": "5435:16:75",
-            "overrides": { "id": 43834, "nodeType": "OverrideSpecifier", "overrides": [], "src": "5475:8:75" },
+            "overrides": {
+              "id": 43834,
+              "nodeType": "OverrideSpecifier",
+              "overrides": [],
+              "src": "5475:8:75"
+            },
             "parameters": {
               "id": 43833,
               "nodeType": "ParameterList",
@@ -2080,7 +2226,10 @@
                   "src": "5452:12:75",
                   "stateVariable": false,
                   "storageLocation": "default",
-                  "typeDescriptions": { "typeIdentifier": "t_contract$_IERC20_$105", "typeString": "contract IERC20" },
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IERC20_$105",
+                    "typeString": "contract IERC20"
+                  },
                   "typeName": {
                     "id": 43831,
                     "nodeType": "UserDefinedTypeName",
@@ -2094,14 +2243,22 @@
                     },
                     "referencedDeclaration": 105,
                     "src": "5452:6:75",
-                    "typeDescriptions": { "typeIdentifier": "t_contract$_IERC20_$105", "typeString": "contract IERC20" }
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IERC20_$105",
+                      "typeString": "contract IERC20"
+                    }
                   },
                   "visibility": "internal"
                 }
               ],
               "src": "5451:14:75"
             },
-            "returnParameters": { "id": 43837, "nodeType": "ParameterList", "parameters": [], "src": "5494:0:75" },
+            "returnParameters": {
+              "id": 43837,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "5494:0:75"
+            },
             "scope": 43863,
             "stateMutability": "nonpayable",
             "virtual": false,

@@ -69,7 +69,10 @@ export const logger = winston.createLogger({
   transports,
 });
 
-export function log(level: "info" | "verbose", params: { msg: string; release?: Sablier.EVM.Release }): void {
+export function log(
+  level: "info" | "verbose",
+  params: { msg: string; release?: Sablier.EVM.Release },
+): void {
   const { msg, release } = params;
   if (release) {
     logger[level](`${formatRelease(release)}\t${msg}`);

@@ -1,7 +1,13 @@
 import type { BN } from "@coral-xyz/anchor";
 import type { PublicKey } from "@solana/web3.js";
 
-export type Amounts = { startUnlock: BN; cliffUnlock: BN; deposited: BN; refunded: BN; withdrawn: BN };
+export type Amounts = {
+  startUnlock: BN;
+  cliffUnlock: BN;
+  deposited: BN;
+  refunded: BN;
+  withdrawn: BN;
+};
 
 export type CancelLockupStream = {
   depositedTokenMint: PublicKey;
@@ -24,7 +30,11 @@ export type FeesCollected = { feeAmount: BN; feeCollector: PublicKey; feeRecipie
 
 export type NftCollectionData = { totalSupply: BN; bump: number };
 
-export type RenounceLockupStream = { depositedTokenMint: PublicKey; streamData: PublicKey; streamNftMint: PublicKey };
+export type RenounceLockupStream = {
+  depositedTokenMint: PublicKey;
+  streamData: PublicKey;
+  streamNftMint: PublicKey;
+};
 
 export type StreamData = {
   amounts: Amounts;

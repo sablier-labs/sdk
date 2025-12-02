@@ -138,7 +138,11 @@ export const sablierMerkleBaseAbi = [
     name: "TransferAdmin",
     type: "event",
   },
-  { inputs: [{ internalType: "address", name: "target", type: "address" }], name: "AddressEmptyCode", type: "error" },
+  {
+    inputs: [{ internalType: "address", name: "target", type: "address" }],
+    name: "AddressEmptyCode",
+    type: "error",
+  },
   {
     inputs: [{ internalType: "address", name: "account", type: "address" }],
     name: "AddressInsufficientBalance",

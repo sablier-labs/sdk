@@ -48,7 +48,9 @@
       "userdoc": {
         "kind": "user",
         "methods": {
-          "tokenURI(address,uint256)": { "notice": "Produces the URI describing a particular stream NFT." }
+          "tokenURI(address,uint256)": {
+            "notice": "Produces the URI describing a particular stream NFT."
+          }
         },
         "version": 1
       }
@@ -63,7 +65,9 @@
       ],
       "optimizer": { "enabled": true, "runs": 1000 },
       "metadata": { "bytecodeHash": "none" },
-      "compilationTarget": { "src/interfaces/ISablierV2NFTDescriptor.sol": "ISablierV2NFTDescriptor" },
+      "compilationTarget": {
+        "src/interfaces/ISablierV2NFTDescriptor.sol": "ISablierV2NFTDescriptor"
+      },
       "evmVersion": "shanghai",
       "libraries": {},
       "viaIR": true

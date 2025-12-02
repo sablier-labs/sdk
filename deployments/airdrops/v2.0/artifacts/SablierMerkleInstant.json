@@ -218,7 +218,12 @@
       "inputs": [
         { "name": "comptroller", "type": "address", "indexed": true, "internalType": "address" },
         { "name": "newMinFeeUSD", "type": "uint256", "indexed": false, "internalType": "uint256" },
-        { "name": "previousMinFeeUSD", "type": "uint256", "indexed": false, "internalType": "uint256" }
+        {
+          "name": "previousMinFeeUSD",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        }
       ],
       "anonymous": false
     },
@@ -513,9 +518,24 @@
         },
         {
           "inputs": [
-            { "internalType": "address", "name": "comptroller", "type": "address", "indexed": true },
-            { "internalType": "uint256", "name": "newMinFeeUSD", "type": "uint256", "indexed": false },
-            { "internalType": "uint256", "name": "previousMinFeeUSD", "type": "uint256", "indexed": false }
+            {
+              "internalType": "address",
+              "name": "comptroller",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "uint256",
+              "name": "newMinFeeUSD",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "uint256",
+              "name": "previousMinFeeUSD",
+              "type": "uint256",
+              "indexed": false
+            }
           ],
           "type": "event",
           "name": "LowerMinFeeUSD",
@@ -728,9 +748,14 @@
           },
           "clawback(address,uint128)": {
             "details": "Emits a {Clawback} event. Requirements: - `msg.sender` must be the admin. - No claim must be made, OR   The current timestamp must not exceed 7 days after the first claim, OR   The campaign must be expired.",
-            "params": { "amount": "The amount of tokens to claw back.", "to": "The address to receive the tokens." }
+            "params": {
+              "amount": "The amount of tokens to claw back.",
+              "to": "The address to receive the tokens."
+            }
           },
-          "constructor": { "details": "Constructs the contract by initializing the immutable state variables." },
+          "constructor": {
+            "details": "Constructs the contract by initializing the immutable state variables."
+          },
           "hasClaimed(uint256)": {
             "details": "Uses a bitmap to save gas.",
             "params": { "index": "The index of the recipient to check." }
@@ -749,7 +774,9 @@
       "userdoc": {
         "kind": "user",
         "methods": {
-          "CAMPAIGN_START_TIME()": { "notice": "The timestamp at which campaign starts and claim begins." },
+          "CAMPAIGN_START_TIME()": {
+            "notice": "The timestamp at which campaign starts and claim begins."
+          },
           "COMPTROLLER()": { "notice": "Retrieves the address of the comptroller contract." },
           "EXPIRATION()": {
             "notice": "The cut-off point for the campaign, as a Unix timestamp. A value of zero means there is no expiration."
@@ -757,10 +784,14 @@
           "IS_SABLIER_MERKLE()": {
             "notice": "Returns `true` indicating that this campaign contract is deployed using the Sablier Factory."
           },
-          "MERKLE_ROOT()": { "notice": "The root of the Merkle tree used to validate the proofs of inclusion." },
+          "MERKLE_ROOT()": {
+            "notice": "The root of the Merkle tree used to validate the proofs of inclusion."
+          },
           "TOKEN()": { "notice": "The ERC-20 token to distribute." },
           "admin()": { "notice": "The address of the admin account or contract." },
-          "calculateMinFeeWei()": { "notice": "Calculates the minimum fee in wei required to claim the airdrop." },
+          "calculateMinFeeWei()": {
+            "notice": "Calculates the minimum fee in wei required to claim the airdrop."
+          },
           "campaignName()": { "notice": "Retrieves the name of the campaign." },
           "claim(uint256,address,uint128,bytes32[])": {
             "notice": "Claim airdrop on behalf of eligible recipient and transfer it to the recipient address."
@@ -781,7 +812,9 @@
           "hasClaimed(uint256)": {
             "notice": "Returns a flag indicating whether a claim has been made for a given index."
           },
-          "hasExpired()": { "notice": "Returns a flag indicating whether the campaign has expired." },
+          "hasExpired()": {
+            "notice": "Returns a flag indicating whether the campaign has expired."
+          },
           "ipfsCID()": { "notice": "The content identifier for indexing the campaign on IPFS." },
           "lowerMinFeeUSD(uint256)": { "notice": "Lowers the min USD fee." },
           "minFeeUSD()": {

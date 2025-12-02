@@ -220,7 +220,12 @@
       "name": "CreateLockupBatch",
       "inputs": [
         { "name": "funder", "type": "address", "indexed": true, "internalType": "address" },
-        { "name": "lockup", "type": "address", "indexed": true, "internalType": "contract ISablierLockup" },
+        {
+          "name": "lockup",
+          "type": "address",
+          "indexed": true,
+          "internalType": "contract ISablierLockup"
+        },
         { "name": "streamIds", "type": "uint256[]", "indexed": false, "internalType": "uint256[]" }
       ],
       "anonymous": false
@@ -245,8 +250,18 @@
         {
           "inputs": [
             { "internalType": "address", "name": "funder", "type": "address", "indexed": true },
-            { "internalType": "contract ISablierLockup", "name": "lockup", "type": "address", "indexed": true },
-            { "internalType": "uint256[]", "name": "streamIds", "type": "uint256[]", "indexed": false }
+            {
+              "internalType": "contract ISablierLockup",
+              "name": "lockup",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "uint256[]",
+              "name": "streamIds",
+              "type": "uint256[]",
+              "indexed": false
+            }
           ],
           "type": "event",
           "name": "CreateLockupBatch",

@@ -38,7 +38,13 @@
       "outputs": [{ "name": "balance", "type": "uint256", "internalType": "uint256" }],
       "stateMutability": "view"
     },
-    { "type": "function", "name": "collectFees", "inputs": [], "outputs": [], "stateMutability": "nonpayable" },
+    {
+      "type": "function",
+      "name": "collectFees",
+      "inputs": [],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
     {
       "type": "function",
       "name": "collectProtocolRevenue",
@@ -263,7 +269,13 @@
     {
       "type": "function",
       "name": "setNFTDescriptor",
-      "inputs": [{ "name": "newNFTDescriptor", "type": "address", "internalType": "contract IFlowNFTDescriptor" }],
+      "inputs": [
+        {
+          "name": "newNFTDescriptor",
+          "type": "address",
+          "internalType": "contract IFlowNFTDescriptor"
+        }
+      ],
       "outputs": [],
       "stateMutability": "nonpayable"
     },
@@ -368,7 +380,9 @@
     {
       "type": "event",
       "name": "MetadataUpdate",
-      "inputs": [{ "name": "_tokenId", "type": "uint256", "indexed": false, "internalType": "uint256" }],
+      "inputs": [
+        { "name": "_tokenId", "type": "uint256", "indexed": false, "internalType": "uint256" }
+      ],
       "anonymous": false
     },
     {
@@ -408,7 +422,12 @@
       "inputs": [
         { "name": "admin", "type": "address", "indexed": true, "internalType": "address" },
         { "name": "token", "type": "address", "indexed": true, "internalType": "contract IERC20" },
-        { "name": "oldProtocolFee", "type": "uint256", "indexed": false, "internalType": "UD60x18" },
+        {
+          "name": "oldProtocolFee",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "UD60x18"
+        },
         { "name": "newProtocolFee", "type": "uint256", "indexed": false, "internalType": "UD60x18" }
       ],
       "anonymous": false
@@ -504,7 +523,12 @@
         },
         {
           "inputs": [
-            { "internalType": "uint256", "name": "_fromTokenId", "type": "uint256", "indexed": false },
+            {
+              "internalType": "uint256",
+              "name": "_fromTokenId",
+              "type": "uint256",
+              "indexed": false
+            },
             { "internalType": "uint256", "name": "_toTokenId", "type": "uint256", "indexed": false }
           ],
           "type": "event",
@@ -523,7 +547,12 @@
         {
           "inputs": [
             { "internalType": "address", "name": "admin", "type": "address", "indexed": true },
-            { "internalType": "contract IERC20", "name": "token", "type": "address", "indexed": true },
+            {
+              "internalType": "contract IERC20",
+              "name": "token",
+              "type": "address",
+              "indexed": true
+            },
             { "internalType": "address", "name": "to", "type": "address", "indexed": false },
             { "internalType": "uint128", "name": "revenue", "type": "uint128", "indexed": false }
           ],
@@ -532,7 +561,9 @@
           "anonymous": false
         },
         {
-          "inputs": [{ "internalType": "uint256", "name": "_tokenId", "type": "uint256", "indexed": false }],
+          "inputs": [
+            { "internalType": "uint256", "name": "_tokenId", "type": "uint256", "indexed": false }
+          ],
           "type": "event",
           "name": "MetadataUpdate",
           "anonymous": false
@@ -540,7 +571,12 @@
         {
           "inputs": [
             { "internalType": "address", "name": "admin", "type": "address", "indexed": true },
-            { "internalType": "contract IERC20", "name": "token", "type": "address", "indexed": true },
+            {
+              "internalType": "contract IERC20",
+              "name": "token",
+              "type": "address",
+              "indexed": true
+            },
             { "internalType": "address", "name": "to", "type": "address", "indexed": false },
             { "internalType": "uint256", "name": "surplus", "type": "uint256", "indexed": false }
           ],
@@ -571,9 +607,24 @@
         {
           "inputs": [
             { "internalType": "address", "name": "admin", "type": "address", "indexed": true },
-            { "internalType": "contract IERC20", "name": "token", "type": "address", "indexed": true },
-            { "internalType": "UD60x18", "name": "oldProtocolFee", "type": "uint256", "indexed": false },
-            { "internalType": "UD60x18", "name": "newProtocolFee", "type": "uint256", "indexed": false }
+            {
+              "internalType": "contract IERC20",
+              "name": "token",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "UD60x18",
+              "name": "oldProtocolFee",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "UD60x18",
+              "name": "newProtocolFee",
+              "type": "uint256",
+              "indexed": false
+            }
           ],
           "type": "event",
           "name": "SetProtocolFee",
@@ -635,7 +686,12 @@
           "name": "balanceOf",
           "outputs": [{ "internalType": "uint256", "name": "balance", "type": "uint256" }]
         },
-        { "inputs": [], "stateMutability": "nonpayable", "type": "function", "name": "collectFees" },
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "collectFees"
+        },
         {
           "inputs": [
             { "internalType": "contract IERC20", "name": "token", "type": "address" },
@@ -685,7 +741,9 @@
           "stateMutability": "view",
           "type": "function",
           "name": "getSnapshotDebtScaled",
-          "outputs": [{ "internalType": "uint256", "name": "snapshotDebtScaled", "type": "uint256" }]
+          "outputs": [
+            { "internalType": "uint256", "name": "snapshotDebtScaled", "type": "uint256" }
+          ]
         },
         {
           "inputs": [{ "internalType": "uint256", "name": "streamId", "type": "uint256" }],
@@ -790,7 +848,9 @@
           "stateMutability": "view",
           "type": "function",
           "name": "nftDescriptor",
-          "outputs": [{ "internalType": "contract IFlowNFTDescriptor", "name": "", "type": "address" }]
+          "outputs": [
+            { "internalType": "contract IFlowNFTDescriptor", "name": "", "type": "address" }
+          ]
         },
         {
           "inputs": [{ "internalType": "uint256", "name": "tokenId", "type": "uint256" }],
@@ -853,7 +913,13 @@
           "name": "setApprovalForAll"
         },
         {
-          "inputs": [{ "internalType": "contract IFlowNFTDescriptor", "name": "newNFTDescriptor", "type": "address" }],
+          "inputs": [
+            {
+              "internalType": "contract IFlowNFTDescriptor",
+              "name": "newNFTDescriptor",
+              "type": "address"
+            }
+          ],
           "stateMutability": "nonpayable",
           "type": "function",
           "name": "setNFTDescriptor"
@@ -913,7 +979,9 @@
           "approve(address,uint256)": {
             "details": "Gives permission to `to` to transfer `tokenId` token to another account. The approval is cleared when the token is transferred. Only a single account can be approved at a time, so approving the zero address clears previous approvals. Requirements: - The caller must own the token or be an approved operator. - `tokenId` must exist. Emits an {Approval} event."
           },
-          "balanceOf(address)": { "details": "Returns the number of tokens in ``owner``'s account." },
+          "balanceOf(address)": {
+            "details": "Returns the number of tokens in ``owner``'s account."
+          },
           "collectFees()": {
             "details": "Emits a {CollectFees} event. Notes: - If the admin is a contract, it must be able to receive native token payments, e.g., ETH for Ethereum Mainnet."
           },
@@ -1018,7 +1086,9 @@
             "details": "Returns true if this contract implements the interface defined by `interfaceId`. See the corresponding https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section] to learn more about how these ids are created. This function call must use less than 30 000 gas."
           },
           "symbol()": { "details": "Returns the token collection symbol." },
-          "tokenURI(uint256)": { "details": "Returns the Uniform Resource Identifier (URI) for `tokenId` token." },
+          "tokenURI(uint256)": {
+            "details": "Returns the Uniform Resource Identifier (URI) for `tokenId` token."
+          },
           "transferAdmin(address)": {
             "details": "Notes: - Does not revert if the admin is the same. - This function can potentially leave the contract without an admin, thereby removing any functionality that is only available to the admin. Requirements: - `msg.sender` must be the contract admin.",
             "params": { "newAdmin": "The address of the new admin." }
@@ -1036,8 +1106,12 @@
             "notice": "Retrieves the maximum fee that can be charged by the broker and the protocol, denoted as a fixed-point percentage where 1e18 is 100%."
           },
           "admin()": { "notice": "The address of the admin account or contract." },
-          "aggregateBalance(address)": { "notice": "Retrieves the sum of balances of all streams." },
-          "collectFees()": { "notice": "Collects the accrued fees by transferring them to the contract admin." },
+          "aggregateBalance(address)": {
+            "notice": "Retrieves the sum of balances of all streams."
+          },
+          "collectFees()": {
+            "notice": "Collects the accrued fees by transferring them to the contract admin."
+          },
           "collectProtocolRevenue(address,address)": {
             "notice": "Collect the protocol revenue accrued for the provided ERC-20 token."
           },
@@ -1059,11 +1133,15 @@
           "getToken(uint256)": { "notice": "Retrieves the token of the stream." },
           "getTokenDecimals(uint256)": { "notice": "Retrieves the token decimals of the stream." },
           "isPaused(uint256)": { "notice": "Returns whether a stream is paused." },
-          "isStream(uint256)": { "notice": "Retrieves a flag indicating whether the stream exists." },
+          "isStream(uint256)": {
+            "notice": "Retrieves a flag indicating whether the stream exists."
+          },
           "isTransferable(uint256)": {
             "notice": "Retrieves a flag indicating whether the stream NFT is transferable."
           },
-          "isVoided(uint256)": { "notice": "Retrieves a flag indicating whether the stream is voided." },
+          "isVoided(uint256)": {
+            "notice": "Retrieves a flag indicating whether the stream is voided."
+          },
           "nextStreamId()": { "notice": "Counter for stream ids." },
           "nftDescriptor()": { "notice": "Contract that generates the non-fungible token URI." },
           "protocolFee(address)": {

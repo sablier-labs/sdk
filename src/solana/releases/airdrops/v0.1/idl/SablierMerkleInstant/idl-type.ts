@@ -1,7 +1,14 @@
 export type IDL = {
   address: "7XrxoQejBoGouW4V3aozTSwub7xSDjYqB4Go7YLjF9rV";
-  metadata: { name: "sablierMerkleInstant"; version: "0.1.0"; spec: "0.1.0"; description: "Created with Anchor" };
-  docs: ["Sablier Merkle Instant program for creating and managing Merkle tree-based airdrop campaigns."];
+  metadata: {
+    name: "sablierMerkleInstant";
+    version: "0.1.0";
+    spec: "0.1.0";
+    description: "Created with Anchor";
+  };
+  docs: [
+    "Sablier Merkle Instant program for creating and managing Merkle tree-based airdrop campaigns.",
+  ];
   instructions: [
     {
       name: "campaignView";
@@ -13,7 +20,9 @@ export type IDL = {
         "- `campaign` The account that stores the campaign details.",
       ];
       discriminator: [188, 126, 110, 5, 183, 113, 158, 3];
-      accounts: [{ name: "campaign"; docs: ["Read account: the account storing the campaign data."] }];
+      accounts: [
+        { name: "campaign"; docs: ["Read account: the account storing the campaign data."] },
+      ];
       args: [];
       returns: { defined: { name: "campaign" } };
     },
@@ -116,8 +125,15 @@ export type IDL = {
           writable: true;
           pda: { seeds: [{ kind: "const"; value: [116, 114, 101, 97, 115, 117, 114, 121] }] };
         },
-        { name: "airdropTokenMint"; docs: ["Read account: the mint account of the airdrop token."] },
-        { name: "campaign"; docs: ["Write account: the account storing the campaign data."]; writable: true },
+        {
+          name: "airdropTokenMint";
+          docs: ["Read account: the mint account of the airdrop token."];
+        },
+        {
+          name: "campaign";
+          docs: ["Write account: the account storing the campaign data."];
+          writable: true;
+        },
         {
           name: "campaignAta";
           docs: ["Write account: the campaign's ATA for the airdrop token."];
@@ -173,13 +189,19 @@ export type IDL = {
           writable: true;
           pda: {
             seeds: [
-              { kind: "const"; value: [99, 108, 97, 105, 109, 95, 114, 101, 99, 101, 105, 112, 116] },
+              {
+                kind: "const";
+                value: [99, 108, 97, 105, 109, 95, 114, 101, 99, 101, 105, 112, 116];
+              },
               { kind: "account"; path: "campaign" },
               { kind: "arg"; path: "index" },
             ];
           };
         },
-        { name: "airdropTokenProgram"; docs: ["Program account: the Token program of the airdrop token."] },
+        {
+          name: "airdropTokenProgram";
+          docs: ["Program account: the Token program of the airdrop token."];
+        },
         {
           name: "associatedTokenProgram";
           docs: ["Program account: the Associated Token program."];
@@ -189,7 +211,10 @@ export type IDL = {
           name: "chainlinkProgram";
           docs: ["Read account: The Chainlink program used to retrieve on-chain price feeds."];
         },
-        { name: "chainlinkSolUsdFeed"; docs: ["Read account: The account providing the SOL/USD price feed data."] },
+        {
+          name: "chainlinkSolUsdFeed";
+          docs: ["Read account: The account providing the SOL/USD price feed data."];
+        },
         {
           name: "systemProgram";
           docs: ["Program account: the System program."];
@@ -223,7 +248,10 @@ export type IDL = {
           name: "chainlinkProgram";
           docs: ["Read account: The Chainlink program used to retrieve on-chain price feeds."];
         },
-        { name: "chainlinkSolUsdFeed"; docs: ["Read account: The account providing the SOL/USD price feed data."] },
+        {
+          name: "chainlinkSolUsdFeed";
+          docs: ["Read account: The account providing the SOL/USD price feed data."];
+        },
       ];
       args: [];
       returns: "u64";
@@ -312,7 +340,10 @@ export type IDL = {
             };
           };
         },
-        { name: "airdropTokenMint"; docs: ["Read account: the mint account of the airdrop token."] },
+        {
+          name: "airdropTokenMint";
+          docs: ["Read account: the mint account of the airdrop token."];
+        },
         { name: "campaign"; docs: ["Read account: the account storing the campaign data."] },
         {
           name: "campaignAta";
@@ -363,7 +394,10 @@ export type IDL = {
             };
           };
         },
-        { name: "airdropTokenProgram"; docs: ["Program account: the Token program of the airdrop token."] },
+        {
+          name: "airdropTokenProgram";
+          docs: ["Program account: the Token program of the airdrop token."];
+        },
         {
           name: "associatedTokenProgram";
           docs: ["Program account: the Associated Token program."];
@@ -448,8 +482,16 @@ export type IDL = {
       ];
       discriminator: [111, 131, 187, 98, 160, 193, 114, 244];
       accounts: [
-        { name: "creator"; docs: ["Write account: the creator of the campaign."]; writable: true; signer: true },
-        { name: "airdropTokenMint"; docs: ["Read account: the mint account of the airdrop token."] },
+        {
+          name: "creator";
+          docs: ["Write account: the creator of the campaign."];
+          writable: true;
+          signer: true;
+        },
+        {
+          name: "airdropTokenMint";
+          docs: ["Read account: the mint account of the airdrop token."];
+        },
         {
           name: "campaign";
           docs: ["Create account: the account storing the campaign data."];
@@ -515,7 +557,10 @@ export type IDL = {
             };
           };
         },
-        { name: "airdropTokenProgram"; docs: ["Program account: the Token program of the airdrop token."] },
+        {
+          name: "airdropTokenProgram";
+          docs: ["Program account: the Token program of the airdrop token."];
+        },
         {
           name: "associatedTokenProgram";
           docs: ["Program account: the Associated Token program."];
@@ -547,7 +592,9 @@ export type IDL = {
         "- `campaign` The account that stores the campaign details.",
       ];
       discriminator: [135, 101, 171, 220, 86, 97, 104, 199];
-      accounts: [{ name: "campaign"; docs: ["Read account: the account storing the campaign data."] }];
+      accounts: [
+        { name: "campaign"; docs: ["Read account: the account storing the campaign data."] },
+      ];
       args: [];
       returns: "bool";
     },
@@ -572,7 +619,10 @@ export type IDL = {
           docs: ["Read account: the claim receipt."];
           pda: {
             seeds: [
-              { kind: "const"; value: [99, 108, 97, 105, 109, 95, 114, 101, 99, 101, 105, 112, 116] },
+              {
+                kind: "const";
+                value: [99, 108, 97, 105, 109, 95, 114, 101, 99, 101, 105, 112, 116];
+              },
               { kind: "account"; path: "campaign" },
               { kind: "arg"; path: "index" },
             ];
@@ -592,7 +642,9 @@ export type IDL = {
         "- `campaign` The account that stores the campaign details.",
       ];
       discriminator: [24, 138, 30, 86, 92, 38, 143, 129];
-      accounts: [{ name: "campaign"; docs: ["Read account: the account storing the campaign data."] }];
+      accounts: [
+        { name: "campaign"; docs: ["Read account: the account storing the campaign data."] },
+      ];
       args: [];
       returns: "bool";
     },
@@ -611,7 +663,9 @@ export type IDL = {
         "seven days after the first claim.",
       ];
       discriminator: [223, 150, 181, 32, 240, 136, 73, 236];
-      accounts: [{ name: "campaign"; docs: ["Read account: the account storing the campaign data."] }];
+      accounts: [
+        { name: "campaign"; docs: ["Read account: the account storing the campaign data."] },
+      ];
       args: [];
       returns: "bool";
     },
@@ -632,7 +686,12 @@ export type IDL = {
       ];
       discriminator: [175, 175, 109, 31, 13, 152, 155, 237];
       accounts: [
-        { name: "initializer"; docs: ["Write account: the initializer of the program."]; writable: true; signer: true },
+        {
+          name: "initializer";
+          docs: ["Write account: the initializer of the program."];
+          writable: true;
+          signer: true;
+        },
         {
           name: "treasury";
           docs: ["Create account: the treasury account that will hold the fees."];

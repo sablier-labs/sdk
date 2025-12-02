@@ -7,8 +7,15 @@ import _ from "lodash";
 export function createReleasesQueries<
   TProtocol extends string,
   TVersion extends string,
-  TRelease extends { version: TVersion; deployments: Array<{ chainId: number }>; isLatest?: boolean },
->(config: { releases: Record<TProtocol, Record<string, TRelease>>; ProtocolEnum: Record<string, TProtocol> }) {
+  TRelease extends {
+    version: TVersion;
+    deployments: Array<{ chainId: number }>;
+    isLatest?: boolean;
+  },
+>(config: {
+  releases: Record<TProtocol, Record<string, TRelease>>;
+  ProtocolEnum: Record<string, TProtocol>;
+}) {
   const { releases, ProtocolEnum } = config;
 
   return {
@@ -54,7 +61,9 @@ export function createReleasesQueries<
       const list = _.values(releases[opts.protocol]) as TRelease[];
       const latest = list[list.length - 1];
       if (!latest.isLatest) {
-        throw new Error(`Sablier SDK: No latest release found for Sablier ${opts.protocol}. Please report on GitHub.`);
+        throw new Error(
+          `Sablier SDK: No latest release found for Sablier ${opts.protocol}. Please report on GitHub.`,
+        );
       }
       return latest;
     },
@@ -138,7 +147,11 @@ export function createContractsQueries<
         if (release) {
           const dep = _.find(release.deployments, { chainId }) as TDeployment | undefined;
           const items = getItems(dep);
-          return (_.find(items, (c) => normalizeAddress(c.address) === address) as TContract | undefined) || undefined;
+          return (
+            (_.find(items, (c) => normalizeAddress(c.address) === address) as
+              | TContract
+              | undefined) || undefined
+          );
         }
 
         // Scoped to protocol - check for duplicates across releases
@@ -181,7 +194,11 @@ export function createContractsQueries<
      * - { release }            ⇒ all deployments of that release
      * - { release, chainId }   ⇒ all for that release and chain
      */
-    getAll: (opts?: { chainId?: number; protocol?: TProtocol; release?: TRelease }): TContract[] | undefined => {
+    getAll: (opts?: {
+      chainId?: number;
+      protocol?: TProtocol;
+      release?: TRelease;
+    }): TContract[] | undefined => {
       const { protocol, chainId, release } = opts || {};
 
       if (protocol && release) {

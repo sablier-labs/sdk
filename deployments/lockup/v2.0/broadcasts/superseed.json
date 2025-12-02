@@ -6,7 +6,11 @@
       "contractName": "SablierLockup",
       "contractAddress": "0xf46d1f8c85f215a515f6d738ab3e3ba081f6c083",
       "function": null,
-      "arguments": ["0xb1bEF51ebCA01EB12001a639bDBbFF6eEcA12B9F", "0xa4576b58Ec760A8282D081dc94F3dc716DFc61e9", "500"],
+      "arguments": [
+        "0xb1bEF51ebCA01EB12001a639bDBbFF6eEcA12B9F",
+        "0xa4576b58Ec760A8282D081dc94F3dc716DFc61e9",
+        "500"
+      ],
       "transaction": {
         "from": "0xb1bef51ebca01eb12001a639bdbbff6eeca12b9f",
         "to": "0x4e59b44847b379578588920ca78fbf26c0b4956c",
@@ -44,7 +48,11 @@
       "contractName": "SablierLockup",
       "contractAddress": "0xf46d1f8c85f215a515f6d738ab3e3ba081f6c083",
       "function": null,
-      "arguments": ["0xb1bEF51ebCA01EB12001a639bDBbFF6eEcA12B9F", "0xa4576b58Ec760A8282D081dc94F3dc716DFc61e9", "500"],
+      "arguments": [
+        "0xb1bEF51ebCA01EB12001a639bDBbFF6eEcA12B9F",
+        "0xa4576b58Ec760A8282D081dc94F3dc716DFc61e9",
+        "500"
+      ],
       "transaction": {
         "from": "0xb1bef51ebca01eb12001a639bdbbff6eeca12b9f",
         "to": "0x4e59b44847b379578588920ca78fbf26c0b4956c",

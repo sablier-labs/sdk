@@ -217,7 +217,9 @@
       "userdoc": {
         "kind": "user",
         "methods": {
-          "FEE_COLLECTOR_ROLE()": { "notice": "A role with the authority to collect fees from the Sablier contracts." },
+          "FEE_COLLECTOR_ROLE()": {
+            "notice": "A role with the authority to collect fees from the Sablier contracts."
+          },
           "FEE_MANAGEMENT_ROLE()": {
             "notice": "A role with the authority to update fees across the Sablier contracts."
           },
@@ -519,7 +521,12 @@
             "modifiers": [],
             "name": "FEE_COLLECTOR_ROLE",
             "nameLocation": "1645:18:63",
-            "parameters": { "id": 61874, "nodeType": "ParameterList", "parameters": [], "src": "1663:2:63" },
+            "parameters": {
+              "id": 61874,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1663:2:63"
+            },
             "returnParameters": {
               "id": 61877,
               "nodeType": "ParameterList",
@@ -570,7 +577,12 @@
             "modifiers": [],
             "name": "FEE_MANAGEMENT_ROLE",
             "nameLocation": "1800:19:63",
-            "parameters": { "id": 61880, "nodeType": "ParameterList", "parameters": [], "src": "1819:2:63" },
+            "parameters": {
+              "id": 61880,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1819:2:63"
+            },
             "returnParameters": {
               "id": 61883,
               "nodeType": "ParameterList",
@@ -771,7 +783,12 @@
               ],
               "src": "2607:31:63"
             },
-            "returnParameters": { "id": 61901, "nodeType": "ParameterList", "parameters": [], "src": "2647:0:63" },
+            "returnParameters": {
+              "id": 61901,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2647:0:63"
+            },
             "scope": 61911,
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -844,7 +861,12 @@
               ],
               "src": "3023:31:63"
             },
-            "returnParameters": { "id": 61909, "nodeType": "ParameterList", "parameters": [], "src": "3063:0:63" },
+            "returnParameters": {
+              "id": 61909,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3063:0:63"
+            },
             "scope": 61911,
             "stateMutability": "nonpayable",
             "virtual": false,

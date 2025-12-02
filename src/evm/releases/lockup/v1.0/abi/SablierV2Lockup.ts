@@ -249,14 +249,22 @@ export const sablierV2LockupAbi = [
     type: "function",
   },
   {
-    inputs: [{ internalType: "contract ISablierV2Comptroller", name: "newComptroller", type: "address" }],
+    inputs: [
+      { internalType: "contract ISablierV2Comptroller", name: "newComptroller", type: "address" },
+    ],
     name: "setComptroller",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
   },
   {
-    inputs: [{ internalType: "contract ISablierV2NFTDescriptor", name: "newNFTDescriptor", type: "address" }],
+    inputs: [
+      {
+        internalType: "contract ISablierV2NFTDescriptor",
+        name: "newNFTDescriptor",
+        type: "address",
+      },
+    ],
     name: "setNFTDescriptor",
     outputs: [],
     stateMutability: "nonpayable",
@@ -438,8 +446,18 @@ export const sablierV2LockupAbi = [
     anonymous: false,
     inputs: [
       { indexed: true, internalType: "address", name: "admin", type: "address" },
-      { indexed: false, internalType: "contract ISablierV2Comptroller", name: "oldComptroller", type: "address" },
-      { indexed: false, internalType: "contract ISablierV2Comptroller", name: "newComptroller", type: "address" },
+      {
+        indexed: false,
+        internalType: "contract ISablierV2Comptroller",
+        name: "oldComptroller",
+        type: "address",
+      },
+      {
+        indexed: false,
+        internalType: "contract ISablierV2Comptroller",
+        name: "newComptroller",
+        type: "address",
+      },
     ],
     name: "SetComptroller",
     type: "event",
@@ -448,8 +466,18 @@ export const sablierV2LockupAbi = [
     anonymous: false,
     inputs: [
       { indexed: true, internalType: "address", name: "admin", type: "address" },
-      { indexed: false, internalType: "contract ISablierV2NFTDescriptor", name: "oldNFTDescriptor", type: "address" },
-      { indexed: false, internalType: "contract ISablierV2NFTDescriptor", name: "newNFTDescriptor", type: "address" },
+      {
+        indexed: false,
+        internalType: "contract ISablierV2NFTDescriptor",
+        name: "oldNFTDescriptor",
+        type: "address",
+      },
+      {
+        indexed: false,
+        internalType: "contract ISablierV2NFTDescriptor",
+        name: "newNFTDescriptor",
+        type: "address",
+      },
     ],
     name: "SetNFTDescriptor",
     type: "event",

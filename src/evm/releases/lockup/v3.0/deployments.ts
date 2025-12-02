@@ -82,6 +82,13 @@ export const mainnets: Sablier.EVM.Deployment[] = [
     [manifest.SABLIER_BATCH_LOCKUP]: "0x80054b6797C5F657CaCaEC05E4890acfC4Ef79dB",
     [manifest.SABLIER_LOCKUP]: ["0x01Fed2aB51A830a3AF3AE1AB817dF1bA4F152bB0", 28737609],
   }),
+  get(chains.denergy.id, {
+    [manifest.HELPERS]: "0xd595D34ed96b253E7c7a934a7624F330a8411953",
+    [manifest.LOCKUP_MATH]: "0xB8aB2E66d5E4931e675CBE499d8c01B778694fd3",
+    [manifest.LOCKUP_NFT_DESCRIPTOR]: "0x4749dB4834be9b473D586Ad4d98133dAfC678313",
+    [manifest.SABLIER_BATCH_LOCKUP]: "0x6Fe81F4Bf1aF1b829f0E701647808f3Aa4b0BdE7",
+    [manifest.SABLIER_LOCKUP]: ["0x9f5d28C8ed7F09e65519C1f6f394e523524cA38F", 697808],
+  }),
   get(chains.gnosis.id, {
     [manifest.HELPERS]: "0xa0a1ac47260b95d334763473b868117ef7343aa0",
     [manifest.LOCKUP_MATH]: "0x1feb172238638897b13b69c65feb508a0a96b35d",

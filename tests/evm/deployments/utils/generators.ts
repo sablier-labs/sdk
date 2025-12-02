@@ -42,7 +42,11 @@ function expectZKContract(contract: BasicContract, zkBroadcast: ZKBroadcast): vo
  */
 type TestConfig<BD, CD> = {
   finder: (data: BD, contractName: string) => CD | null;
-  loader: (release: Sablier.EVM.Release, chain: Sablier.EVM.Chain, componentName?: string) => Promise<BD | null>;
+  loader: (
+    release: Sablier.EVM.Release,
+    chain: Sablier.EVM.Chain,
+    componentName?: string,
+  ) => Promise<BD | null>;
   expector: (contract: BasicContract, data: CD) => void;
 };
 
@@ -73,7 +77,11 @@ function createInnerTests<BD, CD>(
         if (!contractData) {
           // As a fallback, we check if this contract has already been validated. Some contracts
           // are shared between releases (e.g., Comptroller in Lockup v1.0 and v1.1).
-          const previouslyValidated = _.get(validatedContracts, [chain.id, contract.name, contract.address]);
+          const previouslyValidated = _.get(validatedContracts, [
+            chain.id,
+            contract.name,
+            contract.address,
+          ]);
           const message = `Contract ${contract.name} on ${chain.name} has not been found nor validated`;
           expect(previouslyValidated, message).toBeTruthy();
           return;
@@ -101,8 +109,22 @@ function createContractTests<BD, CD>(
   describe(`${chainName} (ID: ${chainId})`, () => {
     if (release.kind === "lockupV1") {
       const lockupV1Deployment = deployment as Sablier.EVM.Deployment.LockupV1;
-      createInnerTests("Contracts in core", testConfig, release, chain, lockupV1Deployment.core, "core");
-      createInnerTests("Contracts in periphery", testConfig, release, chain, lockupV1Deployment.periphery, "periphery");
+      createInnerTests(
+        "Contracts in core",
+        testConfig,
+        release,
+        chain,
+        lockupV1Deployment.core,
+        "core",
+      );
+      createInnerTests(
+        "Contracts in periphery",
+        testConfig,
+        release,
+        chain,
+        lockupV1Deployment.periphery,
+        "periphery",
+      );
     } else {
       createInnerTests("Contracts", testConfig, release, chain, deployment.contracts);
     }

@@ -40,14 +40,19 @@ export function createContractMapper<TContract, TProtocol, TVersion, TAddress ex
     const chain = chainsQueries.getOrThrow(chainId);
 
     return _.entries(contractMap).map(([name, addressOrTuple]) => {
-      const [address, blockNumber] = Array.isArray(addressOrTuple) ? addressOrTuple : [addressOrTuple];
+      const [address, blockNumber] = Array.isArray(addressOrTuple)
+        ? addressOrTuple
+        : [addressOrTuple];
 
       return {
         address,
         alias: aliasMap[name],
         block: blockNumber,
         chainId,
-        explorerURL: getContractExplorerURL(chain.blockExplorers.default.url, address as `0x${string}`),
+        explorerURL: getContractExplorerURL(
+          chain.blockExplorers.default.url,
+          address as `0x${string}`,
+        ),
         name,
         protocol,
         version,
@@ -68,7 +73,13 @@ export function createContractMapper<TContract, TProtocol, TVersion, TAddress ex
  * @param contractMapper - The contract mapper function
  * @param contractsField - Field name for contracts (e.g., 'contracts' for EVM, 'programs' for Solana)
  */
-export function createStandardDeploymentResolver<TDeployment, TContract, TProtocol, TVersion, TAddress extends string>(
+export function createStandardDeploymentResolver<
+  TDeployment,
+  TContract,
+  TProtocol,
+  TVersion,
+  TAddress extends string,
+>(
   contractMapper: ReturnType<typeof createContractMapper<TContract, TProtocol, TVersion, TAddress>>,
   contractsField: "contracts" | "programs" = "contracts",
 ) {

@@ -260,7 +260,12 @@
     "inputs": [
       { "indexed": true, "internalType": "uint256", "name": "streamId", "type": "uint256" },
       { "indexed": false, "internalType": "uint256", "name": "totalDebt", "type": "uint256" },
-      { "indexed": false, "internalType": "UD21x18", "name": "oldRatePerSecond", "type": "uint128" },
+      {
+        "indexed": false,
+        "internalType": "UD21x18",
+        "name": "oldRatePerSecond",
+        "type": "uint128"
+      },
       { "indexed": false, "internalType": "UD21x18", "name": "newRatePerSecond", "type": "uint128" }
     ],
     "name": "AdjustFlowStream",
@@ -322,7 +327,9 @@
   },
   {
     "anonymous": false,
-    "inputs": [{ "indexed": false, "internalType": "uint256", "name": "_tokenId", "type": "uint256" }],
+    "inputs": [
+      { "indexed": false, "internalType": "uint256", "name": "_tokenId", "type": "uint256" }
+    ],
     "name": "MetadataUpdate",
     "type": "event"
   },
@@ -340,7 +347,12 @@
   {
     "anonymous": false,
     "inputs": [
-      { "indexed": true, "internalType": "contract ISablierComptroller", "name": "comptroller", "type": "address" },
+      {
+        "indexed": true,
+        "internalType": "contract ISablierComptroller",
+        "name": "comptroller",
+        "type": "address"
+      },
       { "indexed": true, "internalType": "contract IERC20", "name": "token", "type": "address" },
       { "indexed": false, "internalType": "address", "name": "to", "type": "address" },
       { "indexed": false, "internalType": "uint256", "name": "surplus", "type": "uint256" }
@@ -371,8 +383,18 @@
   {
     "anonymous": false,
     "inputs": [
-      { "indexed": false, "internalType": "contract ISablierComptroller", "name": "oldComptroller", "type": "address" },
-      { "indexed": false, "internalType": "contract ISablierComptroller", "name": "newComptroller", "type": "address" }
+      {
+        "indexed": false,
+        "internalType": "contract ISablierComptroller",
+        "name": "oldComptroller",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "contract ISablierComptroller",
+        "name": "newComptroller",
+        "type": "address"
+      }
     ],
     "name": "SetComptroller",
     "type": "event"
@@ -380,14 +402,24 @@
   {
     "anonymous": false,
     "inputs": [
-      { "indexed": true, "internalType": "contract ISablierComptroller", "name": "comptroller", "type": "address" },
+      {
+        "indexed": true,
+        "internalType": "contract ISablierComptroller",
+        "name": "comptroller",
+        "type": "address"
+      },
       {
         "indexed": false,
         "internalType": "contract IFlowNFTDescriptor",
         "name": "oldNFTDescriptor",
         "type": "address"
       },
-      { "indexed": false, "internalType": "contract IFlowNFTDescriptor", "name": "newNFTDescriptor", "type": "address" }
+      {
+        "indexed": false,
+        "internalType": "contract IFlowNFTDescriptor",
+        "name": "newNFTDescriptor",
+        "type": "address"
+      }
     ],
     "name": "SetNFTDescriptor",
     "type": "event"
@@ -395,7 +427,12 @@
   {
     "anonymous": false,
     "inputs": [
-      { "indexed": true, "internalType": "contract ISablierComptroller", "name": "comptroller", "type": "address" },
+      {
+        "indexed": true,
+        "internalType": "contract ISablierComptroller",
+        "name": "comptroller",
+        "type": "address"
+      },
       { "indexed": false, "internalType": "address", "name": "nativeToken", "type": "address" }
     ],
     "name": "SetNativeToken",
@@ -414,7 +451,12 @@
   {
     "anonymous": false,
     "inputs": [
-      { "indexed": true, "internalType": "contract ISablierComptroller", "name": "comptroller", "type": "address" },
+      {
+        "indexed": true,
+        "internalType": "contract ISablierComptroller",
+        "name": "comptroller",
+        "type": "address"
+      },
       { "indexed": false, "internalType": "uint256", "name": "feeAmount", "type": "uint256" }
     ],
     "name": "TransferFeesToComptroller",
@@ -832,14 +874,26 @@
     "type": "function"
   },
   {
-    "inputs": [{ "internalType": "contract ISablierComptroller", "name": "newComptroller", "type": "address" }],
+    "inputs": [
+      {
+        "internalType": "contract ISablierComptroller",
+        "name": "newComptroller",
+        "type": "address"
+      }
+    ],
     "name": "setComptroller",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
-    "inputs": [{ "internalType": "contract IFlowNFTDescriptor", "name": "newNFTDescriptor", "type": "address" }],
+    "inputs": [
+      {
+        "internalType": "contract IFlowNFTDescriptor",
+        "name": "newNFTDescriptor",
+        "type": "address"
+      }
+    ],
     "name": "setNFTDescriptor",
     "outputs": [],
     "stateMutability": "nonpayable",

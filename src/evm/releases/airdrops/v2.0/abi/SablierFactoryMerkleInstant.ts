@@ -35,7 +35,12 @@ export const sablierFactoryMerkleInstantAbi = [
   {
     anonymous: false,
     inputs: [
-      { indexed: true, internalType: "contract ISablierMerkleInstant", name: "merkleInstant", type: "address" },
+      {
+        indexed: true,
+        internalType: "contract ISablierMerkleInstant",
+        name: "merkleInstant",
+        type: "address",
+      },
       {
         components: [
           { internalType: "string", name: "campaignName", type: "string" },
@@ -62,8 +67,18 @@ export const sablierFactoryMerkleInstantAbi = [
   {
     anonymous: false,
     inputs: [
-      { indexed: false, internalType: "contract ISablierComptroller", name: "oldComptroller", type: "address" },
-      { indexed: false, internalType: "contract ISablierComptroller", name: "newComptroller", type: "address" },
+      {
+        indexed: false,
+        internalType: "contract ISablierComptroller",
+        name: "oldComptroller",
+        type: "address",
+      },
+      {
+        indexed: false,
+        internalType: "contract ISablierComptroller",
+        name: "newComptroller",
+        type: "address",
+      },
     ],
     name: "SetComptroller",
     type: "event",
@@ -80,7 +95,12 @@ export const sablierFactoryMerkleInstantAbi = [
   {
     anonymous: false,
     inputs: [
-      { indexed: true, internalType: "contract ISablierComptroller", name: "comptroller", type: "address" },
+      {
+        indexed: true,
+        internalType: "contract ISablierComptroller",
+        name: "comptroller",
+        type: "address",
+      },
       { indexed: false, internalType: "uint256", name: "feeAmount", type: "uint256" },
     ],
     name: "TransferFeesToComptroller",
@@ -136,7 +156,9 @@ export const sablierFactoryMerkleInstantAbi = [
       { internalType: "uint256", name: "recipientCount", type: "uint256" },
     ],
     name: "createMerkleInstant",
-    outputs: [{ internalType: "contract ISablierMerkleInstant", name: "merkleInstant", type: "address" }],
+    outputs: [
+      { internalType: "contract ISablierMerkleInstant", name: "merkleInstant", type: "address" },
+    ],
     stateMutability: "nonpayable",
     type: "function",
   },
@@ -148,7 +170,9 @@ export const sablierFactoryMerkleInstantAbi = [
     type: "function",
   },
   {
-    inputs: [{ internalType: "contract ISablierComptroller", name: "newComptroller", type: "address" }],
+    inputs: [
+      { internalType: "contract ISablierComptroller", name: "newComptroller", type: "address" },
+    ],
     name: "setComptroller",
     outputs: [],
     stateMutability: "nonpayable",
@@ -161,5 +185,11 @@ export const sablierFactoryMerkleInstantAbi = [
     stateMutability: "nonpayable",
     type: "function",
   },
-  { inputs: [], name: "transferFeesToComptroller", outputs: [], stateMutability: "nonpayable", type: "function" },
+  {
+    inputs: [],
+    name: "transferFeesToComptroller",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
 ] as const;

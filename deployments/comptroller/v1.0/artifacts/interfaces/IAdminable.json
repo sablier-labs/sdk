@@ -211,7 +211,12 @@
             "modifiers": [],
             "name": "admin",
             "nameLocation": "1087:5:60",
-            "parameters": { "id": 61781, "nodeType": "ParameterList", "parameters": [], "src": "1092:2:60" },
+            "parameters": {
+              "id": 61781,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1092:2:60"
+            },
             "returnParameters": {
               "id": 61784,
               "nodeType": "ParameterList",
@@ -292,7 +297,12 @@
               ],
               "src": "1816:18:60"
             },
-            "returnParameters": { "id": 61790, "nodeType": "ParameterList", "parameters": [], "src": "1843:0:60" },
+            "returnParameters": {
+              "id": 61790,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1843:0:60"
+            },
             "scope": 61792,
             "stateMutability": "nonpayable",
             "virtual": false,

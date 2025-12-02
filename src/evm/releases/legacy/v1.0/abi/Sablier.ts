@@ -296,7 +296,12 @@ export const sablierAbi = [
       { indexed: true, internalType: "uint256", name: "streamId", type: "uint256" },
       { indexed: false, internalType: "uint256", name: "exchangeRate", type: "uint256" },
       { indexed: false, internalType: "uint256", name: "senderSharePercentage", type: "uint256" },
-      { indexed: false, internalType: "uint256", name: "recipientSharePercentage", type: "uint256" },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "recipientSharePercentage",
+        type: "uint256",
+      },
     ],
     name: "CreateCompoundingStream",
     type: "event",

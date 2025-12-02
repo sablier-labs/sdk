@@ -1,7 +1,10 @@
 /**
  * @file This file re-exports some of the Lockup v1.2 deployments as Airdrops v1.2 deployments.
  */
-import { mainnets as lockupMainnets, testnets as lockupTestnets } from "@src/evm/releases/lockup/v1.2/deployments";
+import {
+  mainnets as lockupMainnets,
+  testnets as lockupTestnets,
+} from "@src/evm/releases/lockup/v1.2/deployments";
 import type { Sablier } from "@src/types";
 import _ from "lodash";
 import manifest from "./manifest";

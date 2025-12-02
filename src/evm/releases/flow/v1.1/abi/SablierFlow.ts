@@ -2,7 +2,11 @@ export const sablierFlowAbi = [
   {
     inputs: [
       { internalType: "address", name: "initialAdmin", type: "address" },
-      { internalType: "contract IFlowNFTDescriptor", name: "initialNFTDescriptor", type: "address" },
+      {
+        internalType: "contract IFlowNFTDescriptor",
+        name: "initialNFTDescriptor",
+        type: "address",
+      },
     ],
     stateMutability: "nonpayable",
     type: "constructor",
@@ -438,7 +442,9 @@ export const sablierFlowAbi = [
     type: "function",
   },
   {
-    inputs: [{ internalType: "contract IFlowNFTDescriptor", name: "newNFTDescriptor", type: "address" }],
+    inputs: [
+      { internalType: "contract IFlowNFTDescriptor", name: "newNFTDescriptor", type: "address" },
+    ],
     name: "setNFTDescriptor",
     outputs: [],
     stateMutability: "nonpayable",
@@ -690,8 +696,18 @@ export const sablierFlowAbi = [
     anonymous: false,
     inputs: [
       { indexed: true, internalType: "address", name: "admin", type: "address" },
-      { indexed: false, internalType: "contract IFlowNFTDescriptor", name: "oldNFTDescriptor", type: "address" },
-      { indexed: false, internalType: "contract IFlowNFTDescriptor", name: "newNFTDescriptor", type: "address" },
+      {
+        indexed: false,
+        internalType: "contract IFlowNFTDescriptor",
+        name: "oldNFTDescriptor",
+        type: "address",
+      },
+      {
+        indexed: false,
+        internalType: "contract IFlowNFTDescriptor",
+        name: "newNFTDescriptor",
+        type: "address",
+      },
     ],
     name: "SetNFTDescriptor",
     type: "event",
@@ -752,7 +768,11 @@ export const sablierFlowAbi = [
     name: "WithdrawFromFlowStream",
     type: "event",
   },
-  { inputs: [{ internalType: "address", name: "target", type: "address" }], name: "AddressEmptyCode", type: "error" },
+  {
+    inputs: [{ internalType: "address", name: "target", type: "address" }],
+    name: "AddressEmptyCode",
+    type: "error",
+  },
   {
     inputs: [{ internalType: "address", name: "account", type: "address" }],
     name: "AddressInsufficientBalance",
@@ -794,7 +814,11 @@ export const sablierFlowAbi = [
     name: "ERC721InvalidOperator",
     type: "error",
   },
-  { inputs: [{ internalType: "address", name: "owner", type: "address" }], name: "ERC721InvalidOwner", type: "error" },
+  {
+    inputs: [{ internalType: "address", name: "owner", type: "address" }],
+    name: "ERC721InvalidOwner",
+    type: "error",
+  },
   {
     inputs: [{ internalType: "address", name: "receiver", type: "address" }],
     name: "ERC721InvalidReceiver",
@@ -899,7 +923,11 @@ export const sablierFlowAbi = [
     name: "SablierFlow_NotStreamSender",
     type: "error",
   },
-  { inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }], name: "SablierFlow_Null", type: "error" },
+  {
+    inputs: [{ internalType: "uint256", name: "streamId", type: "uint256" }],
+    name: "SablierFlow_Null",
+    type: "error",
+  },
   {
     inputs: [
       { internalType: "uint256", name: "streamId", type: "uint256" },

@@ -22,16 +22,32 @@ export const sablierV2MerkleStreamerFactoryAbi = [
       { internalType: "uint256", name: "recipientsCount", type: "uint256" },
     ],
     name: "createMerkleStreamerLL",
-    outputs: [{ internalType: "contract ISablierV2MerkleStreamerLL", name: "merkleStreamerLL", type: "address" }],
+    outputs: [
+      {
+        internalType: "contract ISablierV2MerkleStreamerLL",
+        name: "merkleStreamerLL",
+        type: "address",
+      },
+    ],
     stateMutability: "nonpayable",
     type: "function",
   },
   {
     anonymous: false,
     inputs: [
-      { indexed: false, internalType: "contract ISablierV2MerkleStreamerLL", name: "merkleStreamer", type: "address" },
+      {
+        indexed: false,
+        internalType: "contract ISablierV2MerkleStreamerLL",
+        name: "merkleStreamer",
+        type: "address",
+      },
       { indexed: true, internalType: "address", name: "admin", type: "address" },
-      { indexed: true, internalType: "contract ISablierV2LockupLinear", name: "lockupLinear", type: "address" },
+      {
+        indexed: true,
+        internalType: "contract ISablierV2LockupLinear",
+        name: "lockupLinear",
+        type: "address",
+      },
       { indexed: true, internalType: "contract IERC20", name: "asset", type: "address" },
       { indexed: false, internalType: "bytes32", name: "merkleRoot", type: "bytes32" },
       { indexed: false, internalType: "uint40", name: "expiration", type: "uint40" },

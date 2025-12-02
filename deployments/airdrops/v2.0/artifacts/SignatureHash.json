@@ -69,8 +69,12 @@
       "userdoc": {
         "kind": "user",
         "methods": {
-          "DOMAIN_TYPEHASH()": { "notice": "The domain type hash for computing the domain separator." },
-          "PROTOCOL_NAME()": { "notice": "The protocol name for the EIP-712 and EIP-1271 signatures." }
+          "DOMAIN_TYPEHASH()": {
+            "notice": "The domain type hash for computing the domain separator."
+          },
+          "PROTOCOL_NAME()": {
+            "notice": "The protocol name for the EIP-712 and EIP-1271 signatures."
+          }
         },
         "version": 1
       }
