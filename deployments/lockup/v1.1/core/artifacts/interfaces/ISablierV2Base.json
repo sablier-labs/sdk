@@ -25,7 +25,9 @@
       "type": "function",
       "name": "comptroller",
       "inputs": [],
-      "outputs": [{ "name": "", "type": "address", "internalType": "contract ISablierV2Comptroller" }],
+      "outputs": [
+        { "name": "", "type": "address", "internalType": "contract ISablierV2Comptroller" }
+      ],
       "stateMutability": "view"
     },
     {
@@ -38,7 +40,13 @@
     {
       "type": "function",
       "name": "setComptroller",
-      "inputs": [{ "name": "newComptroller", "type": "address", "internalType": "contract ISablierV2Comptroller" }],
+      "inputs": [
+        {
+          "name": "newComptroller",
+          "type": "address",
+          "internalType": "contract ISablierV2Comptroller"
+        }
+      ],
       "outputs": [],
       "stateMutability": "nonpayable"
     },
@@ -55,7 +63,12 @@
       "inputs": [
         { "name": "admin", "type": "address", "indexed": true, "internalType": "address" },
         { "name": "asset", "type": "address", "indexed": true, "internalType": "contract IERC20" },
-        { "name": "protocolRevenues", "type": "uint128", "indexed": false, "internalType": "uint128" }
+        {
+          "name": "protocolRevenues",
+          "type": "uint128",
+          "indexed": false,
+          "internalType": "uint128"
+        }
       ],
       "anonymous": false
     },
@@ -109,8 +122,18 @@
         {
           "inputs": [
             { "internalType": "address", "name": "admin", "type": "address", "indexed": true },
-            { "internalType": "contract IERC20", "name": "asset", "type": "address", "indexed": true },
-            { "internalType": "uint128", "name": "protocolRevenues", "type": "uint128", "indexed": false }
+            {
+              "internalType": "contract IERC20",
+              "name": "asset",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "uint128",
+              "name": "protocolRevenues",
+              "type": "uint128",
+              "indexed": false
+            }
           ],
           "type": "event",
           "name": "ClaimProtocolRevenues",
@@ -170,7 +193,9 @@
           "stateMutability": "view",
           "type": "function",
           "name": "comptroller",
-          "outputs": [{ "internalType": "contract ISablierV2Comptroller", "name": "", "type": "address" }]
+          "outputs": [
+            { "internalType": "contract ISablierV2Comptroller", "name": "", "type": "address" }
+          ]
         },
         {
           "inputs": [{ "internalType": "contract IERC20", "name": "asset", "type": "address" }],
@@ -180,7 +205,13 @@
           "outputs": [{ "internalType": "uint128", "name": "revenues", "type": "uint128" }]
         },
         {
-          "inputs": [{ "internalType": "contract ISablierV2Comptroller", "name": "newComptroller", "type": "address" }],
+          "inputs": [
+            {
+              "internalType": "contract ISablierV2Comptroller",
+              "name": "newComptroller",
+              "type": "address"
+            }
+          ],
           "stateMutability": "nonpayable",
           "type": "function",
           "name": "setComptroller"
@@ -198,9 +229,13 @@
           "MAX_FEE()": { "details": "This value is hard coded as a constant." },
           "claimProtocolRevenues(address)": {
             "details": "Emits a {ClaimProtocolRevenues} event. Requirements: - `msg.sender` must be the contract admin.",
-            "params": { "asset": "The contract address of the ERC-20 asset for which to claim protocol revenues." }
+            "params": {
+              "asset": "The contract address of the ERC-20 asset for which to claim protocol revenues."
+            }
           },
-          "protocolRevenues(address)": { "params": { "asset": "The contract address of the ERC-20 asset to query." } },
+          "protocolRevenues(address)": {
+            "params": { "asset": "The contract address of the ERC-20 asset to query." }
+          },
           "setComptroller(address)": {
             "details": "Emits a {SetComptroller} event. Notes: - Does not revert if the comptroller is the same. Requirements: - `msg.sender` must be the contract admin.",
             "params": { "newComptroller": "The address of the new comptroller contract." }
@@ -654,7 +689,10 @@
                   "src": "1095:20:85",
                   "stateVariable": false,
                   "storageLocation": "default",
-                  "typeDescriptions": { "typeIdentifier": "t_contract$_IERC20_$105", "typeString": "contract IERC20" },
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IERC20_$105",
+                    "typeString": "contract IERC20"
+                  },
                   "typeName": {
                     "id": 49269,
                     "nodeType": "UserDefinedTypeName",
@@ -668,7 +706,10 @@
                     },
                     "referencedDeclaration": 105,
                     "src": "1095:6:85",
-                    "typeDescriptions": { "typeIdentifier": "t_contract$_IERC20_$105", "typeString": "contract IERC20" }
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IERC20_$105",
+                      "typeString": "contract IERC20"
+                    }
                   },
                   "visibility": "internal"
                 },
@@ -833,7 +874,12 @@
             "modifiers": [],
             "name": "MAX_FEE",
             "nameLocation": "1995:7:85",
-            "parameters": { "id": 49287, "nodeType": "ParameterList", "parameters": [], "src": "2002:2:85" },
+            "parameters": {
+              "id": 49287,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2002:2:85"
+            },
             "returnParameters": {
               "id": 49291,
               "nodeType": "ParameterList",
@@ -898,7 +944,12 @@
             "modifiers": [],
             "name": "comptroller",
             "nameLocation": "2182:11:85",
-            "parameters": { "id": 49294, "nodeType": "ParameterList", "parameters": [], "src": "2193:2:85" },
+            "parameters": {
+              "id": 49294,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2193:2:85"
+            },
             "returnParameters": {
               "id": 49298,
               "nodeType": "ParameterList",
@@ -978,7 +1029,10 @@
                   "src": "2475:12:85",
                   "stateVariable": false,
                   "storageLocation": "default",
-                  "typeDescriptions": { "typeIdentifier": "t_contract$_IERC20_$105", "typeString": "contract IERC20" },
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IERC20_$105",
+                    "typeString": "contract IERC20"
+                  },
                   "typeName": {
                     "id": 49302,
                     "nodeType": "UserDefinedTypeName",
@@ -992,7 +1046,10 @@
                     },
                     "referencedDeclaration": 105,
                     "src": "2475:6:85",
-                    "typeDescriptions": { "typeIdentifier": "t_contract$_IERC20_$105", "typeString": "contract IERC20" }
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IERC20_$105",
+                      "typeString": "contract IERC20"
+                    }
                   },
                   "visibility": "internal"
                 }
@@ -1064,7 +1121,10 @@
                   "src": "3121:12:85",
                   "stateVariable": false,
                   "storageLocation": "default",
-                  "typeDescriptions": { "typeIdentifier": "t_contract$_IERC20_$105", "typeString": "contract IERC20" },
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IERC20_$105",
+                    "typeString": "contract IERC20"
+                  },
                   "typeName": {
                     "id": 49311,
                     "nodeType": "UserDefinedTypeName",
@@ -1078,14 +1138,22 @@
                     },
                     "referencedDeclaration": 105,
                     "src": "3121:6:85",
-                    "typeDescriptions": { "typeIdentifier": "t_contract$_IERC20_$105", "typeString": "contract IERC20" }
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IERC20_$105",
+                      "typeString": "contract IERC20"
+                    }
                   },
                   "visibility": "internal"
                 }
               ],
               "src": "3120:14:85"
             },
-            "returnParameters": { "id": 49314, "nodeType": "ParameterList", "parameters": [], "src": "3143:0:85" },
+            "returnParameters": {
+              "id": 49314,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3143:0:85"
+            },
             "scope": 49323,
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -1150,7 +1218,12 @@
               ],
               "src": "3566:38:85"
             },
-            "returnParameters": { "id": 49321, "nodeType": "ParameterList", "parameters": [], "src": "3613:0:85" },
+            "returnParameters": {
+              "id": 49321,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3613:0:85"
+            },
             "scope": 49323,
             "stateMutability": "nonpayable",
             "virtual": false,

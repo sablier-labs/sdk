@@ -20,7 +20,10 @@ function get(chainId: number, programMap: Sablier.Solana.ProgramMap): Sablier.So
  */
 export const mainnets: Sablier.Solana.Deployment[] = [
   get(chains.solanaMainnetBeta.id, {
-    [manifest.SABLIER_MERKLE_INSTANT]: ["7XrxoQejBoGouW4V3aozTSwub7xSDjYqB4Go7YLjF9rV", 365_675_848],
+    [manifest.SABLIER_MERKLE_INSTANT]: [
+      "7XrxoQejBoGouW4V3aozTSwub7xSDjYqB4Go7YLjF9rV",
+      365_675_848,
+    ],
   }),
 ];
 
@@ -29,6 +32,9 @@ export const mainnets: Sablier.Solana.Deployment[] = [
  */
 export const testnets: Sablier.Solana.Deployment[] = [
   get(chains.solanaDevnet.id, {
-    [manifest.SABLIER_MERKLE_INSTANT]: ["7XrxoQejBoGouW4V3aozTSwub7xSDjYqB4Go7YLjF9rV", 408_019_095],
+    [manifest.SABLIER_MERKLE_INSTANT]: [
+      "7XrxoQejBoGouW4V3aozTSwub7xSDjYqB4Go7YLjF9rV",
+      408_019_095,
+    ],
   }),
 ];

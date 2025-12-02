@@ -16,7 +16,11 @@ export const sablierV2MerkleLTAbi = [
         name: "baseParams",
         type: "tuple",
       },
-      { internalType: "contract ISablierV2LockupTranched", name: "lockupTranched", type: "address" },
+      {
+        internalType: "contract ISablierV2LockupTranched",
+        name: "lockupTranched",
+        type: "address",
+      },
       {
         components: [
           { internalType: "UD2x18", name: "unlockPercentage", type: "uint64" },
@@ -197,7 +201,11 @@ export const sablierV2MerkleLTAbi = [
     name: "TransferAdmin",
     type: "event",
   },
-  { inputs: [{ internalType: "address", name: "target", type: "address" }], name: "AddressEmptyCode", type: "error" },
+  {
+    inputs: [{ internalType: "address", name: "target", type: "address" }],
+    name: "AddressEmptyCode",
+    type: "error",
+  },
   {
     inputs: [{ internalType: "address", name: "account", type: "address" }],
     name: "AddressInsufficientBalance",

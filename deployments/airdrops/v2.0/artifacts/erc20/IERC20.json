@@ -208,7 +208,9 @@
       ],
       "optimizer": { "enabled": true, "runs": 100000000 },
       "metadata": { "bytecodeHash": "ipfs" },
-      "compilationTarget": { "node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": "IERC20" },
+      "compilationTarget": {
+        "node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": "IERC20"
+      },
       "evmVersion": "shanghai",
       "libraries": {},
       "viaIR": true

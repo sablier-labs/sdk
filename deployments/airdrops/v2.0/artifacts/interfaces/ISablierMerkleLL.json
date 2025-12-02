@@ -279,7 +279,12 @@
       "inputs": [
         { "name": "comptroller", "type": "address", "indexed": true, "internalType": "address" },
         { "name": "newMinFeeUSD", "type": "uint256", "indexed": false, "internalType": "uint256" },
-        { "name": "previousMinFeeUSD", "type": "uint256", "indexed": false, "internalType": "uint256" }
+        {
+          "name": "previousMinFeeUSD",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        }
       ],
       "anonymous": false
     },
@@ -371,9 +376,24 @@
         },
         {
           "inputs": [
-            { "internalType": "address", "name": "comptroller", "type": "address", "indexed": true },
-            { "internalType": "uint256", "name": "newMinFeeUSD", "type": "uint256", "indexed": false },
-            { "internalType": "uint256", "name": "previousMinFeeUSD", "type": "uint256", "indexed": false }
+            {
+              "internalType": "address",
+              "name": "comptroller",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "uint256",
+              "name": "newMinFeeUSD",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "uint256",
+              "name": "previousMinFeeUSD",
+              "type": "uint256",
+              "indexed": false
+            }
           ],
           "type": "event",
           "name": "LowerMinFeeUSD",
@@ -663,13 +683,18 @@
           },
           "clawback(address,uint128)": {
             "details": "Emits a {Clawback} event. Requirements: - `msg.sender` must be the admin. - No claim must be made, OR   The current timestamp must not exceed 7 days after the first claim, OR   The campaign must be expired.",
-            "params": { "amount": "The amount of tokens to claw back.", "to": "The address to receive the tokens." }
+            "params": {
+              "amount": "The amount of tokens to claw back.",
+              "to": "The address to receive the tokens."
+            }
           },
           "hasClaimed(uint256)": {
             "details": "Uses a bitmap to save gas.",
             "params": { "index": "The index of the recipient to check." }
           },
-          "ipfsCID()": { "details": "An empty value may break certain UI features that depend upon the IPFS CID." },
+          "ipfsCID()": {
+            "details": "An empty value may break certain UI features that depend upon the IPFS CID."
+          },
           "lowerMinFeeUSD(uint256)": {
             "details": "Emits a {LowerMinFeeUSD} event. Requirements: - `msg.sender` must be the comptroller. - The new fee must be less than the current {minFeeUSD}.",
             "params": { "newMinFeeUSD": "The new min USD fee to set, denominated in 8 decimals." }
@@ -687,7 +712,9 @@
       "userdoc": {
         "kind": "user",
         "methods": {
-          "CAMPAIGN_START_TIME()": { "notice": "The timestamp at which campaign starts and claim begins." },
+          "CAMPAIGN_START_TIME()": {
+            "notice": "The timestamp at which campaign starts and claim begins."
+          },
           "COMPTROLLER()": { "notice": "Retrieves the address of the comptroller contract." },
           "EXPIRATION()": {
             "notice": "The cut-off point for the campaign, as a Unix timestamp. A value of zero means there is no expiration."
@@ -695,12 +722,20 @@
           "IS_SABLIER_MERKLE()": {
             "notice": "Returns `true` indicating that this campaign contract is deployed using the Sablier Factory."
           },
-          "MERKLE_ROOT()": { "notice": "The root of the Merkle tree used to validate the proofs of inclusion." },
+          "MERKLE_ROOT()": {
+            "notice": "The root of the Merkle tree used to validate the proofs of inclusion."
+          },
           "SABLIER_LOCKUP()": { "notice": "The address of the {SablierLockup} contract." },
-          "STREAM_CANCELABLE()": { "notice": "A flag indicating whether the streams can be canceled." },
-          "STREAM_TRANSFERABLE()": { "notice": "A flag indicating whether the stream NFTs are transferable." },
+          "STREAM_CANCELABLE()": {
+            "notice": "A flag indicating whether the streams can be canceled."
+          },
+          "STREAM_TRANSFERABLE()": {
+            "notice": "A flag indicating whether the stream NFTs are transferable."
+          },
           "TOKEN()": { "notice": "The ERC-20 token to distribute." },
-          "VESTING_CLIFF_DURATION()": { "notice": "Retrieves the cliff duration of the vesting stream, in seconds." },
+          "VESTING_CLIFF_DURATION()": {
+            "notice": "Retrieves the cliff duration of the vesting stream, in seconds."
+          },
           "VESTING_CLIFF_UNLOCK_PERCENTAGE()": {
             "notice": "Retrieves the percentage of the claim amount due to be unlocked at the vesting cliff time, as a fixed-point number where 1e18 is 100%."
           },
@@ -710,9 +745,13 @@
           "VESTING_START_UNLOCK_PERCENTAGE()": {
             "notice": "Retrieves the percentage of the claim amount due to be unlocked at the vesting start time, as a fixed-point number where 1e18 is 100%."
           },
-          "VESTING_TOTAL_DURATION()": { "notice": "Retrieves the total duration of the vesting stream, in seconds." },
+          "VESTING_TOTAL_DURATION()": {
+            "notice": "Retrieves the total duration of the vesting stream, in seconds."
+          },
           "admin()": { "notice": "The address of the admin account or contract." },
-          "calculateMinFeeWei()": { "notice": "Calculates the minimum fee in wei required to claim the airdrop." },
+          "calculateMinFeeWei()": {
+            "notice": "Calculates the minimum fee in wei required to claim the airdrop."
+          },
           "campaignName()": { "notice": "Retrieves the name of the campaign." },
           "claim(uint256,address,uint128,bytes32[])": {
             "notice": "Claim airdrop on behalf of eligible recipient. If the vesting end time is in the future, it creates a Lockup Linear stream, otherwise it transfers the tokens directly to the recipient address."
@@ -736,13 +775,17 @@
           "hasClaimed(uint256)": {
             "notice": "Returns a flag indicating whether a claim has been made for a given index."
           },
-          "hasExpired()": { "notice": "Returns a flag indicating whether the campaign has expired." },
+          "hasExpired()": {
+            "notice": "Returns a flag indicating whether the campaign has expired."
+          },
           "ipfsCID()": { "notice": "The content identifier for indexing the campaign on IPFS." },
           "lowerMinFeeUSD(uint256)": { "notice": "Lowers the min USD fee." },
           "minFeeUSD()": {
             "notice": "Retrieves the min USD fee required to claim the airdrop, denominated in 8 decimals."
           },
-          "streamShape()": { "notice": "Retrieves the shape of the Lockup stream created upon claiming." },
+          "streamShape()": {
+            "notice": "Retrieves the shape of the Lockup stream created upon claiming."
+          },
           "transferAdmin(address)": { "notice": "Transfers the contract admin to a new address." }
         },
         "version": 1

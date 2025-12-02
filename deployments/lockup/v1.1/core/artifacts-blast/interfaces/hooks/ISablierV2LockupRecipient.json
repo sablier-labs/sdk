@@ -127,7 +127,9 @@
       ],
       "optimizer": { "enabled": true, "runs": 1000 },
       "metadata": { "bytecodeHash": "none" },
-      "compilationTarget": { "src/interfaces/hooks/ISablierV2LockupRecipient.sol": "ISablierV2LockupRecipient" },
+      "compilationTarget": {
+        "src/interfaces/hooks/ISablierV2LockupRecipient.sol": "ISablierV2LockupRecipient"
+      },
       "evmVersion": "paris",
       "libraries": {},
       "viaIR": true

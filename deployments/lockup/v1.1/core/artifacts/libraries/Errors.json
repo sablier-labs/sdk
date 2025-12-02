@@ -638,7 +638,12 @@
   "ast": {
     "absolutePath": "src/libraries/Errors.sol",
     "id": 50214,
-    "exportedSymbols": { "Errors": [50213], "IERC20": [105], "IERC721Metadata": [1630], "UD60x18": [10380] },
+    "exportedSymbols": {
+      "Errors": [50213],
+      "IERC20": [105],
+      "IERC721Metadata": [1630],
+      "UD60x18": [10380]
+    },
     "nodeType": "SourceUnit",
     "src": "45:7192:94",
     "nodes": [
@@ -812,7 +817,12 @@
             "errorSelector": "a1c0d6e5",
             "name": "DelegateCall",
             "nameLocation": "850:12:94",
-            "parameters": { "id": 50030, "nodeType": "ParameterList", "parameters": [], "src": "862:2:94" }
+            "parameters": {
+              "id": 50030,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "862:2:94"
+            }
           },
           {
             "id": 50037,
@@ -843,7 +853,10 @@
                   "src": "1224:12:94",
                   "stateVariable": false,
                   "storageLocation": "default",
-                  "typeDescriptions": { "typeIdentifier": "t_contract$_IERC20_$105", "typeString": "contract IERC20" },
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IERC20_$105",
+                    "typeString": "contract IERC20"
+                  },
                   "typeName": {
                     "id": 50034,
                     "nodeType": "UserDefinedTypeName",
@@ -857,7 +870,10 @@
                     },
                     "referencedDeclaration": 105,
                     "src": "1224:6:94",
-                    "typeDescriptions": { "typeIdentifier": "t_contract$_IERC20_$105", "typeString": "contract IERC20" }
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IERC20_$105",
+                      "typeString": "contract IERC20"
+                    }
                   },
                   "visibility": "internal"
                 }
@@ -894,7 +910,10 @@
                   "src": "1578:12:94",
                   "stateVariable": false,
                   "storageLocation": "default",
-                  "typeDescriptions": { "typeIdentifier": "t_contract$_IERC20_$105", "typeString": "contract IERC20" },
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IERC20_$105",
+                    "typeString": "contract IERC20"
+                  },
                   "typeName": {
                     "id": 50040,
                     "nodeType": "UserDefinedTypeName",
@@ -908,7 +927,10 @@
                     },
                     "referencedDeclaration": 105,
                     "src": "1578:6:94",
-                    "typeDescriptions": { "typeIdentifier": "t_contract$_IERC20_$105", "typeString": "contract IERC20" }
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IERC20_$105",
+                      "typeString": "contract IERC20"
+                    }
                   },
                   "visibility": "internal"
                 }
@@ -1016,7 +1038,12 @@
             "errorSelector": "62f947c3",
             "name": "SablierV2FlashLoan_FlashBorrowFail",
             "nameLocation": "1996:34:94",
-            "parameters": { "id": 50055, "nodeType": "ParameterList", "parameters": [], "src": "2030:2:94" }
+            "parameters": {
+              "id": 50055,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2030:2:94"
+            }
           },
           {
             "id": 50065,
@@ -1124,7 +1151,12 @@
             "errorSelector": "6095d3bc",
             "name": "SablierV2Lockup_DepositAmountZero",
             "nameLocation": "2497:33:94",
-            "parameters": { "id": 50067, "nodeType": "ParameterList", "parameters": [], "src": "2530:2:94" }
+            "parameters": {
+              "id": 50067,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2530:2:94"
+            }
           },
           {
             "id": 50075,
@@ -1941,7 +1973,12 @@
             "errorSelector": "c61a0e9e",
             "name": "SablierV2Lockup_WithdrawToZeroAddress",
             "nameLocation": "4887:37:94",
-            "parameters": { "id": 50158, "nodeType": "ParameterList", "parameters": [], "src": "4924:2:94" }
+            "parameters": {
+              "id": 50158,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "4924:2:94"
+            }
           },
           {
             "id": 50166,
@@ -2064,7 +2101,12 @@
             "errorSelector": "3952c64e",
             "name": "SablierV2LockupDynamic_SegmentCountZero",
             "nameLocation": "5667:39:94",
-            "parameters": { "id": 50173, "nodeType": "ParameterList", "parameters": [], "src": "5706:2:94" }
+            "parameters": {
+              "id": 50173,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "5706:2:94"
+            }
           },
           {
             "id": 50183,
@@ -2407,13 +2449,19 @@
                   "src": "7219:13:94",
                   "stateVariable": false,
                   "storageLocation": "default",
-                  "typeDescriptions": { "typeIdentifier": "t_string_memory_ptr", "typeString": "string" },
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
                   "typeName": {
                     "id": 50209,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "7219:6:94",
-                    "typeDescriptions": { "typeIdentifier": "t_string_storage_ptr", "typeString": "string" }
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
                   },
                   "visibility": "internal"
                 }
@@ -2439,9 +2487,9 @@
         "nameLocation": "407:6:94",
         "scope": 50214,
         "usedErrors": [
-          50028, 50031, 50037, 50043, 50048, 50053, 50056, 50065, 50068, 50075, 50084, 50089, 50094, 50103, 50112,
-          50117, 50122, 50127, 50132, 50137, 50144, 50149, 50156, 50159, 50166, 50171, 50174, 50183, 50190, 50197,
-          50204, 50212
+          50028, 50031, 50037, 50043, 50048, 50053, 50056, 50065, 50068, 50075, 50084, 50089, 50094,
+          50103, 50112, 50117, 50122, 50127, 50132, 50137, 50144, 50149, 50156, 50159, 50166, 50171,
+          50174, 50183, 50190, 50197, 50204, 50212
         ],
         "usedEvents": []
       }

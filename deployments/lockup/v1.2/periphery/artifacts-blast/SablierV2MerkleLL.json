@@ -18,7 +18,11 @@
             { "name": "transferable", "type": "bool", "internalType": "bool" }
           ]
         },
-        { "name": "lockupLinear", "type": "address", "internalType": "contract ISablierV2LockupLinear" },
+        {
+          "name": "lockupLinear",
+          "type": "address",
+          "internalType": "contract ISablierV2LockupLinear"
+        },
         {
           "name": "streamDurations_",
           "type": "tuple",
@@ -56,7 +60,9 @@
       "type": "function",
       "name": "LOCKUP_LINEAR",
       "inputs": [],
-      "outputs": [{ "name": "", "type": "address", "internalType": "contract ISablierV2LockupLinear" }],
+      "outputs": [
+        { "name": "", "type": "address", "internalType": "contract ISablierV2LockupLinear" }
+      ],
       "stateMutability": "view"
     },
     {
@@ -298,7 +304,11 @@
     "linkReferences": {},
     "immutableReferences": {
       "64511": [{ "start": 702, "length": 32 }, { "start": 3104, "length": 32 }],
-      "65317": [{ "start": 2074, "length": 32 }, { "start": 2671, "length": 32 }, { "start": 4218, "length": 32 }],
+      "65317": [
+        { "start": 2074, "length": 32 },
+        { "start": 2671, "length": 32 },
+        { "start": 4218, "length": 32 }
+      ],
       "65321": [{ "start": 2733, "length": 32 }, { "start": 3945, "length": 32 }],
       "65325": [
         { "start": 409, "length": 32 },
@@ -357,7 +367,11 @@
                 { "internalType": "bool", "name": "transferable", "type": "bool" }
               ]
             },
-            { "internalType": "contract ISablierV2LockupLinear", "name": "lockupLinear", "type": "address" },
+            {
+              "internalType": "contract ISablierV2LockupLinear",
+              "name": "lockupLinear",
+              "type": "address"
+            },
             {
               "internalType": "struct LockupLinear.Durations",
               "name": "streamDurations_",
@@ -482,7 +496,9 @@
           "stateMutability": "view",
           "type": "function",
           "name": "LOCKUP_LINEAR",
-          "outputs": [{ "internalType": "contract ISablierV2LockupLinear", "name": "", "type": "address" }]
+          "outputs": [
+            { "internalType": "contract ISablierV2LockupLinear", "name": "", "type": "address" }
+          ]
         },
         {
           "inputs": [],
@@ -558,7 +574,9 @@
           "name": "configureYieldAndGas"
         },
         {
-          "inputs": [{ "internalType": "contract IERC20Rebasing", "name": "asset", "type": "address" }],
+          "inputs": [
+            { "internalType": "contract IERC20Rebasing", "name": "asset", "type": "address" }
+          ],
           "stateMutability": "view",
           "type": "function",
           "name": "getClaimableRebasingAssetYield",
@@ -572,7 +590,9 @@
           "outputs": [{ "internalType": "uint40", "name": "", "type": "uint40" }]
         },
         {
-          "inputs": [{ "internalType": "contract IERC20Rebasing", "name": "asset", "type": "address" }],
+          "inputs": [
+            { "internalType": "contract IERC20Rebasing", "name": "asset", "type": "address" }
+          ],
           "stateMutability": "view",
           "type": "function",
           "name": "getRebasingAssetConfiguration",
@@ -647,7 +667,10 @@
           },
           "clawback(address,uint128)": {
             "details": "Emits a {Clawback} event. Requirements: - The caller must be the admin. - No claim must be made, OR   The current timestamp must not exceed 7 days after the first claim, OR   The campaign must be expired.",
-            "params": { "amount": "The amount of tokens to claw back.", "to": "The address to receive the tokens." }
+            "params": {
+              "amount": "The amount of tokens to claw back.",
+              "to": "The address to receive the tokens."
+            }
           },
           "configureRebasingAsset(address,uint8)": {
             "details": "Reverts if `msg.sender` is not the contract admin.",
@@ -696,8 +719,12 @@
             "notice": "The cut-off point for the campaign, as a Unix timestamp. A value of zero means there is no expiration."
           },
           "LOCKUP_LINEAR()": { "notice": "The address of the {SablierV2LockupLinear} contract." },
-          "MERKLE_ROOT()": { "notice": "The root of the Merkle tree used to validate the proofs of inclusion." },
-          "TRANSFERABLE()": { "notice": "A flag indicating whether the stream NFTs are transferable." },
+          "MERKLE_ROOT()": {
+            "notice": "The root of the Merkle tree used to validate the proofs of inclusion."
+          },
+          "TRANSFERABLE()": {
+            "notice": "A flag indicating whether the stream NFTs are transferable."
+          },
           "admin()": { "notice": "The address of the admin account or contract." },
           "claim(uint256,address,uint128,bytes32[])": {
             "notice": "Makes the claim by creating a LockupLinear stream to the recipient. A stream NFT is minted to the recipient."
@@ -705,22 +732,30 @@
           "claimRebasingAssetYield(address,uint256,address)": {
             "notice": "Claim the provided amount of yield assets to the `to` address."
           },
-          "clawback(address,uint128)": { "notice": "Claws back the unclaimed tokens from the campaign." },
-          "configureRebasingAsset(address,uint8)": { "notice": "Sets the yield mode for a rebasing ERC-20 asset." },
+          "clawback(address,uint128)": {
+            "notice": "Claws back the unclaimed tokens from the campaign."
+          },
+          "configureRebasingAsset(address,uint8)": {
+            "notice": "Sets the yield mode for a rebasing ERC-20 asset."
+          },
           "configureYieldAndGas(address,uint8,uint8,address)": {
             "notice": "configures yield and gas modes and sets the governor."
           },
           "getClaimableRebasingAssetYield(address)": {
             "notice": "Retrieves the claimable yield from rebasing `asset`."
           },
-          "getFirstClaimTime()": { "notice": "Returns the timestamp when the first claim is made." },
+          "getFirstClaimTime()": {
+            "notice": "Returns the timestamp when the first claim is made."
+          },
           "getRebasingAssetConfiguration(address)": {
             "notice": "Retrieves the configured yield mode from rebasing `asset`."
           },
           "hasClaimed(uint256)": {
             "notice": "Returns a flag indicating whether a claim has been made for a given index."
           },
-          "hasExpired()": { "notice": "Returns a flag indicating whether the campaign has expired." },
+          "hasExpired()": {
+            "notice": "Returns a flag indicating whether the campaign has expired."
+          },
           "ipfsCID()": { "notice": "The content identifier for indexing the campaign on IPFS." },
           "name()": { "notice": "Retrieves the name of the campaign." },
           "streamDurations()": { "notice": "The total streaming duration of each stream." },

@@ -127,7 +127,9 @@
       ],
       "optimizer": { "enabled": true, "runs": 1000 },
       "metadata": { "bytecodeHash": "none" },
-      "compilationTarget": { "src/interfaces/hooks/ISablierV2LockupRecipient.sol": "ISablierV2LockupRecipient" },
+      "compilationTarget": {
+        "src/interfaces/hooks/ISablierV2LockupRecipient.sol": "ISablierV2LockupRecipient"
+      },
       "libraries": {},
       "viaIR": true
     },
@@ -271,7 +273,12 @@
               ],
               "src": "1055:119:93"
             },
-            "returnParameters": { "id": 49992, "nodeType": "ParameterList", "parameters": [], "src": "1191:0:93" },
+            "returnParameters": {
+              "id": 49992,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1191:0:93"
+            },
             "scope": 50012,
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -322,7 +329,12 @@
               ],
               "src": "1444:18:93"
             },
-            "returnParameters": { "id": 49998, "nodeType": "ParameterList", "parameters": [], "src": "1471:0:93" },
+            "returnParameters": {
+              "id": 49998,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1471:0:93"
+            },
             "scope": 50012,
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -438,7 +450,12 @@
               ],
               "src": "2045:62:93"
             },
-            "returnParameters": { "id": 50010, "nodeType": "ParameterList", "parameters": [], "src": "2116:0:93" },
+            "returnParameters": {
+              "id": 50010,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2116:0:93"
+            },
             "scope": 50012,
             "stateMutability": "nonpayable",
             "virtual": false,

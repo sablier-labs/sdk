@@ -40,7 +40,10 @@ describe("Block numbers correspond to Etherscan data", () => {
   /**
    * Fetches contract creation block number from Etherscan API
    */
-  async function getContractCreationBlock(address: string, chainId: number): Promise<number | undefined> {
+  async function getContractCreationBlock(
+    address: string,
+    chainId: number,
+  ): Promise<number | undefined> {
     const addressLower = address.toLowerCase();
     const apiURL = getEtherscanContractCreationUrl({
       chainId,

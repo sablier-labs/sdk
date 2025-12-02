@@ -233,7 +233,12 @@
       "inputs": [
         { "name": "comptroller", "type": "address", "indexed": true, "internalType": "address" },
         { "name": "newMinFeeUSD", "type": "uint256", "indexed": false, "internalType": "uint256" },
-        { "name": "previousMinFeeUSD", "type": "uint256", "indexed": false, "internalType": "uint256" }
+        {
+          "name": "previousMinFeeUSD",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        }
       ],
       "anonymous": false
     },
@@ -287,8 +292,18 @@
           "inputs": [
             { "internalType": "uint256", "name": "index", "type": "uint256", "indexed": false },
             { "internalType": "address", "name": "recipient", "type": "address", "indexed": true },
-            { "internalType": "uint128", "name": "claimAmount", "type": "uint128", "indexed": false },
-            { "internalType": "uint128", "name": "forgoneAmount", "type": "uint128", "indexed": false },
+            {
+              "internalType": "uint128",
+              "name": "claimAmount",
+              "type": "uint128",
+              "indexed": false
+            },
+            {
+              "internalType": "uint128",
+              "name": "forgoneAmount",
+              "type": "uint128",
+              "indexed": false
+            },
             { "internalType": "address", "name": "to", "type": "address", "indexed": false },
             { "internalType": "bool", "name": "viaSig", "type": "bool", "indexed": false }
           ],
@@ -308,9 +323,24 @@
         },
         {
           "inputs": [
-            { "internalType": "address", "name": "comptroller", "type": "address", "indexed": true },
-            { "internalType": "uint256", "name": "newMinFeeUSD", "type": "uint256", "indexed": false },
-            { "internalType": "uint256", "name": "previousMinFeeUSD", "type": "uint256", "indexed": false }
+            {
+              "internalType": "address",
+              "name": "comptroller",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "uint256",
+              "name": "newMinFeeUSD",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "uint256",
+              "name": "previousMinFeeUSD",
+              "type": "uint256",
+              "indexed": false
+            }
           ],
           "type": "event",
           "name": "LowerMinFeeUSD",
@@ -539,7 +569,9 @@
               "claimTime": "A hypothetical time at which to make the claim. Zero is a sentinel value for `block.timestamp`.",
               "fullAmount": "The amount of tokens allocated to a user, denominated in the token's decimals."
             },
-            "returns": { "_0": "The amount that would be claimed, denominated in the token's decimals." }
+            "returns": {
+              "_0": "The amount that would be claimed, denominated in the token's decimals."
+            }
           },
           "calculateForgoneAmount(uint128,uint40)": {
             "details": "This is for informational purposes only. Reverts if the claim time is less than the vesting start time, since the claim cannot be made, no amount can be forgone.",
@@ -547,7 +579,9 @@
               "claimTime": "A hypothetical time at which to make the claim. Zero is a sentinel value for `block.timestamp`.",
               "fullAmount": "The amount of tokens allocated to a user, denominated in the token's decimals."
             },
-            "returns": { "_0": "The amount that would be forgone, denominated in the token's decimals." }
+            "returns": {
+              "_0": "The amount that would be forgone, denominated in the token's decimals."
+            }
           },
           "claimTo(uint256,address,uint128,bytes32[])": {
             "details": "It emits a {ClaimVCA} event. Requirements: - The current time must be greater than or equal to the campaign start time. - The campaign must not have expired. - `msg.value` must not be less than the value returned by {COMPTROLLER.calculateMinFeeWei}. - The `index` must not be claimed already. - The Merkle proof must be valid. - The claim amount must be greater than zero. - `msg.sender` must be the airdrop recipient. - The `to` must not be the zero address.",
@@ -572,13 +606,18 @@
           },
           "clawback(address,uint128)": {
             "details": "Emits a {Clawback} event. Requirements: - `msg.sender` must be the admin. - No claim must be made, OR   The current timestamp must not exceed 7 days after the first claim, OR   The campaign must be expired.",
-            "params": { "amount": "The amount of tokens to claw back.", "to": "The address to receive the tokens." }
+            "params": {
+              "amount": "The amount of tokens to claw back.",
+              "to": "The address to receive the tokens."
+            }
           },
           "hasClaimed(uint256)": {
             "details": "Uses a bitmap to save gas.",
             "params": { "index": "The index of the recipient to check." }
           },
-          "ipfsCID()": { "details": "An empty value may break certain UI features that depend upon the IPFS CID." },
+          "ipfsCID()": {
+            "details": "An empty value may break certain UI features that depend upon the IPFS CID."
+          },
           "lowerMinFeeUSD(uint256)": {
             "details": "Emits a {LowerMinFeeUSD} event. Requirements: - `msg.sender` must be the comptroller. - The new fee must be less than the current {minFeeUSD}.",
             "params": { "newMinFeeUSD": "The new min USD fee to set, denominated in 8 decimals." }
@@ -596,7 +635,9 @@
       "userdoc": {
         "kind": "user",
         "methods": {
-          "CAMPAIGN_START_TIME()": { "notice": "The timestamp at which campaign starts and claim begins." },
+          "CAMPAIGN_START_TIME()": {
+            "notice": "The timestamp at which campaign starts and claim begins."
+          },
           "COMPTROLLER()": { "notice": "Retrieves the address of the comptroller contract." },
           "EXPIRATION()": {
             "notice": "The cut-off point for the campaign, as a Unix timestamp. A value of zero means there is no expiration."
@@ -604,7 +645,9 @@
           "IS_SABLIER_MERKLE()": {
             "notice": "Returns `true` indicating that this campaign contract is deployed using the Sablier Factory."
           },
-          "MERKLE_ROOT()": { "notice": "The root of the Merkle tree used to validate the proofs of inclusion." },
+          "MERKLE_ROOT()": {
+            "notice": "The root of the Merkle tree used to validate the proofs of inclusion."
+          },
           "TOKEN()": { "notice": "The ERC-20 token to distribute." },
           "UNLOCK_PERCENTAGE()": {
             "notice": "Retrieves the percentage of the full amount that will unlock immediately at the start time. The value is denominated as a fixed-point number where 1e18 is 100%."
@@ -622,7 +665,9 @@
           "calculateForgoneAmount(uint128,uint40)": {
             "notice": "Calculates the amount that would be forgone if the claim were made at `claimTime`."
           },
-          "calculateMinFeeWei()": { "notice": "Calculates the minimum fee in wei required to claim the airdrop." },
+          "calculateMinFeeWei()": {
+            "notice": "Calculates the minimum fee in wei required to claim the airdrop."
+          },
           "campaignName()": { "notice": "Retrieves the name of the campaign." },
           "claimTo(uint256,address,uint128,bytes32[])": {
             "notice": "Claim airdrop. If the vesting end time is in the future, it calculates the claim amount to transfer to the `to` address, otherwise it transfers the full amount."
@@ -640,13 +685,17 @@
           "hasClaimed(uint256)": {
             "notice": "Returns a flag indicating whether a claim has been made for a given index."
           },
-          "hasExpired()": { "notice": "Returns a flag indicating whether the campaign has expired." },
+          "hasExpired()": {
+            "notice": "Returns a flag indicating whether the campaign has expired."
+          },
           "ipfsCID()": { "notice": "The content identifier for indexing the campaign on IPFS." },
           "lowerMinFeeUSD(uint256)": { "notice": "Lowers the min USD fee." },
           "minFeeUSD()": {
             "notice": "Retrieves the min USD fee required to claim the airdrop, denominated in 8 decimals."
           },
-          "totalForgoneAmount()": { "notice": "Retrieves the total amount of tokens forgone by early claimers." },
+          "totalForgoneAmount()": {
+            "notice": "Retrieves the total amount of tokens forgone by early claimers."
+          },
           "transferAdmin(address)": { "notice": "Transfers the contract admin to a new address." }
         },
         "version": 1

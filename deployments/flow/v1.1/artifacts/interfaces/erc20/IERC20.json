@@ -236,7 +236,9 @@
           "name()": { "notice": "Returns the name of the token." },
           "symbol()": { "notice": "Returns the symbol of the token." },
           "totalSupply()": { "notice": "Returns the amount of tokens in existence." },
-          "transfer(address,uint256)": { "notice": "Moves `amount` tokens from the caller's account to `to`." },
+          "transfer(address,uint256)": {
+            "notice": "Moves `amount` tokens from the caller's account to `to`."
+          },
           "transferFrom(address,address,uint256)": {
             "notice": "Moves `amount` tokens from `from` to `to` using the allowance mechanism. `amount` is then deducted from the caller's allowance."
           }

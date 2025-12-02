@@ -1,5 +1,8 @@
 import { getNestedValues } from "@src/helpers";
-import { createContractMapper, createStandardDeploymentResolver } from "@src/internal/factories/resolver";
+import {
+  createContractMapper,
+  createStandardDeploymentResolver,
+} from "@src/internal/factories/resolver";
 import type { AliasMap } from "@src/shared/types";
 import { chainsQueries } from "@src/solana/chains/queries";
 import type { Sablier } from "@src/types";

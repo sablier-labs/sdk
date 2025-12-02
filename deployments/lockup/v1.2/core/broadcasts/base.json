@@ -25,7 +25,11 @@
       "contractName": "SablierV2LockupDynamic",
       "contractAddress": "0xf9e9ed67dd2fab3b3ca024a2d66fcf0764d36742",
       "function": null,
-      "arguments": ["0x83A6fA8c04420B3F9C7A4CF1c040b63Fbbc89B66", "0x0fF9d05E6331A43A906fE1440E0C9D0742F475A3", "2170"],
+      "arguments": [
+        "0x83A6fA8c04420B3F9C7A4CF1c040b63Fbbc89B66",
+        "0x0fF9d05E6331A43A906fE1440E0C9D0742F475A3",
+        "2170"
+      ],
       "transaction": {
         "from": "0xb1bef51ebca01eb12001a639bdbbff6eeca12b9f",
         "to": "0x4e59b44847b379578588920ca78fbf26c0b4956c",
@@ -44,7 +48,10 @@
       "contractName": "SablierV2LockupLinear",
       "contractAddress": "0x4cb16d4153123a74bc724d161050959754f378d8",
       "function": null,
-      "arguments": ["0x83A6fA8c04420B3F9C7A4CF1c040b63Fbbc89B66", "0x0fF9d05E6331A43A906fE1440E0C9D0742F475A3"],
+      "arguments": [
+        "0x83A6fA8c04420B3F9C7A4CF1c040b63Fbbc89B66",
+        "0x0fF9d05E6331A43A906fE1440E0C9D0742F475A3"
+      ],
       "transaction": {
         "from": "0xb1bef51ebca01eb12001a639bdbbff6eeca12b9f",
         "to": "0x4e59b44847b379578588920ca78fbf26c0b4956c",
@@ -63,7 +70,11 @@
       "contractName": "SablierV2LockupTranched",
       "contractAddress": "0xf4937657ed8b3f3cb379eed47b8818ee947beb1e",
       "function": null,
-      "arguments": ["0x83A6fA8c04420B3F9C7A4CF1c040b63Fbbc89B66", "0x0fF9d05E6331A43A906fE1440E0C9D0742F475A3", "2270"],
+      "arguments": [
+        "0x83A6fA8c04420B3F9C7A4CF1c040b63Fbbc89B66",
+        "0x0fF9d05E6331A43A906fE1440E0C9D0742F475A3",
+        "2270"
+      ],
       "transaction": {
         "from": "0xb1bef51ebca01eb12001a639bdbbff6eeca12b9f",
         "to": "0x4e59b44847b379578588920ca78fbf26c0b4956c",

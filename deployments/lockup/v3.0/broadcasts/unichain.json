@@ -61,7 +61,10 @@
       "contractName": "SablierLockup",
       "contractAddress": "0xffb540fc132dcefb0fdef96ef63fe2f2f1bd7cfd",
       "function": null,
-      "arguments": ["0x0000008ABbFf7a84a2fE09f9A9b74D3BC2072399", "0xa5F12D63E18a28C9BE27B6f3d91ce693320067ba"],
+      "arguments": [
+        "0x0000008ABbFf7a84a2fE09f9A9b74D3BC2072399",
+        "0xa5F12D63E18a28C9BE27B6f3d91ce693320067ba"
+      ],
       "transaction": {
         "from": "0xb1bef51ebca01eb12001a639bdbbff6eeca12b9f",
         "to": "0x4e59b44847b379578588920ca78fbf26c0b4956c",

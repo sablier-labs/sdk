@@ -4,7 +4,11 @@
       "type": "function",
       "name": "createWithDurationsLD",
       "inputs": [
-        { "name": "lockupDynamic", "type": "address", "internalType": "contract ISablierV2LockupDynamic" },
+        {
+          "name": "lockupDynamic",
+          "type": "address",
+          "internalType": "contract ISablierV2LockupDynamic"
+        },
         { "name": "asset", "type": "address", "internalType": "contract IERC20" },
         {
           "name": "batch",
@@ -45,7 +49,11 @@
       "type": "function",
       "name": "createWithDurationsLL",
       "inputs": [
-        { "name": "lockupLinear", "type": "address", "internalType": "contract ISablierV2LockupLinear" },
+        {
+          "name": "lockupLinear",
+          "type": "address",
+          "internalType": "contract ISablierV2LockupLinear"
+        },
         { "name": "asset", "type": "address", "internalType": "contract IERC20" },
         {
           "name": "batch",
@@ -85,7 +93,11 @@
       "type": "function",
       "name": "createWithDurationsLT",
       "inputs": [
-        { "name": "lockupTranched", "type": "address", "internalType": "contract ISablierV2LockupTranched" },
+        {
+          "name": "lockupTranched",
+          "type": "address",
+          "internalType": "contract ISablierV2LockupTranched"
+        },
         { "name": "asset", "type": "address", "internalType": "contract IERC20" },
         {
           "name": "batch",
@@ -125,7 +137,11 @@
       "type": "function",
       "name": "createWithTimestampsLD",
       "inputs": [
-        { "name": "lockupDynamic", "type": "address", "internalType": "contract ISablierV2LockupDynamic" },
+        {
+          "name": "lockupDynamic",
+          "type": "address",
+          "internalType": "contract ISablierV2LockupDynamic"
+        },
         { "name": "asset", "type": "address", "internalType": "contract IERC20" },
         {
           "name": "batch",
@@ -167,7 +183,11 @@
       "type": "function",
       "name": "createWithTimestampsLL",
       "inputs": [
-        { "name": "lockupLinear", "type": "address", "internalType": "contract ISablierV2LockupLinear" },
+        {
+          "name": "lockupLinear",
+          "type": "address",
+          "internalType": "contract ISablierV2LockupLinear"
+        },
         { "name": "asset", "type": "address", "internalType": "contract IERC20" },
         {
           "name": "batch",
@@ -208,7 +228,11 @@
       "type": "function",
       "name": "createWithTimestampsLT",
       "inputs": [
-        { "name": "lockupTranched", "type": "address", "internalType": "contract ISablierV2LockupTranched" },
+        {
+          "name": "lockupTranched",
+          "type": "address",
+          "internalType": "contract ISablierV2LockupTranched"
+        },
         { "name": "asset", "type": "address", "internalType": "contract IERC20" },
         {
           "name": "batch",
@@ -306,7 +330,11 @@
         },
         {
           "inputs": [
-            { "internalType": "contract ISablierV2LockupDynamic", "name": "lockupDynamic", "type": "address" },
+            {
+              "internalType": "contract ISablierV2LockupDynamic",
+              "name": "lockupDynamic",
+              "type": "address"
+            },
             { "internalType": "contract IERC20", "name": "asset", "type": "address" },
             {
               "internalType": "struct BatchLockup.CreateWithDurationsLD[]",
@@ -347,7 +375,11 @@
         },
         {
           "inputs": [
-            { "internalType": "contract ISablierV2LockupLinear", "name": "lockupLinear", "type": "address" },
+            {
+              "internalType": "contract ISablierV2LockupLinear",
+              "name": "lockupLinear",
+              "type": "address"
+            },
             { "internalType": "contract IERC20", "name": "asset", "type": "address" },
             {
               "internalType": "struct BatchLockup.CreateWithDurationsLL[]",
@@ -387,7 +419,11 @@
         },
         {
           "inputs": [
-            { "internalType": "contract ISablierV2LockupTranched", "name": "lockupTranched", "type": "address" },
+            {
+              "internalType": "contract ISablierV2LockupTranched",
+              "name": "lockupTranched",
+              "type": "address"
+            },
             { "internalType": "contract IERC20", "name": "asset", "type": "address" },
             {
               "internalType": "struct BatchLockup.CreateWithDurationsLT[]",
@@ -427,7 +463,11 @@
         },
         {
           "inputs": [
-            { "internalType": "contract ISablierV2LockupDynamic", "name": "lockupDynamic", "type": "address" },
+            {
+              "internalType": "contract ISablierV2LockupDynamic",
+              "name": "lockupDynamic",
+              "type": "address"
+            },
             { "internalType": "contract IERC20", "name": "asset", "type": "address" },
             {
               "internalType": "struct BatchLockup.CreateWithTimestampsLD[]",
@@ -469,7 +509,11 @@
         },
         {
           "inputs": [
-            { "internalType": "contract ISablierV2LockupLinear", "name": "lockupLinear", "type": "address" },
+            {
+              "internalType": "contract ISablierV2LockupLinear",
+              "name": "lockupLinear",
+              "type": "address"
+            },
             { "internalType": "contract IERC20", "name": "asset", "type": "address" },
             {
               "internalType": "struct BatchLockup.CreateWithTimestampsLL[]",
@@ -510,7 +554,11 @@
         },
         {
           "inputs": [
-            { "internalType": "contract ISablierV2LockupTranched", "name": "lockupTranched", "type": "address" },
+            {
+              "internalType": "contract ISablierV2LockupTranched",
+              "name": "lockupTranched",
+              "type": "address"
+            },
             { "internalType": "contract IERC20", "name": "asset", "type": "address" },
             {
               "internalType": "struct BatchLockup.CreateWithTimestampsLT[]",

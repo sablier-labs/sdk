@@ -2,12 +2,20 @@ export const sablierV2LockupLinearAbi = [
   {
     inputs: [
       { internalType: "address", name: "initialAdmin", type: "address" },
-      { internalType: "contract ISablierV2NFTDescriptor", name: "initialNFTDescriptor", type: "address" },
+      {
+        internalType: "contract ISablierV2NFTDescriptor",
+        name: "initialNFTDescriptor",
+        type: "address",
+      },
     ],
     stateMutability: "nonpayable",
     type: "constructor",
   },
-  { inputs: [{ internalType: "address", name: "target", type: "address" }], name: "AddressEmptyCode", type: "error" },
+  {
+    inputs: [{ internalType: "address", name: "target", type: "address" }],
+    name: "AddressEmptyCode",
+    type: "error",
+  },
   {
     inputs: [{ internalType: "address", name: "account", type: "address" }],
     name: "AddressInsufficientBalance",
@@ -49,7 +57,11 @@ export const sablierV2LockupLinearAbi = [
     name: "ERC721InvalidOperator",
     type: "error",
   },
-  { inputs: [{ internalType: "address", name: "owner", type: "address" }], name: "ERC721InvalidOwner", type: "error" },
+  {
+    inputs: [{ internalType: "address", name: "owner", type: "address" }],
+    name: "ERC721InvalidOwner",
+    type: "error",
+  },
   {
     inputs: [{ internalType: "address", name: "receiver", type: "address" }],
     name: "ERC721InvalidReceiver",
@@ -327,8 +339,18 @@ export const sablierV2LockupLinearAbi = [
     anonymous: false,
     inputs: [
       { indexed: true, internalType: "address", name: "admin", type: "address" },
-      { indexed: false, internalType: "contract ISablierV2NFTDescriptor", name: "oldNFTDescriptor", type: "address" },
-      { indexed: false, internalType: "contract ISablierV2NFTDescriptor", name: "newNFTDescriptor", type: "address" },
+      {
+        indexed: false,
+        internalType: "contract ISablierV2NFTDescriptor",
+        name: "oldNFTDescriptor",
+        type: "address",
+      },
+      {
+        indexed: false,
+        internalType: "contract ISablierV2NFTDescriptor",
+        name: "newNFTDescriptor",
+        type: "address",
+      },
     ],
     name: "SetNFTDescriptor",
     type: "event",
@@ -760,7 +782,13 @@ export const sablierV2LockupLinearAbi = [
     type: "function",
   },
   {
-    inputs: [{ internalType: "contract ISablierV2NFTDescriptor", name: "newNFTDescriptor", type: "address" }],
+    inputs: [
+      {
+        internalType: "contract ISablierV2NFTDescriptor",
+        name: "newNFTDescriptor",
+        type: "address",
+      },
+    ],
     name: "setNFTDescriptor",
     outputs: [],
     stateMutability: "nonpayable",

@@ -58,7 +58,12 @@ export const sablierFactoryMerkleVCAAbi = [
   {
     anonymous: false,
     inputs: [
-      { indexed: true, internalType: "contract ISablierMerkleVCA", name: "merkleVCA", type: "address" },
+      {
+        indexed: true,
+        internalType: "contract ISablierMerkleVCA",
+        name: "merkleVCA",
+        type: "address",
+      },
       {
         components: [
           { internalType: "string", name: "campaignName", type: "string" },
@@ -88,8 +93,18 @@ export const sablierFactoryMerkleVCAAbi = [
   {
     anonymous: false,
     inputs: [
-      { indexed: false, internalType: "contract ISablierComptroller", name: "oldComptroller", type: "address" },
-      { indexed: false, internalType: "contract ISablierComptroller", name: "newComptroller", type: "address" },
+      {
+        indexed: false,
+        internalType: "contract ISablierComptroller",
+        name: "oldComptroller",
+        type: "address",
+      },
+      {
+        indexed: false,
+        internalType: "contract ISablierComptroller",
+        name: "newComptroller",
+        type: "address",
+      },
     ],
     name: "SetComptroller",
     type: "event",
@@ -106,7 +121,12 @@ export const sablierFactoryMerkleVCAAbi = [
   {
     anonymous: false,
     inputs: [
-      { indexed: true, internalType: "contract ISablierComptroller", name: "comptroller", type: "address" },
+      {
+        indexed: true,
+        internalType: "contract ISablierComptroller",
+        name: "comptroller",
+        type: "address",
+      },
       { indexed: false, internalType: "uint256", name: "feeAmount", type: "uint256" },
     ],
     name: "TransferFeesToComptroller",
@@ -180,7 +200,9 @@ export const sablierFactoryMerkleVCAAbi = [
     type: "function",
   },
   {
-    inputs: [{ internalType: "contract ISablierComptroller", name: "newComptroller", type: "address" }],
+    inputs: [
+      { internalType: "contract ISablierComptroller", name: "newComptroller", type: "address" },
+    ],
     name: "setComptroller",
     outputs: [],
     stateMutability: "nonpayable",
@@ -193,5 +215,11 @@ export const sablierFactoryMerkleVCAAbi = [
     stateMutability: "nonpayable",
     type: "function",
   },
-  { inputs: [], name: "transferFeesToComptroller", outputs: [], stateMutability: "nonpayable", type: "function" },
+  {
+    inputs: [],
+    name: "transferFeesToComptroller",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
 ] as const;

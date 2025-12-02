@@ -32,7 +32,9 @@
       "type": "function",
       "name": "LOCKUP_LINEAR",
       "inputs": [],
-      "outputs": [{ "name": "", "type": "address", "internalType": "contract ISablierV2LockupLinear" }],
+      "outputs": [
+        { "name": "", "type": "address", "internalType": "contract ISablierV2LockupLinear" }
+      ],
       "stateMutability": "view"
     },
     {
@@ -272,14 +274,18 @@
           "stateMutability": "nonpayable",
           "type": "function",
           "name": "LOCKUP",
-          "outputs": [{ "internalType": "contract ISablierV2Lockup", "name": "", "type": "address" }]
+          "outputs": [
+            { "internalType": "contract ISablierV2Lockup", "name": "", "type": "address" }
+          ]
         },
         {
           "inputs": [],
           "stateMutability": "view",
           "type": "function",
           "name": "LOCKUP_LINEAR",
-          "outputs": [{ "internalType": "contract ISablierV2LockupLinear", "name": "", "type": "address" }]
+          "outputs": [
+            { "internalType": "contract ISablierV2LockupLinear", "name": "", "type": "address" }
+          ]
         },
         {
           "inputs": [],
@@ -355,14 +361,18 @@
           "name": "configureYieldAndGas"
         },
         {
-          "inputs": [{ "internalType": "contract IERC20Rebasing", "name": "asset", "type": "address" }],
+          "inputs": [
+            { "internalType": "contract IERC20Rebasing", "name": "asset", "type": "address" }
+          ],
           "stateMutability": "view",
           "type": "function",
           "name": "getClaimableRebasingAssetYield",
           "outputs": [{ "internalType": "uint256", "name": "claimableYield", "type": "uint256" }]
         },
         {
-          "inputs": [{ "internalType": "contract IERC20Rebasing", "name": "asset", "type": "address" }],
+          "inputs": [
+            { "internalType": "contract IERC20Rebasing", "name": "asset", "type": "address" }
+          ],
           "stateMutability": "view",
           "type": "function",
           "name": "getRebasingAssetConfiguration",
@@ -428,7 +438,10 @@
           },
           "clawback(address,uint128)": {
             "details": "Emits a {Clawback} event. Notes: - If the protocol is not zero, the expiration check is not made. Requirements: - The caller must be the admin. - The campaign must either be expired or not have an expiration.",
-            "params": { "amount": "The amount of tokens to claw back.", "to": "The address to receive the tokens." }
+            "params": {
+              "amount": "The amount of tokens to claw back.",
+              "to": "The address to receive the tokens."
+            }
           },
           "configureRebasingAsset(address,uint8)": {
             "details": "Reverts if `msg.sender` is not the contract admin.",
@@ -476,7 +489,9 @@
           "LOCKUP()": { "notice": "The address of the {SablierV2Lockup} contract." },
           "LOCKUP_LINEAR()": { "notice": "The address of the {SablierV2LockupLinear} contract." },
           "MERKLE_ROOT()": { "notice": "The root of the Merkle tree used to validate the claims." },
-          "TRANSFERABLE()": { "notice": "A flag indicating whether the stream NFTs are transferable." },
+          "TRANSFERABLE()": {
+            "notice": "A flag indicating whether the stream NFTs are transferable."
+          },
           "admin()": { "notice": "The address of the admin account or contract." },
           "claim(uint256,address,uint128,bytes32[])": {
             "notice": "Makes the claim by creating a Lockup Linear stream to the recipient."
@@ -484,8 +499,12 @@
           "claimRebasingAssetYield(address,uint256,address)": {
             "notice": "Claim the provided amount of yield assets to the `to` address."
           },
-          "clawback(address,uint128)": { "notice": "Claws back the unclaimed tokens from the Merkle streamer." },
-          "configureRebasingAsset(address,uint8)": { "notice": "Sets the yield mode for a rebasing ERC-20 asset." },
+          "clawback(address,uint128)": {
+            "notice": "Claws back the unclaimed tokens from the Merkle streamer."
+          },
+          "configureRebasingAsset(address,uint8)": {
+            "notice": "Sets the yield mode for a rebasing ERC-20 asset."
+          },
           "configureYieldAndGas(address,uint8,uint8,address)": {
             "notice": "configures yield and gas modes and sets the governor."
           },
@@ -498,7 +517,9 @@
           "hasClaimed(uint256)": {
             "notice": "Returns a flag indicating whether a claim has been made for a given index."
           },
-          "hasExpired()": { "notice": "Returns a flag indicating whether the Merkle streamer has expired." },
+          "hasExpired()": {
+            "notice": "Returns a flag indicating whether the Merkle streamer has expired."
+          },
           "streamDurations()": { "notice": "The total streaming duration of each stream." },
           "transferAdmin(address)": { "notice": "Transfers the contract admin to a new address." }
         },
@@ -516,7 +537,9 @@
       ],
       "optimizer": { "enabled": true, "runs": 10000 },
       "metadata": { "bytecodeHash": "none" },
-      "compilationTarget": { "src/interfaces/ISablierV2MerkleStreamerLL.sol": "ISablierV2MerkleStreamerLL" },
+      "compilationTarget": {
+        "src/interfaces/ISablierV2MerkleStreamerLL.sol": "ISablierV2MerkleStreamerLL"
+      },
       "evmVersion": "paris",
       "libraries": {},
       "viaIR": true

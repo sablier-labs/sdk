@@ -38,7 +38,9 @@
     {
       "type": "function",
       "name": "calculateMinFeeWei",
-      "inputs": [{ "name": "protocol", "type": "uint8", "internalType": "enum ISablierComptroller.Protocol" }],
+      "inputs": [
+        { "name": "protocol", "type": "uint8", "internalType": "enum ISablierComptroller.Protocol" }
+      ],
       "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
       "stateMutability": "view"
     },
@@ -46,7 +48,11 @@
       "type": "function",
       "name": "calculateMinFeeWeiFor",
       "inputs": [
-        { "name": "protocol", "type": "uint8", "internalType": "enum ISablierComptroller.Protocol" },
+        {
+          "name": "protocol",
+          "type": "uint8",
+          "internalType": "enum ISablierComptroller.Protocol"
+        },
         { "name": "user", "type": "address", "internalType": "address" }
       ],
       "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
@@ -63,7 +69,11 @@
       "type": "function",
       "name": "disableCustomFeeUSDFor",
       "inputs": [
-        { "name": "protocol", "type": "uint8", "internalType": "enum ISablierComptroller.Protocol" },
+        {
+          "name": "protocol",
+          "type": "uint8",
+          "internalType": "enum ISablierComptroller.Protocol"
+        },
         { "name": "user", "type": "address", "internalType": "address" }
       ],
       "outputs": [],
@@ -82,7 +92,9 @@
     {
       "type": "function",
       "name": "getMinFeeUSD",
-      "inputs": [{ "name": "protocol", "type": "uint8", "internalType": "enum ISablierComptroller.Protocol" }],
+      "inputs": [
+        { "name": "protocol", "type": "uint8", "internalType": "enum ISablierComptroller.Protocol" }
+      ],
       "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
       "stateMutability": "view"
     },
@@ -90,7 +102,11 @@
       "type": "function",
       "name": "getMinFeeUSDFor",
       "inputs": [
-        { "name": "protocol", "type": "uint8", "internalType": "enum ISablierComptroller.Protocol" },
+        {
+          "name": "protocol",
+          "type": "uint8",
+          "internalType": "enum ISablierComptroller.Protocol"
+        },
         { "name": "user", "type": "address", "internalType": "address" }
       ],
       "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
@@ -144,7 +160,11 @@
       "type": "function",
       "name": "setCustomFeeUSDFor",
       "inputs": [
-        { "name": "protocol", "type": "uint8", "internalType": "enum ISablierComptroller.Protocol" },
+        {
+          "name": "protocol",
+          "type": "uint8",
+          "internalType": "enum ISablierComptroller.Protocol"
+        },
         { "name": "user", "type": "address", "internalType": "address" },
         { "name": "customFeeUSD", "type": "uint256", "internalType": "uint256" }
       ],
@@ -155,7 +175,11 @@
       "type": "function",
       "name": "setMinFeeUSD",
       "inputs": [
-        { "name": "protocol", "type": "uint8", "internalType": "enum ISablierComptroller.Protocol" },
+        {
+          "name": "protocol",
+          "type": "uint8",
+          "internalType": "enum ISablierComptroller.Protocol"
+        },
         { "name": "newMinFeeUSD", "type": "uint256", "internalType": "uint256" }
       ],
       "outputs": [],
@@ -196,10 +220,20 @@
       "type": "event",
       "name": "DisableCustomFeeUSD",
       "inputs": [
-        { "name": "protocol", "type": "uint8", "indexed": true, "internalType": "enum ISablierComptroller.Protocol" },
+        {
+          "name": "protocol",
+          "type": "uint8",
+          "indexed": true,
+          "internalType": "enum ISablierComptroller.Protocol"
+        },
         { "name": "caller", "type": "address", "indexed": false, "internalType": "address" },
         { "name": "user", "type": "address", "indexed": true, "internalType": "address" },
-        { "name": "previousMinFeeUSD", "type": "uint256", "indexed": false, "internalType": "uint256" },
+        {
+          "name": "previousMinFeeUSD",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        },
         { "name": "newMinFeeUSD", "type": "uint256", "indexed": false, "internalType": "uint256" }
       ],
       "anonymous": false
@@ -238,10 +272,20 @@
       "type": "event",
       "name": "SetCustomFeeUSD",
       "inputs": [
-        { "name": "protocol", "type": "uint8", "indexed": true, "internalType": "enum ISablierComptroller.Protocol" },
+        {
+          "name": "protocol",
+          "type": "uint8",
+          "indexed": true,
+          "internalType": "enum ISablierComptroller.Protocol"
+        },
         { "name": "caller", "type": "address", "indexed": false, "internalType": "address" },
         { "name": "user", "type": "address", "indexed": true, "internalType": "address" },
-        { "name": "previousMinFeeUSD", "type": "uint256", "indexed": false, "internalType": "uint256" },
+        {
+          "name": "previousMinFeeUSD",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        },
         { "name": "newMinFeeUSD", "type": "uint256", "indexed": false, "internalType": "uint256" }
       ],
       "anonymous": false
@@ -250,9 +294,19 @@
       "type": "event",
       "name": "SetMinFeeUSD",
       "inputs": [
-        { "name": "protocol", "type": "uint8", "indexed": true, "internalType": "enum ISablierComptroller.Protocol" },
+        {
+          "name": "protocol",
+          "type": "uint8",
+          "indexed": true,
+          "internalType": "enum ISablierComptroller.Protocol"
+        },
         { "name": "caller", "type": "address", "indexed": false, "internalType": "address" },
-        { "name": "previousMinFeeUSD", "type": "uint256", "indexed": false, "internalType": "uint256" },
+        {
+          "name": "previousMinFeeUSD",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        },
         { "name": "newMinFeeUSD", "type": "uint256", "indexed": false, "internalType": "uint256" }
       ],
       "anonymous": false
@@ -262,7 +316,12 @@
       "name": "SetOracle",
       "inputs": [
         { "name": "admin", "type": "address", "indexed": true, "internalType": "address" },
-        { "name": "previousOracle", "type": "address", "indexed": false, "internalType": "address" },
+        {
+          "name": "previousOracle",
+          "type": "address",
+          "indexed": false,
+          "internalType": "address"
+        },
         { "name": "newOracle", "type": "address", "indexed": false, "internalType": "address" }
       ],
       "anonymous": false
@@ -329,8 +388,18 @@
             },
             { "internalType": "address", "name": "caller", "type": "address", "indexed": false },
             { "internalType": "address", "name": "user", "type": "address", "indexed": true },
-            { "internalType": "uint256", "name": "previousMinFeeUSD", "type": "uint256", "indexed": false },
-            { "internalType": "uint256", "name": "newMinFeeUSD", "type": "uint256", "indexed": false }
+            {
+              "internalType": "uint256",
+              "name": "previousMinFeeUSD",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "uint256",
+              "name": "newMinFeeUSD",
+              "type": "uint256",
+              "indexed": false
+            }
           ],
           "type": "event",
           "name": "DisableCustomFeeUSD",
@@ -376,8 +445,18 @@
             },
             { "internalType": "address", "name": "caller", "type": "address", "indexed": false },
             { "internalType": "address", "name": "user", "type": "address", "indexed": true },
-            { "internalType": "uint256", "name": "previousMinFeeUSD", "type": "uint256", "indexed": false },
-            { "internalType": "uint256", "name": "newMinFeeUSD", "type": "uint256", "indexed": false }
+            {
+              "internalType": "uint256",
+              "name": "previousMinFeeUSD",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "uint256",
+              "name": "newMinFeeUSD",
+              "type": "uint256",
+              "indexed": false
+            }
           ],
           "type": "event",
           "name": "SetCustomFeeUSD",
@@ -392,8 +471,18 @@
               "indexed": true
             },
             { "internalType": "address", "name": "caller", "type": "address", "indexed": false },
-            { "internalType": "uint256", "name": "previousMinFeeUSD", "type": "uint256", "indexed": false },
-            { "internalType": "uint256", "name": "newMinFeeUSD", "type": "uint256", "indexed": false }
+            {
+              "internalType": "uint256",
+              "name": "previousMinFeeUSD",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "uint256",
+              "name": "newMinFeeUSD",
+              "type": "uint256",
+              "indexed": false
+            }
           ],
           "type": "event",
           "name": "SetMinFeeUSD",
@@ -402,7 +491,12 @@
         {
           "inputs": [
             { "internalType": "address", "name": "admin", "type": "address", "indexed": true },
-            { "internalType": "address", "name": "previousOracle", "type": "address", "indexed": false },
+            {
+              "internalType": "address",
+              "name": "previousOracle",
+              "type": "address",
+              "indexed": false
+            },
             { "internalType": "address", "name": "newOracle", "type": "address", "indexed": false }
           ],
           "type": "event",
@@ -420,7 +514,12 @@
         },
         {
           "inputs": [
-            { "internalType": "address", "name": "feeRecipient", "type": "address", "indexed": true },
+            {
+              "internalType": "address",
+              "name": "feeRecipient",
+              "type": "address",
+              "indexed": true
+            },
             { "internalType": "uint256", "name": "feeAmount", "type": "uint256", "indexed": false }
           ],
           "type": "event",
@@ -463,7 +562,13 @@
           "outputs": [{ "internalType": "address", "name": "", "type": "address" }]
         },
         {
-          "inputs": [{ "internalType": "enum ISablierComptroller.Protocol", "name": "protocol", "type": "uint8" }],
+          "inputs": [
+            {
+              "internalType": "enum ISablierComptroller.Protocol",
+              "name": "protocol",
+              "type": "uint8"
+            }
+          ],
           "stateMutability": "view",
           "type": "function",
           "name": "calculateMinFeeWei",
@@ -471,7 +576,11 @@
         },
         {
           "inputs": [
-            { "internalType": "enum ISablierComptroller.Protocol", "name": "protocol", "type": "uint8" },
+            {
+              "internalType": "enum ISablierComptroller.Protocol",
+              "name": "protocol",
+              "type": "uint8"
+            },
             { "internalType": "address", "name": "user", "type": "address" }
           ],
           "stateMutability": "view",
@@ -488,7 +597,11 @@
         },
         {
           "inputs": [
-            { "internalType": "enum ISablierComptroller.Protocol", "name": "protocol", "type": "uint8" },
+            {
+              "internalType": "enum ISablierComptroller.Protocol",
+              "name": "protocol",
+              "type": "uint8"
+            },
             { "internalType": "address", "name": "user", "type": "address" }
           ],
           "stateMutability": "nonpayable",
@@ -506,7 +619,13 @@
           "outputs": [{ "internalType": "bytes", "name": "result", "type": "bytes" }]
         },
         {
-          "inputs": [{ "internalType": "enum ISablierComptroller.Protocol", "name": "protocol", "type": "uint8" }],
+          "inputs": [
+            {
+              "internalType": "enum ISablierComptroller.Protocol",
+              "name": "protocol",
+              "type": "uint8"
+            }
+          ],
           "stateMutability": "view",
           "type": "function",
           "name": "getMinFeeUSD",
@@ -514,7 +633,11 @@
         },
         {
           "inputs": [
-            { "internalType": "enum ISablierComptroller.Protocol", "name": "protocol", "type": "uint8" },
+            {
+              "internalType": "enum ISablierComptroller.Protocol",
+              "name": "protocol",
+              "type": "uint8"
+            },
             { "internalType": "address", "name": "user", "type": "address" }
           ],
           "stateMutability": "view",
@@ -566,7 +689,11 @@
         },
         {
           "inputs": [
-            { "internalType": "enum ISablierComptroller.Protocol", "name": "protocol", "type": "uint8" },
+            {
+              "internalType": "enum ISablierComptroller.Protocol",
+              "name": "protocol",
+              "type": "uint8"
+            },
             { "internalType": "address", "name": "user", "type": "address" },
             { "internalType": "uint256", "name": "customFeeUSD", "type": "uint256" }
           ],
@@ -576,7 +703,11 @@
         },
         {
           "inputs": [
-            { "internalType": "enum ISablierComptroller.Protocol", "name": "protocol", "type": "uint8" },
+            {
+              "internalType": "enum ISablierComptroller.Protocol",
+              "name": "protocol",
+              "type": "uint8"
+            },
             { "internalType": "uint256", "name": "newMinFeeUSD", "type": "uint256" }
           ],
           "stateMutability": "nonpayable",
@@ -627,18 +758,26 @@
           },
           "calculateMinFeeWeiFor(uint8,address)": {
             "details": "If the custom fee is enabled, it returns the custom fee, otherwise it returns the default minimum fee. See the documentation for {convertUSDFeeToWei} for more details.",
-            "params": { "protocol": "The protocol as defined in {Protocol} enum.", "user": "The user address." }
+            "params": {
+              "protocol": "The protocol as defined in {Protocol} enum.",
+              "user": "The user address."
+            }
           },
           "convertUSDFeeToWei(uint256)": {
             "details": "The price is considered to be 0 if: 1. The oracle is not set. 2. The min USD fee is 0. 3. The oracle price is ≤ 0. 4. The oracle's update timestamp is in the future. 5. The oracle price hasn't been updated in the last 24 hours.",
             "params": {
               "feeUSD": "The fee in USD, denominated in Chainlink's 8-decimal format for USD prices, where 1e8 is $1."
             },
-            "returns": { "_0": "The fee in wei, denominated in 18 decimals (1e18 = 1 native token)." }
+            "returns": {
+              "_0": "The fee in wei, denominated in 18 decimals (1e18 = 1 native token)."
+            }
           },
           "disableCustomFeeUSDFor(uint8,address)": {
             "details": "Emits a {DisableCustomFeeUSD} event. Notes: - In case of airdrops, the new fee applies only to the future campaigns created by the user. Past campaigns are not affected. - In case of streams, the new fee applies immediately to all the streams created by user. Requirements: - `msg.sender` must be either the admin or have the {IRoleAdminable.FEE_MANAGEMENT_ROLE} role.",
-            "params": { "protocol": "The protocol as defined in {Protocol} enum.", "user": "The user address." }
+            "params": {
+              "protocol": "The protocol as defined in {Protocol} enum.",
+              "user": "The user address."
+            }
           },
           "execute(address,bytes)": {
             "details": "Emits an {Execute} event. Requirements: - `msg.sender` must be the admin. - `target` must be a contract.",
@@ -689,7 +828,9 @@
           },
           "setOracle(address)": {
             "details": "Emits a {SetOracle} event. Requirements: - `msg.sender` must be the admin. - If `newOracle` is not the zero address, the call to it must not fail.",
-            "params": { "newOracle": "The new oracle contract address. It can be the zero address." }
+            "params": {
+              "newOracle": "The new oracle contract address. It can be the zero address."
+            }
           },
           "supportsInterface(bytes4)": {
             "details": "Returns true if this contract implements the interface defined by `interfaceId`. See the corresponding https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[ERC section] to learn more about how these ids are created. This function call must use less than 30 000 gas."
@@ -711,7 +852,9 @@
       "userdoc": {
         "kind": "user",
         "methods": {
-          "FEE_COLLECTOR_ROLE()": { "notice": "A role with the authority to collect fees from the Sablier contracts." },
+          "FEE_COLLECTOR_ROLE()": {
+            "notice": "A role with the authority to collect fees from the Sablier contracts."
+          },
           "FEE_MANAGEMENT_ROLE()": {
             "notice": "A role with the authority to update fees across the Sablier contracts."
           },
@@ -720,7 +863,9 @@
           },
           "MINIMAL_INTERFACE_ID()": { "notice": "The minimal interface ID of the comptroller." },
           "admin()": { "notice": "The address of the admin account or contract." },
-          "calculateMinFeeWei(uint8)": { "notice": "Calculates the minimum fee in wei for the given protocol." },
+          "calculateMinFeeWei(uint8)": {
+            "notice": "Calculates the minimum fee in wei for the given protocol."
+          },
           "calculateMinFeeWeiFor(uint8,address)": {
             "notice": "Calculates the minimum fee in wei for the provided user for the given protocol."
           },
@@ -728,7 +873,9 @@
           "disableCustomFeeUSDFor(uint8,address)": {
             "notice": "Disables the custom USD fee for the provided user for the given protocol, defaulting to the minimum fee."
           },
-          "execute(address,bytes)": { "notice": "Executes an external call to any contract and function." },
+          "execute(address,bytes)": {
+            "notice": "Executes an external call to any contract and function."
+          },
           "getMinFeeUSD(uint8)": {
             "notice": "Get the minimum fee in USD for the given protocol, paid in the native token of the chain, e.g., ETH for Ethereum Mainnet. Use {calculateMinFeeWei} to retrieve the fee in wei."
           },
@@ -750,7 +897,9 @@
           "setCustomFeeUSDFor(uint8,address,uint256)": {
             "notice": "Sets the custom USD fee for the provided user for the given protocol."
           },
-          "setMinFeeUSD(uint8,uint256)": { "notice": "Sets a new min USD fee for the given protocol." },
+          "setMinFeeUSD(uint8,uint256)": {
+            "notice": "Sets a new min USD fee for the given protocol."
+          },
           "setOracle(address)": {
             "notice": "Sets the oracle contract address. The zero address can be used to disable the oracle."
           },
@@ -1008,7 +1157,13 @@
                 "nodeType": "EnumValue",
                 "src": "1237:8:64"
               },
-              { "id": 61935, "name": "Flow", "nameLocation": "1255:4:64", "nodeType": "EnumValue", "src": "1255:4:64" },
+              {
+                "id": 61935,
+                "name": "Flow",
+                "nameLocation": "1255:4:64",
+                "nodeType": "EnumValue",
+                "src": "1255:4:64"
+              },
               {
                 "id": 61936,
                 "name": "Lockup",
@@ -1325,13 +1480,19 @@
                   "src": "2264:10:64",
                   "stateVariable": false,
                   "storageLocation": "default",
-                  "typeDescriptions": { "typeIdentifier": "t_bytes_memory_ptr", "typeString": "bytes" },
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
                   "typeName": {
                     "id": 61965,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "2264:5:64",
-                    "typeDescriptions": { "typeIdentifier": "t_bytes_storage_ptr", "typeString": "bytes" }
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
                   },
                   "visibility": "internal"
                 },
@@ -1347,13 +1508,19 @@
                   "src": "2276:12:64",
                   "stateVariable": false,
                   "storageLocation": "default",
-                  "typeDescriptions": { "typeIdentifier": "t_bytes_memory_ptr", "typeString": "bytes" },
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
                   "typeName": {
                     "id": 61967,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "2276:5:64",
-                    "typeDescriptions": { "typeIdentifier": "t_bytes_storage_ptr", "typeString": "bytes" }
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
                   },
                   "visibility": "internal"
                 }
@@ -1813,7 +1980,12 @@
             "modifiers": [],
             "name": "MAX_FEE_USD",
             "nameLocation": "3539:11:64",
-            "parameters": { "id": 62014, "nodeType": "ParameterList", "parameters": [], "src": "3550:2:64" },
+            "parameters": {
+              "id": 62014,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3550:2:64"
+            },
             "returnParameters": {
               "id": 62017,
               "nodeType": "ParameterList",
@@ -1864,7 +2036,12 @@
             "modifiers": [],
             "name": "MINIMAL_INTERFACE_ID",
             "nameLocation": "4134:20:64",
-            "parameters": { "id": 62020, "nodeType": "ParameterList", "parameters": [], "src": "4154:2:64" },
+            "parameters": {
+              "id": 62020,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "4154:2:64"
+            },
             "returnParameters": {
               "id": 62023,
               "nodeType": "ParameterList",
@@ -2405,7 +2582,12 @@
             "modifiers": [],
             "name": "oracle",
             "nameLocation": "6599:6:64",
-            "parameters": { "id": 62074, "nodeType": "ParameterList", "parameters": [], "src": "6605:2:64" },
+            "parameters": {
+              "id": 62074,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "6605:2:64"
+            },
             "returnParameters": {
               "id": 62077,
               "nodeType": "ParameterList",
@@ -2521,7 +2703,12 @@
               ],
               "src": "7576:33:64"
             },
-            "returnParameters": { "id": 62086, "nodeType": "ParameterList", "parameters": [], "src": "7618:0:64" },
+            "returnParameters": {
+              "id": 62086,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "7618:0:64"
+            },
             "scope": 62133,
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -2581,13 +2768,19 @@
                   "src": "8094:19:64",
                   "stateVariable": false,
                   "storageLocation": "calldata",
-                  "typeDescriptions": { "typeIdentifier": "t_bytes_calldata_ptr", "typeString": "bytes" },
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
                   "typeName": {
                     "id": 62091,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "8094:5:64",
-                    "typeDescriptions": { "typeIdentifier": "t_bytes_storage_ptr", "typeString": "bytes" }
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
                   },
                   "visibility": "internal"
                 }
@@ -2609,13 +2802,19 @@
                   "src": "8133:19:64",
                   "stateVariable": false,
                   "storageLocation": "memory",
-                  "typeDescriptions": { "typeIdentifier": "t_bytes_memory_ptr", "typeString": "bytes" },
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
                   "typeName": {
                     "id": 62094,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "8133:5:64",
-                    "typeDescriptions": { "typeIdentifier": "t_bytes_storage_ptr", "typeString": "bytes" }
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
                   },
                   "visibility": "internal"
                 }
@@ -2729,7 +2928,12 @@
               ],
               "src": "8981:55:64"
             },
-            "returnParameters": { "id": 62107, "nodeType": "ParameterList", "parameters": [], "src": "9045:0:64" },
+            "returnParameters": {
+              "id": 62107,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "9045:0:64"
+            },
             "scope": 62133,
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -2815,7 +3019,12 @@
               ],
               "src": "9803:41:64"
             },
-            "returnParameters": { "id": 62116, "nodeType": "ParameterList", "parameters": [], "src": "9853:0:64" },
+            "returnParameters": {
+              "id": 62116,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "9853:0:64"
+            },
             "scope": 62133,
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -2867,7 +3076,12 @@
               ],
               "src": "10266:19:64"
             },
-            "returnParameters": { "id": 62122, "nodeType": "ParameterList", "parameters": [], "src": "10294:0:64" },
+            "returnParameters": {
+              "id": 62122,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "10294:0:64"
+            },
             "scope": 62133,
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -2953,7 +3167,12 @@
               ],
               "src": "11267:60:64"
             },
-            "returnParameters": { "id": 62131, "nodeType": "ParameterList", "parameters": [], "src": "11336:0:64" },
+            "returnParameters": {
+              "id": 62131,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "11336:0:64"
+            },
             "scope": 62133,
             "stateMutability": "nonpayable",
             "virtual": false,

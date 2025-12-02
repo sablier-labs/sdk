@@ -201,7 +201,9 @@
       ],
       "optimizer": { "enabled": true, "runs": 1000 },
       "metadata": { "bytecodeHash": "none" },
-      "compilationTarget": { "node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": "IERC20" },
+      "compilationTarget": {
+        "node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": "IERC20"
+      },
       "libraries": {},
       "viaIR": true
     },
@@ -435,7 +437,12 @@
             "modifiers": [],
             "name": "totalSupply",
             "nameLocation": "783:11:3",
-            "parameters": { "id": 50, "nodeType": "ParameterList", "parameters": [], "src": "794:2:3" },
+            "parameters": {
+              "id": 50,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "794:2:3"
+            },
             "returnParameters": {
               "id": 53,
               "nodeType": "ParameterList",

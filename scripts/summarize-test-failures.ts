@@ -33,14 +33,17 @@ function extractFirstErrorLine(errorMessage: string): string {
 
   // Look for "expected X to equal Y" pattern
   const expectedLine = lines.find(
-    (line) => line.includes("expected") && (line.includes("equal") || line.includes("deeply equal")),
+    (line) =>
+      line.includes("expected") && (line.includes("equal") || line.includes("deeply equal")),
   );
   if (expectedLine) {
     return expectedLine.trim();
   }
 
   // Look for Error: messages
-  const errorLine = lines.find((line) => line.includes("Error:") || line.includes("AssertionError:"));
+  const errorLine = lines.find(
+    (line) => line.includes("Error:") || line.includes("AssertionError:"),
+  );
   if (errorLine) {
     return errorLine.replace(/^.*?Error:\s*/, "").trim();
   }

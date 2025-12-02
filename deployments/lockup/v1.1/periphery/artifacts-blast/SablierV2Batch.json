@@ -4,7 +4,11 @@
       "type": "function",
       "name": "createWithDeltas",
       "inputs": [
-        { "name": "lockupDynamic", "type": "address", "internalType": "contract ISablierV2LockupDynamic" },
+        {
+          "name": "lockupDynamic",
+          "type": "address",
+          "internalType": "contract ISablierV2LockupDynamic"
+        },
         { "name": "asset", "type": "address", "internalType": "contract IERC20" },
         {
           "name": "batch",
@@ -45,7 +49,11 @@
       "type": "function",
       "name": "createWithDurations",
       "inputs": [
-        { "name": "lockupLinear", "type": "address", "internalType": "contract ISablierV2LockupLinear" },
+        {
+          "name": "lockupLinear",
+          "type": "address",
+          "internalType": "contract ISablierV2LockupLinear"
+        },
         { "name": "asset", "type": "address", "internalType": "contract IERC20" },
         {
           "name": "batch",
@@ -85,7 +93,11 @@
       "type": "function",
       "name": "createWithMilestones",
       "inputs": [
-        { "name": "lockupDynamic", "type": "address", "internalType": "contract ISablierV2LockupDynamic" },
+        {
+          "name": "lockupDynamic",
+          "type": "address",
+          "internalType": "contract ISablierV2LockupDynamic"
+        },
         { "name": "asset", "type": "address", "internalType": "contract IERC20" },
         {
           "name": "batch",
@@ -127,7 +139,11 @@
       "type": "function",
       "name": "createWithRange",
       "inputs": [
-        { "name": "lockupLinear", "type": "address", "internalType": "contract ISablierV2LockupLinear" },
+        {
+          "name": "lockupLinear",
+          "type": "address",
+          "internalType": "contract ISablierV2LockupLinear"
+        },
         { "name": "asset", "type": "address", "internalType": "contract IERC20" },
         {
           "name": "batch",
@@ -191,7 +207,11 @@
         { "inputs": [], "type": "error", "name": "SablierV2Batch_BatchSizeZero" },
         {
           "inputs": [
-            { "internalType": "contract ISablierV2LockupDynamic", "name": "lockupDynamic", "type": "address" },
+            {
+              "internalType": "contract ISablierV2LockupDynamic",
+              "name": "lockupDynamic",
+              "type": "address"
+            },
             { "internalType": "contract IERC20", "name": "asset", "type": "address" },
             {
               "internalType": "struct Batch.CreateWithDeltas[]",
@@ -232,7 +252,11 @@
         },
         {
           "inputs": [
-            { "internalType": "contract ISablierV2LockupLinear", "name": "lockupLinear", "type": "address" },
+            {
+              "internalType": "contract ISablierV2LockupLinear",
+              "name": "lockupLinear",
+              "type": "address"
+            },
             { "internalType": "contract IERC20", "name": "asset", "type": "address" },
             {
               "internalType": "struct Batch.CreateWithDurations[]",
@@ -272,7 +296,11 @@
         },
         {
           "inputs": [
-            { "internalType": "contract ISablierV2LockupDynamic", "name": "lockupDynamic", "type": "address" },
+            {
+              "internalType": "contract ISablierV2LockupDynamic",
+              "name": "lockupDynamic",
+              "type": "address"
+            },
             { "internalType": "contract IERC20", "name": "asset", "type": "address" },
             {
               "internalType": "struct Batch.CreateWithMilestones[]",
@@ -314,7 +342,11 @@
         },
         {
           "inputs": [
-            { "internalType": "contract ISablierV2LockupLinear", "name": "lockupLinear", "type": "address" },
+            {
+              "internalType": "contract ISablierV2LockupLinear",
+              "name": "lockupLinear",
+              "type": "address"
+            },
             { "internalType": "contract IERC20", "name": "asset", "type": "address" },
             {
               "internalType": "struct Batch.CreateWithRange[]",

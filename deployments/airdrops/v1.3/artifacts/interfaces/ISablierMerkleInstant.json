@@ -340,7 +340,10 @@
           },
           "clawback(address,uint128)": {
             "details": "Emits a {Clawback} event. Requirements: - `msg.sender` must be the admin. - No claim must be made, OR   The current timestamp must not exceed 7 days after the first claim, OR   The campaign must be expired.",
-            "params": { "amount": "The amount of tokens to claw back.", "to": "The address to receive the tokens." }
+            "params": {
+              "amount": "The amount of tokens to claw back.",
+              "to": "The address to receive the tokens."
+            }
           },
           "collectFees(address)": {
             "params": { "factoryAdmin": "The address of the `FACTORY` admin." },
@@ -367,22 +370,32 @@
           "FEE()": {
             "notice": "Retrieves the minimum fee required to claim the airdrop, which is paid in the native token of the chain, e.g. ETH for Ethereum Mainnet."
           },
-          "MERKLE_ROOT()": { "notice": "The root of the Merkle tree used to validate the proofs of inclusion." },
+          "MERKLE_ROOT()": {
+            "notice": "The root of the Merkle tree used to validate the proofs of inclusion."
+          },
           "TOKEN()": { "notice": "The ERC-20 token to distribute." },
           "admin()": { "notice": "The address of the admin account or contract." },
           "campaignName()": { "notice": "Retrieves the name of the campaign." },
           "claim(uint256,address,uint128,bytes32[])": { "notice": "Makes the claim." },
-          "clawback(address,uint128)": { "notice": "Claws back the unclaimed tokens from the campaign." },
+          "clawback(address,uint128)": {
+            "notice": "Claws back the unclaimed tokens from the campaign."
+          },
           "collectFees(address)": {
             "notice": "Collects the accrued fees by transferring them to `FACTORY` admin. Requirements: - `msg.sender` must be the `FACTORY` contract."
           },
-          "getFirstClaimTime()": { "notice": "Returns the timestamp when the first claim is made." },
+          "getFirstClaimTime()": {
+            "notice": "Returns the timestamp when the first claim is made."
+          },
           "hasClaimed(uint256)": {
             "notice": "Returns a flag indicating whether a claim has been made for a given index."
           },
-          "hasExpired()": { "notice": "Returns a flag indicating whether the campaign has expired." },
+          "hasExpired()": {
+            "notice": "Returns a flag indicating whether the campaign has expired."
+          },
           "ipfsCID()": { "notice": "The content identifier for indexing the campaign on IPFS." },
-          "shape()": { "notice": "Retrieves the shape of the lockup stream that the campaign produces upon claiming." },
+          "shape()": {
+            "notice": "Retrieves the shape of the lockup stream that the campaign produces upon claiming."
+          },
           "transferAdmin(address)": { "notice": "Transfers the contract admin to a new address." }
         },
         "version": 1

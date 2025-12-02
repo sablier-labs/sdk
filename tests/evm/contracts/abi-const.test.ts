@@ -86,7 +86,8 @@ describe("ABI const assertions", () => {
           ).toBe(true);
 
           // Additional validation: ensure the export pattern is correct
-          const hasProperExport = /export\s+const\s+\w+Abi\s*=\s*\[[\s\S]*\]\s+as\s+const\s*;/i.test(sourceContent);
+          const hasProperExport =
+            /export\s+const\s+\w+Abi\s*=\s*\[[\s\S]*\]\s+as\s+const\s*;/i.test(sourceContent);
 
           expect(
             hasProperExport,
@@ -107,8 +108,10 @@ describe("Type-level const validation", () => {
     // These imports will fail at compile time if ABIs don't have proper 'as const'
     type TestAirdropsV14 =
       typeof import("../../../src/evm/releases/airdrops/v1.3/abi/SablierMerkleInstant").sablierMerkleInstantAbi;
-    type TestLockupV10 = typeof import("../../../src/evm/releases/lockup/v2.0/abi/SablierLockup").sablierLockupAbi;
-    type TestFlowV10 = typeof import("../../../src/evm/releases/flow/v1.1/abi/SablierFlow").sablierFlowAbi;
+    type TestLockupV10 =
+      typeof import("../../../src/evm/releases/lockup/v2.0/abi/SablierLockup").sablierLockupAbi;
+    type TestFlowV10 =
+      typeof import("../../../src/evm/releases/flow/v1.1/abi/SablierFlow").sablierFlowAbi;
 
     // These type assertions will fail if the ABIs aren't const
     type _AssertAirdrops = AssertAsConst<TestAirdropsV14>;

@@ -182,7 +182,9 @@
           "stateMutability": "view",
           "type": "function",
           "name": "getSnapshotDebtScaled",
-          "outputs": [{ "internalType": "uint256", "name": "snapshotDebtScaled", "type": "uint256" }]
+          "outputs": [
+            { "internalType": "uint256", "name": "snapshotDebtScaled", "type": "uint256" }
+          ]
         },
         {
           "inputs": [{ "internalType": "uint256", "name": "streamId", "type": "uint256" }],
@@ -270,7 +272,9 @@
           "stateMutability": "view",
           "type": "function",
           "name": "nftDescriptor",
-          "outputs": [{ "internalType": "contract IFlowNFTDescriptor", "name": "", "type": "address" }]
+          "outputs": [
+            { "internalType": "contract IFlowNFTDescriptor", "name": "", "type": "address" }
+          ]
         }
       ],
       "devdoc": {
@@ -353,11 +357,15 @@
           "getStream(uint256)": { "notice": "Retrieves the stream entity." },
           "getToken(uint256)": { "notice": "Retrieves the token of the stream." },
           "getTokenDecimals(uint256)": { "notice": "Retrieves the token decimals of the stream." },
-          "isStream(uint256)": { "notice": "Retrieves a flag indicating whether the stream exists." },
+          "isStream(uint256)": {
+            "notice": "Retrieves a flag indicating whether the stream exists."
+          },
           "isTransferable(uint256)": {
             "notice": "Retrieves a flag indicating whether the stream NFT is transferable."
           },
-          "isVoided(uint256)": { "notice": "Retrieves a flag indicating whether the stream is voided." },
+          "isVoided(uint256)": {
+            "notice": "Retrieves a flag indicating whether the stream is voided."
+          },
           "nativeToken()": {
             "notice": "Retrieves the address of the ERC-20 interface of the native token, if it exists."
           },

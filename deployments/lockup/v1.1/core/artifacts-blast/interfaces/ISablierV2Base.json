@@ -36,7 +36,9 @@
       "type": "function",
       "name": "comptroller",
       "inputs": [],
-      "outputs": [{ "name": "", "type": "address", "internalType": "contract ISablierV2Comptroller" }],
+      "outputs": [
+        { "name": "", "type": "address", "internalType": "contract ISablierV2Comptroller" }
+      ],
       "stateMutability": "view"
     },
     {
@@ -85,7 +87,13 @@
     {
       "type": "function",
       "name": "setComptroller",
-      "inputs": [{ "name": "newComptroller", "type": "address", "internalType": "contract ISablierV2Comptroller" }],
+      "inputs": [
+        {
+          "name": "newComptroller",
+          "type": "address",
+          "internalType": "contract ISablierV2Comptroller"
+        }
+      ],
       "outputs": [],
       "stateMutability": "nonpayable"
     },
@@ -102,7 +110,12 @@
       "inputs": [
         { "name": "admin", "type": "address", "indexed": true, "internalType": "address" },
         { "name": "asset", "type": "address", "indexed": true, "internalType": "contract IERC20" },
-        { "name": "protocolRevenues", "type": "uint128", "indexed": false, "internalType": "uint128" }
+        {
+          "name": "protocolRevenues",
+          "type": "uint128",
+          "indexed": false,
+          "internalType": "uint128"
+        }
       ],
       "anonymous": false
     },
@@ -161,8 +174,18 @@
         {
           "inputs": [
             { "internalType": "address", "name": "admin", "type": "address", "indexed": true },
-            { "internalType": "contract IERC20", "name": "asset", "type": "address", "indexed": true },
-            { "internalType": "uint128", "name": "protocolRevenues", "type": "uint128", "indexed": false }
+            {
+              "internalType": "contract IERC20",
+              "name": "asset",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "uint128",
+              "name": "protocolRevenues",
+              "type": "uint128",
+              "indexed": false
+            }
           ],
           "type": "event",
           "name": "ClaimProtocolRevenues",
@@ -233,7 +256,9 @@
           "stateMutability": "view",
           "type": "function",
           "name": "comptroller",
-          "outputs": [{ "internalType": "contract ISablierV2Comptroller", "name": "", "type": "address" }]
+          "outputs": [
+            { "internalType": "contract ISablierV2Comptroller", "name": "", "type": "address" }
+          ]
         },
         {
           "inputs": [
@@ -256,14 +281,18 @@
           "name": "configureYieldAndGas"
         },
         {
-          "inputs": [{ "internalType": "contract IERC20Rebasing", "name": "asset", "type": "address" }],
+          "inputs": [
+            { "internalType": "contract IERC20Rebasing", "name": "asset", "type": "address" }
+          ],
           "stateMutability": "view",
           "type": "function",
           "name": "getClaimableRebasingAssetYield",
           "outputs": [{ "internalType": "uint256", "name": "claimableYield", "type": "uint256" }]
         },
         {
-          "inputs": [{ "internalType": "contract IERC20Rebasing", "name": "asset", "type": "address" }],
+          "inputs": [
+            { "internalType": "contract IERC20Rebasing", "name": "asset", "type": "address" }
+          ],
           "stateMutability": "view",
           "type": "function",
           "name": "getRebasingAssetConfiguration",
@@ -277,7 +306,13 @@
           "outputs": [{ "internalType": "uint128", "name": "revenues", "type": "uint128" }]
         },
         {
-          "inputs": [{ "internalType": "contract ISablierV2Comptroller", "name": "newComptroller", "type": "address" }],
+          "inputs": [
+            {
+              "internalType": "contract ISablierV2Comptroller",
+              "name": "newComptroller",
+              "type": "address"
+            }
+          ],
           "stateMutability": "nonpayable",
           "type": "function",
           "name": "setComptroller"
@@ -295,7 +330,9 @@
           "MAX_FEE()": { "details": "This value is hard coded as a constant." },
           "claimProtocolRevenues(address)": {
             "details": "Emits a {ClaimProtocolRevenues} event. Requirements: - `msg.sender` must be the contract admin.",
-            "params": { "asset": "The contract address of the ERC-20 asset for which to claim protocol revenues." }
+            "params": {
+              "asset": "The contract address of the ERC-20 asset for which to claim protocol revenues."
+            }
           },
           "claimRebasingAssetYield(address,uint256,address)": {
             "details": "Reverts if `msg.sender` is not the contract admin.",
@@ -330,7 +367,9 @@
             "details": "Reverts if the yield mode is not set to `CLAIMABLE`.",
             "params": { "asset": "The address of the rebasing ERC-20 asset." }
           },
-          "protocolRevenues(address)": { "params": { "asset": "The contract address of the ERC-20 asset to query." } },
+          "protocolRevenues(address)": {
+            "params": { "asset": "The contract address of the ERC-20 asset to query." }
+          },
           "setComptroller(address)": {
             "details": "Emits a {SetComptroller} event. Notes: - Does not revert if the comptroller is the same. Requirements: - `msg.sender` must be the contract admin.",
             "params": { "newComptroller": "The address of the new comptroller contract." }
@@ -358,7 +397,9 @@
           "comptroller()": {
             "notice": "Retrieves the address of the comptroller contract, responsible for the Sablier V2 protocol configuration."
           },
-          "configureRebasingAsset(address,uint8)": { "notice": "Sets the yield mode for a rebasing ERC-20 asset." },
+          "configureRebasingAsset(address,uint8)": {
+            "notice": "Sets the yield mode for a rebasing ERC-20 asset."
+          },
           "configureYieldAndGas(address,uint8,uint8,address)": {
             "notice": "configures yield and gas modes and sets the governor."
           },

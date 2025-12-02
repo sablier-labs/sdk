@@ -12,7 +12,9 @@
     {
       "type": "event",
       "name": "Upgraded",
-      "inputs": [{ "name": "implementation", "type": "address", "indexed": true, "internalType": "address" }],
+      "inputs": [
+        { "name": "implementation", "type": "address", "indexed": true, "internalType": "address" }
+      ],
       "anonymous": false
     },
     {
@@ -66,7 +68,14 @@
         { "inputs": [], "type": "error", "name": "ERC1967NonPayable" },
         { "inputs": [], "type": "error", "name": "FailedCall" },
         {
-          "inputs": [{ "internalType": "address", "name": "implementation", "type": "address", "indexed": true }],
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "implementation",
+              "type": "address",
+              "indexed": true
+            }
+          ],
           "type": "event",
           "name": "Upgraded",
           "anonymous": false
@@ -97,7 +106,9 @@
       ],
       "optimizer": { "enabled": true, "runs": 100000000 },
       "metadata": { "bytecodeHash": "ipfs" },
-      "compilationTarget": { "node_modules/@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol": "ERC1967Proxy" },
+      "compilationTarget": {
+        "node_modules/@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol": "ERC1967Proxy"
+      },
       "evmVersion": "shanghai",
       "libraries": {},
       "viaIR": true
@@ -263,7 +274,10 @@
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 715,
                         "src": "1185:14:7",
-                        "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
                       },
                       {
                         "id": 724,
@@ -272,7 +286,10 @@
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 717,
                         "src": "1201:5:7",
-                        "typeDescriptions": { "typeIdentifier": "t_bytes_memory_ptr", "typeString": "bytes memory" }
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
                       }
                     ],
                     "expression": {
@@ -374,20 +391,31 @@
                   "src": "1117:18:7",
                   "stateVariable": false,
                   "storageLocation": "memory",
-                  "typeDescriptions": { "typeIdentifier": "t_bytes_memory_ptr", "typeString": "bytes" },
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
                   "typeName": {
                     "id": 716,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "1117:5:7",
-                    "typeDescriptions": { "typeIdentifier": "t_bytes_storage_ptr", "typeString": "bytes" }
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
                   },
                   "visibility": "internal"
                 }
               ],
               "src": "1092:44:7"
             },
-            "returnParameters": { "id": 719, "nodeType": "ParameterList", "parameters": [], "src": "1145:0:7" },
+            "returnParameters": {
+              "id": 719,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1145:0:7"
+            },
             "scope": 741,
             "stateMutability": "payable",
             "virtual": false,
@@ -468,8 +496,18 @@
             "modifiers": [],
             "name": "_implementation",
             "nameLocation": "1592:15:7",
-            "overrides": { "id": 731, "nodeType": "OverrideSpecifier", "overrides": [], "src": "1632:8:7" },
-            "parameters": { "id": 730, "nodeType": "ParameterList", "parameters": [], "src": "1607:2:7" },
+            "overrides": {
+              "id": 731,
+              "nodeType": "OverrideSpecifier",
+              "overrides": [],
+              "src": "1632:8:7"
+            },
+            "parameters": {
+              "id": 730,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1607:2:7"
+            },
             "returnParameters": {
               "id": 734,
               "nodeType": "ParameterList",

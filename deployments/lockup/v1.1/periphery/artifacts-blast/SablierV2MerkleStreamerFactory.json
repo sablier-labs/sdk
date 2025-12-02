@@ -5,7 +5,11 @@
       "name": "createMerkleStreamerLL",
       "inputs": [
         { "name": "initialAdmin", "type": "address", "internalType": "address" },
-        { "name": "lockupLinear", "type": "address", "internalType": "contract ISablierV2LockupLinear" },
+        {
+          "name": "lockupLinear",
+          "type": "address",
+          "internalType": "contract ISablierV2LockupLinear"
+        },
         { "name": "asset", "type": "address", "internalType": "contract IERC20" },
         { "name": "merkleRoot", "type": "bytes32", "internalType": "bytes32" },
         { "name": "expiration", "type": "uint40", "internalType": "uint40" },
@@ -25,7 +29,11 @@
         { "name": "recipientsCount", "type": "uint256", "internalType": "uint256" }
       ],
       "outputs": [
-        { "name": "merkleStreamerLL", "type": "address", "internalType": "contract ISablierV2MerkleStreamerLL" }
+        {
+          "name": "merkleStreamerLL",
+          "type": "address",
+          "internalType": "contract ISablierV2MerkleStreamerLL"
+        }
       ],
       "stateMutability": "nonpayable"
     },
@@ -62,8 +70,18 @@
         { "name": "cancelable", "type": "bool", "indexed": false, "internalType": "bool" },
         { "name": "transferable", "type": "bool", "indexed": false, "internalType": "bool" },
         { "name": "ipfsCID", "type": "string", "indexed": false, "internalType": "string" },
-        { "name": "aggregateAmount", "type": "uint256", "indexed": false, "internalType": "uint256" },
-        { "name": "recipientsCount", "type": "uint256", "indexed": false, "internalType": "uint256" }
+        {
+          "name": "aggregateAmount",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        },
+        {
+          "name": "recipientsCount",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        }
       ],
       "anonymous": false
     }
@@ -102,8 +120,18 @@
               "type": "address",
               "indexed": true
             },
-            { "internalType": "contract IERC20", "name": "asset", "type": "address", "indexed": true },
-            { "internalType": "bytes32", "name": "merkleRoot", "type": "bytes32", "indexed": false },
+            {
+              "internalType": "contract IERC20",
+              "name": "asset",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "bytes32",
+              "name": "merkleRoot",
+              "type": "bytes32",
+              "indexed": false
+            },
             { "internalType": "uint40", "name": "expiration", "type": "uint40", "indexed": false },
             {
               "internalType": "struct LockupLinear.Durations",
@@ -118,8 +146,18 @@
             { "internalType": "bool", "name": "cancelable", "type": "bool", "indexed": false },
             { "internalType": "bool", "name": "transferable", "type": "bool", "indexed": false },
             { "internalType": "string", "name": "ipfsCID", "type": "string", "indexed": false },
-            { "internalType": "uint256", "name": "aggregateAmount", "type": "uint256", "indexed": false },
-            { "internalType": "uint256", "name": "recipientsCount", "type": "uint256", "indexed": false }
+            {
+              "internalType": "uint256",
+              "name": "aggregateAmount",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "uint256",
+              "name": "recipientsCount",
+              "type": "uint256",
+              "indexed": false
+            }
           ],
           "type": "event",
           "name": "CreateMerkleStreamerLL",
@@ -128,7 +166,11 @@
         {
           "inputs": [
             { "internalType": "address", "name": "initialAdmin", "type": "address" },
-            { "internalType": "contract ISablierV2LockupLinear", "name": "lockupLinear", "type": "address" },
+            {
+              "internalType": "contract ISablierV2LockupLinear",
+              "name": "lockupLinear",
+              "type": "address"
+            },
             { "internalType": "contract IERC20", "name": "asset", "type": "address" },
             { "internalType": "bytes32", "name": "merkleRoot", "type": "bytes32" },
             { "internalType": "uint40", "name": "expiration", "type": "uint40" },
@@ -151,7 +193,11 @@
           "type": "function",
           "name": "createMerkleStreamerLL",
           "outputs": [
-            { "internalType": "contract ISablierV2MerkleStreamerLL", "name": "merkleStreamerLL", "type": "address" }
+            {
+              "internalType": "contract ISablierV2MerkleStreamerLL",
+              "name": "merkleStreamerLL",
+              "type": "address"
+            }
           ]
         }
       ],
@@ -177,7 +223,9 @@
       ],
       "optimizer": { "enabled": true, "runs": 10000 },
       "metadata": { "bytecodeHash": "none" },
-      "compilationTarget": { "src/SablierV2MerkleStreamerFactory.sol": "SablierV2MerkleStreamerFactory" },
+      "compilationTarget": {
+        "src/SablierV2MerkleStreamerFactory.sol": "SablierV2MerkleStreamerFactory"
+      },
       "evmVersion": "paris",
       "libraries": {},
       "viaIR": true

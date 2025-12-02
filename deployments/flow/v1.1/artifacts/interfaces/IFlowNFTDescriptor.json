@@ -22,7 +22,11 @@
       "abi": [
         {
           "inputs": [
-            { "internalType": "contract IERC721Metadata", "name": "sablierFlow", "type": "address" },
+            {
+              "internalType": "contract IERC721Metadata",
+              "name": "sablierFlow",
+              "type": "address"
+            },
             { "internalType": "uint256", "name": "streamId", "type": "uint256" }
           ],
           "stateMutability": "view",
@@ -48,7 +52,9 @@
       "userdoc": {
         "kind": "user",
         "methods": {
-          "tokenURI(address,uint256)": { "notice": "Produces the URI describing a particular stream NFT." }
+          "tokenURI(address,uint256)": {
+            "notice": "Produces the URI describing a particular stream NFT."
+          }
         },
         "version": 1
       }

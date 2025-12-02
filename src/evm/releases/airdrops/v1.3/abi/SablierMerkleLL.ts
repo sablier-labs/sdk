@@ -226,7 +226,11 @@ export const sablierMerkleLLAbi = [
     ],
     anonymous: false,
   },
-  { type: "error", name: "AddressEmptyCode", inputs: [{ name: "target", type: "address", internalType: "address" }] },
+  {
+    type: "error",
+    name: "AddressEmptyCode",
+    inputs: [{ name: "target", type: "address", internalType: "address" }],
+  },
   {
     type: "error",
     name: "AddressInsufficientBalance",

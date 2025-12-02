@@ -73,7 +73,13 @@
       "outputs": [],
       "stateMutability": "payable"
     },
-    { "type": "function", "name": "collectFees", "inputs": [], "outputs": [], "stateMutability": "nonpayable" },
+    {
+      "type": "function",
+      "name": "collectFees",
+      "inputs": [],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
     {
       "type": "function",
       "name": "createWithDurationsLD",
@@ -559,7 +565,9 @@
       "type": "function",
       "name": "nftDescriptor",
       "inputs": [],
-      "outputs": [{ "name": "", "type": "address", "internalType": "contract ILockupNFTDescriptor" }],
+      "outputs": [
+        { "name": "", "type": "address", "internalType": "contract ILockupNFTDescriptor" }
+      ],
       "stateMutability": "view"
     },
     {
@@ -626,7 +634,13 @@
     {
       "type": "function",
       "name": "setNFTDescriptor",
-      "inputs": [{ "name": "newNFTDescriptor", "type": "address", "internalType": "contract ILockupNFTDescriptor" }],
+      "inputs": [
+        {
+          "name": "newNFTDescriptor",
+          "type": "address",
+          "internalType": "contract ILockupNFTDescriptor"
+        }
+      ],
       "outputs": [],
       "stateMutability": "nonpayable"
     },
@@ -785,7 +799,12 @@
         { "name": "recipient", "type": "address", "indexed": true, "internalType": "address" },
         { "name": "token", "type": "address", "indexed": true, "internalType": "contract IERC20" },
         { "name": "senderAmount", "type": "uint128", "indexed": false, "internalType": "uint128" },
-        { "name": "recipientAmount", "type": "uint128", "indexed": false, "internalType": "uint128" }
+        {
+          "name": "recipientAmount",
+          "type": "uint128",
+          "indexed": false,
+          "internalType": "uint128"
+        }
       ],
       "anonymous": false
     },
@@ -968,13 +987,17 @@
     {
       "type": "event",
       "name": "MetadataUpdate",
-      "inputs": [{ "name": "_tokenId", "type": "uint256", "indexed": false, "internalType": "uint256" }],
+      "inputs": [
+        { "name": "_tokenId", "type": "uint256", "indexed": false, "internalType": "uint256" }
+      ],
       "anonymous": false
     },
     {
       "type": "event",
       "name": "RenounceLockupStream",
-      "inputs": [{ "name": "streamId", "type": "uint256", "indexed": true, "internalType": "uint256" }],
+      "inputs": [
+        { "name": "streamId", "type": "uint256", "indexed": true, "internalType": "uint256" }
+      ],
       "anonymous": false
     },
     {
@@ -1132,7 +1155,12 @@
         },
         {
           "inputs": [
-            { "internalType": "uint256", "name": "_fromTokenId", "type": "uint256", "indexed": false },
+            {
+              "internalType": "uint256",
+              "name": "_fromTokenId",
+              "type": "uint256",
+              "indexed": false
+            },
             { "internalType": "uint256", "name": "_toTokenId", "type": "uint256", "indexed": false }
           ],
           "type": "event",
@@ -1144,9 +1172,24 @@
             { "internalType": "uint256", "name": "streamId", "type": "uint256", "indexed": false },
             { "internalType": "address", "name": "sender", "type": "address", "indexed": true },
             { "internalType": "address", "name": "recipient", "type": "address", "indexed": true },
-            { "internalType": "contract IERC20", "name": "token", "type": "address", "indexed": true },
-            { "internalType": "uint128", "name": "senderAmount", "type": "uint128", "indexed": false },
-            { "internalType": "uint128", "name": "recipientAmount", "type": "uint128", "indexed": false }
+            {
+              "internalType": "contract IERC20",
+              "name": "token",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "uint128",
+              "name": "senderAmount",
+              "type": "uint128",
+              "indexed": false
+            },
+            {
+              "internalType": "uint128",
+              "name": "recipientAmount",
+              "type": "uint128",
+              "indexed": false
+            }
           ],
           "type": "event",
           "name": "CancelLockupStream",
@@ -1329,13 +1372,17 @@
           "anonymous": false
         },
         {
-          "inputs": [{ "internalType": "uint256", "name": "_tokenId", "type": "uint256", "indexed": false }],
+          "inputs": [
+            { "internalType": "uint256", "name": "_tokenId", "type": "uint256", "indexed": false }
+          ],
           "type": "event",
           "name": "MetadataUpdate",
           "anonymous": false
         },
         {
-          "inputs": [{ "internalType": "uint256", "name": "streamId", "type": "uint256", "indexed": true }],
+          "inputs": [
+            { "internalType": "uint256", "name": "streamId", "type": "uint256", "indexed": true }
+          ],
           "type": "event",
           "name": "RenounceLockupStream",
           "anonymous": false
@@ -1383,7 +1430,12 @@
           "inputs": [
             { "internalType": "uint256", "name": "streamId", "type": "uint256", "indexed": true },
             { "internalType": "address", "name": "to", "type": "address", "indexed": true },
-            { "internalType": "contract IERC20", "name": "token", "type": "address", "indexed": true },
+            {
+              "internalType": "contract IERC20",
+              "name": "token",
+              "type": "address",
+              "indexed": true
+            },
             { "internalType": "uint128", "name": "amount", "type": "uint128", "indexed": false }
           ],
           "type": "event",
@@ -1458,7 +1510,12 @@
           "type": "function",
           "name": "cancelMultiple"
         },
-        { "inputs": [], "stateMutability": "nonpayable", "type": "function", "name": "collectFees" },
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "collectFees"
+        },
         {
           "inputs": [
             {
@@ -1771,7 +1828,9 @@
           "stateMutability": "view",
           "type": "function",
           "name": "getLockupModel",
-          "outputs": [{ "internalType": "enum Lockup.Model", "name": "lockupModel", "type": "uint8" }]
+          "outputs": [
+            { "internalType": "enum Lockup.Model", "name": "lockupModel", "type": "uint8" }
+          ]
         },
         {
           "inputs": [{ "internalType": "uint256", "name": "streamId", "type": "uint256" }],
@@ -1945,7 +2004,9 @@
           "stateMutability": "view",
           "type": "function",
           "name": "nftDescriptor",
-          "outputs": [{ "internalType": "contract ILockupNFTDescriptor", "name": "", "type": "address" }]
+          "outputs": [
+            { "internalType": "contract ILockupNFTDescriptor", "name": "", "type": "address" }
+          ]
         },
         {
           "inputs": [{ "internalType": "uint256", "name": "tokenId", "type": "uint256" }],
@@ -2005,7 +2066,11 @@
         },
         {
           "inputs": [
-            { "internalType": "contract ILockupNFTDescriptor", "name": "newNFTDescriptor", "type": "address" }
+            {
+              "internalType": "contract ILockupNFTDescriptor",
+              "name": "newNFTDescriptor",
+              "type": "address"
+            }
           ],
           "stateMutability": "nonpayable",
           "type": "function",
@@ -2113,14 +2178,18 @@
           "stateMutability": "view",
           "type": "function",
           "name": "withdrawableAmountOf",
-          "outputs": [{ "internalType": "uint128", "name": "withdrawableAmount", "type": "uint128" }]
+          "outputs": [
+            { "internalType": "uint128", "name": "withdrawableAmount", "type": "uint128" }
+          ]
         }
       ],
       "devdoc": {
         "kind": "dev",
         "methods": {
           "MAX_BROKER_FEE()": { "details": "This value is hard coded as a constant." },
-          "MAX_COUNT()": { "details": "This is initialized at construction time and cannot be changed later." },
+          "MAX_COUNT()": {
+            "details": "This is initialized at construction time and cannot be changed later."
+          },
           "allowToHook(address)": {
             "details": "Emits an {AllowToHook} event. Notes: - Does not revert if the contract is already on the allowlist. - This is an irreversible operation. The contract cannot be removed from the allowlist. Requirements: - `msg.sender` must be the contract admin. - `recipient` must have a non-zero code size. - `recipient` must implement {ISablierLockupRecipient}.",
             "params": { "recipient": "The address of the contract to allow for hooks." }
@@ -2128,11 +2197,15 @@
           "approve(address,uint256)": {
             "details": "Gives permission to `to` to transfer `tokenId` token to another account. The approval is cleared when the token is transferred. Only a single account can be approved at a time, so approving the zero address clears previous approvals. Requirements: - The caller must own the token or be an approved operator. - `tokenId` must exist. Emits an {Approval} event."
           },
-          "balanceOf(address)": { "details": "Returns the number of tokens in ``owner``'s account." },
+          "balanceOf(address)": {
+            "details": "Returns the number of tokens in ``owner``'s account."
+          },
           "batch(bytes[])": {
             "details": "Since `msg.value` can be reused across calls, be VERY CAREFUL when using it. Refer to https://paradigm.xyz/2021/08/two-rights-might-make-a-wrong for more information.",
             "params": { "calls": "An array of inputs for each call." },
-            "returns": { "results": "An array of results from each call. Empty when the calls do not return anything." }
+            "returns": {
+              "results": "An array of results from each call. Empty when the calls do not return anything."
+            }
           },
           "burn(uint256)": {
             "details": "Emits a {Transfer} and {MetadataUpdate} event. Requirements: - Must not be delegate called. - `streamId` must reference a depleted stream. - The NFT must exist. - `msg.sender` must be either the NFT owner or an approved third party.",
@@ -2257,7 +2330,9 @@
             "details": "Reverts if `streamId` references a null stream.",
             "params": { "streamId": "The stream ID for the query." }
           },
-          "isAllowedToHook(address)": { "details": "See {ISablierLockupRecipient} for more information." },
+          "isAllowedToHook(address)": {
+            "details": "See {ISablierLockupRecipient} for more information."
+          },
           "isApprovedForAll(address,address)": {
             "details": "Returns if the `operator` is allowed to manage all of the assets of `owner`. See {setApprovalForAll}"
           },
@@ -2326,7 +2401,9 @@
             "details": "Returns true if this contract implements the interface defined by `interfaceId`. See the corresponding https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section] to learn more about how these ids are created. This function call must use less than 30 000 gas."
           },
           "symbol()": { "details": "Returns the token collection symbol." },
-          "tokenURI(uint256)": { "details": "Returns the Uniform Resource Identifier (URI) for `tokenId` token." },
+          "tokenURI(uint256)": {
+            "details": "Returns the Uniform Resource Identifier (URI) for `tokenId` token."
+          },
           "transferAdmin(address)": {
             "details": "Notes: - Does not revert if the admin is the same. - This function can potentially leave the contract without an admin, thereby removing any functionality that is only available to the admin. Requirements: - `msg.sender` must be the contract admin.",
             "params": { "newAdmin": "The address of the new admin." }
@@ -2352,7 +2429,9 @@
               "streamId": "The ID of the stream to withdraw from.",
               "to": "The address receiving the withdrawn tokens."
             },
-            "returns": { "withdrawnAmount": "The amount withdrawn, denoted in units of the token's decimals." }
+            "returns": {
+              "withdrawnAmount": "The amount withdrawn, denoted in units of the token's decimals."
+            }
           },
           "withdrawMaxAndTransfer(uint256,address)": {
             "details": "Emits a {WithdrawFromLockupStream}, {Transfer} and {MetadataUpdate} event. Notes: - If the withdrawable amount is zero, the withdrawal is skipped. - Refer to the notes in {withdraw}. Requirements: - `msg.sender` must be either the NFT owner or an approved third party. - Refer to the requirements in {withdraw}. - Refer to the requirements in {IERC721.transferFrom}.",
@@ -2360,7 +2439,9 @@
               "newRecipient": "The address of the new owner of the stream NFT.",
               "streamId": "The ID of the stream NFT to transfer."
             },
-            "returns": { "withdrawnAmount": "The amount withdrawn, denoted in units of the token's decimals." }
+            "returns": {
+              "withdrawnAmount": "The amount withdrawn, denoted in units of the token's decimals."
+            }
           },
           "withdrawMultiple(uint256[],uint128[])": {
             "details": "Emits multiple {Transfer}, {WithdrawFromLockupStream} and {MetadataUpdate} events. For each stream that reverted the withdrawal, it emits an {InvalidWithdrawalInWithdrawMultiple} event. Notes: - This function attempts to call a hook on the recipient of each stream, unless `msg.sender` is the recipient. Requirements: - Must not be delegate called. - There must be an equal number of `streamIds` and `amounts`. - Each stream ID in the array must not reference a null or depleted stream. - Each amount in the array must be greater than zero and must not exceed the withdrawable amount.",
@@ -2391,11 +2472,15 @@
           },
           "batch(bytes[])": { "notice": "Allows batched calls to self, i.e., `this` contract." },
           "burn(uint256)": { "notice": "Burns the NFT associated with the stream." },
-          "cancel(uint256)": { "notice": "Cancels the stream and refunds any remaining tokens to the sender." },
+          "cancel(uint256)": {
+            "notice": "Cancels the stream and refunds any remaining tokens to the sender."
+          },
           "cancelMultiple(uint256[])": {
             "notice": "Cancels multiple streams and refunds any remaining tokens to the sender."
           },
-          "collectFees()": { "notice": "Collects the accrued fees by transferring them to the contract admin." },
+          "collectFees()": {
+            "notice": "Collects the accrued fees by transferring them to the contract admin."
+          },
           "createWithDurationsLD((address,address,uint128,address,bool,bool,string,(address,uint256)),(uint128,uint64,uint40)[])": {
             "notice": "Creates a stream by setting the start time to `block.timestamp`, and the end time to the sum of `block.timestamp` and all specified time durations. The segment timestamps are derived from these durations. The stream is funded by `msg.sender` and is wrapped in an ERC-721 NFT."
           },
@@ -2420,8 +2505,12 @@
           "getDepositedAmount(uint256)": {
             "notice": "Retrieves the amount deposited in the stream, denoted in units of the token's decimals."
           },
-          "getEndTime(uint256)": { "notice": "Retrieves the stream's end time, which is a Unix timestamp." },
-          "getLockupModel(uint256)": { "notice": "Retrieves the distribution models used to create the stream." },
+          "getEndTime(uint256)": {
+            "notice": "Retrieves the stream's end time, which is a Unix timestamp."
+          },
+          "getLockupModel(uint256)": {
+            "notice": "Retrieves the distribution models used to create the stream."
+          },
           "getRecipient(uint256)": { "notice": "Retrieves the stream's recipient." },
           "getRefundedAmount(uint256)": {
             "notice": "Retrieves the amount refunded to the sender after a cancellation, denoted in units of the token's decimals. This amount is always zero unless the stream was canceled."
@@ -2430,7 +2519,9 @@
             "notice": "Retrieves the segments used to compose the dynamic distribution function."
           },
           "getSender(uint256)": { "notice": "Retrieves the stream's sender." },
-          "getStartTime(uint256)": { "notice": "Retrieves the stream's start time, which is a Unix timestamp." },
+          "getStartTime(uint256)": {
+            "notice": "Retrieves the stream's start time, which is a Unix timestamp."
+          },
           "getTranches(uint256)": {
             "notice": "Retrieves the tranches used to compose the tranched distribution function."
           },
@@ -2452,8 +2543,12 @@
           "isCold(uint256)": {
             "notice": "Retrieves a flag indicating whether the stream is cold, i.e. settled, canceled, or depleted."
           },
-          "isDepleted(uint256)": { "notice": "Retrieves a flag indicating whether the stream is depleted." },
-          "isStream(uint256)": { "notice": "Retrieves a flag indicating whether the stream exists." },
+          "isDepleted(uint256)": {
+            "notice": "Retrieves a flag indicating whether the stream is depleted."
+          },
+          "isStream(uint256)": {
+            "notice": "Retrieves a flag indicating whether the stream exists."
+          },
           "isTransferable(uint256)": {
             "notice": "Retrieves a flag indicating whether the stream NFT can be transferred."
           },
@@ -2465,7 +2560,9 @@
           "refundableAmountOf(uint256)": {
             "notice": "Calculates the amount that the sender would be refunded if the stream were canceled, denoted in units of the token's decimals."
           },
-          "renounce(uint256)": { "notice": "Removes the right of the stream's sender to cancel the stream." },
+          "renounce(uint256)": {
+            "notice": "Removes the right of the stream's sender to cancel the stream."
+          },
           "renounceMultiple(uint256[])": { "notice": "Renounces multiple streams." },
           "setNFTDescriptor(address)": {
             "notice": "Sets a new NFT descriptor contract, which produces the URI describing the Sablier stream NFTs."
@@ -2475,7 +2572,9 @@
             "notice": "Calculates the amount streamed to the recipient, denoted in units of the token's decimals."
           },
           "transferAdmin(address)": { "notice": "Transfers the contract admin to a new address." },
-          "wasCanceled(uint256)": { "notice": "Retrieves a flag indicating whether the stream was canceled." },
+          "wasCanceled(uint256)": {
+            "notice": "Retrieves a flag indicating whether the stream was canceled."
+          },
           "withdraw(uint256,address,uint128)": {
             "notice": "Withdraws the provided amount of tokens from the stream to the `to` address."
           },

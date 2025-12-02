@@ -52,7 +52,11 @@ export const sablierFlowAbi = [
     name: "ERC721InvalidOperator",
     type: "error",
   },
-  { inputs: [{ internalType: "address", name: "owner", type: "address" }], name: "ERC721InvalidOwner", type: "error" },
+  {
+    inputs: [{ internalType: "address", name: "owner", type: "address" }],
+    name: "ERC721InvalidOwner",
+    type: "error",
+  },
   {
     inputs: [{ internalType: "address", name: "receiver", type: "address" }],
     name: "ERC721InvalidReceiver",
@@ -336,7 +340,12 @@ export const sablierFlowAbi = [
   {
     anonymous: false,
     inputs: [
-      { indexed: true, internalType: "contract ISablierComptroller", name: "comptroller", type: "address" },
+      {
+        indexed: true,
+        internalType: "contract ISablierComptroller",
+        name: "comptroller",
+        type: "address",
+      },
       { indexed: true, internalType: "contract IERC20", name: "token", type: "address" },
       { indexed: false, internalType: "address", name: "to", type: "address" },
       { indexed: false, internalType: "uint256", name: "surplus", type: "uint256" },
@@ -367,8 +376,18 @@ export const sablierFlowAbi = [
   {
     anonymous: false,
     inputs: [
-      { indexed: false, internalType: "contract ISablierComptroller", name: "oldComptroller", type: "address" },
-      { indexed: false, internalType: "contract ISablierComptroller", name: "newComptroller", type: "address" },
+      {
+        indexed: false,
+        internalType: "contract ISablierComptroller",
+        name: "oldComptroller",
+        type: "address",
+      },
+      {
+        indexed: false,
+        internalType: "contract ISablierComptroller",
+        name: "newComptroller",
+        type: "address",
+      },
     ],
     name: "SetComptroller",
     type: "event",
@@ -376,9 +395,24 @@ export const sablierFlowAbi = [
   {
     anonymous: false,
     inputs: [
-      { indexed: true, internalType: "contract ISablierComptroller", name: "comptroller", type: "address" },
-      { indexed: false, internalType: "contract IFlowNFTDescriptor", name: "oldNFTDescriptor", type: "address" },
-      { indexed: false, internalType: "contract IFlowNFTDescriptor", name: "newNFTDescriptor", type: "address" },
+      {
+        indexed: true,
+        internalType: "contract ISablierComptroller",
+        name: "comptroller",
+        type: "address",
+      },
+      {
+        indexed: false,
+        internalType: "contract IFlowNFTDescriptor",
+        name: "oldNFTDescriptor",
+        type: "address",
+      },
+      {
+        indexed: false,
+        internalType: "contract IFlowNFTDescriptor",
+        name: "newNFTDescriptor",
+        type: "address",
+      },
     ],
     name: "SetNFTDescriptor",
     type: "event",
@@ -386,7 +420,12 @@ export const sablierFlowAbi = [
   {
     anonymous: false,
     inputs: [
-      { indexed: true, internalType: "contract ISablierComptroller", name: "comptroller", type: "address" },
+      {
+        indexed: true,
+        internalType: "contract ISablierComptroller",
+        name: "comptroller",
+        type: "address",
+      },
       { indexed: false, internalType: "address", name: "nativeToken", type: "address" },
     ],
     name: "SetNativeToken",
@@ -405,7 +444,12 @@ export const sablierFlowAbi = [
   {
     anonymous: false,
     inputs: [
-      { indexed: true, internalType: "contract ISablierComptroller", name: "comptroller", type: "address" },
+      {
+        indexed: true,
+        internalType: "contract ISablierComptroller",
+        name: "comptroller",
+        type: "address",
+      },
       { indexed: false, internalType: "uint256", name: "feeAmount", type: "uint256" },
     ],
     name: "TransferFeesToComptroller",
@@ -823,14 +867,18 @@ export const sablierFlowAbi = [
     type: "function",
   },
   {
-    inputs: [{ internalType: "contract ISablierComptroller", name: "newComptroller", type: "address" }],
+    inputs: [
+      { internalType: "contract ISablierComptroller", name: "newComptroller", type: "address" },
+    ],
     name: "setComptroller",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
   },
   {
-    inputs: [{ internalType: "contract IFlowNFTDescriptor", name: "newNFTDescriptor", type: "address" }],
+    inputs: [
+      { internalType: "contract IFlowNFTDescriptor", name: "newNFTDescriptor", type: "address" },
+    ],
     name: "setNFTDescriptor",
     outputs: [],
     stateMutability: "nonpayable",
@@ -878,7 +926,13 @@ export const sablierFlowAbi = [
     stateMutability: "view",
     type: "function",
   },
-  { inputs: [], name: "transferFeesToComptroller", outputs: [], stateMutability: "nonpayable", type: "function" },
+  {
+    inputs: [],
+    name: "transferFeesToComptroller",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
   {
     inputs: [
       { internalType: "address", name: "from", type: "address" },
