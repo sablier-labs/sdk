@@ -2,9 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Common Changelog](https://common-changelog.org/), and this project adheres to
-[Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+The format is based on [Common Changelog](https://common-changelog.org/).
 
+> [!NOTE]
+>
+> This project may not always adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+[1.7.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.7.0
 [1.6.1]: https://github.com/sablier-labs/sdk/releases/tag/v1.6.1
 [1.6.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.6.0
 [1.5.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.5.0
@@ -19,11 +23,26 @@ The format is based on [Common Changelog](https://common-changelog.org/), and th
 [1.1.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.1.0
 [1.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.0.0
 
+## [1.7.0] - 2025-12-02
+
+### Changed
+
+- Extend comparison functions to support both EVM and Solana versions
+  ([#102](https://github.com/sablier-labs/sdk/pull/102))
+
+### Added
+
+- Add support for new EVM chain: Denergy ([#104](https://github.com/sablier-labs/sdk/pull/104))
+
+### Removed
+
+- Remove deprecated Morph Holesky testnet ([#103](https://github.com/sablier-labs/sdk/pull/103))
+
 ## [1.6.1] - 2025-11-24
 
 ### Fixed
 
-- Fix path when copying abi files in tsc-build script
+- Export ABIs ([#99](https://github.com/sablier-labs/sdk/pull/99))
 
 ## [1.6.0] - 2025-11-19
 
@@ -31,18 +50,35 @@ The format is based on [Common Changelog](https://common-changelog.org/), and th
 
 - Import Monad from viem
 
+### Added
+
+- Add utility for truncating addresses ([#91](https://github.com/sablier-labs/sdk/pull/91))
+
 ## [1.5.0] - 2025-11-10
+
+### Changed
+
+- Move the EVM modules (abi, chains, contracts, releases, etc.) to the `evm` namespace
 
 ### Added
 
-- Add new EVM chain: Monad
+- Add Solana deployments ([#82](https://github.com/sablier-labs/sdk/pull/82),
+  [#83](https://github.com/sablier-labs/sdk/pull/83), [#84](https://github.com/sablier-labs/sdk/pull/84),
+  [#85](https://github.com/sablier-labs/sdk/pull/85), [#86](https://github.com/sablier-labs/sdk/pull/86),
+  [#88](https://github.com/sablier-labs/sdk/pull/88))
+- Add EVM and Solana types: `Sablier.EVM.*` and `Sablier.Solana.*` (note: `Sablier.*` is aliased to `Sablier.EVM.*`)
+- Add support for new EVM chain: Monad
 
 ## [1.4.3] - 2025-11-09
 
+### Changed
+
+- Packages can be imported without `/dist` prefix
+
 ### Fixed
 
-- Block number for Flow 2.0 on Linea
-- Block number for Lockup 3.0 on Arbitrum Sepolia
+- Fix block number for Flow 2.0 on Linea
+- fix block number for Lockup 3.0 on Arbitrum Sepolia
 
 ## [1.4.2] - 2025-10-22
 
@@ -67,7 +103,7 @@ The format is based on [Common Changelog](https://common-changelog.org/), and th
 
 ### Added
 
-- RouteMesh RPC provider support ([#63](https://github.com/sablier-labs/sdk/pull/63))
+- Add support for RouteMesh RPC provider ([#63](https://github.com/sablier-labs/sdk/pull/63))
 
 ## [1.2.2] - 2025-10-21
 
