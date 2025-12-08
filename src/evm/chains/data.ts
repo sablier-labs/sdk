@@ -258,7 +258,6 @@ export const mainnet = define("mainnet", _mainnet);
 export const meld = define("meld", _meld);
 export const mode = define("mode", _mode);
 export const modeTestnet = define("mode-testnet", _modeTestnet);
-export const monad = define("monad", _monad);
 export const monadTestnet = define("monad-testnet", _monadTestnet);
 export const morph = define("morph", _morph);
 export const optimism = define("optimism", _optimism);
@@ -346,6 +345,16 @@ export const hyperevm: Sablier.EVM.Chain = define(
       },
     },
     testnet: false,
+  }),
+);
+
+export const monad: Sablier.EVM.Chain = define(
+  "monad",
+  viemDefine({
+    ..._monad,
+    blockExplorers: {
+      default: { name: "Explorer", url: "https://monadscan.com" },
+    },
   }),
 );
 
