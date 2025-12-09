@@ -4,8 +4,14 @@
  * The test verifies that all CoinGecko IDs in the config are valid by pinging
  * the CoinGecko API for each coin.
  */
-import axios from "axios";
-import { describe, expect, it } from "vitest";
+import {
+  FetchHttpClient,
+  HttpClient,
+  HttpClientRequest,
+  HttpClientResponse,
+} from "@effect/platform";
+import { describe, expect, it } from "@effect/vitest";
+import { Effect, Schema } from "effect";
 
 const COINGECKO_API_KEY = process.env.VITE_COINGECKO_API_KEY;
 const COINGECKO_BASE_URL = "https://api.coingecko.com/api/v3";
@@ -34,6 +40,32 @@ const COINGECKO_IDS = {
   "xdce-crowd-sale": "XDC",
 };
 
+const CoinGeckoResponseSchema = Schema.Struct({
+  id: Schema.String,
+});
+
+function validateCoinGeckoId(coinId: string) {
+  return Effect.gen(function* () {
+    const client = yield* HttpClient.HttpClient;
+    const url = `${COINGECKO_BASE_URL}/coins/${coinId}`;
+    const urlWithParams = new URL(url);
+    urlWithParams.searchParams.set("community_data", "false");
+    urlWithParams.searchParams.set("developer_data", "false");
+    urlWithParams.searchParams.set("localization", "false");
+    urlWithParams.searchParams.set("market_data", "false");
+    urlWithParams.searchParams.set("tickers", "false");
+
+    const request = HttpClientRequest.get(urlWithParams.toString()).pipe(
+      HttpClientRequest.setHeader("x-cg-demo-api-key", COINGECKO_API_KEY!),
+    );
+
+    const response = yield* client.execute(request);
+    const body = yield* HttpClientResponse.schemaBodyJson(CoinGeckoResponseSchema)(response);
+
+    return { id: body.id, status: response.status };
+  }).pipe(Effect.provide(FetchHttpClient.layer));
+}
+
 describe("Validate CoinGecko IDs", () => {
   if (!COINGECKO_API_KEY) {
     it.skip("VITE_COINGECKO_API_KEY not set - skipping CoinGecko tests", () => {});
@@ -41,29 +73,14 @@ describe("Validate CoinGecko IDs", () => {
   }
 
   for (const [coinId, symbol] of Object.entries(COINGECKO_IDS)) {
-    it(`${symbol}: ${coinId}`, async () => {
-      const url = `${COINGECKO_BASE_URL}/coins/${coinId}`;
-
-      await expect(
-        axios.get(url, {
-          headers: {
-            "x-cg-demo-api-key": COINGECKO_API_KEY,
-          },
-          params: {
-            community_data: false,
-            developer_data: false,
-            localization: false,
-            market_data: false,
-            tickers: false,
-          },
-          timeout: 10_000, // 10 seconds
-        }),
-      ).resolves.toMatchObject({
-        data: {
+    it.effect(`${symbol}: ${coinId}`, () =>
+      Effect.gen(function* () {
+        const result = yield* validateCoinGeckoId(coinId);
+        expect(result).toMatchObject({
           id: coinId,
-        },
-        status: 200,
-      });
-    });
+          status: 200,
+        });
+      }),
+    );
   }
 });

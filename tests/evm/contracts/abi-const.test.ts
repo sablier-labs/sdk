@@ -1,19 +1,24 @@
 import path from "node:path";
+import { beforeAll, describe, expect, it, test } from "@effect/vitest";
+import { Effect } from "effect";
 import globby from "globby";
-import { beforeAll, describe, expect, it, test } from "vitest";
 
 // TypeScript utility types for compile-time validation
 type IsReadonlyArray<T> = T extends readonly unknown[] ? true : false;
 type AssertAsConst<T> = IsReadonlyArray<T> extends true ? T : never;
 
 // Dynamic file discovery
-async function getAllAbiFiles(): Promise<string[]> {
-  const files = await globby("src/releases/**/abi/*.ts", {
-    absolute: true,
-    cwd: process.cwd(),
-  });
+function getAllAbiFilesEffect() {
+  return Effect.gen(function* () {
+    const files = yield* Effect.promise(() =>
+      globby("src/releases/**/abi/*.ts", {
+        absolute: true,
+        cwd: process.cwd(),
+      }),
+    );
 
-  return files.sort(); // Sort for consistent test ordering
+    return files.sort(); // Sort for consistent test ordering
+  });
 }
 
 describe("ABI const assertions", () => {
@@ -21,19 +26,19 @@ describe("ABI const assertions", () => {
 
   // Discover all ABI files once before all tests
   beforeAll(async () => {
-    abiFiles = await getAllAbiFiles();
+    abiFiles = await Effect.runPromise(getAllAbiFilesEffect());
   });
 
   describe("ABI exports validation", () => {
-    it("validates all ABI files export arrays with proper structure", async () => {
-      for (const filePath of abiFiles) {
-        // Convert absolute path to relative path for import
-        const relativePath = path.relative(process.cwd(), filePath);
-        const modulePath = `../../${relativePath.replace(/\.ts$/, "")}`;
+    it.effect("validates all ABI files export arrays with proper structure", () =>
+      Effect.gen(function* () {
+        for (const filePath of abiFiles) {
+          // Convert absolute path to relative path for import
+          const relativePath = path.relative(process.cwd(), filePath);
+          const modulePath = `../../${relativePath.replace(/\.ts$/, "")}`;
 
-        try {
           // Dynamic import of the ABI module
-          const abiModule = await import(modulePath);
+          const abiModule = yield* Effect.promise(() => import(modulePath));
 
           // Get all exports
           const exports = Object.entries(abiModule);
@@ -61,21 +66,21 @@ describe("ABI const assertions", () => {
               expect(item, `${exportName}[${index}] should not be null`).not.toBe(null);
             });
           });
-        } catch (error) {
-          throw new Error(`Failed to import ${filePath}: ${error}`);
         }
-      }
-    });
+      }).pipe(
+        Effect.catchAll((error) => Effect.fail(new Error(`Failed to import ABI files: ${error}`))),
+      ),
+    );
   });
 
   describe("Source code 'as const' assertion validation", () => {
-    it("validates all ABI files contain 'as const' assertions", async () => {
-      const fs = await import("node:fs/promises");
+    it.effect("validates all ABI files contain 'as const' assertions", () =>
+      Effect.gen(function* () {
+        const fs = yield* Effect.promise(() => import("node:fs/promises"));
 
-      for (const filePath of abiFiles) {
-        try {
+        for (const filePath of abiFiles) {
           // Read the source file content
-          const sourceContent = await fs.readFile(filePath, "utf-8");
+          const sourceContent = yield* Effect.promise(() => fs.readFile(filePath, "utf-8"));
 
           // Check for 'as const' assertion
           const hasAsConst = /\]\s+as\s+const\s*;/i.test(sourceContent);
@@ -93,11 +98,11 @@ describe("ABI const assertions", () => {
             hasProperExport,
             `File ${path.basename(filePath)} doesn't have proper ABI export pattern with 'as const'`,
           ).toBe(true);
-        } catch (error) {
-          throw new Error(`Failed to read file ${filePath}: ${error}`);
         }
-      }
-    });
+      }).pipe(
+        Effect.catchAll((error) => Effect.fail(new Error(`Failed to read ABI files: ${error}`))),
+      ),
+    );
   });
 });
 
