@@ -12,8 +12,11 @@ import type { Sablier } from "@src/types";
 import { Effect, Schema } from "effect";
 import { ETHERSCAN_CHAINS, getEtherscanContractCreationUrl } from "../helpers/etherscan";
 
-/** Cache of contract address -> block number (undefined if fetch failed) */
+/** Cache of chainId:address -> block number (undefined if fetch failed) */
 const blockNumberCache = new Map<string, number | undefined>();
+
+/** Creates a cache key from chainId and address */
+const cacheKey = (chainId: number, address: string) => `${chainId}:${address.toLowerCase()}`;
 
 const EtherscanResultSchema = Schema.Struct({
   blockNumber: Schema.String,
@@ -99,7 +102,7 @@ describe("Block numbers correspond to Etherscan data", () => {
         effects.push(
           getContractCreationBlock(contract.address, contract.chainId).pipe(
             Effect.tap((blockNumber) => {
-              blockNumberCache.set(contract.address, blockNumber);
+              blockNumberCache.set(cacheKey(contract.chainId, contract.address), blockNumber);
             }),
             Effect.ignore,
           ),
@@ -125,15 +128,15 @@ describe("Block numbers correspond to Etherscan data", () => {
         }
 
         const chain = sablier.evm.chains.getOrThrow(contract.chainId);
+        const key = cacheKey(contract.chainId, contract.address);
         const shouldSkip = () =>
-          !blockNumberCache.has(contract.address) ||
-          blockNumberCache.get(contract.address) === undefined;
+          !blockNumberCache.has(key) || blockNumberCache.get(key) === undefined;
 
         it.effect.skipIf(shouldSkip)(
           `Chain ${chain.name} - Contract ${contract.name} should have a correct block number`,
           () =>
             Effect.sync(() => {
-              const actualBlockNumber = blockNumberCache.get(contract.address);
+              const actualBlockNumber = blockNumberCache.get(key);
               expect(contract.block).toBe(actualBlockNumber);
             }),
         );
