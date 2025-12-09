@@ -14,10 +14,15 @@ import path from "node:path";
 import { beforeAll, describe, expect, it } from "@effect/vitest";
 import { chains } from "@src/evm/chains";
 import { getDeploymentsDir } from "@src/internal/helpers";
-import { Effect } from "effect";
+import { Data, Effect } from "effect";
 import globby from "globby";
 import _ from "lodash";
 import { MISSING_CHAINS } from "./helpers/missing";
+
+class GlobbyError extends Data.TaggedError("GlobbyError")<{
+  readonly pattern: string;
+  readonly cause: unknown;
+}> {}
 
 const KNOWN_SLUGS = _.values(chains)
   .filter((chain) => !MISSING_CHAINS.includes(chain.id))
@@ -72,23 +77,21 @@ describe("Package chains are in sync with broadcasts", () => {
 function getAllBroadcastSlugsEffect() {
   return Effect.gen(function* () {
     const deploymentsPath = getDeploymentsDir();
-    const dirs = yield* Effect.promise(() =>
-      globby(
-        [
-          path.join(deploymentsPath, "**/broadcasts"),
-          path.join(deploymentsPath, "**/broadcasts-zk"),
-        ],
-        {
-          onlyDirectories: true,
-        },
-      ),
-    );
+    const patterns = [
+      path.join(deploymentsPath, "**/broadcasts"),
+      path.join(deploymentsPath, "**/broadcasts-zk"),
+    ];
+    const dirs = yield* Effect.tryPromise({
+      catch: (cause) => new GlobbyError({ cause, pattern: patterns.join(", ") }),
+      try: () => globby(patterns, { onlyDirectories: true }),
+    });
     const results: string[] = [];
 
     for (const dir of dirs) {
-      const entries = yield* Effect.promise(() =>
-        globby(["*"], { cwd: dir, objectMode: true, onlyFiles: false }),
-      );
+      const entries = yield* Effect.tryPromise({
+        catch: (cause) => new GlobbyError({ cause, pattern: dir }),
+        try: () => globby(["*"], { cwd: dir, objectMode: true, onlyFiles: false }),
+      });
 
       for (const entry of entries) {
         // It's a JSON file, use the basename without extension

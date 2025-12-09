@@ -1,3 +1,4 @@
+import { constants as http2Constants } from "node:http2";
 import {
   FetchHttpClient,
   HttpBody,
@@ -9,7 +10,6 @@ import { describe, expect, it } from "@effect/vitest";
 import { chains } from "@src/evm/chains";
 import { Effect, Schema } from "effect";
 import _ from "lodash";
-import { constants as http2Constants } from "node:http2";
 
 const MALFUNCTIONING_RPC: number[] = [chains.meld.id, chains.taikoHekla.id];
 
@@ -44,7 +44,7 @@ function pingRpcServer(url: string) {
 
 describe("Ping JSON-RPC server", () => {
   for (const chain of _.values(chains)) {
-    const shouldSkip: boolean = MALFUNCTIONING_RPC.includes(chain.id);
+    const shouldSkip: boolean = MALFUNCTIONING_RPC.includes(chain.id) || !chain.rpc.defaults[0];
 
     it.effect.skipIf(shouldSkip)(`${chain.name} (ID: ${chain.id})`, () =>
       Effect.gen(function* () {

@@ -13,10 +13,12 @@ import {
   HttpClientResponse,
 } from "@effect/platform";
 import { describe, expect, it } from "@effect/vitest";
-import { Effect, Schema } from "effect";
+import { Config, Effect, Redacted, Schema } from "effect";
 
 const COINGECKO_DEMO_API_KEY = process.env.VITE_COINGECKO_DEMO_API_KEY;
 const COINGECKO_DEMO_API_BASE_URL = "https://api.coingecko.com/api/v3";
+
+const CoinGeckoApiKeyConfig = Config.redacted("VITE_COINGECKO_DEMO_API_KEY");
 
 /*
  * CoinGecko IDs from src/evm/data.ts config.coinGeckoIds
@@ -48,6 +50,7 @@ const CoinGeckoResponseSchema = Schema.Struct({
 
 function validateCoinGeckoId(coinId: string) {
   return Effect.gen(function* () {
+    const apiKey = yield* CoinGeckoApiKeyConfig;
     const client = yield* HttpClient.HttpClient;
     const url = `${COINGECKO_DEMO_API_BASE_URL}/coins/${coinId}`;
     const urlWithParams = new URL(url);
@@ -58,7 +61,7 @@ function validateCoinGeckoId(coinId: string) {
     urlWithParams.searchParams.set("tickers", "false");
 
     const request = HttpClientRequest.get(urlWithParams.toString()).pipe(
-      HttpClientRequest.setHeader("x-cg-demo-api-key", COINGECKO_DEMO_API_KEY!),
+      HttpClientRequest.setHeader("x-cg-demo-api-key", Redacted.value(apiKey)),
     );
 
     const response = yield* client.execute(request);

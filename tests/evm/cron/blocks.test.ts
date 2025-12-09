@@ -4,13 +4,16 @@ import {
   HttpClientRequest,
   HttpClientResponse,
 } from "@effect/platform";
-import { describe, expect, it } from "@effect/vitest";
+import { beforeAll, describe, expect, it } from "@effect/vitest";
 import { contracts } from "@src/evm/contracts";
 import { Protocol } from "@src/evm/enums";
 import { sablier } from "@src/sablier";
 import type { Sablier } from "@src/types";
-import { Effect, Logger, Schema } from "effect";
+import { Effect, Schema } from "effect";
 import { ETHERSCAN_CHAINS, getEtherscanContractCreationUrl } from "../helpers/etherscan";
+
+/** Cache of contract address -> block number (undefined if fetch failed) */
+const blockNumberCache = new Map<string, number | undefined>();
 
 const EtherscanResultSchema = Schema.Struct({
   blockNumber: Schema.String,
@@ -83,6 +86,30 @@ function getContractCreationBlock(address: string, chainId: number) {
 }
 
 describe("Block numbers correspond to Etherscan data", () => {
+  // Pre-fetch all block numbers before running tests
+  beforeAll(async () => {
+    const effects: Effect.Effect<void>[] = [];
+
+    for (const release of sablier.evm.releases.getAll()) {
+      const releaseContracts = sablier.evm.contracts.getAll({ release })!;
+      for (const contract of releaseContracts) {
+        if (!ETHERSCAN_CHAINS.has(contract.chainId)) continue;
+        if (!INDEXED[release.protocol].has(contract.name)) continue;
+
+        effects.push(
+          getContractCreationBlock(contract.address, contract.chainId).pipe(
+            Effect.tap((blockNumber) => {
+              blockNumberCache.set(contract.address, blockNumber);
+            }),
+            Effect.ignore,
+          ),
+        );
+      }
+    }
+
+    await Effect.runPromise(Effect.all(effects, { concurrency: "unbounded" }));
+  });
+
   for (const release of sablier.evm.releases.getAll()) {
     describe(`${release.protocol} ${release.version}`, () => {
       const contracts = sablier.evm.contracts.getAll({ release })!;
@@ -98,23 +125,17 @@ describe("Block numbers correspond to Etherscan data", () => {
         }
 
         const chain = sablier.evm.chains.getOrThrow(contract.chainId);
+        const shouldSkip = () =>
+          !blockNumberCache.has(contract.address) ||
+          blockNumberCache.get(contract.address) === undefined;
 
-        it.effect(
+        it.effect.skipIf(shouldSkip)(
           `Chain ${chain.name} - Contract ${contract.name} should have a correct block number`,
           () =>
-            Effect.gen(function* () {
-              const actualBlockNumber = yield* getContractCreationBlock(
-                contract.address,
-                contract.chainId,
-              );
-              if (!actualBlockNumber) {
-                yield* Effect.log(
-                  `Skipped ${contract.name} because the block number could not be fetched from Etherscan.`,
-                );
-                return;
-              }
+            Effect.sync(() => {
+              const actualBlockNumber = blockNumberCache.get(contract.address);
               expect(contract.block).toBe(actualBlockNumber);
-            }).pipe(Effect.provide(Logger.pretty)),
+            }),
         );
       }
     });
