@@ -4,6 +4,8 @@
  * The test verifies that all CoinGecko IDs in the config are valid by pinging
  * the CoinGecko API for each coin.
  */
+
+import { constants as http2Constants } from "node:http2";
 import {
   FetchHttpClient,
   HttpClient,
@@ -13,10 +15,10 @@ import {
 import { describe, expect, it } from "@effect/vitest";
 import { Effect, Schema } from "effect";
 
-const COINGECKO_API_KEY = process.env.VITE_COINGECKO_API_KEY;
-const COINGECKO_BASE_URL = "https://api.coingecko.com/api/v3";
+const COINGECKO_DEMO_API_KEY = process.env.VITE_COINGECKO_DEMO_API_KEY;
+const COINGECKO_DEMO_API_BASE_URL = "https://api.coingecko.com/api/v3";
 
-/**
+/*
  * CoinGecko IDs from src/evm/data.ts config.coinGeckoIds
  */
 const COINGECKO_IDS = {
@@ -47,7 +49,7 @@ const CoinGeckoResponseSchema = Schema.Struct({
 function validateCoinGeckoId(coinId: string) {
   return Effect.gen(function* () {
     const client = yield* HttpClient.HttpClient;
-    const url = `${COINGECKO_BASE_URL}/coins/${coinId}`;
+    const url = `${COINGECKO_DEMO_API_BASE_URL}/coins/${coinId}`;
     const urlWithParams = new URL(url);
     urlWithParams.searchParams.set("community_data", "false");
     urlWithParams.searchParams.set("developer_data", "false");
@@ -56,7 +58,7 @@ function validateCoinGeckoId(coinId: string) {
     urlWithParams.searchParams.set("tickers", "false");
 
     const request = HttpClientRequest.get(urlWithParams.toString()).pipe(
-      HttpClientRequest.setHeader("x-cg-demo-api-key", COINGECKO_API_KEY!),
+      HttpClientRequest.setHeader("x-cg-demo-api-key", COINGECKO_DEMO_API_KEY!),
     );
 
     const response = yield* client.execute(request);
@@ -67,7 +69,7 @@ function validateCoinGeckoId(coinId: string) {
 }
 
 describe("Validate CoinGecko IDs", () => {
-  if (!COINGECKO_API_KEY) {
+  if (!COINGECKO_DEMO_API_KEY) {
     it.skip("VITE_COINGECKO_API_KEY not set - skipping CoinGecko tests", () => {});
     return;
   }
@@ -78,7 +80,7 @@ describe("Validate CoinGecko IDs", () => {
         const result = yield* validateCoinGeckoId(coinId);
         expect(result).toMatchObject({
           id: coinId,
-          status: 200,
+          status: http2Constants.HTTP_STATUS_OK,
         });
       }),
     );

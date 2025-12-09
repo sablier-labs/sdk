@@ -9,6 +9,7 @@ import { describe, expect, it } from "@effect/vitest";
 import { chains } from "@src/evm/chains";
 import { Effect, Schema } from "effect";
 import _ from "lodash";
+import { constants as http2Constants } from "node:http2";
 
 const MALFUNCTIONING_RPC: number[] = [chains.meld.id, chains.taikoHekla.id];
 
@@ -54,7 +55,7 @@ describe("Ping JSON-RPC server", () => {
             jsonrpc: "2.0",
             result: expect.any(String),
           },
-          status: 200,
+          status: http2Constants.HTTP_STATUS_OK,
         });
       }),
     );
