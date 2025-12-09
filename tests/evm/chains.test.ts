@@ -28,6 +28,8 @@ const KNOWN_SLUGS = _.values(chains)
   .filter((chain) => !MISSING_CHAINS.includes(chain.id))
   .map((chain) => chain.slug);
 
+const MISSING_SLUGS = MISSING_CHAINS.map((id) => _.values(chains).find((c) => c.id === id)!.slug);
+
 describe("Package chains are in sync with broadcasts", () => {
   let broadcastSlugs: string[] = [];
   const errors: Set<string> = new Set();
@@ -57,7 +59,7 @@ describe("Package chains are in sync with broadcasts", () => {
   it.effect("should not have any unknown chain in broadcasts", () =>
     Effect.gen(function* () {
       errors.clear();
-      const allowedSlugs = [...KNOWN_SLUGS, ...MISSING_CHAINS];
+      const allowedSlugs = [...KNOWN_SLUGS, ...MISSING_SLUGS];
       const extraChains = _.difference(broadcastSlugs, allowedSlugs);
 
       for (const slug of extraChains) {
