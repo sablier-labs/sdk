@@ -34,12 +34,12 @@ setup:
 
 # Run tests
 test *args:
-    bun vitest run --hideSkippedTests {{args}}
+    bun vitest run {{args}}
 alias t := test
 
 # Run tests with UI
 test-ui *args:
-    bun vitest --hideSkippedTests --ui {{args}}
+    bun vitest --ui {{args}}
 alias tui := test-ui
 
 # Build with TypeScript CLI
@@ -53,6 +53,12 @@ alias tui := test-ui
 # ---------------------------------------------------------------------------- #
 #                                     PRINT                                    #
 # ---------------------------------------------------------------------------- #
+
+
+# Run CLI commands. Usage: just cli <command> [args]
+[private]
+@cli *args:
+    bun run cli {{ args }}
 
 # Run print CLI commands.
 [group("print")]
@@ -74,8 +80,3 @@ alias tui := test-ui
 @print-versions:
     just cli print versions
 
-
-# Run CLI commands. Usage: just cli <command> [args]
-[private]
-@cli *args:
-    bun run cli {{ args }}

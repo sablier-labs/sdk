@@ -14,12 +14,10 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - name: "Check out the repo"
-        uses: "actions/checkout@v4"
+        uses: "actions/checkout@v5"
 
       - name: "Set up devkit"
-        uses: "sablier-labs/devkit/actions/setup@main"
-        with:
-          package-manager: "bun"
+        uses: "sablier-labs/devkit/actions/setup@v1"
 
       - name: "Run the code checks"
         run: "just full-check"

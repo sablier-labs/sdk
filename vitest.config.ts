@@ -36,6 +36,7 @@ export default defineConfig({
     environment: "node",
     globalSetup: "./tests/setup.ts",
     globals: true,
+    hideSkippedTests: true,
     include: getInclude(),
     outputFile: CI ? "./test-results.json" : undefined,
     reporters: getReporters(),
