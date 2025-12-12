@@ -2,7 +2,7 @@
 
 AI agents working on this TypeScript SDK must follow these guidelines.
 
-## Most Important Thing
+## Lint Rules
 
 After generating code, run these commands **in order**.
 
@@ -35,7 +35,8 @@ just biome-lint
 just tsc-check
 ```
 
-If any command fails, analyze the errors and fix it before continuing.
+If any command fails, analyze the errors and fix them before continuing. Then, run `just biome-write` to format all code
+at the end.
 
 ## Context
 
