@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Range Timelock CSV Schema",
+  "description": "Schema for timelock with absolute timestamp",
+  "type": "object",
+  "properties": {
+    "address": {
+      "$ref": "../common.schema.json#/$defs/address"
+    },
+    "amount": {
+      "$ref": "../common.schema.json#/$defs/amount"
+    },
+    "end": {
+      "$ref": "../common.schema.json#/$defs/timestamp"
+    }
+  },
+  "required": ["address", "amount", "end"],
+  "additionalProperties": false
+}

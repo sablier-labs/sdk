@@ -1,5 +1,6 @@
 # See https://github.com/sablier-labs/devkit/blob/main/just/base.just
 import "./node_modules/@sablier/devkit/just/base.just"
+import "./node_modules/@sablier/devkit/just/csv.just"
 import "./node_modules/@sablier/devkit/just/npm.just"
 
 # ---------------------------------------------------------------------------- #
@@ -25,8 +26,8 @@ alias b := build
 
 # Clean the dist directory
 @clean:
-    bunx del-cli dist
-    echo "✅ Cleaned build files"
+    bun x del-cli dist
+    echo "🗑️  Cleaned build files"
 
 # Setup Husky
 setup:
@@ -36,6 +37,14 @@ setup:
 test *args:
     bun vitest run {{args}}
 alias t := test
+
+# Validate CSV template files
+[group("checks")]
+@csv-check:
+    just _csv-check "./src/evm/csv/schemas/**/*.csv"
+    echo ""
+    just _csv-check "./src/solana/csv/schemas/*.csv"
+alias cc := csv-check
 
 # Run tests with UI
 test-ui *args:
@@ -48,6 +57,7 @@ alias tui := test-ui
     bun tsc -p tsconfig.build.json
     bun tsc-alias -p tsconfig.build.json
     bun copyfiles --up 3 src/evm/abi/**/*.json "dist/abi"
+    bun copyfiles --up 1 "src/csv/schemas/**/*.schema.json" dist
     echo "✅ Package built successfully in 'dist' directory"
 
 # ---------------------------------------------------------------------------- #

@@ -19,6 +19,9 @@ jobs:
       - name: "Run the code checks"
         run: "just full-check"
 
+      - name: "Validate CSV templates"
+        run: "just csv-check"
+
       - name: "Run the tests"
         env:
           VITE_ETHERSCAN_API_KEY: ${{ secrets.VITE_ETHERSCAN_API_KEY }}
