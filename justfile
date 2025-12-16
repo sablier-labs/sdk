@@ -57,7 +57,8 @@ alias tui := test-ui
     bun tsc -p tsconfig.build.json
     bun tsc-alias -p tsconfig.build.json
     bun copyfiles --up 3 src/evm/abi/**/*.json "dist/abi"
-    bun copyfiles --up 1 "src/csv/schemas/**/*.schema.json" dist
+    bun copyfiles --up 1 "src/evm/csv/schemas/**/*.schema.json" "src/evm/csv/schemas/**/*.csv" dist
+    bun copyfiles --up 1 "src/solana/csv/schemas/**/*.csv" dist
     echo "✅ Package built successfully in 'dist' directory"
 
 # ---------------------------------------------------------------------------- #
