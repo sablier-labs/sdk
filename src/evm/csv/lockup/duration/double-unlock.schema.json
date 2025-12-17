@@ -5,25 +5,25 @@
   "type": "object",
   "properties": {
     "address": {
-      "$ref": "../common.schema.json#/$defs/address"
+      "$ref": "../../common.schema.json#/$defs/address"
     },
     "amount": {
-      "$ref": "../common.schema.json#/$defs/amount"
+      "$ref": "../../common.schema.json#/$defs/amount"
     },
     "duration": {
-      "$ref": "../common.schema.json#/$defs/duration"
+      "$ref": "../../common.schema.json#/$defs/duration"
     },
     "firstUnlockDuration": {
-      "$ref": "../common.schema.json#/$defs/duration"
+      "$ref": "../../common.schema.json#/$defs/duration"
     },
     "firstUnlockAmount": {
-      "$ref": "../common.schema.json#/$defs/amount"
+      "$ref": "../../common.schema.json#/$defs/amount"
     },
     "secondUnlockDuration": {
-      "$ref": "../common.schema.json#/$defs/duration"
+      "$ref": "../../common.schema.json#/$defs/duration"
     },
     "secondUnlockAmount": {
-      "$ref": "../common.schema.json#/$defs/amount"
+      "$ref": "../../common.schema.json#/$defs/amount"
     }
   },
   "required": [

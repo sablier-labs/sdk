@@ -5,16 +5,16 @@
   "type": "object",
   "properties": {
     "address": {
-      "$ref": "../common.schema.json#/$defs/address"
+      "$ref": "../../common.schema.json#/$defs/address"
     },
     "amount": {
-      "$ref": "../common.schema.json#/$defs/amount"
+      "$ref": "../../common.schema.json#/$defs/amount"
     },
     "start": {
-      "$ref": "../common.schema.json#/$defs/timestamp"
+      "$ref": "../../common.schema.json#/$defs/timestamp"
     },
     "end": {
-      "$ref": "../common.schema.json#/$defs/timestamp"
+      "$ref": "../../common.schema.json#/$defs/timestamp"
     }
   },
   "required": ["address", "amount", "start", "end"],

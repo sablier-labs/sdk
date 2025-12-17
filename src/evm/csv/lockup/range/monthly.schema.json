@@ -1,23 +1,23 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Duration Monthly CSV Schema",
+  "title": "Range Monthly CSV Schema",
   "description": "Schema for monthly vesting",
   "type": "object",
   "properties": {
     "address": {
-      "$ref": "../common.schema.json#/$defs/address"
+      "$ref": "../../common.schema.json#/$defs/address"
     },
     "amount": {
-      "$ref": "../common.schema.json#/$defs/amount"
+      "$ref": "../../common.schema.json#/$defs/amount"
     },
     "start": {
-      "$ref": "../common.schema.json#/$defs/timestamp"
+      "$ref": "../../common.schema.json#/$defs/timestamp"
     },
     "months": {
-      "$ref": "../common.schema.json#/$defs/positiveInteger"
+      "$ref": "../../common.schema.json#/$defs/positiveInteger"
     },
     "initial": {
-      "$ref": "../common.schema.json#/$defs/duration"
+      "$ref": "../../common.schema.json#/$defs/duration"
     }
   },
   "required": ["address", "amount", "start", "months", "initial"],

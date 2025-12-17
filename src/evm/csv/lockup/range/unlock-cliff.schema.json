@@ -5,25 +5,25 @@
   "type": "object",
   "properties": {
     "address": {
-      "$ref": "../common.schema.json#/$defs/address"
+      "$ref": "../../common.schema.json#/$defs/address"
     },
     "amount": {
-      "$ref": "../common.schema.json#/$defs/amount"
+      "$ref": "../../common.schema.json#/$defs/amount"
     },
     "start": {
-      "$ref": "../common.schema.json#/$defs/timestamp"
+      "$ref": "../../common.schema.json#/$defs/timestamp"
     },
     "end": {
-      "$ref": "../common.schema.json#/$defs/timestamp"
+      "$ref": "../../common.schema.json#/$defs/timestamp"
     },
     "cliffEnd": {
-      "$ref": "../common.schema.json#/$defs/timestamp"
+      "$ref": "../../common.schema.json#/$defs/timestamp"
     },
     "unlock": {
-      "$ref": "../common.schema.json#/$defs/amount"
+      "$ref": "../../common.schema.json#/$defs/amount"
     },
     "cliffAmount": {
-      "$ref": "../common.schema.json#/$defs/amount"
+      "$ref": "../../common.schema.json#/$defs/amount"
     }
   },
   "required": ["address", "amount", "start", "end", "cliffEnd", "unlock", "cliffAmount"],

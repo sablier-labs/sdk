@@ -5,22 +5,22 @@
   "type": "object",
   "properties": {
     "address": {
-      "$ref": "../common.schema.json#/$defs/address"
+      "$ref": "../../common.schema.json#/$defs/address"
     },
     "amount": {
-      "$ref": "../common.schema.json#/$defs/amount"
+      "$ref": "../../common.schema.json#/$defs/amount"
     },
     "duration": {
-      "$ref": "../common.schema.json#/$defs/duration"
+      "$ref": "../../common.schema.json#/$defs/duration"
     },
     "cliffDuration": {
-      "$ref": "../common.schema.json#/$defs/duration"
+      "$ref": "../../common.schema.json#/$defs/duration"
     },
     "unlock": {
-      "$ref": "../common.schema.json#/$defs/amount"
+      "$ref": "../../common.schema.json#/$defs/amount"
     },
     "cliffAmount": {
-      "$ref": "../common.schema.json#/$defs/amount"
+      "$ref": "../../common.schema.json#/$defs/amount"
     }
   },
   "required": ["address", "amount", "duration", "cliffDuration", "unlock", "cliffAmount"],
