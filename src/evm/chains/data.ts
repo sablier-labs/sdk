@@ -298,7 +298,7 @@ export const denergy: Sablier.EVM.Chain = define(
   "denergy",
   viemDefine({
     blockExplorers: {
-      default: { name: "Explorer", url: "https://explorer.denergychain.com/" },
+      default: { name: "Explorer", url: "https://explorer.denergychain.com" },
     },
     id: 369369,
     name: "Denergy",
