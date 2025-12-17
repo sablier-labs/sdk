@@ -41,7 +41,7 @@ alias t := test
 # Validate CSV template files
 [group("checks")]
 @csv-check:
-    just _csv-check "./src/evm/csv/schemas/**/*.csv"
+    just _csv-check "./src/evm/csv/**/*.csv"
     echo ""
     just _csv-check "./src/solana/csv/schemas/*.csv"
 alias cc := csv-check
@@ -57,7 +57,7 @@ alias tui := test-ui
     bun tsc -p tsconfig.build.json
     bun tsc-alias -p tsconfig.build.json
     bun copyfiles --up 3 src/evm/abi/**/*.json "dist/abi"
-    bun copyfiles --up 1 "src/evm/csv/schemas/**/*.schema.json" "src/evm/csv/schemas/**/*.csv" dist
+    bun copyfiles --up 1 "src/evm/csv/**/*.schema.json" "src/evm/csv/**/*.csv" dist
     bun copyfiles --up 1 "src/solana/csv/schemas/**/*.csv" dist
     echo "✅ Package built successfully in 'dist' directory"
 
