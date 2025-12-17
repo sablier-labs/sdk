@@ -4,7 +4,7 @@
   "license": "GPL-3.0-or-later",
   "main": "dist/index.js",
   "types": "./dist/index.d.ts",
-  "version": "1.8.0-beta.1",
+  "version": "1.8.0-beta.2",
   "author": {
     "name": "Sablier Labs Ltd",
     "url": "https://sablier.com"
@@ -57,48 +57,23 @@
       "types": "./dist/evm/index.d.ts",
       "default": "./dist/evm/index.js"
     },
-    "./evm/chains": {
-      "types": "./dist/evm/chains/index.d.ts",
-      "default": "./dist/evm/chains/index.js"
-    },
-    "./evm/contracts": {
-      "types": "./dist/evm/contracts/index.d.ts",
-      "default": "./dist/evm/contracts/index.js"
-    },
-    "./evm/releases": {
-      "types": "./dist/evm/releases/index.d.ts",
-      "default": "./dist/evm/releases/index.js"
-    },
-    "./csv": {
-      "types": "./dist/csv/index.d.ts",
-      "default": "./dist/csv/index.js"
+    "./evm/*": {
+      "types": "./dist/evm/*/index.d.ts",
+      "default": "./dist/evm/*/index.js"
     },
     "./solana": {
       "types": "./dist/solana/index.d.ts",
       "default": "./dist/solana/index.js"
     },
-    "./solana/releases": {
-      "types": "./dist/solana/releases/index.d.ts",
-      "default": "./dist/solana/releases/index.js"
+    "./solana/*": {
+      "types": "./dist/solana/*/index.d.ts",
+      "default": "./dist/solana/*/index.js"
     },
-    "./solana/releases/lockup/*": {
-      "types": "./dist/solana/releases/lockup/*/index.d.ts",
-      "default": "./dist/solana/releases/lockup/*/index.js"
+    "./solana/releases/*/idl": {
+      "types": "./dist/solana/releases/*/idl.d.ts",
+      "default": "./dist/solana/releases/*/idl.js"
     },
-    "./solana/releases/airdrops/*": {
-      "types": "./dist/solana/releases/airdrops/*/index.d.ts",
-      "default": "./dist/solana/releases/airdrops/*/index.js"
-    },
-    "./solana/releases/lockup/*/idl": {
-      "types": "./dist/solana/releases/lockup/*/idl.d.ts",
-      "default": "./dist/solana/releases/lockup/*/idl.js"
-    },
-    "./solana/releases/airdrops/*/idl": {
-      "types": "./dist/solana/releases/airdrops/*/idl.d.ts",
-      "default": "./dist/solana/releases/airdrops/*/idl.js"
-    },
-    "./package.json": "./package.json",
-    "./dist/*": "./dist/*"
+    "./package.json": "./package.json"
   },
   "files": [
     "dist"
