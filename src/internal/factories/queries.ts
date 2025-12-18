@@ -79,14 +79,17 @@ export function createReleasesQueries<
  * @template TDeployment - The deployment type containing contracts or programs
  * @template TRelease - The release type
  * @template TCatalog - The catalog type for reverse lookups
+ * @template TAliasCatalog - The alias catalog type for alias-based lookups
  */
 export function createContractsQueries<
   TProtocol extends string,
-  TContract extends { name: string; address: string },
+  TContract extends { name: string; address: string; alias?: string },
   TDeployment extends { chainId: number; contracts?: TContract[]; programs?: TContract[] },
   TRelease extends { version: string; deployments: TDeployment[] },
   TCatalog,
+  TAliasCatalog = undefined,
 >(config: {
+  aliasCatalog?: TAliasCatalog;
   catalog: TCatalog;
   releasesQueries: {
     getAll: (opts?: { protocol?: TProtocol }) => TRelease[];
@@ -96,7 +99,8 @@ export function createContractsQueries<
   /** Field name for contracts (e.g., 'contracts' for EVM, 'programs' for Solana) */
   contractsField: "contracts" | "programs";
 }) {
-  const { catalog, releasesQueries, protocols, normalizeAddress, contractsField } = config;
+  const { aliasCatalog, catalog, releasesQueries, protocols, normalizeAddress, contractsField } =
+    config;
 
   // Helper to safely get contracts/programs from deployment
   const getItems = (deployment: TDeployment | undefined): TContract[] => {
@@ -105,6 +109,7 @@ export function createContractsQueries<
   };
 
   return {
+    aliasCatalog,
     /**
      * Get a single contract using the following options:
      *
@@ -235,6 +240,37 @@ export function createContractsQueries<
 
       // no filters → all
       return _.flatMap(releasesQueries.getAll(), (r) => r.deployments.flatMap(getItems));
+    },
+
+    /**
+     * Get a contract by its alias.
+     * Aliases are version-specific (e.g., LK = Lockup v2.0, LK2 = Lockup v3.0).
+     *
+     * @example
+     * contractsQueries.getByAlias({ alias: "LK2", chainId: 1 })
+     * contractsQueries.getByAlias({ alias: "FL3", chainId: 137, protocol: "flow" })
+     */
+    getByAlias: (opts: {
+      alias: string;
+      chainId: number;
+      protocol?: TProtocol;
+    }): TContract | undefined => {
+      const { alias, chainId, protocol } = opts;
+
+      if (!aliasCatalog) {
+        return undefined;
+      }
+
+      if (protocol) {
+        return _.get(aliasCatalog, [protocol, chainId, alias]) as TContract | undefined;
+      }
+
+      // Search all protocols
+      for (const p of protocols) {
+        const contract = _.get(aliasCatalog, [p, chainId, alias]) as TContract | undefined;
+        if (contract) return contract;
+      }
+      return undefined;
     },
   };
 }

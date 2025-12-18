@@ -1,4 +1,4 @@
-import { sortChains } from "@src/helpers";
+import { sortChains } from "@src/internal/utils/sort-chains";
 import type { Shared } from "@src/shared/types";
 import _ from "lodash";
 

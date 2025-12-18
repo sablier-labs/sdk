@@ -26,3 +26,10 @@ describe("Contract catalog", () => {
     });
   }
 });
+
+describe("aliasCatalog", () => {
+  it("should be exported and defined", () => {
+    expect(sablier.evm.contracts.aliasCatalog).toBeDefined();
+    expect(typeof sablier.evm.contracts.aliasCatalog).toBe("object");
+  });
+});

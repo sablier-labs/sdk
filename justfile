@@ -59,7 +59,7 @@ alias tui := test-ui
     bun copyfiles --up 3 src/evm/abi/**/*.json "dist/abi"
     bun copyfiles --up 1 "src/evm/csv/**/*.schema.json" "src/evm/csv/**/*.csv" dist
     bun copyfiles --up 1 "src/solana/csv/schemas/**/*.csv" dist
-    echo "✅ Package built successfully in 'dist' directory"
+    echo "✅ Package built successfully"
 
 # ---------------------------------------------------------------------------- #
 #                                     PRINT                                    #

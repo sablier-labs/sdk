@@ -1,10 +1,14 @@
-import { Version } from "@src/evm/enums";
+import { Protocol as EvmProtocol, Version } from "@src/evm/enums";
 import {
   compareVersions as cmp,
   isVersionAfter as isAfter,
   isVersionBefore as isBefore,
+  resolveEvmStreamId,
+  resolveSolanaStreamId,
   truncateAddress as truncate,
 } from "@src/helpers";
+import { solanaMainnetBeta } from "@src/solana/chains";
+import { Protocol as SolanaProtocol } from "@src/solana/enums";
 import { describe, expect, it } from "vitest";
 
 describe("helpers", () => {
@@ -202,6 +206,73 @@ describe("helpers", () => {
         expect(truncate(genericAddress)).toBe("1234...5678");
         expect(truncate(genericAddress, 6)).toBe("123456...345678");
       });
+    });
+  });
+
+  describe("resolveEvmStreamId", () => {
+    it("throws for ambiguous aliases when protocol is not provided", () => {
+      expect(() =>
+        resolveEvmStreamId({
+          alias: "LL2",
+          chainId: 1,
+          tokenId: 123,
+        }),
+      ).toThrowError(/Ambiguous EVM contract alias/);
+    });
+
+    it("supports protocol-scoped lookup", () => {
+      const result = resolveEvmStreamId({
+        alias: "LL2",
+        chainId: 1,
+        protocol: EvmProtocol.Lockup,
+        tokenId: 456n,
+      });
+      expect(result).toBe("0xafb979d9afad1ad27c5eff4e27226e3ab9e5dcc9-1-456");
+    });
+
+    it("throws for unknown aliases", () => {
+      expect(() =>
+        resolveEvmStreamId({
+          alias: "NOT_A_REAL_ALIAS",
+          chainId: 1,
+          tokenId: 1,
+        }),
+      ).toThrowError(/Unknown EVM contract alias/);
+    });
+  });
+
+  describe("resolveSolanaStreamId", () => {
+    it("resolves the alias to the deployed program address (Lockup v0.1 Linear on mainnet-beta)", () => {
+      const result = resolveSolanaStreamId({
+        alias: "LL",
+        chainId: solanaMainnetBeta.id,
+        tokenId: 123,
+      });
+      expect(result).toBe(
+        `4EauRKrNErKfsR4XetEZJNmvACGHbHnHV4R5dvJuqupC-${solanaMainnetBeta.id}-123`,
+      );
+    });
+
+    it("supports protocol-scoped lookup", () => {
+      const result = resolveSolanaStreamId({
+        alias: "LL",
+        chainId: solanaMainnetBeta.id,
+        protocol: SolanaProtocol.Lockup,
+        tokenId: "456",
+      });
+      expect(result).toBe(
+        `4EauRKrNErKfsR4XetEZJNmvACGHbHnHV4R5dvJuqupC-${solanaMainnetBeta.id}-456`,
+      );
+    });
+
+    it("throws for unknown aliases", () => {
+      expect(() =>
+        resolveSolanaStreamId({
+          alias: "NOT_A_REAL_ALIAS",
+          chainId: solanaMainnetBeta.id,
+          tokenId: 1,
+        }),
+      ).toThrowError(/Unknown Solana program alias/);
     });
   });
 });
