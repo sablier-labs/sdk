@@ -1,5 +1,12 @@
-import _ from "lodash";
+import { truncateEvmAddress } from "@src/evm/helpers";
+import { getNestedValues as getNestedValuesInternal } from "@src/internal/utils/nested-values";
+import { sortChains as sortChainsInternal } from "@src/internal/utils/sort-chains";
+import { truncateSolanaAddress } from "@src/solana/helpers";
 import type { Sablier } from "./types";
+
+// Re-export platform-specific helpers
+export * from "./evm/helpers";
+export * from "./solana/helpers";
 
 /** Version type supporting both EVM and Solana protocols */
 type Version = Sablier.EVM.Version | Sablier.Solana.Version;
@@ -22,16 +29,6 @@ export function compareVersions(a: Version, b: Version): number {
     return aMajor - bMajor;
   }
   return aMinor - bMinor;
-}
-
-/**
- * Get the explorer URL for a contract. Compatible with Etherscan, Blockscout, etc.
- * @param explorerURL - The base explorer URL, e.g. https://etherscan.io
- * @param contractAddress - The contract object
- * @returns The explorer URL for the contract, e.g. https://etherscan.io/address/0x123...
- */
-export function getContractExplorerURL(explorerURL: string, contractAddress: Sablier.EVM.Address) {
-  return `${explorerURL}/address/${contractAddress}`;
 }
 
 /**
@@ -61,20 +58,17 @@ export function isVersionAfter(version: Version, after: Version): boolean {
 }
 
 export function sortChains<T extends { name: string }>(chains: T[]): T[] {
-  return chains.sort((a, b) => a.name.localeCompare(b.name));
+  return sortChainsInternal(chains);
 }
 
 export function getNestedValues<T extends Record<string, unknown>>(obj: T): string[] {
-  return _.flatMap(obj, (value) => {
-    if (_.isObject(value) && !_.isArray(value)) {
-      return getNestedValues(value as Record<string, unknown>);
-    }
-    return _.isString(value) ? value : [];
-  });
+  return getNestedValuesInternal(obj);
 }
 
 /**
  * Truncate an Ethereum or Solana address for display purposes.
+ * Automatically routes to the appropriate typed function based on address format.
+ *
  * @param address - The address to truncate (Ethereum 0x-prefixed or Solana base58)
  * @param chars - Number of characters to show on each side (default: 4)
  * @returns Truncated address in format "0xcafe...beef" or "DYw8...NSKK" or original if too short
@@ -85,40 +79,7 @@ export function getNestedValues<T extends Record<string, unknown>>(obj: T): stri
  * truncateAddress("0x123") // "0x123" (too short, returns original)
  */
 export function truncateAddress(address: string, chars = 4): string {
-  // Return original if empty
-  if (!address) {
-    return address;
-  }
-
-  // Handle Ethereum addresses (0x-prefixed)
-  if (address.startsWith("0x")) {
-    // Calculate minimum length needed: "0x" + chars on each side
-    const minLength = 2 + chars * 2;
-
-    // Return original if too short to truncate meaningfully
-    if (address.length <= minLength) {
-      return address;
-    }
-
-    // Extract prefix (0x + first chars) and suffix (last chars)
-    const prefix = address.slice(0, 2 + chars);
-    const suffix = address.slice(-chars);
-
-    return `${prefix}...${suffix}`;
-  }
-
-  // Handle Solana and other addresses (no 0x prefix)
-  // Calculate minimum length needed: chars on each side
-  const minLength = chars * 2;
-
-  // Return original if too short to truncate meaningfully
-  if (address.length <= minLength) {
-    return address;
-  }
-
-  // Extract prefix (first chars) and suffix (last chars)
-  const prefix = address.slice(0, chars);
-  const suffix = address.slice(-chars);
-
-  return `${prefix}...${suffix}`;
+  return address.startsWith("0x")
+    ? truncateEvmAddress(address as Sablier.EVM.Address, chars)
+    : truncateSolanaAddress(address, chars);
 }

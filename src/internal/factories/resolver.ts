@@ -1,4 +1,4 @@
-import { getContractExplorerURL } from "@src/helpers";
+import { getContractExplorerURL } from "@src/internal/utils/explorer-url";
 import type { AliasMap, Shared } from "@src/shared/types";
 import _ from "lodash";
 

@@ -37,6 +37,17 @@ export namespace Solana {
   };
 
   /**
+   * Reverse mapping of programs by alias for O(1) lookup.
+   */
+  export type AliasCatalog = {
+    [protocol in Protocol]: {
+      [chainId: number]: {
+        [alias: string]: Program;
+      };
+    };
+  };
+
+  /**
    * A collection of contracts deployed on a single chain.
    */
   export type Deployment = {

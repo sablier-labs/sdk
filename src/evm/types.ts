@@ -35,6 +35,17 @@ export namespace EVM {
     };
   };
 
+  /**
+   * Reverse mapping of contracts by alias for O(1) lookup.
+   */
+  export type AliasCatalog = {
+    [protocol in Protocol]: {
+      [chainId: number]: {
+        [alias: string]: Contract;
+      };
+    };
+  };
+
   /** @internal */
   export type ContractMap = Shared.ContractMap<Address>;
 

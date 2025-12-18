@@ -18,3 +18,10 @@ describe("Program catalog", () => {
     });
   }
 });
+
+describe("aliasCatalog", () => {
+  it("should be exported and defined", () => {
+    expect(sablier.solana.programs.aliasCatalog).toBeDefined();
+    expect(typeof sablier.solana.programs.aliasCatalog).toBe("object");
+  });
+});
