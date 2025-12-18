@@ -76,6 +76,24 @@ describe("Package chains are in sync with broadcasts", () => {
   );
 });
 
+describe("Block explorer URLs", () => {
+  it("should not end with a trailing slash", () => {
+    const violations: string[] = [];
+
+    for (const chain of _.values(chains)) {
+      for (const [, explorer] of Object.entries(chain.blockExplorers)) {
+        if (explorer.url.endsWith("/")) {
+          violations.push(`${chain.slug}: ${explorer.url}`);
+        }
+      }
+    }
+
+    if (violations.length > 0) {
+      throw new Error(`URLs with trailing slashes:\n${violations.join("\n")}`);
+    }
+  });
+});
+
 function getAllBroadcastSlugsEffect() {
   return Effect.gen(function* () {
     const deploymentsPath = getDeploymentsDir();
