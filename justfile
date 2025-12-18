@@ -29,15 +29,6 @@ alias b := build
     bun x del-cli dist
     echo "🗑️  Cleaned build files"
 
-# Setup Husky
-setup:
-    bun husky
-
-# Run tests
-test *args:
-    bun vitest run {{args}}
-alias t := test
-
 # Validate CSV template files
 [group("checks")]
 @csv-check:
@@ -46,8 +37,17 @@ alias t := test
     just _csv-check "./src/solana/csv/schemas/**/*.csv"
 alias cc := csv-check
 
+# Setup Husky
+@setup:
+    bun husky
+
+# Run tests
+@test *args:
+    bun vitest run {{args}}
+alias t := test
+
 # Run tests with UI
-test-ui *args:
+@test-ui *args:
     bun vitest --ui {{args}}
 alias tui := test-ui
 
