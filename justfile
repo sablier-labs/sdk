@@ -43,7 +43,7 @@ alias t := test
 @csv-check:
     just _csv-check "./src/evm/csv/**/*.csv"
     echo ""
-    just _csv-check "./src/solana/csv/schemas/*.csv"
+    just _csv-check "./src/solana/csv/schemas/**/*.csv"
 alias cc := csv-check
 
 # Run tests with UI
@@ -90,4 +90,3 @@ alias tui := test-ui
 [group("print")]
 @print-versions:
     just cli print versions
-
