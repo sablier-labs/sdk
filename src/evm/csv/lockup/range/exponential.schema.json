@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Range Exponential CSV Schema",
+  "description": "Schema for exponential vesting with absolute timestamps",
+  "type": "object",
+  "properties": {
+    "address": {
+      "$ref": "../../common.schema.json#/$defs/address"
+    },
+    "amount": {
+      "$ref": "../../common.schema.json#/$defs/amount"
+    },
+    "start": {
+      "$ref": "../../common.schema.json#/$defs/timestamp"
+    },
+    "end": {
+      "$ref": "../../common.schema.json#/$defs/timestamp"
+    }
+  },
+  "required": ["address", "amount", "start", "end"],
+  "additionalProperties": false
+}

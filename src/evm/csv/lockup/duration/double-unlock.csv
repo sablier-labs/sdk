@@ -1,0 +1,4 @@
+address,amount,duration,firstUnlockDuration,firstUnlockAmount,secondUnlockDuration,secondUnlockAmount
+0x8b1dD8774373729B7755202079F52D8c7444D335,100,2 years 20 days,1 years 45 days 6 hours,10,30 days 6 hours,20
+0x0298F4332e3857631385b39766325058a93e249f,422.85,1 years 20 days,45 days,100,30 days 6 hours,40
+0xc3c51E27C228deBC182E8C802DCB4cA919acbC77,1337,20 days,10 hours,150,6 hours,20

@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Airdrop CSV Schema",
+  "description": "Schema for instant airdrops (no vesting)",
+  "type": "object",
+  "properties": {
+    "address": {
+      "$ref": "../common.schema.json#/$defs/address"
+    },
+    "amount": {
+      "$ref": "../common.schema.json#/$defs/amount"
+    }
+  },
+  "required": ["address", "amount"],
+  "additionalProperties": false
+}

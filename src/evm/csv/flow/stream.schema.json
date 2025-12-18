@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Flow Stream CSV Schema",
+  "description": "Schema for Flow streams with rate-based distribution",
+  "type": "object",
+  "properties": {
+    "address": {
+      "$ref": "../common.schema.json#/$defs/address"
+    },
+    "rate": {
+      "type": "string",
+      "pattern": "^[0-9]+(\\.[0-9]+)?$",
+      "description": "Token amount per interval"
+    },
+    "interval": {
+      "type": "string",
+      "enum": ["second", "minute", "hour", "day", "week", "month", "year"],
+      "description": "Time interval for rate"
+    },
+    "initialDeposit": {
+      "$ref": "../common.schema.json#/$defs/amount"
+    }
+  },
+  "required": ["address", "rate", "interval", "initialDeposit"],
+  "additionalProperties": false
+}
