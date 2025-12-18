@@ -3,8 +3,10 @@ import type { Sablier } from "@src/types";
 /**
  * Solana does not have chain IDs. These are made-up numbers so that we can use the same type for EVM and Solana chains.
  */
-const CHAIN_ID_SOLANA_MAINNET_BETA = 900000010;
-const CHAIN_ID_SOLANA_DEVNET = 900000020;
+export const CHAIN_ID_SOLANA_MAINNET_BETA = 900000010;
+export const CHAIN_ID_SOLANA_DEVNET = 900000020;
+
+export const SOLANA_CHAIN_IDS = new Set([CHAIN_ID_SOLANA_MAINNET_BETA, CHAIN_ID_SOLANA_DEVNET]);
 
 export const solanaDevnet: Sablier.Solana.Chain = {
   blockExplorers: {

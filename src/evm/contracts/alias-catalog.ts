@@ -21,7 +21,7 @@ function getAliasCatalog(): Sablier.EVM.AliasCatalog {
         if (contract.alias) {
           const existing = _.get(catalog, [protocol, chainId, contract.alias]);
           if (existing) {
-            console.warn(
+            throw new Error(
               `Sablier SDK: Alias collision detected for "${contract.alias}" on chain ${chainId} in ${protocol}. ` +
                 `Existing: ${existing.address}, New: ${contract.address}`,
             );

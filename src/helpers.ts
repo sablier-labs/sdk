@@ -1,8 +1,13 @@
-import { truncateEvmAddress } from "@src/evm/helpers";
+import { Protocol as EvmProtocol } from "@src/evm/enums";
+import { resolveEvmStreamId, truncateEvmAddress } from "@src/evm/helpers";
 import { getNestedValues as getNestedValuesInternal } from "@src/internal/utils/nested-values";
 import { sortChains as sortChainsInternal } from "@src/internal/utils/sort-chains";
-import { truncateSolanaAddress } from "@src/solana/helpers";
+import { SOLANA_CHAIN_IDS } from "@src/solana/chains/data";
+import { resolveSolanaStreamId, truncateSolanaAddress } from "@src/solana/helpers";
 import type { Sablier } from "./types";
+
+/** EVM-only protocols that don't exist on Solana */
+const EVM_ONLY_PROTOCOLS = new Set([EvmProtocol.Flow, EvmProtocol.Legacy]);
 
 // Re-export platform-specific helpers
 export * from "./evm/helpers";
@@ -82,4 +87,58 @@ export function truncateAddress(address: string, chars = 4): string {
   return address.startsWith("0x")
     ? truncateEvmAddress(address as Sablier.EVM.Address, chars)
     : truncateSolanaAddress(address, chars);
+}
+
+/**
+ * Resolves a stream/airdrop entity ID for use with Sablier indexers.
+ * Automatically routes to EVM or Solana based on chain ID.
+ *
+ * Format: `{contractAddress}-{chainId}-{tokenId}`
+ *
+ * @param opts - Configuration object
+ * @param opts.alias - Contract/program alias (e.g., "LL2", "LK2", "FL2" for EVM; "LL" for Solana)
+ * @param opts.chainId - Chain ID (EVM chains or Solana chains: 900000010, 900000020)
+ * @param opts.tokenId - Stream/airdrop token ID
+ * @param opts.protocol - Optional protocol to disambiguate aliases
+ * @returns Stream ID in format "0xabc...-1-123" (EVM) or "DYw8jC...-900000010-123" (Solana)
+ * @example
+ * // EVM
+ * resolveStreamId({ alias: "LL2", chainId: 1, tokenId: 123n })
+ * // => "0xabc...-1-123"
+ *
+ * // Solana
+ * resolveStreamId({ alias: "LL", chainId: 900000010, tokenId: 456n })
+ * // => "DYw8jC...-900000010-456"
+ */
+export function resolveStreamId(opts: {
+  alias: string;
+  chainId: number;
+  tokenId: bigint | string | number;
+  protocol?: Sablier.EVM.Protocol | Sablier.Solana.Protocol;
+}): string {
+  const { alias, chainId, tokenId, protocol } = opts;
+  const isSolanaChain = SOLANA_CHAIN_IDS.has(chainId);
+
+  // Validate protocol/chain compatibility
+  if (protocol && isSolanaChain && EVM_ONLY_PROTOCOLS.has(protocol as EvmProtocol)) {
+    throw new Error(
+      `Sablier SDK: Protocol "${protocol}" is EVM-only and not valid for Solana chain ${chainId}`,
+    );
+  }
+
+  if (isSolanaChain) {
+    return resolveSolanaStreamId({
+      alias,
+      chainId,
+      protocol: protocol as Sablier.Solana.Protocol,
+      tokenId,
+    });
+  }
+
+  return resolveEvmStreamId({
+    alias,
+    chainId,
+    protocol: protocol as Sablier.EVM.Protocol,
+    tokenId,
+  });
 }

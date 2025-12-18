@@ -19,7 +19,7 @@ function getAliasCatalog(): Sablier.Solana.AliasCatalog {
         if (program.alias) {
           const existing = _.get(catalog, [protocol, chainId, program.alias]);
           if (existing) {
-            console.warn(
+            throw new Error(
               `Sablier SDK: Alias collision detected for "${program.alias}" on chain ${chainId} in ${protocol}. ` +
                 `Existing: ${existing.address}, New: ${program.address}`,
             );
