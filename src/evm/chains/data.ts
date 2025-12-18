@@ -272,8 +272,6 @@ export const superseedSepolia = define("superseed-sepolia", _superseedSepolia);
 export const taiko = define("taiko", _taiko);
 export const unichain = define("unichain", _unichain);
 export const xdc = define("xdc", _xdc);
-export const zksync = define("zksync", _zksync);
-export const zksyncSepolia = define("zksync-sepolia", _zksyncSepoliaTestnet);
 
 /* -------------------------------------------------------------------------- */
 /*                             CUSTOM DEFINITIONS                             */
@@ -420,5 +418,39 @@ export const tangle: Sablier.EVM.Chain = define(
       },
     },
     testnet: false,
+  }),
+);
+
+export const zksync: Sablier.EVM.Chain = define(
+  "zksync",
+  viemDefine({
+    ..._zksync,
+    blockExplorers: {
+      default: {
+        name: "Etherscan",
+        url: "https://era.zksync.network",
+      },
+      native: {
+        name: "ZKsync Explorer",
+        url: "https://explorer.zksync.io",
+      },
+    },
+  }),
+);
+
+export const zksyncSepolia: Sablier.EVM.Chain = define(
+  "zksync-sepolia",
+  viemDefine({
+    ..._zksyncSepoliaTestnet,
+    blockExplorers: {
+      default: {
+        name: "Etherscan",
+        url: "https://sepolia-era.zksync.network",
+      },
+      native: {
+        name: "ZKsync Explorer",
+        url: "https://sepolia.explorer.zksync.io",
+      },
+    },
   }),
 );
