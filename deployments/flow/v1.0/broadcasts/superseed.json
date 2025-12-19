@@ -1,7 +1,7 @@
 {
   "transactions": [
     {
-      "hash": null,
+      "hash": "0xfda4a6a947d4ffa8f1773ef92a07703a8e35aed2ca02c99d5b71635722932939",
       "transactionType": "CREATE2",
       "contractName": "FlowNFTDescriptor",
       "contractAddress": "0xac2c36347869d8d779f7872c6202de3efd6ef2bb",
@@ -20,7 +20,7 @@
       "isFixedGasLimit": false
     },
     {
-      "hash": null,
+      "hash": "0x30a0166f8d6577cc8cbc3e7145f99d4020fd29a885b135e29c1c4872dd83bf4a",
       "transactionType": "CREATE2",
       "contractName": "SablierFlow",
       "contractAddress": "0x4f5f9b3fb57bba43aaf90e3f71d8f8f384e88e20",
@@ -42,7 +42,68 @@
       "isFixedGasLimit": false
     }
   ],
-  "receipts": [],
+  "receipts": [
+    {
+      "status": "0x1",
+      "cumulativeGasUsed": "0xaacd3",
+      "logs": [],
+      "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "type": "0x2",
+      "transactionHash": "0xfda4a6a947d4ffa8f1773ef92a07703a8e35aed2ca02c99d5b71635722932939",
+      "transactionIndex": "0x1",
+      "blockHash": "0x192ac0707f5bee4d60f36fc5fcec2c71f1f1b4353565f1a42a7d635b8885acf8",
+      "blockNumber": "0x371878",
+      "gasUsed": "0xa0161",
+      "effectiveGasPrice": "0xfd",
+      "from": "0xb1bef51ebca01eb12001a639bdbbff6eeca12b9f",
+      "to": "0x4e59b44847b379578588920ca78fbf26c0b4956c",
+      "contractAddress": null,
+      "l1BaseFeeScalar": "0xa6fe0",
+      "l1BlobBaseFee": "0x207e6e46b",
+      "l1BlobBaseFeeScalar": "0x0",
+      "l1Fee": "0x16e5f3af1326d",
+      "l1GasPrice": "0x4b04d6d59",
+      "l1GasUsed": "0x723d"
+    },
+    {
+      "status": "0x1",
+      "cumulativeGasUsed": "0x4a0670",
+      "logs": [
+        {
+          "address": "0x4f5f9b3fb57bba43aaf90e3f71d8f8f384e88e20",
+          "topics": [
+            "0xbdd36143ee09de60bdefca70680e0f71189b2ed7acee364b53917ad433fdaf80",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x000000000000000000000000b1bef51ebca01eb12001a639bdbbff6eeca12b9f"
+          ],
+          "data": "0x",
+          "blockHash": "0x192ac0707f5bee4d60f36fc5fcec2c71f1f1b4353565f1a42a7d635b8885acf8",
+          "blockNumber": "0x371878",
+          "transactionHash": "0x30a0166f8d6577cc8cbc3e7145f99d4020fd29a885b135e29c1c4872dd83bf4a",
+          "transactionIndex": "0x2",
+          "logIndex": "0x0",
+          "removed": false
+        }
+      ],
+      "logsBloom": "0x00000000000000000000004000000000000001400000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000400000000000000000020000000004000000000800000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020010000000000000000000000000000000000000000000000000000000000000000",
+      "type": "0x2",
+      "transactionHash": "0x30a0166f8d6577cc8cbc3e7145f99d4020fd29a885b135e29c1c4872dd83bf4a",
+      "transactionIndex": "0x2",
+      "blockHash": "0x192ac0707f5bee4d60f36fc5fcec2c71f1f1b4353565f1a42a7d635b8885acf8",
+      "blockNumber": "0x371878",
+      "gasUsed": "0x3f599d",
+      "effectiveGasPrice": "0xfd",
+      "from": "0xb1bef51ebca01eb12001a639bdbbff6eeca12b9f",
+      "to": "0x4e59b44847b379578588920ca78fbf26c0b4956c",
+      "contractAddress": null,
+      "l1BaseFeeScalar": "0xa6fe0",
+      "l1BlobBaseFee": "0x207e6e46b",
+      "l1BlobBaseFeeScalar": "0x0",
+      "l1Fee": "0x69618413413c8",
+      "l1GasPrice": "0x4b04d6d59",
+      "l1GasUsed": "0x20dbe"
+    }
+  ],
   "libraries": [],
   "pending": [],
   "returns": {

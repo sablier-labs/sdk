@@ -1,0 +1,93 @@
+{
+  "transactions": [
+    {
+      "hash": "0xd8c6e40d2f4afb218cf25e4707f9362f745b45d1d1dd4c1e66e0ad0fc6895523",
+      "transactionType": "CREATE",
+      "contractName": "FlowNFTDescriptor",
+      "contractAddress": "0xa2a48b83B6C96E1536336dF9Ead024D557A97A23",
+      "function": null,
+      "arguments": null,
+      "additionalContracts": [],
+      "isFixedGasLimit": false
+    },
+    {
+      "hash": "0xfa9a1d8197ba3effc024a83913e154ff61ac19e10fa5febbdc7e284c4b822306",
+      "transactionType": "CREATE",
+      "contractName": "SablierFlow",
+      "contractAddress": "0x46fA0164C5aF9382D330e5a245a2Ca8a18398950",
+      "function": null,
+      "arguments": [
+        "0xb1bef51ebca01eb12001a639bdbbff6eeca12b9f",
+        "0xa2a48b83B6C96E1536336dF9Ead024D557A97A23"
+      ],
+      "additionalContracts": [],
+      "isFixedGasLimit": false
+    }
+  ],
+  "receipts": [
+    {
+      "status": "0x1",
+      "cumulativeGasUsed": "0x9fb1d",
+      "logs": [],
+      "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "type": "0x0",
+      "transactionHash": "0xd8c6e40d2f4afb218cf25e4707f9362f745b45d1d1dd4c1e66e0ad0fc6895523",
+      "transactionIndex": "0x0",
+      "blockHash": "0x0c41e55907ad4e90b0ff71deb4066c3cf713bce7ed6a8df41a4ab1302a5b4208",
+      "blockNumber": "0x6f01594",
+      "gasUsed": "0x9fb1d",
+      "effectiveGasPrice": "0x0",
+      "from": "0xb1bef51ebca01eb12001a639bdbbff6eeca12b9f",
+      "to": null,
+      "contractAddress": "0xa2a48b83b6c96e1536336df9ead024d557a97a23",
+      "root": "0x1e704b589fcdad9add17388b7b903a9eb6e60fcc585a28aeede0e129f3d2d4f0"
+    },
+    {
+      "status": "0x1",
+      "cumulativeGasUsed": "0x3f381a",
+      "logs": [
+        {
+          "address": "0x46fa0164c5af9382d330e5a245a2ca8a18398950",
+          "topics": [
+            "0xbdd36143ee09de60bdefca70680e0f71189b2ed7acee364b53917ad433fdaf80",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x000000000000000000000000b1bef51ebca01eb12001a639bdbbff6eeca12b9f"
+          ],
+          "data": "0x",
+          "blockHash": "0x0c41e55907ad4e90b0ff71deb4066c3cf713bce7ed6a8df41a4ab1302a5b4208",
+          "blockNumber": "0x6f01594",
+          "transactionHash": "0xfa9a1d8197ba3effc024a83913e154ff61ac19e10fa5febbdc7e284c4b822306",
+          "transactionIndex": "0x1",
+          "logIndex": "0x0",
+          "removed": false
+        }
+      ],
+      "logsBloom": "0x00000010000000000000004000000000000001400000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000000000000040000000000000000000000400000000000000000020000000000000000000800000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020010000000000000000000000000000000000000000000000000000000000000000",
+      "type": "0x0",
+      "transactionHash": "0xfa9a1d8197ba3effc024a83913e154ff61ac19e10fa5febbdc7e284c4b822306",
+      "transactionIndex": "0x1",
+      "blockHash": "0x0c41e55907ad4e90b0ff71deb4066c3cf713bce7ed6a8df41a4ab1302a5b4208",
+      "blockNumber": "0x6f01594",
+      "gasUsed": "0x3f381a",
+      "effectiveGasPrice": "0x0",
+      "from": "0xb1bef51ebca01eb12001a639bdbbff6eeca12b9f",
+      "to": null,
+      "contractAddress": "0x46fa0164c5af9382d330e5a245a2ca8a18398950",
+      "root": "0xaf9173b9892a23709852106c269beb210ae3e5550fb5a247906cc67fe51bc206"
+    }
+  ],
+  "libraries": [],
+  "pending": [],
+  "returns": {
+    "nftDescriptor": {
+      "internal_type": "contract FlowNFTDescriptor",
+      "value": "0xa2a48b83B6C96E1536336dF9Ead024D557A97A23"
+    },
+    "flow": {
+      "internal_type": "contract SablierFlow",
+      "value": "0x46fA0164C5aF9382D330e5a245a2Ca8a18398950"
+    }
+  },
+  "chain": 1890,
+  "commit": "1744858"
+}

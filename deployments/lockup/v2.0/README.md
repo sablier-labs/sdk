@@ -48,6 +48,7 @@ The CREATE2 salts used during deployment. A "No Salt" value means that the contr
 | Blast           | ChainID 81457, Version 2.0.0  |
 | BNB Smart Chain | ChainID 56, Version 2.0.0     |
 | Chiliz          | No Salt                       |
+| Core DAO        | ChainID 1116, Version 2.0.0   |
 | Form            | ChainID 478, Version 2.0.0    |
 | Gnosis          | ChainID 100, Version 2.0.0    |
 | HyperEVM        | ChainID 999, Version 2.0.0    |

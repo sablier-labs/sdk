@@ -1,0 +1,11 @@
+{
+  "contractName": "SablierFlow",
+  "entries": [
+    {
+      "address": "0x015899a075B7C181e357Cd0ed000683DBB4F1FcE",
+      "deploymentType": "create",
+      "salt": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "txHash": "0xb6da5f73da26d8271ada3943972728213d7654fbfd3ded490a27fa8939add7de"
+    }
+  ]
+}
