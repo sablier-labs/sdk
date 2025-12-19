@@ -1,4 +1,5 @@
 import { Version } from "@src/evm/enums";
+import { releases } from "@src/evm/releases";
 import { Shape, shapes } from "@src/evm/shapes";
 import {
   airdropShapeIds,
@@ -362,6 +363,87 @@ describe("shapes", () => {
       expect(isAirdropShape("flow")).toBe(false);
       expect(isAirdropShape("exponential")).toBe(false);
       expect(isAirdropShape(null)).toBe(false);
+    });
+  });
+
+  describe("contract existence validation", () => {
+    it("all airdrop shape contracts exist in their version manifests", () => {
+      for (const shape of Object.values(shapes.airdrops)) {
+        for (const { contract, version } of shape.contracts) {
+          const release = releases.airdrops[version as Version.Airdrops];
+          expect(
+            release.contractNames,
+            `${shape.id}: contract "${contract}" not found in airdrops ${version} manifest`,
+          ).toContain(contract);
+        }
+      }
+    });
+
+    it("all flow shape contracts exist in their version manifests", () => {
+      for (const shape of Object.values(shapes.flow)) {
+        for (const { contract, version } of shape.contracts) {
+          const release = releases.flow[version as Version.Flow];
+          expect(
+            release.contractNames,
+            `${shape.id}: contract "${contract}" not found in flow ${version} manifest`,
+          ).toContain(contract);
+        }
+      }
+    });
+
+    it("all lockup shape contracts exist in their version manifests", () => {
+      for (const shape of Object.values(shapes.lockup)) {
+        for (const { contract, version } of shape.contracts) {
+          const release = releases.lockup[version as Version.Lockup];
+          expect(
+            release.contractNames,
+            `${shape.id}: contract "${contract}" not found in lockup ${version} manifest`,
+          ).toContain(contract);
+        }
+      }
+    });
+  });
+
+  describe("airdrop shape contract type validation", () => {
+    // LT = Lockup Tranched (stepper), LL = Lockup Linear
+    // Stepper shapes must use LT contracts, not LL or abstract base contracts
+    const ltContractPattern = /LT$/;
+    const llContractPattern = /LL$/;
+    const instantContractPattern = /Instant$/;
+
+    it("stepper shape only maps to LT (tranched) contracts", () => {
+      for (const { contract, version } of shapes.airdrops.stepper.contracts) {
+        expect(
+          ltContractPattern.test(contract),
+          `stepper shape has non-LT contract "${contract}" in ${version}`,
+        ).toBe(true);
+      }
+    });
+
+    it("linear shapes only map to LL (linear) contracts", () => {
+      const llShapes = [
+        shapes.airdrops.linear,
+        shapes.airdrops.cliff,
+        shapes.airdrops.unlockLinear,
+        shapes.airdrops.unlockCliff,
+      ];
+      for (const shape of llShapes) {
+        for (const { contract, version } of shape.contracts) {
+          expect(
+            llContractPattern.test(contract),
+            `${shape.id} shape has non-LL contract "${contract}" in ${version}`,
+          ).toBe(true);
+        }
+      }
+    });
+
+    it("instant shape only maps to Instant contracts", () => {
+      for (const { contract, version } of shapes.airdrops.instant.contracts) {
+        expect(
+          instantContractPattern.test(contract),
+          `instant shape has non-Instant contract "${contract}" in ${version}`,
+        ).toBe(true);
+      }
     });
   });
 });

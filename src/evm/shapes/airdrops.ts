@@ -60,7 +60,6 @@ export const stepper: AirdropShapeDefinition<Shape.Airdrops.Stepper> = {
     { contract: "SablierMerkleLT", methods: ["claim"], version: "v2.0" },
     { contract: "SablierMerkleLT", methods: ["claim"], version: "v1.3" },
     { contract: "SablierV2MerkleLT", methods: ["claim"], version: "v1.2" },
-    { contract: "SablierV2MerkleStreamer", methods: ["claim"], version: "v1.1" },
   ],
   id: Shape.Airdrops.Stepper,
   protocol: Protocol.Airdrops,
