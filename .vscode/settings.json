@@ -6,8 +6,9 @@
     "source.organizeImports.biome": "explicit"
   },
   "search.exclude": {
-    "**/node_modules": true,
-    "./deployments": true
+    "deployments": true,
+    "dist": true,
+    "**/node_modules": true
   },
   "[md][yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"

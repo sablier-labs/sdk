@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Range Double-Unlock CSV Schema",
-  "description": "Schema for double-unlock vesting with absolute timestamps",
+  "title": "Range UnlockCliff CSV Schema",
+  "description": "Schema for unlockCliff vesting with absolute timestamps",
   "type": "object",
   "properties": {
     "address": {
@@ -16,28 +16,16 @@
     "end": {
       "$ref": "../../common.schema.json#/$defs/timestamp"
     },
-    "firstUnlockEnd": {
+    "cliffEnd": {
       "$ref": "../../common.schema.json#/$defs/timestamp"
     },
-    "firstUnlockAmount": {
+    "unlock": {
       "$ref": "../../common.schema.json#/$defs/amount"
     },
-    "secondUnlockEnd": {
-      "$ref": "../../common.schema.json#/$defs/timestamp"
-    },
-    "secondUnlockAmount": {
+    "cliffAmount": {
       "$ref": "../../common.schema.json#/$defs/amount"
     }
   },
-  "required": [
-    "address",
-    "amount",
-    "start",
-    "end",
-    "firstUnlockEnd",
-    "firstUnlockAmount",
-    "secondUnlockEnd",
-    "secondUnlockAmount"
-  ],
+  "required": ["address", "amount", "start", "end", "cliffEnd", "unlock", "cliffAmount"],
   "additionalProperties": false
 }
