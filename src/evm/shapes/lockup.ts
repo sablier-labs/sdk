@@ -1,9 +1,9 @@
 import { Protocol } from "../enums";
 import { Shape } from "./enums";
-import type { LockupShape, LockupShapesRecord } from "./types";
+import type { LockupShapeDefinition, LockupShapesRecord } from "./types";
 
 /** Linear vesting with no cliff */
-export const linear: LockupShape<Shape.Lockup.Linear> = {
+export const linear: LockupShapeDefinition<Shape.Lockup.Linear> = {
   contracts: [
     {
       contract: "SablierLockup",
@@ -33,10 +33,10 @@ export const linear: LockupShape<Shape.Lockup.Linear> = {
   ],
   id: Shape.Lockup.Linear,
   protocol: Protocol.Lockup,
-} satisfies LockupShape;
+} satisfies LockupShapeDefinition;
 
 /** Linear vesting with a cliff period. Uses same contract methods as linear shape - cliff duration is specified in parameters. */
-export const cliff: LockupShape<Shape.Lockup.Cliff> = {
+export const cliff: LockupShapeDefinition<Shape.Lockup.Cliff> = {
   contracts: [
     {
       contract: "SablierLockup",
@@ -66,10 +66,10 @@ export const cliff: LockupShape<Shape.Lockup.Cliff> = {
   ],
   id: Shape.Lockup.Cliff,
   protocol: Protocol.Lockup,
-} satisfies LockupShape;
+} satisfies LockupShapeDefinition;
 
 /** Instant unlock followed by linear vesting. Uses same contract methods as linear shape - unlock amount is specified in parameters. */
-export const unlockLinear: LockupShape<Shape.Lockup.UnlockLinear> = {
+export const unlockLinear: LockupShapeDefinition<Shape.Lockup.UnlockLinear> = {
   contracts: [
     {
       contract: "SablierLockup",
@@ -99,10 +99,10 @@ export const unlockLinear: LockupShape<Shape.Lockup.UnlockLinear> = {
   ],
   id: Shape.Lockup.UnlockLinear,
   protocol: Protocol.Lockup,
-} satisfies LockupShape;
+} satisfies LockupShapeDefinition;
 
 /** Instant unlock followed by cliff then linear vesting. Uses same contract methods as linear shape - unlock amount and cliff are specified in parameters. */
-export const unlockCliff: LockupShape<Shape.Lockup.UnlockCliff> = {
+export const unlockCliff: LockupShapeDefinition<Shape.Lockup.UnlockCliff> = {
   contracts: [
     {
       contract: "SablierLockup",
@@ -132,10 +132,10 @@ export const unlockCliff: LockupShape<Shape.Lockup.UnlockCliff> = {
   ],
   id: Shape.Lockup.UnlockCliff,
   protocol: Protocol.Lockup,
-} satisfies LockupShape;
+} satisfies LockupShapeDefinition;
 
 /** Exponential curve vesting */
-export const exponential: LockupShape<Shape.Lockup.Exponential> = {
+export const exponential: LockupShapeDefinition<Shape.Lockup.Exponential> = {
   contracts: [
     {
       contract: "SablierLockup",
@@ -165,10 +165,10 @@ export const exponential: LockupShape<Shape.Lockup.Exponential> = {
   ],
   id: Shape.Lockup.Exponential,
   protocol: Protocol.Lockup,
-} satisfies LockupShape;
+} satisfies LockupShapeDefinition;
 
 /** Exponential curve vesting with cliff period. Uses same contract methods as exponential shape - cliff is specified in parameters. */
-export const cliffExponential: LockupShape<Shape.Lockup.CliffExponential> = {
+export const cliffExponential: LockupShapeDefinition<Shape.Lockup.CliffExponential> = {
   contracts: [
     {
       contract: "SablierLockup",
@@ -198,10 +198,10 @@ export const cliffExponential: LockupShape<Shape.Lockup.CliffExponential> = {
   ],
   id: Shape.Lockup.CliffExponential,
   protocol: Protocol.Lockup,
-} satisfies LockupShape;
+} satisfies LockupShapeDefinition;
 
 /** Backweighted vesting curve. Uses same contract methods as exponential shape - curve parameters differ. */
-export const backweighted: LockupShape<Shape.Lockup.Backweighted> = {
+export const backweighted: LockupShapeDefinition<Shape.Lockup.Backweighted> = {
   contracts: [
     {
       contract: "SablierLockup",
@@ -231,10 +231,10 @@ export const backweighted: LockupShape<Shape.Lockup.Backweighted> = {
   ],
   id: Shape.Lockup.Backweighted,
   protocol: Protocol.Lockup,
-} satisfies LockupShape;
+} satisfies LockupShapeDefinition;
 
 /** Step-based vesting with discrete tranches */
-export const stepper: LockupShape<Shape.Lockup.Stepper> = {
+export const stepper: LockupShapeDefinition<Shape.Lockup.Stepper> = {
   contracts: [
     {
       contract: "SablierLockup",
@@ -254,10 +254,10 @@ export const stepper: LockupShape<Shape.Lockup.Stepper> = {
   ],
   id: Shape.Lockup.Stepper,
   protocol: Protocol.Lockup,
-} satisfies LockupShape;
+} satisfies LockupShapeDefinition;
 
 /** Monthly vesting with equal tranches. Uses same contract methods as stepper shape - tranche count and amounts are specified in parameters. */
-export const monthly: LockupShape<Shape.Lockup.Monthly> = {
+export const monthly: LockupShapeDefinition<Shape.Lockup.Monthly> = {
   contracts: [
     {
       contract: "SablierLockup",
@@ -277,10 +277,10 @@ export const monthly: LockupShape<Shape.Lockup.Monthly> = {
   ],
   id: Shape.Lockup.Monthly,
   protocol: Protocol.Lockup,
-} satisfies LockupShape;
+} satisfies LockupShapeDefinition;
 
 /** Timelock with single unlock at end. Uses same contract methods as stepper shape - single tranche at end time. */
-export const timelock: LockupShape<Shape.Lockup.Timelock> = {
+export const timelock: LockupShapeDefinition<Shape.Lockup.Timelock> = {
   contracts: [
     {
       contract: "SablierLockup",
@@ -300,10 +300,10 @@ export const timelock: LockupShape<Shape.Lockup.Timelock> = {
   ],
   id: Shape.Lockup.Timelock,
   protocol: Protocol.Lockup,
-} satisfies LockupShape;
+} satisfies LockupShapeDefinition;
 
 /** Two-tranche unlock pattern. Uses same contract methods as stepper shape - two tranches with custom amounts and times. */
-export const doubleUnlock: LockupShape<Shape.Lockup.DoubleUnlock> = {
+export const doubleUnlock: LockupShapeDefinition<Shape.Lockup.DoubleUnlock> = {
   contracts: [
     {
       contract: "SablierLockup",
@@ -323,7 +323,7 @@ export const doubleUnlock: LockupShape<Shape.Lockup.DoubleUnlock> = {
   ],
   id: Shape.Lockup.DoubleUnlock,
   protocol: Protocol.Lockup,
-} satisfies LockupShape;
+} satisfies LockupShapeDefinition;
 
 /** All Lockup shapes indexed by ID */
 export const lockupShapes = {

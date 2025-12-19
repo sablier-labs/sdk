@@ -20,32 +20,41 @@ type BaseShape<TId extends string> = {
   contracts: ContractMethod[];
 };
 
-/** Lockup shape definition */
-export type LockupShape<TId extends Shape.Lockup = Shape.Lockup> = BaseShape<TId> & {
+/** Lockup shape definition with contract metadata */
+export type LockupShapeDefinition<TId extends Shape.Lockup = Shape.Lockup> = BaseShape<TId> & {
   protocol: Protocol.Lockup;
 };
 
-/** Flow shape definition */
-export type FlowShape<TId extends Shape.Flow = Shape.Flow> = BaseShape<TId> & {
+/** Flow shape definition with contract metadata */
+export type FlowShapeDefinition<TId extends Shape.Flow = Shape.Flow> = BaseShape<TId> & {
   protocol: Protocol.Flow;
 };
 
-/** Airdrop shape definition */
-export type AirdropShape<TId extends Shape.Airdrops = Shape.Airdrops> = BaseShape<TId> & {
+/** Airdrop shape definition with contract metadata */
+export type AirdropShapeDefinition<TId extends Shape.Airdrops = Shape.Airdrops> = BaseShape<TId> & {
   protocol: Protocol.Airdrops;
 };
 
+/** Lockup shape identifier (string union) */
+export type LockupShape = `${Shape.Lockup}`;
+
+/** Flow shape identifier (string union) */
+export type FlowShape = `${Shape.Flow}`;
+
+/** Airdrop shape identifier (string union) */
+export type AirdropShape = `${Shape.Airdrops}`;
+
 /** Record type ensuring all Lockup shapes are defined */
 export type LockupShapesRecord = {
-  [K in Shape.Lockup]: LockupShape<K>;
+  [K in Shape.Lockup]: LockupShapeDefinition<K>;
 };
 
 /** Record type ensuring all Flow shapes are defined */
 export type FlowShapesRecord = {
-  [K in Shape.Flow]: FlowShape<K>;
+  [K in Shape.Flow]: FlowShapeDefinition<K>;
 };
 
 /** Record type ensuring all Airdrop shapes are defined */
 export type AirdropShapesRecord = {
-  [K in Shape.Airdrops]: AirdropShape<K>;
+  [K in Shape.Airdrops]: AirdropShapeDefinition<K>;
 };

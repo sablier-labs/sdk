@@ -1,8 +1,8 @@
 import { Protocol } from "../enums";
 import { Shape } from "./enums";
-import type { FlowShape, FlowShapesRecord } from "./types";
+import type { FlowShapeDefinition, FlowShapesRecord } from "./types";
 
-export const flow: FlowShape<Shape.Flow.Flow> = {
+export const flow: FlowShapeDefinition<Shape.Flow.Flow> = {
   contracts: [
     { contract: "SablierFlow", methods: ["create", "createAndDeposit"], version: "v2.0" },
     { contract: "SablierFlow", methods: ["create", "createAndDeposit"], version: "v1.1" },
@@ -10,7 +10,7 @@ export const flow: FlowShape<Shape.Flow.Flow> = {
   ],
   id: Shape.Flow.Flow,
   protocol: Protocol.Flow,
-} satisfies FlowShape;
+} satisfies FlowShapeDefinition;
 
 /** All Flow shapes indexed by ID */
 export const flowShapes = {

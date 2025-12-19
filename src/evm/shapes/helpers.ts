@@ -1,7 +1,22 @@
 import type { EVM } from "../types";
-import type { AirdropShape, ContractMethod, FlowShape, LockupShape } from "./types";
+import { Shape } from "./enums";
+import type {
+  AirdropShapeDefinition,
+  ContractMethod,
+  FlowShapeDefinition,
+  LockupShapeDefinition,
+} from "./types";
 
-type AnyShape = LockupShape | FlowShape | AirdropShape;
+type AnyShape = LockupShapeDefinition | FlowShapeDefinition | AirdropShapeDefinition;
+
+/** All Lockup shape IDs */
+export const lockupShapeIds = Object.values(Shape.Lockup);
+
+/** All Flow shape IDs */
+export const flowShapeIds = Object.values(Shape.Flow);
+
+/** All Airdrop shape IDs */
+export const airdropShapeIds = Object.values(Shape.Airdrops);
 
 /**
  * Get all shapes available for a specific protocol version.
@@ -40,4 +55,25 @@ export function isShapeAvailableInVersion(shape: AnyShape, version: EVM.Version)
  */
 export function getLatestContractMethod(shape: AnyShape): ContractMethod {
   return shape.contracts[0];
+}
+
+/**
+ * Type guard to check if a value is a valid Lockup shape ID.
+ */
+export function isLockupShape(value: unknown): value is Shape.Lockup {
+  return lockupShapeIds.includes(value as Shape.Lockup);
+}
+
+/**
+ * Type guard to check if a value is a valid Flow shape ID.
+ */
+export function isFlowShape(value: unknown): value is Shape.Flow {
+  return flowShapeIds.includes(value as Shape.Flow);
+}
+
+/**
+ * Type guard to check if a value is a valid Airdrop shape ID.
+ */
+export function isAirdropShape(value: unknown): value is Shape.Airdrops {
+  return airdropShapeIds.includes(value as Shape.Airdrops);
 }

@@ -1,10 +1,16 @@
 import { Version } from "@src/evm/enums";
 import { Shape, shapes } from "@src/evm/shapes";
 import {
+  airdropShapeIds,
+  flowShapeIds,
   getContractMethodsForVersion,
   getLatestContractMethod,
   getShapesByVersion,
+  isAirdropShape,
+  isFlowShape,
+  isLockupShape,
   isShapeAvailableInVersion,
+  lockupShapeIds,
 } from "@src/evm/shapes/helpers";
 import { describe, expect, it } from "vitest";
 
@@ -292,6 +298,70 @@ describe("shapes", () => {
           expect(validVersions).toContain(contract.version);
         }
       }
+    });
+  });
+
+  describe("shape ID arrays", () => {
+    it("lockupShapeIds contains all 11 lockup shapes", () => {
+      expect(lockupShapeIds).toHaveLength(11);
+      expect(lockupShapeIds).toContain(Shape.Lockup.Linear);
+      expect(lockupShapeIds).toContain(Shape.Lockup.Cliff);
+      expect(lockupShapeIds).toContain(Shape.Lockup.Stepper);
+    });
+
+    it("flowShapeIds contains all 1 flow shape", () => {
+      expect(flowShapeIds).toHaveLength(1);
+      expect(flowShapeIds).toContain(Shape.Flow.Flow);
+    });
+
+    it("airdropShapeIds contains all 6 airdrop shapes", () => {
+      expect(airdropShapeIds).toHaveLength(6);
+      expect(airdropShapeIds).toContain(Shape.Airdrops.Instant);
+      expect(airdropShapeIds).toContain(Shape.Airdrops.Linear);
+      expect(airdropShapeIds).toContain(Shape.Airdrops.Stepper);
+    });
+  });
+
+  describe("type guards", () => {
+    it("isLockupShape returns true for valid lockup shapes", () => {
+      expect(isLockupShape("linear")).toBe(true);
+      expect(isLockupShape("cliff")).toBe(true);
+      expect(isLockupShape("stepper")).toBe(true);
+      expect(isLockupShape(Shape.Lockup.Linear)).toBe(true);
+    });
+
+    it("isLockupShape returns false for invalid values", () => {
+      expect(isLockupShape("invalid")).toBe(false);
+      expect(isLockupShape("flow")).toBe(false);
+      expect(isLockupShape("instant")).toBe(false);
+      expect(isLockupShape(null)).toBe(false);
+      expect(isLockupShape(undefined)).toBe(false);
+      expect(isLockupShape(123)).toBe(false);
+    });
+
+    it("isFlowShape returns true for valid flow shapes", () => {
+      expect(isFlowShape("flow")).toBe(true);
+      expect(isFlowShape(Shape.Flow.Flow)).toBe(true);
+    });
+
+    it("isFlowShape returns false for invalid values", () => {
+      expect(isFlowShape("invalid")).toBe(false);
+      expect(isFlowShape("linear")).toBe(false);
+      expect(isFlowShape(null)).toBe(false);
+    });
+
+    it("isAirdropShape returns true for valid airdrop shapes", () => {
+      expect(isAirdropShape("instant")).toBe(true);
+      expect(isAirdropShape("linear")).toBe(true);
+      expect(isAirdropShape("stepper")).toBe(true);
+      expect(isAirdropShape(Shape.Airdrops.Instant)).toBe(true);
+    });
+
+    it("isAirdropShape returns false for invalid values", () => {
+      expect(isAirdropShape("invalid")).toBe(false);
+      expect(isAirdropShape("flow")).toBe(false);
+      expect(isAirdropShape("exponential")).toBe(false);
+      expect(isAirdropShape(null)).toBe(false);
     });
   });
 });
