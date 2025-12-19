@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Range Unlock-Linear CSV Schema",
-  "description": "Schema for unlock-linear vesting with absolute timestamps",
+  "title": "Range CliffExponential CSV Schema",
+  "description": "Schema for cliffExponential vesting with absolute timestamps",
   "type": "object",
   "properties": {
     "address": {
@@ -16,10 +16,13 @@
     "end": {
       "$ref": "../../common.schema.json#/$defs/timestamp"
     },
-    "unlock": {
+    "cliffEnd": {
+      "$ref": "../../common.schema.json#/$defs/timestamp"
+    },
+    "cliffAmount": {
       "$ref": "../../common.schema.json#/$defs/amount"
     }
   },
-  "required": ["address", "amount", "start", "end", "unlock"],
+  "required": ["address", "amount", "start", "end", "cliffEnd", "cliffAmount"],
   "additionalProperties": false
 }

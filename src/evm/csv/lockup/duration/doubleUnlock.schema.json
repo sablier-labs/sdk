@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Duration Unlock-Cliff CSV Schema",
-  "description": "Schema for unlock-cliff vesting with relative duration",
+  "title": "Duration DoubleUnlock CSV Schema",
+  "description": "Schema for doubleUnlock vesting with relative duration",
   "type": "object",
   "properties": {
     "address": {
@@ -13,16 +13,27 @@
     "duration": {
       "$ref": "../../common.schema.json#/$defs/duration"
     },
-    "cliffDuration": {
+    "firstUnlockDuration": {
       "$ref": "../../common.schema.json#/$defs/duration"
     },
-    "unlock": {
+    "firstUnlockAmount": {
       "$ref": "../../common.schema.json#/$defs/amount"
     },
-    "cliffAmount": {
+    "secondUnlockDuration": {
+      "$ref": "../../common.schema.json#/$defs/duration"
+    },
+    "secondUnlockAmount": {
       "$ref": "../../common.schema.json#/$defs/amount"
     }
   },
-  "required": ["address", "amount", "duration", "cliffDuration", "unlock", "cliffAmount"],
+  "required": [
+    "address",
+    "amount",
+    "duration",
+    "firstUnlockDuration",
+    "firstUnlockAmount",
+    "secondUnlockDuration",
+    "secondUnlockAmount"
+  ],
   "additionalProperties": false
 }
