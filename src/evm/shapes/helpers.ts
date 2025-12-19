@@ -54,6 +54,9 @@ export function isShapeAvailableInVersion(shape: AnyShape, version: EVM.Version)
  * Assumes contracts are ordered newest first.
  */
 export function getLatestContractMethod(shape: AnyShape): ContractMethod {
+  if (!shape.contracts || shape.contracts.length === 0) {
+    throw new Error(`Shape "${shape.id}" has no contract mappings`);
+  }
   return shape.contracts[0];
 }
 
