@@ -1,5 +1,5 @@
 import { aliasCatalog } from "@src/evm/contracts/alias-catalog";
-import { Protocol } from "@src/evm/enums";
+import { Protocol, Version } from "@src/evm/enums";
 import { getContractExplorerURL as getContractExplorerURLInternal } from "@src/internal/utils/explorer-url";
 import type { Sablier } from "@src/types";
 
@@ -124,4 +124,43 @@ export function resolveEvmContractByAlias(opts: {
   }
 
   return matches[0];
+}
+
+/** Minimum versions that charge ETH fees on withdraw/claim */
+const MIN_PAYABLE_VERSIONS = {
+  airdrops: Version.Airdrops.V1_3,
+  flow: Version.Flow.V1_1,
+  lockup: Version.Lockup.V2_0,
+} as const;
+
+export type PayableEvmProtocol = keyof typeof MIN_PAYABLE_VERSIONS;
+
+/**
+ * Check if an EVM protocol release charges ETH fees on withdraw/claim operations.
+ *
+ * Starting from specific versions, Sablier contracts charge a small ETH fee when
+ * recipients withdraw or claim tokens from streams and airdrops.
+ *
+ * @param protocol - The protocol name ("airdrops", "flow", or "lockup")
+ * @param version - The version to check
+ * @returns true if the release charges fees
+ * @see {@link https://docs.sablier.com/concepts/fees} for fee details
+ * @example
+ * isEvmReleasePayable("airdrops", "v1.2") // false
+ * isEvmReleasePayable("airdrops", "v1.3") // true
+ * isEvmReleasePayable("lockup", "v1.2")   // false
+ * isEvmReleasePayable("lockup", "v2.0")   // true
+ * isEvmReleasePayable("flow", "v1.0")     // false
+ * isEvmReleasePayable("flow", "v1.1")     // true
+ */
+export function isEvmReleasePayable(
+  protocol: PayableEvmProtocol,
+  version: Sablier.EVM.Version,
+): boolean {
+  const minVersion = MIN_PAYABLE_VERSIONS[protocol];
+  // Compare versions: return true if version >= minVersion
+  const [vMajor, vMinor] = version.slice(1).split(".").map(Number);
+  const [mMajor, mMinor] = minVersion.slice(1).split(".").map(Number);
+  if (vMajor !== mMajor) return vMajor > mMajor;
+  return vMinor >= mMinor;
 }

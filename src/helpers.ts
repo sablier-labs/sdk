@@ -1,5 +1,6 @@
 import { Protocol as EvmProtocol } from "@src/evm/enums";
-import { resolveEvmStreamId, truncateEvmAddress } from "@src/evm/helpers";
+import type { PayableEvmProtocol } from "@src/evm/helpers";
+import { isEvmReleasePayable, resolveEvmStreamId, truncateEvmAddress } from "@src/evm/helpers";
 import { getNestedValues as getNestedValuesInternal } from "@src/internal/utils/nested-values";
 import { sortChains as sortChainsInternal } from "@src/internal/utils/sort-chains";
 import { SOLANA_CHAIN_IDS } from "@src/solana/chains/data";
@@ -60,6 +61,31 @@ export function isVersionBefore(version: Version, before: Version): boolean {
  */
 export function isVersionAfter(version: Version, after: Version): boolean {
   return compareVersions(version, after) > 0;
+}
+
+/**
+ * Check if a protocol release charges ETH fees on withdraw/claim operations.
+ *
+ * Starting from specific versions, Sablier contracts charge a small ETH fee when
+ * recipients withdraw or claim tokens from streams and airdrops.
+ *
+ * @param protocol - The protocol name ("airdrops", "flow", or "lockup")
+ * @param version - The version to check
+ * @returns true if the release charges fees
+ * @see {@link https://docs.sablier.com/concepts/fees} for fee details
+ * @example
+ * isReleasePayable("airdrops", "v1.2") // false
+ * isReleasePayable("airdrops", "v1.3") // true
+ * isReleasePayable("lockup", "v1.2")   // false
+ * isReleasePayable("lockup", "v2.0")   // true
+ * isReleasePayable("flow", "v1.0")     // false
+ * isReleasePayable("flow", "v1.1")     // true
+ */
+export function isReleasePayable(
+  protocol: PayableEvmProtocol,
+  version: Sablier.EVM.Version,
+): boolean {
+  return isEvmReleasePayable(protocol, version);
 }
 
 export function sortChains<T extends { name: string }>(chains: T[]): T[] {

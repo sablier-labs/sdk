@@ -1,4 +1,5 @@
 import { Protocol as EvmProtocol, Version } from "@src/evm/enums";
+import { isEvmReleasePayable } from "@src/evm/helpers";
 import {
   compareVersions as cmp,
   isVersionAfter as isAfter,
@@ -123,6 +124,44 @@ describe("helpers", () => {
       const afterV1_1 = versions.filter((v) => isAfter(v, Version.Flow.V1_1));
 
       expect(afterV1_1).toEqual([Version.Flow.V2_0]);
+    });
+  });
+
+  describe("isEvmReleasePayable", () => {
+    describe("airdrops", () => {
+      it("returns false for versions before v1.3", () => {
+        expect(isEvmReleasePayable("airdrops", Version.Airdrops.V1_1)).toBe(false);
+        expect(isEvmReleasePayable("airdrops", Version.Airdrops.V1_2)).toBe(false);
+      });
+
+      it("returns true for v1.3 and later", () => {
+        expect(isEvmReleasePayable("airdrops", Version.Airdrops.V1_3)).toBe(true);
+        expect(isEvmReleasePayable("airdrops", Version.Airdrops.V2_0)).toBe(true);
+      });
+    });
+
+    describe("flow", () => {
+      it("returns false for versions before v1.1", () => {
+        expect(isEvmReleasePayable("flow", Version.Flow.V1_0)).toBe(false);
+      });
+
+      it("returns true for v1.1 and later", () => {
+        expect(isEvmReleasePayable("flow", Version.Flow.V1_1)).toBe(true);
+        expect(isEvmReleasePayable("flow", Version.Flow.V2_0)).toBe(true);
+      });
+    });
+
+    describe("lockup", () => {
+      it("returns false for versions before v2.0", () => {
+        expect(isEvmReleasePayable("lockup", Version.Lockup.V1_0)).toBe(false);
+        expect(isEvmReleasePayable("lockup", Version.Lockup.V1_1)).toBe(false);
+        expect(isEvmReleasePayable("lockup", Version.Lockup.V1_2)).toBe(false);
+      });
+
+      it("returns true for v2.0 and later", () => {
+        expect(isEvmReleasePayable("lockup", Version.Lockup.V2_0)).toBe(true);
+        expect(isEvmReleasePayable("lockup", Version.Lockup.V3_0)).toBe(true);
+      });
     });
   });
 
