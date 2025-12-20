@@ -1,0 +1,11 @@
+{
+  "contractName": "SablierV2NFTDescriptor",
+  "entries": [
+    {
+      "address": "0xABF4a24519c9A3c68a354FD6d5D4429De0A0D36C",
+      "deploymentType": "create",
+      "salt": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "txHash": "0xb3d1bc0d8064dcb33ae51020243420a5a600153b516e5ffc9723ac16d1c7e3bc"
+    }
+  ]
+}

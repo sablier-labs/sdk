@@ -20,9 +20,43 @@
       "isFixedGasLimit": false
     }
   ],
-  "receipts": [],
+  "receipts": [
+    {
+      "status": "0x1",
+      "cumulativeGasUsed": "0x514dc6",
+      "logs": [
+        {
+          "address": "0xc0107f368fbb50075d2190549055d9e6bf75c5c9",
+          "topics": [
+            "0xbdd36143ee09de60bdefca70680e0f71189b2ed7acee364b53917ad433fdaf80",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x000000000000000000000000b1bef51ebca01eb12001a639bdbbff6eeca12b9f"
+          ],
+          "data": "0x",
+          "blockHash": "0x3a5e9dddb77834ed96aa86b2cc74b7eb15569ae47429092f3c0233e7e7c125fd",
+          "blockNumber": "0x77bd102",
+          "transactionHash": "0x370ce81bd20fd02d35c5a8a287fcb934fe446fc9fe68fc7c165e1350958e7f42",
+          "transactionIndex": "0x0",
+          "logIndex": "0x0",
+          "removed": false
+        }
+      ],
+      "logsBloom": "0x00000000000000000000004000000000000001400000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000000000000000008000000000000000000400000000000000000020000000000000000000800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000020010000000000000000000000000000000000000000000000000000000000000000",
+      "type": "0x0",
+      "transactionHash": "0x370ce81bd20fd02d35c5a8a287fcb934fe446fc9fe68fc7c165e1350958e7f42",
+      "transactionIndex": "0x0",
+      "blockHash": "0x3a5e9dddb77834ed96aa86b2cc74b7eb15569ae47429092f3c0233e7e7c125fd",
+      "blockNumber": "0x77bd102",
+      "gasUsed": "0x514dc6",
+      "effectiveGasPrice": "0x0",
+      "from": "0xb1bef51ebca01eb12001a639bdbbff6eeca12b9f",
+      "to": "0x4e59b44847b379578588920ca78fbf26c0b4956c",
+      "contractAddress": "0xc0107f368fbb50075d2190549055d9e6bf75c5c9",
+      "root": "0x36e502d5408dfdf3f96d0a7663b32bfd646b6a7d9cc287f06fec6eadb9050f4d"
+    }
+  ],
   "libraries": [],
-  "pending": ["0x370ce81bd20fd02d35c5a8a287fcb934fe446fc9fe68fc7c165e1350958e7f42"],
+  "pending": [],
   "returns": {
     "merkleFactory": {
       "internal_type": "contract SablierMerkleFactory",

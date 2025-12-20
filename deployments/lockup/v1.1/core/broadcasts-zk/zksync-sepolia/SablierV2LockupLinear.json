@@ -1,0 +1,11 @@
+{
+  "contractName": "SablierV2LockupLinear",
+  "entries": [
+    {
+      "address": "0xdFC6F5D327dcF5DB579eC1b47fb260F93e042409",
+      "deploymentType": "create",
+      "salt": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "txHash": "0xb5f5c84563ce32fcb8f01172335b42019f8cb07a9d121afdada7dbe8bbc1be3f"
+    }
+  ]
+}

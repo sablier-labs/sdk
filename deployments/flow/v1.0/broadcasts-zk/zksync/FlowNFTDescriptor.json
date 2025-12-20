@@ -1,0 +1,11 @@
+{
+  "contractName": "FlowNFTDescriptor",
+  "entries": [
+    {
+      "address": "0x01C40608f2822816cF25a0a911c1df330487ba62",
+      "deploymentType": "create",
+      "salt": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "txHash": "0x019571d6c52f1aeda3fdce56ba18d3f2c6e967f613bd74a98d46a0ddcf04dbe6"
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "transactions": [
+    {
+      "hash": "0xc24789d6f265224878a326b6faf329005a232c71cca1fea696e6ceb1da30adc6",
+      "transactionType": "CREATE",
+      "contractName": "SablierV2BatchLockup",
+      "contractAddress": "0x711900e5f55d427cd88e5E3FCAe54Ccf02De71F4",
+      "function": null,
+      "arguments": null,
+      "additionalContracts": [],
+      "isFixedGasLimit": false
+    },
+    {
+      "hash": "0x0b94bd36f1a278a7a7cc00e8197d0d80a7168765b56bcffe3d11d2881010ad73",
+      "transactionType": "CREATE",
+      "contractName": "SablierV2MerkleLockupFactory",
+      "contractAddress": "0xf978034bb3CAB5fe88d23DB5Cb38D510485DaB90",
+      "function": null,
+      "arguments": null,
+      "additionalContracts": [],
+      "isFixedGasLimit": false
+    }
+  ],
+  "receipts": [
+    {
+      "status": "0x1",
+      "cumulativeGasUsed": "0x208cbd",
+      "logs": [],
+      "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "type": "0x0",
+      "transactionHash": "0xc24789d6f265224878a326b6faf329005a232c71cca1fea696e6ceb1da30adc6",
+      "transactionIndex": "0x0",
+      "blockHash": "0x1cc51877236029ed7fe1c4419af2f9a904a2f0c4d9f010c88cc29ed908a5a52c",
+      "blockNumber": "0x1e50b25",
+      "gasUsed": "0x208cbd",
+      "effectiveGasPrice": "0x0",
+      "from": "0xb1bef51ebca01eb12001a639bdbbff6eeca12b9f",
+      "to": null,
+      "contractAddress": "0x711900e5f55d427cd88e5e3fcae54ccf02de71f4"
+    },
+    {
+      "status": "0x1",
+      "cumulativeGasUsed": "0x47f04d",
+      "logs": [],
+      "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "type": "0x0",
+      "transactionHash": "0x0b94bd36f1a278a7a7cc00e8197d0d80a7168765b56bcffe3d11d2881010ad73",
+      "transactionIndex": "0x2",
+      "blockHash": "0xea46ae8c8fa74a87ed759f7f367ed7ba97805a290bc4cf25c2af18f21e1dbeec",
+      "blockNumber": "0x1e50b27",
+      "gasUsed": "0x47f04d",
+      "effectiveGasPrice": "0x0",
+      "from": "0xb1bef51ebca01eb12001a639bdbbff6eeca12b9f",
+      "to": null,
+      "contractAddress": "0xf978034bb3cab5fe88d23db5cb38d510485dab90"
+    }
+  ],
+  "libraries": [],
+  "pending": [],
+  "returns": {
+    "batchLockup": {
+      "internal_type": "contract SablierV2BatchLockup",
+      "value": "0x711900e5f55d427cd88e5E3FCAe54Ccf02De71F4"
+    },
+    "merkleLockupFactory": {
+      "internal_type": "contract SablierV2MerkleLockupFactory",
+      "value": "0xf978034bb3CAB5fe88d23DB5Cb38D510485DaB90"
+    }
+  },
+  "timestamp": 1724709004,
+  "chain": 4689,
+  "commit": "73356945"
+}
