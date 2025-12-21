@@ -96,7 +96,7 @@
       "effectiveGasPrice": "0x5f5e100",
       "from": "0xb1bef51ebca01eb12001a639bdbbff6eeca12b9f",
       "to": "0x4e59b44847b379578588920ca78fbf26c0b4956c",
-      "contractAddress": null
+      "contractAddress": "0xDFa4512d07AbD4eb8Be570Cd79e2e6Fe21ff15C9"
     },
     {
       "status": "0x1",
@@ -112,7 +112,7 @@
       "effectiveGasPrice": "0x5f5e100",
       "from": "0xb1bef51ebca01eb12001a639bdbbff6eeca12b9f",
       "to": "0x4e59b44847b379578588920ca78fbf26c0b4956c",
-      "contractAddress": null
+      "contractAddress": "0x9aB73CA73c89AF0bdc69642aCeb23CC6A55A514C"
     },
     {
       "status": "0x1",
@@ -128,7 +128,7 @@
       "effectiveGasPrice": "0x5f5e100",
       "from": "0xb1bef51ebca01eb12001a639bdbbff6eeca12b9f",
       "to": "0x4e59b44847b379578588920ca78fbf26c0b4956c",
-      "contractAddress": null
+      "contractAddress": "0xB7185AcAF42C4966fFA3c81486d9ED9633aa4c13"
     },
     {
       "status": "0x1",
@@ -144,7 +144,7 @@
       "effectiveGasPrice": "0x5f5e100",
       "from": "0xb1bef51ebca01eb12001a639bdbbff6eeca12b9f",
       "to": "0x4e59b44847b379578588920ca78fbf26c0b4956c",
-      "contractAddress": null
+      "contractAddress": "0x90Cc23DC3E12E80f27C05b8137b5f0d2b1EdFA20"
     }
   ],
   "libraries": [],

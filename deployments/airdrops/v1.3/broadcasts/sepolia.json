@@ -51,7 +51,7 @@
       "effectiveGasPrice": "0x161839d06",
       "from": "0xb1bef51ebca01eb12001a639bdbbff6eeca12b9f",
       "to": "0x4e59b44847b379578588920ca78fbf26c0b4956c",
-      "contractAddress": null
+      "contractAddress": "0xf642751d1271c88bbb8786067de808b32a016fd4"
     }
   ],
   "libraries": [],

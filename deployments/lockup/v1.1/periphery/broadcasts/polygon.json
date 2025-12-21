@@ -51,7 +51,7 @@
       "to": "0x4e59b44847b379578588920cA78FbF26c0B4956C",
       "cumulativeGasUsed": "0x69a8ee",
       "gasUsed": "0x16fcc5",
-      "contractAddress": null,
+      "contractAddress": "0x5865C73789C4496665eDE1CAF018dc52ac248598",
       "logs": [
         {
           "address": "0x0000000000000000000000000000000000001010",
@@ -84,7 +84,7 @@
       "to": "0x4e59b44847b379578588920cA78FbF26c0B4956C",
       "cumulativeGasUsed": "0x832d63",
       "gasUsed": "0x198475",
-      "contractAddress": null,
+      "contractAddress": "0xF4906225e783fb8977410BDBFb960caBed6C2EF4",
       "logs": [
         {
           "address": "0x0000000000000000000000000000000000001010",

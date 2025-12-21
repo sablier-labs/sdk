@@ -82,7 +82,7 @@
       "effectiveGasPrice": "0x258",
       "from": "0xb1bef51ebca01eb12001a639bdbbff6eeca12b9f",
       "to": "0x4e59b44847b379578588920ca78fbf26c0b4956c",
-      "contractAddress": null
+      "contractAddress": "0x461E13056a3a3265CEF4c593F01b2e960755dE91"
     },
     {
       "status": "0x1",
@@ -115,7 +115,7 @@
       "effectiveGasPrice": "0xb2d05e36",
       "from": "0xb1bef51ebca01eb12001a639bdbbff6eeca12b9f",
       "to": "0x4e59b44847b379578588920ca78fbf26c0b4956c",
-      "contractAddress": null
+      "contractAddress": "0xFCF737582d167c7D20A336532eb8BCcA8CF8e350"
     }
   ],
   "libraries": [],
