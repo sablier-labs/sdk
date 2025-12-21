@@ -96,21 +96,26 @@ function testStandardBroadcast(
 
 // Validate the structure of a standard broadcast file
 function validateStandardBroadcast(broadcast: StandardBroadcast | null, chainName: string): void {
-  expect(broadcast, `Broadcast file not found for ${chainName}`).not.toBeNull();
+  if (!broadcast) {
+    expect.fail(`Broadcast file not found for ${chainName}`);
+  }
 
   // Empty array is acceptable for libraries.
-  expect(broadcast!.libraries).toBeDefined();
+  expect(broadcast.libraries).toBeDefined();
 
   // Receipts must be non-empty.
-  expect(broadcast!.receipts).toBeDefined();
-  expect(broadcast!.receipts.length).toBeGreaterThan(0);
+  expect(broadcast.receipts).toBeDefined();
+  expect(broadcast.receipts.length).toBeGreaterThan(0);
 
   // Transactions must be non-empty.
-  expect(broadcast!.transactions).toBeDefined();
-  expect(broadcast!.transactions.length).toBeGreaterThan(0);
+  expect(broadcast.transactions).toBeDefined();
+  expect(broadcast.transactions.length).toBeGreaterThan(0);
+
+  // Receipts and transactions must match in count.
+  expect(broadcast.receipts.length).toBe(broadcast.transactions.length);
 
   // Returns must be non-empty.
-  expect(broadcast!.returns).toBeDefined();
+  expect(broadcast.returns).toBeDefined();
 }
 
 // Test ZK broadcasts (one JSON file per contract in a directory)
