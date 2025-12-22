@@ -13,6 +13,9 @@
 import path from "node:path";
 import { beforeAll, describe, expect, it } from "@effect/vitest";
 import { chains } from "@src/evm/chains";
+import { chainsQueries } from "@src/evm/chains/queries";
+import { Protocol } from "@src/evm/enums";
+import { releasesQueries } from "@src/evm/releases/queries";
 import { getDeploymentsDir } from "@src/internal/helpers";
 import { Data, Effect } from "effect";
 import globby from "globby";
@@ -92,6 +95,23 @@ describe("Block explorer URLs", () => {
       throw new Error(`URLs with trailing slashes:\n${violations.join("\n")}`);
     }
   });
+});
+
+describe("Each chain has at least one deployment", () => {
+  const protocols = [Protocol.Legacy, Protocol.Lockup, Protocol.Flow, Protocol.Airdrops] as const;
+  const allChains = chainsQueries.getAll();
+
+  for (const chain of allChains) {
+    it(`${chain.name}`, () => {
+      const allDeployments = protocols.flatMap((protocol) => {
+        const releases = releasesQueries.getAll({ protocol });
+        return releases.flatMap((r) => r.deployments);
+      });
+
+      const hasDeployment = allDeployments.some((d) => d.chainId === chain.id);
+      expect(hasDeployment, `No deployments found on ${chain.name}`).toBe(true);
+    });
+  }
 });
 
 function getAllBroadcastSlugsEffect() {
