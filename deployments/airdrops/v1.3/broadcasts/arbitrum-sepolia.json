@@ -51,7 +51,7 @@
       "effectiveGasPrice": "0x5f5e100",
       "from": "0xb1bef51ebca01eb12001a639bdbbff6eeca12b9f",
       "to": "0x4e59b44847b379578588920ca78fbf26c0b4956c",
-      "contractAddress": null,
+      "contractAddress": "0x465e9218c1a8d36169e0c40c01b856a83ce44153",
       "gasUsedForL1": "0xbd3a",
       "l1BlockNumber": "0x73bc35"
     }

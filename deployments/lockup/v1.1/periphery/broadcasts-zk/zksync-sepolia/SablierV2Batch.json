@@ -1,0 +1,11 @@
+{
+  "contractName": "SablierV2Batch",
+  "entries": [
+    {
+      "address": "0x5F812F1332A2294149b9e1cBd216a5eED12cEbDD",
+      "deploymentType": "create",
+      "salt": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "txHash": "0x228583ea1c7621c45e2c2997bffc79787837e0ff251464147c367854f9052c4c"
+    }
+  ]
+}

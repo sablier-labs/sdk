@@ -1,0 +1,108 @@
+{
+  "transactions": [
+    {
+      "hash": "0xeaeb5b220724d4f56156fa2807ca97fdd0fbede53b4019393bee289acaa9bd3c",
+      "transactionType": "CREATE2",
+      "contractName": "SablierV2Archive",
+      "contractAddress": "0x2C8fA48361C7D48Dc21b27a3D549402Cf8AE16B0",
+      "function": null,
+      "arguments": ["0xb1bEF51ebCA01EB12001a639bDBbFF6eEcA12B9F"],
+      "additionalContracts": [],
+      "isFixedGasLimit": false
+    },
+    {
+      "hash": "0xdf413c36788c3b045cd9120c85726802ddc550dc9bef7071edf770d2c09b6663",
+      "transactionType": "CREATE2",
+      "contractName": "SablierV2ProxyPlugin",
+      "contractAddress": "0x7D310803c3824636bAff74e4f80e81ece167c440",
+      "function": null,
+      "arguments": ["0x2C8fA48361C7D48Dc21b27a3D549402Cf8AE16B0"],
+      "additionalContracts": [],
+      "isFixedGasLimit": false
+    },
+    {
+      "hash": "0xe1795145b3b6a5f8f8fc291929af372ed6f81620c0166bf71a9ee17d18e42b30",
+      "transactionType": "CREATE2",
+      "contractName": "SablierV2ProxyTarget",
+      "contractAddress": "0x396A3a169918A4C0B339ECf86C583f46D696254E",
+      "function": null,
+      "arguments": null,
+      "additionalContracts": [],
+      "isFixedGasLimit": false
+    }
+  ],
+  "receipts": [
+    {
+      "status": "0x1",
+      "cumulativeGasUsed": "0x47a62",
+      "logs": [],
+      "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "type": "0x2",
+      "transactionHash": "0xeaeb5b220724d4f56156fa2807ca97fdd0fbede53b4019393bee289acaa9bd3c",
+      "transactionIndex": "0x1",
+      "blockHash": "0x7dbcf947f42fe261d2f5f2d995c383aa72c3a7c8e241bafd12e3a11bc2f475d1",
+      "blockNumber": "0x2b519d",
+      "gasUsed": "0x47a62",
+      "effectiveGasPrice": "0x5f5e100",
+      "from": "0xb1bef51ebca01eb12001a639bdbbff6eeca12b9f",
+      "to": "0x4e59b44847b379578588920ca78fbf26c0b4956c",
+      "contractAddress": "0x2C8fA48361C7D48Dc21b27a3D549402Cf8AE16B0",
+      "gasUsedForL1": "0x0",
+      "l1BlockNumber": "0x4a9286"
+    },
+    {
+      "status": "0x1",
+      "cumulativeGasUsed": "0x83a89",
+      "logs": [],
+      "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "type": "0x2",
+      "transactionHash": "0xdf413c36788c3b045cd9120c85726802ddc550dc9bef7071edf770d2c09b6663",
+      "transactionIndex": "0x1",
+      "blockHash": "0xe37dbba88a7faa64f42be913c55c9ce0c2ad5c1eb2ba57739af575d815a61e74",
+      "blockNumber": "0x2b51a2",
+      "gasUsed": "0x83a89",
+      "effectiveGasPrice": "0x5f5e100",
+      "from": "0xb1bef51ebca01eb12001a639bdbbff6eeca12b9f",
+      "to": "0x4e59b44847b379578588920ca78fbf26c0b4956c",
+      "contractAddress": "0x7D310803c3824636bAff74e4f80e81ece167c440",
+      "gasUsedForL1": "0x0",
+      "l1BlockNumber": "0x4a9287"
+    },
+    {
+      "status": "0x1",
+      "cumulativeGasUsed": "0x38741c",
+      "logs": [],
+      "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "type": "0x2",
+      "transactionHash": "0xe1795145b3b6a5f8f8fc291929af372ed6f81620c0166bf71a9ee17d18e42b30",
+      "transactionIndex": "0x1",
+      "blockHash": "0xf006ba884b3c5d6b4b5e357cff4265821d1f76a08c42915a4d759911d7d6422b",
+      "blockNumber": "0x2b51a8",
+      "gasUsed": "0x38741c",
+      "effectiveGasPrice": "0x5f5e100",
+      "from": "0xb1bef51ebca01eb12001a639bdbbff6eeca12b9f",
+      "to": "0x4e59b44847b379578588920ca78fbf26c0b4956c",
+      "contractAddress": "0x396A3a169918A4C0B339ECf86C583f46D696254E",
+      "gasUsedForL1": "0x0",
+      "l1BlockNumber": "0x4a9287"
+    }
+  ],
+  "libraries": [],
+  "pending": [],
+  "returns": {
+    "archive": {
+      "internal_type": "contract SablierV2Archive",
+      "value": "0x2C8fA48361C7D48Dc21b27a3D549402Cf8AE16B0"
+    },
+    "proxyPlugin": {
+      "internal_type": "contract SablierV2ProxyPlugin",
+      "value": "0x7D310803c3824636bAff74e4f80e81ece167c440"
+    },
+    "proxyTarget": {
+      "internal_type": "contract SablierV2ProxyTarget",
+      "value": "0x396A3a169918A4C0B339ECf86C583f46D696254E"
+    }
+  },
+  "chain": 421614,
+  "multi": false
+}

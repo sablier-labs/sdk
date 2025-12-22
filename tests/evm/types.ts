@@ -17,15 +17,32 @@ type ContractReturn = {
 
 export type StandardBroadcast = {
   libraries: string[];
+  receipts: TransactionReceipt[];
   returns: {
     [key: string]: ContractReturn;
   };
+  transactions: Transaction[];
+};
+
+type Transaction = {
+  contractAddress: `0x${string}`;
+  contractName: string;
+  hash: `0x${string}`;
+  transactionType: "CREATE2" | "CREATE";
+};
+
+type TransactionReceipt = {
+  blockNumber: `0x${string}`;
+  contractAddress: `0x${string}` | null;
+  transactionHash: `0x${string}`;
 };
 
 export type ZKBroadcast = {
   contractName: string;
   entries: Array<{
     address: Sablier.EVM.Address;
-    salt: string;
+    deploymentType: "create2" | "create";
+    salt: `0x${string}`;
+    txHash: `0x${string}`;
   }>;
 };

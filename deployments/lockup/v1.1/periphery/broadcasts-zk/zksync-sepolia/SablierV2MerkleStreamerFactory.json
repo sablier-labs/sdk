@@ -1,0 +1,11 @@
+{
+  "contractName": "SablierV2MerkleStreamerFactory",
+  "entries": [
+    {
+      "address": "0xd9a834135c816FFd133a411a36219aAFD190fF97",
+      "deploymentType": "create",
+      "salt": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "txHash": "0x5662f0d27a3bcf380563ed2aa3041e4da7184aaff581efbd758a9c9abe704df8"
+    }
+  ]
+}

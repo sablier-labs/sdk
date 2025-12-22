@@ -36,7 +36,7 @@
       "to": "0x4e59b44847b379578588920cA78FbF26c0B4956C",
       "cumulativeGasUsed": "0x3e0e269",
       "gasUsed": "0x3e0e269",
-      "contractAddress": null,
+      "contractAddress": "0xf390cE6f54e4dc7C5A5f7f8689062b7591F7111d",
       "logs": [
         {
           "address": "0xf390cE6f54e4dc7C5A5f7f8689062b7591F7111d",

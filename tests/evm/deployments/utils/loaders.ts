@@ -1,4 +1,5 @@
-import { checkBroadcast, isBroadcastsUnified } from "@src/internal/helpers";
+import * as path from "node:path";
+import { checkBroadcast, getDeploymentsDir, isBroadcastsUnified } from "@src/internal/helpers";
 import type { Sablier } from "@src/types";
 import * as fs from "fs-extra";
 import globby from "globby";
@@ -51,4 +52,26 @@ async function loadZK(
     results.push(JSON.parse(broadcast));
   }
   return results;
+}
+
+/**
+ * Loads broadcast files for comptroller for a specific chain.
+ */
+export async function loadComptrollerBroadcast(
+  chainSlug: string,
+): Promise<StandardBroadcast | null> {
+  const broadcastPath = path.join(
+    getDeploymentsDir(),
+    "comptroller",
+    "v1.0",
+    "broadcasts",
+    `${chainSlug}.json`,
+  );
+
+  if (!fs.existsSync(broadcastPath)) {
+    return null;
+  }
+
+  const broadcast = await fs.promises.readFile(broadcastPath, "utf8");
+  return JSON.parse(broadcast);
 }

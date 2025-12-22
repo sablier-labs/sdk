@@ -85,7 +85,7 @@
       "effectiveGasPrice": "0x1406f40",
       "from": "0xf26994e6af0b95cca8dfa22a0bc25e1f38a54c42",
       "to": "0x4e59b44847b379578588920ca78fbf26c0b4956c",
-      "contractAddress": null,
+      "contractAddress": "0xbae3528d0f1963e0ca55f8816cc7174ea3da016f",
       "l1Fee": "0x1ad40c228fd"
     },
     {
@@ -114,7 +114,7 @@
       "effectiveGasPrice": "0x1406f40",
       "from": "0xf26994e6af0b95cca8dfa22a0bc25e1f38a54c42",
       "to": "0x4e59b44847b379578588920ca78fbf26c0b4956c",
-      "contractAddress": null,
+      "contractAddress": "0x36e6ac1d0bef5414855c62513be9723173526094",
       "l1Fee": "0x1ad40c240c9"
     },
     {
@@ -143,7 +143,7 @@
       "effectiveGasPrice": "0x1406f40",
       "from": "0xf26994e6af0b95cca8dfa22a0bc25e1f38a54c42",
       "to": "0x4e59b44847b379578588920ca78fbf26c0b4956c",
-      "contractAddress": null,
+      "contractAddress": "0xf93b0dfa6770b6a989203395dd20560d68b09d3d",
       "l1Fee": "0x1ad40c2130c"
     }
   ],

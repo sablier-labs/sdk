@@ -1,0 +1,90 @@
+{
+  "transactions": [
+    {
+      "hash": "0x8675bf7c007ef41c21c492da978edc422b4a37a4d97dac5f1c1223f8f5455b21",
+      "transactionType": "CREATE",
+      "contractName": "FlowNFTDescriptor",
+      "contractAddress": "0xDf578C2c70A86945999c65961417057363530a1c",
+      "function": null,
+      "arguments": null,
+      "additionalContracts": [],
+      "isFixedGasLimit": false
+    },
+    {
+      "hash": "0xbe2ab474d5e52dc45c59f17c0c6de25061d9dd647bf4f96c5d5c4caff180c6d7",
+      "transactionType": "CREATE",
+      "contractName": "SablierFlow",
+      "contractAddress": "0xcb099EfC90e88690e287259410B9AE63e1658CC6",
+      "function": null,
+      "arguments": [
+        "0xb1bEF51ebCA01EB12001a639bDBbFF6eEcA12B9F",
+        "0xDf578C2c70A86945999c65961417057363530a1c"
+      ],
+      "additionalContracts": [],
+      "isFixedGasLimit": false
+    }
+  ],
+  "receipts": [
+    {
+      "status": "0x1",
+      "cumulativeGasUsed": "0xa4f88",
+      "logs": [],
+      "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "type": "0x2",
+      "transactionHash": "0x8675bf7c007ef41c21c492da978edc422b4a37a4d97dac5f1c1223f8f5455b21",
+      "transactionIndex": "0x0",
+      "blockHash": "0x04b834d126bfef57e09fbd19854fe515a3c194025cd1615d493bfc45d6c800e1",
+      "blockNumber": "0x3cfa6e",
+      "gasUsed": "0xa4f88",
+      "effectiveGasPrice": "0x3b9aca01",
+      "from": "0xb1bef51ebca01eb12001a639bdbbff6eeca12b9f",
+      "to": null,
+      "contractAddress": "0xdf578c2c70a86945999c65961417057363530a1c"
+    },
+    {
+      "status": "0x1",
+      "cumulativeGasUsed": "0x4a4f3f",
+      "logs": [
+        {
+          "address": "0xcb099efc90e88690e287259410b9ae63e1658cc6",
+          "topics": [
+            "0xbdd36143ee09de60bdefca70680e0f71189b2ed7acee364b53917ad433fdaf80",
+            "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "0x000000000000000000000000b1bef51ebca01eb12001a639bdbbff6eeca12b9f"
+          ],
+          "data": "0x",
+          "blockHash": "0xf78a27af99725899eab97f06a5b9232d4d4199e0c4e0e17379b142be9988cdd5",
+          "blockNumber": "0x3cfa6f",
+          "transactionHash": "0xbe2ab474d5e52dc45c59f17c0c6de25061d9dd647bf4f96c5d5c4caff180c6d7",
+          "transactionIndex": "0x0",
+          "logIndex": "0x0",
+          "removed": false
+        }
+      ],
+      "logsBloom": "0x00000000000000000000004000000000000001400000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000400000000000000000020000000000000000000800400000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000020010000000000000000000000000000000000000000000000000000000000000000",
+      "type": "0x2",
+      "transactionHash": "0xbe2ab474d5e52dc45c59f17c0c6de25061d9dd647bf4f96c5d5c4caff180c6d7",
+      "transactionIndex": "0x0",
+      "blockHash": "0xf78a27af99725899eab97f06a5b9232d4d4199e0c4e0e17379b142be9988cdd5",
+      "blockNumber": "0x3cfa6f",
+      "gasUsed": "0x4a4f3f",
+      "effectiveGasPrice": "0x3b9aca01",
+      "from": "0xb1bef51ebca01eb12001a639bdbbff6eeca12b9f",
+      "to": null,
+      "contractAddress": "0xcb099efc90e88690e287259410b9ae63e1658cc6"
+    }
+  ],
+  "libraries": [],
+  "pending": [],
+  "returns": {
+    "nftDescriptor": {
+      "internal_type": "contract FlowNFTDescriptor",
+      "value": "0xDf578C2c70A86945999c65961417057363530a1c"
+    },
+    "flow": {
+      "internal_type": "contract SablierFlow",
+      "value": "0xcb099EfC90e88690e287259410B9AE63e1658CC6"
+    }
+  },
+  "chain": 5845
+}

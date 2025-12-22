@@ -51,7 +51,7 @@
       "effectiveGasPrice": "0xfd",
       "from": "0xb1bef51ebca01eb12001a639bdbbff6eeca12b9f",
       "to": "0x4e59b44847b379578588920ca78fbf26c0b4956c",
-      "contractAddress": null,
+      "contractAddress": "0x659836d788cce324ad8c445584b9c44c6a8c74b7",
       "l1BaseFeeScalar": "0x3d1",
       "l1BlobBaseFee": "0x1",
       "l1BlobBaseFeeScalar": "0x8ee87",
