@@ -11,7 +11,7 @@ import { chains } from "@src/evm/chains";
 import { Effect, Schema } from "effect";
 import _ from "lodash";
 
-const MALFUNCTIONING_RPC: number[] = [chains.meld.id, chains.taikoHekla.id];
+const MALFUNCTIONING_RPC: number[] = [chains.form.id, chains.meld.id, chains.taikoHekla.id];
 
 const JsonRpcResponseSchema = Schema.Struct({
   id: Schema.Number,
