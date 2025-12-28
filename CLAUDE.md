@@ -84,11 +84,14 @@ bun cli print       # Print deployment info
 - **CI**: 60s timeout, 10 retries for flaky RPC calls
 - **Cron tests**: Separate suite in `tests/cron/` for scheduled CI runs
 
-Run cron tests locally:
+**Targeted tests:** Run only tests relevant to your changes:
 
 ```bash
-just test tests/cron
+# Example: changes to src/evm/shapes/ → run shapes tests
+just test tests/shapes.test.ts
 ```
+
+Skip `tests/cron/` locally—these test external services and run on CI schedule.
 
 ## Build System
 

@@ -1,69 +1,119 @@
+// NOTE: Shape definitions are sorted alphabetically. Please maintain this order when adding new shapes.
+
 import { Protocol } from "../enums";
 import { Shape } from "./enums";
 import type { AirdropShapeDefinition, AirdropShapesRecord } from "./types";
 
-export const instant: AirdropShapeDefinition<Shape.Airdrops.Instant> = {
-  contracts: [
-    { contract: "SablierMerkleInstant", methods: ["claim"], version: "v2.0" },
-    { contract: "SablierMerkleInstant", methods: ["claim"], version: "v1.3" },
-  ],
-  id: Shape.Airdrops.Instant,
-  protocol: Protocol.Airdrops,
-} satisfies AirdropShapeDefinition;
-
-export const linear: AirdropShapeDefinition<Shape.Airdrops.Linear> = {
-  contracts: [
-    { contract: "SablierMerkleLL", methods: ["claim"], version: "v2.0" },
-    { contract: "SablierMerkleLL", methods: ["claim"], version: "v1.3" },
-    { contract: "SablierV2MerkleLL", methods: ["claim"], version: "v1.2" },
-    { contract: "SablierV2MerkleStreamerLL", methods: ["claim"], version: "v1.1" },
-  ],
-  id: Shape.Airdrops.Linear,
-  protocol: Protocol.Airdrops,
-} satisfies AirdropShapeDefinition;
+// ─────────────────────────────────────────────────────────────────────────────
+// CLIFF
+// ─────────────────────────────────────────────────────────────────────────────
 
 export const cliff: AirdropShapeDefinition<Shape.Airdrops.Cliff> = {
   contracts: [
-    { contract: "SablierMerkleLL", methods: ["claim"], version: "v2.0" },
-    { contract: "SablierMerkleLL", methods: ["claim"], version: "v1.3" },
-    { contract: "SablierV2MerkleLL", methods: ["claim"], version: "v1.2" },
-    { contract: "SablierV2MerkleStreamerLL", methods: ["claim"], version: "v1.1" },
+    { contract: "SablierFactoryMerkleLL", createMethods: ["createMerkleLL"], version: "v2.0" },
+    { contract: "SablierMerkleFactory", createMethods: ["createMerkleLL"], version: "v1.3" },
+    {
+      contract: "SablierV2MerkleLockupFactory",
+      createMethods: ["createMerkleLL"],
+      version: "v1.2",
+    },
+    {
+      contract: "SablierV2MerkleStreamerFactory",
+      createMethods: ["createMerkleStreamerLL"],
+      version: "v1.1",
+    },
   ],
   id: Shape.Airdrops.Cliff,
   protocol: Protocol.Airdrops,
 } satisfies AirdropShapeDefinition;
 
-export const unlockLinear: AirdropShapeDefinition<Shape.Airdrops.UnlockLinear> = {
+// ─────────────────────────────────────────────────────────────────────────────
+// INSTANT
+// ─────────────────────────────────────────────────────────────────────────────
+
+export const instant: AirdropShapeDefinition<Shape.Airdrops.Instant> = {
   contracts: [
-    { contract: "SablierMerkleLL", methods: ["claim"], version: "v2.0" },
-    { contract: "SablierMerkleLL", methods: ["claim"], version: "v1.3" },
-    { contract: "SablierV2MerkleLL", methods: ["claim"], version: "v1.2" },
-    { contract: "SablierV2MerkleStreamerLL", methods: ["claim"], version: "v1.1" },
+    {
+      contract: "SablierFactoryMerkleInstant",
+      createMethods: ["createMerkleInstant"],
+      version: "v2.0",
+    },
+    { contract: "SablierMerkleFactory", createMethods: ["createMerkleInstant"], version: "v1.3" },
   ],
-  id: Shape.Airdrops.UnlockLinear,
+  id: Shape.Airdrops.Instant,
   protocol: Protocol.Airdrops,
 } satisfies AirdropShapeDefinition;
 
+// ─────────────────────────────────────────────────────────────────────────────
+// LINEAR
+// ─────────────────────────────────────────────────────────────────────────────
+
+export const linear: AirdropShapeDefinition<Shape.Airdrops.Linear> = {
+  contracts: [
+    { contract: "SablierFactoryMerkleLL", createMethods: ["createMerkleLL"], version: "v2.0" },
+    { contract: "SablierMerkleFactory", createMethods: ["createMerkleLL"], version: "v1.3" },
+    {
+      contract: "SablierV2MerkleLockupFactory",
+      createMethods: ["createMerkleLL"],
+      version: "v1.2",
+    },
+    {
+      contract: "SablierV2MerkleStreamerFactory",
+      createMethods: ["createMerkleStreamerLL"],
+      version: "v1.1",
+    },
+  ],
+  id: Shape.Airdrops.Linear,
+  protocol: Protocol.Airdrops,
+} satisfies AirdropShapeDefinition;
+
+// ─────────────────────────────────────────────────────────────────────────────
+// STEPPER
+// ─────────────────────────────────────────────────────────────────────────────
+
+export const stepper: AirdropShapeDefinition<Shape.Airdrops.Stepper> = {
+  contracts: [
+    { contract: "SablierFactoryMerkleLT", createMethods: ["createMerkleLT"], version: "v2.0" },
+    { contract: "SablierMerkleFactory", createMethods: ["createMerkleLT"], version: "v1.3" },
+    {
+      contract: "SablierV2MerkleLockupFactory",
+      createMethods: ["createMerkleLT"],
+      version: "v1.2",
+    },
+  ],
+  id: Shape.Airdrops.Stepper,
+  protocol: Protocol.Airdrops,
+} satisfies AirdropShapeDefinition;
+
+// ─────────────────────────────────────────────────────────────────────────────
+// UNLOCK CLIFF
+// ─────────────────────────────────────────────────────────────────────────────
+
+/** Only supported in v2.0+ (requires Lockup v2.0+ unlock params). */
 export const unlockCliff: AirdropShapeDefinition<Shape.Airdrops.UnlockCliff> = {
   contracts: [
-    { contract: "SablierMerkleLL", methods: ["claim"], version: "v2.0" },
-    { contract: "SablierMerkleLL", methods: ["claim"], version: "v1.3" },
-    { contract: "SablierV2MerkleLL", methods: ["claim"], version: "v1.2" },
-    { contract: "SablierV2MerkleStreamerLL", methods: ["claim"], version: "v1.1" },
+    { contract: "SablierFactoryMerkleLL", createMethods: ["createMerkleLL"], version: "v2.0" },
   ],
   id: Shape.Airdrops.UnlockCliff,
   protocol: Protocol.Airdrops,
 } satisfies AirdropShapeDefinition;
 
-export const stepper: AirdropShapeDefinition<Shape.Airdrops.Stepper> = {
+// ─────────────────────────────────────────────────────────────────────────────
+// UNLOCK LINEAR
+// ─────────────────────────────────────────────────────────────────────────────
+
+/** Only supported in v2.0+ (requires Lockup v2.0+ unlock params). */
+export const unlockLinear: AirdropShapeDefinition<Shape.Airdrops.UnlockLinear> = {
   contracts: [
-    { contract: "SablierMerkleLT", methods: ["claim"], version: "v2.0" },
-    { contract: "SablierMerkleLT", methods: ["claim"], version: "v1.3" },
-    { contract: "SablierV2MerkleLT", methods: ["claim"], version: "v1.2" },
+    { contract: "SablierFactoryMerkleLL", createMethods: ["createMerkleLL"], version: "v2.0" },
   ],
-  id: Shape.Airdrops.Stepper,
+  id: Shape.Airdrops.UnlockLinear,
   protocol: Protocol.Airdrops,
 } satisfies AirdropShapeDefinition;
+
+// ─────────────────────────────────────────────────────────────────────────────
+// ALL AIRDROP SHAPES
+// ─────────────────────────────────────────────────────────────────────────────
 
 /** All Airdrop shapes indexed by ID */
 export const airdropShapes = {
