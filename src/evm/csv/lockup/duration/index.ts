@@ -25,10 +25,10 @@ export type CliffColumns = LinearColumns & {
 };
 
 /**
- * Cliff-exponential with duration: address, amount, duration, cliffDuration, cliffAmount
+ * Dynamic cliff-exponential with duration: address, amount, duration, cliffDuration, cliffAmount
  * @note Structurally identical to CliffColumns; the shape difference is semantic only
  */
-export type CliffExponentialColumns = CliffColumns;
+export type DynamicCliffExponentialColumns = CliffColumns;
 
 /** Double-unlock with duration: address, amount, duration, firstUnlockDuration, firstUnlockAmount, secondUnlockDuration, secondUnlockAmount */
 export type DoubleUnlockColumns = LinearColumns & {
@@ -43,10 +43,10 @@ export type DoubleUnlockColumns = LinearColumns & {
 };
 
 /**
- * Exponential vesting with duration: address, amount, duration
+ * Dynamic exponential vesting with duration: address, amount, duration
  * @note Structurally identical to LinearColumns; the shape difference is semantic only
  */
-export type ExponentialColumns = LinearColumns;
+export type DynamicExponentialColumns = LinearColumns;
 
 /** Monthly with start: address, amount, start, months, initial */
 export type MonthlyColumns = BaseColumns & {
@@ -90,9 +90,9 @@ export type UnlockLinearColumns = LinearColumns & {
 export type Columns =
   | BackweightedColumns
   | CliffColumns
-  | CliffExponentialColumns
   | DoubleUnlockColumns
-  | ExponentialColumns
+  | DynamicCliffExponentialColumns
+  | DynamicExponentialColumns
   | LinearColumns
   | MonthlyColumns
   | StepperColumns

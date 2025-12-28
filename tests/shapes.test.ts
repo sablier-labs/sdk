@@ -25,8 +25,8 @@ describe("shapes", () => {
     it("has correct shape IDs", () => {
       expect(shapes.lockup.linear.id).toBe(Shape.Lockup.Linear);
       expect(shapes.lockup.cliff.id).toBe(Shape.Lockup.Cliff);
-      expect(shapes.lockup.cliffExponential.id).toBe(Shape.Lockup.CliffExponential);
-      expect(shapes.lockup.exponential.id).toBe(Shape.Lockup.Exponential);
+      expect(shapes.lockup.dynamicCliffExponential.id).toBe(Shape.Lockup.DynamicCliffExponential);
+      expect(shapes.lockup.dynamicExponential.id).toBe(Shape.Lockup.DynamicExponential);
       expect(shapes.lockup.backweighted.id).toBe(Shape.Lockup.Backweighted);
       expect(shapes.lockup.stepper.id).toBe(Shape.Lockup.Stepper);
       expect(shapes.lockup.monthly.id).toBe(Shape.Lockup.Monthly);
@@ -66,8 +66,8 @@ describe("shapes", () => {
 
     it("LD shapes map to v3.0 SablierLockup with LD methods", () => {
       const ldShapes = [
-        shapes.lockup.exponential,
-        shapes.lockup.cliffExponential,
+        shapes.lockup.dynamicExponential,
+        shapes.lockup.dynamicCliffExponential,
         shapes.lockup.backweighted,
       ];
       for (const shape of ldShapes) {
@@ -180,8 +180,8 @@ describe("shapes", () => {
     it("Lockup enum has all values", () => {
       expect(Shape.Lockup.Linear).toBe("linear");
       expect(Shape.Lockup.Cliff).toBe("cliff");
-      expect(Shape.Lockup.CliffExponential).toBe("cliffExponential");
-      expect(Shape.Lockup.Exponential).toBe("exponential");
+      expect(Shape.Lockup.DynamicCliffExponential).toBe("dynamicCliffExponential");
+      expect(Shape.Lockup.DynamicExponential).toBe("dynamicExponential");
       expect(Shape.Lockup.Backweighted).toBe("backweighted");
       expect(Shape.Lockup.Stepper).toBe("stepper");
       expect(Shape.Lockup.Monthly).toBe("monthly");
@@ -361,7 +361,7 @@ describe("shapes", () => {
     it("isAirdropShape returns false for invalid values", () => {
       expect(isAirdropShape("invalid")).toBe(false);
       expect(isAirdropShape("flow")).toBe(false);
-      expect(isAirdropShape("exponential")).toBe(false);
+      expect(isAirdropShape("dynamicExponential")).toBe(false);
       expect(isAirdropShape(null)).toBe(false);
     });
   });

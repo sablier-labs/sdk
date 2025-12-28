@@ -135,7 +135,7 @@ export const unlockCliff: LockupShapeDefinition<Shape.Lockup.UnlockCliff> = {
 } satisfies LockupShapeDefinition;
 
 /** Exponential curve vesting */
-export const exponential: LockupShapeDefinition<Shape.Lockup.Exponential> = {
+export const dynamicExponential: LockupShapeDefinition<Shape.Lockup.DynamicExponential> = {
   contracts: [
     {
       contract: "SablierLockup",
@@ -163,42 +163,43 @@ export const exponential: LockupShapeDefinition<Shape.Lockup.Exponential> = {
       version: "v1.0",
     },
   ],
-  id: Shape.Lockup.Exponential,
+  id: Shape.Lockup.DynamicExponential,
   protocol: Protocol.Lockup,
 } satisfies LockupShapeDefinition;
 
-/** Exponential curve vesting with cliff period. Uses same contract methods as exponential shape - cliff is specified in parameters. */
-export const cliffExponential: LockupShapeDefinition<Shape.Lockup.CliffExponential> = {
-  contracts: [
-    {
-      contract: "SablierLockup",
-      methods: ["createWithDurationsLD", "createWithTimestampsLD"],
-      version: "v3.0",
-    },
-    {
-      contract: "SablierLockup",
-      methods: ["createWithDurationsLD", "createWithTimestampsLD"],
-      version: "v2.0",
-    },
-    {
-      contract: "SablierV2LockupDynamic",
-      methods: ["createWithDurations", "createWithTimestamps"],
-      version: "v1.2",
-    },
-    {
-      contract: "SablierV2LockupDynamic",
-      methods: ["createWithDurations", "createWithTimestamps"],
-      version: "v1.1",
-    },
-    {
-      contract: "SablierV2LockupDynamic",
-      methods: ["createWithDurations", "createWithTimestamps"],
-      version: "v1.0",
-    },
-  ],
-  id: Shape.Lockup.CliffExponential,
-  protocol: Protocol.Lockup,
-} satisfies LockupShapeDefinition;
+/** Exponential curve vesting with cliff period. Uses same contract methods as dynamicExponential shape - cliff is specified in parameters. */
+export const dynamicCliffExponential: LockupShapeDefinition<Shape.Lockup.DynamicCliffExponential> =
+  {
+    contracts: [
+      {
+        contract: "SablierLockup",
+        methods: ["createWithDurationsLD", "createWithTimestampsLD"],
+        version: "v3.0",
+      },
+      {
+        contract: "SablierLockup",
+        methods: ["createWithDurationsLD", "createWithTimestampsLD"],
+        version: "v2.0",
+      },
+      {
+        contract: "SablierV2LockupDynamic",
+        methods: ["createWithDurations", "createWithTimestamps"],
+        version: "v1.2",
+      },
+      {
+        contract: "SablierV2LockupDynamic",
+        methods: ["createWithDurations", "createWithTimestamps"],
+        version: "v1.1",
+      },
+      {
+        contract: "SablierV2LockupDynamic",
+        methods: ["createWithDurations", "createWithTimestamps"],
+        version: "v1.0",
+      },
+    ],
+    id: Shape.Lockup.DynamicCliffExponential,
+    protocol: Protocol.Lockup,
+  } satisfies LockupShapeDefinition;
 
 /** Backweighted vesting curve. Uses same contract methods as exponential shape - curve parameters differ. */
 export const backweighted: LockupShapeDefinition<Shape.Lockup.Backweighted> = {
@@ -331,8 +332,8 @@ export const lockupShapes = {
   [Shape.Lockup.Cliff]: cliff,
   [Shape.Lockup.UnlockLinear]: unlockLinear,
   [Shape.Lockup.UnlockCliff]: unlockCliff,
-  [Shape.Lockup.Exponential]: exponential,
-  [Shape.Lockup.CliffExponential]: cliffExponential,
+  [Shape.Lockup.DynamicExponential]: dynamicExponential,
+  [Shape.Lockup.DynamicCliffExponential]: dynamicCliffExponential,
   [Shape.Lockup.Backweighted]: backweighted,
   [Shape.Lockup.Stepper]: stepper,
   [Shape.Lockup.Monthly]: monthly,
