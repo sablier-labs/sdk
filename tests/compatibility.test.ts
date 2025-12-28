@@ -1,12 +1,14 @@
 import {
   compatibility as evmCompatibility,
   compatibleLockupVersions as evmCompatibleLockupVersions,
+  getCompatibleAirdropsVersions as evmGetCompatibleAirdropsVersions,
   isLockupCompatible as evmIsLockupCompatible,
 } from "@src/evm/compatibility";
 import { Version as EvmVersion } from "@src/evm/enums";
 import {
   compatibility as solanaCompatibility,
   compatibleLockupVersions as solanaCompatibleLockupVersions,
+  getCompatibleAirdropsVersions as solanaGetCompatibleAirdropsVersions,
   isLockupCompatible as solanaIsLockupCompatible,
 } from "@src/solana/compatibility";
 import { Version as SolanaVersion } from "@src/solana/enums";
@@ -79,9 +81,42 @@ describe("EVM compatibility", () => {
     });
   });
 
+  describe("getCompatibleAirdropsVersions", () => {
+    it("returns Airdrops v1.1 and v1.2 for Lockup v1.1", () => {
+      expect(evmGetCompatibleAirdropsVersions(EvmVersion.Lockup.V1_1)).toEqual([
+        EvmVersion.Airdrops.V1_1,
+        EvmVersion.Airdrops.V1_2,
+      ]);
+    });
+
+    it("returns Airdrops v1.1 and v1.2 for Lockup v1.2", () => {
+      expect(evmGetCompatibleAirdropsVersions(EvmVersion.Lockup.V1_2)).toEqual([
+        EvmVersion.Airdrops.V1_1,
+        EvmVersion.Airdrops.V1_2,
+      ]);
+    });
+
+    it("returns Airdrops v1.3 for Lockup v2.0", () => {
+      expect(evmGetCompatibleAirdropsVersions(EvmVersion.Lockup.V2_0)).toEqual([
+        EvmVersion.Airdrops.V1_3,
+      ]);
+    });
+
+    it("returns Airdrops v2.0 for Lockup v3.0", () => {
+      expect(evmGetCompatibleAirdropsVersions(EvmVersion.Lockup.V3_0)).toEqual([
+        EvmVersion.Airdrops.V2_0,
+      ]);
+    });
+
+    it("returns empty array for Lockup v1.0", () => {
+      expect(evmGetCompatibleAirdropsVersions(EvmVersion.Lockup.V1_0)).toEqual([]);
+    });
+  });
+
   describe("compatibility object", () => {
-    it("exports both the mapping and helper function", () => {
+    it("exports the mapping and helper functions", () => {
       expect(evmCompatibility.compatibleLockupVersions).toBeDefined();
+      expect(evmCompatibility.getCompatibleAirdropsVersions).toBeDefined();
       expect(evmCompatibility.isLockupCompatible).toBeDefined();
     });
   });
@@ -106,6 +141,8 @@ describe("Solana compatibility", () => {
   });
 
   describe("isLockupCompatible", () => {
+    // Note: Only v0.1 exists for both protocols, so no negative cases to test yet.
+    // When new versions are added, incompatibility tests should be added here.
     it("returns true for compatible versions", () => {
       expect(solanaIsLockupCompatible(SolanaVersion.Airdrops.V0_1, SolanaVersion.Lockup.V0_1)).toBe(
         true,
@@ -113,9 +150,18 @@ describe("Solana compatibility", () => {
     });
   });
 
+  describe("getCompatibleAirdropsVersions", () => {
+    it("returns Airdrops v0.1 for Lockup v0.1", () => {
+      expect(solanaGetCompatibleAirdropsVersions(SolanaVersion.Lockup.V0_1)).toEqual([
+        SolanaVersion.Airdrops.V0_1,
+      ]);
+    });
+  });
+
   describe("compatibility object", () => {
-    it("exports both the mapping and helper function", () => {
+    it("exports the mapping and helper functions", () => {
       expect(solanaCompatibility.compatibleLockupVersions).toBeDefined();
+      expect(solanaCompatibility.getCompatibleAirdropsVersions).toBeDefined();
       expect(solanaCompatibility.isLockupCompatible).toBeDefined();
     });
   });
