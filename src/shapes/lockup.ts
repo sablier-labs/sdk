@@ -74,7 +74,7 @@ const dynamicCliffExponential = {
   name: "Dynamic Cliff Exponential",
 } satisfies LockupShapeDefinition;
 
-const dynamicDoubleCliff = {
+const dynamicDoubleUnlock = {
   evm: [
     {
       contract: "SablierLockup",
@@ -92,8 +92,8 @@ const dynamicDoubleCliff = {
       version: "v1.2",
     },
   ],
-  id: Shape.Lockup.DynamicDoubleCliff,
-  name: "Dynamic Double Cliff",
+  id: Shape.Lockup.DynamicDoubleUnlock,
+  name: "Dynamic Double Unlock",
 } satisfies LockupShapeDefinition;
 
 const dynamicExponential = {
@@ -316,7 +316,7 @@ const tranchedTimelock = {
 export const lockupShapes = {
   [Shape.Lockup.TranchedBackweighted]: tranchedBackweighted,
   [Shape.Lockup.Cliff]: cliff,
-  [Shape.Lockup.DynamicDoubleCliff]: dynamicDoubleCliff,
+  [Shape.Lockup.DynamicDoubleUnlock]: dynamicDoubleUnlock,
   [Shape.Lockup.DynamicCliffExponential]: dynamicCliffExponential,
   [Shape.Lockup.DynamicExponential]: dynamicExponential,
   [Shape.Lockup.Linear]: linear,

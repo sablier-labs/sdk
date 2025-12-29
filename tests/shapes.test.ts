@@ -43,7 +43,7 @@ describe("shapes", () => {
       expect(shapes.lockup.tranchedTimelock.id).toBe(Shape.Lockup.TranchedTimelock);
       expect(shapes.lockup.linearUnlockLinear.id).toBe(Shape.Lockup.LinearUnlockLinear);
       expect(shapes.lockup.linearUnlockCliff.id).toBe(Shape.Lockup.LinearUnlockCliff);
-      expect(shapes.lockup.dynamicDoubleCliff.id).toBe(Shape.Lockup.DynamicDoubleCliff);
+      expect(shapes.lockup.dynamicDoubleUnlock.id).toBe(Shape.Lockup.DynamicDoubleUnlock);
     });
 
     it("all shapes have evm contract mappings", () => {
@@ -88,7 +88,7 @@ describe("shapes", () => {
         shapes.lockup.tranchedStepper,
         shapes.lockup.tranchedMonthly,
         shapes.lockup.tranchedTimelock,
-        shapes.lockup.dynamicDoubleCliff,
+        shapes.lockup.dynamicDoubleUnlock,
       ];
       for (const shape of ltShapes) {
         const v3Contract = shape.evm.find((c) => c.version === "v3.0");
@@ -182,7 +182,7 @@ describe("shapes", () => {
       expect(Shape.Lockup.TranchedTimelock).toBe("tranchedTimelock");
       expect(Shape.Lockup.LinearUnlockLinear).toBe("linearUnlockLinear");
       expect(Shape.Lockup.LinearUnlockCliff).toBe("linearUnlockCliff");
-      expect(Shape.Lockup.DynamicDoubleCliff).toBe("dynamicDoubleCliff");
+      expect(Shape.Lockup.DynamicDoubleUnlock).toBe("dynamicDoubleUnlock");
     });
 
     it("Flow enum has all values", () => {

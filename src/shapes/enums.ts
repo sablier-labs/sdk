@@ -10,7 +10,7 @@ export namespace Shape {
     TranchedTimelock = "tranchedTimelock",
     LinearUnlockLinear = "linearUnlockLinear",
     LinearUnlockCliff = "linearUnlockCliff",
-    DynamicDoubleCliff = "dynamicDoubleCliff",
+    DynamicDoubleUnlock = "dynamicDoubleUnlock",
   }
 
   export enum Flow {

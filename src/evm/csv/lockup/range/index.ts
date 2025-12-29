@@ -33,8 +33,8 @@ export type CliffColumns = LinearColumns & {
  */
 export type DynamicCliffExponentialColumns = CliffColumns;
 
-/** Dynamic double-cliff with range: address, amount, start, end, firstUnlockEnd, firstUnlockAmount, secondUnlockEnd, secondUnlockAmount */
-export type DynamicDoubleCliffColumns = LinearColumns & {
+/** Dynamic double-unlock with range: address, amount, start, end, firstUnlockEnd, firstUnlockAmount, secondUnlockEnd, secondUnlockAmount */
+export type DynamicDoubleUnlockColumns = LinearColumns & {
   /** First unlock end timestamp */
   firstUnlockEnd: string;
   /** Amount for first unlock */
@@ -90,7 +90,7 @@ export type LinearUnlockLinearColumns = LinearColumns & {
 export type Columns =
   | TranchedBackweightedColumns
   | CliffColumns
-  | DynamicDoubleCliffColumns
+  | DynamicDoubleUnlockColumns
   | DynamicCliffExponentialColumns
   | DynamicExponentialColumns
   | LinearColumns
