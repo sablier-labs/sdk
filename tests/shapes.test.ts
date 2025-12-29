@@ -6,13 +6,22 @@ import {
   getEvmContractMethodsForVersion,
   getEvmShapesByVersion,
   getLatestEvmContractMethod,
+  getLatestSolanaProgramMethod,
+  getSolanaProgramMethodsForVersion,
+  getSolanaShapesByVersion,
+  hasSolanaAirdropSupport,
+  hasSolanaLockupSupport,
+  hasSolanaSupport,
   isAirdropShape,
   isEvmShapeAvailableInVersion,
   isFlowShape,
   isLockupShape,
+  isSolanaShapeAvailableInVersion,
   lockupShapeIds,
   Shape,
   shapes,
+  solanaAirdropShapeIds,
+  solanaLockupShapeIds,
 } from "@src/shapes";
 import { describe, expect, it } from "vitest";
 
@@ -28,13 +37,13 @@ describe("shapes", () => {
       expect(shapes.lockup.cliff.id).toBe(Shape.Lockup.Cliff);
       expect(shapes.lockup.dynamicCliffExponential.id).toBe(Shape.Lockup.DynamicCliffExponential);
       expect(shapes.lockup.dynamicExponential.id).toBe(Shape.Lockup.DynamicExponential);
-      expect(shapes.lockup.backweighted.id).toBe(Shape.Lockup.Backweighted);
-      expect(shapes.lockup.stepper.id).toBe(Shape.Lockup.Stepper);
-      expect(shapes.lockup.monthly.id).toBe(Shape.Lockup.Monthly);
-      expect(shapes.lockup.timelock.id).toBe(Shape.Lockup.Timelock);
-      expect(shapes.lockup.unlockLinear.id).toBe(Shape.Lockup.UnlockLinear);
-      expect(shapes.lockup.unlockCliff.id).toBe(Shape.Lockup.UnlockCliff);
-      expect(shapes.lockup.doubleUnlock.id).toBe(Shape.Lockup.DoubleUnlock);
+      expect(shapes.lockup.tranchedBackweighted.id).toBe(Shape.Lockup.TranchedBackweighted);
+      expect(shapes.lockup.tranchedStepper.id).toBe(Shape.Lockup.TranchedStepper);
+      expect(shapes.lockup.tranchedMonthly.id).toBe(Shape.Lockup.TranchedMonthly);
+      expect(shapes.lockup.tranchedTimelock.id).toBe(Shape.Lockup.TranchedTimelock);
+      expect(shapes.lockup.linearUnlockLinear.id).toBe(Shape.Lockup.LinearUnlockLinear);
+      expect(shapes.lockup.linearUnlockCliff.id).toBe(Shape.Lockup.LinearUnlockCliff);
+      expect(shapes.lockup.dynamicDoubleCliff.id).toBe(Shape.Lockup.DynamicDoubleCliff);
     });
 
     it("all shapes have evm contract mappings", () => {
@@ -47,8 +56,8 @@ describe("shapes", () => {
       const llShapes = [
         shapes.lockup.linear,
         shapes.lockup.cliff,
-        shapes.lockup.unlockLinear,
-        shapes.lockup.unlockCliff,
+        shapes.lockup.linearUnlockLinear,
+        shapes.lockup.linearUnlockCliff,
       ];
       for (const shape of llShapes) {
         const v3Contract = shape.evm.find((c) => c.version === "v3.0");
@@ -63,7 +72,7 @@ describe("shapes", () => {
       const ldShapes = [
         shapes.lockup.dynamicExponential,
         shapes.lockup.dynamicCliffExponential,
-        shapes.lockup.backweighted,
+        shapes.lockup.tranchedBackweighted,
       ];
       for (const shape of ldShapes) {
         const v3Contract = shape.evm.find((c) => c.version === "v3.0");
@@ -76,10 +85,10 @@ describe("shapes", () => {
 
     it("LT shapes map to v3.0 SablierLockup with LT methods", () => {
       const ltShapes = [
-        shapes.lockup.stepper,
-        shapes.lockup.monthly,
-        shapes.lockup.timelock,
-        shapes.lockup.doubleUnlock,
+        shapes.lockup.tranchedStepper,
+        shapes.lockup.tranchedMonthly,
+        shapes.lockup.tranchedTimelock,
+        shapes.lockup.dynamicDoubleCliff,
       ];
       for (const shape of ltShapes) {
         const v3Contract = shape.evm.find((c) => c.version === "v3.0");
@@ -120,9 +129,9 @@ describe("shapes", () => {
       expect(shapes.airdrops.instant.id).toBe(Shape.Airdrops.Instant);
       expect(shapes.airdrops.linear.id).toBe(Shape.Airdrops.Linear);
       expect(shapes.airdrops.cliff.id).toBe(Shape.Airdrops.Cliff);
-      expect(shapes.airdrops.unlockLinear.id).toBe(Shape.Airdrops.UnlockLinear);
-      expect(shapes.airdrops.unlockCliff.id).toBe(Shape.Airdrops.UnlockCliff);
-      expect(shapes.airdrops.stepper.id).toBe(Shape.Airdrops.Stepper);
+      expect(shapes.airdrops.linearUnlockLinear.id).toBe(Shape.Airdrops.LinearUnlockLinear);
+      expect(shapes.airdrops.linearUnlockCliff.id).toBe(Shape.Airdrops.LinearUnlockCliff);
+      expect(shapes.airdrops.tranchedStepper.id).toBe(Shape.Airdrops.TranchedStepper);
     });
 
     it("all shapes have evm contract mappings", () => {
@@ -142,8 +151,8 @@ describe("shapes", () => {
       const llShapes = [
         shapes.airdrops.linear,
         shapes.airdrops.cliff,
-        shapes.airdrops.unlockLinear,
-        shapes.airdrops.unlockCliff,
+        shapes.airdrops.linearUnlockLinear,
+        shapes.airdrops.linearUnlockCliff,
       ];
       for (const shape of llShapes) {
         const v2Contract = shape.evm.find((c) => c.version === "v2.0");
@@ -153,8 +162,8 @@ describe("shapes", () => {
       }
     });
 
-    it("stepper shape maps to SablierFactoryMerkleLT", () => {
-      const v2Contract = shapes.airdrops.stepper.evm.find((c) => c.version === "v2.0");
+    it("tranchedStepper shape maps to SablierFactoryMerkleLT", () => {
+      const v2Contract = shapes.airdrops.tranchedStepper.evm.find((c) => c.version === "v2.0");
       expect(v2Contract).toBeDefined();
       expect(v2Contract?.contract).toBe("SablierFactoryMerkleLT");
       expect(v2Contract?.createMethods).toContain("createMerkleLT");
@@ -167,13 +176,13 @@ describe("shapes", () => {
       expect(Shape.Lockup.Cliff).toBe("cliff");
       expect(Shape.Lockup.DynamicCliffExponential).toBe("dynamicCliffExponential");
       expect(Shape.Lockup.DynamicExponential).toBe("dynamicExponential");
-      expect(Shape.Lockup.Backweighted).toBe("backweighted");
-      expect(Shape.Lockup.Stepper).toBe("stepper");
-      expect(Shape.Lockup.Monthly).toBe("monthly");
-      expect(Shape.Lockup.Timelock).toBe("timelock");
-      expect(Shape.Lockup.UnlockLinear).toBe("unlockLinear");
-      expect(Shape.Lockup.UnlockCliff).toBe("unlockCliff");
-      expect(Shape.Lockup.DoubleUnlock).toBe("doubleUnlock");
+      expect(Shape.Lockup.TranchedBackweighted).toBe("tranchedBackweighted");
+      expect(Shape.Lockup.TranchedStepper).toBe("tranchedStepper");
+      expect(Shape.Lockup.TranchedMonthly).toBe("tranchedMonthly");
+      expect(Shape.Lockup.TranchedTimelock).toBe("tranchedTimelock");
+      expect(Shape.Lockup.LinearUnlockLinear).toBe("linearUnlockLinear");
+      expect(Shape.Lockup.LinearUnlockCliff).toBe("linearUnlockCliff");
+      expect(Shape.Lockup.DynamicDoubleCliff).toBe("dynamicDoubleCliff");
     });
 
     it("Flow enum has all values", () => {
@@ -184,9 +193,9 @@ describe("shapes", () => {
       expect(Shape.Airdrops.Instant).toBe("instant");
       expect(Shape.Airdrops.Linear).toBe("linear");
       expect(Shape.Airdrops.Cliff).toBe("cliff");
-      expect(Shape.Airdrops.UnlockLinear).toBe("unlockLinear");
-      expect(Shape.Airdrops.UnlockCliff).toBe("unlockCliff");
-      expect(Shape.Airdrops.Stepper).toBe("stepper");
+      expect(Shape.Airdrops.LinearUnlockLinear).toBe("linearUnlockLinear");
+      expect(Shape.Airdrops.LinearUnlockCliff).toBe("linearUnlockCliff");
+      expect(Shape.Airdrops.TranchedStepper).toBe("tranchedStepper");
     });
   });
 
@@ -232,7 +241,7 @@ describe("shapes", () => {
 
     it("getEvmShapesByVersion returns only LL/LD shapes for v1.0", () => {
       const v10Shapes = getEvmShapesByVersion(shapes.lockup, "v1.0");
-      // LT shapes (stepper, monthly, timelock, doubleUnlock) and unlock shapes don't support v1.0
+      // LT shapes (tranchedStepper, tranchedMonthly, tranchedTimelock, dynamicDoubleCliff) and linear unlock shapes don't support v1.0
       expect(v10Shapes.length).toBe(5);
     });
 
@@ -242,7 +251,7 @@ describe("shapes", () => {
     });
 
     it("getEvmContractMethodsForVersion returns undefined for unsupported version", () => {
-      const v10Contract = getEvmContractMethodsForVersion(shapes.lockup.stepper, "v1.0");
+      const v10Contract = getEvmContractMethodsForVersion(shapes.lockup.tranchedStepper, "v1.0");
       expect(v10Contract).toBeUndefined();
     });
 
@@ -251,7 +260,7 @@ describe("shapes", () => {
     });
 
     it("isEvmShapeAvailableInVersion returns false for unsupported version", () => {
-      expect(isEvmShapeAvailableInVersion(shapes.lockup.stepper, "v1.0")).toBe(false);
+      expect(isEvmShapeAvailableInVersion(shapes.lockup.tranchedStepper, "v1.0")).toBe(false);
     });
 
     it("getLatestEvmContractMethod returns first contract (newest)", () => {
@@ -292,7 +301,7 @@ describe("shapes", () => {
       expect(lockupShapeIds).toHaveLength(11);
       expect(lockupShapeIds).toContain(Shape.Lockup.Linear);
       expect(lockupShapeIds).toContain(Shape.Lockup.Cliff);
-      expect(lockupShapeIds).toContain(Shape.Lockup.Stepper);
+      expect(lockupShapeIds).toContain(Shape.Lockup.TranchedStepper);
     });
 
     it("flowShapeIds contains all 1 flow shape", () => {
@@ -304,7 +313,7 @@ describe("shapes", () => {
       expect(airdropShapeIds).toHaveLength(6);
       expect(airdropShapeIds).toContain(Shape.Airdrops.Instant);
       expect(airdropShapeIds).toContain(Shape.Airdrops.Linear);
-      expect(airdropShapeIds).toContain(Shape.Airdrops.Stepper);
+      expect(airdropShapeIds).toContain(Shape.Airdrops.TranchedStepper);
     });
   });
 
@@ -312,7 +321,7 @@ describe("shapes", () => {
     it("isLockupShape returns true for valid lockup shapes", () => {
       expect(isLockupShape("linear")).toBe(true);
       expect(isLockupShape("cliff")).toBe(true);
-      expect(isLockupShape("stepper")).toBe(true);
+      expect(isLockupShape("tranchedStepper")).toBe(true);
       expect(isLockupShape(Shape.Lockup.Linear)).toBe(true);
     });
 
@@ -339,7 +348,7 @@ describe("shapes", () => {
     it("isAirdropShape returns true for valid airdrop shapes", () => {
       expect(isAirdropShape("instant")).toBe(true);
       expect(isAirdropShape("linear")).toBe(true);
-      expect(isAirdropShape("stepper")).toBe(true);
+      expect(isAirdropShape("tranchedStepper")).toBe(true);
       expect(isAirdropShape(Shape.Airdrops.Instant)).toBe(true);
     });
 
@@ -348,6 +357,113 @@ describe("shapes", () => {
       expect(isAirdropShape("flow")).toBe(false);
       expect(isAirdropShape("dynamicExponential")).toBe(false);
       expect(isAirdropShape(null)).toBe(false);
+    });
+  });
+
+  describe("Solana support", () => {
+    it("hasSolanaSupport returns true for shapes with solana field", () => {
+      expect(hasSolanaSupport(shapes.lockup.linear)).toBe(true);
+      expect(hasSolanaSupport(shapes.lockup.cliff)).toBe(true);
+      expect(hasSolanaSupport(shapes.lockup.linearUnlockLinear)).toBe(true);
+      expect(hasSolanaSupport(shapes.lockup.linearUnlockCliff)).toBe(true);
+      expect(hasSolanaSupport(shapes.airdrops.instant)).toBe(true);
+    });
+
+    it("hasSolanaSupport returns false for shapes without solana field", () => {
+      expect(hasSolanaSupport(shapes.lockup.tranchedBackweighted)).toBe(false);
+      expect(hasSolanaSupport(shapes.lockup.dynamicExponential)).toBe(false);
+      expect(hasSolanaSupport(shapes.lockup.tranchedStepper)).toBe(false);
+      expect(hasSolanaSupport(shapes.flow.flow)).toBe(false);
+      expect(hasSolanaSupport(shapes.airdrops.linear)).toBe(false);
+    });
+
+    it("hasSolanaLockupSupport returns true for supported lockup shapes", () => {
+      expect(hasSolanaLockupSupport(Shape.Lockup.Linear)).toBe(true);
+      expect(hasSolanaLockupSupport(Shape.Lockup.Cliff)).toBe(true);
+      expect(hasSolanaLockupSupport(Shape.Lockup.LinearUnlockLinear)).toBe(true);
+      expect(hasSolanaLockupSupport(Shape.Lockup.LinearUnlockCliff)).toBe(true);
+    });
+
+    it("hasSolanaLockupSupport returns false for unsupported lockup shapes", () => {
+      expect(hasSolanaLockupSupport(Shape.Lockup.TranchedBackweighted)).toBe(false);
+      expect(hasSolanaLockupSupport(Shape.Lockup.DynamicExponential)).toBe(false);
+      expect(hasSolanaLockupSupport(Shape.Lockup.TranchedStepper)).toBe(false);
+    });
+
+    it("hasSolanaAirdropSupport returns true for supported airdrop shapes", () => {
+      expect(hasSolanaAirdropSupport(Shape.Airdrops.Instant)).toBe(true);
+    });
+
+    it("hasSolanaAirdropSupport returns false for unsupported airdrop shapes", () => {
+      expect(hasSolanaAirdropSupport(Shape.Airdrops.Linear)).toBe(false);
+      expect(hasSolanaAirdropSupport(Shape.Airdrops.Cliff)).toBe(false);
+      expect(hasSolanaAirdropSupport(Shape.Airdrops.TranchedStepper)).toBe(false);
+    });
+
+    it("solanaLockupShapeIds matches shapes with actual Solana support", () => {
+      const shapesWithSolana = Object.values(shapes.lockup).filter(hasSolanaSupport);
+      expect(solanaLockupShapeIds).toHaveLength(shapesWithSolana.length);
+      for (const shape of shapesWithSolana) {
+        expect(solanaLockupShapeIds).toContain(shape.id);
+      }
+    });
+
+    it("solanaAirdropShapeIds matches shapes with actual Solana support", () => {
+      const shapesWithSolana = Object.values(shapes.airdrops).filter(hasSolanaSupport);
+      expect(solanaAirdropShapeIds).toHaveLength(shapesWithSolana.length);
+      for (const shape of shapesWithSolana) {
+        expect(solanaAirdropShapeIds).toContain(shape.id);
+      }
+    });
+  });
+
+  describe("Solana helper functions", () => {
+    it("getSolanaShapesByVersion returns shapes available for v0.1", () => {
+      const lockupShapesWithSolana = Object.fromEntries(
+        Object.entries(shapes.lockup).filter(([_, shape]) => hasSolanaSupport(shape)),
+      ) as Record<string, typeof shapes.lockup.linear>;
+      const v01Shapes = getSolanaShapesByVersion(lockupShapesWithSolana, "v0.1");
+      expect(v01Shapes.length).toBe(4); // linear, cliff, linearUnlockLinear, linearUnlockCliff
+    });
+
+    it("getSolanaProgramMethodsForVersion returns correct program", () => {
+      const linearShape = shapes.lockup.linear;
+      if (hasSolanaSupport(linearShape)) {
+        const v01Program = getSolanaProgramMethodsForVersion(linearShape, "v0.1");
+        expect(v01Program?.program).toBe("SablierLockupLinear");
+      }
+    });
+
+    it("getSolanaProgramMethodsForVersion returns undefined for unsupported version", () => {
+      const linearShape = shapes.lockup.linear;
+      if (hasSolanaSupport(linearShape)) {
+        // v0.2 doesn't exist
+        const v02Program = getSolanaProgramMethodsForVersion(linearShape, "v0.2" as "v0.1");
+        expect(v02Program).toBeUndefined();
+      }
+    });
+
+    it("isSolanaShapeAvailableInVersion returns true for supported version", () => {
+      const linearShape = shapes.lockup.linear;
+      if (hasSolanaSupport(linearShape)) {
+        expect(isSolanaShapeAvailableInVersion(linearShape, "v0.1")).toBe(true);
+      }
+    });
+
+    it("isSolanaShapeAvailableInVersion returns false for unsupported version", () => {
+      const linearShape = shapes.lockup.linear;
+      if (hasSolanaSupport(linearShape)) {
+        expect(isSolanaShapeAvailableInVersion(linearShape, "v0.2" as "v0.1")).toBe(false);
+      }
+    });
+
+    it("getLatestSolanaProgramMethod returns first program (newest)", () => {
+      const linearShape = shapes.lockup.linear;
+      if (hasSolanaSupport(linearShape)) {
+        const latest = getLatestSolanaProgramMethod(linearShape);
+        expect(latest.version).toBe("v0.1");
+        expect(latest.program).toBe("SablierLockupLinear");
+      }
     });
   });
 
@@ -400,11 +516,11 @@ describe("shapes", () => {
       /LL$|MerkleLockupFactory$|MerkleStreamerFactory$|^SablierMerkleFactory$/;
     const instantFactoryPattern = /Instant$|^SablierMerkleFactory$/;
 
-    it("stepper shape only maps to LT (tranched) factory contracts", () => {
-      for (const { contract, version } of shapes.airdrops.stepper.evm) {
+    it("tranchedStepper shape only maps to LT (tranched) factory contracts", () => {
+      for (const { contract, version } of shapes.airdrops.tranchedStepper.evm) {
         expect(
           ltFactoryPattern.test(contract),
-          `stepper shape has non-LT factory contract "${contract}" in ${version}`,
+          `tranchedStepper shape has non-LT factory contract "${contract}" in ${version}`,
         ).toBe(true);
       }
     });
@@ -413,8 +529,8 @@ describe("shapes", () => {
       const llShapes = [
         shapes.airdrops.linear,
         shapes.airdrops.cliff,
-        shapes.airdrops.unlockLinear,
-        shapes.airdrops.unlockCliff,
+        shapes.airdrops.linearUnlockLinear,
+        shapes.airdrops.linearUnlockCliff,
       ];
       for (const shape of llShapes) {
         for (const { contract, version } of shape.evm) {

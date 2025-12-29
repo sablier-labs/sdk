@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Duration Backweighted CSV Schema",
-  "description": "Schema for backweighted vesting",
+  "title": "Range Linear Unlock Linear CSV Schema",
+  "description": "Schema for linear unlock linear vesting with absolute timestamps",
   "type": "object",
   "properties": {
     "address": {
@@ -13,13 +13,13 @@
     "start": {
       "$ref": "../../common.schema.json#/$defs/timestamp"
     },
-    "years": {
-      "$ref": "../../common.schema.json#/$defs/positiveInteger"
+    "end": {
+      "$ref": "../../common.schema.json#/$defs/timestamp"
     },
-    "unlocks": {
-      "$ref": "../../common.schema.json#/$defs/unlockPercentages"
+    "unlock": {
+      "$ref": "../../common.schema.json#/$defs/amount"
     }
   },
-  "required": ["address", "amount", "start", "years", "unlocks"],
+  "required": ["address", "amount", "start", "end", "unlock"],
   "additionalProperties": false
 }

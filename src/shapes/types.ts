@@ -2,9 +2,6 @@ import type { EVM } from "@src/evm/types";
 import type { Solana } from "@src/solana/types";
 import type { Shape } from "./enums";
 
-/** Platform identifier */
-export type ShapePlatform = "evm" | "solana";
-
 /** An EVM contract method that can create a stream with a shape */
 export type ContractMethod = {
   /** Contract name from manifest (e.g., "SablierLockup", "SablierV2LockupLinear") */
@@ -75,7 +72,7 @@ export type AirdropShapesRecord = {
 };
 
 /** Any unified shape type */
-export type AnyLockupShape = LockupShapeDefinition | FlowShapeDefinition | AirdropShapeDefinition;
+export type AnyShape = LockupShapeDefinition | FlowShapeDefinition | AirdropShapeDefinition;
 
 /** Shapes that have Solana support (with required solana field) */
-export type ShapeWithSolanaSupport = AnyLockupShape & { solana: ProgramMethod[] };
+export type ShapeWithSolanaSupport = AnyShape & { solana: ProgramMethod[] };

@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Range DoubleUnlock CSV Schema",
-  "description": "Schema for doubleUnlock vesting with absolute timestamps",
+  "title": "Duration Dynamic Double Cliff CSV Schema",
+  "description": "Schema for dynamic double cliff vesting with relative duration",
   "type": "object",
   "properties": {
     "address": {
@@ -10,20 +10,17 @@
     "amount": {
       "$ref": "../../common.schema.json#/$defs/amount"
     },
-    "start": {
-      "$ref": "../../common.schema.json#/$defs/timestamp"
+    "duration": {
+      "$ref": "../../common.schema.json#/$defs/duration"
     },
-    "end": {
-      "$ref": "../../common.schema.json#/$defs/timestamp"
-    },
-    "firstUnlockEnd": {
-      "$ref": "../../common.schema.json#/$defs/timestamp"
+    "firstUnlockDuration": {
+      "$ref": "../../common.schema.json#/$defs/duration"
     },
     "firstUnlockAmount": {
       "$ref": "../../common.schema.json#/$defs/amount"
     },
-    "secondUnlockEnd": {
-      "$ref": "../../common.schema.json#/$defs/timestamp"
+    "secondUnlockDuration": {
+      "$ref": "../../common.schema.json#/$defs/duration"
     },
     "secondUnlockAmount": {
       "$ref": "../../common.schema.json#/$defs/amount"
@@ -32,11 +29,10 @@
   "required": [
     "address",
     "amount",
-    "start",
-    "end",
-    "firstUnlockEnd",
+    "duration",
+    "firstUnlockDuration",
     "firstUnlockAmount",
-    "secondUnlockEnd",
+    "secondUnlockDuration",
     "secondUnlockAmount"
   ],
   "additionalProperties": false

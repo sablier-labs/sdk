@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Range Timelock CSV Schema",
-  "description": "Schema for timelock with absolute timestamp",
+  "title": "Range Tranched Stepper CSV Schema",
+  "description": "Schema for tranched stepper vesting with absolute timestamps",
   "type": "object",
   "properties": {
     "address": {
@@ -10,10 +10,16 @@
     "amount": {
       "$ref": "../../common.schema.json#/$defs/amount"
     },
+    "start": {
+      "$ref": "../../common.schema.json#/$defs/timestamp"
+    },
     "end": {
       "$ref": "../../common.schema.json#/$defs/timestamp"
+    },
+    "steps": {
+      "$ref": "../../common.schema.json#/$defs/positiveInteger"
     }
   },
-  "required": ["address", "amount", "end"],
+  "required": ["address", "amount", "start", "end", "steps"],
   "additionalProperties": false
 }

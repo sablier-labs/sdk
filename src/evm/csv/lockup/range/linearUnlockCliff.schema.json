@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Duration UnlockCliff CSV Schema",
-  "description": "Schema for unlockCliff vesting with relative duration",
+  "title": "Range Linear Unlock Cliff CSV Schema",
+  "description": "Schema for linear unlock cliff vesting with absolute timestamps",
   "type": "object",
   "properties": {
     "address": {
@@ -10,11 +10,14 @@
     "amount": {
       "$ref": "../../common.schema.json#/$defs/amount"
     },
-    "duration": {
-      "$ref": "../../common.schema.json#/$defs/duration"
+    "start": {
+      "$ref": "../../common.schema.json#/$defs/timestamp"
     },
-    "cliffDuration": {
-      "$ref": "../../common.schema.json#/$defs/duration"
+    "end": {
+      "$ref": "../../common.schema.json#/$defs/timestamp"
+    },
+    "cliffEnd": {
+      "$ref": "../../common.schema.json#/$defs/timestamp"
     },
     "unlock": {
       "$ref": "../../common.schema.json#/$defs/amount"
@@ -23,6 +26,6 @@
       "$ref": "../../common.schema.json#/$defs/amount"
     }
   },
-  "required": ["address", "amount", "duration", "cliffDuration", "unlock", "cliffAmount"],
+  "required": ["address", "amount", "start", "end", "cliffEnd", "unlock", "cliffAmount"],
   "additionalProperties": false
 }

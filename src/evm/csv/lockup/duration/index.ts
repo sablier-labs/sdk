@@ -1,7 +1,7 @@
 import type { BaseColumns } from "../../types";
 
-/** Backweighted with start: address, amount, start, years, unlocks */
-export type BackweightedColumns = BaseColumns & {
+/** Tranched backweighted with start: address, amount, start, years, unlocks */
+export type TranchedBackweightedColumns = BaseColumns & {
   /** Start timestamp */
   start: string;
   /** Number of years */
@@ -30,8 +30,8 @@ export type CliffColumns = LinearColumns & {
  */
 export type DynamicCliffExponentialColumns = CliffColumns;
 
-/** Double-unlock with duration: address, amount, duration, firstUnlockDuration, firstUnlockAmount, secondUnlockDuration, secondUnlockAmount */
-export type DoubleUnlockColumns = LinearColumns & {
+/** Dynamic double-cliff with duration: address, amount, duration, firstUnlockDuration, firstUnlockAmount, secondUnlockDuration, secondUnlockAmount */
+export type DynamicDoubleCliffColumns = LinearColumns & {
   /** Duration until first unlock */
   firstUnlockDuration: string;
   /** Amount for first unlock */
@@ -48,8 +48,8 @@ export type DoubleUnlockColumns = LinearColumns & {
  */
 export type DynamicExponentialColumns = LinearColumns;
 
-/** Monthly with start: address, amount, start, months, initial */
-export type MonthlyColumns = BaseColumns & {
+/** Tranched monthly with start: address, amount, start, months, initial */
+export type TranchedMonthlyColumns = BaseColumns & {
   /** Start timestamp (e.g., "2026-01-12 16:15") */
   start: string;
   /** Number of months */
@@ -58,20 +58,20 @@ export type MonthlyColumns = BaseColumns & {
   initial: string;
 };
 
-/** Stepper with duration: address, amount, duration, steps */
-export type StepperColumns = LinearColumns & {
+/** Tranched stepper with duration: address, amount, duration, steps */
+export type TranchedStepperColumns = LinearColumns & {
   /** Number of discrete unlock steps */
   steps: string;
 };
 
 /**
- * Timelock with duration: address, amount, duration
+ * Tranched timelock with duration: address, amount, duration
  * @note Structurally identical to LinearColumns; the shape difference is semantic only
  */
-export type TimelockColumns = LinearColumns;
+export type TranchedTimelockColumns = LinearColumns;
 
-/** Unlock-cliff with duration: address, amount, duration, cliffDuration, unlock, cliffAmount */
-export type UnlockCliffColumns = LinearColumns & {
+/** Linear unlock-cliff with duration: address, amount, duration, cliffDuration, unlock, cliffAmount */
+export type LinearUnlockCliffColumns = LinearColumns & {
   /** Cliff duration */
   cliffDuration: string;
   /** Immediate unlock percentage */
@@ -80,22 +80,22 @@ export type UnlockCliffColumns = LinearColumns & {
   cliffAmount: string;
 };
 
-/** Unlock-linear with duration: address, amount, duration, unlock */
-export type UnlockLinearColumns = LinearColumns & {
+/** Linear unlock-linear with duration: address, amount, duration, unlock */
+export type LinearUnlockLinearColumns = LinearColumns & {
   /** Immediate unlock percentage */
   unlock: string;
 };
 
 /** All duration template column types */
 export type Columns =
-  | BackweightedColumns
+  | TranchedBackweightedColumns
   | CliffColumns
-  | DoubleUnlockColumns
+  | DynamicDoubleCliffColumns
   | DynamicCliffExponentialColumns
   | DynamicExponentialColumns
   | LinearColumns
-  | MonthlyColumns
-  | StepperColumns
-  | TimelockColumns
-  | UnlockCliffColumns
-  | UnlockLinearColumns;
+  | TranchedMonthlyColumns
+  | TranchedStepperColumns
+  | TranchedTimelockColumns
+  | LinearUnlockCliffColumns
+  | LinearUnlockLinearColumns;

@@ -1,15 +1,15 @@
 import type { BaseColumns } from "../../types";
 import type {
-  BackweightedColumns as DurationBackweightedColumns,
-  MonthlyColumns as DurationMonthlyColumns,
+  TranchedBackweightedColumns as DurationTranchedBackweightedColumns,
+  TranchedMonthlyColumns as DurationTranchedMonthlyColumns,
 } from "../duration/index";
 
 /**
- * Backweighted with range: address, amount, start, years, unlocks
- * @note Identical to duration BackweightedColumns because backweighted vesting inherently uses
+ * Tranched backweighted with range: address, amount, start, years, unlocks
+ * @note Identical to duration TranchedBackweightedColumns because backweighted vesting inherently uses
  * absolute timestamps (start date + number of years), not relative durations
  */
-export type BackweightedColumns = DurationBackweightedColumns;
+export type TranchedBackweightedColumns = DurationTranchedBackweightedColumns;
 
 /** Linear vesting with range: address, amount, start, end */
 export type LinearColumns = BaseColumns & {
@@ -33,8 +33,8 @@ export type CliffColumns = LinearColumns & {
  */
 export type DynamicCliffExponentialColumns = CliffColumns;
 
-/** Double-unlock with range: address, amount, start, end, firstUnlockEnd, firstUnlockAmount, secondUnlockEnd, secondUnlockAmount */
-export type DoubleUnlockColumns = LinearColumns & {
+/** Dynamic double-cliff with range: address, amount, start, end, firstUnlockEnd, firstUnlockAmount, secondUnlockEnd, secondUnlockAmount */
+export type DynamicDoubleCliffColumns = LinearColumns & {
   /** First unlock end timestamp */
   firstUnlockEnd: string;
   /** Amount for first unlock */
@@ -52,26 +52,26 @@ export type DoubleUnlockColumns = LinearColumns & {
 export type DynamicExponentialColumns = LinearColumns;
 
 /**
- * Monthly with range: address, amount, start, months, initial
- * @note Identical to duration MonthlyColumns because monthly vesting inherently uses
+ * Tranched monthly with range: address, amount, start, months, initial
+ * @note Identical to duration TranchedMonthlyColumns because monthly vesting inherently uses
  * absolute timestamps (start date + number of months), not relative durations
  */
-export type MonthlyColumns = DurationMonthlyColumns;
+export type TranchedMonthlyColumns = DurationTranchedMonthlyColumns;
 
-/** Stepper with range: address, amount, start, end, steps */
-export type StepperColumns = LinearColumns & {
+/** Tranched stepper with range: address, amount, start, end, steps */
+export type TranchedStepperColumns = LinearColumns & {
   /** Number of discrete unlock steps */
   steps: string;
 };
 
-/** Timelock with range: address, amount, end */
-export type TimelockColumns = BaseColumns & {
+/** Tranched timelock with range: address, amount, end */
+export type TranchedTimelockColumns = BaseColumns & {
   /** End timestamp when tokens unlock */
   end: string;
 };
 
-/** Unlock-cliff with range: address, amount, start, end, cliffEnd, unlock, cliffAmount */
-export type UnlockCliffColumns = LinearColumns & {
+/** Linear unlock-cliff with range: address, amount, start, end, cliffEnd, unlock, cliffAmount */
+export type LinearUnlockCliffColumns = LinearColumns & {
   /** Cliff end timestamp */
   cliffEnd: string;
   /** Immediate unlock percentage */
@@ -80,22 +80,22 @@ export type UnlockCliffColumns = LinearColumns & {
   cliffAmount: string;
 };
 
-/** Unlock-linear with range: address, amount, start, end, unlock */
-export type UnlockLinearColumns = LinearColumns & {
+/** Linear unlock-linear with range: address, amount, start, end, unlock */
+export type LinearUnlockLinearColumns = LinearColumns & {
   /** Immediate unlock percentage */
   unlock: string;
 };
 
 /** All range template column types */
 export type Columns =
-  | BackweightedColumns
+  | TranchedBackweightedColumns
   | CliffColumns
-  | DoubleUnlockColumns
+  | DynamicDoubleCliffColumns
   | DynamicCliffExponentialColumns
   | DynamicExponentialColumns
   | LinearColumns
-  | MonthlyColumns
-  | StepperColumns
-  | TimelockColumns
-  | UnlockCliffColumns
-  | UnlockLinearColumns;
+  | TranchedMonthlyColumns
+  | TranchedStepperColumns
+  | TranchedTimelockColumns
+  | LinearUnlockCliffColumns
+  | LinearUnlockLinearColumns;

@@ -4,13 +4,13 @@ export namespace Shape {
     Cliff = "cliff",
     DynamicCliffExponential = "dynamicCliffExponential",
     DynamicExponential = "dynamicExponential",
-    Backweighted = "backweighted",
-    Stepper = "stepper",
-    Monthly = "monthly",
-    Timelock = "timelock",
-    UnlockLinear = "unlockLinear",
-    UnlockCliff = "unlockCliff",
-    DoubleUnlock = "doubleUnlock",
+    TranchedBackweighted = "tranchedBackweighted",
+    TranchedStepper = "tranchedStepper",
+    TranchedMonthly = "tranchedMonthly",
+    TranchedTimelock = "tranchedTimelock",
+    LinearUnlockLinear = "linearUnlockLinear",
+    LinearUnlockCliff = "linearUnlockCliff",
+    DynamicDoubleCliff = "dynamicDoubleCliff",
   }
 
   export enum Flow {
@@ -21,8 +21,8 @@ export namespace Shape {
     Instant = "instant",
     Linear = "linear",
     Cliff = "cliff",
-    UnlockLinear = "unlockLinear",
-    UnlockCliff = "unlockCliff",
-    Stepper = "stepper",
+    LinearUnlockLinear = "linearUnlockLinear",
+    LinearUnlockCliff = "linearUnlockCliff",
+    TranchedStepper = "tranchedStepper",
   }
 }

@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Duration UnlockLinear CSV Schema",
-  "description": "Schema for unlockLinear vesting with relative duration",
+  "title": "Duration Tranched Stepper CSV Schema",
+  "description": "Schema for tranched stepper vesting with relative duration",
   "type": "object",
   "properties": {
     "address": {
@@ -13,10 +13,10 @@
     "duration": {
       "$ref": "../../common.schema.json#/$defs/duration"
     },
-    "unlock": {
-      "$ref": "../../common.schema.json#/$defs/amount"
+    "steps": {
+      "$ref": "../../common.schema.json#/$defs/positiveInteger"
     }
   },
-  "required": ["address", "amount", "duration", "unlock"],
+  "required": ["address", "amount", "duration", "steps"],
   "additionalProperties": false
 }

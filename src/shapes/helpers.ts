@@ -1,12 +1,7 @@
 import type { EVM } from "@src/evm/types";
 import type { Solana } from "@src/solana/types";
 import { Shape } from "./enums";
-import type {
-  AnyLockupShape,
-  ContractMethod,
-  ProgramMethod,
-  ShapeWithSolanaSupport,
-} from "./types";
+import type { AnyShape, ContractMethod, ProgramMethod, ShapeWithSolanaSupport } from "./types";
 
 /* -------------------------------------------------------------------------- */
 /*                              SHAPE ID ARRAYS                               */
@@ -25,8 +20,8 @@ export const airdropShapeIds = Object.values(Shape.Airdrops);
 export const solanaLockupShapeIds = [
   Shape.Lockup.Linear,
   Shape.Lockup.Cliff,
-  Shape.Lockup.UnlockLinear,
-  Shape.Lockup.UnlockCliff,
+  Shape.Lockup.LinearUnlockLinear,
+  Shape.Lockup.LinearUnlockCliff,
 ] as const;
 
 /** Airdrop shapes with Solana support */
@@ -44,7 +39,7 @@ export const solanaAirdropShapeIds = [Shape.Airdrops.Instant] as const;
  * @param version - EVM protocol version to filter by
  * @returns Array of shapes that support the version
  */
-export function getEvmShapesByVersion<T extends AnyLockupShape>(
+export function getEvmShapesByVersion<T extends AnyShape>(
   shapes: Record<string, T>,
   version: EVM.Version,
 ): T[] {
@@ -60,7 +55,7 @@ export function getEvmShapesByVersion<T extends AnyLockupShape>(
  * @returns Contract method entry or undefined if not found
  */
 export function getEvmContractMethodsForVersion(
-  shape: AnyLockupShape,
+  shape: AnyShape,
   version: EVM.Version,
 ): ContractMethod | undefined {
   return shape.evm.find((c) => c.version === version);
@@ -73,7 +68,7 @@ export function getEvmContractMethodsForVersion(
  * @param version - EVM protocol version to check
  * @returns True if the shape has at least one evm entry for the version
  */
-export function isEvmShapeAvailableInVersion(shape: AnyLockupShape, version: EVM.Version): boolean {
+export function isEvmShapeAvailableInVersion(shape: AnyShape, version: EVM.Version): boolean {
   return shape.evm.some((c) => c.version === version);
 }
 
@@ -85,7 +80,7 @@ export function isEvmShapeAvailableInVersion(shape: AnyLockupShape, version: EVM
  * @returns Latest contract method entry
  * @throws Error if shape has no evm entries
  */
-export function getLatestEvmContractMethod(shape: AnyLockupShape): ContractMethod {
+export function getLatestEvmContractMethod(shape: AnyShape): ContractMethod {
   if (!shape.evm || shape.evm.length === 0) {
     throw new Error(`Shape "${shape.id}" has no EVM contract mappings`);
   }
@@ -195,7 +190,7 @@ export function isAirdropShape(value: unknown): value is Shape.Airdrops {
  * @param shape - Shape to check
  * @returns True if shape has solana field with at least one entry
  */
-export function hasSolanaSupport(shape: AnyLockupShape): shape is ShapeWithSolanaSupport {
+export function hasSolanaSupport(shape: AnyShape): shape is ShapeWithSolanaSupport {
   return "solana" in shape && Array.isArray(shape.solana) && shape.solana.length > 0;
 }
 

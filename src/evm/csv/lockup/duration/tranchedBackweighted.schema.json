@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Range Backweighted CSV Schema",
-  "description": "Schema for backweighted vesting",
+  "title": "Duration Tranched Backweighted CSV Schema",
+  "description": "Schema for tranched backweighted vesting",
   "type": "object",
   "properties": {
     "address": {

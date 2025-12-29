@@ -93,10 +93,10 @@ const linear = {
 } satisfies AirdropShapeDefinition;
 
 /**
- * Stepper airdrop shape
+ * Tranched Stepper airdrop shape
  * Creates airdrops with step-based vesting (tranches)
  */
-const stepper = {
+const tranchedStepper = {
   evm: [
     {
       contract: "SablierFactoryMerkleLT",
@@ -114,16 +114,16 @@ const stepper = {
       version: "v1.2",
     },
   ],
-  id: Shape.Airdrops.Stepper,
-  name: "Stepper",
+  id: Shape.Airdrops.TranchedStepper,
+  name: "Tranched Stepper",
 } satisfies AirdropShapeDefinition;
 
 /**
- * Unlock Cliff airdrop shape
+ * Linear Unlock Cliff airdrop shape
  * Creates airdrops with an initial unlock followed by cliff vesting
  * Available only in v2.0+
  */
-const unlockCliff = {
+const linearUnlockCliff = {
   evm: [
     {
       contract: "SablierFactoryMerkleLL",
@@ -131,16 +131,16 @@ const unlockCliff = {
       version: "v2.0",
     },
   ],
-  id: Shape.Airdrops.UnlockCliff,
-  name: "Unlock Cliff",
+  id: Shape.Airdrops.LinearUnlockCliff,
+  name: "Linear Unlock Cliff",
 } satisfies AirdropShapeDefinition;
 
 /**
- * Unlock Linear airdrop shape
+ * Linear Unlock Linear airdrop shape
  * Creates airdrops with an initial unlock followed by linear vesting
  * Available only in v2.0+
  */
-const unlockLinear = {
+const linearUnlockLinear = {
   evm: [
     {
       contract: "SablierFactoryMerkleLL",
@@ -148,8 +148,8 @@ const unlockLinear = {
       version: "v2.0",
     },
   ],
-  id: Shape.Airdrops.UnlockLinear,
-  name: "Unlock Linear",
+  id: Shape.Airdrops.LinearUnlockLinear,
+  name: "Linear Unlock Linear",
 } satisfies AirdropShapeDefinition;
 
 /**
@@ -160,7 +160,7 @@ export const airdropShapes = {
   [Shape.Airdrops.Cliff]: cliff,
   [Shape.Airdrops.Instant]: instant,
   [Shape.Airdrops.Linear]: linear,
-  [Shape.Airdrops.Stepper]: stepper,
-  [Shape.Airdrops.UnlockCliff]: unlockCliff,
-  [Shape.Airdrops.UnlockLinear]: unlockLinear,
+  [Shape.Airdrops.LinearUnlockCliff]: linearUnlockCliff,
+  [Shape.Airdrops.LinearUnlockLinear]: linearUnlockLinear,
+  [Shape.Airdrops.TranchedStepper]: tranchedStepper,
 } satisfies AirdropShapesRecord;

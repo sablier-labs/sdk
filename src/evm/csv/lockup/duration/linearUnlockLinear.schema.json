@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Duration Linear Unlock Linear CSV Schema",
+  "description": "Schema for linear unlock linear vesting with relative duration",
+  "type": "object",
+  "properties": {
+    "address": {
+      "$ref": "../../common.schema.json#/$defs/address"
+    },
+    "amount": {
+      "$ref": "../../common.schema.json#/$defs/amount"
+    },
+    "duration": {
+      "$ref": "../../common.schema.json#/$defs/duration"
+    },
+    "unlock": {
+      "$ref": "../../common.schema.json#/$defs/amount"
+    }
+  },
+  "required": ["address", "amount", "duration", "unlock"],
+  "additionalProperties": false
+}
