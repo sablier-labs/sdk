@@ -25,8 +25,8 @@ describe("shapes", () => {
     it("has correct shape IDs", () => {
       expect(shapes.lockup.linear.id).toBe(Shape.Lockup.Linear);
       expect(shapes.lockup.cliff.id).toBe(Shape.Lockup.Cliff);
-      expect(shapes.lockup.cliffExponential.id).toBe(Shape.Lockup.CliffExponential);
-      expect(shapes.lockup.exponential.id).toBe(Shape.Lockup.Exponential);
+      expect(shapes.lockup.dynamicCliffExponential.id).toBe(Shape.Lockup.DynamicCliffExponential);
+      expect(shapes.lockup.dynamicExponential.id).toBe(Shape.Lockup.DynamicExponential);
       expect(shapes.lockup.backweighted.id).toBe(Shape.Lockup.Backweighted);
       expect(shapes.lockup.stepper.id).toBe(Shape.Lockup.Stepper);
       expect(shapes.lockup.monthly.id).toBe(Shape.Lockup.Monthly);
@@ -59,23 +59,23 @@ describe("shapes", () => {
         const v3Contract = shape.contracts.find((c) => c.version === "v3.0");
         expect(v3Contract).toBeDefined();
         expect(v3Contract?.contract).toBe("SablierLockup");
-        expect(v3Contract?.methods).toContain("createWithDurationsLL");
-        expect(v3Contract?.methods).toContain("createWithTimestampsLL");
+        expect(v3Contract?.createMethods).toContain("createWithDurationsLL");
+        expect(v3Contract?.createMethods).toContain("createWithTimestampsLL");
       }
     });
 
     it("LD shapes map to v3.0 SablierLockup with LD methods", () => {
       const ldShapes = [
-        shapes.lockup.exponential,
-        shapes.lockup.cliffExponential,
+        shapes.lockup.dynamicExponential,
+        shapes.lockup.dynamicCliffExponential,
         shapes.lockup.backweighted,
       ];
       for (const shape of ldShapes) {
         const v3Contract = shape.contracts.find((c) => c.version === "v3.0");
         expect(v3Contract).toBeDefined();
         expect(v3Contract?.contract).toBe("SablierLockup");
-        expect(v3Contract?.methods).toContain("createWithDurationsLD");
-        expect(v3Contract?.methods).toContain("createWithTimestampsLD");
+        expect(v3Contract?.createMethods).toContain("createWithDurationsLD");
+        expect(v3Contract?.createMethods).toContain("createWithTimestampsLD");
       }
     });
 
@@ -90,8 +90,8 @@ describe("shapes", () => {
         const v3Contract = shape.contracts.find((c) => c.version === "v3.0");
         expect(v3Contract).toBeDefined();
         expect(v3Contract?.contract).toBe("SablierLockup");
-        expect(v3Contract?.methods).toContain("createWithDurationsLT");
-        expect(v3Contract?.methods).toContain("createWithTimestampsLT");
+        expect(v3Contract?.createMethods).toContain("createWithDurationsLT");
+        expect(v3Contract?.createMethods).toContain("createWithTimestampsLT");
       }
     });
   });
@@ -114,8 +114,8 @@ describe("shapes", () => {
       const v2Contract = shapes.flow.flow.contracts.find((c) => c.version === "v2.0");
       expect(v2Contract).toBeDefined();
       expect(v2Contract?.contract).toBe("SablierFlow");
-      expect(v2Contract?.methods).toContain("create");
-      expect(v2Contract?.methods).toContain("createAndDeposit");
+      expect(v2Contract?.createMethods).toContain("create");
+      expect(v2Contract?.createMethods).toContain("createAndDeposit");
     });
   });
 
@@ -146,14 +146,14 @@ describe("shapes", () => {
       }
     });
 
-    it("instant shape maps to SablierMerkleInstant", () => {
+    it("instant shape maps to SablierFactoryMerkleInstant", () => {
       const v2Contract = shapes.airdrops.instant.contracts.find((c) => c.version === "v2.0");
       expect(v2Contract).toBeDefined();
-      expect(v2Contract?.contract).toBe("SablierMerkleInstant");
-      expect(v2Contract?.methods).toContain("claim");
+      expect(v2Contract?.contract).toBe("SablierFactoryMerkleInstant");
+      expect(v2Contract?.createMethods).toContain("createMerkleInstant");
     });
 
-    it("linear shapes map to SablierMerkleLL", () => {
+    it("linear shapes map to SablierFactoryMerkleLL", () => {
       const llShapes = [
         shapes.airdrops.linear,
         shapes.airdrops.cliff,
@@ -163,16 +163,16 @@ describe("shapes", () => {
       for (const shape of llShapes) {
         const v2Contract = shape.contracts.find((c) => c.version === "v2.0");
         expect(v2Contract).toBeDefined();
-        expect(v2Contract?.contract).toBe("SablierMerkleLL");
-        expect(v2Contract?.methods).toContain("claim");
+        expect(v2Contract?.contract).toBe("SablierFactoryMerkleLL");
+        expect(v2Contract?.createMethods).toContain("createMerkleLL");
       }
     });
 
-    it("stepper shape maps to SablierMerkleLT", () => {
+    it("stepper shape maps to SablierFactoryMerkleLT", () => {
       const v2Contract = shapes.airdrops.stepper.contracts.find((c) => c.version === "v2.0");
       expect(v2Contract).toBeDefined();
-      expect(v2Contract?.contract).toBe("SablierMerkleLT");
-      expect(v2Contract?.methods).toContain("claim");
+      expect(v2Contract?.contract).toBe("SablierFactoryMerkleLT");
+      expect(v2Contract?.createMethods).toContain("createMerkleLT");
     });
   });
 
@@ -180,8 +180,8 @@ describe("shapes", () => {
     it("Lockup enum has all values", () => {
       expect(Shape.Lockup.Linear).toBe("linear");
       expect(Shape.Lockup.Cliff).toBe("cliff");
-      expect(Shape.Lockup.CliffExponential).toBe("cliffExponential");
-      expect(Shape.Lockup.Exponential).toBe("exponential");
+      expect(Shape.Lockup.DynamicCliffExponential).toBe("dynamicCliffExponential");
+      expect(Shape.Lockup.DynamicExponential).toBe("dynamicExponential");
       expect(Shape.Lockup.Backweighted).toBe("backweighted");
       expect(Shape.Lockup.Stepper).toBe("stepper");
       expect(Shape.Lockup.Monthly).toBe("monthly");
@@ -242,13 +242,13 @@ describe("shapes", () => {
 
     it("getShapesByVersion returns shapes available for v1.2", () => {
       const v12Shapes = getShapesByVersion(shapes.lockup, "v1.2");
-      expect(v12Shapes.length).toBe(11); // All lockup shapes support v1.2
+      expect(v12Shapes.length).toBe(9); // All except unlockLinear/unlockCliff (v2.0+ only)
     });
 
     it("getShapesByVersion returns only LL/LD shapes for v1.0", () => {
       const v10Shapes = getShapesByVersion(shapes.lockup, "v1.0");
-      // LT shapes (stepper, monthly, timelock, doubleUnlock) don't support v1.0
-      expect(v10Shapes.length).toBe(7);
+      // LT shapes (stepper, monthly, timelock, doubleUnlock) and unlock shapes don't support v1.0
+      expect(v10Shapes.length).toBe(5);
     });
 
     it("getContractMethodsForVersion returns correct contract", () => {
@@ -361,7 +361,7 @@ describe("shapes", () => {
     it("isAirdropShape returns false for invalid values", () => {
       expect(isAirdropShape("invalid")).toBe(false);
       expect(isAirdropShape("flow")).toBe(false);
-      expect(isAirdropShape("exponential")).toBe(false);
+      expect(isAirdropShape("dynamicExponential")).toBe(false);
       expect(isAirdropShape(null)).toBe(false);
     });
   });
@@ -405,22 +405,26 @@ describe("shapes", () => {
   });
 
   describe("airdrop shape contract type validation", () => {
-    // LT = Lockup Tranched (stepper), LL = Lockup Linear
-    // Stepper shapes must use LT contracts, not LL or abstract base contracts
-    const ltContractPattern = /LT$/;
-    const llContractPattern = /LL$/;
-    const instantContractPattern = /Instant$/;
+    // Factory contracts create campaigns:
+    // - v2.0: Type-specific factories ending with LT/LL/Instant
+    // - v1.3: SablierMerkleFactory (unified, supports all types)
+    // - v1.2: SablierV2MerkleLockupFactory (unified, supports LT/LL)
+    // - v1.1: SablierV2MerkleStreamerFactory (supports LL only)
+    const ltFactoryPattern = /LT$|MerkleLockupFactory$|^SablierMerkleFactory$/;
+    const llFactoryPattern =
+      /LL$|MerkleLockupFactory$|MerkleStreamerFactory$|^SablierMerkleFactory$/;
+    const instantFactoryPattern = /Instant$|^SablierMerkleFactory$/;
 
-    it("stepper shape only maps to LT (tranched) contracts", () => {
+    it("stepper shape only maps to LT (tranched) factory contracts", () => {
       for (const { contract, version } of shapes.airdrops.stepper.contracts) {
         expect(
-          ltContractPattern.test(contract),
-          `stepper shape has non-LT contract "${contract}" in ${version}`,
+          ltFactoryPattern.test(contract),
+          `stepper shape has non-LT factory contract "${contract}" in ${version}`,
         ).toBe(true);
       }
     });
 
-    it("linear shapes only map to LL (linear) contracts", () => {
+    it("linear shapes only map to LL (linear) factory contracts", () => {
       const llShapes = [
         shapes.airdrops.linear,
         shapes.airdrops.cliff,
@@ -430,18 +434,18 @@ describe("shapes", () => {
       for (const shape of llShapes) {
         for (const { contract, version } of shape.contracts) {
           expect(
-            llContractPattern.test(contract),
-            `${shape.id} shape has non-LL contract "${contract}" in ${version}`,
+            llFactoryPattern.test(contract),
+            `${shape.id} shape has non-LL factory contract "${contract}" in ${version}`,
           ).toBe(true);
         }
       }
     });
 
-    it("instant shape only maps to Instant contracts", () => {
+    it("instant shape only maps to Instant factory contracts", () => {
       for (const { contract, version } of shapes.airdrops.instant.contracts) {
         expect(
-          instantContractPattern.test(contract),
-          `instant shape has non-Instant contract "${contract}" in ${version}`,
+          instantFactoryPattern.test(contract),
+          `instant shape has non-Instant factory contract "${contract}" in ${version}`,
         ).toBe(true);
       }
     });

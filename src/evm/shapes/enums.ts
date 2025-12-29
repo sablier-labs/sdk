@@ -2,8 +2,8 @@ export namespace Shape {
   export enum Lockup {
     Linear = "linear",
     Cliff = "cliff",
-    CliffExponential = "cliffExponential",
-    Exponential = "exponential",
+    DynamicCliffExponential = "dynamicCliffExponential",
+    DynamicExponential = "dynamicExponential",
     Backweighted = "backweighted",
     Stepper = "stepper",
     Monthly = "monthly",

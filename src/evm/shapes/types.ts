@@ -7,7 +7,7 @@ export type ContractMethod = {
   /** Contract name from manifest (e.g., "SablierLockup", "SablierV2LockupLinear") */
   contract: string;
   /** Method names that create this shape (e.g., ["createWithDurationsLL", "createWithTimestampsLL"]) */
-  methods: string[];
+  createMethods: string[];
   /** Protocol version (e.g., "v3.0") */
   version: EVM.Version;
 };

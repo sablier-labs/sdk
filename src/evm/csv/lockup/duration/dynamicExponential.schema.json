@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Duration Exponential CSV Schema",
-  "description": "Schema for exponential vesting with relative duration",
+  "title": "Duration DynamicExponential CSV Schema",
+  "description": "Schema for dynamicExponential vesting with relative duration",
   "type": "object",
   "properties": {
     "address": {
