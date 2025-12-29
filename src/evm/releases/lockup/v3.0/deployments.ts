@@ -87,7 +87,7 @@ export const mainnets: Sablier.EVM.Deployment[] = [
     [manifest.LOCKUP_MATH]: "0xB8aB2E66d5E4931e675CBE499d8c01B778694fd3",
     [manifest.LOCKUP_NFT_DESCRIPTOR]: "0x4749dB4834be9b473D586Ad4d98133dAfC678313",
     [manifest.SABLIER_BATCH_LOCKUP]: "0x6Fe81F4Bf1aF1b829f0E701647808f3Aa4b0BdE7",
-    [manifest.SABLIER_LOCKUP]: ["0x9f5d28C8ed7F09e65519C1f6f394e523524cA38F", 697808],
+    [manifest.SABLIER_LOCKUP]: ["0x9f5d28C8ed7F09e65519C1f6f394e523524cA38F", 710000],
   }),
   get(chains.gnosis.id, {
     [manifest.HELPERS]: "0xa0a1ac47260b95d334763473b868117ef7343aa0",
