@@ -5,9 +5,7 @@ export namespace Sablier {
   export import EVM = EVMTypes.EVM;
   export import Solana = SolanaTypes.Solana;
 
-  /* -------------------------------------------------------------------------- */
-  /*                           BACKWARD COMPATIBILITY                           */
-  /* -------------------------------------------------------------------------- */
+  // Re-exporting for pre-v1.7 backward compatibility
   export import Address = EVM.Address;
   export import AbiMap = EVM.AbiMap;
   export import Chain = EVM.Chain;

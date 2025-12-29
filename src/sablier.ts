@@ -85,7 +85,7 @@ const solana = {
 };
 
 export const sablier = {
-  ...evm, // re-exporting for backward compatibility
+  ...evm, // re-exporting for pre-v1.7 backward compatibility
   evm,
   solana,
 };

@@ -1,18 +1,19 @@
 import { Version } from "@src/evm/enums";
 import { releases } from "@src/evm/releases";
-import { Shape, shapes } from "@src/evm/shapes";
 import {
   airdropShapeIds,
   flowShapeIds,
-  getContractMethodsForVersion,
-  getLatestContractMethod,
-  getShapesByVersion,
+  getEvmContractMethodsForVersion,
+  getEvmShapesByVersion,
+  getLatestEvmContractMethod,
   isAirdropShape,
+  isEvmShapeAvailableInVersion,
   isFlowShape,
   isLockupShape,
-  isShapeAvailableInVersion,
   lockupShapeIds,
-} from "@src/evm/shapes/helpers";
+  Shape,
+  shapes,
+} from "@src/shapes";
 import { describe, expect, it } from "vitest";
 
 describe("shapes", () => {
@@ -36,15 +37,9 @@ describe("shapes", () => {
       expect(shapes.lockup.doubleUnlock.id).toBe(Shape.Lockup.DoubleUnlock);
     });
 
-    it("all shapes have protocol set to lockup", () => {
+    it("all shapes have evm contract mappings", () => {
       for (const shape of Object.values(shapes.lockup)) {
-        expect(shape.protocol).toBe("lockup");
-      }
-    });
-
-    it("all shapes have contract mappings", () => {
-      for (const shape of Object.values(shapes.lockup)) {
-        expect(shape.contracts.length).toBeGreaterThan(0);
+        expect(shape.evm.length).toBeGreaterThan(0);
       }
     });
 
@@ -56,7 +51,7 @@ describe("shapes", () => {
         shapes.lockup.unlockCliff,
       ];
       for (const shape of llShapes) {
-        const v3Contract = shape.contracts.find((c) => c.version === "v3.0");
+        const v3Contract = shape.evm.find((c) => c.version === "v3.0");
         expect(v3Contract).toBeDefined();
         expect(v3Contract?.contract).toBe("SablierLockup");
         expect(v3Contract?.createMethods).toContain("createWithDurationsLL");
@@ -71,7 +66,7 @@ describe("shapes", () => {
         shapes.lockup.backweighted,
       ];
       for (const shape of ldShapes) {
-        const v3Contract = shape.contracts.find((c) => c.version === "v3.0");
+        const v3Contract = shape.evm.find((c) => c.version === "v3.0");
         expect(v3Contract).toBeDefined();
         expect(v3Contract?.contract).toBe("SablierLockup");
         expect(v3Contract?.createMethods).toContain("createWithDurationsLD");
@@ -87,7 +82,7 @@ describe("shapes", () => {
         shapes.lockup.doubleUnlock,
       ];
       for (const shape of ltShapes) {
-        const v3Contract = shape.contracts.find((c) => c.version === "v3.0");
+        const v3Contract = shape.evm.find((c) => c.version === "v3.0");
         expect(v3Contract).toBeDefined();
         expect(v3Contract?.contract).toBe("SablierLockup");
         expect(v3Contract?.createMethods).toContain("createWithDurationsLT");
@@ -106,12 +101,8 @@ describe("shapes", () => {
       expect(shapes.flow.flow.id).toBe(Shape.Flow.Flow);
     });
 
-    it("has protocol set to flow", () => {
-      expect(shapes.flow.flow.protocol).toBe("flow");
-    });
-
     it("maps to SablierFlow contract", () => {
-      const v2Contract = shapes.flow.flow.contracts.find((c) => c.version === "v2.0");
+      const v2Contract = shapes.flow.flow.evm.find((c) => c.version === "v2.0");
       expect(v2Contract).toBeDefined();
       expect(v2Contract?.contract).toBe("SablierFlow");
       expect(v2Contract?.createMethods).toContain("create");
@@ -134,20 +125,14 @@ describe("shapes", () => {
       expect(shapes.airdrops.stepper.id).toBe(Shape.Airdrops.Stepper);
     });
 
-    it("all shapes have protocol set to airdrops", () => {
+    it("all shapes have evm contract mappings", () => {
       for (const shape of Object.values(shapes.airdrops)) {
-        expect(shape.protocol).toBe("airdrops");
-      }
-    });
-
-    it("all shapes have contract mappings", () => {
-      for (const shape of Object.values(shapes.airdrops)) {
-        expect(shape.contracts.length).toBeGreaterThan(0);
+        expect(shape.evm.length).toBeGreaterThan(0);
       }
     });
 
     it("instant shape maps to SablierFactoryMerkleInstant", () => {
-      const v2Contract = shapes.airdrops.instant.contracts.find((c) => c.version === "v2.0");
+      const v2Contract = shapes.airdrops.instant.evm.find((c) => c.version === "v2.0");
       expect(v2Contract).toBeDefined();
       expect(v2Contract?.contract).toBe("SablierFactoryMerkleInstant");
       expect(v2Contract?.createMethods).toContain("createMerkleInstant");
@@ -161,7 +146,7 @@ describe("shapes", () => {
         shapes.airdrops.unlockCliff,
       ];
       for (const shape of llShapes) {
-        const v2Contract = shape.contracts.find((c) => c.version === "v2.0");
+        const v2Contract = shape.evm.find((c) => c.version === "v2.0");
         expect(v2Contract).toBeDefined();
         expect(v2Contract?.contract).toBe("SablierFactoryMerkleLL");
         expect(v2Contract?.createMethods).toContain("createMerkleLL");
@@ -169,7 +154,7 @@ describe("shapes", () => {
     });
 
     it("stepper shape maps to SablierFactoryMerkleLT", () => {
-      const v2Contract = shapes.airdrops.stepper.contracts.find((c) => c.version === "v2.0");
+      const v2Contract = shapes.airdrops.stepper.evm.find((c) => c.version === "v2.0");
       expect(v2Contract).toBeDefined();
       expect(v2Contract?.contract).toBe("SablierFactoryMerkleLT");
       expect(v2Contract?.createMethods).toContain("createMerkleLT");
@@ -208,9 +193,9 @@ describe("shapes", () => {
   describe("version ordering", () => {
     it("lockup shapes have contracts ordered by version (newest first)", () => {
       for (const shape of Object.values(shapes.lockup)) {
-        if (shape.contracts.length > 1) {
+        if (shape.evm.length > 1) {
           // v3.0 should come before v2.0, etc.
-          const versions = shape.contracts.map((c) => c.version);
+          const versions = shape.evm.map((c) => c.version);
           const sortedVersions = [...versions].sort().reverse();
           expect(versions).toEqual(sortedVersions);
         }
@@ -218,15 +203,15 @@ describe("shapes", () => {
     });
 
     it("flow shapes have contracts ordered by version (newest first)", () => {
-      const versions = shapes.flow.flow.contracts.map((c) => c.version);
+      const versions = shapes.flow.flow.evm.map((c) => c.version);
       const sortedVersions = [...versions].sort().reverse();
       expect(versions).toEqual(sortedVersions);
     });
 
     it("airdrop shapes have contracts ordered by version (newest first)", () => {
       for (const shape of Object.values(shapes.airdrops)) {
-        if (shape.contracts.length > 1) {
-          const versions = shape.contracts.map((c) => c.version);
+        if (shape.evm.length > 1) {
+          const versions = shape.evm.map((c) => c.version);
           const sortedVersions = [...versions].sort().reverse();
           expect(versions).toEqual(sortedVersions);
         }
@@ -235,42 +220,42 @@ describe("shapes", () => {
   });
 
   describe("helper functions", () => {
-    it("getShapesByVersion returns shapes available for v3.0", () => {
-      const v3Shapes = getShapesByVersion(shapes.lockup, "v3.0");
+    it("getEvmShapesByVersion returns shapes available for v3.0", () => {
+      const v3Shapes = getEvmShapesByVersion(shapes.lockup, "v3.0");
       expect(v3Shapes.length).toBe(11); // All lockup shapes support v3.0
     });
 
-    it("getShapesByVersion returns shapes available for v1.2", () => {
-      const v12Shapes = getShapesByVersion(shapes.lockup, "v1.2");
+    it("getEvmShapesByVersion returns shapes available for v1.2", () => {
+      const v12Shapes = getEvmShapesByVersion(shapes.lockup, "v1.2");
       expect(v12Shapes.length).toBe(9); // All except unlockLinear/unlockCliff (v2.0+ only)
     });
 
-    it("getShapesByVersion returns only LL/LD shapes for v1.0", () => {
-      const v10Shapes = getShapesByVersion(shapes.lockup, "v1.0");
+    it("getEvmShapesByVersion returns only LL/LD shapes for v1.0", () => {
+      const v10Shapes = getEvmShapesByVersion(shapes.lockup, "v1.0");
       // LT shapes (stepper, monthly, timelock, doubleUnlock) and unlock shapes don't support v1.0
       expect(v10Shapes.length).toBe(5);
     });
 
-    it("getContractMethodsForVersion returns correct contract", () => {
-      const v3Contract = getContractMethodsForVersion(shapes.lockup.linear, "v3.0");
+    it("getEvmContractMethodsForVersion returns correct contract", () => {
+      const v3Contract = getEvmContractMethodsForVersion(shapes.lockup.linear, "v3.0");
       expect(v3Contract?.contract).toBe("SablierLockup");
     });
 
-    it("getContractMethodsForVersion returns undefined for unsupported version", () => {
-      const v10Contract = getContractMethodsForVersion(shapes.lockup.stepper, "v1.0");
+    it("getEvmContractMethodsForVersion returns undefined for unsupported version", () => {
+      const v10Contract = getEvmContractMethodsForVersion(shapes.lockup.stepper, "v1.0");
       expect(v10Contract).toBeUndefined();
     });
 
-    it("isShapeAvailableInVersion returns true for supported version", () => {
-      expect(isShapeAvailableInVersion(shapes.lockup.linear, "v3.0")).toBe(true);
+    it("isEvmShapeAvailableInVersion returns true for supported version", () => {
+      expect(isEvmShapeAvailableInVersion(shapes.lockup.linear, "v3.0")).toBe(true);
     });
 
-    it("isShapeAvailableInVersion returns false for unsupported version", () => {
-      expect(isShapeAvailableInVersion(shapes.lockup.stepper, "v1.0")).toBe(false);
+    it("isEvmShapeAvailableInVersion returns false for unsupported version", () => {
+      expect(isEvmShapeAvailableInVersion(shapes.lockup.stepper, "v1.0")).toBe(false);
     });
 
-    it("getLatestContractMethod returns first contract (newest)", () => {
-      const latest = getLatestContractMethod(shapes.lockup.linear);
+    it("getLatestEvmContractMethod returns first contract (newest)", () => {
+      const latest = getLatestEvmContractMethod(shapes.lockup.linear);
       expect(latest.version).toBe("v3.0");
     });
   });
@@ -279,7 +264,7 @@ describe("shapes", () => {
     it("all lockup shape versions are valid Lockup versions", () => {
       const validVersions = Object.values(Version.Lockup);
       for (const shape of Object.values(shapes.lockup)) {
-        for (const contract of shape.contracts) {
+        for (const contract of shape.evm) {
           expect(validVersions).toContain(contract.version);
         }
       }
@@ -287,7 +272,7 @@ describe("shapes", () => {
 
     it("all flow shape versions are valid Flow versions", () => {
       const validVersions = Object.values(Version.Flow);
-      for (const contract of shapes.flow.flow.contracts) {
+      for (const contract of shapes.flow.flow.evm) {
         expect(validVersions).toContain(contract.version);
       }
     });
@@ -295,7 +280,7 @@ describe("shapes", () => {
     it("all airdrop shape versions are valid Airdrops versions", () => {
       const validVersions = Object.values(Version.Airdrops);
       for (const shape of Object.values(shapes.airdrops)) {
-        for (const contract of shape.contracts) {
+        for (const contract of shape.evm) {
           expect(validVersions).toContain(contract.version);
         }
       }
@@ -369,7 +354,7 @@ describe("shapes", () => {
   describe("contract existence validation", () => {
     it("all airdrop shape contracts exist in their version manifests", () => {
       for (const shape of Object.values(shapes.airdrops)) {
-        for (const { contract, version } of shape.contracts) {
+        for (const { contract, version } of shape.evm) {
           const release = releases.airdrops[version as Version.Airdrops];
           expect(
             release.contractNames,
@@ -381,7 +366,7 @@ describe("shapes", () => {
 
     it("all flow shape contracts exist in their version manifests", () => {
       for (const shape of Object.values(shapes.flow)) {
-        for (const { contract, version } of shape.contracts) {
+        for (const { contract, version } of shape.evm) {
           const release = releases.flow[version as Version.Flow];
           expect(
             release.contractNames,
@@ -393,7 +378,7 @@ describe("shapes", () => {
 
     it("all lockup shape contracts exist in their version manifests", () => {
       for (const shape of Object.values(shapes.lockup)) {
-        for (const { contract, version } of shape.contracts) {
+        for (const { contract, version } of shape.evm) {
           const release = releases.lockup[version as Version.Lockup];
           expect(
             release.contractNames,
@@ -416,7 +401,7 @@ describe("shapes", () => {
     const instantFactoryPattern = /Instant$|^SablierMerkleFactory$/;
 
     it("stepper shape only maps to LT (tranched) factory contracts", () => {
-      for (const { contract, version } of shapes.airdrops.stepper.contracts) {
+      for (const { contract, version } of shapes.airdrops.stepper.evm) {
         expect(
           ltFactoryPattern.test(contract),
           `stepper shape has non-LT factory contract "${contract}" in ${version}`,
@@ -432,7 +417,7 @@ describe("shapes", () => {
         shapes.airdrops.unlockCliff,
       ];
       for (const shape of llShapes) {
-        for (const { contract, version } of shape.contracts) {
+        for (const { contract, version } of shape.evm) {
           expect(
             llFactoryPattern.test(contract),
             `${shape.id} shape has non-LL factory contract "${contract}" in ${version}`,
@@ -442,7 +427,7 @@ describe("shapes", () => {
     });
 
     it("instant shape only maps to Instant factory contracts", () => {
-      for (const { contract, version } of shapes.airdrops.instant.contracts) {
+      for (const { contract, version } of shapes.airdrops.instant.evm) {
         expect(
           instantFactoryPattern.test(contract),
           `instant shape has non-Instant factory contract "${contract}" in ${version}`,

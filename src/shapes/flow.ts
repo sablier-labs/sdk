@@ -1,15 +1,18 @@
-import { Protocol } from "../enums";
 import { Shape } from "./enums";
 import type { FlowShapeDefinition, FlowShapesRecord } from "./types";
 
+/**
+ * Flow streaming shape.
+ * Continuous streaming with real-time per-second vesting.
+ */
 export const flow: FlowShapeDefinition<Shape.Flow.Flow> = {
-  contracts: [
+  evm: [
     { contract: "SablierFlow", createMethods: ["create", "createAndDeposit"], version: "v2.0" },
     { contract: "SablierFlow", createMethods: ["create", "createAndDeposit"], version: "v1.1" },
     { contract: "SablierFlow", createMethods: ["create", "createAndDeposit"], version: "v1.0" },
   ],
   id: Shape.Flow.Flow,
-  protocol: Protocol.Flow,
+  name: "Flow",
 } satisfies FlowShapeDefinition;
 
 /** All Flow shapes indexed by ID */
