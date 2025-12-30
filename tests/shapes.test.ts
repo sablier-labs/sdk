@@ -1,5 +1,6 @@
 import { Version } from "@src/evm/enums";
 import { releases } from "@src/evm/releases";
+import type { ShapeWithSolanaSupport } from "@src/shapes";
 import {
   airdropShapeIds,
   flowShapeIds,
@@ -27,22 +28,31 @@ import { describe, expect, it } from "vitest";
 
 describe("shapes", () => {
   describe("lockup shapes", () => {
-    it("exports all 11 lockup shapes", () => {
+    it("exports all 17 lockup shapes", () => {
       const shapeIds = Object.keys(shapes.lockup);
-      expect(shapeIds).toHaveLength(11);
+      expect(shapeIds).toHaveLength(17);
     });
 
     it("has correct shape IDs", () => {
+      // LL shapes
       expect(shapes.lockup.linear.id).toBe(Shape.Lockup.Linear);
       expect(shapes.lockup.cliff.id).toBe(Shape.Lockup.Cliff);
-      expect(shapes.lockup.dynamicCliffExponential.id).toBe(Shape.Lockup.DynamicCliffExponential);
+      expect(shapes.lockup.linearUnlockLinear.id).toBe(Shape.Lockup.LinearUnlockLinear);
+      expect(shapes.lockup.linearUnlockCliff.id).toBe(Shape.Lockup.LinearUnlockCliff);
+      expect(shapes.lockup.linearTimelock.id).toBe(Shape.Lockup.LinearTimelock);
+      // LD shapes
       expect(shapes.lockup.dynamicExponential.id).toBe(Shape.Lockup.DynamicExponential);
-      expect(shapes.lockup.tranchedBackweighted.id).toBe(Shape.Lockup.TranchedBackweighted);
+      expect(shapes.lockup.dynamicCliffExponential.id).toBe(Shape.Lockup.DynamicCliffExponential);
+      expect(shapes.lockup.dynamicTimelock.id).toBe(Shape.Lockup.DynamicTimelock);
+      expect(shapes.lockup.dynamicMonthly.id).toBe(Shape.Lockup.DynamicMonthly);
+      expect(shapes.lockup.dynamicStepper.id).toBe(Shape.Lockup.DynamicStepper);
+      expect(shapes.lockup.dynamicUnlockCliff.id).toBe(Shape.Lockup.DynamicUnlockCliff);
+      expect(shapes.lockup.dynamicUnlockLinear.id).toBe(Shape.Lockup.DynamicUnlockLinear);
+      // LT shapes
       expect(shapes.lockup.tranchedStepper.id).toBe(Shape.Lockup.TranchedStepper);
       expect(shapes.lockup.tranchedMonthly.id).toBe(Shape.Lockup.TranchedMonthly);
       expect(shapes.lockup.tranchedTimelock.id).toBe(Shape.Lockup.TranchedTimelock);
-      expect(shapes.lockup.linearUnlockLinear.id).toBe(Shape.Lockup.LinearUnlockLinear);
-      expect(shapes.lockup.linearUnlockCliff.id).toBe(Shape.Lockup.LinearUnlockCliff);
+      expect(shapes.lockup.tranchedBackweighted.id).toBe(Shape.Lockup.TranchedBackweighted);
       expect(shapes.lockup.dynamicDoubleUnlock.id).toBe(Shape.Lockup.DynamicDoubleUnlock);
     });
 
@@ -58,6 +68,7 @@ describe("shapes", () => {
         shapes.lockup.cliff,
         shapes.lockup.linearUnlockLinear,
         shapes.lockup.linearUnlockCliff,
+        shapes.lockup.linearTimelock,
       ];
       for (const shape of llShapes) {
         const v3Contract = shape.evm.find((c) => c.version === "v3.0");
@@ -72,6 +83,11 @@ describe("shapes", () => {
       const ldShapes = [
         shapes.lockup.dynamicExponential,
         shapes.lockup.dynamicCliffExponential,
+        shapes.lockup.dynamicTimelock,
+        shapes.lockup.dynamicMonthly,
+        shapes.lockup.dynamicStepper,
+        shapes.lockup.dynamicUnlockCliff,
+        shapes.lockup.dynamicUnlockLinear,
         shapes.lockup.tranchedBackweighted,
       ];
       for (const shape of ldShapes) {
@@ -231,18 +247,19 @@ describe("shapes", () => {
   describe("helper functions", () => {
     it("getEvmShapesByVersion returns shapes available for v3.0", () => {
       const v3Shapes = getEvmShapesByVersion(shapes.lockup, "v3.0");
-      expect(v3Shapes.length).toBe(11); // All lockup shapes support v3.0
+      expect(v3Shapes.length).toBe(17); // All lockup shapes support v3.0
     });
 
     it("getEvmShapesByVersion returns shapes available for v1.2", () => {
       const v12Shapes = getEvmShapesByVersion(shapes.lockup, "v1.2");
-      expect(v12Shapes.length).toBe(9); // All except unlockLinear/unlockCliff (v2.0+ only)
+      // All except v2.0+ only shapes (linearUnlock*, linearTimelock)
+      expect(v12Shapes.length).toBe(14);
     });
 
     it("getEvmShapesByVersion returns only LL/LD shapes for v1.0", () => {
       const v10Shapes = getEvmShapesByVersion(shapes.lockup, "v1.0");
-      // LT shapes (tranchedStepper, tranchedMonthly, tranchedTimelock, dynamicDoubleCliff) and linear unlock shapes don't support v1.0
-      expect(v10Shapes.length).toBe(5);
+      // Only linear, cliff (LL) + 8 LD shapes; LT and v2.0+ shapes excluded
+      expect(v10Shapes.length).toBe(10);
     });
 
     it("getEvmContractMethodsForVersion returns correct contract", () => {
@@ -297,8 +314,8 @@ describe("shapes", () => {
   });
 
   describe("shape ID arrays", () => {
-    it("lockupShapeIds contains all 11 lockup shapes", () => {
-      expect(lockupShapeIds).toHaveLength(11);
+    it("lockupShapeIds contains all 17 lockup shapes", () => {
+      expect(lockupShapeIds).toHaveLength(17);
       expect(lockupShapeIds).toContain(Shape.Lockup.Linear);
       expect(lockupShapeIds).toContain(Shape.Lockup.Cliff);
       expect(lockupShapeIds).toContain(Shape.Lockup.TranchedStepper);
@@ -421,9 +438,10 @@ describe("shapes", () => {
     it("getSolanaShapesByVersion returns shapes available for v0.1", () => {
       const lockupShapesWithSolana = Object.fromEntries(
         Object.entries(shapes.lockup).filter(([_, shape]) => hasSolanaSupport(shape)),
-      ) as Record<string, typeof shapes.lockup.linear>;
+      ) as Record<string, ShapeWithSolanaSupport>;
       const v01Shapes = getSolanaShapesByVersion(lockupShapesWithSolana, "v0.1");
-      expect(v01Shapes.length).toBe(4); // linear, cliff, linearUnlockLinear, linearUnlockCliff
+      // linear, cliff, linearUnlockLinear, linearUnlockCliff, linearTimelock
+      expect(v01Shapes.length).toBe(5);
     });
 
     it("getSolanaProgramMethodsForVersion returns correct program", () => {

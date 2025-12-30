@@ -1,19 +1,22 @@
-import { Shape } from "./enums";
-import type { FlowShapeDefinition, FlowShapesRecord } from "./types";
-
 /**
- * Flow streaming shape.
+ * Flow shapes.
+ *
  * Continuous streaming with real-time per-second vesting.
  */
-export const flow: FlowShapeDefinition<Shape.Flow.Flow> = {
-  evm: [
-    { contract: "SablierFlow", createMethods: ["create", "createAndDeposit"], version: "v2.0" },
-    { contract: "SablierFlow", createMethods: ["create", "createAndDeposit"], version: "v1.1" },
-    { contract: "SablierFlow", createMethods: ["create", "createAndDeposit"], version: "v1.0" },
-  ],
-  id: Shape.Flow.Flow,
+
+import { FLOW_EVM } from "./constants";
+import { Shape } from "./enums";
+import type { FlowShapesRecord } from "./types";
+import { defineFlowShape } from "./types";
+
+/**
+ * Flow streaming.
+ * Continuous streaming with adjustable rate and real-time withdrawals.
+ */
+export const flow = defineFlowShape(Shape.Flow.Flow, {
+  evm: FLOW_EVM,
   name: "Flow",
-} satisfies FlowShapeDefinition;
+});
 
 /** All Flow shapes indexed by ID */
 export const flowShapes = {

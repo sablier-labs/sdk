@@ -22,6 +22,7 @@ export const solanaLockupShapeIds = [
   Shape.Lockup.Cliff,
   Shape.Lockup.LinearUnlockLinear,
   Shape.Lockup.LinearUnlockCliff,
+  Shape.Lockup.LinearTimelock,
 ] as const;
 
 /** Airdrop shapes with Solana support */

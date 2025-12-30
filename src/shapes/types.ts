@@ -5,33 +5,33 @@ import type { Shape } from "./enums";
 /** An EVM contract method that can create a stream with a shape */
 export type ContractMethod = {
   /** Contract name from manifest (e.g., "SablierLockup", "SablierV2LockupLinear") */
-  contract: string;
+  readonly contract: string;
   /** Method names that create this shape (e.g., ["createWithDurationsLL", "createWithTimestampsLL"]) */
-  createMethods: string[];
+  readonly createMethods: readonly string[];
   /** Protocol version (e.g., "v3.0") */
-  version: EVM.Version;
+  readonly version: EVM.Version;
 };
 
 /** A Solana program method that can create a stream with a shape */
 export type ProgramMethod = {
   /** Program name from manifest (e.g., "SablierLockupLinear") */
-  program: string;
+  readonly program: string;
   /** Method names that create this shape (e.g., ["create_with_durations_ll"]) */
-  createMethods: string[];
+  readonly createMethods: readonly string[];
   /** Protocol version (e.g., "v0.1") */
-  version: Solana.Version;
+  readonly version: Solana.Version;
 };
 
 /** Base unified shape definition */
 type BaseUnifiedShape<TId extends string> = {
   /** Shape identifier */
-  id: TId;
+  readonly id: TId;
   /** Human-readable name */
-  name: string;
+  readonly name: string;
   /** All EVM contract/method combinations that can create this shape */
-  evm: ContractMethod[];
+  readonly evm: readonly ContractMethod[];
   /** All Solana program/method combinations that can create this shape (if supported) */
-  solana?: ProgramMethod[];
+  readonly solana?: readonly ProgramMethod[];
 };
 
 /** Lockup shape definition with unified platform support */
@@ -75,4 +75,33 @@ export type AirdropShapesRecord = {
 export type AnyShape = LockupShapeDefinition | FlowShapeDefinition | AirdropShapeDefinition;
 
 /** Shapes that have Solana support (with required solana field) */
-export type ShapeWithSolanaSupport = AnyShape & { solana: ProgramMethod[] };
+export type ShapeWithSolanaSupport = AnyShape & { readonly solana: readonly ProgramMethod[] };
+
+/* -------------------------------------------------------------------------- */
+/*                             BUILDER FUNCTIONS                              */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * Factory to create a Lockup shape definition with locked id type.
+ * Reduces boilerplate and ensures id is correctly typed.
+ */
+export const defineLockupShape = <TId extends Shape.Lockup>(
+  id: TId,
+  def: Omit<LockupShapeDefinition<TId>, "id">,
+): LockupShapeDefinition<TId> => ({ id, ...def });
+
+/**
+ * Factory to create a Flow shape definition with locked id type.
+ */
+export const defineFlowShape = <TId extends Shape.Flow>(
+  id: TId,
+  def: Omit<FlowShapeDefinition<TId>, "id">,
+): FlowShapeDefinition<TId> => ({ id, ...def });
+
+/**
+ * Factory to create an Airdrop shape definition with locked id type.
+ */
+export const defineAirdropShape = <TId extends Shape.Airdrops>(
+  id: TId,
+  def: Omit<AirdropShapeDefinition<TId>, "id">,
+): AirdropShapeDefinition<TId> => ({ id, ...def });
