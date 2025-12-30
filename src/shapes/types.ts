@@ -26,6 +26,12 @@ export type ProgramMethod = {
 type BaseUnifiedShape<TId extends string> = {
   /** Shape identifier */
   readonly id: TId;
+  /**
+   * Whether the shape is deprecated and no longer shown in the UI gallery.
+   * @see https://app.sablier.com/vesting/gallery/
+   * @see https://app.sablier.com/airdrops/create/
+   */
+  readonly isDeprecated: boolean;
   /** Human-readable name */
   readonly name: string;
   /** All EVM contract/method combinations that can create this shape */

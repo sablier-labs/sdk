@@ -15,6 +15,7 @@ import { defineFlowShape } from "./types";
  */
 export const flow = defineFlowShape(Shape.Flow.Flow, {
   evm: FLOW_EVM,
+  isDeprecated: false,
   name: "Flow",
 });
 

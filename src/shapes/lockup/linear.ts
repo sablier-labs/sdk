@@ -15,6 +15,7 @@ import { defineLockupShape } from "../types";
  */
 export const linear = defineLockupShape(Shape.Lockup.Linear, {
   evm: LOCKUP_EVM_LL,
+  isDeprecated: false,
   name: "Linear",
   solana: LOCKUP_SOLANA_LL,
 });
@@ -25,6 +26,7 @@ export const linear = defineLockupShape(Shape.Lockup.Linear, {
  */
 export const cliff = defineLockupShape(Shape.Lockup.Cliff, {
   evm: LOCKUP_EVM_LL,
+  isDeprecated: false,
   name: "Cliff",
   solana: LOCKUP_SOLANA_LL,
 });
@@ -35,6 +37,7 @@ export const cliff = defineLockupShape(Shape.Lockup.Cliff, {
  */
 export const linearUnlockLinear = defineLockupShape(Shape.Lockup.LinearUnlockLinear, {
   evm: LOCKUP_EVM_LL_V2,
+  isDeprecated: false,
   name: "Linear Unlock Linear",
   solana: LOCKUP_SOLANA_LL,
 });
@@ -45,6 +48,7 @@ export const linearUnlockLinear = defineLockupShape(Shape.Lockup.LinearUnlockLin
  */
 export const linearUnlockCliff = defineLockupShape(Shape.Lockup.LinearUnlockCliff, {
   evm: LOCKUP_EVM_LL_V2,
+  isDeprecated: false,
   name: "Linear Unlock Cliff",
   solana: LOCKUP_SOLANA_LL,
 });
@@ -55,6 +59,7 @@ export const linearUnlockCliff = defineLockupShape(Shape.Lockup.LinearUnlockClif
  */
 export const linearTimelock = defineLockupShape(Shape.Lockup.LinearTimelock, {
   evm: LOCKUP_EVM_LL_V2,
+  isDeprecated: false,
   name: "Linear Timelock",
   solana: LOCKUP_SOLANA_LL,
 });

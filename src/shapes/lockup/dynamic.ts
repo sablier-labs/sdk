@@ -15,6 +15,7 @@ import { defineLockupShape } from "../types";
  */
 export const dynamicExponential = defineLockupShape(Shape.Lockup.DynamicExponential, {
   evm: LOCKUP_EVM_LD,
+  isDeprecated: false,
   name: "Dynamic Exponential",
 });
 
@@ -24,6 +25,7 @@ export const dynamicExponential = defineLockupShape(Shape.Lockup.DynamicExponent
  */
 export const dynamicCliffExponential = defineLockupShape(Shape.Lockup.DynamicCliffExponential, {
   evm: LOCKUP_EVM_LD,
+  isDeprecated: false,
   name: "Dynamic Cliff Exponential",
 });
 
@@ -38,6 +40,7 @@ export const dynamicCliffExponential = defineLockupShape(Shape.Lockup.DynamicCli
  */
 export const dynamicTimelock = defineLockupShape(Shape.Lockup.DynamicTimelock, {
   evm: LOCKUP_EVM_LD,
+  isDeprecated: true,
   name: "Dynamic Timelock",
 });
 
@@ -47,6 +50,7 @@ export const dynamicTimelock = defineLockupShape(Shape.Lockup.DynamicTimelock, {
  */
 export const dynamicMonthly = defineLockupShape(Shape.Lockup.DynamicMonthly, {
   evm: LOCKUP_EVM_LD,
+  isDeprecated: true,
   name: "Dynamic Monthly",
 });
 
@@ -56,6 +60,7 @@ export const dynamicMonthly = defineLockupShape(Shape.Lockup.DynamicMonthly, {
  */
 export const dynamicStepper = defineLockupShape(Shape.Lockup.DynamicStepper, {
   evm: LOCKUP_EVM_LD,
+  isDeprecated: true,
   name: "Dynamic Stepper",
 });
 
@@ -65,6 +70,7 @@ export const dynamicStepper = defineLockupShape(Shape.Lockup.DynamicStepper, {
  */
 export const dynamicUnlockCliff = defineLockupShape(Shape.Lockup.DynamicUnlockCliff, {
   evm: LOCKUP_EVM_LD,
+  isDeprecated: true,
   name: "Dynamic Unlock Cliff",
 });
 
@@ -74,5 +80,16 @@ export const dynamicUnlockCliff = defineLockupShape(Shape.Lockup.DynamicUnlockCl
  */
 export const dynamicUnlockLinear = defineLockupShape(Shape.Lockup.DynamicUnlockLinear, {
   evm: LOCKUP_EVM_LD,
+  isDeprecated: true,
   name: "Dynamic Unlock Linear",
+});
+
+/**
+ * Double unlock pattern.
+ * Two distinct unlock events with a waiting period between.
+ */
+export const dynamicDoubleUnlock = defineLockupShape(Shape.Lockup.DynamicDoubleUnlock, {
+  evm: LOCKUP_EVM_LD,
+  isDeprecated: false,
+  name: "Dynamic Double Unlock",
 });

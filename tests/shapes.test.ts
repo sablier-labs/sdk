@@ -88,7 +88,7 @@ describe("shapes", () => {
         shapes.lockup.dynamicStepper,
         shapes.lockup.dynamicUnlockCliff,
         shapes.lockup.dynamicUnlockLinear,
-        shapes.lockup.tranchedBackweighted,
+        shapes.lockup.dynamicDoubleUnlock,
       ];
       for (const shape of ldShapes) {
         const v3Contract = shape.evm.find((c) => c.version === "v3.0");
@@ -104,7 +104,7 @@ describe("shapes", () => {
         shapes.lockup.tranchedStepper,
         shapes.lockup.tranchedMonthly,
         shapes.lockup.tranchedTimelock,
-        shapes.lockup.dynamicDoubleUnlock,
+        shapes.lockup.tranchedBackweighted,
       ];
       for (const shape of ltShapes) {
         const v3Contract = shape.evm.find((c) => c.version === "v3.0");
@@ -519,6 +519,39 @@ describe("shapes", () => {
             `${shape.id}: contract "${contract}" not found in lockup ${version} manifest`,
           ).toContain(contract);
         }
+      }
+    });
+  });
+
+  describe("isDeprecated flag", () => {
+    const deprecatedLockupShapeIds = [
+      Shape.Lockup.DynamicMonthly,
+      Shape.Lockup.DynamicStepper,
+      Shape.Lockup.DynamicTimelock,
+      Shape.Lockup.DynamicUnlockCliff,
+      Shape.Lockup.DynamicUnlockLinear,
+    ];
+
+    it("marks exactly 5 lockup shapes as deprecated", () => {
+      const deprecatedShapes = Object.values(shapes.lockup).filter((s) => s.isDeprecated);
+      expect(deprecatedShapes).toHaveLength(5);
+    });
+
+    it("marks only specified shapes as deprecated", () => {
+      for (const shape of Object.values(shapes.lockup)) {
+        expect(shape.isDeprecated).toBe(deprecatedLockupShapeIds.includes(shape.id));
+      }
+    });
+
+    it("all flow shapes are not deprecated", () => {
+      for (const shape of Object.values(shapes.flow)) {
+        expect(shape.isDeprecated).toBe(false);
+      }
+    });
+
+    it("all airdrop shapes are not deprecated", () => {
+      for (const shape of Object.values(shapes.airdrops)) {
+        expect(shape.isDeprecated).toBe(false);
       }
     });
   });
