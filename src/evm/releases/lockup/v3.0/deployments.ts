@@ -82,6 +82,7 @@ export const mainnets: Sablier.EVM.Deployment[] = [
     [manifest.SABLIER_BATCH_LOCKUP]: "0x80054b6797C5F657CaCaEC05E4890acfC4Ef79dB",
     [manifest.SABLIER_LOCKUP]: ["0x01Fed2aB51A830a3AF3AE1AB817dF1bA4F152bB0", 28737609],
   }),
+  // This is not the actual start block. The Denergy custom Graph node does not index events before the block 710000.
   get(chains.denergy.id, {
     [manifest.HELPERS]: "0xd595D34ed96b253E7c7a934a7624F330a8411953",
     [manifest.LOCKUP_MATH]: "0xB8aB2E66d5E4931e675CBE499d8c01B778694fd3",
