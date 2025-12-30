@@ -48,9 +48,10 @@ import {
   zksyncSepoliaTestnet as _zksyncSepoliaTestnet,
 } from "viem/chains";
 
+const DENERGY_CHAIN_ID = 369_369;
+const DENERGY_NATIVE_CURRENCY_SYMBOL = "WATT";
 const HYPEREVM_NATIVE_CURRENCY_SYMBOL = "HYPE";
 const TANGLE_NATIVE_CURRENCY_SYMBOL = "TNT";
-const DENERGY_NATIVE_CURRENCY_SYMBOL = "WATT";
 
 /* -------------------------------------------------------------------------- */
 /*                                     RPC                                    */
@@ -165,6 +166,12 @@ const config = {
     [_taikoHekla.id]: "Taiko Hekla",
     [_xdc.id]: "XDC",
   } as IdToString,
+  routemesh: {
+    /** Chains that do not have RouteMesh support. */
+    unsupported: {
+      [DENERGY_CHAIN_ID]: true,
+    } as IdToBool,
+  },
   slugs: {
     [_zksyncSepoliaTestnet.id]: "zksync-sepolia",
   } as IdToString,
@@ -227,7 +234,7 @@ function define(slug: string, chain: ViemChain): Sablier.EVM.Chain {
       alchemy: alchemyRPCs[chain.id],
       defaults: defaultRPCs as string[],
       infura: infuraRPCs[chain.id],
-      routemesh: routemeshRPC(chain.id),
+      routemesh: config.routemesh.unsupported[chain.id] ? undefined : routemeshRPC(chain.id),
     },
     slug,
   };
@@ -298,7 +305,7 @@ export const denergy: Sablier.EVM.Chain = define(
     blockExplorers: {
       default: { name: "Explorer", url: "https://explorer.denergychain.com" },
     },
-    id: 369369,
+    id: DENERGY_CHAIN_ID,
     name: "Denergy",
     nativeCurrency: {
       decimals: 18,
