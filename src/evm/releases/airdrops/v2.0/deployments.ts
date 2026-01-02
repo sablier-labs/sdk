@@ -103,7 +103,7 @@ export const mainnets: Sablier.EVM.Deployment[] = [
     [manifest.SABLIER_FACTORY_MERKLE_LT]: ["0xc31c3f1735155451a36d88e0aaeaa3d7c1065a32", 28645207],
     [manifest.SABLIER_FACTORY_MERKLE_VCA]: ["0xa06b797ffa2652f7411e256d3e9d3fc44874db47", 28645207],
   }),
-  // This is not the actual start block. The Denergy custom Graph node does not index events before the block 710000.
+  // The actual deployment block is 697808, but the Denergy chain does not work before block 710000.
   get(chains.denergy.id, {
     [manifest.SABLIER_FACTORY_MERKLE_INSTANT]: [
       "0x63b92f7e2f69877184c955e63b9d8dff55e52e14",
