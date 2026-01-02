@@ -23,12 +23,6 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 [1.1.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.1.0
 [1.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.0.0
 
-## [1.7.1] - 2025-12-29
-
-### Changed
-
-- Denergy contract deploy block numbers ([#102](https://github.com/sablier-labs/sdk/pull/124))
-
 ## [1.7.0] - 2025-12-02
 
 ### Changed
