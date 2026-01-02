@@ -1,7 +1,7 @@
-import type { BaseColumns } from "../types";
-
 /** Flow stream: address, rate, interval, initialDeposit */
-export type StreamColumns = BaseColumns & {
+export type StreamColumns = {
+  /** Recipient wallet address */
+  address: string;
   /** Token amount per interval */
   rate: string;
   /** Time interval for rate (second, minute, hour, day, week, month, year) */

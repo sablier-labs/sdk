@@ -1,15 +1,5 @@
 import type { BaseColumns } from "../../types";
 
-/** Tranched backweighted with start: address, amount, start, years, unlocks */
-export type TranchedBackweightedColumns = BaseColumns & {
-  /** Start timestamp */
-  start: string;
-  /** Number of years */
-  years: string;
-  /** Unlock percentages (e.g., "10;20;30;40") */
-  unlocks: string;
-};
-
 /** Linear vesting with duration: address, amount, duration */
 export type LinearColumns = BaseColumns & {
   /** Relative duration (e.g., "2 years 20 days") */
@@ -48,16 +38,6 @@ export type DynamicDoubleUnlockColumns = LinearColumns & {
  */
 export type DynamicExponentialColumns = LinearColumns;
 
-/** Tranched monthly with start: address, amount, start, months, initial */
-export type TranchedMonthlyColumns = BaseColumns & {
-  /** Start timestamp (e.g., "2026-01-12 16:15") */
-  start: string;
-  /** Number of months */
-  months: string;
-  /** Initial unlock timing ("at start" or similar) */
-  initial: string;
-};
-
 /** Tranched stepper with duration: address, amount, duration, steps */
 export type TranchedStepperColumns = LinearColumns & {
   /** Number of discrete unlock steps */
@@ -88,13 +68,11 @@ export type LinearUnlockLinearColumns = LinearColumns & {
 
 /** All duration template column types */
 export type Columns =
-  | TranchedBackweightedColumns
   | CliffColumns
   | DynamicDoubleUnlockColumns
   | DynamicCliffExponentialColumns
   | DynamicExponentialColumns
   | LinearColumns
-  | TranchedMonthlyColumns
   | TranchedStepperColumns
   | TranchedTimelockColumns
   | LinearUnlockCliffColumns

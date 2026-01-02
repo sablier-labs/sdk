@@ -1,15 +1,14 @@
 import type { BaseColumns } from "../../types";
-import type {
-  TranchedBackweightedColumns as DurationTranchedBackweightedColumns,
-  TranchedMonthlyColumns as DurationTranchedMonthlyColumns,
-} from "../duration/index";
 
-/**
- * Tranched backweighted with range: address, amount, start, years, unlocks
- * @note Identical to duration TranchedBackweightedColumns because backweighted vesting inherently uses
- * absolute timestamps (start date + number of years), not relative durations
- */
-export type TranchedBackweightedColumns = DurationTranchedBackweightedColumns;
+/** Tranched backweighted: address, amount, start, years, unlocks */
+export type TranchedBackweightedColumns = BaseColumns & {
+  /** Start timestamp */
+  start: string;
+  /** Number of years */
+  years: string;
+  /** Unlock percentages (e.g., "10;20;30;40") */
+  unlocks: string;
+};
 
 /** Linear vesting with range: address, amount, start, end */
 export type LinearColumns = BaseColumns & {
@@ -51,12 +50,15 @@ export type DynamicDoubleUnlockColumns = LinearColumns & {
  */
 export type DynamicExponentialColumns = LinearColumns;
 
-/**
- * Tranched monthly with range: address, amount, start, months, initial
- * @note Identical to duration TranchedMonthlyColumns because monthly vesting inherently uses
- * absolute timestamps (start date + number of months), not relative durations
- */
-export type TranchedMonthlyColumns = DurationTranchedMonthlyColumns;
+/** Tranched monthly: address, amount, start, months, initial */
+export type TranchedMonthlyColumns = BaseColumns & {
+  /** Start timestamp (e.g., "2026-01-12 16:15") */
+  start: string;
+  /** Number of months */
+  months: string;
+  /** Initial unlock timing ("at start" or similar) */
+  initial: string;
+};
 
 /** Tranched stepper with range: address, amount, start, end, steps */
 export type TranchedStepperColumns = LinearColumns & {
