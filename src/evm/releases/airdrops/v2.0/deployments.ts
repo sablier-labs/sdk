@@ -103,14 +103,15 @@ export const mainnets: Sablier.EVM.Deployment[] = [
     [manifest.SABLIER_FACTORY_MERKLE_LT]: ["0xc31c3f1735155451a36d88e0aaeaa3d7c1065a32", 28645207],
     [manifest.SABLIER_FACTORY_MERKLE_VCA]: ["0xa06b797ffa2652f7411e256d3e9d3fc44874db47", 28645207],
   }),
+  // The actual deployment block is 697808, but the Denergy chain does not work before block 710000.
   get(chains.denergy.id, {
     [manifest.SABLIER_FACTORY_MERKLE_INSTANT]: [
       "0x63b92f7e2f69877184c955e63b9d8dff55e52e14",
-      696824,
+      710000,
     ],
-    [manifest.SABLIER_FACTORY_MERKLE_LL]: ["0x28d116d7e917756310986c4207ea54183fcba06a", 696824],
-    [manifest.SABLIER_FACTORY_MERKLE_LT]: ["0x5e73bb96493c10919204045fcdb639d35ad859f8", 696824],
-    [manifest.SABLIER_FACTORY_MERKLE_VCA]: ["0x6d64fc0bb0291c6a4f416ec1c379815c06967eaf", 696825],
+    [manifest.SABLIER_FACTORY_MERKLE_LL]: ["0x28d116d7e917756310986c4207ea54183fcba06a", 710000],
+    [manifest.SABLIER_FACTORY_MERKLE_LT]: ["0x5e73bb96493c10919204045fcdb639d35ad859f8", 710000],
+    [manifest.SABLIER_FACTORY_MERKLE_VCA]: ["0x6d64fc0bb0291c6a4f416ec1c379815c06967eaf", 710000],
   }),
   get(chains.gnosis.id, {
     [manifest.SABLIER_FACTORY_MERKLE_INSTANT]: [
