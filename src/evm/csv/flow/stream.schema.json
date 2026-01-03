@@ -19,8 +19,11 @@
     },
     "initialDepositAmount": {
       "$ref": "../common.schema.json#/$defs/amount"
+    },
+    "startAt": {
+      "$ref": "../common.schema.json#/$defs/timestamp"
     }
   },
-  "required": ["address", "rateAmount", "rateInterval", "initialDepositAmount"],
+  "required": ["address", "rateAmount", "rateInterval", "initialDepositAmount", "startAt"],
   "additionalProperties": false
 }

@@ -1,4 +1,4 @@
-/** Flow stream: address, rateAmount, rateInterval, initialDepositAmount */
+/** Flow stream: address, rateAmount, rateInterval, initialDepositAmount, startAt */
 export type StreamColumns = {
   /** Recipient wallet address */
   address: string;
@@ -8,6 +8,8 @@ export type StreamColumns = {
   rateInterval: string;
   /** Initial deposit amount */
   initialDepositAmount: string;
+  /** Stream start time (YYYY-MM-DD HH:mm) */
+  startAt: string;
 };
 
 export type Columns = StreamColumns;
