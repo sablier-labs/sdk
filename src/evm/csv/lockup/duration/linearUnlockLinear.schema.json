@@ -13,10 +13,10 @@
     "duration": {
       "$ref": "../../common.schema.json#/$defs/duration"
     },
-    "unlock": {
+    "unlockAmount": {
       "$ref": "../../common.schema.json#/$defs/amount"
     }
   },
-  "required": ["address", "amount", "duration", "unlock"],
+  "required": ["address", "amount", "duration", "unlockAmount"],
   "additionalProperties": false
 }

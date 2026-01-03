@@ -1,91 +1,90 @@
 import type { BaseColumns } from "../../types";
 
-/** Tranched backweighted: address, amount, start, years, unlocks */
+/** Tranched backweighted: address, amount, startAt, unlockPercentages, yearCount */
 export type TranchedBackweightedColumns = BaseColumns & {
   /** Start timestamp */
-  start: string;
   /** Number of years */
-  years: string;
+  startAt: string;
   /** Unlock percentages (e.g., "10;20;30;40") */
-  unlocks: string;
+  unlockPercentages: string;
+  /** Number of years */
+  yearCount: string;
 };
 
-/** Linear vesting with range: address, amount, start, end */
+/** Linear vesting with range: address, amount, startAt, endAt */
 export type LinearColumns = BaseColumns & {
   /** Start timestamp (e.g., "2024-01-12 16:15") */
-  start: string;
+  startAt: string;
   /** End timestamp */
-  end: string;
+  endAt: string;
 };
 
-/** Cliff with range: address, amount, start, end, cliffEnd, cliffAmount */
+/** Cliff with range: address, amount, startAt, endAt, cliffAmount, cliffAt */
 export type CliffColumns = LinearColumns & {
-  /** Cliff end timestamp */
-  cliffEnd: string;
   /** Amount unlocked at cliff */
   cliffAmount: string;
+  /** Cliff timestamp */
+  cliffAt: string;
 };
 
 /**
- * Dynamic cliff-exponential with range: address, amount, start, end, cliffEnd, cliffAmount
+ * Dynamic cliff-exponential with range: address, amount, startAt, endAt, cliffAmount, cliffAt
  * @note Structurally identical to CliffColumns; the shape difference is semantic only
  */
 export type DynamicCliffExponentialColumns = CliffColumns;
 
-/** Dynamic double-unlock with range: address, amount, start, end, firstUnlockEnd, firstUnlockAmount, secondUnlockEnd, secondUnlockAmount */
+/** Dynamic double-unlock with range: address, amount, startAt, endAt, firstUnlockAmount, firstUnlockAt, secondUnlockAmount, secondUnlockAt */
 export type DynamicDoubleUnlockColumns = LinearColumns & {
-  /** First unlock end timestamp */
-  firstUnlockEnd: string;
   /** Amount for first unlock */
   firstUnlockAmount: string;
-  /** Second unlock end timestamp */
-  secondUnlockEnd: string;
+  /** First unlock timestamp */
+  firstUnlockAt: string;
   /** Amount for second unlock */
   secondUnlockAmount: string;
+  /** Second unlock timestamp */
+  secondUnlockAt: string;
 };
 
 /**
- * Dynamic exponential with range: address, amount, start, end
+ * Dynamic exponential with range: address, amount, startAt, endAt
  * @note Structurally identical to LinearColumns; the shape difference is semantic only
  */
 export type DynamicExponentialColumns = LinearColumns;
 
-/** Tranched monthly: address, amount, start, months, initial */
+/** Tranched monthly: address, amount, startAt, monthCount */
 export type TranchedMonthlyColumns = BaseColumns & {
   /** Start timestamp (e.g., "2026-01-12 16:15") */
-  start: string;
+  startAt: string;
   /** Number of months */
-  months: string;
-  /** Initial unlock timing ("at start" or similar) */
-  initial: string;
+  monthCount: string;
 };
 
-/** Tranched stepper with range: address, amount, start, end, steps */
+/** Tranched stepper with range: address, amount, startAt, endAt, stepCount */
 export type TranchedStepperColumns = LinearColumns & {
   /** Number of discrete unlock steps */
-  steps: string;
+  stepCount: string;
 };
 
-/** Tranched timelock with range: address, amount, end */
+/** Tranched timelock with range: address, amount, endAt */
 export type TranchedTimelockColumns = BaseColumns & {
   /** End timestamp when tokens unlock */
-  end: string;
+  endAt: string;
 };
 
-/** Linear unlock-cliff with range: address, amount, start, end, cliffEnd, unlock, cliffAmount */
+/** Linear unlock-cliff with range: address, amount, startAt, endAt, unlockAmount, cliffAmount, cliffAt */
 export type LinearUnlockCliffColumns = LinearColumns & {
-  /** Cliff end timestamp */
-  cliffEnd: string;
-  /** Immediate unlock percentage */
-  unlock: string;
+  /** Immediate unlock amount */
+  unlockAmount: string;
   /** Amount unlocked at cliff */
   cliffAmount: string;
+  /** Cliff timestamp */
+  cliffAt: string;
 };
 
-/** Linear unlock-linear with range: address, amount, start, end, unlock */
+/** Linear unlock-linear with range: address, amount, startAt, endAt, unlockAmount */
 export type LinearUnlockLinearColumns = LinearColumns & {
-  /** Immediate unlock percentage */
-  unlock: string;
+  /** Immediate unlock amount */
+  unlockAmount: string;
 };
 
 /** All range template column types */

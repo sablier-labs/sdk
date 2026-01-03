@@ -13,27 +13,27 @@
     "duration": {
       "$ref": "../../common.schema.json#/$defs/duration"
     },
-    "firstUnlockDuration": {
-      "$ref": "../../common.schema.json#/$defs/duration"
-    },
     "firstUnlockAmount": {
       "$ref": "../../common.schema.json#/$defs/amount"
     },
-    "secondUnlockDuration": {
+    "firstUnlockDuration": {
       "$ref": "../../common.schema.json#/$defs/duration"
     },
     "secondUnlockAmount": {
       "$ref": "../../common.schema.json#/$defs/amount"
+    },
+    "secondUnlockDuration": {
+      "$ref": "../../common.schema.json#/$defs/duration"
     }
   },
   "required": [
     "address",
     "amount",
     "duration",
-    "firstUnlockDuration",
     "firstUnlockAmount",
-    "secondUnlockDuration",
-    "secondUnlockAmount"
+    "firstUnlockDuration",
+    "secondUnlockAmount",
+    "secondUnlockDuration"
   ],
   "additionalProperties": false
 }

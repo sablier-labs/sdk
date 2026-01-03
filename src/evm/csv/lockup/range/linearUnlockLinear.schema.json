@@ -10,16 +10,16 @@
     "amount": {
       "$ref": "../../common.schema.json#/$defs/amount"
     },
-    "start": {
+    "startAt": {
       "$ref": "../../common.schema.json#/$defs/timestamp"
     },
-    "end": {
+    "endAt": {
       "$ref": "../../common.schema.json#/$defs/timestamp"
     },
-    "unlock": {
+    "unlockAmount": {
       "$ref": "../../common.schema.json#/$defs/amount"
     }
   },
-  "required": ["address", "amount", "start", "end", "unlock"],
+  "required": ["address", "amount", "startAt", "endAt", "unlockAmount"],
   "additionalProperties": false
 }

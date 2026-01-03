@@ -10,22 +10,22 @@
     "amount": {
       "$ref": "../../common.schema.json#/$defs/amount"
     },
-    "start": {
+    "startAt": {
       "$ref": "../../common.schema.json#/$defs/timestamp"
     },
-    "end": {
+    "endAt": {
       "$ref": "../../common.schema.json#/$defs/timestamp"
     },
-    "cliffEnd": {
-      "$ref": "../../common.schema.json#/$defs/timestamp"
-    },
-    "unlock": {
+    "unlockAmount": {
       "$ref": "../../common.schema.json#/$defs/amount"
     },
     "cliffAmount": {
       "$ref": "../../common.schema.json#/$defs/amount"
+    },
+    "cliffAt": {
+      "$ref": "../../common.schema.json#/$defs/timestamp"
     }
   },
-  "required": ["address", "amount", "start", "end", "cliffEnd", "unlock", "cliffAmount"],
+  "required": ["address", "amount", "startAt", "endAt", "unlockAmount", "cliffAmount", "cliffAt"],
   "additionalProperties": false
 }

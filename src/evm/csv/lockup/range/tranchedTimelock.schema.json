@@ -10,10 +10,10 @@
     "amount": {
       "$ref": "../../common.schema.json#/$defs/amount"
     },
-    "end": {
+    "endAt": {
       "$ref": "../../common.schema.json#/$defs/timestamp"
     }
   },
-  "required": ["address", "amount", "end"],
+  "required": ["address", "amount", "endAt"],
   "additionalProperties": false
 }

@@ -1,3 +1,3 @@
-address,amount,duration,cliffDuration,cliffAmount
-0x8b1dD8774373729B7755202079F52D8c7444D335,42.5,2 years 20 days,1 years 45 days 6 hours,4.25
-0x0298F4332e3857631385b39766325058a93e249f,85.25,1 years 20 days,45 days,20.16
+address,amount,duration,cliffAmount,cliffDuration
+0x8b1dD8774373729B7755202079F52D8c7444D335,42.5,2 years 20 days,4.25,1 years 45 days 6 hours
+0x0298F4332e3857631385b39766325058a93e249f,85.25,1 years 20 days,20.16,45 days

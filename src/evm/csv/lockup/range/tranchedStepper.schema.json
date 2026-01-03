@@ -10,16 +10,16 @@
     "amount": {
       "$ref": "../../common.schema.json#/$defs/amount"
     },
-    "start": {
+    "startAt": {
       "$ref": "../../common.schema.json#/$defs/timestamp"
     },
-    "end": {
+    "endAt": {
       "$ref": "../../common.schema.json#/$defs/timestamp"
     },
-    "steps": {
+    "stepCount": {
       "$ref": "../../common.schema.json#/$defs/positiveInteger"
     }
   },
-  "required": ["address", "amount", "start", "end", "steps"],
+  "required": ["address", "amount", "startAt", "endAt", "stepCount"],
   "additionalProperties": false
 }

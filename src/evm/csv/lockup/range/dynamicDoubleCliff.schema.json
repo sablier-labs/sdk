@@ -10,34 +10,34 @@
     "amount": {
       "$ref": "../../common.schema.json#/$defs/amount"
     },
-    "start": {
+    "startAt": {
       "$ref": "../../common.schema.json#/$defs/timestamp"
     },
-    "end": {
-      "$ref": "../../common.schema.json#/$defs/timestamp"
-    },
-    "firstUnlockEnd": {
+    "endAt": {
       "$ref": "../../common.schema.json#/$defs/timestamp"
     },
     "firstUnlockAmount": {
       "$ref": "../../common.schema.json#/$defs/amount"
     },
-    "secondUnlockEnd": {
+    "firstUnlockAt": {
       "$ref": "../../common.schema.json#/$defs/timestamp"
     },
     "secondUnlockAmount": {
       "$ref": "../../common.schema.json#/$defs/amount"
+    },
+    "secondUnlockAt": {
+      "$ref": "../../common.schema.json#/$defs/timestamp"
     }
   },
   "required": [
     "address",
     "amount",
-    "start",
-    "end",
-    "firstUnlockEnd",
+    "startAt",
+    "endAt",
     "firstUnlockAmount",
-    "secondUnlockEnd",
-    "secondUnlockAmount"
+    "firstUnlockAt",
+    "secondUnlockAmount",
+    "secondUnlockAt"
   ],
   "additionalProperties": false
 }

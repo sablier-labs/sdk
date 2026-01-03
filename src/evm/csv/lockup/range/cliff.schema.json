@@ -10,19 +10,19 @@
     "amount": {
       "$ref": "../../common.schema.json#/$defs/amount"
     },
-    "start": {
+    "startAt": {
       "$ref": "../../common.schema.json#/$defs/timestamp"
     },
-    "end": {
-      "$ref": "../../common.schema.json#/$defs/timestamp"
-    },
-    "cliffEnd": {
+    "endAt": {
       "$ref": "../../common.schema.json#/$defs/timestamp"
     },
     "cliffAmount": {
       "$ref": "../../common.schema.json#/$defs/amount"
+    },
+    "cliffAt": {
+      "$ref": "../../common.schema.json#/$defs/timestamp"
     }
   },
-  "required": ["address", "amount", "start", "end", "cliffEnd", "cliffAmount"],
+  "required": ["address", "amount", "startAt", "endAt", "cliffAmount", "cliffAt"],
   "additionalProperties": false
 }

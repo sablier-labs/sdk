@@ -13,10 +13,10 @@
     "duration": {
       "$ref": "../../common.schema.json#/$defs/duration"
     },
-    "steps": {
+    "stepCount": {
       "$ref": "../../common.schema.json#/$defs/positiveInteger"
     }
   },
-  "required": ["address", "amount", "duration", "steps"],
+  "required": ["address", "amount", "duration", "stepCount"],
   "additionalProperties": false
 }

@@ -7,20 +7,20 @@
     "address": {
       "$ref": "../common.schema.json#/$defs/address"
     },
-    "rate": {
+    "rateAmount": {
       "type": "string",
       "pattern": "^[0-9]+(\\.[0-9]+)?$",
       "description": "Token amount per interval"
     },
-    "interval": {
+    "rateInterval": {
       "type": "string",
       "enum": ["second", "minute", "hour", "day", "week", "month", "year"],
       "description": "Time interval for rate"
     },
-    "initialDeposit": {
+    "initialDepositAmount": {
       "$ref": "../common.schema.json#/$defs/amount"
     }
   },
-  "required": ["address", "rate", "interval", "initialDeposit"],
+  "required": ["address", "rateAmount", "rateInterval", "initialDepositAmount"],
   "additionalProperties": false
 }

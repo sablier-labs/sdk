@@ -13,16 +13,16 @@
     "duration": {
       "$ref": "../../common.schema.json#/$defs/duration"
     },
-    "cliffDuration": {
-      "$ref": "../../common.schema.json#/$defs/duration"
-    },
-    "unlock": {
+    "unlockAmount": {
       "$ref": "../../common.schema.json#/$defs/amount"
     },
     "cliffAmount": {
       "$ref": "../../common.schema.json#/$defs/amount"
+    },
+    "cliffDuration": {
+      "$ref": "../../common.schema.json#/$defs/duration"
     }
   },
-  "required": ["address", "amount", "duration", "cliffDuration", "unlock", "cliffAmount"],
+  "required": ["address", "amount", "duration", "unlockAmount", "cliffAmount", "cliffDuration"],
   "additionalProperties": false
 }
