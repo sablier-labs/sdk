@@ -1,6 +1,6 @@
 import { Protocol as EvmProtocol } from "@src/evm/enums";
 import { resolveStreamId } from "@src/helpers";
-import { CHAIN_ID_SOLANA_DEVNET, CHAIN_ID_SOLANA_MAINNET_BETA } from "@src/solana/chains/data";
+import { CHAIN_ID_SOLANA_DEVNET, CHAIN_ID_SOLANA_MAINNET_BETA } from "@src/solana/chains/chains";
 import { Protocol as SolanaProtocol } from "@src/solana/enums";
 import { describe, expect, it } from "vitest";
 
