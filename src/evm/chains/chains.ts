@@ -190,6 +190,28 @@ const config = {
       [_taiko.id]: true,
     } as IdToBool,
   },
+  wrapperContracts: {
+    [_arbitrum.id]: "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+    [_avalanche.id]: "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+    [_base.id]: "0x4200000000000000000000000000000000000006",
+    [_berachain.id]: "0x6969696969696969696969696969696969696969",
+    [_blast.id]: "0x4300000000000000000000000000000000000004",
+    [_bsc.id]: "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+    [_gnosis.id]: "0x6A023CCd1ff6F2045C3309768eAD9E68F978f6e1",
+    [_linea.id]: "0xe5D7C2a44FfDDf6b295A15c148167daaAf5Cf34f",
+    [_mainnet.id]: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+    [_mode.id]: "0x4200000000000000000000000000000000000006",
+    [_monad.id]: "0x3bD359C1119Da7dA1d913d1C4D2B7c461115433a",
+    [_morph.id]: "0x5300000000000000000000000000000000000011",
+    [_optimism.id]: "0x4200000000000000000000000000000000000006",
+    [_polygon.id]: "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+    [_scroll.id]: "0x5300000000000000000000000000000000000004",
+    [_sei.id]: "0xE30feDd158A2e3b13e9badaeABaFc5516e95e8C7",
+    [_sepolia.id]: "0x7b79995e5f793A07Bc00c21412e50Ecae098E7f9",
+    [_sonic.id]: "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38",
+    [_unichain.id]: "0x4200000000000000000000000000000000000006",
+    [_zksync.id]: "0x5AEa5775959fBC2557Cc8789bC1bf90A239D9a91",
+  } as IdToString,
   // These chains have the artifacts under the `artifacts-zk` directory.
   zk: {
     [_abstract.id]: true,
@@ -229,6 +251,7 @@ function define(slug: string, chain: ViemChain): Sablier.EVM.Chain {
     nativeCurrency: {
       ...chain.nativeCurrency,
       coinGeckoId,
+      wrapperContract: config.wrapperContracts[chain.id],
     },
     rpc: {
       alchemy: alchemyRPCs[chain.id],

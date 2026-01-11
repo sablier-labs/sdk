@@ -3,7 +3,7 @@ import type { PayableEvmProtocol } from "@src/evm/helpers";
 import { isEvmReleasePayable, resolveEvmStreamId, truncateEvmAddress } from "@src/evm/helpers";
 import { getNestedValues as getNestedValuesInternal } from "@src/internal/utils/nested-values";
 import { sortChains as sortChainsInternal } from "@src/internal/utils/sort-chains";
-import { SOLANA_CHAIN_IDS } from "@src/solana/chains/data";
+import { SOLANA_CHAIN_IDS } from "@src/solana/chains/chains";
 import { resolveSolanaStreamId, truncateSolanaAddress } from "@src/solana/helpers";
 import type { Sablier } from "./types";
 
