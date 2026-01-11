@@ -18,6 +18,7 @@ import { defineLockupShape } from "../types";
  */
 export const tranchedStepper = defineLockupShape(Shape.Lockup.TranchedStepper, {
   evm: LOCKUP_EVM_LT,
+  hasPredictableGas: false,
   isDeprecated: false,
   name: "Tranched Stepper",
 });
@@ -28,6 +29,7 @@ export const tranchedStepper = defineLockupShape(Shape.Lockup.TranchedStepper, {
  */
 export const tranchedMonthly = defineLockupShape(Shape.Lockup.TranchedMonthly, {
   evm: LOCKUP_EVM_LT,
+  hasPredictableGas: false,
   isDeprecated: false,
   name: "Tranched Monthly",
 });
@@ -38,6 +40,7 @@ export const tranchedMonthly = defineLockupShape(Shape.Lockup.TranchedMonthly, {
  */
 export const tranchedTimelock = defineLockupShape(Shape.Lockup.TranchedTimelock, {
   evm: LOCKUP_EVM_LT,
+  hasPredictableGas: true,
   isDeprecated: false,
   name: "Tranched Timelock",
 });
@@ -48,6 +51,7 @@ export const tranchedTimelock = defineLockupShape(Shape.Lockup.TranchedTimelock,
  */
 export const tranchedBackweighted = defineLockupShape(Shape.Lockup.TranchedBackweighted, {
   evm: LOCKUP_EVM_LT,
+  hasPredictableGas: false,
   isDeprecated: false,
   name: "Tranched Backweighted",
 });

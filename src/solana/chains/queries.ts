@@ -1,6 +1,6 @@
 import { createChainQueries } from "@src/internal/factories/chains";
 import type { Sablier } from "@src/types";
-import { solanaDevnet, solanaMainnetBeta } from "./data";
+import { solanaDevnet, solanaMainnetBeta } from "./chains";
 
 export const chainsQueries = createChainQueries<Sablier.Solana.Chain>({
   solanaDevnet,

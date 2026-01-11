@@ -41,6 +41,8 @@ export namespace Shared {
     isTestnet: boolean;
     nativeCurrency: ViemChain["nativeCurrency"] & {
       coinGeckoId: string;
+      /** Address of the ERC-20 contract that wraps the native currency. */
+      wrapperContract?: string;
     };
     rpc: {
       /** Default RPC URL. */
