@@ -21,6 +21,7 @@ import { defineAirdropShape } from "./types";
  */
 const instant = defineAirdropShape(Shape.Airdrops.Instant, {
   evm: AIRDROP_EVM_INSTANT,
+  hasPredictableGas: true,
   isDeprecated: false,
   name: "Instant",
   solana: AIRDROP_SOLANA_INSTANT,
@@ -32,6 +33,7 @@ const instant = defineAirdropShape(Shape.Airdrops.Instant, {
  */
 const linear = defineAirdropShape(Shape.Airdrops.Linear, {
   evm: AIRDROP_EVM_LL,
+  hasPredictableGas: true,
   isDeprecated: false,
   name: "Linear",
 });
@@ -42,6 +44,7 @@ const linear = defineAirdropShape(Shape.Airdrops.Linear, {
  */
 const cliff = defineAirdropShape(Shape.Airdrops.Cliff, {
   evm: AIRDROP_EVM_LL,
+  hasPredictableGas: true,
   isDeprecated: false,
   name: "Cliff",
 });
@@ -52,6 +55,7 @@ const cliff = defineAirdropShape(Shape.Airdrops.Cliff, {
  */
 const linearUnlockLinear = defineAirdropShape(Shape.Airdrops.LinearUnlockLinear, {
   evm: AIRDROP_EVM_LL_V2,
+  hasPredictableGas: true,
   isDeprecated: false,
   name: "Linear Unlock Linear",
 });
@@ -62,6 +66,7 @@ const linearUnlockLinear = defineAirdropShape(Shape.Airdrops.LinearUnlockLinear,
  */
 const linearUnlockCliff = defineAirdropShape(Shape.Airdrops.LinearUnlockCliff, {
   evm: AIRDROP_EVM_LL_V2,
+  hasPredictableGas: true,
   isDeprecated: false,
   name: "Linear Unlock Cliff",
 });
@@ -72,6 +77,7 @@ const linearUnlockCliff = defineAirdropShape(Shape.Airdrops.LinearUnlockCliff, {
  */
 const tranchedStepper = defineAirdropShape(Shape.Airdrops.TranchedStepper, {
   evm: AIRDROP_EVM_LT,
+  hasPredictableGas: false,
   isDeprecated: false,
   name: "Tranched Stepper",
 });

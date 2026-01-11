@@ -28,7 +28,7 @@ export type DynamicDoubleUnlockColumns = LinearColumns & {
   firstUnlockDuration: string;
   /** Amount for second unlock */
   secondUnlockAmount: string;
-  /** Duration until second unlock */
+  /** Duration from first unlock to second unlock */
   secondUnlockDuration: string;
 };
 
