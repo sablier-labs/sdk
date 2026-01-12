@@ -1,6 +1,16 @@
 import * as EVMTypes from "./evm/types";
 import * as SolanaTypes from "./solana/types";
 
+/**
+ * Options for truncating blockchain addresses.
+ * @property start - Number of characters to show at the start (default: 4, must be >= 1)
+ * @property end - Number of characters to show at the end (default: 4, must be >= 1)
+ */
+export type TruncateAddressOptions = {
+  start?: number;
+  end?: number;
+};
+
 export namespace Sablier {
   export import EVM = EVMTypes.EVM;
   export import Solana = SolanaTypes.Solana;

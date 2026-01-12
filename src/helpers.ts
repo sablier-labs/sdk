@@ -5,7 +5,7 @@ import { getNestedValues as getNestedValuesInternal } from "@src/internal/utils/
 import { sortChains as sortChainsInternal } from "@src/internal/utils/sort-chains";
 import { SOLANA_CHAIN_IDS } from "@src/solana/chains/chains";
 import { resolveSolanaStreamId, truncateSolanaAddress } from "@src/solana/helpers";
-import type { Sablier } from "./types";
+import type { Sablier, TruncateAddressOptions } from "./types";
 
 /** EVM-only protocols that don't exist on Solana */
 const EVM_ONLY_PROTOCOLS = new Set([EvmProtocol.Flow, EvmProtocol.Legacy]);
@@ -13,6 +13,9 @@ const EVM_ONLY_PROTOCOLS = new Set([EvmProtocol.Flow, EvmProtocol.Legacy]);
 // Re-export platform-specific helpers
 export * from "./evm/helpers";
 export * from "./solana/helpers";
+
+// Re-export shared types
+export type { TruncateAddressOptions } from "./types";
 
 /** Version type supporting both EVM and Solana protocols */
 type Version = Sablier.EVM.Version | Sablier.Solana.Version;
@@ -101,19 +104,25 @@ export function getNestedValues<T extends Record<string, unknown>>(obj: T): stri
  * Automatically routes to the appropriate typed function based on address format.
  *
  * @param address - The address to truncate (Ethereum 0x-prefixed or Solana base58)
- * @param chars - Number of characters to show on each side (default: 4)
+ * @param options - Optional truncation options with start and end character counts (default: 4 each)
  * @returns Truncated address in format "0xcafe...beef" or "DYw8...NSKK" or original if too short
  * @example
  * truncateAddress("0x1234567890abcdef1234567890abcdef12345678") // "0x1234...5678"
- * truncateAddress("0x1234567890abcdef1234567890abcdef12345678", 6) // "0x123456...345678"
+ * truncateAddress("0x1234567890abcdef1234567890abcdef12345678", { start: 6, end: 6 }) // "0x123456...345678"
  * truncateAddress("DYw8jCTfwHNRJhhmFcbXvVDTqWMEVFBX6ZKUmG5CNSKK") // "DYw8...NSKK"
  * truncateAddress("0x123") // "0x123" (too short, returns original)
  */
-export function truncateAddress(address: string, chars = 4): string {
+export function truncateAddress(address: string, options?: TruncateAddressOptions): string {
   return address.startsWith("0x")
-    ? truncateEvmAddress(address as Sablier.EVM.Address, chars)
-    : truncateSolanaAddress(address, chars);
+    ? truncateEvmAddress(address as Sablier.EVM.Address, options)
+    : truncateSolanaAddress(address, options);
 }
+
+/**
+ * Convenience alias for {@link truncateAddress}.
+ * Also suitable for truncating arbitrary hex strings, not just addresses.
+ */
+export const truncate = truncateAddress;
 
 /**
  * Resolves a stream/airdrop entity ID for use with Sablier indexers.

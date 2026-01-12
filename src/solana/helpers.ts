@@ -1,34 +1,36 @@
 import { Protocol } from "@src/solana/enums";
 import { aliasCatalog } from "@src/solana/programs/alias-catalog";
-import type { Sablier } from "@src/types";
+import type { Sablier, TruncateAddressOptions } from "@src/types";
 
 /**
  * Truncate a Solana address for display purposes.
  * @param address - The Solana address to truncate (base58 encoded)
- * @param chars - Number of characters to show on each side (default: 4)
+ * @param options - Truncation options with start/end character counts (default: 4 each, must be >= 1)
  * @returns Truncated address in format "DYw8...NSKK" or original if too short
  * @example
  * truncateSolanaAddress("DYw8jCTfwHNRJhhmFcbXvVDTqWMEVFBX6ZKUmG5CNSKK") // "DYw8...NSKK"
- * truncateSolanaAddress("DYw8jCTfwHNRJhhmFcbXvVDTqWMEVFBX6ZKUmG5CNSKK", 6) // "DYw8jC...G5CNSKK"
+ * truncateSolanaAddress("DYw8jCTfwHNRJhhmFcbXvVDTqWMEVFBX6ZKUmG5CNSKK", { start: 6, end: 6 }) // "DYw8jC...5CNSKK"
+ * truncateSolanaAddress("DYw8jCTfwHNRJhhmFcbXvVDTqWMEVFBX6ZKUmG5CNSKK", { start: 2, end: 6 }) // "DY...5CNSKK"
  * truncateSolanaAddress("abc") // "abc" (too short, returns original)
  */
-export function truncateSolanaAddress(address: Sablier.Solana.Address, chars = 4): string {
-  // Return original if empty
+export function truncateSolanaAddress(
+  address: Sablier.Solana.Address,
+  options?: TruncateAddressOptions,
+): string {
   if (!address) {
     return address;
   }
 
-  // Calculate minimum length needed: chars on each side
-  const minLength = chars * 2;
+  const start = options?.start ?? 4;
+  const end = options?.end ?? 4;
+  const minLength = start + end;
 
-  // Return original if too short to truncate meaningfully
   if (address.length <= minLength) {
     return address;
   }
 
-  // Extract prefix (first chars) and suffix (last chars)
-  const prefix = address.slice(0, chars);
-  const suffix = address.slice(-chars);
+  const prefix = address.slice(0, start);
+  const suffix = end === 0 ? "" : address.slice(-end);
 
   return `${prefix}...${suffix}`;
 }
