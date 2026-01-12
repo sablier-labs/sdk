@@ -107,3 +107,19 @@ describe("contractsQueries.get", () => {
     });
   });
 });
+
+describe("contractsQueries.getLatestByName", () => {
+  it("should return contract from the latest release", () => {
+    const release = sablier.evm.releases.getLatest({ protocol: "lockup" });
+    const deployment = release.deployments[0];
+    const contract = deployment.contracts[0];
+
+    const result = sablier.evm.contracts.getLatestByName({
+      chainId: deployment.chainId,
+      contractName: contract.name,
+      protocol: release.protocol,
+    });
+
+    expect(result).toStrictEqual(contract);
+  });
+});

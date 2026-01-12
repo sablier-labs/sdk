@@ -93,6 +93,7 @@ export function createContractsQueries<
   catalog: TCatalog;
   releasesQueries: {
     getAll: (opts?: { protocol?: TProtocol }) => TRelease[];
+    getLatest: (opts: { protocol: TProtocol }) => TRelease;
   };
   protocols: TProtocol[];
   normalizeAddress: (address: string) => string;
@@ -271,6 +272,22 @@ export function createContractsQueries<
         if (contract) return contract;
       }
       return undefined;
+    },
+
+    /**
+     * Get the latest contract by name for a protocol.
+     * - { chainId, contractName, protocol }
+     */
+    getLatestByName: (opts: {
+      chainId: number;
+      contractName: string;
+      protocol: TProtocol;
+    }): TContract | undefined => {
+      const { chainId, contractName, protocol } = opts;
+      const release = releasesQueries.getLatest({ protocol });
+      const dep = _.find(release.deployments, { chainId }) as TDeployment | undefined;
+      const items = getItems(dep);
+      return (_.find(items, { name: contractName }) as TContract | undefined) || undefined;
     },
   };
 }
