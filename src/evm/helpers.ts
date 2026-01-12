@@ -1,35 +1,37 @@
 import { aliasCatalog } from "@src/evm/contracts/alias-catalog";
 import { Protocol, Version } from "@src/evm/enums";
 import { getContractExplorerURL as getContractExplorerURLInternal } from "@src/internal/utils/explorer-url";
-import type { Sablier } from "@src/types";
+import type { Sablier, TruncateAddressOptions } from "@src/types";
 
 /**
  * Truncate an Ethereum address for display purposes.
  * @param address - The Ethereum address to truncate (0x-prefixed)
- * @param chars - Number of characters to show on each side (default: 4)
+ * @param options - Truncation options with start/end character counts (default: 4 each, must be >= 1)
  * @returns Truncated address in format "0xcafe...beef" or original if too short
  * @example
  * truncateEvmAddress("0x1234567890abcdef1234567890abcdef12345678") // "0x1234...5678"
- * truncateEvmAddress("0x1234567890abcdef1234567890abcdef12345678", 6) // "0x123456...345678"
+ * truncateEvmAddress("0x1234567890abcdef1234567890abcdef12345678", { start: 6, end: 6 }) // "0x123456...345678"
+ * truncateEvmAddress("0x1234567890abcdef1234567890abcdef12345678", { start: 2, end: 6 }) // "0x12...345678"
  * truncateEvmAddress("0x123") // "0x123" (too short, returns original)
  */
-export function truncateEvmAddress(address: Sablier.EVM.Address, chars = 4): string {
-  // Return original if empty
+export function truncateEvmAddress(
+  address: Sablier.EVM.Address,
+  options?: TruncateAddressOptions,
+): string {
   if (!address) {
     return address;
   }
 
-  // Calculate minimum length needed: "0x" + chars on each side
-  const minLength = 2 + chars * 2;
+  const start = options?.start ?? 4;
+  const end = options?.end ?? 4;
+  const minLength = 2 + start + end;
 
-  // Return original if too short to truncate meaningfully
   if (address.length <= minLength) {
     return address;
   }
 
-  // Extract prefix (0x + first chars) and suffix (last chars)
-  const prefix = address.slice(0, 2 + chars);
-  const suffix = address.slice(-chars);
+  const prefix = address.slice(0, 2 + start);
+  const suffix = end === 0 ? "" : address.slice(-end);
 
   return `${prefix}...${suffix}`;
 }

@@ -173,9 +173,9 @@ describe("helpers", () => {
     });
 
     it("truncates with custom character count", () => {
-      expect(truncate(validAddress, 2)).toBe("0x12...78");
-      expect(truncate(validAddress, 6)).toBe("0x123456...345678");
-      expect(truncate(validAddress, 8)).toBe("0x12345678...12345678");
+      expect(truncate(validAddress, { end: 2, start: 2 })).toBe("0x12...78");
+      expect(truncate(validAddress, { end: 6, start: 6 })).toBe("0x123456...345678");
+      expect(truncate(validAddress, { end: 8, start: 8 })).toBe("0x12345678...12345678");
     });
 
     it("returns original address if too short to truncate", () => {
@@ -199,20 +199,25 @@ describe("helpers", () => {
       expect(truncate("0x123456789")).toBe("0x1234...6789");
 
       // With chars=6, minLength is 14, so 15 chars should truncate
-      expect(truncate("0x1234567890abc", 6)).toBe("0x123456...890abc");
+      expect(truncate("0x1234567890abc", { end: 6, start: 6 })).toBe("0x123456...890abc");
     });
 
     it("works with real Ethereum addresses", () => {
       // Standard Ethereum address (42 characters)
       const ethAddress = "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045";
       expect(truncate(ethAddress)).toBe("0xd8dA...6045");
-      expect(truncate(ethAddress, 6)).toBe("0xd8dA6B...A96045");
+      expect(truncate(ethAddress, { end: 6, start: 6 })).toBe("0xd8dA6B...A96045");
     });
 
     it("preserves case sensitivity", () => {
       const checksumAddress = "0xAbCdEf1234567890AbCdEf1234567890AbCdEf12";
       expect(truncate(checksumAddress)).toBe("0xAbCd...Ef12");
-      expect(truncate(checksumAddress, 6)).toBe("0xAbCdEf...CdEf12");
+      expect(truncate(checksumAddress, { end: 6, start: 6 })).toBe("0xAbCdEf...CdEf12");
+    });
+
+    it("supports asymmetric start/end values", () => {
+      expect(truncate(validAddress, { end: 6, start: 2 })).toBe("0x12...345678");
+      expect(truncate(validAddress, { end: 2, start: 6 })).toBe("0x123456...78");
     });
 
     describe("Solana addresses", () => {
@@ -223,27 +228,32 @@ describe("helpers", () => {
       });
 
       it("truncates Solana address with custom character count", () => {
-        expect(truncate(solanaAddress, 6)).toBe("DYw8jC...5CNSKK");
-        expect(truncate(solanaAddress, 8)).toBe("DYw8jCTf...mG5CNSKK");
+        expect(truncate(solanaAddress, { end: 6, start: 6 })).toBe("DYw8jC...5CNSKK");
+        expect(truncate(solanaAddress, { end: 8, start: 8 })).toBe("DYw8jCTf...mG5CNSKK");
+      });
+
+      it("supports asymmetric start/end values", () => {
+        expect(truncate(solanaAddress, { end: 6, start: 2 })).toBe("DY...5CNSKK");
+        expect(truncate(solanaAddress, { end: 2, start: 6 })).toBe("DYw8jC...KK");
       });
 
       it("returns original if too short", () => {
-        expect(truncate("DYw8", 4)).toBe("DYw8");
-        expect(truncate("ABC123", 4)).toBe("ABC123");
+        expect(truncate("DYw8", { end: 4, start: 4 })).toBe("DYw8");
+        expect(truncate("ABC123", { end: 4, start: 4 })).toBe("ABC123");
         expect(truncate("short")).toBe("short");
       });
 
       it("works with various Solana addresses", () => {
         const anotherSolana = "So11111111111111111111111111111111111111112";
         expect(truncate(anotherSolana)).toBe("So11...1112");
-        expect(truncate(anotherSolana, 6)).toBe("So1111...111112");
+        expect(truncate(anotherSolana, { end: 6, start: 6 })).toBe("So1111...111112");
       });
 
       it("handles non-0x addresses generically", () => {
         // Any non-0x address is treated as Solana-style
         const genericAddress = "1234567890abcdef1234567890abcdef12345678";
         expect(truncate(genericAddress)).toBe("1234...5678");
-        expect(truncate(genericAddress, 6)).toBe("123456...345678");
+        expect(truncate(genericAddress, { end: 6, start: 6 })).toBe("123456...345678");
       });
     });
   });
