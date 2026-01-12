@@ -5,4 +5,4 @@ export * from "./enums";
 export * from "./helpers";
 export * from "./programs";
 export * from "./releases";
-export * from "./types";
+export type * from "./types";

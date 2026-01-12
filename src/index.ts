@@ -4,4 +4,4 @@ export * from "./helpers";
 export * from "./sablier";
 export * from "./shapes";
 export * as solana from "./solana";
-export * from "./types";
+export type * from "./types";
