@@ -6,7 +6,7 @@
   "module": "./_esm/index.js",
   "types": "./_types/index.d.ts",
   "typings": "./_types/index.d.ts",
-  "version": "1.8.0-beta.24",
+  "version": "2.0.0-beta.22",
   "author": {
     "name": "Sablier Labs Ltd",
     "url": "https://sablier.com"
