@@ -69,7 +69,7 @@ describe("contractsQueries.getByAlias", () => {
     it("should return undefined for valid alias on wrong chain", () => {
       const result = sablier.evm.contracts.getByAlias({
         alias: "LK2",
-        chainId: 999999, // Non-existent chain
+        chainId: 999_999, // Non-existent chain
       });
 
       expect(result).toBeUndefined();
@@ -115,7 +115,7 @@ describe("contractsQueries.getByAlias", () => {
     const hasOverlappingChain = Boolean(v3Deployment);
 
     if (!hasOverlappingChain) {
-      it.skip("No overlapping chain found for v2.0 and v3.0 deployments", () => {});
+      it.skip("No overlapping chain found for v2.0 and v3.0 deployments");
       return;
     }
 

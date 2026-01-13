@@ -15,6 +15,7 @@ const EMOJIS = {
   warning: "⚠️",
 } as const;
 
+// biome-ignore lint/complexity/noExcessiveCognitiveComplexity: Internal CLI tool, complexity acceptable
 async function checkMissingBroadcasts(protocol: Sablier.EVM.Protocol): Promise<void> {
   const missing: Record<string, Sablier.EVM.Chain[]> = {};
 

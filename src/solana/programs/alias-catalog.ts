@@ -6,7 +6,9 @@ import type { Sablier } from "@src/types.js";
 let _aliasCatalog: Sablier.Solana.AliasCatalog | undefined;
 
 export function getAliasCatalog(): Sablier.Solana.AliasCatalog {
-  if (_aliasCatalog) return _aliasCatalog;
+  if (_aliasCatalog) {
+    return _aliasCatalog;
+  }
 
   const catalog: Sablier.Solana.AliasCatalog = {
     [Protocol.Airdrops]: {},
@@ -29,7 +31,7 @@ export function getAliasCatalog(): Sablier.Solana.AliasCatalog {
           if (existing) {
             throw new Error(
               `Sablier SDK: Alias collision detected for "${program.alias}" on chain ${chainId} in ${protocol}. ` +
-                `Existing: ${existing.address}, New: ${program.address}`,
+                `Existing: ${existing.address}, New: ${program.address}`
             );
           }
           const entry = { ...program, protocol, version };

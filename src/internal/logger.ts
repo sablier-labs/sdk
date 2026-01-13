@@ -42,7 +42,7 @@ const transports: winston.transport[] = [
           return "";
         }
         return `${level}: ${message}`;
-      }),
+      })
     ),
   }),
 ];
@@ -57,7 +57,7 @@ if (LOG_FILE_PATH) {
       format.timestamp(),
       format.printf(({ timestamp, level, message }) => {
         return `${timestamp} ${level}: ${message}`;
-      }),
+      })
     ),
   });
   transports.push(fileTransport);
@@ -71,7 +71,7 @@ export const logger = winston.createLogger({
 
 export function log(
   level: "info" | "verbose",
-  params: { msg: string; release?: Sablier.EVM.Release },
+  params: { msg: string; release?: Sablier.EVM.Release }
 ): void {
   const { msg, release } = params;
   if (release) {

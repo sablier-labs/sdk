@@ -29,7 +29,7 @@ const EtherscanResponseSchema = Schema.Union(
   // Error response
   Schema.Struct({
     result: Schema.String,
-  }),
+  })
 );
 
 /**
@@ -96,16 +96,20 @@ describe("Block numbers correspond to Etherscan data", () => {
     for (const release of sablier.evm.releases.getAll()) {
       const releaseContracts = sablier.evm.contracts.getAll({ release })!;
       for (const contract of releaseContracts) {
-        if (!ETHERSCAN_CHAINS.has(contract.chainId)) continue;
-        if (!INDEXED[release.protocol].has(contract.name)) continue;
+        if (!ETHERSCAN_CHAINS.has(contract.chainId)) {
+          continue;
+        }
+        if (!INDEXED[release.protocol].has(contract.name)) {
+          continue;
+        }
 
         effects.push(
           getContractCreationBlock(contract.address, contract.chainId).pipe(
             Effect.tap((blockNumber) => {
               blockNumberCache.set(cacheKey(contract.chainId, contract.address), blockNumber);
             }),
-            Effect.ignore,
-          ),
+            Effect.ignore
+          )
         );
       }
     }
@@ -123,7 +127,7 @@ describe("Block numbers correspond to Etherscan data", () => {
         }
 
         if (!INDEXED[release.protocol].has(contract.name)) {
-          it.skip(`Skipped ${contract.name} because it's not an indexed contract.`, () => {});
+          it.skip(`Skipped ${contract.name} because it's not an indexed contract.`);
           continue;
         }
 
@@ -138,7 +142,7 @@ describe("Block numbers correspond to Etherscan data", () => {
             Effect.sync(() => {
               const actualBlockNumber = blockNumberCache.get(key);
               expect(contract.block).toBe(actualBlockNumber);
-            }),
+            })
         );
       }
     });

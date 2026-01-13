@@ -6,7 +6,7 @@ import { chainCmd } from "./commands/print/chains.js";
 import { missingBroadcastsCmd } from "./commands/print/missing-broadcasts.js";
 import { versionsCmd } from "./commands/print/versions.js";
 
-async function main() {
+function main() {
   const program = new Command();
 
   program.name("sablier-cli").description("CLI for Sablier deployment utilities");
@@ -27,4 +27,4 @@ async function main() {
   program.parse();
 }
 
-main().catch(console.error);
+main();

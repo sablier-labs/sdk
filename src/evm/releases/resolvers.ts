@@ -58,7 +58,7 @@ const standardDeploymentResolver = createStandardDeploymentResolver<
  * Creates a LockupV1 deployment with separate core and periphery contracts
  */
 function createLockupV1Deployment(
-  params: DeploymentLockupV1Params,
+  params: DeploymentLockupV1Params
 ): Sablier.EVM.Deployment.LockupV1 {
   const { contractMap, ...baseParams } = params;
 
@@ -102,7 +102,7 @@ export const resolvers = {
      * Creates a LockupV1 release with contract names extracted from manifest
      */
     lockupV1: <TAbiMap extends Sablier.EVM.AbiMap>(
-      params: ReleaseParams<Sablier.EVM.Release.LockupV1<TAbiMap>>,
+      params: ReleaseParams<Sablier.EVM.Release.LockupV1<TAbiMap>>
     ): Sablier.EVM.Release.LockupV1<TAbiMap> => {
       return {
         ...params,
@@ -115,7 +115,7 @@ export const resolvers = {
      * Creates a standard release with contract names extracted from manifest
      */
     standard: <TAbiMap extends Sablier.EVM.AbiMap>(
-      params: ReleaseParams<Sablier.EVM.Release.Standard<TAbiMap>>,
+      params: ReleaseParams<Sablier.EVM.Release.Standard<TAbiMap>>
     ): Sablier.EVM.Release.Standard<TAbiMap> => {
       return {
         ...params,

@@ -35,7 +35,7 @@ export function createReleasesQueries<
       }
       // Recursively get all releases from all protocols in the enum
       return Object.values(ProtocolEnum).flatMap((protocolName) =>
-        Object.values(releases[protocolName]),
+        Object.values(releases[protocolName])
       ) as TRelease[];
     },
     /**
@@ -59,10 +59,10 @@ export function createReleasesQueries<
      */
     getLatest: (opts: { protocol: TProtocol }): TRelease => {
       const list = Object.values(releases[opts.protocol]) as TRelease[];
-      const latest = list[list.length - 1];
-      if (!latest.isLatest) {
+      const latest = list.at(-1);
+      if (!latest || !latest.isLatest) {
         throw new Error(
-          `Sablier SDK: No latest release found for Sablier ${opts.protocol}. Please report on GitHub.`,
+          `Sablier SDK: No latest release found for Sablier ${opts.protocol}. Please report on GitHub.`
         );
       }
       return latest;
@@ -105,8 +105,83 @@ export function createContractsQueries<
 
   // Helper to safely get contracts/programs from deployment
   const getItems = (deployment: TDeployment | undefined): TContract[] => {
-    if (!deployment) return [];
+    if (!deployment) {
+      return [];
+    }
     return (deployment[contractsField] as TContract[]) || [];
+  };
+
+  // Helper to find deployment by chainId and get its contracts
+  const getDeploymentItems = (release: TRelease, chainId: number): TContract[] => {
+    const dep = release.deployments.find((d) => d.chainId === chainId) as TDeployment | undefined;
+    return getItems(dep);
+  };
+
+  // Helper to find contract by name in a release
+  const findByName = (release: TRelease, chainId: number, name: string): TContract | undefined => {
+    return getDeploymentItems(release, chainId).find((c) => c.name === name);
+  };
+
+  // Helper to find contract by address in a release
+  const findByAddress = (
+    release: TRelease,
+    chainId: number,
+    address: string
+  ): TContract | undefined => {
+    return getDeploymentItems(release, chainId).find(
+      (c) => normalizeAddress(c.address) === address
+    );
+  };
+
+  // Helper to check if release contains address on chain
+  const releaseHasAddress = (release: TRelease, chainId: number, address: string): boolean => {
+    return getDeploymentItems(release, chainId).some(
+      (c) => normalizeAddress(c.address) === address
+    );
+  };
+
+  // Helper to search catalog across all protocols
+  const searchCatalog = (chainId: number, address: string): TContract | undefined => {
+    for (const p of protocols) {
+      const contract = getPath<TContract>(catalog, [p, chainId, address]);
+      if (contract) {
+        return contract;
+      }
+    }
+    return undefined;
+  };
+
+  // Helper to find contract by address scoped to protocol (with duplicate check)
+  const findByAddressInProtocol = (
+    protocol: TProtocol,
+    chainId: number,
+    address: string,
+    originalAddress: string
+  ): TContract | undefined => {
+    const releases = releasesQueries.getAll({ protocol });
+    const matches = releases.filter((rel) => releaseHasAddress(rel, chainId, address));
+
+    if (matches.length > 1) {
+      const versions = matches.map((r) => r.version).join(", ");
+      throw new Error(
+        `Sablier SDK: Contract ${originalAddress} exists in multiple releases (${versions}) for "${protocol}". ` +
+          "Specify release: { chainId, contractAddress, release }"
+      );
+    }
+
+    return getPath<TContract>(catalog, [protocol, chainId, address]);
+  };
+
+  // Helper to filter deployments by chainId and extract contracts
+  const filterDeploymentsAndGetItems = (
+    deployments: TDeployment[],
+    chainId?: number
+  ): TContract[] | undefined => {
+    const filtered = chainId ? deployments.filter((d) => d.chainId === chainId) : deployments;
+    if (chainId && filtered.length === 0) {
+      return undefined;
+    }
+    return filtered.flatMap(getItems);
   };
 
   return {
@@ -139,57 +214,28 @@ export function createContractsQueries<
         if (!release) {
           throw new Error("Sablier SDK: contractName requires release to be specified");
         }
-        const dep = release.deployments.find((d) => d.chainId === chainId) as
-          | TDeployment
-          | undefined;
-        const items = getItems(dep);
-        return items.find((c) => c.name === contractName);
+        return findByName(release, chainId, contractName);
       }
 
       // Query by address
-      if (contractAddress) {
-        const address = normalizeAddress(contractAddress);
-
-        // Scoped to specific release
-        if (release) {
-          const dep = release.deployments.find((d) => d.chainId === chainId) as
-            | TDeployment
-            | undefined;
-          const items = getItems(dep);
-          return items.find((c) => normalizeAddress(c.address) === address);
-        }
-
-        // Scoped to protocol - check for duplicates across releases
-        if (protocol) {
-          const releases = releasesQueries.getAll({ protocol });
-          const matches = releases.filter((rel) => {
-            const dep = rel.deployments.find((d) => d.chainId === chainId) as
-              | TDeployment
-              | undefined;
-            const items = getItems(dep);
-            return items.some((c) => normalizeAddress(c.address) === address);
-          });
-
-          if (matches.length > 1) {
-            const versions = matches.map((r) => r.version).join(", ");
-            throw new Error(
-              `Sablier SDK: Contract ${contractAddress} exists in multiple releases (${versions}) for "${protocol}". ` +
-                `Specify release: { chainId, contractAddress, release }`,
-            );
-          }
-
-          return getPath<TContract>(catalog, [protocol, chainId, address]);
-        }
-
-        // Fallback: search all protocols
-        for (const protocol of protocols) {
-          const contract = getPath<TContract>(catalog, [protocol, chainId, address]);
-          if (contract) return contract;
-        }
+      if (!contractAddress) {
         return undefined;
       }
 
-      return undefined;
+      const address = normalizeAddress(contractAddress);
+
+      // Scoped to specific release
+      if (release) {
+        return findByAddress(release, chainId, address);
+      }
+
+      // Scoped to protocol - check for duplicates across releases
+      if (protocol) {
+        return findByAddressInProtocol(protocol, chainId, address, contractAddress);
+      }
+
+      // Fallback: search all protocols
+      return searchCatalog(chainId, address);
     },
 
     /**
@@ -215,33 +261,18 @@ export function createContractsQueries<
       // by protocol
       if (protocol) {
         const releases = releasesQueries.getAll({ protocol });
-        let deps = releases.flatMap((r) => r.deployments);
-        if (chainId) {
-          deps = deps.filter((d) => d.chainId === chainId);
-          if (deps.length === 0) return undefined;
-        }
-        return deps.flatMap(getItems);
+        const deployments = releases.flatMap((r) => r.deployments);
+        return filterDeploymentsAndGetItems(deployments, chainId);
       }
 
       // by explicit release
       if (release) {
-        let deps = release.deployments;
-        if (chainId) {
-          deps = deps.filter((d) => d.chainId === chainId);
-          if (deps.length === 0) return undefined;
-        }
-        return deps.flatMap(getItems);
+        return filterDeploymentsAndGetItems(release.deployments, chainId);
       }
 
-      // by chain id
-      if (chainId) {
-        const deps = releasesQueries.getAll().flatMap((r) => r.deployments);
-        const filtered = deps.filter((d) => d.chainId === chainId);
-        return filtered.flatMap(getItems);
-      }
-
-      // no filters → all
-      return releasesQueries.getAll().flatMap((r) => r.deployments.flatMap(getItems));
+      // by chain id or no filters
+      const deployments = releasesQueries.getAll().flatMap((r) => r.deployments);
+      return filterDeploymentsAndGetItems(deployments, chainId);
     },
 
     /**
@@ -275,7 +306,9 @@ export function createContractsQueries<
       // Search all protocols
       for (const p of protocols) {
         const contract = getPath<TContract>(aliasCatalog, [p, chainId, alias]);
-        if (contract) return contract;
+        if (contract) {
+          return contract;
+        }
       }
       return undefined;
     },

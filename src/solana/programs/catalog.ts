@@ -6,7 +6,9 @@ import type { Sablier } from "@src/types.js";
 let _catalog: Sablier.Solana.ProgramCatalog | undefined;
 
 function getCatalog(): Sablier.Solana.ProgramCatalog {
-  if (_catalog) return _catalog;
+  if (_catalog) {
+    return _catalog;
+  }
 
   _catalog = {
     [Protocol.Airdrops]: {},

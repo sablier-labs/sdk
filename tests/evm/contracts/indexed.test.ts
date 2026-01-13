@@ -35,7 +35,7 @@ describe("Indexed contracts have a deployment block number", () => {
 
       for (const contract of contracts) {
         if (!INDEXED[release.protocol].has(contract.name)) {
-          it.skip(`Skipped ${contract.name} because it's not an indexed contract.`, () => {});
+          it.skip(`Skipped ${contract.name} because it's not an indexed contract.`);
           continue;
         }
 

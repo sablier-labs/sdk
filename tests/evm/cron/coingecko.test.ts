@@ -61,7 +61,7 @@ function validateCoinGeckoId(coinId: string) {
     urlWithParams.searchParams.set("tickers", "false");
 
     const request = HttpClientRequest.get(urlWithParams.toString()).pipe(
-      HttpClientRequest.setHeader("x-cg-demo-api-key", Redacted.value(apiKey)),
+      HttpClientRequest.setHeader("x-cg-demo-api-key", Redacted.value(apiKey))
     );
 
     const response = yield* client.execute(request);
@@ -73,7 +73,7 @@ function validateCoinGeckoId(coinId: string) {
 
 describe("Validate CoinGecko IDs", () => {
   if (!COINGECKO_DEMO_API_KEY) {
-    it.skip("VITE_COINGECKO_API_KEY not set - skipping CoinGecko tests", () => {});
+    it.skip("VITE_COINGECKO_API_KEY not set - skipping CoinGecko tests");
     return;
   }
 
@@ -85,7 +85,7 @@ describe("Validate CoinGecko IDs", () => {
           id: coinId,
           status: http2Constants.HTTP_STATUS_OK,
         });
-      }),
+      })
     );
   }
 });

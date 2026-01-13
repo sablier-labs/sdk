@@ -42,7 +42,7 @@ export const solanaAirdropShapeIds = [Shape.Airdrops.Instant] as const;
  */
 export function getEvmShapesByVersion<T extends AnyShape>(
   shapes: Record<string, T>,
-  version: EVM.Version,
+  version: EVM.Version
 ): T[] {
   return Object.values(shapes).filter((shape) => shape.evm.some((c) => c.version === version));
 }
@@ -57,7 +57,7 @@ export function getEvmShapesByVersion<T extends AnyShape>(
  */
 export function getEvmContractMethodsForVersion(
   shape: AnyShape,
-  version: EVM.Version,
+  version: EVM.Version
 ): ContractMethod | undefined {
   return shape.evm.find((c) => c.version === version);
 }
@@ -102,7 +102,7 @@ export function getLatestEvmContractMethod(shape: AnyShape): ContractMethod {
  */
 export function getSolanaShapesByVersion<T extends ShapeWithSolanaSupport>(
   shapes: Record<string, T>,
-  version: Solana.Version,
+  version: Solana.Version
 ): T[] {
   return Object.values(shapes).filter((shape) => shape.solana?.some((p) => p.version === version));
 }
@@ -117,7 +117,7 @@ export function getSolanaShapesByVersion<T extends ShapeWithSolanaSupport>(
  */
 export function getSolanaProgramMethodsForVersion(
   shape: ShapeWithSolanaSupport,
-  version: Solana.Version,
+  version: Solana.Version
 ): ProgramMethod | undefined {
   return shape.solana?.find((p) => p.version === version);
 }
@@ -131,7 +131,7 @@ export function getSolanaProgramMethodsForVersion(
  */
 export function isSolanaShapeAvailableInVersion(
   shape: ShapeWithSolanaSupport,
-  version: Solana.Version,
+  version: Solana.Version
 ): boolean {
   return shape.solana?.some((p) => p.version === version) ?? false;
 }
@@ -202,7 +202,7 @@ export function hasSolanaSupport(shape: AnyShape): shape is ShapeWithSolanaSuppo
  * @returns True if the Lockup shape is supported on Solana
  */
 export function hasSolanaLockupSupport(
-  value: Shape.Lockup,
+  value: Shape.Lockup
 ): value is (typeof solanaLockupShapeIds)[number] {
   return solanaLockupShapeIds.includes(value as (typeof solanaLockupShapeIds)[number]);
 }
@@ -214,7 +214,7 @@ export function hasSolanaLockupSupport(
  * @returns True if the Airdrop shape is supported on Solana
  */
 export function hasSolanaAirdropSupport(
-  value: Shape.Airdrops,
+  value: Shape.Airdrops
 ): value is (typeof solanaAirdropShapeIds)[number] {
   return solanaAirdropShapeIds.includes(value as (typeof solanaAirdropShapeIds)[number]);
 }

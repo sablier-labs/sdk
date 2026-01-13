@@ -103,7 +103,7 @@ function testChainWithRetries(chainId: number, chainName: string, apiKey: string
 
     for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
       const result = yield* pingRoutemeshEndpoint(chainId, apiKey).pipe(
-        Effect.catchAll((e) => Effect.succeed({ error: String(e), success: false })),
+        Effect.catchAll((e) => Effect.succeed({ error: String(e), success: false }))
       );
 
       if (result.success) {
@@ -125,13 +125,13 @@ function testChainWithRetries(chainId: number, chainName: string, apiKey: string
 
 describe("RouteMesh RPC Support", () => {
   if (!ROUTEMESH_API_KEY) {
-    it.skip("VITE_ROUTEMESH_API_KEY not set - skipping RouteMesh tests", () => {});
+    it.skip("VITE_ROUTEMESH_API_KEY not set - skipping RouteMesh tests");
     return;
   }
 
   // Get chains that have routemesh configured (not in unsupported list)
   const chainsWithRoutemesh = Object.values(chains).filter(
-    (chain) => chain.rpc.routemesh !== undefined,
+    (chain) => chain.rpc.routemesh !== undefined
   );
 
   // Pre-fetch all results before running individual tests
@@ -140,12 +140,12 @@ describe("RouteMesh RPC Support", () => {
       testChainWithRetries(chain.id, chain.name, ROUTEMESH_API_KEY!).pipe(
         Effect.tap((result) => {
           testResultsCache.set(chain.id, result);
-        }),
-      ),
+        })
+      )
     );
 
     await Effect.runPromise(
-      Effect.all(effects, { concurrency: 5 }), // Limit concurrency to avoid rate limits
+      Effect.all(effects, { concurrency: 5 }) // Limit concurrency to avoid rate limits
     );
   });
 
@@ -160,7 +160,7 @@ describe("RouteMesh RPC Support", () => {
       if (!result.success) {
         console.warn(
           `Chain ${chain.name} (${chain.id}) failed RouteMesh test ${result.failCount} times. ` +
-            `Error: ${result.error}. Consider adding to config.routemesh.unsupported.`,
+            `Error: ${result.error}. Consider adding to config.routemesh.unsupported.`
         );
       }
 

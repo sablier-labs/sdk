@@ -35,7 +35,7 @@ describe("programsQueries.getByAlias", () => {
     it("should return undefined for valid alias on wrong chain", () => {
       const result = sablier.solana.programs.getByAlias({
         alias: "LL",
-        chainId: 999999, // Non-existent chain
+        chainId: 999_999, // Non-existent chain
       });
 
       expect(result).toBeUndefined();

@@ -45,7 +45,7 @@ type TestConfig<BD, CD> = {
   loader: (
     release: Sablier.EVM.Release,
     chain: Sablier.EVM.Chain,
-    componentName?: string,
+    componentName?: string
   ) => Promise<BD | null>;
   expector: (contract: BasicContract, data: CD) => void;
 };
@@ -56,7 +56,7 @@ function createInnerTests<BD, CD>(
   release: Sablier.EVM.Release,
   chain: Sablier.EVM.Chain,
   contracts: BasicContract[],
-  componentName?: string,
+  componentName?: string
 ): void {
   describe(testDescription, () => {
     let broadcastData: BD | null;
@@ -68,7 +68,7 @@ function createInnerTests<BD, CD>(
     for (const contract of contracts) {
       const isMissing = isKnownMissing(release, chain, contract.name);
 
-      it.skipIf(isMissing)(contract.name, async () => {
+      it.skipIf(isMissing)(contract.name, () => {
         if (!broadcastData) {
           return;
         }
@@ -101,7 +101,7 @@ function createContractTests<BD, CD>(
   release: Sablier.EVM.Release,
   deployment: Sablier.EVM.Deployment,
   chain: Sablier.EVM.Chain,
-  testConfig: TestConfig<BD, CD>,
+  testConfig: TestConfig<BD, CD>
 ): void {
   const chainId = deployment.chainId;
   const chainName = chain.name;
@@ -115,7 +115,7 @@ function createContractTests<BD, CD>(
         release,
         chain,
         lockupV1Deployment.core,
-        "core",
+        "core"
       );
       createInnerTests(
         "Contracts in periphery",
@@ -123,7 +123,7 @@ function createContractTests<BD, CD>(
         release,
         chain,
         lockupV1Deployment.periphery,
-        "periphery",
+        "periphery"
       );
     } else {
       createInnerTests("Contracts", testConfig, release, chain, deployment.contracts);
@@ -134,7 +134,7 @@ function createContractTests<BD, CD>(
 function createStandardTests(
   release: Sablier.EVM.Release,
   deployment: Sablier.EVM.Deployment,
-  chain: Sablier.EVM.Chain,
+  chain: Sablier.EVM.Chain
 ): void {
   createContractTests<StandardBroadcast, BasicContract>(release, deployment, chain, {
     expector: expectContract,
@@ -146,7 +146,7 @@ function createStandardTests(
 function createZKTests(
   release: Sablier.EVM.Release,
   deployment: Sablier.EVM.Deployment,
-  chain: Sablier.EVM.Chain,
+  chain: Sablier.EVM.Chain
 ): void {
   createContractTests<ZKBroadcast[], ZKBroadcast>(release, deployment, chain, {
     expector: expectZKContract,

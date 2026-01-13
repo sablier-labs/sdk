@@ -16,11 +16,11 @@ function getInclude() {
  * These tests perform JSON-RPC calls to external services, which are flaky, so we need to retry them.
  */
 function getRetry() {
-  return !CI ? 0 : 10;
+  return CI ? 10 : 0;
 }
 
 function getTimeout() {
-  return !CI ? 10_000 : 60_000; // 10 seconds normally, 1 minute in CI
+  return CI ? 60_000 : 10_000; // 10 seconds normally, 1 minute in CI
 }
 
 function getReporters() {

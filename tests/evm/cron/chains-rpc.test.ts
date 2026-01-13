@@ -56,7 +56,7 @@ describe("Ping JSON-RPC server", () => {
           },
           status: http2Constants.HTTP_STATUS_OK,
         });
-      }),
+      })
     );
   }
 });

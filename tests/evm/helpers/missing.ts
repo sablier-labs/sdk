@@ -73,7 +73,7 @@ export const MISSING_CHAINS: number[] = [chains.iotex.id, chains.ronin.id, chain
 export function isKnownMissing(
   release: Sablier.EVM.Release,
   chain: Sablier.EVM.Chain,
-  contractName: string,
+  contractName: string
 ): boolean {
   if (MISSING_CHAINS.includes(chain.id)) {
     return true;

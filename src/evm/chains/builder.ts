@@ -114,7 +114,7 @@ const buildChain = (key: string, spec: ChainSpec): Sablier.EVM.Chain => {
  * chain is added.
  */
 export const buildChains = <T extends Record<string, ChainSpec>>(
-  specs: T,
+  specs: T
 ): { [K in keyof T]: Sablier.EVM.Chain } => {
   const entries = Object.entries(specs).map(([key, spec]) => [key, buildChain(key, spec)]);
 

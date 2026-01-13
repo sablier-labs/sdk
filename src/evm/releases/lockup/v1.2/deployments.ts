@@ -10,7 +10,7 @@ function get(
   contractMap: {
     core: Sablier.EVM.ContractMap;
     periphery: Sablier.EVM.ContractMap;
-  },
+  }
 ): Sablier.EVM.Deployment.LockupV1 {
   return resolvers.deployment.lockupV1({
     aliasMap: aliases,
@@ -405,7 +405,7 @@ export const mainnets: Sablier.EVM.Deployment.LockupV1[] = [
       [manifest.periphery.SABLIER_V2_BATCH_LOCKUP]: "0x28D116d7e917756310986C4207eA54183fcba06A",
       [manifest.periphery.SABLIER_V2_MERKLE_LOCKUP_FACTORY]: [
         "0x5e73bb96493C10919204045fCdb639D35ad859f8",
-        45862,
+        45_862,
       ],
     },
   }),
@@ -675,7 +675,7 @@ export const testnets: Sablier.EVM.Deployment.LockupV1[] = [
       [manifest.periphery.SABLIER_V2_BATCH_LOCKUP]: "0x8224eb5D7d76B2D7Df43b868D875E79B11500eA8",
       [manifest.periphery.SABLIER_V2_MERKLE_LOCKUP_FACTORY]: [
         "0x83Dd52FCA44E069020b58155b761A590F12B59d3",
-        3661907,
+        3_661_907,
       ],
     },
   }),

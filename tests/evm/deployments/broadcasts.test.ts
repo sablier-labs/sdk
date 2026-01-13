@@ -86,7 +86,7 @@ function createTestSuite(source: BroadcastSource): void {
 function testStandardBroadcast(
   release: Sablier.EVM.Release,
   chain: Sablier.EVM.Chain,
-  componentName = "",
+  componentName = ""
 ): void {
   it(componentName ? `${componentName} - ${chain.name}` : chain.name, async () => {
     const broadcast = await loadBroadcast<StandardBroadcast>(release, chain, componentName);
@@ -94,7 +94,6 @@ function testStandardBroadcast(
   });
 }
 
-// Validate the structure of a standard broadcast file
 function validateStandardBroadcast(broadcast: StandardBroadcast | null, chainName: string): void {
   if (!broadcast) {
     expect.fail(`Broadcast file not found for ${chainName}`);
@@ -122,7 +121,7 @@ function validateStandardBroadcast(broadcast: StandardBroadcast | null, chainNam
 function testZKBroadcast(
   release: Sablier.EVM.Release,
   chain: Sablier.EVM.Chain,
-  componentName = "",
+  componentName = ""
 ): void {
   it(componentName ? `${componentName} - ${chain.name} (ZK)` : `${chain.name} (ZK)`, async () => {
     const broadcasts = await loadBroadcast<ZKBroadcast[]>(release, chain, componentName);

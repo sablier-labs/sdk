@@ -12,7 +12,7 @@ describe("Program catalog", () => {
       const entry = sablier.solana.programs.get({
         chainId: deployment.chainId,
         contractName: program.name,
-        release: release,
+        release,
       });
       expect(entry).toStrictEqual(program);
     });

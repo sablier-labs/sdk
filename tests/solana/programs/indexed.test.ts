@@ -20,7 +20,7 @@ describe("Indexed programs have a deployment block number", () => {
 
       for (const program of programs) {
         if (!INDEXED[release.protocol].has(program.name)) {
-          it.skip(`Skipped ${program.name} because it's not an indexed program.`, () => {});
+          it.skip(`Skipped ${program.name} because it's not an indexed program.`);
           continue;
         }
 

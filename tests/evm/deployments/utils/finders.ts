@@ -7,11 +7,15 @@ const CONTRACT_PREFIX = "contract ";
  */
 export function findContract(data: StandardBroadcast, contractName: string): BasicContract | null {
   const contractFromReturns = findInReturns(data, contractName);
-  if (contractFromReturns) return contractFromReturns;
+  if (contractFromReturns) {
+    return contractFromReturns;
+  }
 
   // Check in libraries
   const contractFromLibraries = findInLibraries(data, contractName);
-  if (contractFromLibraries) return contractFromLibraries;
+  if (contractFromLibraries) {
+    return contractFromLibraries;
+  }
 
   return null;
 }
@@ -60,7 +64,9 @@ function findInLibraries(data: StandardBroadcast, contractName: string): BasicCo
   for (const library of data.libraries) {
     // Ensure we have the format "path/to/file.sol:ContractName:0xAddress"
     const parts = library.split(":");
-    if (parts.length !== 3) continue;
+    if (parts.length !== 3) {
+      continue;
+    }
 
     const libraryName = parts[1];
     const libraryAddress = parts[2] as `0x${string}`;

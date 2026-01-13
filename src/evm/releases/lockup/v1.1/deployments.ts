@@ -10,7 +10,7 @@ function get(
   contractMap: {
     core: Sablier.EVM.ContractMap;
     periphery: Sablier.EVM.ContractMap;
-  },
+  }
 ): Sablier.EVM.Deployment.LockupV1 {
   return resolvers.deployment.lockupV1({
     aliasMap: aliases,

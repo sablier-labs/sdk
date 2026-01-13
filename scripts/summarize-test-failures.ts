@@ -8,7 +8,9 @@
 import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 
-interface VitestResult {
+const ERROR_PREFIX_REGEX = /^.*?Error:\s*/;
+
+type VitestResult = {
   testResults: Array<{
     name: string;
     assertionResults: Array<{
@@ -19,13 +21,13 @@ interface VitestResult {
       retryReasons?: string[];
     }>;
   }>;
-}
+};
 
-interface FailureSummary {
+type FailureSummary = {
   fullName: string;
   shortError: string;
   retryCount: number;
-}
+};
 
 function extractFirstErrorLine(errorMessage: string): string {
   // Extract the most relevant error line
@@ -33,8 +35,7 @@ function extractFirstErrorLine(errorMessage: string): string {
 
   // Look for "expected X to equal Y" pattern
   const expectedLine = lines.find(
-    (line) =>
-      line.includes("expected") && (line.includes("equal") || line.includes("deeply equal")),
+    (line) => line.includes("expected") && (line.includes("equal") || line.includes("deeply equal"))
   );
   if (expectedLine) {
     return expectedLine.trim();
@@ -42,10 +43,10 @@ function extractFirstErrorLine(errorMessage: string): string {
 
   // Look for Error: messages
   const errorLine = lines.find(
-    (line) => line.includes("Error:") || line.includes("AssertionError:"),
+    (line) => line.includes("Error:") || line.includes("AssertionError:")
   );
   if (errorLine) {
-    return errorLine.replace(/^.*?Error:\s*/, "").trim();
+    return errorLine.replace(ERROR_PREFIX_REGEX, "").trim();
   }
 
   // Fall back to first non-empty line

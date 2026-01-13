@@ -15,7 +15,7 @@ export const compatibleLockupVersions: Record<Version.Airdrops, Version.Lockup[]
  */
 export function isLockupCompatible(
   airdropsVersion: Version.Airdrops,
-  lockupVersion: Version.Lockup,
+  lockupVersion: Version.Lockup
 ): boolean {
   return compatibleLockupVersions[airdropsVersion]?.includes(lockupVersion) ?? false;
 }

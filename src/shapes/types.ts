@@ -98,7 +98,7 @@ export type ShapeWithSolanaSupport = AnyShape & { readonly solana: readonly Prog
  */
 export const defineLockupShape = <TId extends Shape.Lockup>(
   id: TId,
-  def: Omit<LockupShapeDefinition<TId>, "id">,
+  def: Omit<LockupShapeDefinition<TId>, "id">
 ): LockupShapeDefinition<TId> => ({ id, ...def });
 
 /**
@@ -106,7 +106,7 @@ export const defineLockupShape = <TId extends Shape.Lockup>(
  */
 export const defineFlowShape = <TId extends Shape.Flow>(
   id: TId,
-  def: Omit<FlowShapeDefinition<TId>, "id">,
+  def: Omit<FlowShapeDefinition<TId>, "id">
 ): FlowShapeDefinition<TId> => ({ id, ...def });
 
 /**
@@ -114,5 +114,5 @@ export const defineFlowShape = <TId extends Shape.Flow>(
  */
 export const defineAirdropShape = <TId extends Shape.Airdrops>(
   id: TId,
-  def: Omit<AirdropShapeDefinition<TId>, "id">,
+  def: Omit<AirdropShapeDefinition<TId>, "id">
 ): AirdropShapeDefinition<TId> => ({ id, ...def });

@@ -57,7 +57,7 @@ describe("Package chains are in sync with broadcasts", () => {
       }
 
       expect(errors.size).toBe(0);
-    }),
+    })
   );
 
   it.effect("should not have any unknown chain in broadcasts", () =>
@@ -76,7 +76,7 @@ describe("Package chains are in sync with broadcasts", () => {
       }
 
       expect(errors.size).toBe(0);
-    }),
+    })
   );
 });
 

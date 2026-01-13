@@ -18,12 +18,14 @@ import { existsSync, mkdirSync } from "node:fs";
 import { basename, dirname, relative } from "node:path";
 import { $, Glob } from "bun";
 
-interface ConversionResult {
+const JSON_EXT_REGEX = /\.json$/;
+
+type ConversionResult = {
   input: string;
   output: string;
   success: boolean;
   error?: string;
-}
+};
 
 /**
  * Convert PascalCase filename to camelCase with "Abi" suffix
@@ -31,7 +33,7 @@ interface ConversionResult {
  */
 function generateExportName(filename: string): string {
   // Remove .json extension
-  const nameWithoutExt = filename.replace(/\.json$/, "");
+  const nameWithoutExt = filename.replace(JSON_EXT_REGEX, "");
 
   // Convert PascalCase to camelCase
   const camelCase = nameWithoutExt.charAt(0).toLowerCase() + nameWithoutExt.slice(1);
@@ -60,16 +62,16 @@ function getOutputPath(inputPath: string): string {
   //                           abiIndex  +1       +2
   const protocol = parts[abiIndex + 1];
   const version = parts[abiIndex + 2];
-  const filename = parts[parts.length - 1];
+  const filename = parts.at(-1);
 
   if (!protocol || !version || !filename) {
     throw new Error(
-      `Invalid input path structure: ${inputPath} (expected src/evm/abi/{protocol}/{version}/{file}.json)`,
+      `Invalid input path structure: ${inputPath} (expected src/evm/abi/{protocol}/{version}/{file}.json)`
     );
   }
 
   // Construct output path
-  const tsFilename = filename.replace(/\.json$/, ".ts");
+  const tsFilename = filename.replace(JSON_EXT_REGEX, ".ts");
   return `src/evm/releases/${protocol}/${version}/abi/${tsFilename}`;
 }
 
@@ -78,8 +80,7 @@ function getOutputPath(inputPath: string): string {
  */
 async function convertFile(inputPath: string): Promise<ConversionResult> {
   try {
-    // Read and parse JSON
-    const jsonContent = await Bun.file(inputPath).text();
+    const jsonContent = await globalThis.Bun.file(inputPath).text();
     const abi = JSON.parse(jsonContent);
 
     // Validate it's an array (ABIs are arrays)
@@ -103,8 +104,7 @@ async function convertFile(inputPath: string): Promise<ConversionResult> {
       mkdirSync(outputDir, { recursive: true });
     }
 
-    // Write TypeScript file
-    await Bun.write(outputPath, tsContent);
+    await globalThis.Bun.write(outputPath, tsContent);
 
     return {
       input: inputPath,
@@ -152,7 +152,9 @@ async function resolveFiles(pattern: string): Promise<string[]> {
  * Run Biome formatter on generated files
  */
 async function runBiomeFormat(files: string[]): Promise<void> {
-  if (files.length === 0) return;
+  if (files.length === 0) {
+    return;
+  }
 
   console.log("\nRunning Biome formatter...");
 

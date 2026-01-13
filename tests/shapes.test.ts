@@ -437,7 +437,7 @@ describe("shapes", () => {
   describe("Solana helper functions", () => {
     it("getSolanaShapesByVersion returns shapes available for v0.1", () => {
       const lockupShapesWithSolana = Object.fromEntries(
-        Object.entries(shapes.lockup).filter(([_, shape]) => hasSolanaSupport(shape)),
+        Object.entries(shapes.lockup).filter(([_, shape]) => hasSolanaSupport(shape))
       ) as Record<string, ShapeWithSolanaSupport>;
       const v01Shapes = getSolanaShapesByVersion(lockupShapesWithSolana, "v0.1");
       // linear, cliff, linearUnlockLinear, linearUnlockCliff, linearTimelock
@@ -492,7 +492,7 @@ describe("shapes", () => {
           const release = releases.airdrops[version as Version.Airdrops];
           expect(
             release.contractNames,
-            `${shape.id}: contract "${contract}" not found in airdrops ${version} manifest`,
+            `${shape.id}: contract "${contract}" not found in airdrops ${version} manifest`
           ).toContain(contract);
         }
       }
@@ -504,7 +504,7 @@ describe("shapes", () => {
           const release = releases.flow[version as Version.Flow];
           expect(
             release.contractNames,
-            `${shape.id}: contract "${contract}" not found in flow ${version} manifest`,
+            `${shape.id}: contract "${contract}" not found in flow ${version} manifest`
           ).toContain(contract);
         }
       }
@@ -516,7 +516,7 @@ describe("shapes", () => {
           const release = releases.lockup[version as Version.Lockup];
           expect(
             release.contractNames,
-            `${shape.id}: contract "${contract}" not found in lockup ${version} manifest`,
+            `${shape.id}: contract "${contract}" not found in lockup ${version} manifest`
           ).toContain(contract);
         }
       }
@@ -571,7 +571,7 @@ describe("shapes", () => {
       for (const { contract, version } of shapes.airdrops.tranchedStepper.evm) {
         expect(
           ltFactoryPattern.test(contract),
-          `tranchedStepper shape has non-LT factory contract "${contract}" in ${version}`,
+          `tranchedStepper shape has non-LT factory contract "${contract}" in ${version}`
         ).toBe(true);
       }
     });
@@ -587,7 +587,7 @@ describe("shapes", () => {
         for (const { contract, version } of shape.evm) {
           expect(
             llFactoryPattern.test(contract),
-            `${shape.id} shape has non-LL factory contract "${contract}" in ${version}`,
+            `${shape.id} shape has non-LL factory contract "${contract}" in ${version}`
           ).toBe(true);
         }
       }
@@ -597,7 +597,7 @@ describe("shapes", () => {
       for (const { contract, version } of shapes.airdrops.instant.evm) {
         expect(
           instantFactoryPattern.test(contract),
-          `instant shape has non-Instant factory contract "${contract}" in ${version}`,
+          `instant shape has non-Instant factory contract "${contract}" in ${version}`
         ).toBe(true);
       }
     });

@@ -35,19 +35,19 @@ The skill provides a conversion script that:
 ### Single File Conversion
 
 ```bash
-bun .claude/skills/abi-codegen/codegen.ts src/evm/abi/lockup/v3.0/SablierLockup.json
+bun .claude/skills/abi-codegen/scripts/codegen.ts src/evm/abi/lockup/v3.0/SablierLockup.json
 ```
 
 ### Multiple Files (Glob Pattern)
 
 ```bash
-bun .claude/skills/abi-codegen/codegen.ts "src/evm/abi/lockup/v3.0/*.json"
+bun .claude/skills/abi-codegen/scripts/codegen.ts "src/evm/abi/lockup/v3.0/*.json"
 ```
 
 ### All ABIs in Directory
 
 ```bash
-bun .claude/skills/abi-codegen/codegen.ts "src/evm/abi/**/*.json"
+bun .claude/skills/abi-codegen/scripts/codegen.ts "src/evm/abi/**/*.json"
 ```
 
 ## File Path Conventions
@@ -94,7 +94,7 @@ src/evm/releases/{protocol}/{version}/abi/{ContractName}.ts
 **Command:**
 
 ```bash
-bun .claude/skills/abi-codegen/codegen.ts src/evm/abi/lockup/v3.0/SablierLockup.json
+bun .claude/skills/abi-codegen/scripts/codegen.ts src/evm/abi/lockup/v3.0/SablierLockup.json
 ```
 
 **Output:** `src/evm/releases/lockup/v3.0/abi/SablierLockup.ts`
@@ -117,7 +117,7 @@ export const sablierLockupAbi = [
 ### Example 2: Batch Convert All v3.0 Lockup ABIs
 
 ```bash
-bun .claude/skills/abi-codegen/codegen.ts "src/evm/abi/lockup/v3.0/*.json"
+bun .claude/skills/abi-codegen/scripts/codegen.ts "src/evm/abi/lockup/v3.0/*.json"
 ```
 
 **Output:**
@@ -174,7 +174,7 @@ The script handles common errors:
 pwd  # Should show .../sablier/sdk
 
 # Verify script exists
-ls .claude/skills/abi-codegen/codegen.ts
+ls .claude/skills/abi-codegen/scripts/codegen.ts
 ```
 
 ### Invalid JSON
@@ -200,7 +200,7 @@ just tsc-check
 
 ```bash
 # Use quotes around glob patterns
-bun .claude/skills/abi-codegen/codegen.ts "src/evm/abi/**/*.json"
+bun .claude/skills/abi-codegen/scripts/codegen.ts "src/evm/abi/**/*.json"
 #                                                 ^                    ^
 #                                                 Quotes are required
 ```
@@ -220,7 +220,7 @@ bun .claude/skills/abi-codegen/codegen.ts "src/evm/abi/**/*.json"
 
 ```bash
 # Convert all modified ABIs
-bun .claude/skills/abi-codegen/codegen.ts "src/evm/abi/**/*.json"
+bun .claude/skills/abi-codegen/scripts/codegen.ts "src/evm/abi/**/*.json"
 
 # Verify TypeScript
 just tsc-check
@@ -260,7 +260,7 @@ The `as const` assertion provides:
 
 ## Related Files
 
-- **Script**: `.claude/skills/abi-codegen/codegen.ts`
+- **Script**: `.claude/skills/abi-codegen/scripts/codegen.ts`
 - **Source ABIs**: `src/evm/abi/{protocol}/{version}/*.json`
 - **Output ABIs**: `src/evm/releases/{protocol}/{version}/abi/*.ts`
 - **Build config**: `tsconfig.build.json` (includes ABI copy step)

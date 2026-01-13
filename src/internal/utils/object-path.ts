@@ -6,7 +6,9 @@
 export function getPath<T>(obj: unknown, path: readonly (string | number)[]): T | undefined {
   let result: unknown = obj;
   for (const key of path) {
-    if (result == null) return undefined;
+    if (result == null) {
+      return undefined;
+    }
     result = (result as Record<string | number, unknown>)[key];
   }
   return result as T | undefined;
@@ -21,9 +23,11 @@ export function getPath<T>(obj: unknown, path: readonly (string | number)[]): T 
 export function setPath<T extends object>(
   obj: T,
   path: readonly (string | number)[],
-  value: unknown,
+  value: unknown
 ): T {
-  if (path.length === 0) return obj;
+  if (path.length === 0) {
+    return obj;
+  }
   let current: Record<string | number, unknown> = obj as Record<string | number, unknown>;
   for (let i = 0; i < path.length - 1; i++) {
     const key = path[i];
@@ -32,6 +36,10 @@ export function setPath<T extends object>(
     }
     current = current[key] as Record<string | number, unknown>;
   }
-  current[path[path.length - 1]] = value;
+  const lastKey = path.at(-1);
+  if (lastKey === undefined) {
+    return obj;
+  }
+  current[lastKey] = value;
   return obj;
 }

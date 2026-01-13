@@ -6,7 +6,9 @@ import type { Sablier } from "@src/types.js";
 let _catalog: Sablier.EVM.ContractCatalog | undefined;
 
 function getCatalog(): Sablier.EVM.ContractCatalog {
-  if (_catalog) return _catalog;
+  if (_catalog) {
+    return _catalog;
+  }
 
   _catalog = {
     [Protocol.Airdrops]: {},

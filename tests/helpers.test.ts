@@ -58,7 +58,7 @@ describe("resolveStreamId", () => {
           alias: "UNKNOWN_ALIAS",
           chainId: 1,
           tokenId: 1,
-        }),
+        })
       ).toThrowError(/Unknown EVM contract alias/);
     });
   });
@@ -74,7 +74,7 @@ describe("resolveStreamId", () => {
 
       // Should return Solana format: base58 address-chainId-tokenId
       expect(result).toBe(
-        `4EauRKrNErKfsR4XetEZJNmvACGHbHnHV4R5dvJuqupC-${CHAIN_ID_SOLANA_MAINNET_BETA}-123`,
+        `4EauRKrNErKfsR4XetEZJNmvACGHbHnHV4R5dvJuqupC-${CHAIN_ID_SOLANA_MAINNET_BETA}-123`
       );
     });
 
@@ -88,7 +88,7 @@ describe("resolveStreamId", () => {
 
       // Should return Solana format with devnet chainId (same address as mainnet)
       expect(result).toBe(
-        `4EauRKrNErKfsR4XetEZJNmvACGHbHnHV4R5dvJuqupC-${CHAIN_ID_SOLANA_DEVNET}-456`,
+        `4EauRKrNErKfsR4XetEZJNmvACGHbHnHV4R5dvJuqupC-${CHAIN_ID_SOLANA_DEVNET}-456`
       );
     });
 
@@ -101,7 +101,7 @@ describe("resolveStreamId", () => {
       });
 
       expect(result).toBe(
-        `4EauRKrNErKfsR4XetEZJNmvACGHbHnHV4R5dvJuqupC-${CHAIN_ID_SOLANA_MAINNET_BETA}-999`,
+        `4EauRKrNErKfsR4XetEZJNmvACGHbHnHV4R5dvJuqupC-${CHAIN_ID_SOLANA_MAINNET_BETA}-999`
       );
     });
 
@@ -114,7 +114,7 @@ describe("resolveStreamId", () => {
       });
 
       expect(result).toBe(
-        `4EauRKrNErKfsR4XetEZJNmvACGHbHnHV4R5dvJuqupC-${CHAIN_ID_SOLANA_MAINNET_BETA}-789`,
+        `4EauRKrNErKfsR4XetEZJNmvACGHbHnHV4R5dvJuqupC-${CHAIN_ID_SOLANA_MAINNET_BETA}-789`
       );
     });
 
@@ -124,7 +124,7 @@ describe("resolveStreamId", () => {
           alias: "UNKNOWN_ALIAS",
           chainId: CHAIN_ID_SOLANA_MAINNET_BETA,
           tokenId: 1,
-        }),
+        })
       ).toThrowError(/Unknown Solana program alias/);
     });
   });
@@ -172,7 +172,7 @@ describe("resolveStreamId", () => {
       });
 
       expect(result).toBe(
-        `4EauRKrNErKfsR4XetEZJNmvACGHbHnHV4R5dvJuqupC-${CHAIN_ID_SOLANA_MAINNET_BETA}-123`,
+        `4EauRKrNErKfsR4XetEZJNmvACGHbHnHV4R5dvJuqupC-${CHAIN_ID_SOLANA_MAINNET_BETA}-123`
       );
     });
   });
@@ -185,7 +185,7 @@ describe("resolveStreamId", () => {
           chainId: CHAIN_ID_SOLANA_MAINNET_BETA,
           protocol: EvmProtocol.Flow,
           tokenId: 1,
-        }),
+        })
       ).toThrowError(/Protocol "flow" is EVM-only and not valid for Solana chain/);
     });
 
@@ -196,7 +196,7 @@ describe("resolveStreamId", () => {
           chainId: CHAIN_ID_SOLANA_DEVNET,
           protocol: EvmProtocol.Legacy,
           tokenId: 1,
-        }),
+        })
       ).toThrowError(/Protocol "legacy" is EVM-only and not valid for Solana chain/);
     });
 

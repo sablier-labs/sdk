@@ -65,10 +65,10 @@ describe("ABI const assertions", () => {
           expect(exports.length).toBeGreaterThan(0);
 
           // Check each export
-          exports.forEach(([exportName, exportValue]) => {
+          for (const [exportName, exportValue] of exports) {
             // Skip non-ABI exports (if any)
             if (!exportName.toLowerCase().includes("abi")) {
-              return;
+              continue;
             }
 
             // Verify it's an array
@@ -79,13 +79,13 @@ describe("ABI const assertions", () => {
             expect(abi.length, `${exportName} should not be empty`).toBeGreaterThan(0);
 
             // Verify ABI structure (basic validation)
-            abi.forEach((item, index) => {
+            for (const [index, item] of abi.entries()) {
               expect(typeof item, `${exportName}[${index}] should be an object`).toBe("object");
               expect(item, `${exportName}[${index}] should not be null`).not.toBe(null);
-            });
-          });
+            }
+          }
         }
-      }),
+      })
     );
   });
 
@@ -109,7 +109,7 @@ describe("ABI const assertions", () => {
 
           expect(
             hasAsConst,
-            `File ${path.basename(filePath)} is missing 'as const' assertion. Found content ending: "${sourceContent.slice(-100)}"`,
+            `File ${path.basename(filePath)} is missing 'as const' assertion. Found content ending: "${sourceContent.slice(-100)}"`
           ).toBe(true);
 
           // Additional validation: ensure the export pattern is correct
@@ -118,10 +118,10 @@ describe("ABI const assertions", () => {
 
           expect(
             hasProperExport,
-            `File ${path.basename(filePath)} doesn't have proper ABI export pattern with 'as const'`,
+            `File ${path.basename(filePath)} doesn't have proper ABI export pattern with 'as const'`
           ).toBe(true);
         }
-      }),
+      })
     );
   });
 });

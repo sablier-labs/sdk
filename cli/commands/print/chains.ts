@@ -9,7 +9,7 @@ export const chainCmd = new Command("chains")
       sablier.evm.chains
         .getMainnets()
         .map((c) => `• ${c.slug}`)
-        .join("\n"),
+        .join("\n")
     );
 
     console.log("\n🧪 Testnets:");
@@ -17,6 +17,6 @@ export const chainCmd = new Command("chains")
       sablier.evm.chains
         .getTestnets()
         .map((c) => `• ${c.slug}`)
-        .join("\n"),
+        .join("\n")
     );
   });

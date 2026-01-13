@@ -15,7 +15,7 @@ import type { Sablier, TruncateAddressOptions } from "@src/types.js";
  */
 export function truncateSolanaAddress(
   address: Sablier.Solana.Address,
-  options?: TruncateAddressOptions,
+  options?: TruncateAddressOptions
 ): string {
   if (!address) {
     return address;
@@ -88,7 +88,7 @@ export function resolveSolanaProgramByAlias(opts: {
     const program = aliasCatalog[protocol]?.[chainId]?.[alias];
     if (!program) {
       throw new Error(
-        `Sablier SDK: Unknown Solana program alias "${alias}" on chain ${chainId} for protocol "${protocol}"`,
+        `Sablier SDK: Unknown Solana program alias "${alias}" on chain ${chainId} for protocol "${protocol}"`
       );
     }
     return program;
@@ -106,7 +106,7 @@ export function resolveSolanaProgramByAlias(opts: {
 
   if (matches.length > 1) {
     throw new Error(
-      `Sablier SDK: Ambiguous Solana program alias "${alias}" on chain ${chainId}; specify protocol`,
+      `Sablier SDK: Ambiguous Solana program alias "${alias}" on chain ${chainId}; specify protocol`
     );
   }
 

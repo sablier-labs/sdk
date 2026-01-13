@@ -6,7 +6,9 @@ import type { Sablier } from "@src/types.js";
 let _aliasCatalog: Sablier.EVM.AliasCatalog | undefined;
 
 export function getAliasCatalog(): Sablier.EVM.AliasCatalog {
-  if (_aliasCatalog) return _aliasCatalog;
+  if (_aliasCatalog) {
+    return _aliasCatalog;
+  }
 
   const catalog: Sablier.EVM.AliasCatalog = {
     [Protocol.Airdrops]: {},
@@ -31,7 +33,7 @@ export function getAliasCatalog(): Sablier.EVM.AliasCatalog {
           if (existing) {
             throw new Error(
               `Sablier SDK: Alias collision detected for "${contract.alias}" on chain ${chainId} in ${protocol}. ` +
-                `Existing: ${existing.address}, New: ${contract.address}`,
+                `Existing: ${existing.address}, New: ${contract.address}`
             );
           }
           const entry = { ...contract, protocol, version };

@@ -86,7 +86,7 @@ export function isVersionAfter(version: Version, after: Version): boolean {
  */
 export function isReleasePayable(
   protocol: PayableEvmProtocol,
-  version: Sablier.EVM.Version,
+  version: Sablier.EVM.Version
 ): boolean {
   return isEvmReleasePayable(protocol, version);
 }
@@ -157,7 +157,7 @@ export function resolveStreamId(opts: {
   // Validate protocol/chain compatibility
   if (protocol && isSolanaChain && EVM_ONLY_PROTOCOLS.has(protocol as EvmProtocol)) {
     throw new Error(
-      `Sablier SDK: Protocol "${protocol}" is EVM-only and not valid for Solana chain ${chainId}`,
+      `Sablier SDK: Protocol "${protocol}" is EVM-only and not valid for Solana chain ${chainId}`
     );
   }
 

@@ -16,7 +16,7 @@ import type { Sablier, TruncateAddressOptions } from "@src/types.js";
  */
 export function truncateEvmAddress(
   address: Sablier.EVM.Address,
-  options?: TruncateAddressOptions,
+  options?: TruncateAddressOptions
 ): string {
   if (!address) {
     return address;
@@ -99,7 +99,7 @@ export function resolveEvmContractByAlias(opts: {
     const contract = aliasCatalog[protocol]?.[chainId]?.[alias];
     if (!contract) {
       throw new Error(
-        `Sablier SDK: Unknown EVM contract alias "${alias}" on chain ${chainId} for protocol "${protocol}"`,
+        `Sablier SDK: Unknown EVM contract alias "${alias}" on chain ${chainId} for protocol "${protocol}"`
       );
     }
     return contract;
@@ -122,7 +122,7 @@ export function resolveEvmContractByAlias(opts: {
 
   if (matches.length > 1) {
     throw new Error(
-      `Sablier SDK: Ambiguous EVM contract alias "${alias}" on chain ${chainId}; specify protocol`,
+      `Sablier SDK: Ambiguous EVM contract alias "${alias}" on chain ${chainId}; specify protocol`
     );
   }
 
@@ -158,12 +158,14 @@ export type PayableEvmProtocol = keyof typeof MIN_PAYABLE_VERSIONS;
  */
 export function isEvmReleasePayable(
   protocol: PayableEvmProtocol,
-  version: Sablier.EVM.Version,
+  version: Sablier.EVM.Version
 ): boolean {
   const minVersion = MIN_PAYABLE_VERSIONS[protocol];
   // Compare versions: return true if version >= minVersion
   const [vMajor, vMinor] = version.slice(1).split(".").map(Number);
   const [mMajor, mMinor] = minVersion.slice(1).split(".").map(Number);
-  if (vMajor !== mMajor) return vMajor > mMajor;
+  if (vMajor !== mMajor) {
+    return vMajor > mMajor;
+  }
   return vMinor >= mMinor;
 }

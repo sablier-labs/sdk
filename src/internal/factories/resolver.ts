@@ -29,11 +29,11 @@ type ContractMapperParams<TProtocol, TVersion> = {
  * @template TAddress - The address type (e.g., `0x${string}` for EVM, `string` for Solana)
  */
 export function createContractMapper<TContract, TProtocol, TVersion, TAddress extends string>(
-  chainsQueries: ChainsQueries,
+  chainsQueries: ChainsQueries
 ) {
   return (
     contractMap: Shared.ContractMap<TAddress>,
-    params: ContractMapperParams<TProtocol, TVersion>,
+    params: ContractMapperParams<TProtocol, TVersion>
   ): TContract[] => {
     const { chainId, protocol, version, aliasMap } = params;
     const chain = chainsQueries.getOrThrow(chainId);
@@ -50,7 +50,7 @@ export function createContractMapper<TContract, TProtocol, TVersion, TAddress ex
         chainId,
         explorerURL: getContractExplorerURL(
           chain.blockExplorers.default.url,
-          address as `0x${string}`,
+          address as `0x${string}`
         ),
         name,
         protocol,
@@ -80,7 +80,7 @@ export function createStandardDeploymentResolver<
   TAddress extends string,
 >(
   contractMapper: ReturnType<typeof createContractMapper<TContract, TProtocol, TVersion, TAddress>>,
-  contractsField: "contracts" | "programs" = "contracts",
+  contractsField: "contracts" | "programs" = "contracts"
 ) {
   return (params: {
     protocol: TProtocol;
@@ -109,7 +109,7 @@ export function createStandardDeploymentResolver<
  */
 export function extractContractNames<T extends Record<string, string | Record<string, string>>>(
   manifest: T,
-  getNestedValues: (obj: T) => string[],
+  getNestedValues: (obj: T) => string[]
 ): string[] {
   return getNestedValues(manifest);
 }

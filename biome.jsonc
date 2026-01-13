@@ -1,20 +1,32 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-  "extends": ["@sablier/devkit/biome"],
+  "extends": ["ultracite/core", "@sablier/devkit/biome"],
   "files": {
     "includes": ["**/*.{js,json,jsonc,ts}", "!node_modules/**/*"]
   },
   "overrides": [
+    // ─────────────────────────────────────────────────────────────────────────────
+    // Tests
+    // ─────────────────────────────────────────────────────────────────────────────
     {
       "includes": ["**/tests/**/*.ts"],
       "linter": {
         "rules": {
+          "performance": {
+            "useTopLevelRegex": "off"
+          },
           "style": {
             "noNonNullAssertion": "off"
+          },
+          "suspicious": {
+            "noMisplacedAssertion": "off"
           }
         }
       }
     },
+    // ─────────────────────────────────────────────────────────────────────────────
+    // ABIs
+    // ─────────────────────────────────────────────────────────────────────────────
     {
       "includes": ["src/evm/releases/**/abi/**/*.ts"],
       "assist": {

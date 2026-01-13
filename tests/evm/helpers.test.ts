@@ -265,7 +265,7 @@ describe("helpers", () => {
           alias: "LL2",
           chainId: 1,
           tokenId: 123,
-        }),
+        })
       ).toThrowError(/Ambiguous EVM contract alias/);
     });
 
@@ -285,7 +285,7 @@ describe("helpers", () => {
           alias: "NOT_A_REAL_ALIAS",
           chainId: 1,
           tokenId: 1,
-        }),
+        })
       ).toThrowError(/Unknown EVM contract alias/);
     });
   });
@@ -298,7 +298,7 @@ describe("helpers", () => {
         tokenId: 123,
       });
       expect(result).toBe(
-        `4EauRKrNErKfsR4XetEZJNmvACGHbHnHV4R5dvJuqupC-${solanaMainnetBeta.id}-123`,
+        `4EauRKrNErKfsR4XetEZJNmvACGHbHnHV4R5dvJuqupC-${solanaMainnetBeta.id}-123`
       );
     });
 
@@ -310,7 +310,7 @@ describe("helpers", () => {
         tokenId: "456",
       });
       expect(result).toBe(
-        `4EauRKrNErKfsR4XetEZJNmvACGHbHnHV4R5dvJuqupC-${solanaMainnetBeta.id}-456`,
+        `4EauRKrNErKfsR4XetEZJNmvACGHbHnHV4R5dvJuqupC-${solanaMainnetBeta.id}-456`
       );
     });
 
@@ -320,7 +320,7 @@ describe("helpers", () => {
           alias: "NOT_A_REAL_ALIAS",
           chainId: solanaMainnetBeta.id,
           tokenId: 1,
-        }),
+        })
       ).toThrowError(/Unknown Solana program alias/);
     });
   });

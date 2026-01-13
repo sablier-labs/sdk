@@ -20,7 +20,7 @@ describe("Contract catalog", () => {
       const entry = sablier.evm.contracts.get({
         chainId: deployment.chainId,
         contractName: contract.name,
-        release: release,
+        release,
       });
       expect(entry).toStrictEqual(contract);
     });

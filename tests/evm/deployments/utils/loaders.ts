@@ -8,19 +8,18 @@ import type { StandardBroadcast, ZKBroadcast } from "../../types.js";
 export async function loadBroadcast<T extends StandardBroadcast | ZKBroadcast[]>(
   release: Sablier.EVM.Release,
   chain: Sablier.EVM.Chain,
-  componentName?: string,
+  componentName?: string
 ): Promise<T | null> {
   if (chain.isZK && !isBroadcastsUnified(release)) {
     return (await loadZK(release, chain, componentName)) as T;
-  } else {
-    return (await loadStandard(release, chain, componentName)) as T;
   }
+  return (await loadStandard(release, chain, componentName)) as T;
 }
 
 async function loadStandard(
   release: Sablier.EVM.Release,
   chain: Sablier.EVM.Chain,
-  componentName?: string,
+  componentName?: string
 ): Promise<StandardBroadcast | null> {
   const foundPath = await checkBroadcast(release, chain, componentName);
   if (!foundPath) {
@@ -37,7 +36,7 @@ async function loadStandard(
 async function loadZK(
   release: Sablier.EVM.Release,
   chain: Sablier.EVM.Chain,
-  componentName?: string,
+  componentName?: string
 ): Promise<ZKBroadcast[] | null> {
   const foundDir = await checkBroadcast(release, chain, componentName);
   if (!foundDir) {
@@ -58,14 +57,14 @@ async function loadZK(
  * Loads broadcast files for comptroller for a specific chain.
  */
 export async function loadComptrollerBroadcast(
-  chainSlug: string,
+  chainSlug: string
 ): Promise<StandardBroadcast | null> {
   const broadcastPath = path.join(
     getDeploymentsDir(),
     "comptroller",
     "v1.0",
     "broadcasts",
-    `${chainSlug}.json`,
+    `${chainSlug}.json`
   );
 
   if (!fs.existsSync(broadcastPath)) {

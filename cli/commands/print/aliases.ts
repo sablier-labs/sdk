@@ -12,7 +12,7 @@ function capitalize(str: string): string {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-async function printAliases(): Promise<void> {
+function printAliases(): void {
   const rows: AliasRow[] = [];
 
   for (const release of sablier.evm.releases.getAll()) {
@@ -46,7 +46,7 @@ async function printAliases(): Promise<void> {
 
   const headers = ["Alias", "Contract Name", "Release"];
   const colWidths = headers.map((h, i) =>
-    Math.max(h.length, ...rows.map((row) => Object.values(row)[i].length)),
+    Math.max(h.length, ...rows.map((row) => Object.values(row)[i].length))
   );
 
   // Print Markdown table header with fixed width

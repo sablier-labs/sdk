@@ -14,9 +14,9 @@ const deployments: Sablier.EVM.Deployment[] = [...sortedMainnets, ...sortedTestn
 export const release = resolvers.release.standard({
   abi,
   aliases,
-  deployments: deployments,
+  deployments,
   isLatest: false,
-  manifest: manifest,
+  manifest,
   protocol: Protocol.Flow,
   version: "v1.0",
 });

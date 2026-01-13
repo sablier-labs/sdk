@@ -11,9 +11,9 @@ const deployments: Sablier.EVM.Deployment[] = [...mainnets, ...testnets];
 export const release = resolvers.release.standard({
   abi,
   aliases,
-  deployments: deployments,
+  deployments,
   isLatest: false,
-  manifest: manifest,
+  manifest,
   protocol: Protocol.Airdrops,
   version: "v1.2",
 });

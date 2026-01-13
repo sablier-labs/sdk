@@ -145,7 +145,7 @@ describe("Solana compatibility", () => {
     // When new versions are added, incompatibility tests should be added here.
     it("returns true for compatible versions", () => {
       expect(solanaIsLockupCompatible(SolanaVersion.Airdrops.V0_1, SolanaVersion.Lockup.V0_1)).toBe(
-        true,
+        true
       );
     });
   });

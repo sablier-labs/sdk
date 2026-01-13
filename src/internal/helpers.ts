@@ -30,7 +30,7 @@ if (!fs.existsSync(path.join(ROOT_DIR, "package.json"))) {
 export function checkBroadcast(
   release: Sablier.EVM.Release,
   chain: Sablier.EVM.Chain,
-  innerPath?: string,
+  innerPath?: string
 ): string | null {
   let chainType = "";
   let chainPath = "";
