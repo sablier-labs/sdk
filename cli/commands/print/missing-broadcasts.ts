@@ -33,7 +33,7 @@ async function checkMissingBroadcasts(protocol: Sablier.EVM.Protocol): Promise<v
         hasValidBroadcasts = results.every(Boolean);
       } else {
         const paths = await checkBroadcast(r, chain);
-        hasValidBroadcasts = paths !== null && paths !== undefined;
+        hasValidBroadcasts = Boolean(paths);
       }
 
       // Add to missing list if broadcasts aren't valid
