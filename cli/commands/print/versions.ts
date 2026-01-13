@@ -1,18 +1,21 @@
 import { logger } from "@src/internal/logger";
 import { sablier } from "@src/sablier";
 import { Command } from "commander";
-import _ from "lodash";
 
 type VersionRow = {
   protocol: string;
   version: string;
 };
 
+function capitalize(str: string): string {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
 async function printVersions(): Promise<void> {
   const rows: VersionRow[] = [];
 
   for (const release of sablier.evm.releases.getAll()) {
-    const protocol = _.capitalize(release.protocol);
+    const protocol = capitalize(release.protocol);
     const version = release.version;
 
     rows.push({
@@ -29,7 +32,13 @@ async function printVersions(): Promise<void> {
   logger.info(`✅ Found ${rows.length} total versions\n`);
 
   // Group by protocol
-  const groupedByProtocol = _.groupBy(rows, "protocol");
+  const groupedByProtocol: Record<string, VersionRow[]> = {};
+  for (const row of rows) {
+    if (!groupedByProtocol[row.protocol]) {
+      groupedByProtocol[row.protocol] = [];
+    }
+    groupedByProtocol[row.protocol].push(row);
+  }
 
   // Sort protocols alphabetically
   const sortedProtocols = Object.keys(groupedByProtocol).sort();
@@ -42,7 +51,7 @@ async function printVersions(): Promise<void> {
       const parseVersion = (v: string) => {
         const match = v.match(/v(\d+)\.(\d+)/);
         if (!match) return [0, 0];
-        return [_.parseInt(match[1]), _.parseInt(match[2])];
+        return [Number.parseInt(match[1], 10), Number.parseInt(match[2], 10)];
       };
 
       const [aMajor, aMinor] = parseVersion(a.version);

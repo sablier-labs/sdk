@@ -4,7 +4,6 @@ import { logger } from "@src/internal/logger";
 import { sablier } from "@src/sablier";
 import type { Sablier } from "@src/types";
 import { Command } from "commander";
-import _ from "lodash";
 
 const EMOJIS = {
   check: "✅",
@@ -34,19 +33,22 @@ async function checkMissingBroadcasts(protocol: Sablier.EVM.Protocol): Promise<v
         hasValidBroadcasts = results.every(Boolean);
       } else {
         const paths = await checkBroadcast(r, chain);
-        hasValidBroadcasts = !_.isEmpty(paths);
+        hasValidBroadcasts = paths !== null && paths !== undefined;
       }
 
       // Add to missing list if broadcasts aren't valid
       if (!hasValidBroadcasts) {
-        _.defaults(missing, { [r.version]: [] });
+        if (!missing[r.version]) {
+          missing[r.version] = [];
+        }
         missing[r.version].push(chain);
       }
     }
   }
 
   // Output results
-  if (_.keys(missing).length === 0) {
+  const versionKeys = Object.keys(missing);
+  if (versionKeys.length === 0) {
     printSectionHeader(`${EMOJIS.check} All listed chains have broadcasts`);
     return;
   }
@@ -55,7 +57,6 @@ async function checkMissingBroadcasts(protocol: Sablier.EVM.Protocol): Promise<v
   printSectionHeader(`${EMOJIS.warning} Missing Broadcasts`);
 
   // Print results grouped by version
-  const versionKeys = _.keys(missing);
   for (let i = 0; i < versionKeys.length; i++) {
     const version = versionKeys[i];
     const versionMissing = missing[version];
@@ -88,13 +89,10 @@ async function checkMissingBroadcasts(protocol: Sablier.EVM.Protocol): Promise<v
     console.log(); // Empty line between versions
   }
 
-  const totalMissing = _.values(missing).flat().length;
-  const mainnetCount = _.values(missing)
-    .flat()
-    .filter((c) => !c.isTestnet).length;
-  const testnetCount = _.values(missing)
-    .flat()
-    .filter((c) => c.isTestnet).length;
+  const allMissing = Object.values(missing).flat();
+  const totalMissing = allMissing.length;
+  const mainnetCount = allMissing.filter((c) => !c.isTestnet).length;
+  const testnetCount = allMissing.filter((c) => c.isTestnet).length;
 
   printSectionHeader("Summary");
   console.log(`Total missing broadcasts: ${totalMissing}`);
@@ -109,19 +107,20 @@ function printSectionHeader(text: string): void {
   console.log(`${separator}\n`);
 }
 
+const protocolValues = Object.values(Protocol);
+
 // TODO: make this work for Airdrops v1.1 and v1.2
 export const missingBroadcastsCmd = new Command("missing-broadcasts")
   .description("Check for missing broadcasts for a given protocol")
-  .option("-p, --protocol <protocol>", `Protocol to check (${_.values(Protocol).join(", ")})`)
+  .option("-p, --protocol <protocol>", `Protocol to check (${protocolValues.join(", ")})`)
   .action(async (options: { protocol?: Sablier.EVM.Protocol }) => {
     if (!options.protocol) {
       logger.error("Error: Protocol is required. Use -p or --protocol to specify.");
       process.exit(1);
     }
 
-    const available = _.values(Protocol);
-    if (!available.includes(options.protocol as Protocol)) {
-      logger.error(`Error: Please provide one of these protocols: ${available.join(", ")}`);
+    if (!protocolValues.includes(options.protocol as Protocol)) {
+      logger.error(`Error: Please provide one of these protocols: ${protocolValues.join(", ")}`);
       process.exit(1);
     }
 

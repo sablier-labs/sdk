@@ -1,6 +1,5 @@
 import { getContractExplorerURL } from "@src/internal/utils/explorer-url";
 import type { AliasMap, Shared } from "@src/shared/types";
-import _ from "lodash";
 
 /* -------------------------------------------------------------------------- */
 /*                                   TYPES                                    */
@@ -39,7 +38,7 @@ export function createContractMapper<TContract, TProtocol, TVersion, TAddress ex
     const { chainId, protocol, version, aliasMap } = params;
     const chain = chainsQueries.getOrThrow(chainId);
 
-    return _.entries(contractMap).map(([name, addressOrTuple]) => {
+    return Object.entries(contractMap).map(([name, addressOrTuple]) => {
       const [address, blockNumber] = Array.isArray(addressOrTuple)
         ? addressOrTuple
         : [addressOrTuple];

@@ -1,4 +1,4 @@
-import _ from "lodash";
+import { getPath } from "@src/internal/utils/object-path";
 
 /**
  * Factory function to create releases queries with platform-specific configuration.
@@ -21,7 +21,7 @@ export function createReleasesQueries<
   return {
     get: (opts: { protocol: TProtocol; version: TVersion }): TRelease | undefined => {
       const { protocol, version } = opts;
-      return _.get(releases, [protocol, version]) as TRelease | undefined;
+      return getPath<TRelease>(releases, [protocol, version]);
     },
     /**
      * Get all releases for a protocol.
@@ -31,11 +31,11 @@ export function createReleasesQueries<
     getAll: (opts?: { protocol?: TProtocol }): TRelease[] => {
       const { protocol } = opts || {};
       if (protocol) {
-        return _.flatMap(_.values(releases[protocol])) as TRelease[];
+        return Object.values(releases[protocol]) as TRelease[];
       }
       // Recursively get all releases from all protocols in the enum
-      return _.flatMap(Object.values(ProtocolEnum), (protocolName) =>
-        _.flatMap(_.values(releases[protocolName])),
+      return Object.values(ProtocolEnum).flatMap((protocolName) =>
+        Object.values(releases[protocolName]),
       ) as TRelease[];
     },
     /**
@@ -45,20 +45,20 @@ export function createReleasesQueries<
      */
     getFirst: (opts: { protocol: TProtocol; chainId?: number }): TRelease | undefined => {
       const { protocol, chainId } = opts;
-      const list = releases[protocol];
+      const list = Object.values(releases[protocol]) as TRelease[];
 
       if (chainId) {
-        return _.find(list, (r) => _.some(r.deployments, { chainId })) as TRelease | undefined;
+        return list.find((r) => r.deployments.some((d) => d.chainId === chainId));
       }
 
-      return _.values(list)[0] as TRelease | undefined;
+      return list[0];
     },
     /**
      * Get the latest release for a protocol.
      * - {protocol}
      */
     getLatest: (opts: { protocol: TProtocol }): TRelease => {
-      const list = _.values(releases[opts.protocol]) as TRelease[];
+      const list = Object.values(releases[opts.protocol]) as TRelease[];
       const latest = list[list.length - 1];
       if (!latest.isLatest) {
         throw new Error(
@@ -140,9 +140,11 @@ export function createContractsQueries<
         if (!release) {
           throw new Error("Sablier SDK: contractName requires release to be specified");
         }
-        const dep = _.find(release.deployments, { chainId }) as TDeployment | undefined;
+        const dep = release.deployments.find((d) => d.chainId === chainId) as
+          | TDeployment
+          | undefined;
         const items = getItems(dep);
-        return (_.find(items, { name: contractName }) as TContract | undefined) || undefined;
+        return items.find((c) => c.name === contractName);
       }
 
       // Query by address
@@ -151,22 +153,22 @@ export function createContractsQueries<
 
         // Scoped to specific release
         if (release) {
-          const dep = _.find(release.deployments, { chainId }) as TDeployment | undefined;
+          const dep = release.deployments.find((d) => d.chainId === chainId) as
+            | TDeployment
+            | undefined;
           const items = getItems(dep);
-          return (
-            (_.find(items, (c) => normalizeAddress(c.address) === address) as
-              | TContract
-              | undefined) || undefined
-          );
+          return items.find((c) => normalizeAddress(c.address) === address);
         }
 
         // Scoped to protocol - check for duplicates across releases
         if (protocol) {
           const releases = releasesQueries.getAll({ protocol });
           const matches = releases.filter((rel) => {
-            const dep = _.find(rel.deployments, { chainId }) as TDeployment | undefined;
+            const dep = rel.deployments.find((d) => d.chainId === chainId) as
+              | TDeployment
+              | undefined;
             const items = getItems(dep);
-            return _.some(items, (c) => normalizeAddress(c.address) === address);
+            return items.some((c) => normalizeAddress(c.address) === address);
           });
 
           if (matches.length > 1) {
@@ -177,12 +179,12 @@ export function createContractsQueries<
             );
           }
 
-          return _.get(catalog, [protocol, chainId, address]);
+          return getPath<TContract>(catalog, [protocol, chainId, address]);
         }
 
         // Fallback: search all protocols
         for (const protocol of protocols) {
-          const contract = _.get(catalog, [protocol, chainId, address]);
+          const contract = getPath<TContract>(catalog, [protocol, chainId, address]);
           if (contract) return contract;
         }
         return undefined;
@@ -214,33 +216,33 @@ export function createContractsQueries<
       // by protocol
       if (protocol) {
         const releases = releasesQueries.getAll({ protocol });
-        let deps = _.flatMap(releases, (r) => r.deployments);
+        let deps = releases.flatMap((r) => r.deployments);
         if (chainId) {
-          deps = _.filter(deps, (d) => d.chainId === chainId);
+          deps = deps.filter((d) => d.chainId === chainId);
           if (deps.length === 0) return undefined;
         }
-        return _.flatMap(deps, getItems);
+        return deps.flatMap(getItems);
       }
 
       // by explicit release
       if (release) {
         let deps = release.deployments;
         if (chainId) {
-          deps = _.filter(deps, (d) => d.chainId === chainId);
+          deps = deps.filter((d) => d.chainId === chainId);
           if (deps.length === 0) return undefined;
         }
-        return _.flatMap(deps, getItems);
+        return deps.flatMap(getItems);
       }
 
       // by chain id
       if (chainId) {
-        const deps = _.flatMap(releasesQueries.getAll(), (r) => r.deployments);
-        const filtered = _.filter(deps, (d) => d.chainId === chainId);
-        return _.flatMap(filtered, getItems);
+        const deps = releasesQueries.getAll().flatMap((r) => r.deployments);
+        const filtered = deps.filter((d) => d.chainId === chainId);
+        return filtered.flatMap(getItems);
       }
 
       // no filters → all
-      return _.flatMap(releasesQueries.getAll(), (r) => r.deployments.flatMap(getItems));
+      return releasesQueries.getAll().flatMap((r) => r.deployments.flatMap(getItems));
     },
 
     /**
@@ -263,12 +265,12 @@ export function createContractsQueries<
       }
 
       if (protocol) {
-        return _.get(aliasCatalog, [protocol, chainId, alias]) as TContract | undefined;
+        return getPath<TContract>(aliasCatalog, [protocol, chainId, alias]);
       }
 
       // Search all protocols
       for (const p of protocols) {
-        const contract = _.get(aliasCatalog, [p, chainId, alias]) as TContract | undefined;
+        const contract = getPath<TContract>(aliasCatalog, [p, chainId, alias]);
         if (contract) return contract;
       }
       return undefined;
@@ -285,9 +287,9 @@ export function createContractsQueries<
     }): TContract | undefined => {
       const { chainId, contractName, protocol } = opts;
       const release = releasesQueries.getLatest({ protocol });
-      const dep = _.find(release.deployments, { chainId }) as TDeployment | undefined;
+      const dep = release.deployments.find((d) => d.chainId === chainId) as TDeployment | undefined;
       const items = getItems(dep);
-      return (_.find(items, { name: contractName }) as TContract | undefined) || undefined;
+      return items.find((c) => c.name === contractName);
     },
   };
 }

@@ -19,7 +19,6 @@ import { releasesQueries } from "@src/evm/releases/queries";
 import { getDeploymentsDir } from "@src/internal/helpers";
 import { Data, Effect } from "effect";
 import globby from "globby";
-import _ from "lodash";
 import { MISSING_CHAINS } from "./helpers/missing";
 
 class GlobbyError extends Data.TaggedError("GlobbyError")<{
@@ -27,11 +26,13 @@ class GlobbyError extends Data.TaggedError("GlobbyError")<{
   readonly cause: unknown;
 }> {}
 
-const KNOWN_SLUGS = _.values(chains)
+const chainValues = Object.values(chains);
+
+const KNOWN_SLUGS = chainValues
   .filter((chain) => !MISSING_CHAINS.includes(chain.id))
   .map((chain) => chain.slug);
 
-const MISSING_SLUGS = MISSING_CHAINS.map((id) => _.values(chains).find((c) => c.id === id)!.slug);
+const MISSING_SLUGS = MISSING_CHAINS.map((id) => chainValues.find((c) => c.id === id)!.slug);
 
 describe("Package chains are in sync with broadcasts", () => {
   let broadcastSlugs: string[] = [];
@@ -44,7 +45,7 @@ describe("Package chains are in sync with broadcasts", () => {
   it.effect("should have every package chain in at least one broadcast", () =>
     Effect.gen(function* () {
       errors.clear();
-      const missingChains = _.difference(KNOWN_SLUGS, broadcastSlugs);
+      const missingChains = KNOWN_SLUGS.filter((slug) => !broadcastSlugs.includes(slug));
 
       for (const slug of missingChains) {
         errors.add(`Chain "${slug}" is defined in package but NOT found in any broadcast`);
@@ -63,7 +64,7 @@ describe("Package chains are in sync with broadcasts", () => {
     Effect.gen(function* () {
       errors.clear();
       const allowedSlugs = [...KNOWN_SLUGS, ...MISSING_SLUGS];
-      const extraChains = _.difference(broadcastSlugs, allowedSlugs);
+      const extraChains = broadcastSlugs.filter((slug) => !allowedSlugs.includes(slug));
 
       for (const slug of extraChains) {
         errors.add(`Chain "${slug}" found in broadcasts but NOT defined in package`);
@@ -83,7 +84,7 @@ describe("Block explorer URLs", () => {
   it("should not end with a trailing slash", () => {
     const violations: string[] = [];
 
-    for (const chain of _.values(chains)) {
+    for (const chain of chainValues) {
       for (const [, explorer] of Object.entries(chain.blockExplorers)) {
         if (explorer.url.endsWith("/")) {
           violations.push(`${chain.slug}: ${explorer.url}`);

@@ -1,7 +1,7 @@
 import { isBroadcastsUnified } from "@src/internal/helpers";
+import { getPath, setPath } from "@src/internal/utils/object-path";
 import { sablier } from "@src/sablier";
 import type { Sablier } from "@src/types";
-import _ from "lodash";
 import { beforeAll, describe, expect, it } from "vitest";
 import { isKnownMissing } from "../../helpers/missing";
 import type { BasicContract, StandardBroadcast, ZKBroadcast } from "../../types";
@@ -77,7 +77,7 @@ function createInnerTests<BD, CD>(
         if (!contractData) {
           // As a fallback, we check if this contract has already been validated. Some contracts
           // are shared between releases (e.g., Comptroller in Lockup v1.0 and v1.1).
-          const previouslyValidated = _.get(validatedContracts, [
+          const previouslyValidated = getPath<boolean>(validatedContracts, [
             chain.id,
             contract.name,
             contract.address,
@@ -91,7 +91,7 @@ function createInnerTests<BD, CD>(
         testConfig.expector(contract, contractData);
 
         // Mark this contract as validated for this chain.
-        _.set(validatedContracts, [chain.id, contract.name, contract.address], true);
+        setPath(validatedContracts, [chain.id, contract.name, contract.address], true);
       });
     }
   });

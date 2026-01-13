@@ -13,7 +13,6 @@ import lockupV1_2 from "@src/evm/releases/lockup/v1.2/manifest";
 import lockupV2_0 from "@src/evm/releases/lockup/v2.0/manifest";
 import lockupV3_0 from "@src/evm/releases/lockup/v3.0/manifest";
 import type { Sablier } from "@src/types";
-import _ from "lodash";
 
 /**
  * Works at compile-time!
@@ -92,7 +91,7 @@ function getNames(): ContractNames {
   ];
 
   const flattened = manifests.map(flatten);
-  return _.merge({}, ...flattened) as ContractNames;
+  return Object.assign({}, ...flattened) as ContractNames;
 }
 
 export const names = getNames();

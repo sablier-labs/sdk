@@ -1,6 +1,5 @@
 import { sortChains } from "@src/internal/utils/sort-chains";
 import type { Shared } from "@src/shared/types";
-import _ from "lodash";
 
 /**
  * Generic factory function to create type-safe chain query objects.
@@ -16,6 +15,8 @@ import _ from "lodash";
  * ```
  */
 export function createChainQueries<T extends Shared.Chain>(chains: Record<string, T>) {
+  const chainValues = Object.values(chains);
+
   return {
     /**
      * Find a chain by its numeric ID.
@@ -24,7 +25,7 @@ export function createChainQueries<T extends Shared.Chain>(chains: Record<string
      * @returns The chain if found, undefined otherwise
      */
     get: (chainId: number): T | undefined => {
-      return _.find(chains, (c) => c.id === chainId);
+      return chainValues.find((c) => c.id === chainId);
     },
 
     /**
@@ -33,7 +34,7 @@ export function createChainQueries<T extends Shared.Chain>(chains: Record<string
      * @returns Array of all chains sorted alphabetically
      */
     getAll: (): T[] => {
-      return sortChains(_.values(chains));
+      return sortChains(chainValues);
     },
 
     /**
@@ -43,7 +44,7 @@ export function createChainQueries<T extends Shared.Chain>(chains: Record<string
      * @returns The chain if found, undefined otherwise
      */
     getBySlug: (slug: string): T | undefined => {
-      return _.find(chains, (c) => c.slug === slug);
+      return chainValues.find((c) => c.slug === slug);
     },
 
     /**
@@ -52,7 +53,7 @@ export function createChainQueries<T extends Shared.Chain>(chains: Record<string
      * @returns Array of mainnet chains sorted alphabetically
      */
     getMainnets: (): T[] => {
-      return sortChains(_.filter(_.values(chains), (c) => !c.isTestnet));
+      return sortChains(chainValues.filter((c) => !c.isTestnet));
     },
 
     /**
@@ -63,7 +64,7 @@ export function createChainQueries<T extends Shared.Chain>(chains: Record<string
      * @throws Error if chain with the given ID is not found
      */
     getOrThrow: (chainId: number): T => {
-      const chain = _.find(chains, (c) => c.id === chainId);
+      const chain = chainValues.find((c) => c.id === chainId);
       if (!chain) {
         throw new Error(`Sablier SDK: Chain with ID ${chainId} not found`);
       }
@@ -76,7 +77,7 @@ export function createChainQueries<T extends Shared.Chain>(chains: Record<string
      * @returns Array of testnet chains sorted alphabetically
      */
     getTestnets: (): T[] => {
-      return sortChains(_.filter(_.values(chains), (c) => c.isTestnet));
+      return sortChains(chainValues.filter((c) => c.isTestnet));
     },
   };
 }

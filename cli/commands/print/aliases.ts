@@ -1,7 +1,6 @@
 import { logger } from "@src/internal/logger";
 import { sablier } from "@src/sablier";
 import { Command } from "commander";
-import _ from "lodash";
 
 type AliasRow = {
   alias: string;
@@ -9,27 +8,31 @@ type AliasRow = {
   releaseName: string;
 };
 
+function capitalize(str: string): string {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
 async function printAliases(): Promise<void> {
   const rows: AliasRow[] = [];
 
   for (const release of sablier.evm.releases.getAll()) {
-    const releaseName = `${_.capitalize(release.protocol)} ${release.version}`;
+    const releaseName = `${capitalize(release.protocol)} ${release.version}`;
     if (!release.aliases) {
       logger.verbose(`Skipping ${releaseName} because it has no aliases`);
       continue;
     }
 
-    _.forOwn(release.aliases, (alias, contractName) => {
+    for (const [contractName, alias] of Object.entries(release.aliases)) {
       // Exclude the MerkleFactory from being printed twice in the table
       if (release.protocol === "lockup" && alias.startsWith("MSF")) {
-        return;
+        continue;
       }
       rows.push({
         alias,
         contractName,
         releaseName,
       });
-    });
+    }
   }
 
   if (rows.length === 0) {
@@ -43,7 +46,7 @@ async function printAliases(): Promise<void> {
 
   const headers = ["Alias", "Contract Name", "Release"];
   const colWidths = headers.map((h, i) =>
-    Math.max(h.length, ...rows.map((row) => _.values(row)[i].length)),
+    Math.max(h.length, ...rows.map((row) => Object.values(row)[i].length)),
   );
 
   // Print Markdown table header with fixed width

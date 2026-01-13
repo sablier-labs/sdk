@@ -15,7 +15,6 @@ import {
 import { beforeAll, describe, expect, it } from "@effect/vitest";
 import { chains } from "@src/evm/chains";
 import { Effect, Schema } from "effect";
-import _ from "lodash";
 
 const ROUTEMESH_API_KEY = process.env.VITE_ROUTEMESH_API_KEY;
 
@@ -131,7 +130,9 @@ describe("RouteMesh RPC Support", () => {
   }
 
   // Get chains that have routemesh configured (not in unsupported list)
-  const chainsWithRoutemesh = _.values(chains).filter((chain) => chain.rpc.routemesh !== undefined);
+  const chainsWithRoutemesh = Object.values(chains).filter(
+    (chain) => chain.rpc.routemesh !== undefined,
+  );
 
   // Pre-fetch all results before running individual tests
   beforeAll(async () => {

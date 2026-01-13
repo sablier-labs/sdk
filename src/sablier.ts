@@ -23,7 +23,6 @@
  * ```
  */
 import type { Sablier } from "@src/types";
-import _ from "lodash";
 import { chainsQueries as evmChainsQueries } from "./evm/chains/queries";
 import { contractsQueries as evmContractsQueries } from "./evm/contracts/queries";
 import { releasesQueries as evmReleasesQueries } from "./evm/releases/queries";
@@ -45,10 +44,10 @@ const evmDeploymentsQueries = {
     release: Sablier.EVM.Release;
   }): Sablier.EVM.Deployment | undefined => {
     const { release, chainId } = opts || {};
-    return _.find(release.deployments, { chainId });
+    return release.deployments.find((d) => d.chainId === chainId);
   },
   getAll: (): Sablier.EVM.Deployment[] => {
-    return _.flatMap(evmReleasesQueries.getAll(), (r) => r.deployments);
+    return evmReleasesQueries.getAll().flatMap((r) => r.deployments);
   },
 };
 
@@ -63,10 +62,10 @@ const solanaDeploymentsQueries = {
     release: Sablier.Solana.Release;
   }): Sablier.Solana.Deployment | undefined => {
     const { release, chainId } = opts || {};
-    return _.find(release.deployments, { chainId });
+    return release.deployments.find((d) => d.chainId === chainId);
   },
   getAll: (): Sablier.Solana.Deployment[] => {
-    return _.flatMap(solanaReleasesQueries.getAll(), (r) => r.deployments);
+    return solanaReleasesQueries.getAll().flatMap((r) => r.deployments);
   },
 };
 
