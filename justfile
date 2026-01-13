@@ -32,9 +32,9 @@ alias b := build
 # Validate CSV template files
 [group("checks")]
 @csv-check:
-    just _csv-check "./csv/evm/**/*.csv"
+    just _csv-check --glob "./csv/evm/**/*.csv"
     echo ""
-    just _csv-check "./csv/solana/**/*.csv"
+    just _csv-check --glob "./csv/solana/**/*.csv"
 alias cc := csv-check
 
 # Setup Husky
