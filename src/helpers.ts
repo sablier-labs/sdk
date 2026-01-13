@@ -1,21 +1,21 @@
-import { Protocol as EvmProtocol } from "@src/evm/enums";
-import type { PayableEvmProtocol } from "@src/evm/helpers";
-import { isEvmReleasePayable, resolveEvmStreamId, truncateEvmAddress } from "@src/evm/helpers";
-import { getNestedValues as getNestedValuesInternal } from "@src/internal/utils/nested-values";
-import { sortChains as sortChainsInternal } from "@src/internal/utils/sort-chains";
-import { SOLANA_CHAIN_IDS } from "@src/solana/chains/chains";
-import { resolveSolanaStreamId, truncateSolanaAddress } from "@src/solana/helpers";
-import type { Sablier, TruncateAddressOptions } from "./types";
+import { Protocol as EvmProtocol } from "@src/evm/enums.js";
+import type { PayableEvmProtocol } from "@src/evm/helpers.js";
+import { isEvmReleasePayable, resolveEvmStreamId, truncateEvmAddress } from "@src/evm/helpers.js";
+import { getNestedValues as getNestedValuesInternal } from "@src/internal/utils/nested-values.js";
+import { sortChains as sortChainsInternal } from "@src/internal/utils/sort-chains.js";
+import { SOLANA_CHAIN_IDS } from "@src/solana/chains/chains.js";
+import { resolveSolanaStreamId, truncateSolanaAddress } from "@src/solana/helpers.js";
+import type { Sablier, TruncateAddressOptions } from "./types.js";
 
 /** EVM-only protocols that don't exist on Solana */
 const EVM_ONLY_PROTOCOLS = new Set([EvmProtocol.Flow, EvmProtocol.Legacy]);
 
 // Re-export platform-specific helpers
-export * from "./evm/helpers";
-export * from "./solana/helpers";
+export * from "./evm/helpers.js";
+export * from "./solana/helpers.js";
 
 // Re-export shared types
-export type { TruncateAddressOptions } from "./types";
+export type { TruncateAddressOptions } from "./types.js";
 
 /** Version type supporting both EVM and Solana protocols */
 type Version = Sablier.EVM.Version | Sablier.Solana.Version;

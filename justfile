@@ -26,15 +26,15 @@ alias b := build
 
 # Clean the dist directory
 @clean:
-    bun x del-cli dist
+    bun x del-cli dist _cjs _esm _types
     echo "🗑️  Cleaned build files"
 
 # Validate CSV template files
 [group("checks")]
 @csv-check:
-    just _csv-check "./src/evm/csv/**/*.csv"
+    just _csv-check "./csv/evm/**/*.csv"
     echo ""
-    just _csv-check "./src/solana/csv/schemas/**/*.csv"
+    just _csv-check "./csv/solana/**/*.csv"
 alias cc := csv-check
 
 # Setup Husky
@@ -53,13 +53,32 @@ alias tui := test-ui
 
 # Build with TypeScript CLI
 @tsc-build:
+    echo ""
     echo "🔨 Building the package..."
-    bun tsc -p tsconfig.build.json
-    bun tsc-alias -p tsconfig.build.json
-    bun copyfiles --up 3 src/evm/abi/**/*.json "dist/abi"
-    bun copyfiles --up 1 "src/evm/csv/**/*.schema.json" "src/evm/csv/**/*.csv" dist
-    bun copyfiles --up 1 "src/solana/csv/schemas/**/*.csv" dist
-    echo "✅ Package built successfully"
+
+    echo ""
+    echo "📦 Building CJS package..."
+    bun tsc -p tsconfig.build.cjs.json
+    bun tsc-alias -p tsconfig.build.cjs.json
+    echo "✅ Built CJS package"
+
+    echo ""
+    echo "📦 Building ESM package..."
+    bun tsc -p tsconfig.build.esm.json
+    bun tsc-alias -p tsconfig.build.esm.json -f -fe .js
+    echo "✅ Built ESM package"
+
+    echo ""
+    echo "📦 Building types..."
+    bun tsc -p tsconfig.build.types.json
+    bun tsc-alias -p tsconfig.build.types.json -f -fe .js
+    echo "✅ Built types"
+
+    echo ""
+    mkdir -p _cjs _esm
+    printf '{"type":"commonjs"}' > _cjs/package.json
+    printf '{"type":"module","sideEffects":false}' > _esm/package.json
+    echo "✅ All packages built successfully"
 
 # ---------------------------------------------------------------------------- #
 #                                     PRINT                                    #

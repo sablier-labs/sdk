@@ -1,5 +1,5 @@
-import type { AliasMap, Repository, Shared } from "@src/shared/types";
-import type * as enums from "./enums";
+import type { AliasMap, Repository, Shared } from "@src/shared/types.js";
+import type * as enums from "./enums.js";
 
 export namespace EVM {
   /** Ethereum address in the format 0x followed by 40 hex characters. */

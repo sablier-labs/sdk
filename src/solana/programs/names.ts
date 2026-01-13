@@ -1,7 +1,6 @@
-import airdropsV1_0 from "@src/solana/releases/airdrops/v0.1/manifest";
-import lockupV1_0 from "@src/solana/releases/lockup/v0.1/manifest";
-import type { Sablier } from "@src/types";
-import _ from "lodash";
+import airdropsV1_0 from "@src/solana/releases/airdrops/v0.1/manifest.js";
+import lockupV1_0 from "@src/solana/releases/lockup/v0.1/manifest.js";
+import type { Sablier } from "@src/types.js";
 
 /**
  * Works at compile-time!
@@ -30,7 +29,7 @@ function getNames(): ContractNames {
   const manifests = [airdropsV1_0, lockupV1_0];
 
   const flattened = manifests.map(flatten);
-  return _.merge({}, ...flattened) as ContractNames;
+  return Object.assign({}, ...flattened) as ContractNames;
 }
 
 export const names = getNames();

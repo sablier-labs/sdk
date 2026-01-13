@@ -1,7 +1,7 @@
-import { aliasCatalog } from "@src/evm/contracts/alias-catalog";
-import { Protocol, Version } from "@src/evm/enums";
-import { getContractExplorerURL as getContractExplorerURLInternal } from "@src/internal/utils/explorer-url";
-import type { Sablier, TruncateAddressOptions } from "@src/types";
+import { getAliasCatalog } from "@src/evm/contracts/alias-catalog.js";
+import { Protocol, Version } from "@src/evm/enums.js";
+import { getContractExplorerURL as getContractExplorerURLInternal } from "@src/internal/utils/explorer-url.js";
+import type { Sablier, TruncateAddressOptions } from "@src/types.js";
 
 /**
  * Truncate an Ethereum address for display purposes.
@@ -93,6 +93,7 @@ export function resolveEvmContractByAlias(opts: {
   protocol?: Sablier.EVM.Protocol;
 }): Sablier.EVM.Contract {
   const { alias, chainId, protocol } = opts;
+  const aliasCatalog = getAliasCatalog();
 
   if (protocol) {
     const contract = aliasCatalog[protocol]?.[chainId]?.[alias];

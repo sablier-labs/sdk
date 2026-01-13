@@ -1,9 +1,9 @@
-import { chains } from "@src/solana/chains";
-import { Protocol } from "@src/solana/enums";
-import { resolvers } from "@src/solana/releases/resolvers";
-import type { Sablier } from "@src/types";
-import aliases from "./aliases";
-import manifest from "./manifest";
+import { chains } from "@src/solana/chains/index.js";
+import { Protocol } from "@src/solana/enums.js";
+import { resolvers } from "@src/solana/releases/resolvers.js";
+import type { Sablier } from "@src/types.js";
+import aliases from "./aliases.js";
+import manifest from "./manifest.js";
 
 function get(chainId: number, programMap: Sablier.Solana.ProgramMap): Sablier.Solana.Deployment {
   return resolvers.deployment.standard({

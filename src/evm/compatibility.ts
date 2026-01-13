@@ -1,4 +1,4 @@
-import { Version } from "./enums";
+import { Version } from "./enums.js";
 
 /**
  * Maps each Airdrop version to its compatible Lockup versions.

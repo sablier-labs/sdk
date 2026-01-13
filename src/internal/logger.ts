@@ -25,7 +25,7 @@
  * LOG_LEVEL=silly bun run cli/your-script.ts
  */
 import * as path from "node:path";
-import type { Sablier } from "@src/types";
+import type { Sablier } from "@src/types.js";
 import * as fs from "fs-extra";
 import winston, { format } from "winston";
 

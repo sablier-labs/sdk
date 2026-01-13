@@ -1,7 +1,7 @@
-import { Protocol as EvmProtocol } from "@src/evm/enums";
-import { resolveStreamId } from "@src/helpers";
-import { CHAIN_ID_SOLANA_DEVNET, CHAIN_ID_SOLANA_MAINNET_BETA } from "@src/solana/chains/chains";
-import { Protocol as SolanaProtocol } from "@src/solana/enums";
+import { Protocol as EvmProtocol } from "@src/evm/enums.js";
+import { resolveStreamId } from "@src/helpers.js";
+import { CHAIN_ID_SOLANA_DEVNET, CHAIN_ID_SOLANA_MAINNET_BETA } from "@src/solana/chains/chains.js";
+import { Protocol as SolanaProtocol } from "@src/solana/enums.js";
 import { describe, expect, it } from "vitest";
 
 describe("resolveStreamId", () => {

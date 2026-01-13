@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
 import { Command } from "commander";
-import { aliasesCmd } from "./commands/print/aliases";
-import { chainCmd } from "./commands/print/chains";
-import { missingBroadcastsCmd } from "./commands/print/missing-broadcasts";
-import { versionsCmd } from "./commands/print/versions";
+import { aliasesCmd } from "./commands/print/aliases.js";
+import { chainCmd } from "./commands/print/chains.js";
+import { missingBroadcastsCmd } from "./commands/print/missing-broadcasts.js";
+import { versionsCmd } from "./commands/print/versions.js";
 
 async function main() {
   const program = new Command();

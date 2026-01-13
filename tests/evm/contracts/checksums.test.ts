@@ -1,4 +1,4 @@
-import { sablier } from "@src/sablier";
+import { sablier } from "@src/sablier.js";
 import { isAddress } from "viem";
 import { describe, expect, it } from "vitest";
 

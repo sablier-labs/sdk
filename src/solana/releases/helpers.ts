@@ -1,7 +1,7 @@
-import { chainsQueries } from "@src/solana/chains/queries";
+import { chainsQueries } from "@src/solana/chains/queries.js";
 
 export function sortDeployments<T extends { chainId: number }>(deployments: T[]): T[] {
-  return deployments.sort((a, b) => {
+  return deployments.toSorted((a, b) => {
     const aChain = chainsQueries.getOrThrow(a.chainId);
     const bChain = chainsQueries.getOrThrow(b.chainId);
     return aChain.name.localeCompare(bChain.name);

@@ -132,11 +132,11 @@ describe("Type-level const validation", () => {
   test("Sample ABI files have correct const assertions", () => {
     // These imports will fail at compile time if ABIs don't have proper 'as const'
     type TestAirdropsV14 =
-      typeof import("../../../src/evm/releases/airdrops/v1.3/abi/SablierMerkleInstant").sablierMerkleInstantAbi;
+      typeof import("../../../src/evm/releases/airdrops/v1.3/abi/SablierMerkleInstant.js").sablierMerkleInstantAbi;
     type TestLockupV10 =
-      typeof import("../../../src/evm/releases/lockup/v2.0/abi/SablierLockup").sablierLockupAbi;
+      typeof import("../../../src/evm/releases/lockup/v2.0/abi/SablierLockup.js").sablierLockupAbi;
     type TestFlowV10 =
-      typeof import("../../../src/evm/releases/flow/v1.1/abi/SablierFlow").sablierFlowAbi;
+      typeof import("../../../src/evm/releases/flow/v1.1/abi/SablierFlow.js").sablierFlowAbi;
 
     // These type assertions will fail if the ABIs aren't const
     type _AssertAirdrops = AssertAsConst<TestAirdropsV14>;

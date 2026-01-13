@@ -1,7 +1,7 @@
-import { sablier } from "@src/sablier";
-import { Protocol } from "@src/solana/enums";
-import { programs } from "@src/solana/programs";
-import type { Sablier } from "@src/types";
+import { sablier } from "@src/sablier.js";
+import { Protocol } from "@src/solana/enums.js";
+import { programs } from "@src/solana/programs/index.js";
+import type { Sablier } from "@src/types.js";
 import { describe, expect, it } from "vitest";
 
 /**

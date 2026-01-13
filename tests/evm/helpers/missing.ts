@@ -1,7 +1,7 @@
-import { chains } from "@src/evm/chains";
-import lockupV1_1 from "@src/evm/releases/lockup/v1.1/manifest";
-import type { Sablier } from "@src/types";
-import _ from "lodash";
+import { chains } from "@src/evm/chains/index.js";
+import lockupV1_1 from "@src/evm/releases/lockup/v1.1/manifest.js";
+import { getPath } from "@src/internal/utils/object-path.js";
+import type { Sablier } from "@src/types.js";
 
 type ChainMap = Record<number, string[]>;
 type VersionMap = Partial<Record<Sablier.EVM.Version, ChainMap>>;
@@ -33,7 +33,7 @@ const MISSING_LOCKUP: VersionMap = {
       lockupV1_1.core.SABLIER_V2_NFT_DESCRIPTOR,
     ],
     [chains.base.id]: [lockupV1_1.core.SABLIER_V2_NFT_DESCRIPTOR],
-    [chains.blast.id]: [..._.values(lockupV1_1.core)],
+    [chains.blast.id]: [...Object.values(lockupV1_1.core)],
     [chains.bsc.id]: [lockupV1_1.core.SABLIER_V2_NFT_DESCRIPTOR],
     [chains.gnosis.id]: [
       lockupV1_1.core.SABLIER_V2_LOCKUP_LINEAR,
@@ -43,7 +43,7 @@ const MISSING_LOCKUP: VersionMap = {
     [chains.polygon.id]: [lockupV1_1.core.SABLIER_V2_NFT_DESCRIPTOR],
     [chains.scroll.id]: [
       lockupV1_1.core.SABLIER_V2_NFT_DESCRIPTOR,
-      ..._.values(lockupV1_1.periphery),
+      ...Object.values(lockupV1_1.periphery),
     ],
     [chains.arbitrumSepolia.id]: [
       lockupV1_1.core.SABLIER_V2_COMPTROLLER,
@@ -79,8 +79,12 @@ export function isKnownMissing(
     return true;
   }
 
-  const missingContracts = _.get(MISSING_CONTRACTS, [release.protocol, release.version, chain.id]);
-  if (_.some(missingContracts, (contract) => contract === "all" || contract === contractName)) {
+  const missingContracts = getPath<string[]>(MISSING_CONTRACTS, [
+    release.protocol,
+    release.version,
+    chain.id,
+  ]);
+  if (missingContracts?.some((contract) => contract === "all" || contract === contractName)) {
     return true;
   }
 

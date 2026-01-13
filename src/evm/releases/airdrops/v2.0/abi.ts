@@ -1,13 +1,13 @@
-import { sablierFactoryMerkleInstantAbi } from "./abi/SablierFactoryMerkleInstant";
-import { sablierFactoryMerkleLLAbi } from "./abi/SablierFactoryMerkleLL";
-import { sablierFactoryMerkleLTAbi } from "./abi/SablierFactoryMerkleLT";
-import { sablierFactoryMerkleVCAAbi } from "./abi/SablierFactoryMerkleVCA";
-import { sablierMerkleInstantAbi } from "./abi/SablierMerkleInstant";
-import { sablierMerkleLLAbi } from "./abi/SablierMerkleLL";
-import { sablierMerkleLockupAbi } from "./abi/SablierMerkleLockup";
-import { sablierMerkleLTAbi } from "./abi/SablierMerkleLT";
-import { sablierMerkleVCAAbi } from "./abi/SablierMerkleVCA";
-import manifest from "./manifest";
+import { sablierFactoryMerkleInstantAbi } from "./abi/SablierFactoryMerkleInstant.js";
+import { sablierFactoryMerkleLLAbi } from "./abi/SablierFactoryMerkleLL.js";
+import { sablierFactoryMerkleLTAbi } from "./abi/SablierFactoryMerkleLT.js";
+import { sablierFactoryMerkleVCAAbi } from "./abi/SablierFactoryMerkleVCA.js";
+import { sablierMerkleInstantAbi } from "./abi/SablierMerkleInstant.js";
+import { sablierMerkleLLAbi } from "./abi/SablierMerkleLL.js";
+import { sablierMerkleLockupAbi } from "./abi/SablierMerkleLockup.js";
+import { sablierMerkleLTAbi } from "./abi/SablierMerkleLT.js";
+import { sablierMerkleVCAAbi } from "./abi/SablierMerkleVCA.js";
+import manifest from "./manifest.js";
 
 export const abi = {
   [manifest.SABLIER_FACTORY_MERKLE_INSTANT]: sablierFactoryMerkleInstantAbi,

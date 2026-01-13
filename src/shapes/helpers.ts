@@ -1,7 +1,7 @@
-import type { EVM } from "@src/evm/types";
-import type { Solana } from "@src/solana/types";
-import { Shape } from "./enums";
-import type { AnyShape, ContractMethod, ProgramMethod, ShapeWithSolanaSupport } from "./types";
+import type { EVM } from "@src/evm/types.js";
+import type { Solana } from "@src/solana/types.js";
+import { Shape } from "./enums.js";
+import type { AnyShape, ContractMethod, ProgramMethod, ShapeWithSolanaSupport } from "./types.js";
 
 /* -------------------------------------------------------------------------- */
 /*                              SHAPE ID ARRAYS                               */

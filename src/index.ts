@@ -1,7 +1,7 @@
-export * from "./evm";
-export * as evm from "./evm";
-export * from "./helpers";
-export * from "./sablier";
-export * from "./shapes";
-export * as solana from "./solana";
-export type * from "./types";
+export * from "./evm/index.js";
+export * as evm from "./evm/index.js";
+export * from "./helpers.js";
+export * from "./sablier.js";
+export * from "./shapes/index.js";
+export * as solana from "./solana/index.js";
+export type * from "./types.js";

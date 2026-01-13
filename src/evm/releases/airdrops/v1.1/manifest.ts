@@ -1,4 +1,4 @@
-import lockupV1_1 from "../../lockup/v1.1/manifest";
+import lockupV1_1 from "../../lockup/v1.1/manifest.js";
 
 const manifest = {
   SABLIER_V2_MERKLE_STREAMER: lockupV1_1.periphery.SABLIER_V2_MERKLE_STREAMER,

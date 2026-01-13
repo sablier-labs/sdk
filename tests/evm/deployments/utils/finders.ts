@@ -1,5 +1,4 @@
-import _ from "lodash";
-import type { BasicContract, StandardBroadcast, ZKBroadcast } from "../../types";
+import type { BasicContract, StandardBroadcast, ZKBroadcast } from "../../types.js";
 
 const CONTRACT_PREFIX = "contract ";
 
@@ -18,7 +17,7 @@ export function findContract(data: StandardBroadcast, contractName: string): Bas
 }
 
 export function findZKContract(zkData: ZKBroadcast[], contractName: string): ZKBroadcast | null {
-  return _.find(zkData, (d) => d.contractName === contractName) ?? null;
+  return zkData.find((d) => d.contractName === contractName) ?? null;
 }
 
 /**
@@ -36,7 +35,7 @@ function findInReturns(data: StandardBroadcast, contractName: string): BasicCont
     return null;
   }
 
-  for (const contractReturn of _.values(data.returns)) {
+  for (const contractReturn of Object.values(data.returns)) {
     const sanitizedName = contractReturn.internal_type.replace(CONTRACT_PREFIX, "");
     if (contractName === sanitizedName) {
       return { address: contractReturn.value, name: contractName };

@@ -1,9 +1,13 @@
-import { Protocol } from "@src/evm/enums";
-import { releasesQueries } from "@src/evm/releases/queries";
-import type { Sablier } from "@src/types";
-import _ from "lodash";
+import { Protocol } from "@src/evm/enums.js";
+import { releasesQueries } from "@src/evm/releases/queries.js";
+import { getPath, setPath } from "@src/internal/utils/object-path.js";
+import type { Sablier } from "@src/types.js";
 
-function getAliasCatalog(): Sablier.EVM.AliasCatalog {
+let _aliasCatalog: Sablier.EVM.AliasCatalog | undefined;
+
+export function getAliasCatalog(): Sablier.EVM.AliasCatalog {
+  if (_aliasCatalog) return _aliasCatalog;
+
   const catalog: Sablier.EVM.AliasCatalog = {
     [Protocol.Airdrops]: {},
     [Protocol.Flow]: {},
@@ -19,20 +23,23 @@ function getAliasCatalog(): Sablier.EVM.AliasCatalog {
 
       for (const contract of contracts) {
         if (contract.alias) {
-          const existing = _.get(catalog, [protocol, chainId, contract.alias]);
+          const existing = getPath<Sablier.EVM.Contract>(catalog, [
+            protocol,
+            chainId,
+            contract.alias,
+          ]);
           if (existing) {
             throw new Error(
               `Sablier SDK: Alias collision detected for "${contract.alias}" on chain ${chainId} in ${protocol}. ` +
                 `Existing: ${existing.address}, New: ${contract.address}`,
             );
           }
-          const entry = _.merge({}, contract, { protocol, version });
-          _.set(catalog, [protocol, chainId, contract.alias], entry);
+          const entry = { ...contract, protocol, version };
+          setPath(catalog, [protocol, chainId, contract.alias], entry);
         }
       }
     }
   }
+  _aliasCatalog = catalog;
   return catalog;
 }
-
-export const aliasCatalog = getAliasCatalog();

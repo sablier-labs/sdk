@@ -1,4 +1,4 @@
-import type { BaseColumns } from "../../types";
+import type { BaseColumns } from "../../types.js";
 
 /** Tranched backweighted: address, amount, startAt, unlockPercentages, yearCount */
 export type TranchedBackweightedColumns = BaseColumns & {

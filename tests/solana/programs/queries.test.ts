@@ -1,5 +1,5 @@
-import { sablier } from "@src/sablier";
-import { releases } from "@src/solana/releases";
+import { sablier } from "@src/sablier.js";
+import { releases } from "@src/solana/releases/index.js";
 import { describe, expect, it } from "vitest";
 
 const allReleasesToTest = [releases.airdrops["v0.1"], releases.lockup["v0.1"]];

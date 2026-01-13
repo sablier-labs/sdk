@@ -1,4 +1,4 @@
-import manifest from "./manifest";
+import manifest from "./manifest.js";
 
 const aliases = {
   [manifest.core.SABLIER_V2_LOCKUP_DYNAMIC]: "LD3",

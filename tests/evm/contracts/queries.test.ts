@@ -1,5 +1,5 @@
-import { releases } from "@src/evm/releases";
-import { sablier } from "@src/sablier";
+import { releases } from "@src/evm/releases/index.js";
+import { sablier } from "@src/sablier.js";
 import { describe, expect, it } from "vitest";
 
 const releasesWithDuplicateAddresses = [

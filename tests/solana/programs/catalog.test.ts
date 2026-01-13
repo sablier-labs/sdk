@@ -1,5 +1,5 @@
-import { sablier } from "@src/sablier";
-import { releases } from "@src/solana/releases";
+import { sablier } from "@src/sablier.js";
+import { releases } from "@src/solana/releases/index.js";
 import { describe, expect, it } from "vitest";
 
 describe("Program catalog", () => {
@@ -19,9 +19,23 @@ describe("Program catalog", () => {
   }
 });
 
-describe("aliasCatalog", () => {
-  it("should be exported and defined", () => {
-    expect(sablier.solana.programs.aliasCatalog).toBeDefined();
-    expect(typeof sablier.solana.programs.aliasCatalog).toBe("object");
+describe("alias lookups", () => {
+  it("should resolve a program by alias", () => {
+    const releasesList = Object.values(releases).flatMap((byVersion) => Object.values(byVersion));
+    const programWithAlias = releasesList
+      .flatMap((release) => release.deployments)
+      .flatMap((deployment) => deployment.programs)
+      .find((program) => program.alias);
+
+    expect(programWithAlias).toBeDefined();
+
+    const program = programWithAlias!;
+    const resolved = sablier.solana.programs.getByAlias({
+      alias: program.alias!,
+      chainId: program.chainId,
+      protocol: program.protocol,
+    });
+
+    expect(resolved).toStrictEqual(program);
   });
 });

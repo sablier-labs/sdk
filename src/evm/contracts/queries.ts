@@ -1,9 +1,9 @@
-import { Protocol } from "@src/evm/enums";
-import { releasesQueries } from "@src/evm/releases/queries";
-import { createContractsQueries } from "@src/internal/factories/queries";
-import type { Sablier } from "@src/types";
-import { aliasCatalog } from "./alias-catalog";
-import { catalog } from "./catalog";
+import { Protocol } from "@src/evm/enums.js";
+import { releasesQueries } from "@src/evm/releases/queries.js";
+import { createContractsQueries } from "@src/internal/factories/queries.js";
+import type { Sablier } from "@src/types.js";
+import { getAliasCatalog } from "./alias-catalog.js";
+import { catalog } from "./catalog.js";
 
 export const contractsQueries = createContractsQueries<
   Sablier.EVM.Protocol,
@@ -13,9 +13,9 @@ export const contractsQueries = createContractsQueries<
   Sablier.EVM.ContractCatalog,
   Sablier.EVM.AliasCatalog
 >({
-  aliasCatalog,
   catalog,
   contractsField: "contracts",
+  getAliasCatalog,
   normalizeAddress: (address) => address.toLowerCase(),
   protocols: [Protocol.Airdrops, Protocol.Flow, Protocol.Legacy, Protocol.Lockup],
   releasesQueries,

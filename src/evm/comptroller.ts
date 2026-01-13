@@ -1,5 +1,5 @@
-import { chains } from "@src/evm/chains";
-import type { Sablier } from "@src/types";
+import { chains } from "@src/evm/chains/index.js";
+import type { Sablier } from "@src/types.js";
 
 // Fixed comptroller address on all chains, with the exception of Linea.
 // See https://github.com/sablier-labs/sdk/tree/main/deployments/comptroller/v1.0#exceptions for more details.

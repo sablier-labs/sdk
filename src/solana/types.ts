@@ -1,5 +1,5 @@
-import type { AliasMap, Repository, Shared } from "@src/shared/types";
-import type * as enums from "./enums";
+import type { AliasMap, Repository, Shared } from "@src/shared/types.js";
+import type * as enums from "./enums.js";
 
 export namespace Solana {
   export type Address = string;

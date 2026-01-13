@@ -1,7 +1,7 @@
-import { contracts } from "@src/evm/contracts";
-import { Protocol } from "@src/evm/enums";
-import { sablier } from "@src/sablier";
-import type { Sablier } from "@src/types";
+import { contracts } from "@src/evm/contracts/index.js";
+import { Protocol } from "@src/evm/enums.js";
+import { sablier } from "@src/sablier.js";
+import type { Sablier } from "@src/types.js";
 import { describe, expect, it } from "vitest";
 
 /**

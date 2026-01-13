@@ -41,8 +41,9 @@ import {
   zksync as _zksync,
   zksyncSepoliaTestnet as _zksyncSepoliaTestnet,
 } from "viem/chains";
-import type { ChainSpec } from "./builder";
-import { denergy, hyperevm, tangle } from "./custom";
+// import { berachain } from "viem/chains/definitions/zksync";
+import type { ChainSpec } from "./builder.js";
+import { denergy, hyperevm, tangle } from "./custom.js";
 
 const COIN_GECKO = {
   eth: "ethereum",

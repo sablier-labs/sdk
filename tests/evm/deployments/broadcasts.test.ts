@@ -1,12 +1,12 @@
-import { taikoHekla } from "@src/evm/chains";
-import { deployments as comptrollerDeployments } from "@src/evm/comptroller";
-import { releases } from "@src/evm/releases";
-import { isBroadcastsUnified } from "@src/internal/helpers";
-import { sablier } from "@src/sablier";
-import type { Sablier } from "@src/types";
+import { taikoHekla } from "@src/evm/chains/index.js";
+import { deployments as comptrollerDeployments } from "@src/evm/comptroller.js";
+import { releases } from "@src/evm/releases/index.js";
+import { isBroadcastsUnified } from "@src/internal/helpers.js";
+import { sablier } from "@src/sablier.js";
+import type { Sablier } from "@src/types.js";
 import { describe, expect, it } from "vitest";
-import type { StandardBroadcast, ZKBroadcast } from "../types";
-import { loadBroadcast, loadComptrollerBroadcast } from "./utils/loaders";
+import type { StandardBroadcast, ZKBroadcast } from "../types.js";
+import { loadBroadcast, loadComptrollerBroadcast } from "./utils/loaders.js";
 
 // Create a pseudo release for comptroller to match BroadcastSource type
 const comptrollerRelease = {

@@ -1,8 +1,8 @@
-import { chains } from "@src/evm/chains";
-import { Protocol } from "@src/evm/enums";
-import { resolvers } from "@src/evm/releases/resolvers";
-import type { Sablier } from "@src/types";
-import manifest from "./manifest";
+import { chains } from "@src/evm/chains/index.js";
+import { Protocol } from "@src/evm/enums.js";
+import { resolvers } from "@src/evm/releases/resolvers.js";
+import type { Sablier } from "@src/types.js";
+import manifest from "./manifest.js";
 
 const aliasMap = {};
 const contractMap: Sablier.EVM.ContractMap = {

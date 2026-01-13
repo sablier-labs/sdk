@@ -4,15 +4,14 @@
 import {
   mainnets as lockupMainnets,
   testnets as lockupTestnets,
-} from "@src/evm/releases/lockup/v1.2/deployments";
-import type { Sablier } from "@src/types";
-import _ from "lodash";
-import manifest from "./manifest";
+} from "@src/evm/releases/lockup/v1.2/deployments.js";
+import type { Sablier } from "@src/types.js";
+import manifest from "./manifest.js";
 
 function filter(deployments: Sablier.EVM.Deployment.LockupV1[]): Sablier.EVM.Deployment.Standard[] {
-  return _.filter(deployments, (d) => {
+  return deployments.filter((d) => {
     const peripheryContracts = d.periphery;
-    return _.some(peripheryContracts, (c) => c.name === manifest.SABLIER_V2_MERKLE_LOCKUP_FACTORY);
+    return peripheryContracts.some((c) => c.name === manifest.SABLIER_V2_MERKLE_LOCKUP_FACTORY);
   });
 }
 

@@ -1,10 +1,10 @@
-import { sablierMerkleBaseAbi } from "./abi/SablierMerkleBase";
-import { sablierMerkleFactoryAbi } from "./abi/SablierMerkleFactory";
-import { sablierMerkleInstantAbi } from "./abi/SablierMerkleInstant";
-import { sablierMerkleLLAbi } from "./abi/SablierMerkleLL";
-import { sablierMerkleLockupAbi } from "./abi/SablierMerkleLockup";
-import { sablierMerkleLTAbi } from "./abi/SablierMerkleLT";
-import manifest from "./manifest";
+import { sablierMerkleBaseAbi } from "./abi/SablierMerkleBase.js";
+import { sablierMerkleFactoryAbi } from "./abi/SablierMerkleFactory.js";
+import { sablierMerkleInstantAbi } from "./abi/SablierMerkleInstant.js";
+import { sablierMerkleLLAbi } from "./abi/SablierMerkleLL.js";
+import { sablierMerkleLockupAbi } from "./abi/SablierMerkleLockup.js";
+import { sablierMerkleLTAbi } from "./abi/SablierMerkleLT.js";
+import manifest from "./manifest.js";
 
 export const abi = {
   [manifest.SABLIER_MERKLE_BASE]: sablierMerkleBaseAbi,

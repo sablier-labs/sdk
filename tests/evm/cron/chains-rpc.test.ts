@@ -7,9 +7,8 @@ import {
   HttpClientResponse,
 } from "@effect/platform";
 import { describe, expect, it } from "@effect/vitest";
-import { chains } from "@src/evm/chains";
+import { chains } from "@src/evm/chains/index.js";
 import { Effect, Schema } from "effect";
-import _ from "lodash";
 
 const MALFUNCTIONING_RPC: number[] = [chains.form.id, chains.meld.id, chains.taikoHekla.id];
 
@@ -43,7 +42,7 @@ function pingRpcServer(url: string) {
 }
 
 describe("Ping JSON-RPC server", () => {
-  for (const chain of _.values(chains)) {
+  for (const chain of Object.values(chains)) {
     const shouldSkip: boolean = MALFUNCTIONING_RPC.includes(chain.id) || !chain.rpc.defaults[0];
 
     it.effect.skipIf(shouldSkip)(`${chain.name} (ID: ${chain.id})`, () =>

@@ -1,15 +1,15 @@
-import { airdropShapes } from "./airdrops";
-import { flowShapes } from "./flow";
-import { lockupShapes } from "./lockup";
+import { airdropShapes } from "./airdrops.js";
+import { flowShapes } from "./flow.js";
+import { lockupShapes } from "./lockup/index.js";
 
 // Re-export individual shape modules
-export { airdropShapes } from "./airdrops";
+export { airdropShapes } from "./airdrops.js";
 // Re-export enums and types
-export * from "./enums";
-export { flow, flowShapes } from "./flow";
-export * from "./helpers";
-export { lockupShapes } from "./lockup";
-export * from "./types";
+export * from "./enums.js";
+export { flow, flowShapes } from "./flow.js";
+export * from "./helpers.js";
+export { lockupShapes } from "./lockup/index.js";
+export * from "./types.js";
 
 /** All shapes grouped by protocol */
 export const shapes = {

@@ -1,9 +1,9 @@
 import * as path from "node:path";
-import { checkBroadcast, getDeploymentsDir, isBroadcastsUnified } from "@src/internal/helpers";
-import type { Sablier } from "@src/types";
+import { checkBroadcast, getDeploymentsDir, isBroadcastsUnified } from "@src/internal/helpers.js";
+import type { Sablier } from "@src/types.js";
 import * as fs from "fs-extra";
 import globby from "globby";
-import type { StandardBroadcast, ZKBroadcast } from "../../types";
+import type { StandardBroadcast, ZKBroadcast } from "../../types.js";
 
 export async function loadBroadcast<T extends StandardBroadcast | ZKBroadcast[]>(
   release: Sablier.EVM.Release,

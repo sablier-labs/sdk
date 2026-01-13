@@ -1,9 +1,9 @@
-import { resolvers } from "@src/evm/releases/resolvers";
-import type { Sablier } from "@src/types";
-import { abi } from "./abi";
-import aliases from "./aliases";
-import { mainnets, testnets } from "./deployments";
-import manifest from "./manifest";
+import { resolvers } from "@src/evm/releases/resolvers.js";
+import type { Sablier } from "@src/types.js";
+import { abi } from "./abi.js";
+import aliases from "./aliases.js";
+import { mainnets, testnets } from "./deployments.js";
+import manifest from "./manifest.js";
 
 const deployments: Sablier.EVM.Deployment[] = [...mainnets, ...testnets];
 

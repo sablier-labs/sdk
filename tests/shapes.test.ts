@@ -1,6 +1,6 @@
-import { Version } from "@src/evm/enums";
-import { releases } from "@src/evm/releases";
-import type { ShapeWithSolanaSupport } from "@src/shapes";
+import { Version } from "@src/evm/enums.js";
+import { releases } from "@src/evm/releases/index.js";
+import type { ShapeWithSolanaSupport } from "@src/shapes/index.js";
 import {
   airdropShapeIds,
   flowShapeIds,
@@ -23,7 +23,7 @@ import {
   shapes,
   solanaAirdropShapeIds,
   solanaLockupShapeIds,
-} from "@src/shapes";
+} from "@src/shapes/index.js";
 import { describe, expect, it } from "vitest";
 
 describe("shapes", () => {
