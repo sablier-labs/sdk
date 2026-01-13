@@ -6,6 +6,7 @@
       "@cli": ["./cli"],
       "@cli/*": ["./cli/*"],
       "@src": ["./src"],
+      "@src/*.js": ["./src/*.ts", "./src/*.tsx", "./src/*.mts", "./src/*.cts"],
       "@src/*": ["./src/*"]
     }
   },

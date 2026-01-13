@@ -1,6 +1,6 @@
-import { Protocol } from "@src/solana/enums";
-import { aliasCatalog } from "@src/solana/programs/alias-catalog";
-import type { Sablier, TruncateAddressOptions } from "@src/types";
+import { Protocol } from "@src/solana/enums.js";
+import { getAliasCatalog } from "@src/solana/programs/alias-catalog.js";
+import type { Sablier, TruncateAddressOptions } from "@src/types.js";
 
 /**
  * Truncate a Solana address for display purposes.
@@ -82,6 +82,7 @@ export function resolveSolanaProgramByAlias(opts: {
   protocol?: Sablier.Solana.Protocol;
 }): Sablier.Solana.Program {
   const { alias, chainId, protocol } = opts;
+  const aliasCatalog = getAliasCatalog();
 
   if (protocol) {
     const program = aliasCatalog[protocol]?.[chainId]?.[alias];

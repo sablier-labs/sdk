@@ -1,5 +1,5 @@
-import { getContractExplorerURL } from "@src/internal/utils/explorer-url";
-import type { AliasMap, Shared } from "@src/shared/types";
+import { getContractExplorerURL } from "@src/internal/utils/explorer-url.js";
+import type { AliasMap, Shared } from "@src/shared/types.js";
 
 /* -------------------------------------------------------------------------- */
 /*                                   TYPES                                    */

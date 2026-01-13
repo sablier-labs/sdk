@@ -2,8 +2,10 @@
   "name": "sablier",
   "description": "Contract addresses, chain data, and deployment information for the Sablier Protocol",
   "license": "GPL-3.0-or-later",
-  "main": "dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./_cjs/index.js",
+  "module": "./_esm/index.js",
+  "types": "./_types/index.d.ts",
+  "typings": "./_types/index.d.ts",
   "version": "1.8.0-beta.24",
   "author": {
     "name": "Sablier Labs Ltd",
@@ -48,33 +50,69 @@
   },
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
+      "types": "./_types/index.d.ts",
+      "import": "./_esm/index.js",
+      "default": "./_cjs/index.js"
     },
+    "./abi/*": "./abi/*",
+    "./abi/*/*": "./abi/*/*",
+    "./abi/*/*/*": "./abi/*/*/*",
+    "./csv/*": "./csv/*",
+    "./csv/*/*": "./csv/*/*",
+    "./csv/*/*/*": "./csv/*/*/*",
+    "./csv/*/*/*/*": "./csv/*/*/*/*",
     "./evm": {
-      "types": "./dist/evm/index.d.ts",
-      "default": "./dist/evm/index.js"
+      "types": "./_types/evm/index.d.ts",
+      "import": "./_esm/evm/index.js",
+      "default": "./_cjs/evm/index.js"
     },
     "./evm/*": {
-      "types": "./dist/evm/*/index.d.ts",
-      "default": "./dist/evm/*/index.js"
+      "types": "./_types/evm/*/index.d.ts",
+      "import": "./_esm/evm/*/index.js",
+      "default": "./_cjs/evm/*/index.js"
     },
     "./solana": {
-      "types": "./dist/solana/index.d.ts",
-      "default": "./dist/solana/index.js"
+      "types": "./_types/solana/index.d.ts",
+      "import": "./_esm/solana/index.js",
+      "default": "./_cjs/solana/index.js"
     },
     "./solana/*": {
-      "types": "./dist/solana/*/index.d.ts",
-      "default": "./dist/solana/*/index.js"
+      "types": "./_types/solana/*/index.d.ts",
+      "import": "./_esm/solana/*/index.js",
+      "default": "./_cjs/solana/*/index.js"
     },
     "./solana/releases/*/idl": {
-      "types": "./dist/solana/releases/*/idl.d.ts",
-      "default": "./dist/solana/releases/*/idl.js"
+      "types": "./_types/solana/releases/*/idl.d.ts",
+      "import": "./_esm/solana/releases/*/idl.js",
+      "default": "./_cjs/solana/releases/*/idl.js"
     },
     "./package.json": "./package.json"
   },
+  "typesVersions": {
+    "*": {
+      "evm": [
+        "./_types/evm/index.d.ts"
+      ],
+      "evm/*": [
+        "./_types/evm/*/index.d.ts"
+      ],
+      "solana": [
+        "./_types/solana/index.d.ts"
+      ],
+      "solana/*": [
+        "./_types/solana/*/index.d.ts"
+      ],
+      "solana/releases/*/idl": [
+        "./_types/solana/releases/*/idl.d.ts"
+      ]
+    }
+  },
   "files": [
-    "dist"
+    "_cjs",
+    "_esm",
+    "_types",
+    "abi",
+    "csv"
   ],
   "keywords": [
     "airdrops",

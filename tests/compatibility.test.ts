@@ -3,15 +3,15 @@ import {
   compatibleLockupVersions as evmCompatibleLockupVersions,
   getCompatibleAirdropsVersions as evmGetCompatibleAirdropsVersions,
   isLockupCompatible as evmIsLockupCompatible,
-} from "@src/evm/compatibility";
-import { Version as EvmVersion } from "@src/evm/enums";
+} from "@src/evm/compatibility.js";
+import { Version as EvmVersion } from "@src/evm/enums.js";
 import {
   compatibility as solanaCompatibility,
   compatibleLockupVersions as solanaCompatibleLockupVersions,
   getCompatibleAirdropsVersions as solanaGetCompatibleAirdropsVersions,
   isLockupCompatible as solanaIsLockupCompatible,
-} from "@src/solana/compatibility";
-import { Version as SolanaVersion } from "@src/solana/enums";
+} from "@src/solana/compatibility.js";
+import { Version as SolanaVersion } from "@src/solana/enums.js";
 import { describe, expect, it } from "vitest";
 
 describe("EVM compatibility", () => {

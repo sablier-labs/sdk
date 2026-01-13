@@ -4,10 +4,10 @@
  * Continuous streaming with real-time per-second vesting.
  */
 
-import { FLOW_EVM } from "./constants";
-import { Shape } from "./enums";
-import type { FlowShapesRecord } from "./types";
-import { defineFlowShape } from "./types";
+import { FLOW_EVM } from "./constants.js";
+import { Shape } from "./enums.js";
+import type { FlowShapesRecord } from "./types.js";
+import { defineFlowShape } from "./types.js";
 
 /**
  * Flow streaming.

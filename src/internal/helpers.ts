@@ -1,7 +1,7 @@
 import * as path from "node:path";
-import type { Sablier } from "@src/types";
+import type { Sablier } from "@src/types.js";
 import * as fs from "fs-extra";
-import { log } from "./logger";
+import { log } from "./logger.js";
 
 const ROOT_DIR = path.join(__dirname, "..", "..");
 const DEPLOYMENTS_DIR = path.join(ROOT_DIR, "deployments");

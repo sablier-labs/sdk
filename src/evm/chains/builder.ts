@@ -1,7 +1,7 @@
-import type { Sablier } from "@src/types";
+import type { Sablier } from "@src/types.js";
 import type { Chain as ViemChain } from "viem";
 import { defineChain as viemDefine } from "viem";
-import { alchemyUrl, infuraUrl, routemeshUrl } from "./providers";
+import { alchemyUrl, infuraUrl, routemeshUrl } from "./providers.js";
 
 export type ChainSpec = {
   base: ViemChain;

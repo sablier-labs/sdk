@@ -5,11 +5,11 @@
  * the combined lockupShapes record.
  */
 
-import { Shape } from "../enums";
-import type { LockupShapesRecord } from "../types";
-import * as dynamic from "./dynamic";
-import * as linear from "./linear";
-import * as tranched from "./tranched";
+import { Shape } from "../enums.js";
+import type { LockupShapesRecord } from "../types.js";
+import * as dynamic from "./dynamic.js";
+import * as linear from "./linear.js";
+import * as tranched from "./tranched.js";
 
 /**
  * All lockup shapes indexed by shape ID.
@@ -45,6 +45,6 @@ export const lockupShapes = {
 } satisfies LockupShapesRecord;
 
 // Re-export individual shapes for direct imports
-export * from "./dynamic";
-export * from "./linear";
-export * from "./tranched";
+export * from "./dynamic.js";
+export * from "./linear.js";
+export * from "./tranched.js";

@@ -1,12 +1,12 @@
-import { isBroadcastsUnified } from "@src/internal/helpers";
-import { getPath, setPath } from "@src/internal/utils/object-path";
-import { sablier } from "@src/sablier";
-import type { Sablier } from "@src/types";
+import { isBroadcastsUnified } from "@src/internal/helpers.js";
+import { getPath, setPath } from "@src/internal/utils/object-path.js";
+import { sablier } from "@src/sablier.js";
+import type { Sablier } from "@src/types.js";
 import { beforeAll, describe, expect, it } from "vitest";
-import { isKnownMissing } from "../../helpers/missing";
-import type { BasicContract, StandardBroadcast, ZKBroadcast } from "../../types";
-import { findContract, findZKContract } from "./finders";
-import { loadBroadcast } from "./loaders";
+import { isKnownMissing } from "../../helpers/missing.js";
+import type { BasicContract, StandardBroadcast, ZKBroadcast } from "../../types.js";
+import { findContract, findZKContract } from "./finders.js";
+import { loadBroadcast } from "./loaders.js";
 
 type Validated = {
   [chainId: number]: {

@@ -1,5 +1,5 @@
-import { buildChains } from "./builder";
-import { chainSpecs } from "./specs";
+import { buildChains } from "./builder.js";
+import { chainSpecs } from "./specs.js";
 
 const chains = buildChains(chainSpecs);
 

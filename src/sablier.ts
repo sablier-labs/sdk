@@ -22,13 +22,13 @@
  * const { address } = lockupContract;
  * ```
  */
-import type { Sablier } from "@src/types";
-import { chainsQueries as evmChainsQueries } from "./evm/chains/queries";
-import { contractsQueries as evmContractsQueries } from "./evm/contracts/queries";
-import { releasesQueries as evmReleasesQueries } from "./evm/releases/queries";
-import { chainsQueries as solanaChainsQueries } from "./solana/chains/queries";
-import { programsQueries as solanaProgramsQueries } from "./solana/programs/queries";
-import { releasesQueries as solanaReleasesQueries } from "./solana/releases/queries";
+import type { Sablier } from "@src/types.js";
+import { chainsQueries as evmChainsQueries } from "./evm/chains/queries.js";
+import { contractsQueries as evmContractsQueries } from "./evm/contracts/queries.js";
+import { releasesQueries as evmReleasesQueries } from "./evm/releases/queries.js";
+import { chainsQueries as solanaChainsQueries } from "./solana/chains/queries.js";
+import { programsQueries as solanaProgramsQueries } from "./solana/programs/queries.js";
+import { releasesQueries as solanaReleasesQueries } from "./solana/releases/queries.js";
 
 /**
  * Has to be defined here to avoid circular dependencies.

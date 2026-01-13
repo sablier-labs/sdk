@@ -1,7 +1,7 @@
-import { createReleasesQueries } from "@src/internal/factories/queries";
-import { Protocol } from "@src/solana/enums";
-import type { Sablier } from "@src/types";
-import { releases } from "./data";
+import { createReleasesQueries } from "@src/internal/factories/queries.js";
+import { Protocol } from "@src/solana/enums.js";
+import type { Sablier } from "@src/types.js";
+import { releases } from "./data.js";
 
 export const releasesQueries = createReleasesQueries<
   Sablier.Solana.Protocol,

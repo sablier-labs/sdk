@@ -1,8 +1,8 @@
-import { sablierV2MerkleLLAbi } from "./abi/SablierV2MerkleLL";
-import { sablierV2MerkleLockupAbi } from "./abi/SablierV2MerkleLockup";
-import { sablierV2MerkleLockupFactoryAbi } from "./abi/SablierV2MerkleLockupFactory";
-import { sablierV2MerkleLTAbi } from "./abi/SablierV2MerkleLT";
-import manifest from "./manifest";
+import { sablierV2MerkleLLAbi } from "./abi/SablierV2MerkleLL.js";
+import { sablierV2MerkleLockupAbi } from "./abi/SablierV2MerkleLockup.js";
+import { sablierV2MerkleLockupFactoryAbi } from "./abi/SablierV2MerkleLockupFactory.js";
+import { sablierV2MerkleLTAbi } from "./abi/SablierV2MerkleLT.js";
+import manifest from "./manifest.js";
 
 export const abi = {
   [manifest.SABLIER_V2_MERKLE_LL]: sablierV2MerkleLLAbi,

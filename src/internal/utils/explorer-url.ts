@@ -1,4 +1,4 @@
-import type { Sablier } from "@src/types";
+import type { Sablier } from "@src/types.js";
 
 /**
  * Get the explorer URL for a contract. Compatible with Etherscan, Blockscout, etc.

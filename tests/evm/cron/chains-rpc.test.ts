@@ -7,7 +7,7 @@ import {
   HttpClientResponse,
 } from "@effect/platform";
 import { describe, expect, it } from "@effect/vitest";
-import { chains } from "@src/evm/chains";
+import { chains } from "@src/evm/chains/index.js";
 import { Effect, Schema } from "effect";
 
 const MALFUNCTIONING_RPC: number[] = [chains.form.id, chains.meld.id, chains.taikoHekla.id];

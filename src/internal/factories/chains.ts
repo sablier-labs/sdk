@@ -1,5 +1,5 @@
-import { sortChains } from "@src/internal/utils/sort-chains";
-import type { Shared } from "@src/shared/types";
+import { sortChains } from "@src/internal/utils/sort-chains.js";
+import type { Shared } from "@src/shared/types.js";
 
 /**
  * Generic factory function to create type-safe chain query objects.

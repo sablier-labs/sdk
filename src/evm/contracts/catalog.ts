@@ -1,7 +1,7 @@
-import { Protocol } from "@src/evm/enums";
-import { releasesQueries } from "@src/evm/releases/queries";
-import { setPath } from "@src/internal/utils/object-path";
-import type { Sablier } from "@src/types";
+import { Protocol } from "@src/evm/enums.js";
+import { releasesQueries } from "@src/evm/releases/queries.js";
+import { setPath } from "@src/internal/utils/object-path.js";
+import type { Sablier } from "@src/types.js";
 
 let _catalog: Sablier.EVM.ContractCatalog | undefined;
 

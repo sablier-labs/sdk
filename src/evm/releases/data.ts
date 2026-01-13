@@ -1,7 +1,7 @@
-import { airdrops } from "./airdrops";
-import { flow } from "./flow";
-import { legacy } from "./legacy";
-import { lockup } from "./lockup";
+import { airdrops } from "./airdrops/index.js";
+import { flow } from "./flow/index.js";
+import { legacy } from "./legacy/index.js";
+import { lockup } from "./lockup/index.js";
 
 export const releases = {
   airdrops,

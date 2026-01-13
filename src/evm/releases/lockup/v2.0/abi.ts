@@ -1,6 +1,6 @@
-import { sablierBatchLockupAbi } from "./abi/SablierBatchLockup";
-import { sablierLockupAbi } from "./abi/SablierLockup";
-import manifest from "./manifest";
+import { sablierBatchLockupAbi } from "./abi/SablierBatchLockup.js";
+import { sablierLockupAbi } from "./abi/SablierLockup.js";
+import manifest from "./manifest.js";
 
 export const abi = {
   [manifest.SABLIER_LOCKUP]: sablierLockupAbi,

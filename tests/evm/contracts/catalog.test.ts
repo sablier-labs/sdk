@@ -1,5 +1,5 @@
-import { releases } from "@src/evm/releases";
-import { sablier } from "@src/sablier";
+import { releases } from "@src/evm/releases/index.js";
+import { sablier } from "@src/sablier.js";
 import { describe, expect, it } from "vitest";
 
 describe("Contract catalog", () => {
@@ -27,9 +27,23 @@ describe("Contract catalog", () => {
   }
 });
 
-describe("aliasCatalog", () => {
-  it("should be exported and defined", () => {
-    expect(sablier.evm.contracts.aliasCatalog).toBeDefined();
-    expect(typeof sablier.evm.contracts.aliasCatalog).toBe("object");
+describe("alias lookups", () => {
+  it("should resolve a contract by alias", () => {
+    const releasesList = Object.values(releases).flatMap((byVersion) => Object.values(byVersion));
+    const contractWithAlias = releasesList
+      .flatMap((release) => release.deployments)
+      .flatMap((deployment) => deployment.contracts)
+      .find((contract) => contract.alias);
+
+    expect(contractWithAlias).toBeDefined();
+
+    const contract = contractWithAlias!;
+    const resolved = sablier.evm.contracts.getByAlias({
+      alias: contract.alias!,
+      chainId: contract.chainId,
+      protocol: contract.protocol,
+    });
+
+    expect(resolved).toStrictEqual(contract);
   });
 });

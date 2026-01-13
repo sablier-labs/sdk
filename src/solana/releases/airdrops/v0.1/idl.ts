@@ -1,10 +1,10 @@
-import type { Sablier } from "@src/types";
-import * as errors from "./idl/SablierMerkleInstant/errors";
-import { errorCodes } from "./idl/SablierMerkleInstant/errors";
-import { idl as SablierMerkleInstantIDL } from "./idl/SablierMerkleInstant/idl";
-import * as idlType from "./idl/SablierMerkleInstant/idl-type";
-import * as structs from "./idl/SablierMerkleInstant/structs";
-import manifest from "./manifest";
+import type { Sablier } from "@src/types.js";
+import * as errors from "./idl/SablierMerkleInstant/errors.js";
+import { errorCodes } from "./idl/SablierMerkleInstant/errors.js";
+import { idl as SablierMerkleInstantIDL } from "./idl/SablierMerkleInstant/idl.js";
+import * as idlType from "./idl/SablierMerkleInstant/idl-type.js";
+import * as structs from "./idl/SablierMerkleInstant/structs.js";
+import manifest from "./manifest.js";
 
 export const sablierMerkleInstant = { errorCodes, SablierMerkleInstantIDL, structs };
 

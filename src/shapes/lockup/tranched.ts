@@ -8,9 +8,9 @@
  * LockupTranched was introduced in v1.2 (July 2024).
  */
 
-import { LOCKUP_EVM_LT } from "../constants";
-import { Shape } from "../enums";
-import { defineLockupShape } from "../types";
+import { LOCKUP_EVM_LT } from "../constants.js";
+import { Shape } from "../enums.js";
+import { defineLockupShape } from "../types.js";
 
 /**
  * Step-based vesting via tranches.

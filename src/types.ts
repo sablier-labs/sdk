@@ -1,5 +1,5 @@
-import * as EVMTypes from "./evm/types";
-import * as SolanaTypes from "./solana/types";
+import * as EVMTypes from "./evm/types.js";
+import * as SolanaTypes from "./solana/types.js";
 
 /**
  * Options for truncating blockchain addresses.

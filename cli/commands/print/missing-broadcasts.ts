@@ -1,8 +1,8 @@
-import { Protocol } from "@src/evm/enums";
-import { checkBroadcast } from "@src/internal/helpers";
-import { logger } from "@src/internal/logger";
-import { sablier } from "@src/sablier";
-import type { Sablier } from "@src/types";
+import { Protocol } from "@src/evm/enums.js";
+import { checkBroadcast } from "@src/internal/helpers.js";
+import { logger } from "@src/internal/logger.js";
+import { sablier } from "@src/sablier.js";
+import type { Sablier } from "@src/types.js";
 import { Command } from "commander";
 
 const EMOJIS = {

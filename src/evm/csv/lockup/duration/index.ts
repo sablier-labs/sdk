@@ -1,4 +1,4 @@
-import type { BaseColumns } from "../../types";
+import type { BaseColumns } from "../../types.js";
 
 /** Linear vesting with duration: address, amount, duration */
 export type LinearColumns = BaseColumns & {

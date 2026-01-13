@@ -1,6 +1,6 @@
-import type { Columns as AirdropColumns } from "./airdrops";
-import type { Columns as FlowColumns } from "./flow";
-import type { DurationColumns, RangeColumns } from "./lockup";
+import type { Columns as AirdropColumns } from "./airdrops/index.js";
+import type { Columns as FlowColumns } from "./flow/index.js";
+import type { DurationColumns, RangeColumns } from "./lockup/index.js";
 
 /**
  * All supported timing modes

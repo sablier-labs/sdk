@@ -1,10 +1,10 @@
-import { Protocol } from "@src/evm/enums";
-import { sortDeployments } from "@src/evm/releases/helpers";
-import { resolvers } from "@src/evm/releases/resolvers";
-import type { Sablier } from "@src/types";
-import { abi } from "./abi";
-import { mainnets } from "./deployments";
-import manifest from "./manifest";
+import { Protocol } from "@src/evm/enums.js";
+import { sortDeployments } from "@src/evm/releases/helpers.js";
+import { resolvers } from "@src/evm/releases/resolvers.js";
+import type { Sablier } from "@src/types.js";
+import { abi } from "./abi.js";
+import { mainnets } from "./deployments.js";
+import manifest from "./manifest.js";
 
 const sortedMainnets = sortDeployments(mainnets);
 

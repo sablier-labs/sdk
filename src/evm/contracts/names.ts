@@ -1,18 +1,18 @@
-import airdropsV1_1 from "@src/evm/releases/airdrops/v1.1/manifest";
-import airdropsV1_2 from "@src/evm/releases/airdrops/v1.2/manifest";
-import airdropsV1_3 from "@src/evm/releases/airdrops/v1.3/manifest";
-import airdropsV2_0 from "@src/evm/releases/airdrops/v2.0/manifest";
-import flowV1_0 from "@src/evm/releases/flow/v1.0/manifest";
-import flowV1_1 from "@src/evm/releases/flow/v1.1/manifest";
-import flowV2_0 from "@src/evm/releases/flow/v2.0/manifest";
-import legacyV1_0 from "@src/evm/releases/legacy/v1.0/manifest";
-import legacyV1_1 from "@src/evm/releases/legacy/v1.1/manifest";
-import lockupV1_0 from "@src/evm/releases/lockup/v1.0/manifest";
-import lockupV1_1 from "@src/evm/releases/lockup/v1.1/manifest";
-import lockupV1_2 from "@src/evm/releases/lockup/v1.2/manifest";
-import lockupV2_0 from "@src/evm/releases/lockup/v2.0/manifest";
-import lockupV3_0 from "@src/evm/releases/lockup/v3.0/manifest";
-import type { Sablier } from "@src/types";
+import airdropsV1_1 from "@src/evm/releases/airdrops/v1.1/manifest.js";
+import airdropsV1_2 from "@src/evm/releases/airdrops/v1.2/manifest.js";
+import airdropsV1_3 from "@src/evm/releases/airdrops/v1.3/manifest.js";
+import airdropsV2_0 from "@src/evm/releases/airdrops/v2.0/manifest.js";
+import flowV1_0 from "@src/evm/releases/flow/v1.0/manifest.js";
+import flowV1_1 from "@src/evm/releases/flow/v1.1/manifest.js";
+import flowV2_0 from "@src/evm/releases/flow/v2.0/manifest.js";
+import legacyV1_0 from "@src/evm/releases/legacy/v1.0/manifest.js";
+import legacyV1_1 from "@src/evm/releases/legacy/v1.1/manifest.js";
+import lockupV1_0 from "@src/evm/releases/lockup/v1.0/manifest.js";
+import lockupV1_1 from "@src/evm/releases/lockup/v1.1/manifest.js";
+import lockupV1_2 from "@src/evm/releases/lockup/v1.2/manifest.js";
+import lockupV2_0 from "@src/evm/releases/lockup/v2.0/manifest.js";
+import lockupV3_0 from "@src/evm/releases/lockup/v3.0/manifest.js";
+import type { Sablier } from "@src/types.js";
 
 /**
  * Works at compile-time!

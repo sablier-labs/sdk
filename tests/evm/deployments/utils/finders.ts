@@ -1,4 +1,4 @@
-import type { BasicContract, StandardBroadcast, ZKBroadcast } from "../../types";
+import type { BasicContract, StandardBroadcast, ZKBroadcast } from "../../types.js";
 
 const CONTRACT_PREFIX = "contract ";
 

@@ -5,9 +5,9 @@
  * EVM contract configurations.
  */
 
-import { LOCKUP_EVM_LL, LOCKUP_EVM_LL_V2, LOCKUP_SOLANA_LL } from "../constants";
-import { Shape } from "../enums";
-import { defineLockupShape } from "../types";
+import { LOCKUP_EVM_LL, LOCKUP_EVM_LL_V2, LOCKUP_SOLANA_LL } from "../constants.js";
+import { Shape } from "../enums.js";
+import { defineLockupShape } from "../types.js";
 
 /**
  * Basic linear vesting.

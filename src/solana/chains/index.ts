@@ -4,5 +4,5 @@
  * For further documentation, visit:
  * @see https://docs.sablier.com/concepts/chains
  */
-export * as chains from "./chains";
-export * from "./chains";
+export * as chains from "./chains.js";
+export * from "./chains.js";

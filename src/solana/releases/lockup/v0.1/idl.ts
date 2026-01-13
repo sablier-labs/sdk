@@ -1,10 +1,10 @@
-import type { Sablier } from "@src/types";
-import * as errors from "./idl/SablierLockupLinear/errors";
-import { errorCodes } from "./idl/SablierLockupLinear/errors";
-import { idl as SablierLockupLinearIDL } from "./idl/SablierLockupLinear/idl";
-import * as idlType from "./idl/SablierLockupLinear/idl-type";
-import * as structs from "./idl/SablierLockupLinear/structs";
-import manifest from "./manifest";
+import type { Sablier } from "@src/types.js";
+import * as errors from "./idl/SablierLockupLinear/errors.js";
+import { errorCodes } from "./idl/SablierLockupLinear/errors.js";
+import { idl as SablierLockupLinearIDL } from "./idl/SablierLockupLinear/idl.js";
+import * as idlType from "./idl/SablierLockupLinear/idl-type.js";
+import * as structs from "./idl/SablierLockupLinear/structs.js";
+import manifest from "./manifest.js";
 
 export const sablierLockupLinear = { errorCodes, SablierLockupLinearIDL, structs };
 

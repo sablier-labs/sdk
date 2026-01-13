@@ -1,5 +1,5 @@
-import { logger } from "@src/internal/logger";
-import { sablier } from "@src/sablier";
+import { logger } from "@src/internal/logger.js";
+import { sablier } from "@src/sablier.js";
 import { Command } from "commander";
 
 type AliasRow = {

@@ -1,6 +1,6 @@
-import type { EVM } from "@src/evm/types";
-import type { Solana } from "@src/solana/types";
-import type { Shape } from "./enums";
+import type { EVM } from "@src/evm/types.js";
+import type { Solana } from "@src/solana/types.js";
+import type { Shape } from "./enums.js";
 
 /** An EVM contract method that can create a stream with a shape */
 export type ContractMethod = {

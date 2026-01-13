@@ -23,6 +23,7 @@ export function setPath<T extends object>(
   path: readonly (string | number)[],
   value: unknown,
 ): T {
+  if (path.length === 0) return obj;
   let current: Record<string | number, unknown> = obj as Record<string | number, unknown>;
   for (let i = 0; i < path.length - 1; i++) {
     const key = path[i];

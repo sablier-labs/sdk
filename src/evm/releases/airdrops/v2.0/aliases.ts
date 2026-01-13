@@ -1,4 +1,4 @@
-import manifest from "./manifest";
+import manifest from "./manifest.js";
 
 // MF = Merkle Factory
 const aliases = {

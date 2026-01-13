@@ -1,9 +1,7 @@
-import { aliasCatalog } from "./alias-catalog";
-import { catalog } from "./catalog";
-import { names } from "./names";
+import { catalog } from "./catalog.js";
+import { names } from "./names.js";
 
 export const contracts = {
-  aliasCatalog,
   catalog,
   names,
 };

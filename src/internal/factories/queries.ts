@@ -1,4 +1,4 @@
-import { getPath } from "@src/internal/utils/object-path";
+import { getPath } from "@src/internal/utils/object-path.js";
 
 /**
  * Factory function to create releases queries with platform-specific configuration.
@@ -89,7 +89,7 @@ export function createContractsQueries<
   TCatalog,
   TAliasCatalog = undefined,
 >(config: {
-  aliasCatalog?: TAliasCatalog;
+  getAliasCatalog?: () => TAliasCatalog;
   catalog: TCatalog;
   releasesQueries: {
     getAll: (opts?: { protocol?: TProtocol }) => TRelease[];
@@ -100,7 +100,7 @@ export function createContractsQueries<
   /** Field name for contracts (e.g., 'contracts' for EVM, 'programs' for Solana) */
   contractsField: "contracts" | "programs";
 }) {
-  const { aliasCatalog, catalog, releasesQueries, protocols, normalizeAddress, contractsField } =
+  const { getAliasCatalog, catalog, releasesQueries, protocols, normalizeAddress, contractsField } =
     config;
 
   // Helper to safely get contracts/programs from deployment
@@ -110,7 +110,6 @@ export function createContractsQueries<
   };
 
   return {
-    aliasCatalog,
     /**
      * Get a single contract using the following options:
      *
@@ -260,6 +259,11 @@ export function createContractsQueries<
     }): TContract | undefined => {
       const { alias, chainId, protocol } = opts;
 
+      if (!getAliasCatalog) {
+        return undefined;
+      }
+
+      const aliasCatalog = getAliasCatalog();
       if (!aliasCatalog) {
         return undefined;
       }

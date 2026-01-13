@@ -10,10 +10,10 @@ import {
   AIRDROP_EVM_LL_V2,
   AIRDROP_EVM_LT,
   AIRDROP_SOLANA_INSTANT,
-} from "./constants";
-import { Shape } from "./enums";
-import type { AirdropShapesRecord } from "./types";
-import { defineAirdropShape } from "./types";
+} from "./constants.js";
+import { Shape } from "./enums.js";
+import type { AirdropShapesRecord } from "./types.js";
+import { defineAirdropShape } from "./types.js";
 
 /**
  * Instant airdrop.

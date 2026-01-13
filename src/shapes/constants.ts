@@ -9,8 +9,8 @@
  * as read-only - do not mutate `shape.evm` or `createMethods` arrays.
  */
 
-import { Version } from "@src/evm/enums";
-import type { ContractMethod, ProgramMethod } from "./types";
+import { Version } from "@src/evm/enums.js";
+import type { ContractMethod, ProgramMethod } from "./types.js";
 
 /* -------------------------------------------------------------------------- */
 /*                        LOCKUP LINEAR (LL) CONTRACTS                        */
