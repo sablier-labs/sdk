@@ -6,7 +6,7 @@
   "module": "./_esm/index.js",
   "types": "./_types/index.d.ts",
   "typings": "./_types/index.d.ts",
-  "version": "2.0.0-beta.22",
+  "version": "2.0.0-beta.23",
   "author": {
     "name": "Sablier Labs Ltd",
     "url": "https://sablier.com"
@@ -31,7 +31,6 @@
     "@types/node": "^25.0.7",
     "@vitest/ui": "^3.2.4",
     "commander": "^14.0.2",
-    "copyfiles": "^2.4.1",
     "fs-extra": "^11.3.3",
     "globby": "11",
     "husky": "^9.1.7",
