@@ -32,7 +32,7 @@ describe("comptroller", () => {
       const deployment = comptrollerQueries.get(chains.base.id);
 
       expect(deployment?.chainId).toBe(chains.base.id);
-      expect(deployment?.address).toMatch(DEFAULT_ADDRESS);
+      expect(deployment?.address).toBe(DEFAULT_ADDRESS);
     });
 
     it("returns undefined for chains without a deployment", () => {

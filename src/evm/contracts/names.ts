@@ -1,3 +1,4 @@
+import comptrollerV1_0 from "@src/evm/comptroller/manifest";
 import airdropsV1_1 from "@src/evm/releases/airdrops/v1.1/manifest";
 import airdropsV1_2 from "@src/evm/releases/airdrops/v1.2/manifest";
 import airdropsV1_3 from "@src/evm/releases/airdrops/v1.3/manifest";
@@ -20,6 +21,8 @@ import _ from "lodash";
  */
 type LeafKeys<T> = keyof T;
 
+type C1_0 = LeafKeys<typeof comptrollerV1_0>;
+
 type A1_1 = LeafKeys<typeof airdropsV1_1>;
 type A1_2 = LeafKeys<typeof airdropsV1_2>;
 type A1_3 = LeafKeys<typeof airdropsV1_3>;
@@ -40,6 +43,7 @@ type L3_0 = LeafKeys<typeof lockupV3_0>;
 
 // Final exported type: only these known keys allowed
 type ContractNames = Record<
+  | C1_0
   | A1_1
   | A1_2
   | A1_3
@@ -75,6 +79,7 @@ function flatten(manifest: Sablier.EVM.Manifest): Record<string, string> {
  */
 function getNames(): ContractNames {
   const manifests = [
+    comptrollerV1_0,
     airdropsV1_1,
     airdropsV1_2,
     airdropsV1_3,

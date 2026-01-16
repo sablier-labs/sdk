@@ -33,12 +33,12 @@ setup:
     bun husky
 
 # Run tests
-test *args:
+@test *args:
     bun vitest run --hideSkippedTests {{args}}
 alias t := test
 
 # Run tests with UI
-test-ui *args:
+@test-ui *args:
     bun vitest --hideSkippedTests --ui {{args}}
 alias tui := test-ui
 
