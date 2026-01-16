@@ -24,11 +24,23 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 [1.1.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.1.0
 [1.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.0.0
 
-## [1.8.0] - 2026-01-15
+## [1.8.0] - 2026-01-16
 
 ### Added
 
-- Add Sablier Comptroller ABI
+- Add SablierComptroller and ERC-1967 proxy ABIs ([#134](https://github.com/sablier-labs/sdk/pull/134))
+- Add comptroller manifest with contract names ([#134](https://github.com/sablier-labs/sdk/pull/134))
+- Export Comptroller queries via `sablier.comptroller` object ([#134](https://github.com/sablier-labs/sdk/pull/134))
+
+### Changed
+
+- Modularize comptroller into dedicated directory structure ([#134](https://github.com/sablier-labs/sdk/pull/134))
+
+### Fixed
+
+- Checksum Comptroller address ([#134](https://github.com/sablier-labs/sdk/pull/134))
+- Fix pollution of default namespace by removing the comptroller exports
+  ([#134](https://github.com/sablier-labs/sdk/pull/134))
 
 ## [1.7.0] - 2025-12-02
 
