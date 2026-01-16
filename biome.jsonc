@@ -28,7 +28,7 @@
     // ABIs
     // ─────────────────────────────────────────────────────────────────────────────
     {
-      "includes": ["src/evm/releases/**/abi/**/*.ts"],
+      "includes": ["src/evm/**/abi/**/*.ts"],
       "assist": {
         "actions": {
           "source": {

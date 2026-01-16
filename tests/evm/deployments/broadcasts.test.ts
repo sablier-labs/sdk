@@ -1,5 +1,5 @@
 import { taikoHekla } from "@src/evm/chains/index.js";
-import { deployments as comptrollerDeployments } from "@src/evm/comptroller.js";
+import { deployments as comptrollerDeployments } from "@src/evm/comptroller/deployments.js";
 import { releases } from "@src/evm/releases/index.js";
 import { isBroadcastsUnified } from "@src/internal/helpers.js";
 import { sablier } from "@src/sablier.js";

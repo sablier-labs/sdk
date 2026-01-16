@@ -8,6 +8,7 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 >
 > This project may not always adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+[1.8.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.8.0
 [1.7.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.7.0
 [1.6.1]: https://github.com/sablier-labs/sdk/releases/tag/v1.6.1
 [1.6.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.6.0
@@ -22,6 +23,12 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 [1.2.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.2.0
 [1.1.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.1.0
 [1.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.0.0
+
+## [1.8.0] - 2026-01-15
+
+### Added
+
+- Add Sablier Comptroller ABI
 
 ## [1.7.0] - 2025-12-02
 

@@ -1,23 +1,26 @@
-import { chains } from "@src/evm/chains/index.js";
-import { comptroller } from "@src/evm/comptroller.js";
+import { chains } from "@src/evm/chains";
+import { comptrollerQueries } from "@src/evm/comptroller/queries.js";
 import { describe, expect, it } from "vitest";
 
-/** Chain-specific comptroller addresses */
-const COMPTROLLER_ADDRESSES: Record<number, string> = {
-  [chains.linea.id]: "0xF21b304A08993f98A79C7Eb841f812CCeab49B8b",
-  [chains.denergy.id]: "0x946654ab30dd6ed10236c89f2c8b2719df653691",
-};
-const DEFAULT_COMPTROLLER_ADDRESS = "0x0000008ABbFf7a84a2fE09f9A9b74D3BC2072399";
+/**
+ * @see https://etherscan.io/address/0x0000008ABbFf7a84a2fE09f9A9b74D3BC2072399
+ */
+const DEFAULT_ADDRESS = "0x0000008ABbFf7a84a2fE09f9A9b74D3BC2072399";
 
 describe("comptroller", () => {
   describe("getAll", () => {
     it("returns all deployments", () => {
-      const entries = comptroller.getAll();
+      const entries = comptrollerQueries.getAll();
 
       for (const entry of entries) {
-        const expectedAddress = COMPTROLLER_ADDRESSES[entry.chainId] ?? DEFAULT_COMPTROLLER_ADDRESS;
+        if (entry.chainId === chains.linea.id) {
+          expect(entry.address).toBe("0xF21b304A08993f98A79C7Eb841f812CCeab49B8b");
+        } else if (entry.chainId === chains.denergy.id) {
+          expect(entry.address).toBe("0x946654AB30Dd6eD10236C89f2C8B2719df653691");
+        } else {
+          expect(entry.address).toBe(DEFAULT_ADDRESS);
+        }
 
-        expect(entry.address).toBe(expectedAddress);
         expect((entry.block ?? 0) > 0).toBe(true);
         expect(entry.name).toBe("SablierComptroller");
       }
@@ -26,15 +29,15 @@ describe("comptroller", () => {
 
   describe("get", () => {
     it("returns the deployment for a specific chain", () => {
-      const deployment = comptroller.get(chains.base.id);
+      const deployment = comptrollerQueries.get(chains.base.id);
 
       expect(deployment?.chainId).toBe(chains.base.id);
-      expect(deployment?.address).toMatch("0x0000008ABbFf7a84a2fE09f9A9b74D3BC2072399");
+      expect(deployment?.address).toBe(DEFAULT_ADDRESS);
     });
 
     it("returns undefined for chains without a deployment", () => {
       const nonExistingChainId = 98_989_898_989;
-      const deployment = comptroller.get(nonExistingChainId);
+      const deployment = comptrollerQueries.get(nonExistingChainId);
 
       expect(deployment).toBeUndefined();
     });
