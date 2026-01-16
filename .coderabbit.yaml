@@ -1,0 +1,7 @@
+# Thanks to this flag, this config will be merged with the Organization Settinss from the
+# see https://docs.coderabbit.ai/configuration/configuration-inheritance?#enabling-inheritance
+inheritance: true
+# See https://docs.coderabbit.ai/reference/configuration#param-path-filters
+reviews:
+  path_filters:
+    - "!**/src/solana/idl/**"
