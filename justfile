@@ -7,6 +7,10 @@ import "./node_modules/@sablier/devkit/just/npm.just"
 #                                 DEPENDENCIES                                 #
 # ---------------------------------------------------------------------------- #
 
+# Bun: https://bun.com/
+bun := require("bun")
+bunx := require("bunx")
+
 # https://github.com/jqlang/jq
 jq := require("jq")
 
@@ -26,7 +30,7 @@ alias b := build
 
 # Clean the dist directory
 @clean:
-    bun x del-cli dist _cjs _esm _types
+    bunx del-cli dist _cjs _esm _types
     echo "🗑️  Cleaned build files"
 
 # Validate CSV template files
@@ -54,31 +58,44 @@ alias tui := test-ui
 # Build with TypeScript CLI
 @tsc-build:
     echo ""
-    echo "🔨 Building the package..."
-
-    echo ""
-    echo "📦 Building CJS package..."
-    bun tsc -p tsconfig.build.cjs.json
-    bun tsc-alias -p tsconfig.build.cjs.json
-    echo "✅ Built CJS package"
-
-    echo ""
-    echo "📦 Building ESM package..."
-    bun tsc -p tsconfig.build.esm.json
-    bun tsc-alias -p tsconfig.build.esm.json -f -fe .js
-    echo "✅ Built ESM package"
-
-    echo ""
-    echo "📦 Building types..."
-    bun tsc -p tsconfig.build.types.json
-    bun tsc-alias -p tsconfig.build.types.json -f -fe .js
-    echo "✅ Built types"
+    echo "🔨 Building all packages..."
+    bunx concurrently --group \
+        -n "cjs,esm,types" \
+        -c "blue,green,yellow" \
+        "just tsc-build-cjs" \
+        "just tsc-build-esm" \
+        "just tsc-build-types"
 
     echo ""
     mkdir -p _cjs _esm
     printf '{"type":"commonjs"}' > _cjs/package.json
     printf '{"type":"module","sideEffects":false}' > _esm/package.json
     echo "✅ All packages built successfully"
+
+@tsc-build-cjs:
+    echo ""
+    echo "📦 Building CJS package..."
+    bun tsc -p configs/tsconfig.build.cjs.json
+    bun tsc-alias -p configs/tsconfig.build.cjs.json
+    echo "✅ Built CJS package"
+
+@tsc-build-esm:
+    echo ""
+    echo "📦 Building ESM package..."
+    bun tsc -p configs/tsconfig.build.esm.json
+    bun tsc-alias -p configs/tsconfig.build.esm.json \
+        --resolve-full-paths \
+        --resolve-full-extension .js
+    echo "✅ Built ESM package"
+
+@tsc-build-types:
+    echo ""
+    echo "📦 Building types..."
+    bun tsc -p configs/tsconfig.build.types.json
+    bun tsc-alias -p configs/tsconfig.build.types.json \
+        --resolve-full-paths \
+        --resolve-full-extension .js
+    echo "✅ Built types"
 
 # ---------------------------------------------------------------------------- #
 #                                     PRINT                                    #

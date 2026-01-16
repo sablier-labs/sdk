@@ -98,7 +98,7 @@ Skip `tests/cron/` locally—these test external services and run on CI schedule
 Uses `just` + Bun + TypeScript:
 
 1. Clean `dist/` directory
-2. Compile with `tsc` (using `tsconfig.build.json`)
+2. Compile with `tsc` (using `configs/tsconfig.build.json`)
 3. Resolve path aliases with `tsc-alias`
 4. Copy `src/abi/*.json` to `dist/abi/`
 
@@ -174,7 +174,7 @@ import { contracts } from "sablier/evm/contracts"; // Contracts only
 
 **Build failures:**
 
-- Check `tsconfig.build.json` for path resolution issues
+- Check `configs/tsconfig.build.json` for path resolution issues
 - Verify `src/abi/` files are valid JSON
 - Run `just clean` and rebuild
 
