@@ -25,6 +25,7 @@
 import type { Sablier } from "@src/types";
 import _ from "lodash";
 import { chainsQueries as evmChainsQueries } from "./evm/chains/queries";
+import { comptrollerQueries } from "./evm/comptroller/queries";
 import { contractsQueries as evmContractsQueries } from "./evm/contracts/queries";
 import { releasesQueries as evmReleasesQueries } from "./evm/releases/queries";
 import { chainsQueries as solanaChainsQueries } from "./solana/chains/queries";
@@ -72,6 +73,7 @@ const solanaDeploymentsQueries = {
 
 const evm = {
   chains: evmChainsQueries,
+  comptroller: comptrollerQueries,
   contracts: evmContractsQueries,
   deployments: evmDeploymentsQueries,
   releases: evmReleasesQueries,
