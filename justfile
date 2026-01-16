@@ -75,15 +75,15 @@ alias tui := test-ui
 @tsc-build-cjs:
     echo ""
     echo "📦 Building CJS package..."
-    bun tsc -p configs/tsconfig.build.cjs.json
-    bun tsc-alias -p configs/tsconfig.build.cjs.json
+    bun tsc -p configs/tsconfig.cjs.json
+    bun tsc-alias -p configs/tsconfig.cjs.json
     echo "✅ Built CJS package"
 
 @tsc-build-esm:
     echo ""
     echo "📦 Building ESM package..."
-    bun tsc -p configs/tsconfig.build.esm.json
-    bun tsc-alias -p configs/tsconfig.build.esm.json \
+    bun tsc -p configs/tsconfig.esm.json
+    bun tsc-alias -p configs/tsconfig.esm.json \
         --resolve-full-paths \
         --resolve-full-extension .js
     echo "✅ Built ESM package"
@@ -91,8 +91,8 @@ alias tui := test-ui
 @tsc-build-types:
     echo ""
     echo "📦 Building types..."
-    bun tsc -p configs/tsconfig.build.types.json
-    bun tsc-alias -p configs/tsconfig.build.types.json \
+    bun tsc -p configs/tsconfig.types.json
+    bun tsc-alias -p configs/tsconfig.types.json \
         --resolve-full-paths \
         --resolve-full-extension .js
     echo "✅ Built types"

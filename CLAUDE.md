@@ -95,17 +95,16 @@ Skip `tests/cron/` locally—these test external services and run on CI schedule
 
 ## Build System
 
-Uses `just` + Bun + TypeScript:
+Uses `just` + Bun + TypeScript with dual CJS/ESM output:
 
-1. Clean `dist/` directory
-2. Compile with `tsc` (using `configs/tsconfig.build.json`)
-3. Resolve path aliases with `tsc-alias`
-4. Copy `src/abi/*.json` to `dist/abi/`
+- **ESM**: `tsc` + `tsc-alias` using `configs/tsconfig.esm.json` → `_esm/`
+- **Types**: `tsc` + `tsc-alias` using `configs/tsconfig.types.json` → `_types/`
+
+For development, run only ESM and types builds (`just tsc-build-esm` and `just tsc-build-types`). The full `just build` runs all three outputs (including CJS) and copies ABIs.
 
 **Path aliases:**
 
 - `@src/*` → `src/*`
-- `@cli/*` → `cli/*`
 
 **Pre-commit:** Husky runs lint-staged with Biome checks.
 
@@ -174,7 +173,7 @@ import { contracts } from "sablier/evm/contracts"; // Contracts only
 
 **Build failures:**
 
-- Check `configs/tsconfig.build.json` for path resolution issues
+- Check tsconfig files in `configs/` for path resolution issues
 - Verify `src/abi/` files are valid JSON
 - Run `just clean` and rebuild
 
