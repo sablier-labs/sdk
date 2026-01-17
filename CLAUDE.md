@@ -74,8 +74,8 @@ just tsc-check      # TypeScript validation
 just clean          # Remove dist/
 
 # CLI usage (after build)
-bun cli             # Show CLI help
-bun cli print       # Print deployment info
+bunx tsx cli        # Show CLI help
+bunx tsx cli print  # Print deployment info
 ```
 
 ### Testing
@@ -194,7 +194,7 @@ import { contracts } from "sablier/evm/contracts"; // Contracts only
 
 - Run `just build` first (CLI imports from `dist/`)
 - Check `cli/index.ts` for command registration
-- Use `bun cli --help` for usage
+- Use `bunx tsx cli --help` for usage
 
 ## Related Repositories
 

@@ -157,4 +157,4 @@ alias b := build
 # Run CLI commands. Usage: just cli <command> [args]
 [private]
 @cli *args:
-    na tsx cli {{ args }}
+    bunx tsx cli {{ args }}
