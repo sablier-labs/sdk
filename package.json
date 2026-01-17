@@ -2,10 +2,11 @@
   "name": "sablier",
   "description": "Contract addresses, chain data, and deployment information for the Sablier Protocol",
   "license": "GPL-3.0-or-later",
-  "main": "./_cjs/index.js",
-  "module": "./_esm/index.js",
-  "types": "./_types/index.d.ts",
-  "typings": "./_types/index.d.ts",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "sideEffects": false,
+  "types": "./dist/types/index.d.ts",
+  "typings": "./dist/types/index.d.ts",
   "version": "2.0.0-beta.24",
   "author": {
     "name": "Sablier Labs Ltd",
@@ -50,69 +51,43 @@
   },
   "exports": {
     ".": {
-      "types": "./_types/index.d.ts",
-      "import": "./_esm/index.js",
-      "default": "./_cjs/index.js"
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "default": "./dist/cjs/index.js"
     },
     "./abi/*": "./abi/*",
-    "./abi/*/*": "./abi/*/*",
-    "./abi/*/*/*": "./abi/*/*/*",
     "./csv/*": "./csv/*",
-    "./csv/*/*": "./csv/*/*",
-    "./csv/*/*/*": "./csv/*/*/*",
-    "./csv/*/*/*/*": "./csv/*/*/*/*",
     "./evm": {
-      "types": "./_types/evm/index.d.ts",
-      "import": "./_esm/evm/index.js",
-      "default": "./_cjs/evm/index.js"
+      "types": "./dist/types/evm/index.d.ts",
+      "import": "./dist/esm/evm/index.js",
+      "default": "./dist/cjs/evm/index.js"
     },
     "./evm/*": {
-      "types": "./_types/evm/*/index.d.ts",
-      "import": "./_esm/evm/*/index.js",
-      "default": "./_cjs/evm/*/index.js"
+      "types": "./dist/types/evm/*/index.d.ts",
+      "import": "./dist/esm/evm/*/index.js",
+      "default": "./dist/cjs/evm/*/index.js"
     },
     "./solana": {
-      "types": "./_types/solana/index.d.ts",
-      "import": "./_esm/solana/index.js",
-      "default": "./_cjs/solana/index.js"
+      "types": "./dist/types/solana/index.d.ts",
+      "import": "./dist/esm/solana/index.js",
+      "default": "./dist/cjs/solana/index.js"
     },
     "./solana/*": {
-      "types": "./_types/solana/*/index.d.ts",
-      "import": "./_esm/solana/*/index.js",
-      "default": "./_cjs/solana/*/index.js"
+      "types": "./dist/types/solana/*/index.d.ts",
+      "import": "./dist/esm/solana/*/index.js",
+      "default": "./dist/cjs/solana/*/index.js"
     },
     "./solana/releases/*/idl": {
-      "types": "./_types/solana/releases/*/idl.d.ts",
-      "import": "./_esm/solana/releases/*/idl.js",
-      "default": "./_cjs/solana/releases/*/idl.js"
+      "types": "./dist/types/solana/releases/*/idl.d.ts",
+      "import": "./dist/esm/solana/releases/*/idl.js",
+      "default": "./dist/cjs/solana/releases/*/idl.js"
     },
     "./package.json": "./package.json"
   },
-  "typesVersions": {
-    "*": {
-      "evm": [
-        "./_types/evm/index.d.ts"
-      ],
-      "evm/*": [
-        "./_types/evm/*/index.d.ts"
-      ],
-      "solana": [
-        "./_types/solana/index.d.ts"
-      ],
-      "solana/*": [
-        "./_types/solana/*/index.d.ts"
-      ],
-      "solana/releases/*/idl": [
-        "./_types/solana/releases/*/idl.d.ts"
-      ]
-    }
-  },
   "files": [
-    "_cjs",
-    "_esm",
-    "_types",
-    "abi",
-    "csv"
+    "abi/**",
+    "dist/**",
+    "csv/**"
   ],
   "keywords": [
     "airdrops",
@@ -144,6 +119,5 @@
     "build": "just build",
     "prepack": "bun install --frozen-lockfile && just build",
     "setup": "husky"
-  },
-  "sideEffects": false
+  }
 }

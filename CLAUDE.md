@@ -97,10 +97,11 @@ Skip `tests/cron/` locally—these test external services and run on CI schedule
 
 Uses `just` + Bun + TypeScript with dual CJS/ESM output:
 
-- **ESM**: `tsc` + `tsc-alias` using `configs/tsconfig.esm.json` → `_esm/`
-- **Types**: `tsc` + `tsc-alias` using `configs/tsconfig.types.json` → `_types/`
+- **ESM**: `tsc` + `tsc-alias` using `configs/tsconfig.esm.json` → `dist/esm/`
+- **Types**: `tsc` + `tsc-alias` using `configs/tsconfig.types.json` → `dist/types/`
 
-For development, run only ESM and types builds (`just tsc-build-esm` and `just tsc-build-types`). The full `just build` runs all three outputs (including CJS) and copies ABIs.
+For development, run only ESM and types builds (`just tsc-build-esm` and `just tsc-build-types`). The full `just build`
+runs all three outputs (including CJS) and copies ABIs.
 
 **Path aliases:**
 

@@ -30,7 +30,7 @@ alias b := build
 
 # Clean the dist directory
 @clean:
-    bunx del-cli dist _cjs _esm _types
+    bunx del-cli dist
     echo "🗑️  Cleaned build files"
 
 # Validate CSV template files
@@ -67,9 +67,9 @@ alias tui := test-ui
         "just tsc-build-types"
 
     echo ""
-    mkdir -p _cjs _esm
-    printf '{"type":"commonjs"}' > _cjs/package.json
-    printf '{"type":"module","sideEffects":false}' > _esm/package.json
+    mkdir -p dist/cjs dist/esm
+    printf '{"type":"commonjs"}' > dist/cjs/package.json
+    printf '{"type":"module","sideEffects":false}' > dist/esm/package.json
     echo "✅ All packages built successfully"
 
 @tsc-build-cjs:
