@@ -24,8 +24,15 @@ default:
 
 # Clean the dist directory
 @clean:
-    bunx del-cli dist
-    echo "🗑️  Cleaned build files"
+    bunx del-cli ".logs" "dist"
+    echo "🗑️  Cleaned logs and build files in ./dist"
+
+# Verify dist files don't contain unresolved @src imports
+[group("checks")]
+@aliases-check:
+    echo "🔍 Checking for unresolved @src imports..."
+    if rg --quiet "@src/" dist -g "*.js" -g "*.d.ts"; then echo "❌ Found path aliases in dist/"; exit 1; fi
+    echo "✅ No @src imports found in dist/"
 
 # Validate CSV template files
 [group("checks")]
@@ -35,7 +42,7 @@ default:
     just _csv-check --glob "./csv/solana/**/*.csv"
 alias cc := csv-check
 
-# Setup Husky
+# Setup Husky; do it when cloning the repo!
 @setup:
     bun husky
 
@@ -53,17 +60,24 @@ alias tui := test-ui
 #                                     BUILD                                    #
 # ---------------------------------------------------------------------------- #
 
-# Build the project
+# Run the complete build pipeline
+#   1. Clean build files
+#   2. Build all packages (CJS, ESM, types)
+[group("build")]
 @build:
-    just clean
+    just --quiet clean
+    echo "🗑️  Cleaned build files"
+    echo ""
+
+    echo "🔨 Building all packages..."
     just tsc-build
+    echo ""
+    echo "✅ All packages built successfully"
 alias b := build
 
-
 # Build all packages in parallel
+[group("build")]
 @tsc-build:
-    echo ""
-    echo "🔨 Building all packages..."
     bunx concurrently --group \
         -n "cjs,esm,types" \
         -c "blue,green,yellow" \
@@ -71,61 +85,68 @@ alias b := build
         "just tsc-build-esm" \
         "just tsc-build-types"
 
-    echo ""
+    # Verify dist files don't contain unresolved alias imports like @src/*
+    just --quiet aliases-check || (echo "❌ Found path aliases in dist/"; exit 1)
+
+    # Create package.json files for CJS and ESM
     mkdir -p dist/cjs dist/esm
     printf '{"type":"commonjs"}' > dist/cjs/package.json
     printf '{"type":"module","sideEffects":false}' > dist/esm/package.json
-    echo "✅ All packages built successfully"
 
 # Build the CJS package
+[group("build")]
 @tsc-build-cjs:
     echo ""
     echo "📦 Building CJS package..."
     bun tsc -p configs/tsconfig.cjs.json
-    bun tsc-alias -p configs/tsconfig.cjs.json
+    just _tsc-alias configs/tsconfig.cjs.json
     echo "✅ Built CJS package"
 
 # Build the ESM package
+[group("build")]
 @tsc-build-esm:
     echo ""
     echo "📦 Building ESM package..."
     bun tsc -p configs/tsconfig.esm.json
-    bun tsc-alias -p configs/tsconfig.esm.json \
-        --resolve-full-paths \
-        --resolve-full-extension .js
+    just _tsc-alias configs/tsconfig.esm.json
     echo "✅ Built ESM package"
 
 # Build the types package
+[group("build")]
 @tsc-build-types:
     echo ""
     echo "📦 Building types..."
     bun tsc -p configs/tsconfig.types.json
-    bun tsc-alias -p configs/tsconfig.types.json \
-        --resolve-full-paths \
-        --resolve-full-extension .js
+    just _tsc-alias configs/tsconfig.types.json
     echo "✅ Built types"
 
+# Helper for running tsc-alias on a project
+@_tsc-alias project:
+    bun tsc-alias -p {{ project }} \
+        --resolve-full-extension .js \
+        --resolve-full-paths
+
 # ---------------------------------------------------------------------------- #
-#                                     PRINT                                    #
+#                                     CLI                                      #
 # ---------------------------------------------------------------------------- #
 
 # Run print CLI commands.
-[group("print")]
+[group("cli")]
 @print-aliases:
     just cli print aliases
 
 # Run print CLI commands.
-[group("print")]
+[group("cli")]
 @print-chains:
     just cli print chains
 
 # Run print CLI commands.
-[group("print")]
+[group("cli")]
 @print-missing-broadcasts protocol:
     just cli print missing-broadcasts --protocol {{ protocol }}
 
 # Run print CLI commands.
-[group("print")]
+[group("cli")]
 @print-versions:
     just cli print versions
 
