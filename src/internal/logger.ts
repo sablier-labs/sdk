@@ -14,9 +14,9 @@
  * @example
  * Run with file output by setting the LOG_FILE_PATH environment variable:
  *
- * LOG_FILE_PATH=./logs/example.log bun run cli/your-script.ts
+ * LOG_FILE_PATH=./.logs/example.log bun run cli/your-script.ts
  *
- * logger.info("Check your logs directory if LOG_FILE_PATH was set");
+ * logger.info("Check your .logs directory if LOG_FILE_PATH was set");
  *
  * @example
  * Note that log levels are hierarchical, setting LOG_LEVEL=silly will
@@ -29,7 +29,7 @@ import type { Sablier } from "@src/types.js";
 import * as fs from "fs-extra";
 import winston, { format } from "winston";
 
-const LOG_FILE_PATH: string = process.env.LOG_FILE_PATH || "logs/debug.log";
+const LOG_FILE_PATH: string = process.env.LOG_FILE_PATH || ".logs/debug.log";
 const LOG_LEVEL: string = process.env.LOG_LEVEL || "info";
 
 // Create transports array starting with console

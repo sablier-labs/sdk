@@ -4,7 +4,7 @@ dist/
 _cjs/
 _esm/
 _types/
-logs/
+.logs/
 node_modules/
 
 # files

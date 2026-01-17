@@ -34,7 +34,7 @@ export default defineConfig({
   plugins: [tsconfigPaths()],
   test: {
     environment: "node",
-    exclude: ["logs/**", "node_modules/**"],
+    exclude: [".logs/**", "node_modules/**"],
     globalSetup: "./tests/setup.ts",
     globals: true,
     hideSkippedTests: true,
