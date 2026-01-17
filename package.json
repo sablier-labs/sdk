@@ -7,7 +7,7 @@
   "sideEffects": false,
   "types": "./dist/types/index.d.ts",
   "typings": "./dist/types/index.d.ts",
-  "version": "2.0.0-beta.24",
+  "version": "2.0.0-beta.25",
   "author": {
     "name": "Sablier Labs Ltd",
     "url": "https://sablier.com"
