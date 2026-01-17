@@ -22,12 +22,6 @@ jq := require("jq")
 default:
     just --list
 
-# Build the project
-@build:
-    just clean
-    just tsc-build
-alias b := build
-
 # Clean the dist directory
 @clean:
     bunx del-cli dist
@@ -55,7 +49,18 @@ alias t := test
     bun vitest --ui {{args}}
 alias tui := test-ui
 
-# Build with TypeScript CLI
+# ---------------------------------------------------------------------------- #
+#                                     BUILD                                    #
+# ---------------------------------------------------------------------------- #
+
+# Build the project
+@build:
+    just clean
+    just tsc-build
+alias b := build
+
+
+# Build all packages in parallel
 @tsc-build:
     echo ""
     echo "🔨 Building all packages..."
@@ -72,6 +77,7 @@ alias tui := test-ui
     printf '{"type":"module","sideEffects":false}' > dist/esm/package.json
     echo "✅ All packages built successfully"
 
+# Build the CJS package
 @tsc-build-cjs:
     echo ""
     echo "📦 Building CJS package..."
@@ -79,6 +85,7 @@ alias tui := test-ui
     bun tsc-alias -p configs/tsconfig.cjs.json
     echo "✅ Built CJS package"
 
+# Build the ESM package
 @tsc-build-esm:
     echo ""
     echo "📦 Building ESM package..."
@@ -88,6 +95,7 @@ alias tui := test-ui
         --resolve-full-extension .js
     echo "✅ Built ESM package"
 
+# Build the types package
 @tsc-build-types:
     echo ""
     echo "📦 Building types..."
@@ -100,12 +108,6 @@ alias tui := test-ui
 # ---------------------------------------------------------------------------- #
 #                                     PRINT                                    #
 # ---------------------------------------------------------------------------- #
-
-
-# Run CLI commands. Usage: just cli <command> [args]
-[private]
-@cli *args:
-    bun run cli {{ args }}
 
 # Run print CLI commands.
 [group("print")]
@@ -126,3 +128,12 @@ alias tui := test-ui
 [group("print")]
 @print-versions:
     just cli print versions
+
+# ---------------------------------------------------------------------------- #
+#                                PRIVATE HELPERS                               #
+# ---------------------------------------------------------------------------- #
+
+# Run CLI commands. Usage: just cli <command> [args]
+[private]
+@cli *args:
+    bun run cli {{ args }}

@@ -1,4 +1,4 @@
-import type { Sablier } from "@src/types";
+import type { Sablier } from "@src/types.js";
 import { deployments } from "./deployments";
 
 export const comptrollerQueries = {

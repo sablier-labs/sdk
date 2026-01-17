@@ -1,4 +1,4 @@
-import { chains } from "@src/evm/chains";
+import { chains } from "@src/evm/chains/index.js";
 import { comptrollerQueries } from "@src/evm/comptroller/queries.js";
 import { describe, expect, it } from "vitest";
 

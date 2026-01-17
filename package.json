@@ -46,9 +46,6 @@
     "vitest": "^4.0.17",
     "winston": "^3.19.0"
   },
-  "engines": {
-    "node": ">=20"
-  },
   "exports": {
     ".": {
       "types": "./dist/types/index.d.ts",

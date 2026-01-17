@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import { Command } from "commander";
 import { aliasesCmd } from "./commands/print/aliases.js";
 import { chainCmd } from "./commands/print/chains.js";

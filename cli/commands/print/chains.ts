@@ -1,4 +1,4 @@
-import { sablier } from "@src/index.js";
+import { sablier } from "@src/sablier.js";
 import { Command } from "commander";
 
 export const chainCmd = new Command("chains")

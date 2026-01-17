@@ -4,9 +4,8 @@
   "compilerOptions": {
     "outDir": "../dist",
     "paths": {
-      "@src": ["../src"],
-      "@src/*.js": ["../src/*.ts", "../src/*.tsx", "../src/*.mts", "../src/*.cts"],
-      "@src/*": ["../src/*"]
+      "@src/*": ["../src/*"],
+      "@src/*.js": ["../src/*.ts"]
     },
     "rootDir": "../src"
   },
