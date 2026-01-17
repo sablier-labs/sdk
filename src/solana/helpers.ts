@@ -1,6 +1,6 @@
-import { Protocol } from "@src/solana/enums.js";
-import { getAliasCatalog } from "@src/solana/programs/alias-catalog.js";
 import type { Sablier, TruncateAddressOptions } from "@src/types.js";
+import { Protocol } from "./enums.js";
+import { getAliasCatalog } from "./programs/alias-catalog.js";
 
 /**
  * Truncate a Solana address for display purposes.

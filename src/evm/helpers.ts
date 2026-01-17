@@ -1,40 +1,7 @@
-import { getAliasCatalog } from "@src/evm/contracts/alias-catalog.js";
-import { Protocol, Version } from "@src/evm/enums.js";
 import { getContractExplorerURL as getContractExplorerURLInternal } from "@src/internal/utils/explorer-url.js";
 import type { Sablier, TruncateAddressOptions } from "@src/types.js";
-
-/**
- * Truncate an Ethereum address for display purposes.
- * @param address - The Ethereum address to truncate (0x-prefixed)
- * @param options - Truncation options with start/end character counts (default: 4 each, must be >= 1)
- * @returns Truncated address in format "0xcafe...beef" or original if too short
- * @example
- * truncateEvmAddress("0x1234567890abcdef1234567890abcdef12345678") // "0x1234...5678"
- * truncateEvmAddress("0x1234567890abcdef1234567890abcdef12345678", { start: 6, end: 6 }) // "0x123456...345678"
- * truncateEvmAddress("0x1234567890abcdef1234567890abcdef12345678", { start: 2, end: 6 }) // "0x12...345678"
- * truncateEvmAddress("0x123") // "0x123" (too short, returns original)
- */
-export function truncateEvmAddress(
-  address: Sablier.EVM.Address,
-  options?: TruncateAddressOptions
-): string {
-  if (!address) {
-    return address;
-  }
-
-  const start = options?.start ?? 4;
-  const end = options?.end ?? 4;
-  const minLength = 2 + start + end;
-
-  if (address.length <= minLength) {
-    return address;
-  }
-
-  const prefix = address.slice(0, 2 + start);
-  const suffix = end === 0 ? "" : address.slice(-end);
-
-  return `${prefix}...${suffix}`;
-}
+import { getAliasCatalog } from "./contracts/alias-catalog.js";
+import { Protocol, Version } from "./enums.js";
 
 /**
  * Get the explorer URL for a contract. Compatible with Etherscan, Blockscout, etc.
@@ -44,6 +11,52 @@ export function truncateEvmAddress(
  */
 export function getContractExplorerURL(explorerURL: string, contractAddress: Sablier.EVM.Address) {
   return getContractExplorerURLInternal(explorerURL, contractAddress);
+}
+
+/**
+ * Minimum versions that charge ETH fees on withdraw/claim
+ * @see https://github.com/sablier-labs/airdrops/blob/main/CHANGELOG.md
+ * @see https://github.com/sablier-labs/flow/blob/main/CHANGELOG.md
+ * @see https://github.com/sablier-labs/lockup/blob/main/CHANGELOG.md
+ */
+const MIN_PAYABLE_VERSIONS = {
+  airdrops: Version.Airdrops.V1_3,
+  flow: Version.Flow.V1_1,
+  lockup: Version.Lockup.V2_0,
+} as const;
+
+export type PayableEvmProtocol = keyof typeof MIN_PAYABLE_VERSIONS;
+
+/**
+ * Check if an EVM protocol release charges ETH fees on withdraw/claim operations.
+ *
+ * Starting from specific versions, Sablier contracts charge a small ETH fee when
+ * recipients withdraw or claim tokens from streams and airdrops.
+ *
+ * @param protocol - The protocol name ("airdrops", "flow", or "lockup")
+ * @param version - The version to check
+ * @returns true if the release charges fees
+ * @see {@link https://docs.sablier.com/concepts/fees} for fee details
+ * @example
+ * isEvmReleasePayable("airdrops", "v1.2") // false
+ * isEvmReleasePayable("airdrops", "v1.3") // true
+ * isEvmReleasePayable("lockup", "v1.2")   // false
+ * isEvmReleasePayable("lockup", "v2.0")   // true
+ * isEvmReleasePayable("flow", "v1.0")     // false
+ * isEvmReleasePayable("flow", "v1.1")     // true
+ */
+export function isEvmReleasePayable(
+  protocol: PayableEvmProtocol,
+  version: Sablier.EVM.Version
+): boolean {
+  const minVersion = MIN_PAYABLE_VERSIONS[protocol];
+  // Compare versions: return true if version >= minVersion
+  const [vMajor, vMinor] = version.slice(1).split(".").map(Number);
+  const [mMajor, mMinor] = minVersion.slice(1).split(".").map(Number);
+  if (vMajor !== mMajor) {
+    return vMajor > mMajor;
+  }
+  return vMinor >= mMinor;
 }
 
 /**
@@ -129,43 +142,35 @@ export function resolveEvmContractByAlias(opts: {
   return matches[0];
 }
 
-/** Minimum versions that charge ETH fees on withdraw/claim */
-const MIN_PAYABLE_VERSIONS = {
-  airdrops: Version.Airdrops.V1_3,
-  flow: Version.Flow.V1_1,
-  lockup: Version.Lockup.V2_0,
-} as const;
-
-export type PayableEvmProtocol = keyof typeof MIN_PAYABLE_VERSIONS;
-
 /**
- * Check if an EVM protocol release charges ETH fees on withdraw/claim operations.
- *
- * Starting from specific versions, Sablier contracts charge a small ETH fee when
- * recipients withdraw or claim tokens from streams and airdrops.
- *
- * @param protocol - The protocol name ("airdrops", "flow", or "lockup")
- * @param version - The version to check
- * @returns true if the release charges fees
- * @see {@link https://docs.sablier.com/concepts/fees} for fee details
+ * Truncate an Ethereum address for display purposes.
+ * @param address - The Ethereum address to truncate (0x-prefixed)
+ * @param options - Truncation options with start/end character counts (default: 4 each, must be >= 1)
+ * @returns Truncated address in format "0xcafe...beef" or original if too short
  * @example
- * isEvmReleasePayable("airdrops", "v1.2") // false
- * isEvmReleasePayable("airdrops", "v1.3") // true
- * isEvmReleasePayable("lockup", "v1.2")   // false
- * isEvmReleasePayable("lockup", "v2.0")   // true
- * isEvmReleasePayable("flow", "v1.0")     // false
- * isEvmReleasePayable("flow", "v1.1")     // true
+ * truncateEvmAddress("0x1234567890abcdef1234567890abcdef12345678") // "0x1234...5678"
+ * truncateEvmAddress("0x1234567890abcdef1234567890abcdef12345678", { start: 6, end: 6 }) // "0x123456...345678"
+ * truncateEvmAddress("0x1234567890abcdef1234567890abcdef12345678", { start: 2, end: 6 }) // "0x12...345678"
+ * truncateEvmAddress("0x123") // "0x123" (too short, returns original)
  */
-export function isEvmReleasePayable(
-  protocol: PayableEvmProtocol,
-  version: Sablier.EVM.Version
-): boolean {
-  const minVersion = MIN_PAYABLE_VERSIONS[protocol];
-  // Compare versions: return true if version >= minVersion
-  const [vMajor, vMinor] = version.slice(1).split(".").map(Number);
-  const [mMajor, mMinor] = minVersion.slice(1).split(".").map(Number);
-  if (vMajor !== mMajor) {
-    return vMajor > mMajor;
+export function truncateEvmAddress(
+  address: Sablier.EVM.Address,
+  options?: TruncateAddressOptions
+): string {
+  if (!address) {
+    return address;
   }
-  return vMinor >= mMinor;
+
+  const start = options?.start ?? 4;
+  const end = options?.end ?? 4;
+  const minLength = 2 + start + end;
+
+  if (address.length <= minLength) {
+    return address;
+  }
+
+  const prefix = address.slice(0, 2 + start);
+  const suffix = end === 0 ? "" : address.slice(-end);
+
+  return `${prefix}...${suffix}`;
 }

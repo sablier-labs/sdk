@@ -1,10 +1,8 @@
-import { Protocol as EvmProtocol } from "@src/evm/enums.js";
-import type { PayableEvmProtocol } from "@src/evm/helpers.js";
-import { isEvmReleasePayable, resolveEvmStreamId, truncateEvmAddress } from "@src/evm/helpers.js";
-import { getNestedValues as getNestedValuesInternal } from "@src/internal/utils/nested-values.js";
-import { sortChains as sortChainsInternal } from "@src/internal/utils/sort-chains.js";
-import { SOLANA_CHAIN_IDS } from "@src/solana/chains/chains.js";
-import { resolveSolanaStreamId, truncateSolanaAddress } from "@src/solana/helpers.js";
+import { Protocol as EvmProtocol } from "./evm/enums.js";
+import type { PayableEvmProtocol } from "./evm/helpers.js";
+import { isEvmReleasePayable, resolveEvmStreamId, truncateEvmAddress } from "./evm/helpers.js";
+import { SOLANA_CHAIN_IDS } from "./solana/chains/chains.js";
+import { resolveSolanaStreamId, truncateSolanaAddress } from "./solana/helpers.js";
 import type { Sablier, TruncateAddressOptions } from "./types.js";
 
 /** EVM-only protocols that don't exist on Solana */
@@ -89,14 +87,6 @@ export function isReleasePayable(
   version: Sablier.EVM.Version
 ): boolean {
   return isEvmReleasePayable(protocol, version);
-}
-
-export function sortChains<T extends { name: string }>(chains: T[]): T[] {
-  return sortChainsInternal(chains);
-}
-
-export function getNestedValues<T extends Record<string, unknown>>(obj: T): string[] {
-  return getNestedValuesInternal(obj);
 }
 
 /**
