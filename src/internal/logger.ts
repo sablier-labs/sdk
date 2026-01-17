@@ -14,15 +14,13 @@
  * @example
  * Run with file output by setting the LOG_FILE_PATH environment variable:
  *
- * LOG_FILE_PATH=./.logs/example.log bun run cli/your-script.ts
+ * LOG_FILE_PATH=./.logs/example.log na tsx cli/your-script.ts
  *
  * logger.info("Check your .logs directory if LOG_FILE_PATH was set");
  *
  * @example
  * Note that log levels are hierarchical, setting LOG_LEVEL=silly will
  * include all levels: error, warn, info, verbose, debug, silly
- *
- * LOG_LEVEL=silly bun run cli/your-script.ts
  */
 import * as path from "node:path";
 import type { Sablier } from "@src/types.js";
