@@ -1,7 +1,7 @@
 import { Command } from "commander";
+import { checkBroadcastsCmd } from "./commands/check-broadcasts.js";
 import { aliasesCmd } from "./commands/print/aliases.js";
 import { chainCmd } from "./commands/print/chains.js";
-import { missingBroadcastsCmd } from "./commands/print/missing-broadcasts.js";
 import { versionsCmd } from "./commands/print/versions.js";
 
 function main() {
@@ -15,10 +15,10 @@ function main() {
   // Add commands to the print subcommand
   printCommand.addCommand(aliasesCmd);
   printCommand.addCommand(chainCmd);
-  printCommand.addCommand(missingBroadcastsCmd);
   printCommand.addCommand(versionsCmd);
 
-  // Add the print command to the main program
+  // Add commands to the main program
+  program.addCommand(checkBroadcastsCmd);
   program.addCommand(printCommand);
 
   // Parse command line arguments

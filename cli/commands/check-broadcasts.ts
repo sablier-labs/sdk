@@ -111,7 +111,7 @@ function printSectionHeader(text: string): void {
 const protocolValues = Object.values(Protocol);
 
 // TODO: make this work for Airdrops v1.1 and v1.2
-export const missingBroadcastsCmd = new Command("missing-broadcasts")
+export const checkBroadcastsCmd = new Command("check-broadcasts")
   .description("Check for missing broadcasts for a given protocol")
   .option("-p, --protocol <protocol>", `Protocol to check (${protocolValues.join(", ")})`)
   .action(async (options: { protocol?: Sablier.EVM.Protocol }) => {
