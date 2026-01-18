@@ -5,11 +5,11 @@ import {
   HttpClientResponse,
 } from "@effect/platform";
 import { beforeAll, describe, expect, it } from "@effect/vitest";
-import { contracts } from "@src/evm/contracts/index.js";
-import { Protocol } from "@src/evm/enums.js";
-import { sablier } from "@src/sablier.js";
-import type { Sablier } from "@src/types.js";
 import { Effect, Schema } from "effect";
+import { contracts } from "@/src/evm/contracts/index.js";
+import { Protocol } from "@/src/evm/enums.js";
+import { sablier } from "@/src/sablier.js";
+import type { Sablier } from "@/src/types.js";
 import { ETHERSCAN_CHAINS, getEtherscanContractCreationUrl } from "../helpers/etherscan.js";
 
 /** Cache of chainId:address -> block number (undefined if fetch failed) */

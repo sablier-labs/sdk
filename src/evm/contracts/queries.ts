@@ -1,7 +1,7 @@
-import { Protocol } from "@src/evm/enums.js";
-import { releasesQueries } from "@src/evm/releases/queries.js";
-import { createContractsQueries } from "@src/internal/factories/queries.js";
-import type { Sablier } from "@src/types.js";
+import { Protocol } from "@/src/evm/enums.js";
+import { releasesQueries } from "@/src/evm/releases/queries.js";
+import { createContractsQueries } from "@/src/internal/factories/queries.js";
+import type { Sablier } from "@/src/types.js";
 import { getAliasCatalog } from "./alias-catalog.js";
 import { catalog } from "./catalog.js";
 

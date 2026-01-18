@@ -1,7 +1,7 @@
-import { Protocol } from "@src/evm/enums.js";
-import { sortDeployments } from "@src/evm/releases/helpers.js";
-import { resolvers } from "@src/evm/releases/resolvers.js";
-import type { Sablier } from "@src/types.js";
+import { Protocol } from "@/src/evm/enums.js";
+import { sortDeployments } from "@/src/evm/releases/helpers.js";
+import { resolvers } from "@/src/evm/releases/resolvers.js";
+import type { Sablier } from "@/src/types.js";
 import { abi } from "./abi.js";
 import { mainnets } from "./deployments.js";
 import manifest from "./manifest.js";

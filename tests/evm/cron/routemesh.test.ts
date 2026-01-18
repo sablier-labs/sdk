@@ -13,8 +13,8 @@ import {
   HttpClientResponse,
 } from "@effect/platform";
 import { beforeAll, describe, expect, it } from "@effect/vitest";
-import { chains } from "@src/evm/chains/index.js";
 import { Effect, Schema } from "effect";
+import { chains } from "@/src/evm/chains/index.js";
 
 const ROUTEMESH_API_KEY = process.env.VITE_ROUTEMESH_API_KEY;
 

@@ -1,8 +1,8 @@
-import { isBroadcastsUnified } from "@src/internal/helpers.js";
-import { getPath, setPath } from "@src/internal/utils/object-path.js";
-import { sablier } from "@src/sablier.js";
-import type { Sablier } from "@src/types.js";
 import { beforeAll, describe, expect, it } from "vitest";
+import { isBroadcastsUnified } from "@/src/internal/helpers.js";
+import { getPath, setPath } from "@/src/internal/utils/object-path.js";
+import { sablier } from "@/src/sablier.js";
+import type { Sablier } from "@/src/types.js";
 import { isKnownMissing } from "../../helpers/missing.js";
 import type { BasicContract, StandardBroadcast, ZKBroadcast } from "../../types.js";
 import { findContract, findZKContract } from "./finders.js";

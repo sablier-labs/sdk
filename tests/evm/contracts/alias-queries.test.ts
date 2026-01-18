@@ -1,7 +1,7 @@
-import { Protocol } from "@src/evm/enums.js";
-import { releases } from "@src/evm/releases/index.js";
-import { sablier } from "@src/sablier.js";
 import { describe, expect, it } from "vitest";
+import { Protocol } from "@/src/evm/enums.js";
+import { releases } from "@/src/evm/releases/index.js";
+import { sablier } from "@/src/sablier.js";
 
 describe("contractsQueries.getByAlias", () => {
   describe("{ alias, chainId }", () => {

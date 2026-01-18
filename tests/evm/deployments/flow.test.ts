@@ -1,4 +1,4 @@
-import { releases } from "@src/evm/releases/index.js";
+import { releases } from "@/src/evm/releases/index.js";
 import { createTestSuite } from "./utils/generators.js";
 
 createTestSuite(releases.flow["v1.0"]);

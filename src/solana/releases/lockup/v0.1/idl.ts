@@ -1,4 +1,4 @@
-import type { Sablier } from "@src/types.js";
+import type { Sablier } from "@/src/types.js";
 import * as errors from "./idl/SablierLockupLinear/errors.js";
 import { errorCodes } from "./idl/SablierLockupLinear/errors.js";
 import { idl as SablierLockupLinearIDL } from "./idl/SablierLockupLinear/idl.js";

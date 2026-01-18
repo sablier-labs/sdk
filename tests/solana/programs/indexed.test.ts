@@ -1,8 +1,8 @@
-import { sablier } from "@src/sablier.js";
-import { Protocol } from "@src/solana/enums.js";
-import { programs } from "@src/solana/programs/index.js";
-import type { Sablier } from "@src/types.js";
 import { describe, expect, it } from "vitest";
+import { sablier } from "@/src/sablier.js";
+import { Protocol } from "@/src/solana/enums.js";
+import { programs } from "@/src/solana/programs/index.js";
+import type { Sablier } from "@/src/types.js";
 
 /**
  * These programs are indexed by the Sablier Indexers, so they require a deployment block number.

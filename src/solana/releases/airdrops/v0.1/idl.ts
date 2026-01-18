@@ -1,4 +1,4 @@
-import type { Sablier } from "@src/types.js";
+import type { Sablier } from "@/src/types.js";
 import * as errors from "./idl/SablierMerkleInstant/errors.js";
 import { errorCodes } from "./idl/SablierMerkleInstant/errors.js";
 import { idl as SablierMerkleInstantIDL } from "./idl/SablierMerkleInstant/idl.js";

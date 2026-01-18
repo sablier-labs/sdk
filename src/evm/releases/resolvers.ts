@@ -1,11 +1,11 @@
-import { chainsQueries } from "@src/evm/chains/queries.js";
+import { chainsQueries } from "@/src/evm/chains/queries.js";
 import {
   createContractMapper,
   createStandardDeploymentResolver,
-} from "@src/internal/factories/resolver.js";
-import { getNestedValues } from "@src/internal/utils/nested-values.js";
-import type { AliasMap } from "@src/shared/types.js";
-import type { Sablier } from "@src/types.js";
+} from "@/src/internal/factories/resolver.js";
+import { getNestedValues } from "@/src/internal/utils/nested-values.js";
+import type { AliasMap } from "@/src/shared/types.js";
+import type { Sablier } from "@/src/types.js";
 
 /* -------------------------------------------------------------------------- */
 /*                                   TYPES                                    */

@@ -1,5 +1,5 @@
-import { resolvers } from "@src/evm/releases/resolvers.js";
-import type { Sablier } from "@src/types.js";
+import { resolvers } from "@/src/evm/releases/resolvers.js";
+import type { Sablier } from "@/src/types.js";
 import { abi } from "./abi.js";
 import aliases from "./aliases.js";
 import { mainnets, testnets } from "./deployments.js";

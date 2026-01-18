@@ -1,4 +1,4 @@
-import { getPath } from "@src/internal/utils/object-path.js";
+import { getPath } from "@/src/internal/utils/object-path.js";
 
 /**
  * Factory function to create releases queries with platform-specific configuration.

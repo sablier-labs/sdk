@@ -23,9 +23,9 @@
  * include all levels: error, warn, info, verbose, debug, silly
  */
 import { dirname } from "node:path";
-import type { Sablier } from "@src/types.js";
 import { ensureDirSync } from "fs-extra";
 import winston, { format } from "winston";
+import type { Sablier } from "@/src/types.js";
 
 const LOG_FILE_PATH: string = process.env.LOG_FILE_PATH || ".logs/debug.log";
 const LOG_LEVEL: string = process.env.LOG_LEVEL || "info";

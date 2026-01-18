@@ -1,8 +1,8 @@
-import { contracts } from "@src/evm/contracts/index.js";
-import { Protocol } from "@src/evm/enums.js";
-import { sablier } from "@src/sablier.js";
-import type { Sablier } from "@src/types.js";
 import { describe, expect, it } from "vitest";
+import { contracts } from "@/src/evm/contracts/index.js";
+import { Protocol } from "@/src/evm/enums.js";
+import { sablier } from "@/src/sablier.js";
+import type { Sablier } from "@/src/types.js";
 
 /**
  * These contracts are indexed by the Sablier Indexers, so they require a deployment block number.

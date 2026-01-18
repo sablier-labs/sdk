@@ -1,7 +1,7 @@
-import { sablier } from "@src/sablier.js";
-import { Protocol } from "@src/solana/enums.js";
-import { releases } from "@src/solana/releases/index.js";
 import { describe, expect, it } from "vitest";
+import { sablier } from "@/src/sablier.js";
+import { Protocol } from "@/src/solana/enums.js";
+import { releases } from "@/src/solana/releases/index.js";
 
 describe("programsQueries.getByAlias", () => {
   describe("{ alias, chainId }", () => {

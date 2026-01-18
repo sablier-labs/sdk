@@ -1,5 +1,6 @@
-import { Protocol as EvmProtocol, Version } from "@src/evm/enums.js";
-import { isEvmReleasePayable } from "@src/evm/helpers.js";
+import { describe, expect, it } from "vitest";
+import { Protocol as EvmProtocol, Version } from "@/src/evm/enums.js";
+import { isEvmReleasePayable } from "@/src/evm/helpers.js";
 import {
   compareVersions as cmp,
   isVersionAfter as isAfter,
@@ -7,10 +8,9 @@ import {
   resolveEvmStreamId,
   resolveSolanaStreamId,
   truncateAddress as truncate,
-} from "@src/helpers.js";
-import { solanaMainnetBeta } from "@src/solana/chains/index.js";
-import { Protocol as SolanaProtocol } from "@src/solana/enums.js";
-import { describe, expect, it } from "vitest";
+} from "@/src/helpers.js";
+import { solanaMainnetBeta } from "@/src/solana/chains/index.js";
+import { Protocol as SolanaProtocol } from "@/src/solana/enums.js";
 
 describe("helpers", () => {
   describe("compareVersions", () => {

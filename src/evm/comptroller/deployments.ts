@@ -1,5 +1,5 @@
-import { chains } from "@src/evm/chains/index.js";
-import type { Sablier } from "@src/types.js";
+import { chains } from "@/src/evm/chains/index.js";
+import type { Sablier } from "@/src/types.js";
 import manifest from "./manifest";
 
 /**

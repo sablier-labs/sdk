@@ -1,7 +1,7 @@
-import { setPath } from "@src/internal/utils/object-path.js";
-import { Protocol } from "@src/solana/enums.js";
-import { releasesQueries } from "@src/solana/releases/queries.js";
-import type { Sablier } from "@src/types.js";
+import { setPath } from "@/src/internal/utils/object-path.js";
+import { Protocol } from "@/src/solana/enums.js";
+import { releasesQueries } from "@/src/solana/releases/queries.js";
+import type { Sablier } from "@/src/types.js";
 
 let _catalog: Sablier.Solana.ProgramCatalog | undefined;
 

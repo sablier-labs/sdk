@@ -9,7 +9,7 @@
  * as read-only - do not mutate `shape.evm` or `createMethods` arrays.
  */
 
-import { Version } from "@src/evm/enums.js";
+import { Version } from "@/src/evm/enums.js";
 import type { ContractMethod, ProgramMethod } from "./types.js";
 
 /* -------------------------------------------------------------------------- */

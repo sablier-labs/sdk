@@ -1,4 +1,4 @@
-import type { AliasMap, Repository, Shared } from "@src/shared/types.js";
+import type { AliasMap, Repository, Shared } from "@/src/shared/types.js";
 import type * as enums from "./enums.js";
 
 export namespace EVM {

@@ -6,8 +6,8 @@
     "baseUrl": "..",
     "outDir": "../dist",
     "paths": {
-      "@src/*": ["src/*"],
-      "@src/*.js": ["src/*.ts"]
+      "@/src/*": ["src/*"],
+      "@/src/*.js": ["src/*.ts"]
     },
     "rootDir": "../src"
   },

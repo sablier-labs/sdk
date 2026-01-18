@@ -1,4 +1,4 @@
-import type { Sablier } from "@src/types.js";
+import type { Sablier } from "@/src/types.js";
 /**
  * @file Many of these are type definitions for the JSON structures that can be found
  *  under `./data`. These types represent the structure of broadcast and ZK broadcast

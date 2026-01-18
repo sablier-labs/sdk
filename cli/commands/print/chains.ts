@@ -1,5 +1,5 @@
-import { sablier } from "@src/sablier.js";
 import { Command } from "commander";
+import { sablier } from "@/src/sablier.js";
 
 export const chainCmd = new Command("chains")
   .description("List all supported chain slugs")

@@ -3,8 +3,8 @@
   "extends": "./node_modules/@sablier/devkit/tsconfig/base.json",
   "compilerOptions": {
     "paths": {
-      "@src/*": ["./src/*"],
-      "@src/*.js": ["./src/*.ts"]
+      "@/src/*": ["./src/*"],
+      "@/src/*.js": ["./src/*.ts"]
     }
   },
   "include": ["cli/**/*.ts", "scripts/**/*.ts", "src/**/*.ts", "tests/**/*.ts"]

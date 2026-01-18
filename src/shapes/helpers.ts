@@ -1,5 +1,5 @@
-import type { EVM } from "@src/evm/types.js";
-import type { Solana } from "@src/solana/types.js";
+import type { EVM } from "@/src/evm/types.js";
+import type { Solana } from "@/src/solana/types.js";
 import { Shape } from "./enums.js";
 import type { AnyShape, ContractMethod, ProgramMethod, ShapeWithSolanaSupport } from "./types.js";
 

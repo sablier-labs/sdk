@@ -3,8 +3,8 @@
  * not part of the published ESM bundle, and runs under Bun which supports __dirname in ESM.
  */
 import * as path from "node:path";
-import type { Sablier } from "@src/types.js";
 import * as fs from "fs-extra";
+import type { Sablier } from "@/src/types.js";
 import { log } from "./logger.js";
 
 const ROOT_DIR = path.join(__dirname, "..", "..");

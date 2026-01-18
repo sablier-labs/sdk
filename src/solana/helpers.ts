@@ -1,4 +1,4 @@
-import type { Sablier, TruncateAddressOptions } from "@src/types.js";
+import type { Sablier, TruncateAddressOptions } from "@/src/types.js";
 import { Protocol } from "./enums.js";
 import { getAliasCatalog } from "./programs/alias-catalog.js";
 

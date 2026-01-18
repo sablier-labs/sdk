@@ -12,13 +12,13 @@
  */
 import path from "node:path";
 import { beforeAll, describe, expect, it } from "@effect/vitest";
-import { chains } from "@src/evm/chains/index.js";
-import { chainsQueries } from "@src/evm/chains/queries.js";
-import { Protocol } from "@src/evm/enums.js";
-import { releasesQueries } from "@src/evm/releases/queries.js";
-import { getDeploymentsDir } from "@src/internal/helpers.js";
 import { Data, Effect } from "effect";
 import globby from "globby";
+import { chains } from "@/src/evm/chains/index.js";
+import { chainsQueries } from "@/src/evm/chains/queries.js";
+import { Protocol } from "@/src/evm/enums.js";
+import { releasesQueries } from "@/src/evm/releases/queries.js";
+import { getDeploymentsDir } from "@/src/internal/helpers.js";
 import { MISSING_CHAINS } from "./helpers/missing.js";
 
 class GlobbyError extends Data.TaggedError("GlobbyError")<{

@@ -105,7 +105,7 @@ runs all three outputs (including CJS) and copies ABIs.
 
 **Path aliases:**
 
-- `@src/*` → `src/*`
+- `@/src/*` → `src/*`
 
 **Pre-commit:** Husky runs lint-staged with Biome checks.
 

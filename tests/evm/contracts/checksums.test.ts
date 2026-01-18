@@ -1,6 +1,6 @@
-import { sablier } from "@src/sablier.js";
 import { isAddress } from "viem";
 import { describe, expect, it } from "vitest";
+import { sablier } from "@/src/sablier.js";
 
 /**
  * @note Use https://ethsum.netlify.app to fix failing tests

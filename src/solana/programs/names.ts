@@ -1,6 +1,6 @@
-import airdropsV1_0 from "@src/solana/releases/airdrops/v0.1/manifest.js";
-import lockupV1_0 from "@src/solana/releases/lockup/v0.1/manifest.js";
-import type { Sablier } from "@src/types.js";
+import airdropsV1_0 from "@/src/solana/releases/airdrops/v0.1/manifest.js";
+import lockupV1_0 from "@/src/solana/releases/lockup/v0.1/manifest.js";
+import type { Sablier } from "@/src/types.js";
 
 /**
  * Works at compile-time!

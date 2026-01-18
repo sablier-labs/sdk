@@ -1,6 +1,6 @@
-import { chains } from "@src/evm/chains/index.js";
-import { comptrollerQueries } from "@src/evm/comptroller/queries.js";
 import { describe, expect, it } from "vitest";
+import { chains } from "@/src/evm/chains/index.js";
+import { comptrollerQueries } from "@/src/evm/comptroller/queries.js";
 
 /**
  * @see https://etherscan.io/address/0x0000008ABbFf7a84a2fE09f9A9b74D3BC2072399

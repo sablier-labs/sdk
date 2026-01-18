@@ -1,10 +1,10 @@
-import { taikoHekla } from "@src/evm/chains/index.js";
-import { deployments as comptrollerDeployments } from "@src/evm/comptroller/deployments.js";
-import { releases } from "@src/evm/releases/index.js";
-import { isBroadcastsUnified } from "@src/internal/helpers.js";
-import { sablier } from "@src/sablier.js";
-import type { Sablier } from "@src/types.js";
 import { describe, expect, it } from "vitest";
+import { taikoHekla } from "@/src/evm/chains/index.js";
+import { deployments as comptrollerDeployments } from "@/src/evm/comptroller/deployments.js";
+import { releases } from "@/src/evm/releases/index.js";
+import { isBroadcastsUnified } from "@/src/internal/helpers.js";
+import { sablier } from "@/src/sablier.js";
+import type { Sablier } from "@/src/types.js";
 import type { StandardBroadcast, ZKBroadcast } from "../types.js";
 import { loadBroadcast, loadComptrollerBroadcast } from "./utils/loaders.js";
 

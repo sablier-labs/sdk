@@ -1,5 +1,5 @@
-import { getContractExplorerURL as getContractExplorerURLInternal } from "@src/internal/utils/explorer-url.js";
-import type { Sablier, TruncateAddressOptions } from "@src/types.js";
+import { getContractExplorerURL as getContractExplorerURLInternal } from "@/src/internal/utils/explorer-url.js";
+import type { Sablier, TruncateAddressOptions } from "@/src/types.js";
 import { getAliasCatalog } from "./contracts/alias-catalog.js";
 import { Protocol, Version } from "./enums.js";
 

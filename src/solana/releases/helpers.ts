@@ -1,4 +1,4 @@
-import { chainsQueries } from "@src/solana/chains/queries.js";
+import { chainsQueries } from "@/src/solana/chains/queries.js";
 
 export function sortDeployments<T extends { chainId: number }>(deployments: T[]): T[] {
   return deployments.toSorted((a, b) => {

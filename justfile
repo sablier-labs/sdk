@@ -27,12 +27,12 @@ default:
     bunx del-cli ".logs" "dist"
     echo "🗑️  Cleaned logs and build files in ./dist"
 
-# Verify dist files don't contain unresolved @src imports
+# Verify dist files don't contain unresolved @/src imports
 [group("checks")]
 @aliases-check:
-    echo "🔍 Checking for unresolved @src imports..."
-    if rg --quiet "@src/" dist -g "*.js" -g "*.d.ts"; then echo "❌ Found path aliases in dist/"; exit 1; fi
-    echo "✅ No @src imports found in dist/"
+    echo "🔍 Checking for unresolved @/src imports..."
+    if rg --quiet "@/src/" dist -g "*.js" -g "*.d.ts"; then echo "❌ Found path aliases in dist/"; exit 1; fi
+    echo "✅ No @/src imports found in dist/"
 
 # Validate CSV template files
 [group("checks")]
@@ -85,7 +85,7 @@ alias b := build
         "just tsc-build-esm" \
         "just tsc-build-types"
 
-    # Verify dist files don't contain unresolved alias imports like @src/*
+    # Verify dist files don't contain unresolved alias imports
     just --quiet aliases-check || (echo "❌ Found path aliases in dist/"; exit 1)
 
     # Create package.json files for CJS and ESM

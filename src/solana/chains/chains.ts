@@ -1,4 +1,4 @@
-import type { Sablier } from "@src/types.js";
+import type { Sablier } from "@/src/types.js";
 
 /**
  * Solana does not have chain IDs. These are made-up numbers so that we can use the same type for EVM and Solana chains.

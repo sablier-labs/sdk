@@ -4,8 +4,8 @@
 import {
   mainnets as lockupMainnets,
   testnets as lockupTestnets,
-} from "@src/evm/releases/lockup/v1.1/deployments.js";
-import type { Sablier } from "@src/types.js";
+} from "@/src/evm/releases/lockup/v1.1/deployments.js";
+import type { Sablier } from "@/src/types.js";
 import manifest from "./manifest.js";
 
 function filter(deployments: Sablier.EVM.Deployment.LockupV1[]): Sablier.EVM.Deployment.Standard[] {

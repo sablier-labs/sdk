@@ -1,7 +1,7 @@
-import { chains } from "@src/evm/chains/index.js";
-import lockupV1_1 from "@src/evm/releases/lockup/v1.1/manifest.js";
-import { getPath } from "@src/internal/utils/object-path.js";
-import type { Sablier } from "@src/types.js";
+import { chains } from "@/src/evm/chains/index.js";
+import lockupV1_1 from "@/src/evm/releases/lockup/v1.1/manifest.js";
+import { getPath } from "@/src/internal/utils/object-path.js";
+import type { Sablier } from "@/src/types.js";
 
 type ChainMap = Record<number, string[]>;
 type VersionMap = Partial<Record<Sablier.EVM.Version, ChainMap>>;

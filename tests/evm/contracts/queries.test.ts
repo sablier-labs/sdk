@@ -1,6 +1,6 @@
-import { releases } from "@src/evm/releases/index.js";
-import { sablier } from "@src/sablier.js";
 import { describe, expect, it } from "vitest";
+import { releases } from "@/src/evm/releases/index.js";
+import { sablier } from "@/src/sablier.js";
 
 const releasesWithDuplicateAddresses = [
   releases.flow["v1.1"],
