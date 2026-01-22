@@ -275,7 +275,7 @@ export const chainSpecs = {
     meta: {},
     nativeCurrency: {
       coinGeckoId: "dai",
-      wrapperContract: "0x6A023CCd1ff6F2045C3309768eAD9E68F978f6e1",
+      wrapperContract: "0x6A023CCd1ff6F2045C3309768eAd9E68F978f6e1",
     },
     rpc: {
       alchemy: "gnosis-mainnet",
