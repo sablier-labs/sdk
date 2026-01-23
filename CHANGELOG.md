@@ -6,8 +6,10 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 
 > [!NOTE]
 >
-> This project may not always adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+> Starting with v2.0.0, this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). In v1.x, it
+> did not always follow Semantic Versioning.
 
+[2.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v2.0.0
 [1.8.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.8.0
 [1.7.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.7.0
 [1.6.1]: https://github.com/sablier-labs/sdk/releases/tag/v1.6.1
@@ -24,17 +26,58 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 [1.1.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.1.0
 [1.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.0.0
 
+## [2.0.0] - 2026-01-23
+
+### Changed
+
+- **Breaking**: Adopt ESM-first packaging (`type: module`) with split outputs in `dist/esm`, `dist/cjs`, and
+  `dist/types`; update the export map with wildcard subpaths (`./evm/*`, `./solana/*`).
+- **Breaking**: Update `truncateAddress` to accept `{ start, end }` options instead of `chars` (use `truncate` as a
+  convenience alias).
+- **Breaking**:Move ABIs to top-level `abi/` and export them via `sablier/abi/*`.
+- Default Solana explorers to Orb (keep Solscan as secondary).
+- Update CLI command layout (`check-broadcasts` promoted to top-level); use `bunx tsx` as the runner.
+- Standardize shape identifiers and CSV template naming (aligned filenames, `DynamicDoubleUnlock` naming).
+
+### Added
+
+- Add top-level `shapes` module (airdrops/flow/lockup) with enums, helpers, types, and `isDeprecated` metadata.
+- Add CSV templates and JSON schemas for EVM and Solana (airdrops, flow, lockup duration/range) plus typed exports under
+  `sablier/evm/csv`, `sablier/solana/csv`, and raw assets via `sablier/csv/*`.
+- Add alias-based lookup APIs: `contracts.getByAlias`, `programs.getByAlias`, `resolveEvmContractByAlias`,
+  `resolveSolanaProgramByAlias`.
+- Add `getLatestByName` helper for contract lookups by name.
+- Add stream ID helpers (`resolveStreamId`, `resolveEvmStreamId`, `resolveSolanaStreamId`)
+- Add payability helper (`isReleasePayable`), which checks if a release allows `msg.value` on withdraw/claim operations.
+- Add compatibility helpers between Airdrops and Lockup releases for both EVM and Solana.
+- Add deployment broadcasts for additional EVM networks (IoTeX, Lightlink, Tangle, Superseed, and more) across
+  airdrops/flow/lockup/comptroller.
+- Export Solana chain ID constants (`CHAIN_ID_SOLANA_*`) and `SOLANA_CHAIN_IDS`.
+- Add wrapper contracts for native tokens (e.g., WETH) in `nativeCurrency.wrapperContract`.
+- Add `DOCS.md` with SDK usage, query surfaces, helpers, and data layouts.
+
+### Fixed
+
+- Normalize explorer URLs to avoid trailing slash issues.
+- Prevent runtime evaluation of type-only exports.
+
+### Removed
+
+- **Breaking**: Remove `sablier/dist/*` subpath export; use package exports instead.
+- **Breaking**: Remove `sortChains` and `getNestedValues` from public helpers (now internal).
+- Remove Monad testnet deployments/chain entry (`monad-testnet`).
+
 ## [1.8.0] - 2026-01-16
+
+### Changed
+
+- Modularize comptroller into dedicated directory structure ([#134](https://github.com/sablier-labs/sdk/pull/134))
 
 ### Added
 
 - Add SablierComptroller and ERC-1967 proxy ABIs ([#134](https://github.com/sablier-labs/sdk/pull/134))
 - Add comptroller manifest with contract names ([#134](https://github.com/sablier-labs/sdk/pull/134))
 - Export Comptroller queries via `sablier.comptroller` object ([#134](https://github.com/sablier-labs/sdk/pull/134))
-
-### Changed
-
-- Modularize comptroller into dedicated directory structure ([#134](https://github.com/sablier-labs/sdk/pull/134))
 
 ### Fixed
 
