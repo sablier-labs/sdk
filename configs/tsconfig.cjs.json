@@ -4,7 +4,14 @@
   "compilerOptions": {
     "declaration": false,
     "declarationMap": false,
-    "module": "NodeNext",
+    // Emit real CJS while avoiding NodeNext's forced ESM pairing.
+    "module": "CommonJS",
+    // Use legacy Node resolution so TS doesn't force module=NodeNext/Node16.
+    "moduleResolution": "Node10",
+    // Match viem's DOM-inclusive libs to satisfy WebAuthn types pulled from deps during CJS build.
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    // Downlevel ESM syntax to CJS.
+    "verbatimModuleSyntax": false,
     "outDir": "../dist/cjs"
   }
 }
