@@ -1,4 +1,5 @@
 # directories
+.ai
 dist
 logs
 node_modules

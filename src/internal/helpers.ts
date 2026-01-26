@@ -1,12 +1,10 @@
-/**
- * @note __dirname is used here intentionally. This file is internal tooling (tests/CLI only),
- * not part of the published ESM bundle, and runs under Bun which supports __dirname in ESM.
- */
+import * as fs from "node:fs";
 import * as path from "node:path";
-import * as fs from "fs-extra";
+import { fileURLToPath } from "node:url";
 import type { Sablier } from "@/src/types.js";
 import { log } from "./logger.js";
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT_DIR = path.join(__dirname, "..", "..");
 const DEPLOYMENTS_DIR = path.join(ROOT_DIR, "deployments");
 

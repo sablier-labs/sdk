@@ -22,8 +22,8 @@
  * Note that log levels are hierarchical, setting LOG_LEVEL=silly will
  * include all levels: error, warn, info, verbose, debug, silly
  */
+import * as fs from "node:fs";
 import { dirname } from "node:path";
-import { ensureDirSync } from "fs-extra";
 import winston, { format } from "winston";
 import type { Sablier } from "@/src/types.js";
 
@@ -47,7 +47,7 @@ const transports: winston.transport[] = [
 
 if (LOG_FILE_PATH) {
   const logDir = dirname(LOG_FILE_PATH);
-  ensureDirSync(logDir);
+  fs.mkdirSync(logDir, { recursive: true });
 
   const fileTransport = new winston.transports.File({
     filename: LOG_FILE_PATH,

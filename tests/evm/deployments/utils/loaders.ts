@@ -1,5 +1,5 @@
+import * as fs from "node:fs";
 import * as path from "node:path";
-import * as fs from "fs-extra";
 import globby from "globby";
 import { checkBroadcast, getDeploymentsDir, isBroadcastsUnified } from "@/src/internal/helpers.js";
 import type { Sablier } from "@/src/types.js";
