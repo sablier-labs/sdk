@@ -381,7 +381,7 @@ export const chainSpecs = {
     base: _mode,
     meta: {
       name: "Mode",
-      ui: "NOT_SUPPORTED",
+      ui: "SUPPORTED",
     },
     nativeCurrency: {
       coinGeckoId: COIN_GECKO.eth,
