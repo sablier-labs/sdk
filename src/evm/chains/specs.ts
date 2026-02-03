@@ -717,5 +717,14 @@ export const chainSpecs = {
     nativeCurrency: {
       coinGeckoId: COIN_GECKO.eth,
     },
+    overrides: {
+      blockExplorers: {
+        default: {
+          apiUrl: "https://block-explorer-api.sepolia.zksync.dev/api",
+          name: "ZKsync Explorer",
+          url: "https://sepolia.explorer.zksync.io",
+        },
+      },
+    },
   },
 } satisfies Record<string, ChainSpec>;
