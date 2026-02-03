@@ -38,6 +38,7 @@ const mergeChain = (base: ViemChain, overrides?: Partial<ViemChain>): ViemChain 
     return base;
   }
 
+  // Shallow merge: nested objects like blockExplorers are replaced, not deep-merged.
   // viemDefine normalizes the chain object and preserves derived fields.
   return viemDefine({
     ...base,

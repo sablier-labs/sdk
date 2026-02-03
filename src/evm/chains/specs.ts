@@ -249,6 +249,7 @@ export const chainSpecs = {
     meta: {},
     nativeCurrency: {
       coinGeckoId: "watt",
+      wrapperContract: "0x87fFB2d57f78d5A8E17db78F3290A367299b5B07",
     },
     rpc: {
       routemesh: false,
@@ -381,7 +382,6 @@ export const chainSpecs = {
     base: _mode,
     meta: {
       name: "Mode",
-      ui: "SUPPORTED",
     },
     nativeCurrency: {
       coinGeckoId: COIN_GECKO.eth,
@@ -689,10 +689,12 @@ export const chainSpecs = {
     overrides: {
       blockExplorers: {
         default: {
-          name: "Etherscan",
-          url: "https://era.zksync.network",
+          apiUrl: "https://block-explorer-api.mainnet.zksync.io/api",
+          name: "ZKsync Explorer",
+          url: "https://explorer.zksync.io",
         },
         native: {
+          apiUrl: "https://block-explorer-api.mainnet.zksync.io/api",
           name: "ZKsync Explorer",
           url: "https://explorer.zksync.io",
         },
@@ -714,18 +716,6 @@ export const chainSpecs = {
     },
     nativeCurrency: {
       coinGeckoId: COIN_GECKO.eth,
-    },
-    overrides: {
-      blockExplorers: {
-        default: {
-          name: "Etherscan",
-          url: "https://sepolia-era.zksync.network",
-        },
-        native: {
-          name: "ZKsync Explorer",
-          url: "https://sepolia.explorer.zksync.io",
-        },
-      },
     },
   },
 } satisfies Record<string, ChainSpec>;
