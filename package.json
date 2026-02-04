@@ -7,7 +7,7 @@
   "sideEffects": false,
   "types": "./dist/types/index.d.ts",
   "typings": "./dist/types/index.d.ts",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "type": "module",
   "author": {
     "name": "Sablier Labs Ltd",
@@ -58,26 +58,6 @@
       "types": "./dist/types/evm/index.d.ts",
       "import": "./dist/esm/evm/index.js",
       "default": "./dist/cjs/evm/index.js"
-    },
-    "./evm/releases/airdrops/*/abi/*": {
-      "types": "./dist/types/evm/releases/airdrops/*/abi/*.d.ts",
-      "import": "./dist/esm/evm/releases/airdrops/*/abi/*.js",
-      "default": "./dist/cjs/evm/releases/airdrops/*/abi/*.js"
-    },
-    "./evm/releases/flow/*/abi/*": {
-      "types": "./dist/types/evm/releases/flow/*/abi/*.d.ts",
-      "import": "./dist/esm/evm/releases/flow/*/abi/*.js",
-      "default": "./dist/cjs/evm/releases/flow/*/abi/*.js"
-    },
-    "./evm/releases/lockup/*/abi/*": {
-      "types": "./dist/types/evm/releases/lockup/*/abi/*.d.ts",
-      "import": "./dist/esm/evm/releases/lockup/*/abi/*.js",
-      "default": "./dist/cjs/evm/releases/lockup/*/abi/*.js"
-    },
-    "./evm/releases/legacy/*/abi/*": {
-      "types": "./dist/types/evm/releases/legacy/*/abi/*.d.ts",
-      "import": "./dist/esm/evm/releases/legacy/*/abi/*.js",
-      "default": "./dist/cjs/evm/releases/legacy/*/abi/*.js"
     },
     "./evm/*": {
       "types": "./dist/types/evm/*/index.d.ts",
