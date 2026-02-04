@@ -48,7 +48,9 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 
 ## [2.0.1] - 2026-01-24
 
-_This release contains no user-facing changes._
+### Fixed
+
+- Fix CommonJS output
 
 ## [2.0.0] - 2026-01-23
 
