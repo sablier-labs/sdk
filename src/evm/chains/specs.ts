@@ -408,7 +408,7 @@ export const chainSpecs = {
     meta: {},
     nativeCurrency: {
       coinGeckoId: COIN_GECKO.mon,
-      wrapperContract: "0x3bD359C1119Da7dA1d913d1C4D2B7c461115433a",
+      wrapperContract: "0x3bd359C1119dA7Da1D913D1C4D2B7c461115433A",
     },
     overrides: {
       blockExplorers: {
