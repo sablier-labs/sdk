@@ -9,6 +9,7 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 > Starting with v2.0.0, this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). In v1.x, it
 > did not always follow Semantic Versioning.
 
+[2.0.3]: https://github.com/sablier-labs/sdk/releases/tag/v2.0.3
 [2.0.2]: https://github.com/sablier-labs/sdk/releases/tag/v2.0.2
 [2.0.1]: https://github.com/sablier-labs/sdk/releases/tag/v2.0.1
 [2.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v2.0.0
@@ -27,6 +28,17 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 [1.2.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.2.0
 [1.1.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.1.0
 [1.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.0.0
+
+## [2.0.3] - 2026-02-04
+
+### Changed
+
+- Update ZKsync block explorers to use official ZKsync Explorer URLs
+
+### Added
+
+- Export individual ABI files via `sablier/evm/releases/<protocol>/*/abi/*` subpaths
+- Add wrapper contract for Denergy native currency
 
 ## [2.0.2] - 2026-01-29
 
