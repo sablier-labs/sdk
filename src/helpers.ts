@@ -20,8 +20,8 @@ type Version = Sablier.EVM.Version | Sablier.Solana.Version;
 
 /**
  * Compare two semantic version strings.
- * @param a - First version string (e.g., "v1.0", "v2.1")
- * @param b - Second version string (e.g., "v1.0", "v2.1")
+ * @param a - First version string (e.g., "v1.0")
+ * @param b - Second version string (e.g., "v1.0")
  * @returns -1 if a < b, 0 if a === b, 1 if a > b
  * @example
  * compareVersions("v1.0", "v2.0") // -1
