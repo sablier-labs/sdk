@@ -267,6 +267,9 @@ export const chainSpecs = {
     nativeCurrency: {
       coinGeckoId: COIN_GECKO.eth,
     },
+    rpc: {
+      routemesh: false,
+    },
   },
   /* -------------------------------------------------------------------------- */
   /*                                   GNOSIS                                   */
@@ -373,6 +376,9 @@ export const chainSpecs = {
     },
     nativeCurrency: {
       coinGeckoId: "meld-2",
+    },
+    rpc: {
+      routemesh: false,
     },
   },
   /* -------------------------------------------------------------------------- */
@@ -635,6 +641,9 @@ export const chainSpecs = {
           http: ["https://taiko-hekla-rpc.publicnode.com", "https://rpc.hekla.taiko.xyz"],
         },
       },
+    },
+    rpc: {
+      routemesh: false,
     },
   },
   /* -------------------------------------------------------------------------- */
