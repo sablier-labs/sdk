@@ -7,10 +7,15 @@ import {
   HttpClientResponse,
 } from "@effect/platform";
 import { describe, expect, it } from "@effect/vitest";
-import { Effect, Schema } from "effect";
+import { Effect, Schedule, Schema } from "effect";
 import { chains } from "@/src/evm/chains/index.js";
 
-const MALFUNCTIONING_RPC: number[] = [chains.form.id, chains.meld.id, chains.taikoHekla.id];
+const MALFUNCTIONING_RPC: number[] = [
+  chains.form.id,
+  chains.meld.id,
+  chains.polygon.id,
+  chains.taikoHekla.id,
+];
 
 const JsonRpcResponseSchema = Schema.Struct({
   id: Schema.Number,
@@ -38,7 +43,10 @@ function pingRpcServer(url: string) {
     const responseBody = yield* HttpClientResponse.schemaBodyJson(JsonRpcResponseSchema)(response);
 
     return { data: responseBody, status: response.status };
-  }).pipe(Effect.provide(FetchHttpClient.layer));
+  }).pipe(
+    Effect.retry(Schedule.exponential("1 second").pipe(Schedule.intersect(Schedule.recurs(3)))),
+    Effect.provide(FetchHttpClient.layer)
+  );
 }
 
 describe("Ping JSON-RPC server", () => {
