@@ -1,7 +1,9 @@
 import { describe, expect, it } from "vitest";
 import { Protocol } from "@/src/evm/enums.js";
 import { releases } from "@/src/evm/releases/index.js";
+import { resolveEvmStreamId } from "@/src/helpers.js";
 import { sablier } from "@/src/sablier.js";
+import type { Sablier } from "@/src/types.js";
 
 describe("contractsQueries.getByAlias", () => {
   describe("{ alias, chainId }", () => {
@@ -137,6 +139,127 @@ describe("contractsQueries.getByAlias", () => {
       expect(lkResult?.version).toBe("v2.0");
       expect(lk2Result?.version).toBe("v3.0");
       expect(lkResult?.address).not.toBe(lk2Result?.address);
+    });
+  });
+
+  describe("regression: alias catalog integrity", () => {
+    type AliasedContract = {
+      address: Sablier.EVM.Address;
+      alias: string;
+      chainId: number;
+      name: string;
+      protocol: Sablier.EVM.Protocol;
+      version: string;
+    };
+    const allReleases: Sablier.EVM.Release[] = [];
+    for (const byVersion of Object.values(releases)) {
+      allReleases.push(...Object.values(byVersion));
+    }
+
+    const aliasedContracts: AliasedContract[] = [];
+    for (const release of allReleases) {
+      for (const deployment of release.deployments) {
+        for (const contract of deployment.contracts) {
+          if (!contract.alias) {
+            continue;
+          }
+
+          aliasedContracts.push({
+            address: contract.address,
+            alias: contract.alias,
+            chainId: deployment.chainId,
+            name: contract.name,
+            protocol: release.protocol,
+            version: release.version,
+          });
+        }
+      }
+    }
+
+    it("rejects duplicate {protocol, chainId, alias} across all EVM releases", () => {
+      const seen = new Map<string, { address: string; name: string; version: string }>();
+      const collisions: Array<{
+        existing: { address: string; name: string; version: string };
+        key: string;
+        next: { address: string; name: string; version: string };
+      }> = [];
+
+      for (const contract of aliasedContracts) {
+        const key = `${contract.protocol}:${contract.chainId}:${contract.alias}`;
+        const next = {
+          address: contract.address,
+          name: contract.name,
+          version: contract.version,
+        };
+        const existing = seen.get(key);
+
+        if (existing) {
+          collisions.push({
+            existing,
+            key,
+            next,
+          });
+          continue;
+        }
+
+        seen.set(key, next);
+      }
+
+      expect(
+        collisions,
+        collisions.length > 0
+          ? `Alias collisions detected:\n${JSON.stringify(collisions, null, 2)}`
+          : "Expected no alias collisions"
+      ).toHaveLength(0);
+    });
+
+    it("resolves every aliased contract via protocol-scoped getByAlias", () => {
+      for (const contract of aliasedContracts) {
+        const resolved = sablier.evm.contracts.getByAlias({
+          alias: contract.alias,
+          chainId: contract.chainId,
+          protocol: contract.protocol,
+        });
+
+        expect(
+          resolved,
+          `Alias lookup failed for ${contract.protocol}:${contract.chainId}:${contract.alias}`
+        ).toBeDefined();
+        expect(resolved?.address).toBe(contract.address);
+        expect(resolved?.name).toBe(contract.name);
+        expect(resolved?.version).toBe(contract.version);
+        expect(resolved?.protocol).toBe(contract.protocol);
+      }
+    });
+
+    it("resolves known vesting stream id path (LK2-1-1330)", () => {
+      const lockupRelease = releases.lockup["v3.0"];
+      const mainnetDeployment = lockupRelease.deployments.find(
+        (deployment: Sablier.EVM.Deployment) => deployment.chainId === 1
+      );
+
+      expect(mainnetDeployment).toBeDefined();
+      if (!mainnetDeployment) {
+        throw new Error("Expected a Lockup v3.0 deployment on mainnet");
+      }
+
+      const lk2Contract = mainnetDeployment.contracts.find(
+        (contract: Sablier.EVM.Contract) => contract.alias === "LK2"
+      );
+
+      expect(lk2Contract).toBeDefined();
+      if (!lk2Contract) {
+        throw new Error("Expected LK2 alias in Lockup v3.0 mainnet deployment");
+      }
+
+      const streamId = resolveEvmStreamId({
+        alias: "LK2",
+        chainId: 1,
+        protocol: Protocol.Lockup,
+        tokenId: 1330n,
+      });
+
+      expect(streamId).toBe(`${lk2Contract.address.toLowerCase()}-1-1330`);
     });
   });
 });
