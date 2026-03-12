@@ -202,4 +202,4 @@ import { contracts } from "sablier/evm/contracts"; // Contracts only
 - [Sablier Lockup](https://github.com/sablier-labs/lockup) - Smart contracts
 - [Sablier Flow](https://github.com/sablier-labs/flow) - Smart contracts
 - [Sablier Indexers](https://github.com/sablier-labs/indexers) - GraphQL indexers
-- [Sablier Interface](https://github.com/sablier-labs/interface) - Frontend app
+- [Sablier UI](https://github.com/sablier-labs/ui) - Frontend app
