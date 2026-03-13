@@ -3,12 +3,17 @@
  */
 export enum Protocol {
   Airdrops = "airdrops",
+  Bob = "bob",
   Flow = "flow",
   Legacy = "legacy",
   Lockup = "lockup",
 }
 
 export namespace Version {
+  export enum Bob {
+    V1_0 = "v1.0",
+  }
+
   export enum Airdrops {
     V1_1 = "v1.1",
     V1_2 = "v1.2",

@@ -120,6 +120,7 @@ export function resolveEvmContractByAlias(opts: {
 
   const protocols: Sablier.EVM.Protocol[] = [
     Protocol.Airdrops,
+    Protocol.Bob,
     Protocol.Flow,
     Protocol.Legacy,
     Protocol.Lockup,

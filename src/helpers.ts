@@ -6,7 +6,7 @@ import { resolveSolanaStreamId, truncateSolanaAddress } from "./solana/helpers.j
 import type { Sablier, TruncateAddressOptions } from "./types.js";
 
 /** EVM-only protocols that don't exist on Solana */
-const EVM_ONLY_PROTOCOLS = new Set([EvmProtocol.Flow, EvmProtocol.Legacy]);
+const EVM_ONLY_PROTOCOLS = new Set([EvmProtocol.Bob, EvmProtocol.Flow, EvmProtocol.Legacy]);
 
 // Re-export platform-specific helpers
 export * from "./evm/helpers.js";

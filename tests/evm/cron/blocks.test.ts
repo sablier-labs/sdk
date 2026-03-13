@@ -46,6 +46,7 @@ const INDEXED: Record<Sablier.EVM.Protocol, Set<string>> = {
     contracts.names.SABLIER_FACTORY_MERKLE_LT,
     contracts.names.SABLIER_FACTORY_MERKLE_VCA,
   ]),
+  [Protocol.Bob]: new Set(),
   [Protocol.Flow]: new Set([contracts.names.SABLIER_FLOW]),
   [Protocol.Legacy]: new Set(),
   [Protocol.Lockup]: new Set([
