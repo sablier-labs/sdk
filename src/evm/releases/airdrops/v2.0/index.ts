@@ -15,7 +15,7 @@ export const release = resolvers.release.standard({
   abi,
   aliases,
   deployments,
-  isLatest: true,
+  isLatest: false,
   manifest,
   protocol: Protocol.Airdrops,
   version: "v2.0",

@@ -282,7 +282,7 @@ describe("shapes", () => {
 
     it("getLatestEvmContractMethod returns first contract (newest)", () => {
       const latest = getLatestEvmContractMethod(shapes.lockup.linear);
-      expect(latest.version).toBe("v3.0");
+      expect(latest.version).toBe("v4.0");
     });
   });
 

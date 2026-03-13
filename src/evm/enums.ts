@@ -14,12 +14,14 @@ export namespace Version {
     V1_2 = "v1.2",
     V1_3 = "v1.3",
     V2_0 = "v2.0",
+    V3_0 = "v3.0",
   }
 
   export enum Flow {
     V1_0 = "v1.0",
     V1_1 = "v1.1",
     V2_0 = "v2.0",
+    V2_1 = "v2.1",
   }
 
   export enum Legacy {
@@ -33,6 +35,7 @@ export namespace Version {
     V1_2 = "v1.2",
     V2_0 = "v2.0",
     V3_0 = "v3.0",
+    V4_0 = "v4.0",
   }
 }
 

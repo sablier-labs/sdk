@@ -10,9 +10,17 @@
 import { abi } from "./abi.js";
 import { deployments } from "./deployments.js";
 import manifest from "./manifest.js";
+import { abi as abiV1_0 } from "./v1.0/abi.js";
+import manifestV1_0 from "./v1.0/manifest.js";
+import { abi as abiV1_1 } from "./v1.1/abi.js";
+import manifestV1_1 from "./v1.1/manifest.js";
 
 export const comptroller = {
   abi,
   deployments,
   manifest,
+  versions: {
+    "v1.0": { abi: abiV1_0, manifest: manifestV1_0 },
+    "v1.1": { abi: abiV1_1, manifest: manifestV1_1 },
+  },
 };

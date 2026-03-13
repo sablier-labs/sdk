@@ -19,8 +19,9 @@ import type { ContractMethod, ProgramMethod } from "./types.js";
 const LL_METHODS = ["createWithDurationsLL", "createWithTimestampsLL"] as const;
 const LL_V1_METHODS = ["createWithDurations", "createWithTimestamps"] as const;
 
-/** Lockup Linear contracts - full version history (v1.0 through v3.0) */
+/** Lockup Linear contracts - full version history (v1.0 through v4.0) */
 export const LOCKUP_EVM_LL = [
+  { contract: "SablierLockup", createMethods: LL_METHODS, version: Version.Lockup.V4_0 },
   { contract: "SablierLockup", createMethods: LL_METHODS, version: Version.Lockup.V3_0 },
   { contract: "SablierLockup", createMethods: LL_METHODS, version: Version.Lockup.V2_0 },
   { contract: "SablierV2LockupLinear", createMethods: LL_V1_METHODS, version: Version.Lockup.V1_2 },
@@ -30,6 +31,7 @@ export const LOCKUP_EVM_LL = [
 
 /** Lockup Linear contracts - v2.0+ only (for shapes added in v2.0) */
 export const LOCKUP_EVM_LL_V2 = [
+  { contract: "SablierLockup", createMethods: LL_METHODS, version: Version.Lockup.V4_0 },
   { contract: "SablierLockup", createMethods: LL_METHODS, version: Version.Lockup.V3_0 },
   { contract: "SablierLockup", createMethods: LL_METHODS, version: Version.Lockup.V2_0 },
 ] as const satisfies readonly ContractMethod[];
@@ -50,8 +52,9 @@ export const LOCKUP_SOLANA_LL = [
 const LD_METHODS = ["createWithDurationsLD", "createWithTimestampsLD"] as const;
 const LD_V1_METHODS = ["createWithDurations", "createWithTimestamps"] as const;
 
-/** Lockup Dynamic contracts - full version history (v1.0 through v3.0) */
+/** Lockup Dynamic contracts - full version history (v1.0 through v4.0) */
 export const LOCKUP_EVM_LD = [
+  { contract: "SablierLockup", createMethods: LD_METHODS, version: Version.Lockup.V4_0 },
   { contract: "SablierLockup", createMethods: LD_METHODS, version: Version.Lockup.V3_0 },
   { contract: "SablierLockup", createMethods: LD_METHODS, version: Version.Lockup.V2_0 },
   {
@@ -80,6 +83,7 @@ const LT_V1_METHODS = ["createWithDurations", "createWithTimestamps"] as const;
 
 /** Lockup Tranched contracts - v1.2+ only (LT introduced in v1.2) */
 export const LOCKUP_EVM_LT = [
+  { contract: "SablierLockup", createMethods: LT_METHODS, version: Version.Lockup.V4_0 },
   { contract: "SablierLockup", createMethods: LT_METHODS, version: Version.Lockup.V3_0 },
   { contract: "SablierLockup", createMethods: LT_METHODS, version: Version.Lockup.V2_0 },
   {
@@ -93,8 +97,13 @@ export const LOCKUP_EVM_LT = [
 /*                             FLOW CONTRACTS                                 */
 /* -------------------------------------------------------------------------- */
 
-/** Flow contracts - v1.0 through v2.0 */
+/** Flow contracts - v1.0 through v2.1 */
 export const FLOW_EVM = [
+  {
+    contract: "SablierFlow",
+    createMethods: ["create", "createAndDeposit"],
+    version: Version.Flow.V2_1,
+  },
   {
     contract: "SablierFlow",
     createMethods: ["create", "createAndDeposit"],
@@ -121,6 +130,11 @@ export const AIRDROP_EVM_INSTANT = [
   {
     contract: "SablierFactoryMerkleInstant",
     createMethods: ["createMerkleInstant"],
+    version: Version.Airdrops.V3_0,
+  },
+  {
+    contract: "SablierFactoryMerkleInstant",
+    createMethods: ["createMerkleInstant"],
     version: Version.Airdrops.V2_0,
   },
   {
@@ -141,6 +155,11 @@ export const AIRDROP_SOLANA_INSTANT = [
 
 /** Airdrop Linear (LL) factory contracts - full history */
 export const AIRDROP_EVM_LL = [
+  {
+    contract: "SablierFactoryMerkleLL",
+    createMethods: ["createMerkleLL"],
+    version: Version.Airdrops.V3_0,
+  },
   {
     contract: "SablierFactoryMerkleLL",
     createMethods: ["createMerkleLL"],
@@ -168,12 +187,22 @@ export const AIRDROP_EVM_LL_V2 = [
   {
     contract: "SablierFactoryMerkleLL",
     createMethods: ["createMerkleLL"],
+    version: Version.Airdrops.V3_0,
+  },
+  {
+    contract: "SablierFactoryMerkleLL",
+    createMethods: ["createMerkleLL"],
     version: Version.Airdrops.V2_0,
   },
 ] as const satisfies readonly ContractMethod[];
 
 /** Airdrop Tranched (LT) factory contracts - v1.2+ */
 export const AIRDROP_EVM_LT = [
+  {
+    contract: "SablierFactoryMerkleLT",
+    createMethods: ["createMerkleLT"],
+    version: Version.Airdrops.V3_0,
+  },
   {
     contract: "SablierFactoryMerkleLT",
     createMethods: ["createMerkleLT"],

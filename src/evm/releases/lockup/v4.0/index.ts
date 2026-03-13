@@ -12,8 +12,8 @@ export const release = resolvers.release.standard({
   abi,
   aliases,
   deployments,
-  isLatest: false,
+  isLatest: true,
   manifest,
   protocol: Protocol.Lockup,
-  version: "v3.0",
+  version: "v4.0",
 });
