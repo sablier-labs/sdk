@@ -17,7 +17,7 @@
 | Tool             | Foundry  |
 | EVM              | Shanghai |
 | Solc             | v0.8.29  |
-| Via IR           | true     |
+| Via IR           | false    |
 | Optimizer Runs   | 10000    |
 
 ### Exceptions
