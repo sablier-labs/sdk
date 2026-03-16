@@ -1,8 +1,8 @@
 /**
- * @file This test suite validates CoinGecko IDs defined in the chains data.
+ * @file This test suite validates CoinGecko IDs and platform IDs defined in the chains data.
  *
- * The test verifies that all CoinGecko IDs in the config are valid by pinging
- * the CoinGecko API for each coin.
+ * The test verifies that all CoinGecko coin IDs and asset platform IDs in the
+ * config are valid by pinging the CoinGecko API.
  */
 
 import { constants as http2Constants } from "node:http2";
@@ -48,6 +48,12 @@ const CoinGeckoResponseSchema = Schema.Struct({
   id: Schema.String,
 });
 
+const AssetPlatformSchema = Schema.Struct({
+  chain_identifier: Schema.NullOr(Schema.Number),
+  id: Schema.String,
+});
+const AssetPlatformsSchema = Schema.Array(AssetPlatformSchema);
+
 function validateCoinGeckoId(coinId: string) {
   return Effect.gen(function* () {
     const apiKey = yield* CoinGeckoApiKeyConfig;
@@ -71,6 +77,60 @@ function validateCoinGeckoId(coinId: string) {
   }).pipe(Effect.provide(FetchHttpClient.layer));
 }
 
+/**
+ * CoinGecko platform IDs from chain specs, keyed by platform ID → display label.
+ */
+const COINGECKO_PLATFORM_IDS = {
+  abstract: "Abstract",
+  "arbitrum-one": "Arbitrum",
+  avalanche: "Avalanche",
+  base: "Base",
+  berachain: "Berachain",
+  "binance-smart-chain": "BNB Chain",
+  blast: "Blast",
+  chiliz: "Chiliz",
+  core: "Core DAO",
+  ethereum: "Ethereum",
+  hyperevm: "HyperEVM",
+  iotex: "IoTeX",
+  lightlink: "Lightlink",
+  linea: "Linea",
+  meld: "MELD",
+  mode: "Mode",
+  monad: "Monad",
+  "morph-l2": "Morph",
+  "optimistic-ethereum": "Optimism",
+  "polygon-pos": "Polygon",
+  ronin: "Ronin",
+  scroll: "Scroll",
+  "sei-v2": "Sei",
+  sonic: "Sonic",
+  sophon: "Sophon",
+  superseed: "Superseed",
+  taiko: "Taiko",
+  unichain: "Unichain",
+  xdai: "Gnosis",
+  "xdc-network": "XDC",
+  zksync: "zkSync",
+};
+
+function fetchAssetPlatforms() {
+  return Effect.gen(function* () {
+    const apiKey = yield* CoinGeckoApiKeyConfig;
+    const client = yield* HttpClient.HttpClient;
+    const url = `${COINGECKO_DEMO_API_BASE_URL}/asset_platforms`;
+
+    const request = HttpClientRequest.get(url).pipe(
+      HttpClientRequest.setHeader("x-cg-demo-api-key", Redacted.value(apiKey))
+    );
+
+    const response = yield* client.execute(request);
+    const body = yield* HttpClientResponse.schemaBodyJson(AssetPlatformsSchema)(response);
+
+    return new Set(body.map((p) => p.id));
+  }).pipe(Effect.provide(FetchHttpClient.layer));
+}
+
 describe("Validate CoinGecko IDs", () => {
   if (!COINGECKO_DEMO_API_KEY) {
     it.skip("VITE_COINGECKO_API_KEY not set - skipping CoinGecko tests");
@@ -88,4 +148,21 @@ describe("Validate CoinGecko IDs", () => {
       })
     );
   }
+});
+
+describe("Validate CoinGecko Platform IDs", () => {
+  if (!COINGECKO_DEMO_API_KEY) {
+    it.skip("VITE_COINGECKO_API_KEY not set - skipping CoinGecko tests");
+    return;
+  }
+
+  it.effect("all platform IDs exist in CoinGecko asset_platforms", () =>
+    Effect.gen(function* () {
+      const platforms = yield* fetchAssetPlatforms();
+
+      for (const [platformId, label] of Object.entries(COINGECKO_PLATFORM_IDS)) {
+        expect(platforms.has(platformId), `${label}: ${platformId} not found`).toBe(true);
+      }
+    })
+  );
 });

@@ -35,6 +35,8 @@ export namespace Shared {
       [key: string]: ChainBlockExplorer;
       default: ChainBlockExplorer;
     };
+    /** CoinGecko asset platform ID for token price lookups via /simple/token_price/{platform}. */
+    coinGeckoPlatformId?: string;
     /** Whether this chain is supported by the Sablier Interface at https://app.sablier.com. */
     isSupportedByUI: boolean;
     /** Whether this is a testnet network. */

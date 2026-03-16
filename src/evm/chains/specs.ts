@@ -57,6 +57,7 @@ export const chainSpecs = {
   abstract: {
     base: _abstract,
     meta: {
+      coinGeckoPlatformId: "abstract",
       isZk: true,
     },
     nativeCurrency: {
@@ -72,6 +73,7 @@ export const chainSpecs = {
   arbitrum: {
     base: _arbitrum,
     meta: {
+      coinGeckoPlatformId: "arbitrum-one",
       name: "Arbitrum",
     },
     nativeCurrency: {
@@ -103,7 +105,9 @@ export const chainSpecs = {
   /* -------------------------------------------------------------------------- */
   avalanche: {
     base: _avalanche,
-    meta: {},
+    meta: {
+      coinGeckoPlatformId: "avalanche",
+    },
     nativeCurrency: {
       coinGeckoId: "avalanche-2",
       wrapperContract: "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
@@ -118,7 +122,9 @@ export const chainSpecs = {
   /* -------------------------------------------------------------------------- */
   base: {
     base: _base,
-    meta: {},
+    meta: {
+      coinGeckoPlatformId: "base",
+    },
     nativeCurrency: {
       coinGeckoId: COIN_GECKO.eth,
       wrapperContract: "0x4200000000000000000000000000000000000006",
@@ -150,7 +156,9 @@ export const chainSpecs = {
   /* -------------------------------------------------------------------------- */
   berachain: {
     base: _berachain,
-    meta: {},
+    meta: {
+      coinGeckoPlatformId: "berachain",
+    },
     nativeCurrency: {
       coinGeckoId: "berachain-bera",
       wrapperContract: "0x6969696969696969696969696969696969696969",
@@ -164,7 +172,9 @@ export const chainSpecs = {
   /* -------------------------------------------------------------------------- */
   blast: {
     base: _blast,
-    meta: {},
+    meta: {
+      coinGeckoPlatformId: "blast",
+    },
     nativeCurrency: {
       coinGeckoId: COIN_GECKO.eth,
       wrapperContract: "0x4300000000000000000000000000000000000004",
@@ -196,6 +206,7 @@ export const chainSpecs = {
   bsc: {
     base: _bsc,
     meta: {
+      coinGeckoPlatformId: "binance-smart-chain",
       name: "BNB Chain",
     },
     nativeCurrency: {
@@ -213,6 +224,7 @@ export const chainSpecs = {
   chiliz: {
     base: _chiliz,
     meta: {
+      coinGeckoPlatformId: "chiliz",
       name: "Chiliz",
     },
     nativeCurrency: {
@@ -235,6 +247,7 @@ export const chainSpecs = {
   coreDao: {
     base: _coreDao,
     meta: {
+      coinGeckoPlatformId: "core",
       slug: "core-dao",
     },
     nativeCurrency: {
@@ -276,7 +289,9 @@ export const chainSpecs = {
   /* -------------------------------------------------------------------------- */
   gnosis: {
     base: _gnosis,
-    meta: {},
+    meta: {
+      coinGeckoPlatformId: "xdai",
+    },
     nativeCurrency: {
       coinGeckoId: "dai",
       wrapperContract: "0x6A023CCd1ff6F2045C3309768eAd9E68F978f6e1",
@@ -290,7 +305,9 @@ export const chainSpecs = {
   /* -------------------------------------------------------------------------- */
   hyperevm: {
     base: hyperevm,
-    meta: {},
+    meta: {
+      coinGeckoPlatformId: "hyperevm",
+    },
     nativeCurrency: {
       coinGeckoId: "hyperliquid",
     },
@@ -301,6 +318,7 @@ export const chainSpecs = {
   iotex: {
     base: _iotex,
     meta: {
+      coinGeckoPlatformId: "iotex",
       ui: "NOT_SUPPORTED",
     },
     nativeCurrency: {
@@ -313,6 +331,7 @@ export const chainSpecs = {
   lightlink: {
     base: _lightlinkPhoenix,
     meta: {
+      coinGeckoPlatformId: "lightlink",
       name: "Lightlink",
     },
     nativeCurrency: {
@@ -324,7 +343,9 @@ export const chainSpecs = {
   /* -------------------------------------------------------------------------- */
   linea: {
     base: _linea,
-    meta: {},
+    meta: {
+      coinGeckoPlatformId: "linea",
+    },
     nativeCurrency: {
       coinGeckoId: COIN_GECKO.eth,
       wrapperContract: "0xe5D7C2a44FfDDf6b295A15c148167daaAf5Cf34f",
@@ -356,7 +377,9 @@ export const chainSpecs = {
   /* -------------------------------------------------------------------------- */
   mainnet: {
     base: _mainnet,
-    meta: {},
+    meta: {
+      coinGeckoPlatformId: "ethereum",
+    },
     nativeCurrency: {
       coinGeckoId: COIN_GECKO.eth,
       wrapperContract: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
@@ -372,6 +395,7 @@ export const chainSpecs = {
   meld: {
     base: _meld,
     meta: {
+      coinGeckoPlatformId: "meld",
       ui: "NOT_SUPPORTED",
     },
     nativeCurrency: {
@@ -387,6 +411,7 @@ export const chainSpecs = {
   mode: {
     base: _mode,
     meta: {
+      coinGeckoPlatformId: "mode",
       name: "Mode",
     },
     nativeCurrency: {
@@ -411,7 +436,9 @@ export const chainSpecs = {
   /* -------------------------------------------------------------------------- */
   monad: {
     base: _monad,
-    meta: {},
+    meta: {
+      coinGeckoPlatformId: "monad",
+    },
     nativeCurrency: {
       coinGeckoId: COIN_GECKO.mon,
       wrapperContract: "0x3bd359C1119dA7Da1D913D1C4D2B7c461115433A",
@@ -430,7 +457,9 @@ export const chainSpecs = {
   /* -------------------------------------------------------------------------- */
   morph: {
     base: _morph,
-    meta: {},
+    meta: {
+      coinGeckoPlatformId: "morph-l2",
+    },
     nativeCurrency: {
       coinGeckoId: COIN_GECKO.eth,
       wrapperContract: "0x5300000000000000000000000000000000000011",
@@ -441,7 +470,9 @@ export const chainSpecs = {
   /* -------------------------------------------------------------------------- */
   optimism: {
     base: _optimism,
-    meta: {},
+    meta: {
+      coinGeckoPlatformId: "optimistic-ethereum",
+    },
     nativeCurrency: {
       coinGeckoId: COIN_GECKO.eth,
       wrapperContract: "0x4200000000000000000000000000000000000006",
@@ -472,7 +503,9 @@ export const chainSpecs = {
   /* -------------------------------------------------------------------------- */
   polygon: {
     base: _polygon,
-    meta: {},
+    meta: {
+      coinGeckoPlatformId: "polygon-pos",
+    },
     nativeCurrency: {
       coinGeckoId: "polygon-ecosystem-token",
       wrapperContract: "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
@@ -488,6 +521,7 @@ export const chainSpecs = {
   ronin: {
     base: _ronin,
     meta: {
+      coinGeckoPlatformId: "ronin",
       ui: "NOT_SUPPORTED",
     },
     nativeCurrency: {
@@ -502,7 +536,9 @@ export const chainSpecs = {
   /* -------------------------------------------------------------------------- */
   scroll: {
     base: _scroll,
-    meta: {},
+    meta: {
+      coinGeckoPlatformId: "scroll",
+    },
     nativeCurrency: {
       coinGeckoId: COIN_GECKO.eth,
       wrapperContract: "0x5300000000000000000000000000000000000004",
@@ -517,7 +553,9 @@ export const chainSpecs = {
   /* -------------------------------------------------------------------------- */
   sei: {
     base: _sei,
-    meta: {},
+    meta: {
+      coinGeckoPlatformId: "sei-v2",
+    },
     nativeCurrency: {
       coinGeckoId: "sei-network",
       wrapperContract: "0xE30feDd158A2e3b13e9badaeABaFc5516e95e8C7",
@@ -558,7 +596,9 @@ export const chainSpecs = {
   /* -------------------------------------------------------------------------- */
   sonic: {
     base: _sonic,
-    meta: {},
+    meta: {
+      coinGeckoPlatformId: "sonic",
+    },
     nativeCurrency: {
       coinGeckoId: "sonic-3",
       wrapperContract: "0x039e2fB66102314Ce7b64Ce5Ce3E5183bc94aD38",
@@ -573,6 +613,7 @@ export const chainSpecs = {
   sophon: {
     base: _sophon,
     meta: {
+      coinGeckoPlatformId: "sophon",
       isZk: true,
     },
     nativeCurrency: {
@@ -589,7 +630,9 @@ export const chainSpecs = {
   /* -------------------------------------------------------------------------- */
   superseed: {
     base: _superseed,
-    meta: {},
+    meta: {
+      coinGeckoPlatformId: "superseed",
+    },
     nativeCurrency: {
       coinGeckoId: COIN_GECKO.eth,
     },
@@ -615,6 +658,7 @@ export const chainSpecs = {
   taiko: {
     base: _taiko,
     meta: {
+      coinGeckoPlatformId: "taiko",
       name: "Taiko",
       ui: "NOT_SUPPORTED",
     },
@@ -661,7 +705,9 @@ export const chainSpecs = {
   /* -------------------------------------------------------------------------- */
   unichain: {
     base: _unichain,
-    meta: {},
+    meta: {
+      coinGeckoPlatformId: "unichain",
+    },
     nativeCurrency: {
       coinGeckoId: COIN_GECKO.eth,
       wrapperContract: "0x4200000000000000000000000000000000000006",
@@ -677,6 +723,7 @@ export const chainSpecs = {
   xdc: {
     base: _xdc,
     meta: {
+      coinGeckoPlatformId: "xdc-network",
       name: "XDC",
     },
     nativeCurrency: {
@@ -689,6 +736,7 @@ export const chainSpecs = {
   zksync: {
     base: _zksync,
     meta: {
+      coinGeckoPlatformId: "zksync",
       isZk: true,
     },
     nativeCurrency: {

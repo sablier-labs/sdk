@@ -7,6 +7,7 @@ export type ChainSpec = {
   base: ViemChain;
   meta: {
     // Optional display overrides and metadata specific to Sablier.
+    coinGeckoPlatformId?: string;
     name?: string;
     isZk?: boolean;
     ui?: "SUPPORTED" | "NOT_SUPPORTED";
@@ -86,6 +87,7 @@ const buildChain = (key: string, spec: ChainSpec): Sablier.EVM.Chain => {
   return {
     ...chain,
     blockExplorers: chain.blockExplorers,
+    coinGeckoPlatformId: spec.meta.coinGeckoPlatformId,
     isSupportedByUI,
     isTestnet,
     isZK: Boolean(spec.meta.isZk),

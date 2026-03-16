@@ -56,6 +56,7 @@ export const solanaMainnetBeta: Sablier.Solana.Chain = {
     feed: "99B2bTijsU6f1GCT73HmdR7HCFFjGMBcPZY6jZ96ynrR",
     program: "HEvSKofvBgfaexv23kMabbYqxasxU3mQ4ibBMEmJWHny",
   },
+  coinGeckoPlatformId: "solana",
   contracts: {},
   definition: {
     chainCode: "SOL",
