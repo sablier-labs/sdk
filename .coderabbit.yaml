@@ -3,5 +3,7 @@
 inheritance: true
 # See https://docs.coderabbit.ai/reference/configuration#param-path-filters
 reviews:
+  auto_review:
+    enabled: true
   path_filters:
     - "!**/src/solana/idl/**"
