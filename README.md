@@ -41,10 +41,7 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 - Docs: https://docs.sablier.com
 - Sablier App: https://app.sablier.com
-- Smart Contracts
-  - Airdrops: https://github.com/sablier-labs/airdrops
-  - Flow: https://github.com/sablier-labs/flow
-  - Lockup: https://github.com/sablier-labs/lockup
+- Smart Contracts: https://github.com/sablier-labs/lockup
 
 ## License
 
