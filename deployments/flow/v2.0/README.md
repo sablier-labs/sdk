@@ -67,6 +67,5 @@ All contracts are deployed using Foundry's `CREATE2` factory. The following salt
 | :--------------- | :------------------------------ |
 | Arbitrum Sepolia | ChainID 421614, Version 2.0.0   |
 | Base Sepolia     | ChainID 84532, Version 2.0.0    |
-| Mode Sepolia     | ChainID 919, Version 2.0.0      |
 | Optimism Sepolia | ChainID 11155420, Version 2.0.0 |
 | Sepolia          | ChainID 11155111, Version 2.0.0 |

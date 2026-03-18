@@ -75,10 +75,8 @@ The CREATE2 salts used during deployment:
 
 ### Testnets
 
-| Chain            | Salt                             |
-| :--------------- | :------------------------------- |
-| Arbitrum Sepolia | ChainID 421614, Version 1.2.0    |
-| Blast Sepolia    | ChainID 168587773, Version 1.2.0 |
-| Mode Sepolia     | ChainID 919, Version 1.2.0       |
-| Optimism Sepolia | ChainID 11155420, Version 1.2.0  |
-| Sepolia          | ChainID 11155111, Version 1.2.0  |
+| Chain            | Salt                            |
+| :--------------- | :------------------------------ |
+| Arbitrum Sepolia | ChainID 421614, Version 1.2.0   |
+| Optimism Sepolia | ChainID 11155420, Version 1.2.0 |
+| Sepolia          | ChainID 11155111, Version 1.2.0 |

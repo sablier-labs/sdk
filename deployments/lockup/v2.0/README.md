@@ -19,10 +19,8 @@
 | :------- | :------ | :------- | :------------- | :----------- | :----- |
 | Default  | Foundry | Shanghai | 570            | 0.8.26       | true   |
 | HyperEVM | Foundry | Paris    | 10             | 0.8.22       | true   |
-| IoTeX    | Hardhat | Paris    | 10             | 0.8.26       | true   |
 | Linea    | Foundry | Paris    | 100            | 0.8.26       | true   |
 | Tangle   | Hardhat | Paris    | 100            | 0.8.26       | true   |
-| Ultra    | Hardhat | Paris    | 100            | 0.8.26       | true   |
 
 For deployments on the zkSync based chains, the following settings were used:
 
@@ -49,7 +47,6 @@ The CREATE2 salts used during deployment. A "No Salt" value means that the contr
 | BNB Smart Chain | ChainID 56, Version 2.0.0     |
 | Chiliz          | No Salt                       |
 | Core DAO        | ChainID 1116, Version 2.0.0   |
-| Form            | ChainID 478, Version 2.0.0    |
 | Gnosis          | ChainID 100, Version 2.0.0    |
 | HyperEVM        | ChainID 999, Version 2.0.0    |
 | Linea           | ChainID 59144, Version 2.0.0  |
@@ -64,21 +61,18 @@ The CREATE2 salts used during deployment. A "No Salt" value means that the contr
 | Sei             | ChainID 1329, Version 2.0.0   |
 | Taiko Mainnet   | ChainID 167000, Version 2.0.0 |
 | Tangle          | No Salt                       |
-| Ultra           | No Salt                       |
 | Unichain        | ChainID 130, Version 2.0.0    |
 | XDC             | ChainID 50, Version 2.0.0     |
 | zkSync Era      | No Salt                       |
 
 ### Testnets
 
-| Chain            | Salt                             |
-| :--------------- | :------------------------------- |
-| Arbitrum Sepolia | No Salt                          |
-| Base Sepolia     | No Salt                          |
-| Blast Sepolia    | ChainID 168587773, Version 2.0.0 |
-| Linea Sepolia    | ChainID 59141, Version 2.0.0     |
-| Mode Sepolia     | ChainID 919, Version 2.0.0       |
-| Monad Testnet    | ChainID 10143, Version 2.0.0     |
-| Optimism Sepolia | ChainID 11155420, Version 2.0.0  |
-| Sepolia          | ChainID 11155111, Version 2.0.0  |
-| zkSync Sepolia   | No Salt                          |
+| Chain            | Salt                            |
+| :--------------- | :------------------------------ |
+| Arbitrum Sepolia | No Salt                         |
+| Base Sepolia     | No Salt                         |
+| Linea Sepolia    | ChainID 59141, Version 2.0.0    |
+| Monad Testnet    | ChainID 10143, Version 2.0.0    |
+| Optimism Sepolia | ChainID 11155420, Version 2.0.0 |
+| Sepolia          | ChainID 11155111, Version 2.0.0 |
+| zkSync Sepolia   | No Salt                         |
