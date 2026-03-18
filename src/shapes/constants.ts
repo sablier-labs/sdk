@@ -196,6 +196,20 @@ export const AIRDROP_EVM_LL_V2 = [
   },
 ] as const satisfies readonly ContractMethod[];
 
+/** Airdrop VCA factory contracts - v2.0+ */
+export const AIRDROP_EVM_VCA = [
+  {
+    contract: "SablierFactoryMerkleVCA",
+    createMethods: ["createMerkleVCA"],
+    version: Version.Airdrops.V3_0,
+  },
+  {
+    contract: "SablierFactoryMerkleVCA",
+    createMethods: ["createMerkleVCA"],
+    version: Version.Airdrops.V2_0,
+  },
+] as const satisfies readonly ContractMethod[];
+
 /** Airdrop Tranched (LT) factory contracts - v1.2+ */
 export const AIRDROP_EVM_LT = [
   {

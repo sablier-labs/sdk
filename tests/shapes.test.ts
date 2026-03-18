@@ -136,9 +136,9 @@ describe("shapes", () => {
   });
 
   describe("airdrop shapes", () => {
-    it("exports all 6 airdrop shapes", () => {
+    it("exports all 7 airdrop shapes", () => {
       const shapeIds = Object.keys(shapes.airdrops);
-      expect(shapeIds).toHaveLength(6);
+      expect(shapeIds).toHaveLength(7);
     });
 
     it("has correct shape IDs", () => {
@@ -148,6 +148,7 @@ describe("shapes", () => {
       expect(shapes.airdrops.linearUnlockLinear.id).toBe(Shape.Airdrops.LinearUnlockLinear);
       expect(shapes.airdrops.linearUnlockCliff.id).toBe(Shape.Airdrops.LinearUnlockCliff);
       expect(shapes.airdrops.tranchedStepper.id).toBe(Shape.Airdrops.TranchedStepper);
+      expect(shapes.airdrops.variableClaimAmount.id).toBe(Shape.Airdrops.VariableClaimAmount);
     });
 
     it("all shapes have evm contract mappings", () => {
@@ -176,6 +177,13 @@ describe("shapes", () => {
         expect(v2Contract?.contract).toBe("SablierFactoryMerkleLL");
         expect(v2Contract?.createMethods).toContain("createMerkleLL");
       }
+    });
+
+    it("variableClaimAmount shape maps to SablierFactoryMerkleVCA", () => {
+      const v2Contract = shapes.airdrops.variableClaimAmount.evm.find((c) => c.version === "v2.0");
+      expect(v2Contract).toBeDefined();
+      expect(v2Contract?.contract).toBe("SablierFactoryMerkleVCA");
+      expect(v2Contract?.createMethods).toContain("createMerkleVCA");
     });
 
     it("tranchedStepper shape maps to SablierFactoryMerkleLT", () => {
@@ -212,6 +220,7 @@ describe("shapes", () => {
       expect(Shape.Airdrops.LinearUnlockLinear).toBe("linearUnlockLinear");
       expect(Shape.Airdrops.LinearUnlockCliff).toBe("linearUnlockCliff");
       expect(Shape.Airdrops.TranchedStepper).toBe("tranchedStepper");
+      expect(Shape.Airdrops.VariableClaimAmount).toBe("variableClaimAmount");
     });
   });
 
@@ -326,8 +335,8 @@ describe("shapes", () => {
       expect(flowShapeIds).toContain(Shape.Flow.Flow);
     });
 
-    it("airdropShapeIds contains all 6 airdrop shapes", () => {
-      expect(airdropShapeIds).toHaveLength(6);
+    it("airdropShapeIds contains all 7 airdrop shapes", () => {
+      expect(airdropShapeIds).toHaveLength(7);
       expect(airdropShapeIds).toContain(Shape.Airdrops.Instant);
       expect(airdropShapeIds).toContain(Shape.Airdrops.Linear);
       expect(airdropShapeIds).toContain(Shape.Airdrops.TranchedStepper);
@@ -566,6 +575,16 @@ describe("shapes", () => {
     const llFactoryPattern =
       /LL$|MerkleLockupFactory$|MerkleStreamerFactory$|^SablierMerkleFactory$/;
     const instantFactoryPattern = /Instant$|^SablierMerkleFactory$/;
+    const vcaFactoryPattern = /VCA$/;
+
+    it("variableClaimAmount shape only maps to VCA factory contracts", () => {
+      for (const { contract, version } of shapes.airdrops.variableClaimAmount.evm) {
+        expect(
+          vcaFactoryPattern.test(contract),
+          `variableClaimAmount shape has non-VCA factory contract "${contract}" in ${version}`
+        ).toBe(true);
+      }
+    });
 
     it("tranchedStepper shape only maps to LT (tranched) factory contracts", () => {
       for (const { contract, version } of shapes.airdrops.tranchedStepper.evm) {

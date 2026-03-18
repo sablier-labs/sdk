@@ -164,9 +164,10 @@ import { contracts } from "sablier/evm/contracts"; // Contracts only
 8. Update behavior tables when the release changes semantics: `src/evm/compatibility.ts` for Airdrops/Lockup
    compatibility, `src/shapes/constants.ts` for shape-to-method mappings, and `src/evm/helpers.ts` for version-gated
    helper behavior such as payable thresholds
-9. Update the few remaining version-specific tests only when their assertions change; most release-registry tests now
-   iterate exported releases automatically
-10. Update `CHANGELOG.md`
+9. Add new shapes when the release introduces a new campaign or stream type (see **New shape** below)
+10. Update the few remaining version-specific tests only when their assertions change; most release-registry tests now
+    iterate exported releases automatically
+11. Update `CHANGELOG.md`
 
 **New chain:**
 
@@ -174,6 +175,15 @@ import { contracts } from "sablier/evm/contracts"; // Contracts only
 2. Ensure deployment broadcasts exist for the chain
 3. Run `just test` to validate
 4. Add to supported chains list in `README.md`
+
+**New shape:**
+
+1. Add the enum value to the appropriate namespace in `src/shapes/enums.ts`
+2. Add contract/method constants in `src/shapes/constants.ts` (e.g. `AIRDROP_EVM_VCA`, `LOCKUP_EVM_LL_V2`)
+3. Define the shape with `defineAirdropShape`/`defineLockupShape`/`defineFlowShape` in the corresponding file under
+   `src/shapes/` and register it in the exported shapes record
+4. Update `tests/shapes.test.ts`: shape count assertions, ID checks, contract mapping tests, and factory pattern
+   validation
 
 **New contract:**
 

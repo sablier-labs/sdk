@@ -9,6 +9,7 @@ import {
   AIRDROP_EVM_LL,
   AIRDROP_EVM_LL_V2,
   AIRDROP_EVM_LT,
+  AIRDROP_EVM_VCA,
   AIRDROP_SOLANA_INSTANT,
 } from "./constants.js";
 import { Shape } from "./enums.js";
@@ -83,6 +84,17 @@ const tranchedStepper = defineAirdropShape(Shape.Airdrops.TranchedStepper, {
 });
 
 /**
+ * Variable claim amount airdrop.
+ * Each recipient can claim a different amount based on Merkle proof data.
+ */
+const variableClaimAmount = defineAirdropShape(Shape.Airdrops.VariableClaimAmount, {
+  evm: AIRDROP_EVM_VCA,
+  hasPredictableGas: true,
+  isDeprecated: false,
+  name: "Variable Claim Amount",
+});
+
+/**
  * All airdrop shapes indexed by shape ID.
  * Keys are alphabetically ordered for consistency.
  */
@@ -93,4 +105,5 @@ export const airdropShapes = {
   [Shape.Airdrops.LinearUnlockCliff]: linearUnlockCliff,
   [Shape.Airdrops.LinearUnlockLinear]: linearUnlockLinear,
   [Shape.Airdrops.TranchedStepper]: tranchedStepper,
+  [Shape.Airdrops.VariableClaimAmount]: variableClaimAmount,
 } satisfies AirdropShapesRecord;

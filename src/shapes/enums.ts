@@ -30,5 +30,6 @@ export namespace Shape {
     LinearUnlockLinear = "linearUnlockLinear",
     LinearUnlockCliff = "linearUnlockCliff",
     TranchedStepper = "tranchedStepper",
+    VariableClaimAmount = "variableClaimAmount",
   }
 }
