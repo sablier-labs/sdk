@@ -310,6 +310,7 @@ export const chainSpecs = {
     },
     nativeCurrency: {
       coinGeckoId: "hyperliquid",
+      wrapperContract: "0x5555555555555555555555555555555555555555",
     },
   },
   /* -------------------------------------------------------------------------- */
@@ -728,6 +729,7 @@ export const chainSpecs = {
     },
     nativeCurrency: {
       coinGeckoId: "xdce-crowd-sale",
+      wrapperContract: "0x951857744785E80e2De051c32EE7b25f9c458C42",
     },
   },
   /* -------------------------------------------------------------------------- */

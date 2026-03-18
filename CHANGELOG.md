@@ -49,6 +49,7 @@ The format is based on [Common Changelog](https://common-changelog.org/).
   ([`6edaf99`](https://github.com/sablier-labs/sdk/commit/6edaf99))
 - Add `coinGeckoPlatformId` to supported EVM mainnets and Solana mainnet-beta chain metadata
   ([`09b5a88`](https://github.com/sablier-labs/sdk/commit/09b5a88f0d835718b0cbb502f826ed917a16883b))
+- Add WHYPE and WXDC wrapper contracts to HyperEVM and XDC chain specs
 
 ### Fixed
 
