@@ -2,7 +2,8 @@
   "biome.enabled": true,
   "javascript.preferences.importModuleSpecifierEnding": "js",
   "typescript.preferences.importModuleSpecifierEnding": "js",
-  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.experimental.useTsgo": true,
+  "typescript.tsserver.watchOptions": "vscode",
   "editor.codeActionsOnSave": {
     "source.fixAll.biome": "explicit",
     "source.organizeImports.biome": "explicit"
