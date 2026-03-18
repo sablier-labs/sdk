@@ -7,17 +7,18 @@
  * import { sablier } from "sablier";
  *
  * // EVM
+ * const lockupRelease = sablier.evm.releases.getLatest({ protocol: "lockup" });
  * let lockupContract = sablier.evm.contracts.get({
  *   chainId: mainnet.id,
  *   contractName: "SablierLockup",
- *   release: releases.lockup["v2.0"],
+ *   release: lockupRelease,
  * });
  *
  * // Can also be accessed like this:
  * lockupContract = sablier.contracts.get({
  *   chainId: mainnet.id,
  *   contractName: "SablierLockup",
- *   release: releases.lockup["v2.0"],
+ *   release: lockupRelease,
  * });
  * const { address } = lockupContract;
  * ```

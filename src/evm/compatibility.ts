@@ -12,6 +12,7 @@ import { Version } from "./enums.js";
  *   - Lockup v1.1/v1.2 is only compatible with Airdrops v1.1/v1.2.
  *   - Lockup v2.0 is only compatible with Airdrops v1.3.
  *   - Lockup v3.0 is only compatible with Airdrops v2.0.
+ *   - Lockup v4.0 is only compatible with Airdrops v3.0.
  *
  * @see https://diffchecker.com/KCMfHn3A/ - Shows interface differences between Lockup versions
  */
@@ -20,6 +21,7 @@ export const compatibleLockupVersions: Record<Version.Airdrops, Version.Lockup[]
   [Version.Airdrops.V1_2]: [Version.Lockup.V1_1, Version.Lockup.V1_2],
   [Version.Airdrops.V1_3]: [Version.Lockup.V2_0],
   [Version.Airdrops.V2_0]: [Version.Lockup.V3_0],
+  [Version.Airdrops.V3_0]: [Version.Lockup.V4_0],
 };
 
 /**

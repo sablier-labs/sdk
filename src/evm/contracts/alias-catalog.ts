@@ -12,6 +12,7 @@ export function getAliasCatalog(): Sablier.EVM.AliasCatalog {
 
   const catalog: Sablier.EVM.AliasCatalog = {
     [Protocol.Airdrops]: {},
+    [Protocol.Bob]: {},
     [Protocol.Flow]: {},
     [Protocol.Legacy]: {},
     [Protocol.Lockup]: {},

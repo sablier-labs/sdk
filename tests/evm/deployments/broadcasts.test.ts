@@ -1,10 +1,11 @@
 import { describe, expect, it } from "vitest";
 import { taikoHekla } from "@/src/evm/chains/index.js";
 import { deployments as comptrollerDeployments } from "@/src/evm/comptroller/deployments.js";
-import { releases } from "@/src/evm/releases/index.js";
 import { isBroadcastsUnified } from "@/src/internal/helpers.js";
 import { sablier } from "@/src/sablier.js";
 import type { Sablier } from "@/src/types.js";
+import { isKnownInvalidBroadcast } from "../helpers/missing.js";
+import { evmReleasesWithDeploymentArtifacts } from "../releases.js";
 import type { StandardBroadcast, ZKBroadcast } from "../types.js";
 import { loadBroadcast, loadComptrollerBroadcast } from "./utils/loaders.js";
 
@@ -20,19 +21,7 @@ const comptrollerRelease = {
 const releasesToTest: BroadcastSource[] = [
   // Comptroller
   comptrollerRelease,
-  // Airdrops
-  releases.airdrops["v1.3"],
-  releases.airdrops["v2.0"],
-  // Flow
-  releases.flow["v1.0"],
-  releases.flow["v1.1"],
-  releases.flow["v2.0"],
-  // Lockup
-  releases.lockup["v1.0"],
-  releases.lockup["v1.1"],
-  releases.lockup["v1.2"],
-  releases.lockup["v2.0"],
-  releases.lockup["v3.0"],
+  ...evmReleasesWithDeploymentArtifacts,
 ];
 
 // List of deprecated chains to exclude because their RPC no longer works
@@ -62,6 +51,11 @@ function createTestSuite(source: BroadcastSource): void {
       // EVM Releases
       else {
         const release = source as Sablier.EVM.Release;
+        if (isKnownInvalidBroadcast(release, chain)) {
+          it.skip(`Skipped ${chain.name} because the checked-in broadcast is known invalid.`);
+          continue;
+        }
+
         const isZK = chain.isZK && !isBroadcastsUnified(release);
 
         if (isZK) {

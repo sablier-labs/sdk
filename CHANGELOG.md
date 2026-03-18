@@ -9,6 +9,7 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 > Starting with v2.0.0, this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). In v1.x, it
 > did not always follow Semantic Versioning.
 
+[3.0.0-beta.0]: https://github.com/sablier-labs/sdk/releases/tag/v3.0.0-beta.0
 [2.0.4]: https://github.com/sablier-labs/sdk/releases/tag/v2.0.4
 [2.0.3]: https://github.com/sablier-labs/sdk/releases/tag/v2.0.3
 [2.0.2]: https://github.com/sablier-labs/sdk/releases/tag/v2.0.2
@@ -29,6 +30,32 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 [1.2.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.2.0
 [1.1.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.1.0
 [1.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.0.0
+
+## [3.0.0-beta.0] - 2026-03-18
+
+### Changed
+
+- **Breaking:** Replace `comptroller.abi` and `comptroller.manifest` with versioned entries under
+  `comptroller.releases["v1.0"]` and `comptroller.releases["v2.0"]`
+  ([`cdd32bc`](https://github.com/sablier-labs/sdk/commit/cdd32bc))
+- **Breaking:** Mark Airdrops `v3.0`, Flow `v3.0`, and Lockup `v4.0` as the latest EVM release lines, which changes
+  latest-release lookups ([`6edaf99`](https://github.com/sablier-labs/sdk/commit/6edaf99))
+
+### Added
+
+- Add Airdrops `v3.0`, Bob `v1.0`, Flow `v3.0`, and Lockup `v4.0` release metadata, deployments, and ABIs
+  ([`6edaf99`](https://github.com/sablier-labs/sdk/commit/6edaf99))
+- Add Bob to the EVM release catalog and contract lookup catalogs
+  ([`6edaf99`](https://github.com/sablier-labs/sdk/commit/6edaf99))
+- Add `coinGeckoPlatformId` to supported EVM mainnets and Solana mainnet-beta chain metadata
+  ([`09b5a88`](https://github.com/sablier-labs/sdk/commit/09b5a88f0d835718b0cbb502f826ed917a16883b))
+
+### Fixed
+
+- Disable RouteMesh RPC for Form, Meld, and Taiko Hekla on unsupported chains
+  ([`0123fd2`](https://github.com/sablier-labs/sdk/commit/0123fd2db03fadfa142779fe32c309421ec0fafc))
+- Fix the Monad wrapper contract checksum
+  ([`b9ba82b`](https://github.com/sablier-labs/sdk/commit/b9ba82bf2126919a4da9222d7cb5b15f737acee0))
 
 ## [2.0.4] - 2026-02-04
 

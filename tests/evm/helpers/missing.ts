@@ -6,6 +6,15 @@ import type { Sablier } from "@/src/types.js";
 type ChainMap = Record<number, string[]>;
 type VersionMap = Partial<Record<Sablier.EVM.Version, ChainMap>>;
 type ProtocolMap = Partial<Record<Sablier.EVM.Protocol, VersionMap>>;
+type InvalidBroadcastMap = Partial<
+  Record<Sablier.EVM.Protocol, Partial<Record<Sablier.EVM.Version, number[]>>>
+>;
+
+const MISSING_AIRDROPS: VersionMap = {
+  "v3.0": {
+    [chains.abstract.id]: ["all"],
+  },
+};
 
 const MISSING_FLOW: VersionMap = {
   "v1.0": {
@@ -16,6 +25,9 @@ const MISSING_FLOW: VersionMap = {
   "v1.1": {
     [chains.superseed.id]: ["all"],
     [chains.superseedSepolia.id]: ["all"],
+  },
+  "v3.0": {
+    [chains.hyperevm.id]: ["all"],
   },
 };
 
@@ -60,11 +72,24 @@ const MISSING_LOCKUP: VersionMap = {
     [chains.coreDao.id]: ["all"],
     [chains.zksync.id]: ["all"],
   },
+  "v4.0": {
+    [chains.mode.id]: ["SablierBatchLockup"],
+  },
 };
 
 const MISSING_CONTRACTS: ProtocolMap = {
+  airdrops: MISSING_AIRDROPS,
   flow: MISSING_FLOW,
   lockup: MISSING_LOCKUP,
+};
+
+const INVALID_BROADCASTS: InvalidBroadcastMap = {
+  bob: {
+    "v1.0": [chains.mainnet.id],
+  },
+  lockup: {
+    "v4.0": [chains.mainnet.id],
+  },
 };
 
 // chains for which we completely lack broadcasts.
@@ -89,4 +114,15 @@ export function isKnownMissing(
   }
 
   return false;
+}
+
+export function isKnownInvalidBroadcast(
+  release: Sablier.EVM.Release,
+  chain: Sablier.EVM.Chain
+): boolean {
+  return (
+    getPath<number[]>(INVALID_BROADCASTS, [release.protocol, release.version])?.includes(
+      chain.id
+    ) ?? false
+  );
 }

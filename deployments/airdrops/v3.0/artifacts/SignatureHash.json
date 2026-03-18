@@ -1,0 +1,136 @@
+{
+  "abi": [
+    {
+      "type": "function",
+      "name": "CLAIM_TYPEHASH",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "bytes32", "internalType": "bytes32" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "DOMAIN_TYPEHASH",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "bytes32", "internalType": "bytes32" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "IDENTITY_TYPEHASH",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "bytes32", "internalType": "bytes32" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "PROTOCOL_NAME",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "bytes32", "internalType": "bytes32" }],
+      "stateMutability": "view"
+    }
+  ],
+  "bytecode": {
+    "object": "0x608080604052346019576101cc908161001e823930815050f35b5f80fdfe6080806040526004361015610012575f80fd5b5f3560e01c90816320606b7014610145575080632860ff75146100f25780636b0509b11461009f5763f87f527514610048575f80fd5b5f7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261009b5760206040517f219f32e1e2ac61bb8bf48019aeabd1a04366f69f4d9a4e73b315e56deb50c0438152f35b5f80fd5b5f7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261009b5760206040517fb0f12a3a6931229a836eaab08aeb1ebe2ddebad3bfd83f30d39f6c4a3b0f4f818152f35b5f7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261009b5760206040517f13cd784591b49af6fc220be53013eaddf1dc15399ca43850d206ea319aca08218152f35b5f7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261009b57807f8cad95687ba82c2ce50e74f7b754645e5117c3a5bec8151c0726d5857980a86660209252f3fea2646970667358221220077276677ad11ab0afc70de675d67fc352011569486eac579374a1654cb2695d64736f6c634300081d0033",
+    "sourceMap": "180:778:124:-:0;;;;;;;;;;;;;;;;;;;;;",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x6080806040526004361015610012575f80fd5b5f3560e01c90816320606b7014610145575080632860ff75146100f25780636b0509b11461009f5763f87f527514610048575f80fd5b5f7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261009b5760206040517f219f32e1e2ac61bb8bf48019aeabd1a04366f69f4d9a4e73b315e56deb50c0438152f35b5f80fd5b5f7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261009b5760206040517fb0f12a3a6931229a836eaab08aeb1ebe2ddebad3bfd83f30d39f6c4a3b0f4f818152f35b5f7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261009b5760206040517f13cd784591b49af6fc220be53013eaddf1dc15399ca43850d206ea319aca08218152f35b5f7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261009b57807f8cad95687ba82c2ce50e74f7b754645e5117c3a5bec8151c0726d5857980a86660209252f3fea2646970667358221220077276677ad11ab0afc70de675d67fc352011569486eac579374a1654cb2695d64736f6c634300081d0033",
+    "sourceMap": "180:778:124:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;739:56;180:778;;;;;;;;;;;;;;;;;;316:94;180:778;;;;;;;;;;;;;;917:38;180:778;;;;;;;;;;;;540:80;180:778;;;",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "CLAIM_TYPEHASH()": "6b0509b1",
+    "DOMAIN_TYPEHASH()": "20606b70",
+    "IDENTITY_TYPEHASH()": "f87f5275",
+    "PROTOCOL_NAME()": "2860ff75"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.29+commit.ab55807c\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"CLAIM_TYPEHASH\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"DOMAIN_TYPEHASH\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"IDENTITY_TYPEHASH\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PROTOCOL_NAME\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"stateVariables\":{\"CLAIM_TYPEHASH\":{\"details\":\"The struct type hash for the claim signature.\"}},\"title\":\"SignatureHash\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"DOMAIN_TYPEHASH()\":{\"notice\":\"The domain type hash for computing the domain separator.\"},\"IDENTITY_TYPEHASH()\":{\"notice\":\"The struct type hash for the attestation signature.\"},\"PROTOCOL_NAME()\":{\"notice\":\"The protocol name for the EIP-712 and EIP-1271 signatures.\"}},\"notice\":\"Library containing the hashes for the EIP-712 and EIP-1271 signatures.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/libraries/SignatureHash.sol\":\"SignatureHash\"},\"evmVersion\":\"shanghai\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":60000},\"remappings\":[\":@arbitrum/=node_modules/@arbitrum/\",\":@chainlink/=node_modules/@chainlink/\",\":@eth-optimism/=node_modules/@eth-optimism/\",\":@offchainlabs/=node_modules/@offchainlabs/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":@prb/=node_modules/@prb/\",\":@sablier/=node_modules/@sablier/\",\":@scroll-tech/=node_modules/@scroll-tech/\",\":@zksync/=node_modules/@zksync/\",\":forge-std/=node_modules/forge-std/\",\":murky/=node_modules/murky/\",\":openzeppelin-contracts/=node_modules/murky/lib/openzeppelin-contracts/\",\":solady/=node_modules/solady/\"],\"viaIR\":true},\"sources\":{\"src/libraries/SignatureHash.sol\":{\"keccak256\":\"0xdda32b665c577cf8298f0ee041c392c3b4550acf0ed52f0b09d2d12f1f0e0b08\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://2ea6a30ea8fe835b2c348ee126763dab697d24295e7c284806a7bbb020e2b9e1\",\"dweb:/ipfs/QmaQ65PS4Sq8WraidCaQ7yQGt2Zc4Jv5uZQWmFUCRV3XVM\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": { "version": "0.8.29+commit.ab55807c" },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "CLAIM_TYPEHASH",
+          "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "DOMAIN_TYPEHASH",
+          "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "IDENTITY_TYPEHASH",
+          "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "PROTOCOL_NAME",
+          "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }]
+        }
+      ],
+      "devdoc": { "kind": "dev", "methods": {}, "version": 1 },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "DOMAIN_TYPEHASH()": {
+            "notice": "The domain type hash for computing the domain separator."
+          },
+          "IDENTITY_TYPEHASH()": {
+            "notice": "The struct type hash for the attestation signature."
+          },
+          "PROTOCOL_NAME()": {
+            "notice": "The protocol name for the EIP-712 and EIP-1271 signatures."
+          }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        "@arbitrum/=node_modules/@arbitrum/",
+        "@chainlink/=node_modules/@chainlink/",
+        "@eth-optimism/=node_modules/@eth-optimism/",
+        "@offchainlabs/=node_modules/@offchainlabs/",
+        "@openzeppelin/=node_modules/@openzeppelin/",
+        "@prb/=node_modules/@prb/",
+        "@sablier/=node_modules/@sablier/",
+        "@scroll-tech/=node_modules/@scroll-tech/",
+        "@zksync/=node_modules/@zksync/",
+        "forge-std/=node_modules/forge-std/",
+        "murky/=node_modules/murky/",
+        "openzeppelin-contracts/=node_modules/murky/lib/openzeppelin-contracts/",
+        "solady/=node_modules/solady/"
+      ],
+      "optimizer": { "enabled": true, "runs": 60000 },
+      "metadata": { "bytecodeHash": "ipfs" },
+      "compilationTarget": { "src/libraries/SignatureHash.sol": "SignatureHash" },
+      "evmVersion": "shanghai",
+      "libraries": {},
+      "viaIR": true
+    },
+    "sources": {
+      "src/libraries/SignatureHash.sol": {
+        "keccak256": "0xdda32b665c577cf8298f0ee041c392c3b4550acf0ed52f0b09d2d12f1f0e0b08",
+        "urls": [
+          "bzz-raw://2ea6a30ea8fe835b2c348ee126763dab697d24295e7c284806a7bbb020e2b9e1",
+          "dweb:/ipfs/QmaQ65PS4Sq8WraidCaQ7yQGt2Zc4Jv5uZQWmFUCRV3XVM"
+        ],
+        "license": "GPL-3.0-or-later"
+      }
+    },
+    "version": 1
+  },
+  "id": 124
+}

@@ -159,11 +159,18 @@ export namespace EVM {
   export namespace Version {
     export type Airdrops = `${enums.Version.Airdrops}` | enums.Version.Airdrops;
 
+    export type Bob = `${enums.Version.Bob}` | enums.Version.Bob;
+
     export type Flow = `${enums.Version.Flow}` | enums.Version.Flow;
 
     export type Legacy = `${enums.Version.Legacy}` | enums.Version.Legacy;
 
     export type Lockup = `${enums.Version.Lockup}` | enums.Version.Lockup;
   }
-  export type Version = Version.Airdrops | Version.Flow | Version.Legacy | Version.Lockup;
+  export type Version =
+    | Version.Airdrops
+    | Version.Bob
+    | Version.Flow
+    | Version.Legacy
+    | Version.Lockup;
 }

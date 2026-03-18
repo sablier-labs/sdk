@@ -7,12 +7,14 @@
  * @see https://docs.sablier.com/concepts/governance
  */
 
-import { abi } from "./abi.js";
 import { deployments } from "./deployments.js";
-import manifest from "./manifest.js";
+import { release as releaseV1_0 } from "./v1.0/index.js";
+import { release as releaseV2_0 } from "./v2.0/index.js";
 
 export const comptroller = {
-  abi,
   deployments,
-  manifest,
+  releases: {
+    "v1.0": releaseV1_0,
+    "v2.0": releaseV2_0,
+  },
 };

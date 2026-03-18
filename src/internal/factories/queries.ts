@@ -277,7 +277,7 @@ export function createContractsQueries<
 
     /**
      * Get a contract by its alias.
-     * Aliases are version-specific (e.g., LK = Lockup v2.0, LK2 = Lockup v3.0).
+     * Aliases are version-specific (e.g., LK = Lockup v2.0, LK2 = Lockup v3.0, LK3 = Lockup v4.0).
      *
      * @example
      * contractsQueries.getByAlias({ alias: "LK2", chainId: 1 })

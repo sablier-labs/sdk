@@ -1,0 +1,591 @@
+{
+  "abi": [
+    {
+      "type": "function",
+      "name": "comptroller",
+      "inputs": [],
+      "outputs": [
+        { "name": "", "type": "address", "internalType": "contract ISablierComptroller" }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "computeMerkleExecute",
+      "inputs": [
+        { "name": "campaignCreator", "type": "address", "internalType": "address" },
+        {
+          "name": "campaignParams",
+          "type": "tuple",
+          "internalType": "struct MerkleExecute.ConstructorParams",
+          "components": [
+            { "name": "campaignName", "type": "string", "internalType": "string" },
+            { "name": "campaignStartTime", "type": "uint40", "internalType": "uint40" },
+            { "name": "expiration", "type": "uint40", "internalType": "uint40" },
+            { "name": "initialAdmin", "type": "address", "internalType": "address" },
+            { "name": "ipfsCID", "type": "string", "internalType": "string" },
+            { "name": "merkleRoot", "type": "bytes32", "internalType": "bytes32" },
+            { "name": "selector", "type": "bytes4", "internalType": "bytes4" },
+            { "name": "target", "type": "address", "internalType": "address" },
+            { "name": "token", "type": "address", "internalType": "contract IERC20" }
+          ]
+        }
+      ],
+      "outputs": [{ "name": "merkleExecute", "type": "address", "internalType": "address" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "createMerkleExecute",
+      "inputs": [
+        {
+          "name": "campaignParams",
+          "type": "tuple",
+          "internalType": "struct MerkleExecute.ConstructorParams",
+          "components": [
+            { "name": "campaignName", "type": "string", "internalType": "string" },
+            { "name": "campaignStartTime", "type": "uint40", "internalType": "uint40" },
+            { "name": "expiration", "type": "uint40", "internalType": "uint40" },
+            { "name": "initialAdmin", "type": "address", "internalType": "address" },
+            { "name": "ipfsCID", "type": "string", "internalType": "string" },
+            { "name": "merkleRoot", "type": "bytes32", "internalType": "bytes32" },
+            { "name": "selector", "type": "bytes4", "internalType": "bytes4" },
+            { "name": "target", "type": "address", "internalType": "address" },
+            { "name": "token", "type": "address", "internalType": "contract IERC20" }
+          ]
+        },
+        { "name": "aggregateAmount", "type": "uint256", "internalType": "uint256" },
+        { "name": "recipientCount", "type": "uint256", "internalType": "uint256" }
+      ],
+      "outputs": [
+        {
+          "name": "merkleExecute",
+          "type": "address",
+          "internalType": "contract ISablierMerkleExecute"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "nativeToken",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "setComptroller",
+      "inputs": [
+        {
+          "name": "newComptroller",
+          "type": "address",
+          "internalType": "contract ISablierComptroller"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "setNativeToken",
+      "inputs": [{ "name": "newNativeToken", "type": "address", "internalType": "address" }],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "transferFeesToComptroller",
+      "inputs": [],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "event",
+      "name": "CreateMerkleExecute",
+      "inputs": [
+        {
+          "name": "merkleExecute",
+          "type": "address",
+          "indexed": true,
+          "internalType": "contract ISablierMerkleExecute"
+        },
+        {
+          "name": "campaignParams",
+          "type": "tuple",
+          "indexed": false,
+          "internalType": "struct MerkleExecute.ConstructorParams",
+          "components": [
+            { "name": "campaignName", "type": "string", "internalType": "string" },
+            { "name": "campaignStartTime", "type": "uint40", "internalType": "uint40" },
+            { "name": "expiration", "type": "uint40", "internalType": "uint40" },
+            { "name": "initialAdmin", "type": "address", "internalType": "address" },
+            { "name": "ipfsCID", "type": "string", "internalType": "string" },
+            { "name": "merkleRoot", "type": "bytes32", "internalType": "bytes32" },
+            { "name": "selector", "type": "bytes4", "internalType": "bytes4" },
+            { "name": "target", "type": "address", "internalType": "address" },
+            { "name": "token", "type": "address", "internalType": "contract IERC20" }
+          ]
+        },
+        {
+          "name": "aggregateAmount",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        },
+        {
+          "name": "recipientCount",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        },
+        { "name": "comptroller", "type": "address", "indexed": false, "internalType": "address" },
+        { "name": "minFeeUSD", "type": "uint256", "indexed": false, "internalType": "uint256" }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "SetComptroller",
+      "inputs": [
+        {
+          "name": "oldComptroller",
+          "type": "address",
+          "indexed": false,
+          "internalType": "contract ISablierComptroller"
+        },
+        {
+          "name": "newComptroller",
+          "type": "address",
+          "indexed": false,
+          "internalType": "contract ISablierComptroller"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "SetNativeToken",
+      "inputs": [
+        { "name": "comptroller", "type": "address", "indexed": true, "internalType": "address" },
+        { "name": "nativeToken", "type": "address", "indexed": false, "internalType": "address" }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "TransferFeesToComptroller",
+      "inputs": [
+        { "name": "comptroller", "type": "address", "indexed": true, "internalType": "address" },
+        { "name": "feeAmount", "type": "uint256", "indexed": false, "internalType": "uint256" }
+      ],
+      "anonymous": false
+    }
+  ],
+  "bytecode": { "object": "0x", "sourceMap": "", "linkReferences": {} },
+  "deployedBytecode": { "object": "0x", "sourceMap": "", "linkReferences": {} },
+  "methodIdentifiers": {
+    "comptroller()": "5fe3b567",
+    "computeMerkleExecute(address,(string,uint40,uint40,address,string,bytes32,bytes4,address,address))": "c050adbf",
+    "createMerkleExecute((string,uint40,uint40,address,string,bytes32,bytes4,address,address),uint256,uint256)": "ec6b2956",
+    "nativeToken()": "e1758bd8",
+    "setComptroller(address)": "8bad38dd",
+    "setNativeToken(address)": "6da1e102",
+    "transferFeesToComptroller()": "78f82ce7"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.29+commit.ab55807c\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"contract ISablierMerkleExecute\",\"name\":\"merkleExecute\",\"type\":\"address\"},{\"components\":[{\"internalType\":\"string\",\"name\":\"campaignName\",\"type\":\"string\"},{\"internalType\":\"uint40\",\"name\":\"campaignStartTime\",\"type\":\"uint40\"},{\"internalType\":\"uint40\",\"name\":\"expiration\",\"type\":\"uint40\"},{\"internalType\":\"address\",\"name\":\"initialAdmin\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"ipfsCID\",\"type\":\"string\"},{\"internalType\":\"bytes32\",\"name\":\"merkleRoot\",\"type\":\"bytes32\"},{\"internalType\":\"bytes4\",\"name\":\"selector\",\"type\":\"bytes4\"},{\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"},{\"internalType\":\"contract IERC20\",\"name\":\"token\",\"type\":\"address\"}],\"indexed\":false,\"internalType\":\"struct MerkleExecute.ConstructorParams\",\"name\":\"campaignParams\",\"type\":\"tuple\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"aggregateAmount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"recipientCount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"comptroller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"minFeeUSD\",\"type\":\"uint256\"}],\"name\":\"CreateMerkleExecute\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"contract ISablierComptroller\",\"name\":\"oldComptroller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"contract ISablierComptroller\",\"name\":\"newComptroller\",\"type\":\"address\"}],\"name\":\"SetComptroller\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"comptroller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nativeToken\",\"type\":\"address\"}],\"name\":\"SetNativeToken\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"comptroller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"feeAmount\",\"type\":\"uint256\"}],\"name\":\"TransferFeesToComptroller\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"comptroller\",\"outputs\":[{\"internalType\":\"contract ISablierComptroller\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"campaignCreator\",\"type\":\"address\"},{\"components\":[{\"internalType\":\"string\",\"name\":\"campaignName\",\"type\":\"string\"},{\"internalType\":\"uint40\",\"name\":\"campaignStartTime\",\"type\":\"uint40\"},{\"internalType\":\"uint40\",\"name\":\"expiration\",\"type\":\"uint40\"},{\"internalType\":\"address\",\"name\":\"initialAdmin\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"ipfsCID\",\"type\":\"string\"},{\"internalType\":\"bytes32\",\"name\":\"merkleRoot\",\"type\":\"bytes32\"},{\"internalType\":\"bytes4\",\"name\":\"selector\",\"type\":\"bytes4\"},{\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"},{\"internalType\":\"contract IERC20\",\"name\":\"token\",\"type\":\"address\"}],\"internalType\":\"struct MerkleExecute.ConstructorParams\",\"name\":\"campaignParams\",\"type\":\"tuple\"}],\"name\":\"computeMerkleExecute\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"merkleExecute\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"campaignName\",\"type\":\"string\"},{\"internalType\":\"uint40\",\"name\":\"campaignStartTime\",\"type\":\"uint40\"},{\"internalType\":\"uint40\",\"name\":\"expiration\",\"type\":\"uint40\"},{\"internalType\":\"address\",\"name\":\"initialAdmin\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"ipfsCID\",\"type\":\"string\"},{\"internalType\":\"bytes32\",\"name\":\"merkleRoot\",\"type\":\"bytes32\"},{\"internalType\":\"bytes4\",\"name\":\"selector\",\"type\":\"bytes4\"},{\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"},{\"internalType\":\"contract IERC20\",\"name\":\"token\",\"type\":\"address\"}],\"internalType\":\"struct MerkleExecute.ConstructorParams\",\"name\":\"campaignParams\",\"type\":\"tuple\"},{\"internalType\":\"uint256\",\"name\":\"aggregateAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"recipientCount\",\"type\":\"uint256\"}],\"name\":\"createMerkleExecute\",\"outputs\":[{\"internalType\":\"contract ISablierMerkleExecute\",\"name\":\"merkleExecute\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"nativeToken\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract ISablierComptroller\",\"name\":\"newComptroller\",\"type\":\"address\"}],\"name\":\"setComptroller\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newNativeToken\",\"type\":\"address\"}],\"name\":\"setNativeToken\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"transferFeesToComptroller\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"See the documentation in {ISablierMerkleExecute}.\",\"kind\":\"dev\",\"methods\":{\"computeMerkleExecute(address,(string,uint40,uint40,address,string,bytes32,bytes4,address,address))\":{\"details\":\"Reverts if the requirements from {createMerkleExecute} are not met.\"},\"createMerkleExecute((string,uint40,uint40,address,string,bytes32,bytes4,address,address),uint256,uint256)\":{\"details\":\"Emits a {CreateMerkleExecute} event. Notes: - The contract is created with CREATE2. - The campaign's fee will be set to the min USD fee unless a custom fee is set for `msg.sender`. - A value of zero for `campaignParams.expiration` means the campaign does not expire. - The create function does not validate if the `campaignParams.selector` is a function implemented by the target contract. In that case, the `claimAndExecute` function will revert. - If the target contract does not implement the `campaignParams.selector` but has `fallback`, the `claimAndExecute` call may silently succeed. If fallback does not transfer claim tokens, the claim tokens will be left in the campaign contract. These tokens can be clawbacked by the campaign creator. Requirements: - `campaignParams.token` must not be the forbidden native token. - `campaignParams.target` must be a contract.\",\"params\":{\"aggregateAmount\":\"The total amount of ERC-20 tokens to be distributed to all recipients.\",\"campaignParams\":\"Struct encapsulating the {SablierMerkleExecute} parameters.\",\"recipientCount\":\"The total number of recipient addresses eligible for the airdrop.\"},\"returns\":{\"merkleExecute\":\"The address of the newly created MerkleExecute campaign.\"}},\"nativeToken()\":{\"details\":\"The native tokens on some chains have a dual interface as ERC-20. For example, on Polygon the $POL token is the native token and has an ERC-20 version at 0x0000000000000000000000000000000000001010. This means that `address(this).balance` returns the same value as `balanceOf(address(this))`. To avoid any unintended behavior, these tokens cannot be used in Sablier. As an alternative, users can use the Wrapped version of the token, i.e. WMATIC, which is a standard ERC-20 token.\"},\"setComptroller(address)\":{\"details\":\"Emits a {SetComptroller} event. Requirements: - `msg.sender` must be the current comptroller. - The new comptroller must return `true` from {supportsInterface} with the comptroller's minimal interface ID which is defined as the XOR of the following function selectors: 1. {calculateMinFeeWeiFor} 2. {convertUSDFeeToWei} 3. {execute} 4. {getMinFeeUSDFor}\",\"params\":{\"newComptroller\":\"The address of the new comptroller contract.\"}},\"setNativeToken(address)\":{\"details\":\"For more information, see the documentation for {nativeToken}. Emits a {SetNativeToken} event. Requirements: - `msg.sender` must be the comptroller. - `newNativeToken` must not be zero address. - The native token must not be already set.\",\"params\":{\"newNativeToken\":\"The address of the native token.\"}},\"transferFeesToComptroller()\":{\"details\":\"Emits a {TransferFeesToComptroller} event.\"}},\"title\":\"ISablierFactoryMerkleExecute\",\"version\":1},\"userdoc\":{\"events\":{\"CreateMerkleExecute(address,(string,uint40,uint40,address,string,bytes32,bytes4,address,address),uint256,uint256,address,uint256)\":{\"notice\":\"Emitted when a {SablierMerkleExecute} campaign is created.\"},\"SetComptroller(address,address)\":{\"notice\":\"Emitted when the comptroller address is set by the admin.\"},\"SetNativeToken(address,address)\":{\"notice\":\"Emitted when the native token address is set by the comptroller.\"},\"TransferFeesToComptroller(address,uint256)\":{\"notice\":\"Emitted when the fees are transferred to the comptroller contract.\"}},\"kind\":\"user\",\"methods\":{\"comptroller()\":{\"notice\":\"Retrieves the address of the comptroller contract.\"},\"computeMerkleExecute(address,(string,uint40,uint40,address,string,bytes32,bytes4,address,address))\":{\"notice\":\"Computes the deterministic address where {SablierMerkleExecute} campaign will be deployed.\"},\"createMerkleExecute((string,uint40,uint40,address,string,bytes32,bytes4,address,address),uint256,uint256)\":{\"notice\":\"Creates a new MerkleExecute campaign for claim-and-execute distribution of tokens.\"},\"nativeToken()\":{\"notice\":\"Retrieves the address of the ERC-20 interface of the native token, if it exists.\"},\"setComptroller(address)\":{\"notice\":\"Sets the comptroller to a new address.\"},\"setNativeToken(address)\":{\"notice\":\"Sets the native token address. Once set, it cannot be changed.\"},\"transferFeesToComptroller()\":{\"notice\":\"Transfers the fees to the comptroller contract.\"}},\"notice\":\"A factory that deploys MerkleExecute campaign contracts.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/interfaces/ISablierFactoryMerkleExecute.sol\":\"ISablierFactoryMerkleExecute\"},\"evmVersion\":\"shanghai\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":60000},\"remappings\":[\":@arbitrum/=node_modules/@arbitrum/\",\":@chainlink/=node_modules/@chainlink/\",\":@eth-optimism/=node_modules/@eth-optimism/\",\":@offchainlabs/=node_modules/@offchainlabs/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":@prb/=node_modules/@prb/\",\":@sablier/=node_modules/@sablier/\",\":@scroll-tech/=node_modules/@scroll-tech/\",\":@zksync/=node_modules/@zksync/\",\":forge-std/=node_modules/forge-std/\",\":murky/=node_modules/murky/\",\":openzeppelin-contracts/=node_modules/murky/lib/openzeppelin-contracts/\",\":solady/=node_modules/solady/\"],\"viaIR\":true},\"sources\":{\"node_modules/@openzeppelin/contracts/interfaces/draft-IERC1822.sol\":{\"keccak256\":\"0xc42facb5094f2f35f066a7155bda23545e39a3156faef3ddc00185544443ba7d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d3b36282ab029b46bd082619a308a2ea11c309967b9425b7b7a6eb0b0c1c3196\",\"dweb:/ipfs/QmP2YVfDB2FoREax3vJu7QhDnyYRMw52WPrCD4vdT2kuDA\"]},\"node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0xe06a3f08a987af6ad2e1c1e774405d4fe08f1694b67517438b467cecf0da0ef7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://df6f0c459663c9858b6cba2cda1d14a7d05a985bed6d2de72bd8e78c25ee79db\",\"dweb:/ipfs/QmeTTxZ7qVk9rjEv2R4CpCwdf8UMCcRqDNMvzNxHc3Fnn9\"]},\"node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol\":{\"keccak256\":\"0x79796192ec90263f21b464d5bc90b777a525971d3de8232be80d9c4f9fb353b8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://f6fda447a62815e8064f47eff0dd1cf58d9207ad69b5d32280f8d7ed1d1e4621\",\"dweb:/ipfs/QmfDRc7pxfaXB2Dh9np5Uf29Na3pQ7tafRS684wd3GLjVL\"]},\"node_modules/@sablier/evm-utils/src/interfaces/IAdminable.sol\":{\"keccak256\":\"0x3228d63e9b0b951030c73c42bb071e64f0ff0eadbcbeefad3f29a48366539c26\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://acc90ad2bec0e84349b56611b35b56bfb75a5930fd1babb2bd638fbbb15bd126\",\"dweb:/ipfs/QmSLnHx6bo4BQeBKYferfEhZo1Z4xCXdDF1bzJoHUafHt4\"]},\"node_modules/@sablier/evm-utils/src/interfaces/IComptrollerable.sol\":{\"keccak256\":\"0xdbc32762b87590be38095a84789906fa7a23fd2c2c112859504549ef3be17522\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://14ac13726bb7435ce310dd437a9b58852ca0c35640949e898c803a33a30dee8b\",\"dweb:/ipfs/QmeeKPApvBHbUF3S98qCnB26Aw67KTQF2GFyGQZCxykyMW\"]},\"node_modules/@sablier/evm-utils/src/interfaces/IRoleAdminable.sol\":{\"keccak256\":\"0x391cb4bd4bae01e3efdb84f63635644ed6329b72e8a5105ad53833551e8ba825\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://ccca9da1c044c15cf0b647a4572c05f5d498fb18b3685a85a8836f7110cb1bc4\",\"dweb:/ipfs/QmfAKHqvgKQUgpC6VomTjTkc1tDnsbVJD5bLn8wL8KuTFV\"]},\"node_modules/@sablier/evm-utils/src/interfaces/ISablierComptroller.sol\":{\"keccak256\":\"0x5c52e70a6c083611d4b5518d17d025f70d322ee2c61d81f20f3fe50f4bd824ba\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://5c07b2076065f1c65a59176ada3459be53f78e59a2055d9ae92b226edafa484c\",\"dweb:/ipfs/QmXYRDkBSWUBza1pi439ErzeLoaLUT8Zvj2yWcFZ5F1rgX\"]},\"src/interfaces/ISablierFactoryMerkleBase.sol\":{\"keccak256\":\"0x9f92d9fb4758379e1649a35eec35c0e9b5d1403cac8a9c20403a33ac0de004b8\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://b32cd3982504e7584adae3ca25b927c6fd11d19029f6d5f049a11145aea7dee7\",\"dweb:/ipfs/QmezYhSdiU6ciuosTqMe3kDTFpX8xttgkjayF37j7tUQni\"]},\"src/interfaces/ISablierFactoryMerkleExecute.sol\":{\"keccak256\":\"0x06e42400cad4f22f4cf4c13bd889215f85611713bf4b18cdbd554c2e92c68ce2\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://4f704e5c5c00df88b605ad649b4e7c42ef2649d09c926fd893cd4448ed99c249\",\"dweb:/ipfs/Qmc43jjerCZGUPqNrnvoPfGxKx9QeSdZ57vjawxzMSedvo\"]},\"src/interfaces/ISablierMerkleBase.sol\":{\"keccak256\":\"0xfc4e9b4737765f3f66fb81390154aaff3f21ee63fd21bed441baf553ac090993\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://189aab3a9ddf0e72425cb3b6420129ce971da916967a920c3132e328e546abbb\",\"dweb:/ipfs/QmQZaV1yvBs6MBf5jzgboTYztsVLMi5q3L4JVowyn6Yhrp\"]},\"src/interfaces/ISablierMerkleExecute.sol\":{\"keccak256\":\"0x215a70882f4af2772f9553600453621cf97c2d57115e739d8e9aff3bee82b188\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://496735cd487d58bbbb3d341cac765fe9b04c59df8f8f8b06ff26160450358849\",\"dweb:/ipfs/QmfWVz7NhwUFVJanZszsJPjqYoLnp16cAf6mixDfWvcwvV\"]},\"src/types/MerkleBase.sol\":{\"keccak256\":\"0x33004c31ccf302e5da76dbb8476816db31c2c0984fb9c928c45528bbfdef6397\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://55b26d1a6beda8cb76043d2fde56445910ae3e88e8ab20d2c48678e4456beca3\",\"dweb:/ipfs/QmYrMXbpPcjzJen93uFXiBws7fauseuXZcQ9fpbsNbaGN8\"]},\"src/types/MerkleExecute.sol\":{\"keccak256\":\"0x7bfe686165f373a77841b7549d84dbdc8cd806ba6e02efb81df9106b7b6f03a3\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://146e6d1e9e670384ffea7f09bad4a03d2a9b14aaa9a22c46f9c1c6b12801e0bf\",\"dweb:/ipfs/Qmd8uWTcJw6CZEq67MyHnRV2WF2FHCEoWi6TRdmXXuUfY6\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": { "version": "0.8.29+commit.ab55807c" },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "contract ISablierMerkleExecute",
+              "name": "merkleExecute",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "struct MerkleExecute.ConstructorParams",
+              "name": "campaignParams",
+              "type": "tuple",
+              "components": [
+                { "internalType": "string", "name": "campaignName", "type": "string" },
+                { "internalType": "uint40", "name": "campaignStartTime", "type": "uint40" },
+                { "internalType": "uint40", "name": "expiration", "type": "uint40" },
+                { "internalType": "address", "name": "initialAdmin", "type": "address" },
+                { "internalType": "string", "name": "ipfsCID", "type": "string" },
+                { "internalType": "bytes32", "name": "merkleRoot", "type": "bytes32" },
+                { "internalType": "bytes4", "name": "selector", "type": "bytes4" },
+                { "internalType": "address", "name": "target", "type": "address" },
+                { "internalType": "contract IERC20", "name": "token", "type": "address" }
+              ],
+              "indexed": false
+            },
+            {
+              "internalType": "uint256",
+              "name": "aggregateAmount",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "uint256",
+              "name": "recipientCount",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "address",
+              "name": "comptroller",
+              "type": "address",
+              "indexed": false
+            },
+            { "internalType": "uint256", "name": "minFeeUSD", "type": "uint256", "indexed": false }
+          ],
+          "type": "event",
+          "name": "CreateMerkleExecute",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "contract ISablierComptroller",
+              "name": "oldComptroller",
+              "type": "address",
+              "indexed": false
+            },
+            {
+              "internalType": "contract ISablierComptroller",
+              "name": "newComptroller",
+              "type": "address",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "SetComptroller",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "comptroller",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "address",
+              "name": "nativeToken",
+              "type": "address",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "SetNativeToken",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "comptroller",
+              "type": "address",
+              "indexed": true
+            },
+            { "internalType": "uint256", "name": "feeAmount", "type": "uint256", "indexed": false }
+          ],
+          "type": "event",
+          "name": "TransferFeesToComptroller",
+          "anonymous": false
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "comptroller",
+          "outputs": [
+            { "internalType": "contract ISablierComptroller", "name": "", "type": "address" }
+          ]
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "campaignCreator", "type": "address" },
+            {
+              "internalType": "struct MerkleExecute.ConstructorParams",
+              "name": "campaignParams",
+              "type": "tuple",
+              "components": [
+                { "internalType": "string", "name": "campaignName", "type": "string" },
+                { "internalType": "uint40", "name": "campaignStartTime", "type": "uint40" },
+                { "internalType": "uint40", "name": "expiration", "type": "uint40" },
+                { "internalType": "address", "name": "initialAdmin", "type": "address" },
+                { "internalType": "string", "name": "ipfsCID", "type": "string" },
+                { "internalType": "bytes32", "name": "merkleRoot", "type": "bytes32" },
+                { "internalType": "bytes4", "name": "selector", "type": "bytes4" },
+                { "internalType": "address", "name": "target", "type": "address" },
+                { "internalType": "contract IERC20", "name": "token", "type": "address" }
+              ]
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "computeMerkleExecute",
+          "outputs": [{ "internalType": "address", "name": "merkleExecute", "type": "address" }]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "struct MerkleExecute.ConstructorParams",
+              "name": "campaignParams",
+              "type": "tuple",
+              "components": [
+                { "internalType": "string", "name": "campaignName", "type": "string" },
+                { "internalType": "uint40", "name": "campaignStartTime", "type": "uint40" },
+                { "internalType": "uint40", "name": "expiration", "type": "uint40" },
+                { "internalType": "address", "name": "initialAdmin", "type": "address" },
+                { "internalType": "string", "name": "ipfsCID", "type": "string" },
+                { "internalType": "bytes32", "name": "merkleRoot", "type": "bytes32" },
+                { "internalType": "bytes4", "name": "selector", "type": "bytes4" },
+                { "internalType": "address", "name": "target", "type": "address" },
+                { "internalType": "contract IERC20", "name": "token", "type": "address" }
+              ]
+            },
+            { "internalType": "uint256", "name": "aggregateAmount", "type": "uint256" },
+            { "internalType": "uint256", "name": "recipientCount", "type": "uint256" }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "createMerkleExecute",
+          "outputs": [
+            {
+              "internalType": "contract ISablierMerkleExecute",
+              "name": "merkleExecute",
+              "type": "address"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "nativeToken",
+          "outputs": [{ "internalType": "address", "name": "", "type": "address" }]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "contract ISablierComptroller",
+              "name": "newComptroller",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "setComptroller"
+        },
+        {
+          "inputs": [{ "internalType": "address", "name": "newNativeToken", "type": "address" }],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "setNativeToken"
+        },
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "transferFeesToComptroller"
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "computeMerkleExecute(address,(string,uint40,uint40,address,string,bytes32,bytes4,address,address))": {
+            "details": "Reverts if the requirements from {createMerkleExecute} are not met."
+          },
+          "createMerkleExecute((string,uint40,uint40,address,string,bytes32,bytes4,address,address),uint256,uint256)": {
+            "details": "Emits a {CreateMerkleExecute} event. Notes: - The contract is created with CREATE2. - The campaign's fee will be set to the min USD fee unless a custom fee is set for `msg.sender`. - A value of zero for `campaignParams.expiration` means the campaign does not expire. - The create function does not validate if the `campaignParams.selector` is a function implemented by the target contract. In that case, the `claimAndExecute` function will revert. - If the target contract does not implement the `campaignParams.selector` but has `fallback`, the `claimAndExecute` call may silently succeed. If fallback does not transfer claim tokens, the claim tokens will be left in the campaign contract. These tokens can be clawbacked by the campaign creator. Requirements: - `campaignParams.token` must not be the forbidden native token. - `campaignParams.target` must be a contract.",
+            "params": {
+              "aggregateAmount": "The total amount of ERC-20 tokens to be distributed to all recipients.",
+              "campaignParams": "Struct encapsulating the {SablierMerkleExecute} parameters.",
+              "recipientCount": "The total number of recipient addresses eligible for the airdrop."
+            },
+            "returns": {
+              "merkleExecute": "The address of the newly created MerkleExecute campaign."
+            }
+          },
+          "nativeToken()": {
+            "details": "The native tokens on some chains have a dual interface as ERC-20. For example, on Polygon the $POL token is the native token and has an ERC-20 version at 0x0000000000000000000000000000000000001010. This means that `address(this).balance` returns the same value as `balanceOf(address(this))`. To avoid any unintended behavior, these tokens cannot be used in Sablier. As an alternative, users can use the Wrapped version of the token, i.e. WMATIC, which is a standard ERC-20 token."
+          },
+          "setComptroller(address)": {
+            "details": "Emits a {SetComptroller} event. Requirements: - `msg.sender` must be the current comptroller. - The new comptroller must return `true` from {supportsInterface} with the comptroller's minimal interface ID which is defined as the XOR of the following function selectors: 1. {calculateMinFeeWeiFor} 2. {convertUSDFeeToWei} 3. {execute} 4. {getMinFeeUSDFor}",
+            "params": { "newComptroller": "The address of the new comptroller contract." }
+          },
+          "setNativeToken(address)": {
+            "details": "For more information, see the documentation for {nativeToken}. Emits a {SetNativeToken} event. Requirements: - `msg.sender` must be the comptroller. - `newNativeToken` must not be zero address. - The native token must not be already set.",
+            "params": { "newNativeToken": "The address of the native token." }
+          },
+          "transferFeesToComptroller()": { "details": "Emits a {TransferFeesToComptroller} event." }
+        },
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "comptroller()": { "notice": "Retrieves the address of the comptroller contract." },
+          "computeMerkleExecute(address,(string,uint40,uint40,address,string,bytes32,bytes4,address,address))": {
+            "notice": "Computes the deterministic address where {SablierMerkleExecute} campaign will be deployed."
+          },
+          "createMerkleExecute((string,uint40,uint40,address,string,bytes32,bytes4,address,address),uint256,uint256)": {
+            "notice": "Creates a new MerkleExecute campaign for claim-and-execute distribution of tokens."
+          },
+          "nativeToken()": {
+            "notice": "Retrieves the address of the ERC-20 interface of the native token, if it exists."
+          },
+          "setComptroller(address)": { "notice": "Sets the comptroller to a new address." },
+          "setNativeToken(address)": {
+            "notice": "Sets the native token address. Once set, it cannot be changed."
+          },
+          "transferFeesToComptroller()": {
+            "notice": "Transfers the fees to the comptroller contract."
+          }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        "@arbitrum/=node_modules/@arbitrum/",
+        "@chainlink/=node_modules/@chainlink/",
+        "@eth-optimism/=node_modules/@eth-optimism/",
+        "@offchainlabs/=node_modules/@offchainlabs/",
+        "@openzeppelin/=node_modules/@openzeppelin/",
+        "@prb/=node_modules/@prb/",
+        "@sablier/=node_modules/@sablier/",
+        "@scroll-tech/=node_modules/@scroll-tech/",
+        "@zksync/=node_modules/@zksync/",
+        "forge-std/=node_modules/forge-std/",
+        "murky/=node_modules/murky/",
+        "openzeppelin-contracts/=node_modules/murky/lib/openzeppelin-contracts/",
+        "solady/=node_modules/solady/"
+      ],
+      "optimizer": { "enabled": true, "runs": 60000 },
+      "metadata": { "bytecodeHash": "ipfs" },
+      "compilationTarget": {
+        "src/interfaces/ISablierFactoryMerkleExecute.sol": "ISablierFactoryMerkleExecute"
+      },
+      "evmVersion": "shanghai",
+      "libraries": {},
+      "viaIR": true
+    },
+    "sources": {
+      "node_modules/@openzeppelin/contracts/interfaces/draft-IERC1822.sol": {
+        "keccak256": "0xc42facb5094f2f35f066a7155bda23545e39a3156faef3ddc00185544443ba7d",
+        "urls": [
+          "bzz-raw://d3b36282ab029b46bd082619a308a2ea11c309967b9425b7b7a6eb0b0c1c3196",
+          "dweb:/ipfs/QmP2YVfDB2FoREax3vJu7QhDnyYRMw52WPrCD4vdT2kuDA"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+        "keccak256": "0xe06a3f08a987af6ad2e1c1e774405d4fe08f1694b67517438b467cecf0da0ef7",
+        "urls": [
+          "bzz-raw://df6f0c459663c9858b6cba2cda1d14a7d05a985bed6d2de72bd8e78c25ee79db",
+          "dweb:/ipfs/QmeTTxZ7qVk9rjEv2R4CpCwdf8UMCcRqDNMvzNxHc3Fnn9"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol": {
+        "keccak256": "0x79796192ec90263f21b464d5bc90b777a525971d3de8232be80d9c4f9fb353b8",
+        "urls": [
+          "bzz-raw://f6fda447a62815e8064f47eff0dd1cf58d9207ad69b5d32280f8d7ed1d1e4621",
+          "dweb:/ipfs/QmfDRc7pxfaXB2Dh9np5Uf29Na3pQ7tafRS684wd3GLjVL"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@sablier/evm-utils/src/interfaces/IAdminable.sol": {
+        "keccak256": "0x3228d63e9b0b951030c73c42bb071e64f0ff0eadbcbeefad3f29a48366539c26",
+        "urls": [
+          "bzz-raw://acc90ad2bec0e84349b56611b35b56bfb75a5930fd1babb2bd638fbbb15bd126",
+          "dweb:/ipfs/QmSLnHx6bo4BQeBKYferfEhZo1Z4xCXdDF1bzJoHUafHt4"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "node_modules/@sablier/evm-utils/src/interfaces/IComptrollerable.sol": {
+        "keccak256": "0xdbc32762b87590be38095a84789906fa7a23fd2c2c112859504549ef3be17522",
+        "urls": [
+          "bzz-raw://14ac13726bb7435ce310dd437a9b58852ca0c35640949e898c803a33a30dee8b",
+          "dweb:/ipfs/QmeeKPApvBHbUF3S98qCnB26Aw67KTQF2GFyGQZCxykyMW"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "node_modules/@sablier/evm-utils/src/interfaces/IRoleAdminable.sol": {
+        "keccak256": "0x391cb4bd4bae01e3efdb84f63635644ed6329b72e8a5105ad53833551e8ba825",
+        "urls": [
+          "bzz-raw://ccca9da1c044c15cf0b647a4572c05f5d498fb18b3685a85a8836f7110cb1bc4",
+          "dweb:/ipfs/QmfAKHqvgKQUgpC6VomTjTkc1tDnsbVJD5bLn8wL8KuTFV"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "node_modules/@sablier/evm-utils/src/interfaces/ISablierComptroller.sol": {
+        "keccak256": "0x5c52e70a6c083611d4b5518d17d025f70d322ee2c61d81f20f3fe50f4bd824ba",
+        "urls": [
+          "bzz-raw://5c07b2076065f1c65a59176ada3459be53f78e59a2055d9ae92b226edafa484c",
+          "dweb:/ipfs/QmXYRDkBSWUBza1pi439ErzeLoaLUT8Zvj2yWcFZ5F1rgX"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "src/interfaces/ISablierFactoryMerkleBase.sol": {
+        "keccak256": "0x9f92d9fb4758379e1649a35eec35c0e9b5d1403cac8a9c20403a33ac0de004b8",
+        "urls": [
+          "bzz-raw://b32cd3982504e7584adae3ca25b927c6fd11d19029f6d5f049a11145aea7dee7",
+          "dweb:/ipfs/QmezYhSdiU6ciuosTqMe3kDTFpX8xttgkjayF37j7tUQni"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "src/interfaces/ISablierFactoryMerkleExecute.sol": {
+        "keccak256": "0x06e42400cad4f22f4cf4c13bd889215f85611713bf4b18cdbd554c2e92c68ce2",
+        "urls": [
+          "bzz-raw://4f704e5c5c00df88b605ad649b4e7c42ef2649d09c926fd893cd4448ed99c249",
+          "dweb:/ipfs/Qmc43jjerCZGUPqNrnvoPfGxKx9QeSdZ57vjawxzMSedvo"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "src/interfaces/ISablierMerkleBase.sol": {
+        "keccak256": "0xfc4e9b4737765f3f66fb81390154aaff3f21ee63fd21bed441baf553ac090993",
+        "urls": [
+          "bzz-raw://189aab3a9ddf0e72425cb3b6420129ce971da916967a920c3132e328e546abbb",
+          "dweb:/ipfs/QmQZaV1yvBs6MBf5jzgboTYztsVLMi5q3L4JVowyn6Yhrp"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "src/interfaces/ISablierMerkleExecute.sol": {
+        "keccak256": "0x215a70882f4af2772f9553600453621cf97c2d57115e739d8e9aff3bee82b188",
+        "urls": [
+          "bzz-raw://496735cd487d58bbbb3d341cac765fe9b04c59df8f8f8b06ff26160450358849",
+          "dweb:/ipfs/QmfWVz7NhwUFVJanZszsJPjqYoLnp16cAf6mixDfWvcwvV"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "src/types/MerkleBase.sol": {
+        "keccak256": "0x33004c31ccf302e5da76dbb8476816db31c2c0984fb9c928c45528bbfdef6397",
+        "urls": [
+          "bzz-raw://55b26d1a6beda8cb76043d2fde56445910ae3e88e8ab20d2c48678e4456beca3",
+          "dweb:/ipfs/QmYrMXbpPcjzJen93uFXiBws7fauseuXZcQ9fpbsNbaGN8"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "src/types/MerkleExecute.sol": {
+        "keccak256": "0x7bfe686165f373a77841b7549d84dbdc8cd806ba6e02efb81df9106b7b6f03a3",
+        "urls": [
+          "bzz-raw://146e6d1e9e670384ffea7f09bad4a03d2a9b14aaa9a22c46f9c1c6b12801e0bf",
+          "dweb:/ipfs/Qmd8uWTcJw6CZEq67MyHnRV2WF2FHCEoWi6TRdmXXuUfY6"
+        ],
+        "license": "GPL-3.0-or-later"
+      }
+    },
+    "version": 1
+  },
+  "id": 110
+}

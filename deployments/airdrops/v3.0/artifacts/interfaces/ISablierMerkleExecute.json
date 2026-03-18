@@ -1,0 +1,668 @@
+{
+  "abi": [
+    {
+      "type": "function",
+      "name": "CAMPAIGN_START_TIME",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "uint40", "internalType": "uint40" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "CLAIM_TYPE",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "uint8", "internalType": "enum ClaimType" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "COMPTROLLER",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "EXPIRATION",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "uint40", "internalType": "uint40" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "IS_SABLIER_MERKLE",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "bool", "internalType": "bool" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "MERKLE_ROOT",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "bytes32", "internalType": "bytes32" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "SELECTOR",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "bytes4", "internalType": "bytes4" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "TARGET",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "TOKEN",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "address", "internalType": "contract IERC20" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "admin",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "calculateMinFeeWei",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "campaignName",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "string", "internalType": "string" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "claimAndExecute",
+      "inputs": [
+        { "name": "index", "type": "uint256", "internalType": "uint256" },
+        { "name": "amount", "type": "uint128", "internalType": "uint128" },
+        { "name": "merkleProof", "type": "bytes32[]", "internalType": "bytes32[]" },
+        { "name": "selectorArguments", "type": "bytes", "internalType": "bytes" }
+      ],
+      "outputs": [],
+      "stateMutability": "payable"
+    },
+    {
+      "type": "function",
+      "name": "clawback",
+      "inputs": [
+        { "name": "to", "type": "address", "internalType": "address" },
+        { "name": "amount", "type": "uint128", "internalType": "uint128" }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "firstClaimTime",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "uint40", "internalType": "uint40" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "hasClaimed",
+      "inputs": [{ "name": "index", "type": "uint256", "internalType": "uint256" }],
+      "outputs": [{ "name": "", "type": "bool", "internalType": "bool" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "hasExpired",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "bool", "internalType": "bool" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "ipfsCID",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "string", "internalType": "string" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "lowerMinFeeUSD",
+      "inputs": [{ "name": "newMinFeeUSD", "type": "uint256", "internalType": "uint256" }],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "minFeeUSD",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "sponsor",
+      "inputs": [
+        { "name": "token", "type": "address", "internalType": "contract IERC20" },
+        { "name": "amount", "type": "uint128", "internalType": "uint128" },
+        { "name": "biller", "type": "address", "internalType": "address" }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "transferAdmin",
+      "inputs": [{ "name": "newAdmin", "type": "address", "internalType": "address" }],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "event",
+      "name": "ClaimExecute",
+      "inputs": [
+        { "name": "index", "type": "uint256", "indexed": false, "internalType": "uint256" },
+        { "name": "recipient", "type": "address", "indexed": true, "internalType": "address" },
+        { "name": "amount", "type": "uint128", "indexed": false, "internalType": "uint128" },
+        { "name": "target", "type": "address", "indexed": true, "internalType": "address" }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "Clawback",
+      "inputs": [
+        { "name": "admin", "type": "address", "indexed": true, "internalType": "address" },
+        { "name": "to", "type": "address", "indexed": true, "internalType": "address" },
+        { "name": "amount", "type": "uint128", "indexed": false, "internalType": "uint128" }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "LowerMinFeeUSD",
+      "inputs": [
+        { "name": "comptroller", "type": "address", "indexed": true, "internalType": "address" },
+        { "name": "newMinFeeUSD", "type": "uint256", "indexed": false, "internalType": "uint256" },
+        {
+          "name": "previousMinFeeUSD",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "Sponsor",
+      "inputs": [
+        { "name": "caller", "type": "address", "indexed": true, "internalType": "address" },
+        { "name": "token", "type": "address", "indexed": true, "internalType": "contract IERC20" },
+        { "name": "amount", "type": "uint128", "indexed": false, "internalType": "uint128" },
+        { "name": "biller", "type": "address", "indexed": true, "internalType": "address" }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "TransferAdmin",
+      "inputs": [
+        { "name": "oldAdmin", "type": "address", "indexed": true, "internalType": "address" },
+        { "name": "newAdmin", "type": "address", "indexed": true, "internalType": "address" }
+      ],
+      "anonymous": false
+    }
+  ],
+  "bytecode": { "object": "0x", "sourceMap": "", "linkReferences": {} },
+  "deployedBytecode": { "object": "0x", "sourceMap": "", "linkReferences": {} },
+  "methodIdentifiers": {
+    "CAMPAIGN_START_TIME()": "7ca3944d",
+    "CLAIM_TYPE()": "eb8cd775",
+    "COMPTROLLER()": "5f82c67e",
+    "EXPIRATION()": "bb4b5734",
+    "IS_SABLIER_MERKLE()": "7423649b",
+    "MERKLE_ROOT()": "51e75e8b",
+    "SELECTOR()": "053c238d",
+    "TARGET()": "cc1f2afa",
+    "TOKEN()": "82bfefc8",
+    "admin()": "f851a440",
+    "calculateMinFeeWei()": "3a12a5bc",
+    "campaignName()": "0724fda9",
+    "claimAndExecute(uint256,uint128,bytes32[],bytes)": "d6df6ea0",
+    "clawback(address,uint128)": "1686c909",
+    "firstClaimTime()": "82d72f7f",
+    "hasClaimed(uint256)": "ce516507",
+    "hasExpired()": "90e64d13",
+    "ipfsCID()": "49fc73dd",
+    "lowerMinFeeUSD(uint256)": "8ec68869",
+    "minFeeUSD()": "4e0bb8cc",
+    "sponsor(address,uint128,address)": "2481a13a",
+    "transferAdmin(address)": "75829def"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.29+commit.ab55807c\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint128\",\"name\":\"amount\",\"type\":\"uint128\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"}],\"name\":\"ClaimExecute\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint128\",\"name\":\"amount\",\"type\":\"uint128\"}],\"name\":\"Clawback\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"comptroller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"newMinFeeUSD\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"previousMinFeeUSD\",\"type\":\"uint256\"}],\"name\":\"LowerMinFeeUSD\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"caller\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"contract IERC20\",\"name\":\"token\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint128\",\"name\":\"amount\",\"type\":\"uint128\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"biller\",\"type\":\"address\"}],\"name\":\"Sponsor\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"oldAdmin\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newAdmin\",\"type\":\"address\"}],\"name\":\"TransferAdmin\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"CAMPAIGN_START_TIME\",\"outputs\":[{\"internalType\":\"uint40\",\"name\":\"\",\"type\":\"uint40\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"CLAIM_TYPE\",\"outputs\":[{\"internalType\":\"enum ClaimType\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"COMPTROLLER\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"EXPIRATION\",\"outputs\":[{\"internalType\":\"uint40\",\"name\":\"\",\"type\":\"uint40\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"IS_SABLIER_MERKLE\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"MERKLE_ROOT\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"SELECTOR\",\"outputs\":[{\"internalType\":\"bytes4\",\"name\":\"\",\"type\":\"bytes4\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"TARGET\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"TOKEN\",\"outputs\":[{\"internalType\":\"contract IERC20\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"admin\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"calculateMinFeeWei\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"campaignName\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"},{\"internalType\":\"uint128\",\"name\":\"amount\",\"type\":\"uint128\"},{\"internalType\":\"bytes32[]\",\"name\":\"merkleProof\",\"type\":\"bytes32[]\"},{\"internalType\":\"bytes\",\"name\":\"selectorArguments\",\"type\":\"bytes\"}],\"name\":\"claimAndExecute\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint128\",\"name\":\"amount\",\"type\":\"uint128\"}],\"name\":\"clawback\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"firstClaimTime\",\"outputs\":[{\"internalType\":\"uint40\",\"name\":\"\",\"type\":\"uint40\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"hasClaimed\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"hasExpired\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ipfsCID\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"newMinFeeUSD\",\"type\":\"uint256\"}],\"name\":\"lowerMinFeeUSD\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"minFeeUSD\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract IERC20\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint128\",\"name\":\"amount\",\"type\":\"uint128\"},{\"internalType\":\"address\",\"name\":\"biller\",\"type\":\"address\"}],\"name\":\"sponsor\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newAdmin\",\"type\":\"address\"}],\"name\":\"transferAdmin\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"events\":{\"TransferAdmin(address,address)\":{\"params\":{\"newAdmin\":\"The address of the new admin.\",\"oldAdmin\":\"The address of the old admin.\"}}},\"kind\":\"dev\",\"methods\":{\"CAMPAIGN_START_TIME()\":{\"details\":\"This is an immutable state variable.\"},\"CLAIM_TYPE()\":{\"details\":\"This is an immutable state variable.\"},\"EXPIRATION()\":{\"details\":\"This is an immutable state variable.\"},\"IS_SABLIER_MERKLE()\":{\"details\":\"This is a constant state variable.\"},\"MERKLE_ROOT()\":{\"details\":\"This is an immutable state variable.\"},\"SELECTOR()\":{\"details\":\"This is an immutable state variable.\"},\"TARGET()\":{\"details\":\"This is an immutable state variable.\"},\"TOKEN()\":{\"details\":\"This is an immutable state variable.\"},\"claimAndExecute(uint256,uint128,bytes32[],bytes)\":{\"details\":\"It emits a {ClaimExecute} event. Notes: - The function approves the exact claim amount to the {TARGET}, executes the call, then revokes the approval. - The function does not forward native tokens to the target contract, so calls to targets that require a native token payment will revert. Requirements: - The current time must be greater than or equal to the campaign start time. - The campaign must not have expired. - `msg.value` must not be less than the value returned by {COMPTROLLER.calculateMinFeeWei}. - The `index` must not be claimed already. - The Merkle proof must be valid. - `msg.sender` must be the airdrop recipient. - The external call to the target contract must succeed. - The target contract must transfer the entire claim amount from the campaign.\",\"params\":{\"amount\":\"The amount of ERC-20 tokens allocated to `msg.sender`.\",\"index\":\"The index of `msg.sender` in the Merkle tree.\",\"merkleProof\":\"The proof of inclusion in the Merkle tree.\",\"selectorArguments\":\"The function ABI-encoded arguments for {SELECTOR}.\"}},\"clawback(address,uint128)\":{\"details\":\"Emits a {Clawback} event. Requirements: - `msg.sender` must be the admin. - No claim must be made, OR   The current timestamp must not exceed 7 days after the first claim, OR   The campaign must be expired.\",\"params\":{\"amount\":\"The amount of tokens to claw back.\",\"to\":\"The address to receive the tokens.\"}},\"hasClaimed(uint256)\":{\"details\":\"Uses a bitmap to save gas.\",\"params\":{\"index\":\"The index of the recipient to check.\"}},\"ipfsCID()\":{\"details\":\"An empty value may break certain UI features that depend upon the IPFS CID.\"},\"lowerMinFeeUSD(uint256)\":{\"details\":\"Emits a {LowerMinFeeUSD} event. Requirements: - `msg.sender` must be the comptroller. - The new fee must be less than the current {minFeeUSD}.\",\"params\":{\"newMinFeeUSD\":\"The new min USD fee to set, denominated in 8 decimals.\"}},\"minFeeUSD()\":{\"details\":\"The denomination is based on Chainlink's 8-decimal format for USD prices, where 1e8 is $1.\"},\"sponsor(address,uint128,address)\":{\"details\":\"Emits a {Sponsor} event. Notes: - This function only makes the payment. The claim fees are updated only after the payment has been verified off-chain. - Refer to the Sablier website in order to sponsor with the correct token, otherwise the sponsorship may be ignored. Requirements: - `biller` must not be the zero address. - `amount` must be greater than zero. - `token` must not be the zero address and must be a valid ERC20 token. - `msg.sender` must have approved the contract to spend the tokens.\",\"params\":{\"amount\":\"The amount of tokens to transfer.\",\"biller\":\"The address to receive the tokens.\",\"token\":\"The ERC-20 token to transfer.\"}},\"transferAdmin(address)\":{\"details\":\"Notes: - Does not revert if the admin is the same. - This function can potentially leave the contract without an admin, thereby removing any functionality that is only available to the admin. Requirements: - `msg.sender` must be the contract admin.\",\"params\":{\"newAdmin\":\"The address of the new admin.\"}}},\"title\":\"ISablierMerkleExecute\",\"version\":1},\"userdoc\":{\"events\":{\"ClaimExecute(uint256,address,uint128,address)\":{\"notice\":\"Emitted when a claim is executed on behalf of an eligible recipient.\"},\"Clawback(address,address,uint128)\":{\"notice\":\"Emitted when the admin claws back the unclaimed tokens.\"},\"LowerMinFeeUSD(address,uint256,uint256)\":{\"notice\":\"Emitted when the min USD fee is lowered by the comptroller.\"},\"Sponsor(address,address,uint128,address)\":{\"notice\":\"Emitted when campaign owner sponsors the claim fees for eligible recipients.\"},\"TransferAdmin(address,address)\":{\"notice\":\"Emitted when the admin is transferred.\"}},\"kind\":\"user\",\"methods\":{\"CAMPAIGN_START_TIME()\":{\"notice\":\"The timestamp at which campaign starts and claim begins.\"},\"CLAIM_TYPE()\":{\"notice\":\"Retrieves the claim type supported by the campaign.\"},\"COMPTROLLER()\":{\"notice\":\"Retrieves the address of the comptroller contract.\"},\"EXPIRATION()\":{\"notice\":\"The cut-off point for the campaign, as a Unix timestamp. A value of zero means there is no expiration.\"},\"IS_SABLIER_MERKLE()\":{\"notice\":\"Returns `true` indicating that this campaign contract is deployed using the Sablier Factory.\"},\"MERKLE_ROOT()\":{\"notice\":\"The root of the Merkle tree used to validate the proofs of inclusion.\"},\"SELECTOR()\":{\"notice\":\"The function selector to call on the target contract.\"},\"TARGET()\":{\"notice\":\"The address of the target contract to call with the claim amount.\"},\"TOKEN()\":{\"notice\":\"The ERC-20 token to distribute.\"},\"admin()\":{\"notice\":\"The address of the admin account or contract.\"},\"calculateMinFeeWei()\":{\"notice\":\"Calculates the minimum fee in wei required to claim the airdrop.\"},\"campaignName()\":{\"notice\":\"Retrieves the name of the campaign.\"},\"claimAndExecute(uint256,uint128,bytes32[],bytes)\":{\"notice\":\"Claim airdrop and execute the call to the target contract.\"},\"clawback(address,uint128)\":{\"notice\":\"Claws back the unclaimed tokens.\"},\"firstClaimTime()\":{\"notice\":\"Retrieves the timestamp when the first claim is made, and zero if no claim was made yet.\"},\"hasClaimed(uint256)\":{\"notice\":\"Returns a flag indicating whether a claim has been made for a given index.\"},\"hasExpired()\":{\"notice\":\"Returns a flag indicating whether the campaign has expired.\"},\"ipfsCID()\":{\"notice\":\"The content identifier for indexing the campaign on IPFS.\"},\"lowerMinFeeUSD(uint256)\":{\"notice\":\"Lowers the min USD fee.\"},\"minFeeUSD()\":{\"notice\":\"Retrieves the min USD fee required to claim the airdrop, denominated in 8 decimals.\"},\"sponsor(address,uint128,address)\":{\"notice\":\"Sponsors the claim fees for eligible recipients.\"},\"transferAdmin(address)\":{\"notice\":\"Transfers the contract admin to a new address.\"}},\"notice\":\"MerkleExecute enables an airdrop distribution model where eligible users claim tokens and immediately execute a call on a target contract (useful for staking, lending pool deposits). This is achieved by approving the target contract to spend user's tokens, followed by a call using the stored function selector combined with user-provided arguments.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/interfaces/ISablierMerkleExecute.sol\":\"ISablierMerkleExecute\"},\"evmVersion\":\"shanghai\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":60000},\"remappings\":[\":@arbitrum/=node_modules/@arbitrum/\",\":@chainlink/=node_modules/@chainlink/\",\":@eth-optimism/=node_modules/@eth-optimism/\",\":@offchainlabs/=node_modules/@offchainlabs/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":@prb/=node_modules/@prb/\",\":@sablier/=node_modules/@sablier/\",\":@scroll-tech/=node_modules/@scroll-tech/\",\":@zksync/=node_modules/@zksync/\",\":forge-std/=node_modules/forge-std/\",\":murky/=node_modules/murky/\",\":openzeppelin-contracts/=node_modules/murky/lib/openzeppelin-contracts/\",\":solady/=node_modules/solady/\"],\"viaIR\":true},\"sources\":{\"node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0xe06a3f08a987af6ad2e1c1e774405d4fe08f1694b67517438b467cecf0da0ef7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://df6f0c459663c9858b6cba2cda1d14a7d05a985bed6d2de72bd8e78c25ee79db\",\"dweb:/ipfs/QmeTTxZ7qVk9rjEv2R4CpCwdf8UMCcRqDNMvzNxHc3Fnn9\"]},\"node_modules/@sablier/evm-utils/src/interfaces/IAdminable.sol\":{\"keccak256\":\"0x3228d63e9b0b951030c73c42bb071e64f0ff0eadbcbeefad3f29a48366539c26\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://acc90ad2bec0e84349b56611b35b56bfb75a5930fd1babb2bd638fbbb15bd126\",\"dweb:/ipfs/QmSLnHx6bo4BQeBKYferfEhZo1Z4xCXdDF1bzJoHUafHt4\"]},\"src/interfaces/ISablierMerkleBase.sol\":{\"keccak256\":\"0xfc4e9b4737765f3f66fb81390154aaff3f21ee63fd21bed441baf553ac090993\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://189aab3a9ddf0e72425cb3b6420129ce971da916967a920c3132e328e546abbb\",\"dweb:/ipfs/QmQZaV1yvBs6MBf5jzgboTYztsVLMi5q3L4JVowyn6Yhrp\"]},\"src/interfaces/ISablierMerkleExecute.sol\":{\"keccak256\":\"0x215a70882f4af2772f9553600453621cf97c2d57115e739d8e9aff3bee82b188\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://496735cd487d58bbbb3d341cac765fe9b04c59df8f8f8b06ff26160450358849\",\"dweb:/ipfs/QmfWVz7NhwUFVJanZszsJPjqYoLnp16cAf6mixDfWvcwvV\"]},\"src/types/MerkleBase.sol\":{\"keccak256\":\"0x33004c31ccf302e5da76dbb8476816db31c2c0984fb9c928c45528bbfdef6397\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://55b26d1a6beda8cb76043d2fde56445910ae3e88e8ab20d2c48678e4456beca3\",\"dweb:/ipfs/QmYrMXbpPcjzJen93uFXiBws7fauseuXZcQ9fpbsNbaGN8\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": { "version": "0.8.29+commit.ab55807c" },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            { "internalType": "uint256", "name": "index", "type": "uint256", "indexed": false },
+            { "internalType": "address", "name": "recipient", "type": "address", "indexed": true },
+            { "internalType": "uint128", "name": "amount", "type": "uint128", "indexed": false },
+            { "internalType": "address", "name": "target", "type": "address", "indexed": true }
+          ],
+          "type": "event",
+          "name": "ClaimExecute",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "admin", "type": "address", "indexed": true },
+            { "internalType": "address", "name": "to", "type": "address", "indexed": true },
+            { "internalType": "uint128", "name": "amount", "type": "uint128", "indexed": false }
+          ],
+          "type": "event",
+          "name": "Clawback",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "comptroller",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "uint256",
+              "name": "newMinFeeUSD",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "uint256",
+              "name": "previousMinFeeUSD",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "LowerMinFeeUSD",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "caller", "type": "address", "indexed": true },
+            {
+              "internalType": "contract IERC20",
+              "name": "token",
+              "type": "address",
+              "indexed": true
+            },
+            { "internalType": "uint128", "name": "amount", "type": "uint128", "indexed": false },
+            { "internalType": "address", "name": "biller", "type": "address", "indexed": true }
+          ],
+          "type": "event",
+          "name": "Sponsor",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "oldAdmin", "type": "address", "indexed": true },
+            { "internalType": "address", "name": "newAdmin", "type": "address", "indexed": true }
+          ],
+          "type": "event",
+          "name": "TransferAdmin",
+          "anonymous": false
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "CAMPAIGN_START_TIME",
+          "outputs": [{ "internalType": "uint40", "name": "", "type": "uint40" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "CLAIM_TYPE",
+          "outputs": [{ "internalType": "enum ClaimType", "name": "", "type": "uint8" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "COMPTROLLER",
+          "outputs": [{ "internalType": "address", "name": "", "type": "address" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "EXPIRATION",
+          "outputs": [{ "internalType": "uint40", "name": "", "type": "uint40" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "IS_SABLIER_MERKLE",
+          "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "MERKLE_ROOT",
+          "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "SELECTOR",
+          "outputs": [{ "internalType": "bytes4", "name": "", "type": "bytes4" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "TARGET",
+          "outputs": [{ "internalType": "address", "name": "", "type": "address" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "TOKEN",
+          "outputs": [{ "internalType": "contract IERC20", "name": "", "type": "address" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "admin",
+          "outputs": [{ "internalType": "address", "name": "", "type": "address" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "calculateMinFeeWei",
+          "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "campaignName",
+          "outputs": [{ "internalType": "string", "name": "", "type": "string" }]
+        },
+        {
+          "inputs": [
+            { "internalType": "uint256", "name": "index", "type": "uint256" },
+            { "internalType": "uint128", "name": "amount", "type": "uint128" },
+            { "internalType": "bytes32[]", "name": "merkleProof", "type": "bytes32[]" },
+            { "internalType": "bytes", "name": "selectorArguments", "type": "bytes" }
+          ],
+          "stateMutability": "payable",
+          "type": "function",
+          "name": "claimAndExecute"
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "to", "type": "address" },
+            { "internalType": "uint128", "name": "amount", "type": "uint128" }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "clawback"
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "firstClaimTime",
+          "outputs": [{ "internalType": "uint40", "name": "", "type": "uint40" }]
+        },
+        {
+          "inputs": [{ "internalType": "uint256", "name": "index", "type": "uint256" }],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "hasClaimed",
+          "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "hasExpired",
+          "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "ipfsCID",
+          "outputs": [{ "internalType": "string", "name": "", "type": "string" }]
+        },
+        {
+          "inputs": [{ "internalType": "uint256", "name": "newMinFeeUSD", "type": "uint256" }],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "lowerMinFeeUSD"
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "minFeeUSD",
+          "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }]
+        },
+        {
+          "inputs": [
+            { "internalType": "contract IERC20", "name": "token", "type": "address" },
+            { "internalType": "uint128", "name": "amount", "type": "uint128" },
+            { "internalType": "address", "name": "biller", "type": "address" }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "sponsor"
+        },
+        {
+          "inputs": [{ "internalType": "address", "name": "newAdmin", "type": "address" }],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "transferAdmin"
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "CAMPAIGN_START_TIME()": { "details": "This is an immutable state variable." },
+          "CLAIM_TYPE()": { "details": "This is an immutable state variable." },
+          "EXPIRATION()": { "details": "This is an immutable state variable." },
+          "IS_SABLIER_MERKLE()": { "details": "This is a constant state variable." },
+          "MERKLE_ROOT()": { "details": "This is an immutable state variable." },
+          "SELECTOR()": { "details": "This is an immutable state variable." },
+          "TARGET()": { "details": "This is an immutable state variable." },
+          "TOKEN()": { "details": "This is an immutable state variable." },
+          "claimAndExecute(uint256,uint128,bytes32[],bytes)": {
+            "details": "It emits a {ClaimExecute} event. Notes: - The function approves the exact claim amount to the {TARGET}, executes the call, then revokes the approval. - The function does not forward native tokens to the target contract, so calls to targets that require a native token payment will revert. Requirements: - The current time must be greater than or equal to the campaign start time. - The campaign must not have expired. - `msg.value` must not be less than the value returned by {COMPTROLLER.calculateMinFeeWei}. - The `index` must not be claimed already. - The Merkle proof must be valid. - `msg.sender` must be the airdrop recipient. - The external call to the target contract must succeed. - The target contract must transfer the entire claim amount from the campaign.",
+            "params": {
+              "amount": "The amount of ERC-20 tokens allocated to `msg.sender`.",
+              "index": "The index of `msg.sender` in the Merkle tree.",
+              "merkleProof": "The proof of inclusion in the Merkle tree.",
+              "selectorArguments": "The function ABI-encoded arguments for {SELECTOR}."
+            }
+          },
+          "clawback(address,uint128)": {
+            "details": "Emits a {Clawback} event. Requirements: - `msg.sender` must be the admin. - No claim must be made, OR   The current timestamp must not exceed 7 days after the first claim, OR   The campaign must be expired.",
+            "params": {
+              "amount": "The amount of tokens to claw back.",
+              "to": "The address to receive the tokens."
+            }
+          },
+          "hasClaimed(uint256)": {
+            "details": "Uses a bitmap to save gas.",
+            "params": { "index": "The index of the recipient to check." }
+          },
+          "ipfsCID()": {
+            "details": "An empty value may break certain UI features that depend upon the IPFS CID."
+          },
+          "lowerMinFeeUSD(uint256)": {
+            "details": "Emits a {LowerMinFeeUSD} event. Requirements: - `msg.sender` must be the comptroller. - The new fee must be less than the current {minFeeUSD}.",
+            "params": { "newMinFeeUSD": "The new min USD fee to set, denominated in 8 decimals." }
+          },
+          "minFeeUSD()": {
+            "details": "The denomination is based on Chainlink's 8-decimal format for USD prices, where 1e8 is $1."
+          },
+          "sponsor(address,uint128,address)": {
+            "details": "Emits a {Sponsor} event. Notes: - This function only makes the payment. The claim fees are updated only after the payment has been verified off-chain. - Refer to the Sablier website in order to sponsor with the correct token, otherwise the sponsorship may be ignored. Requirements: - `biller` must not be the zero address. - `amount` must be greater than zero. - `token` must not be the zero address and must be a valid ERC20 token. - `msg.sender` must have approved the contract to spend the tokens.",
+            "params": {
+              "amount": "The amount of tokens to transfer.",
+              "biller": "The address to receive the tokens.",
+              "token": "The ERC-20 token to transfer."
+            }
+          },
+          "transferAdmin(address)": {
+            "details": "Notes: - Does not revert if the admin is the same. - This function can potentially leave the contract without an admin, thereby removing any functionality that is only available to the admin. Requirements: - `msg.sender` must be the contract admin.",
+            "params": { "newAdmin": "The address of the new admin." }
+          }
+        },
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "CAMPAIGN_START_TIME()": {
+            "notice": "The timestamp at which campaign starts and claim begins."
+          },
+          "CLAIM_TYPE()": { "notice": "Retrieves the claim type supported by the campaign." },
+          "COMPTROLLER()": { "notice": "Retrieves the address of the comptroller contract." },
+          "EXPIRATION()": {
+            "notice": "The cut-off point for the campaign, as a Unix timestamp. A value of zero means there is no expiration."
+          },
+          "IS_SABLIER_MERKLE()": {
+            "notice": "Returns `true` indicating that this campaign contract is deployed using the Sablier Factory."
+          },
+          "MERKLE_ROOT()": {
+            "notice": "The root of the Merkle tree used to validate the proofs of inclusion."
+          },
+          "SELECTOR()": { "notice": "The function selector to call on the target contract." },
+          "TARGET()": {
+            "notice": "The address of the target contract to call with the claim amount."
+          },
+          "TOKEN()": { "notice": "The ERC-20 token to distribute." },
+          "admin()": { "notice": "The address of the admin account or contract." },
+          "calculateMinFeeWei()": {
+            "notice": "Calculates the minimum fee in wei required to claim the airdrop."
+          },
+          "campaignName()": { "notice": "Retrieves the name of the campaign." },
+          "claimAndExecute(uint256,uint128,bytes32[],bytes)": {
+            "notice": "Claim airdrop and execute the call to the target contract."
+          },
+          "clawback(address,uint128)": { "notice": "Claws back the unclaimed tokens." },
+          "firstClaimTime()": {
+            "notice": "Retrieves the timestamp when the first claim is made, and zero if no claim was made yet."
+          },
+          "hasClaimed(uint256)": {
+            "notice": "Returns a flag indicating whether a claim has been made for a given index."
+          },
+          "hasExpired()": {
+            "notice": "Returns a flag indicating whether the campaign has expired."
+          },
+          "ipfsCID()": { "notice": "The content identifier for indexing the campaign on IPFS." },
+          "lowerMinFeeUSD(uint256)": { "notice": "Lowers the min USD fee." },
+          "minFeeUSD()": {
+            "notice": "Retrieves the min USD fee required to claim the airdrop, denominated in 8 decimals."
+          },
+          "sponsor(address,uint128,address)": {
+            "notice": "Sponsors the claim fees for eligible recipients."
+          },
+          "transferAdmin(address)": { "notice": "Transfers the contract admin to a new address." }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        "@arbitrum/=node_modules/@arbitrum/",
+        "@chainlink/=node_modules/@chainlink/",
+        "@eth-optimism/=node_modules/@eth-optimism/",
+        "@offchainlabs/=node_modules/@offchainlabs/",
+        "@openzeppelin/=node_modules/@openzeppelin/",
+        "@prb/=node_modules/@prb/",
+        "@sablier/=node_modules/@sablier/",
+        "@scroll-tech/=node_modules/@scroll-tech/",
+        "@zksync/=node_modules/@zksync/",
+        "forge-std/=node_modules/forge-std/",
+        "murky/=node_modules/murky/",
+        "openzeppelin-contracts/=node_modules/murky/lib/openzeppelin-contracts/",
+        "solady/=node_modules/solady/"
+      ],
+      "optimizer": { "enabled": true, "runs": 60000 },
+      "metadata": { "bytecodeHash": "ipfs" },
+      "compilationTarget": { "src/interfaces/ISablierMerkleExecute.sol": "ISablierMerkleExecute" },
+      "evmVersion": "shanghai",
+      "libraries": {},
+      "viaIR": true
+    },
+    "sources": {
+      "node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+        "keccak256": "0xe06a3f08a987af6ad2e1c1e774405d4fe08f1694b67517438b467cecf0da0ef7",
+        "urls": [
+          "bzz-raw://df6f0c459663c9858b6cba2cda1d14a7d05a985bed6d2de72bd8e78c25ee79db",
+          "dweb:/ipfs/QmeTTxZ7qVk9rjEv2R4CpCwdf8UMCcRqDNMvzNxHc3Fnn9"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@sablier/evm-utils/src/interfaces/IAdminable.sol": {
+        "keccak256": "0x3228d63e9b0b951030c73c42bb071e64f0ff0eadbcbeefad3f29a48366539c26",
+        "urls": [
+          "bzz-raw://acc90ad2bec0e84349b56611b35b56bfb75a5930fd1babb2bd638fbbb15bd126",
+          "dweb:/ipfs/QmSLnHx6bo4BQeBKYferfEhZo1Z4xCXdDF1bzJoHUafHt4"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "src/interfaces/ISablierMerkleBase.sol": {
+        "keccak256": "0xfc4e9b4737765f3f66fb81390154aaff3f21ee63fd21bed441baf553ac090993",
+        "urls": [
+          "bzz-raw://189aab3a9ddf0e72425cb3b6420129ce971da916967a920c3132e328e546abbb",
+          "dweb:/ipfs/QmQZaV1yvBs6MBf5jzgboTYztsVLMi5q3L4JVowyn6Yhrp"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "src/interfaces/ISablierMerkleExecute.sol": {
+        "keccak256": "0x215a70882f4af2772f9553600453621cf97c2d57115e739d8e9aff3bee82b188",
+        "urls": [
+          "bzz-raw://496735cd487d58bbbb3d341cac765fe9b04c59df8f8f8b06ff26160450358849",
+          "dweb:/ipfs/QmfWVz7NhwUFVJanZszsJPjqYoLnp16cAf6mixDfWvcwvV"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "src/types/MerkleBase.sol": {
+        "keccak256": "0x33004c31ccf302e5da76dbb8476816db31c2c0984fb9c928c45528bbfdef6397",
+        "urls": [
+          "bzz-raw://55b26d1a6beda8cb76043d2fde56445910ae3e88e8ab20d2c48678e4456beca3",
+          "dweb:/ipfs/QmYrMXbpPcjzJen93uFXiBws7fauseuXZcQ9fpbsNbaGN8"
+        ],
+        "license": "GPL-3.0-or-later"
+      }
+    },
+    "version": 1
+  },
+  "id": 116
+}

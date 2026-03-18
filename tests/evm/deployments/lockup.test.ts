@@ -1,12 +1,10 @@
-import { releases } from "@/src/evm/releases/index.js";
+import { getProtocolEvmReleasesWithArtifacts } from "../releases.js";
 import { createTestSuite } from "./utils/generators.js";
 
 /**
  * IMPORTANT: the tests have to be run in this order because the contracts in some releases
  * are found in the broadcast files of previous releases.
  */
-createTestSuite(releases.lockup["v1.0"]);
-createTestSuite(releases.lockup["v1.1"]);
-createTestSuite(releases.lockup["v1.2"]);
-createTestSuite(releases.lockup["v2.0"]);
-createTestSuite(releases.lockup["v3.0"]);
+for (const release of getProtocolEvmReleasesWithArtifacts("lockup")) {
+  createTestSuite(release);
+}

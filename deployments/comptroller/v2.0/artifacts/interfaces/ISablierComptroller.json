@@ -1,0 +1,3962 @@
+{
+  "abi": [
+    {
+      "type": "function",
+      "name": "ATTESTOR_MANAGER_ROLE",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "bytes32", "internalType": "bytes32" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "FEE_COLLECTOR_ROLE",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "bytes32", "internalType": "bytes32" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "FEE_MANAGEMENT_ROLE",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "bytes32", "internalType": "bytes32" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "MAX_FEE_USD",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "MINIMAL_INTERFACE_ID",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "bytes4", "internalType": "bytes4" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "VERSION",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "string", "internalType": "string" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "admin",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "attestor",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "calculateMinFeeWei",
+      "inputs": [
+        { "name": "protocol", "type": "uint8", "internalType": "enum ISablierComptroller.Protocol" }
+      ],
+      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "calculateMinFeeWeiFor",
+      "inputs": [
+        {
+          "name": "protocol",
+          "type": "uint8",
+          "internalType": "enum ISablierComptroller.Protocol"
+        },
+        { "name": "user", "type": "address", "internalType": "address" }
+      ],
+      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "convertUSDFeeToWei",
+      "inputs": [{ "name": "feeUSD", "type": "uint256", "internalType": "uint256" }],
+      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "disableCustomFeeUSDFor",
+      "inputs": [
+        {
+          "name": "protocol",
+          "type": "uint8",
+          "internalType": "enum ISablierComptroller.Protocol"
+        },
+        { "name": "user", "type": "address", "internalType": "address" }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "execute",
+      "inputs": [
+        { "name": "target", "type": "address", "internalType": "address" },
+        { "name": "targetCallData", "type": "bytes", "internalType": "bytes" }
+      ],
+      "outputs": [{ "name": "result", "type": "bytes", "internalType": "bytes" }],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "getMinFeeUSD",
+      "inputs": [
+        { "name": "protocol", "type": "uint8", "internalType": "enum ISablierComptroller.Protocol" }
+      ],
+      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "getMinFeeUSDFor",
+      "inputs": [
+        {
+          "name": "protocol",
+          "type": "uint8",
+          "internalType": "enum ISablierComptroller.Protocol"
+        },
+        { "name": "user", "type": "address", "internalType": "address" }
+      ],
+      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "grantRole",
+      "inputs": [
+        { "name": "role", "type": "bytes32", "internalType": "bytes32" },
+        { "name": "account", "type": "address", "internalType": "address" }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "hasRoleOrIsAdmin",
+      "inputs": [
+        { "name": "role", "type": "bytes32", "internalType": "bytes32" },
+        { "name": "account", "type": "address", "internalType": "address" }
+      ],
+      "outputs": [{ "name": "", "type": "bool", "internalType": "bool" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "lowerMinFeeUSDForCampaign",
+      "inputs": [
+        { "name": "campaign", "type": "address", "internalType": "address" },
+        { "name": "newMinFeeUSD", "type": "uint256", "internalType": "uint256" }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "oracle",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "proxiableUUID",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "bytes32", "internalType": "bytes32" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "revokeRole",
+      "inputs": [
+        { "name": "role", "type": "bytes32", "internalType": "bytes32" },
+        { "name": "account", "type": "address", "internalType": "address" }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "setAttestor",
+      "inputs": [{ "name": "newAttestor", "type": "address", "internalType": "address" }],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "setAttestorForCampaign",
+      "inputs": [
+        { "name": "campaign", "type": "address", "internalType": "address" },
+        { "name": "newAttestor", "type": "address", "internalType": "address" }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "setCustomFeeUSDFor",
+      "inputs": [
+        {
+          "name": "protocol",
+          "type": "uint8",
+          "internalType": "enum ISablierComptroller.Protocol"
+        },
+        { "name": "user", "type": "address", "internalType": "address" },
+        { "name": "customFeeUSD", "type": "uint256", "internalType": "uint256" }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "setMinFeeUSD",
+      "inputs": [
+        {
+          "name": "protocol",
+          "type": "uint8",
+          "internalType": "enum ISablierComptroller.Protocol"
+        },
+        { "name": "newMinFeeUSD", "type": "uint256", "internalType": "uint256" }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "setOracle",
+      "inputs": [{ "name": "newOracle", "type": "address", "internalType": "address" }],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "supportsInterface",
+      "inputs": [{ "name": "interfaceId", "type": "bytes4", "internalType": "bytes4" }],
+      "outputs": [{ "name": "", "type": "bool", "internalType": "bool" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "transferAdmin",
+      "inputs": [{ "name": "newAdmin", "type": "address", "internalType": "address" }],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "transferFees",
+      "inputs": [
+        { "name": "protocolAddresses", "type": "address[]", "internalType": "address[]" },
+        { "name": "feeRecipient", "type": "address", "internalType": "address" }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "withdrawERC20Token",
+      "inputs": [
+        { "name": "token", "type": "address", "internalType": "contract IERC20" },
+        { "name": "to", "type": "address", "internalType": "address" }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "event",
+      "name": "Execute",
+      "inputs": [
+        { "name": "target", "type": "address", "indexed": true, "internalType": "address" },
+        { "name": "targetCallData", "type": "bytes", "indexed": false, "internalType": "bytes" },
+        { "name": "result", "type": "bytes", "indexed": false, "internalType": "bytes" }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "GrantRole",
+      "inputs": [
+        { "name": "admin", "type": "address", "indexed": true, "internalType": "address" },
+        { "name": "account", "type": "address", "indexed": true, "internalType": "address" },
+        { "name": "role", "type": "bytes32", "indexed": true, "internalType": "bytes32" }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "RoleRevoked",
+      "inputs": [
+        { "name": "admin", "type": "address", "indexed": true, "internalType": "address" },
+        { "name": "account", "type": "address", "indexed": true, "internalType": "address" },
+        { "name": "role", "type": "bytes32", "indexed": true, "internalType": "bytes32" }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "SetAttestor",
+      "inputs": [
+        { "name": "caller", "type": "address", "indexed": true, "internalType": "address" },
+        {
+          "name": "previousAttestor",
+          "type": "address",
+          "indexed": true,
+          "internalType": "address"
+        },
+        { "name": "newAttestor", "type": "address", "indexed": true, "internalType": "address" }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "SetMinFeeUSD",
+      "inputs": [
+        {
+          "name": "protocol",
+          "type": "uint8",
+          "indexed": true,
+          "internalType": "enum ISablierComptroller.Protocol"
+        },
+        { "name": "caller", "type": "address", "indexed": false, "internalType": "address" },
+        {
+          "name": "previousMinFeeUSD",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        },
+        { "name": "newMinFeeUSD", "type": "uint256", "indexed": false, "internalType": "uint256" }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "SetOracle",
+      "inputs": [
+        { "name": "admin", "type": "address", "indexed": true, "internalType": "address" },
+        {
+          "name": "previousOracle",
+          "type": "address",
+          "indexed": false,
+          "internalType": "address"
+        },
+        { "name": "newOracle", "type": "address", "indexed": false, "internalType": "address" }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "TransferAdmin",
+      "inputs": [
+        { "name": "oldAdmin", "type": "address", "indexed": true, "internalType": "address" },
+        { "name": "newAdmin", "type": "address", "indexed": true, "internalType": "address" }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "TransferFees",
+      "inputs": [
+        { "name": "feeRecipient", "type": "address", "indexed": true, "internalType": "address" },
+        { "name": "feeAmount", "type": "uint256", "indexed": false, "internalType": "uint256" }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "UpdateCustomFeeUSD",
+      "inputs": [
+        {
+          "name": "protocol",
+          "type": "uint8",
+          "indexed": true,
+          "internalType": "enum ISablierComptroller.Protocol"
+        },
+        { "name": "caller", "type": "address", "indexed": false, "internalType": "address" },
+        { "name": "user", "type": "address", "indexed": true, "internalType": "address" },
+        {
+          "name": "previousMinFeeUSD",
+          "type": "uint256",
+          "indexed": false,
+          "internalType": "uint256"
+        },
+        { "name": "newMinFeeUSD", "type": "uint256", "indexed": false, "internalType": "uint256" }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "WithdrawERC20Token",
+      "inputs": [
+        { "name": "admin", "type": "address", "indexed": true, "internalType": "address" },
+        { "name": "token", "type": "address", "indexed": true, "internalType": "contract IERC20" },
+        { "name": "to", "type": "address", "indexed": true, "internalType": "address" },
+        { "name": "amount", "type": "uint256", "indexed": false, "internalType": "uint256" }
+      ],
+      "anonymous": false
+    }
+  ],
+  "bytecode": { "object": "0x", "sourceMap": "", "linkReferences": {} },
+  "deployedBytecode": { "object": "0x", "sourceMap": "", "linkReferences": {} },
+  "methodIdentifiers": {
+    "ATTESTOR_MANAGER_ROLE()": "5a051198",
+    "FEE_COLLECTOR_ROLE()": "62a2a47c",
+    "FEE_MANAGEMENT_ROLE()": "8afaa8b8",
+    "MAX_FEE_USD()": "78ef7aea",
+    "MINIMAL_INTERFACE_ID()": "c34df33e",
+    "VERSION()": "ffa1ad74",
+    "admin()": "f851a440",
+    "attestor()": "cada25c2",
+    "calculateMinFeeWei(uint8)": "baf8f4b9",
+    "calculateMinFeeWeiFor(uint8,address)": "419d289d",
+    "convertUSDFeeToWei(uint256)": "b0fa59e8",
+    "disableCustomFeeUSDFor(uint8,address)": "2fa32f4a",
+    "execute(address,bytes)": "1cff79cd",
+    "getMinFeeUSD(uint8)": "b9fbe2f8",
+    "getMinFeeUSDFor(uint8,address)": "88dc31a8",
+    "grantRole(bytes32,address)": "2f2ff15d",
+    "hasRoleOrIsAdmin(bytes32,address)": "e1678c6e",
+    "lowerMinFeeUSDForCampaign(address,uint256)": "56ad7460",
+    "oracle()": "7dc0d1d0",
+    "proxiableUUID()": "52d1902d",
+    "revokeRole(bytes32,address)": "d547741f",
+    "setAttestor(address)": "f5770b1f",
+    "setAttestorForCampaign(address,address)": "294323b7",
+    "setCustomFeeUSDFor(uint8,address,uint256)": "d09e86d9",
+    "setMinFeeUSD(uint8,uint256)": "9f467352",
+    "setOracle(address)": "7adbf973",
+    "supportsInterface(bytes4)": "01ffc9a7",
+    "transferAdmin(address)": "75829def",
+    "transferFees(address[],address)": "f2fc84b7",
+    "withdrawERC20Token(address,address)": "ecfbe70c"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.29+commit.ab55807c\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"targetCallData\",\"type\":\"bytes\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"result\",\"type\":\"bytes\"}],\"name\":\"Execute\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"GrantRole\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"RoleRevoked\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"caller\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousAttestor\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newAttestor\",\"type\":\"address\"}],\"name\":\"SetAttestor\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"enum ISablierComptroller.Protocol\",\"name\":\"protocol\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"caller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"previousMinFeeUSD\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"newMinFeeUSD\",\"type\":\"uint256\"}],\"name\":\"SetMinFeeUSD\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"previousOracle\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"newOracle\",\"type\":\"address\"}],\"name\":\"SetOracle\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"oldAdmin\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newAdmin\",\"type\":\"address\"}],\"name\":\"TransferAdmin\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"feeRecipient\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"feeAmount\",\"type\":\"uint256\"}],\"name\":\"TransferFees\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"enum ISablierComptroller.Protocol\",\"name\":\"protocol\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"caller\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"previousMinFeeUSD\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"newMinFeeUSD\",\"type\":\"uint256\"}],\"name\":\"UpdateCustomFeeUSD\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"contract IERC20\",\"name\":\"token\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"WithdrawERC20Token\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"ATTESTOR_MANAGER_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"FEE_COLLECTOR_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"FEE_MANAGEMENT_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"MAX_FEE_USD\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"MINIMAL_INTERFACE_ID\",\"outputs\":[{\"internalType\":\"bytes4\",\"name\":\"\",\"type\":\"bytes4\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"VERSION\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"admin\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"attestor\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"enum ISablierComptroller.Protocol\",\"name\":\"protocol\",\"type\":\"uint8\"}],\"name\":\"calculateMinFeeWei\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"enum ISablierComptroller.Protocol\",\"name\":\"protocol\",\"type\":\"uint8\"},{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"calculateMinFeeWeiFor\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"feeUSD\",\"type\":\"uint256\"}],\"name\":\"convertUSDFeeToWei\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"enum ISablierComptroller.Protocol\",\"name\":\"protocol\",\"type\":\"uint8\"},{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"disableCustomFeeUSDFor\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"targetCallData\",\"type\":\"bytes\"}],\"name\":\"execute\",\"outputs\":[{\"internalType\":\"bytes\",\"name\":\"result\",\"type\":\"bytes\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"enum ISablierComptroller.Protocol\",\"name\":\"protocol\",\"type\":\"uint8\"}],\"name\":\"getMinFeeUSD\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"enum ISablierComptroller.Protocol\",\"name\":\"protocol\",\"type\":\"uint8\"},{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"getMinFeeUSDFor\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"grantRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"hasRoleOrIsAdmin\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"campaign\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"newMinFeeUSD\",\"type\":\"uint256\"}],\"name\":\"lowerMinFeeUSDForCampaign\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"oracle\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"proxiableUUID\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"revokeRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newAttestor\",\"type\":\"address\"}],\"name\":\"setAttestor\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"campaign\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"newAttestor\",\"type\":\"address\"}],\"name\":\"setAttestorForCampaign\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"enum ISablierComptroller.Protocol\",\"name\":\"protocol\",\"type\":\"uint8\"},{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"customFeeUSD\",\"type\":\"uint256\"}],\"name\":\"setCustomFeeUSDFor\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"enum ISablierComptroller.Protocol\",\"name\":\"protocol\",\"type\":\"uint8\"},{\"internalType\":\"uint256\",\"name\":\"newMinFeeUSD\",\"type\":\"uint256\"}],\"name\":\"setMinFeeUSD\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOracle\",\"type\":\"address\"}],\"name\":\"setOracle\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newAdmin\",\"type\":\"address\"}],\"name\":\"transferAdmin\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"protocolAddresses\",\"type\":\"address[]\"},{\"internalType\":\"address\",\"name\":\"feeRecipient\",\"type\":\"address\"}],\"name\":\"transferFees\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract IERC20\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"}],\"name\":\"withdrawERC20Token\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"events\":{\"GrantRole(address,address,bytes32)\":{\"params\":{\"account\":\"The address of the account to which the role is granted.\",\"admin\":\"The address of the admin that granted the role.\",\"role\":\"The identifier of the role.\"}},\"RoleRevoked(address,address,bytes32)\":{\"params\":{\"account\":\"The address of the account from which the role is revoked.\",\"admin\":\"The address of the admin that revoked the role.\",\"role\":\"The identifier of the role.\"}},\"TransferAdmin(address,address)\":{\"params\":{\"newAdmin\":\"The address of the new admin.\",\"oldAdmin\":\"The address of the old admin.\"}}},\"kind\":\"dev\",\"methods\":{\"MAX_FEE_USD()\":{\"details\":\"This is a constant state variable and is 100e8, which is equivalent to $100.\"},\"MINIMAL_INTERFACE_ID()\":{\"details\":\"Any new comptroller must support the minimal interface ID made up of the following functions: 1. {calculateMinFeeWeiFor} - used by protocols inherited from {IComptrollerable}. 2. {convertUSDFeeToWei}    - used by protocols inherited from {IComptrollerable}. 3. {execute}               - used by comptroller admin to perform necessary operations. 4. {getMinFeeUSDFor}       - used by protocols inherited from {IComptrollerable}.\"},\"VERSION()\":{\"details\":\"This follows the format \\\"v{Major}.{Minor}\\\" (e.g., \\\"v1.1\\\").\"},\"attestor()\":{\"details\":\"A zero address indicates that the attestor is not set.\"},\"calculateMinFeeWei(uint8)\":{\"details\":\"See the documentation for {convertUSDFeeToWei} for more details.\",\"params\":{\"protocol\":\"The protocol as defined in {Protocol} enum.\"}},\"calculateMinFeeWeiFor(uint8,address)\":{\"details\":\"If the custom fee is enabled, it returns the custom fee, otherwise it returns the default minimum fee. See the documentation for {convertUSDFeeToWei} for more details.\",\"params\":{\"protocol\":\"The protocol as defined in {Protocol} enum.\",\"user\":\"The user address.\"}},\"convertUSDFeeToWei(uint256)\":{\"details\":\"The price is considered to be 0 if: 1. The oracle is not set. 2. The min USD fee is 0. 3. The oracle price is \\u2264 0. 4. The oracle's update timestamp is in the future. 5. The oracle price hasn't been updated in the last 24 hours.\",\"params\":{\"feeUSD\":\"The fee in USD, denominated in Chainlink's 8-decimal format for USD prices, where 1e8 is $1.\"},\"returns\":{\"_0\":\"The fee in wei, denominated in 18 decimals (1e18 = 1 native token).\"}},\"disableCustomFeeUSDFor(uint8,address)\":{\"details\":\"Emits an {UpdateCustomFeeUSD} event. Notes: - In case of airdrops, the new fee applies only to the future campaigns created by the user. Past campaigns are not affected. - In case of streams, the new fee applies immediately to all the streams created by user. Requirements: - `msg.sender` must be either the admin or have the {IRoleAdminable.FEE_MANAGEMENT_ROLE} role.\",\"params\":{\"protocol\":\"The protocol as defined in {Protocol} enum.\",\"user\":\"The user address.\"}},\"execute(address,bytes)\":{\"details\":\"Emits an {Execute} event. Requirements: - `msg.sender` must be the admin. - `target` must be a contract.\",\"params\":{\"target\":\"The address of the target contract on which the data is executed.\",\"targetCallData\":\"Function selector plus ABI encoded data.\"},\"returns\":{\"result\":\"The result from the call.\"}},\"getMinFeeUSD(uint8)\":{\"details\":\"The fee is denominated in Chainlink's 8-decimal format for USD prices, where 1e8 is $1.\"},\"getMinFeeUSDFor(uint8,address)\":{\"details\":\"The fee is denominated in Chainlink's 8-decimal format for USD prices, where 1e8 is $1.\"},\"grantRole(bytes32,address)\":{\"details\":\"Emits {GrantRole} event. Requirements: - `msg.sender` must be the admin.\",\"params\":{\"account\":\"The address of the account to which the role is granted.\",\"role\":\"The identifier of the role.\"}},\"lowerMinFeeUSDForCampaign(address,uint256)\":{\"details\":\"Notes: - This function is a pass-through to the campaign's {ISablierMerkleBase.lowerMinFeeUSD} function. - All validations are expected to be performed in the campaign's `lowerMinFeeUSD` function. Requirements: - `msg.sender` must be either the admin or have the {IRoleAdminable.FEE_MANAGEMENT_ROLE} role.\",\"params\":{\"campaign\":\"The address of an existing campaign.\",\"newMinFeeUSD\":\"The new min USD fee to set, denominated in 8 decimals.\"}},\"oracle()\":{\"details\":\"A zero address indicates that the oracle is not set.\"},\"proxiableUUID()\":{\"details\":\"Returns the storage slot that the proxiable contract assumes is being used to store the implementation address. IMPORTANT: A proxy pointing at a proxiable contract should not be considered proxiable itself, because this risks bricking a proxy that upgrades to it, by delegating to itself until out of gas. Thus it is critical that this function revert if invoked through a proxy.\"},\"revokeRole(bytes32,address)\":{\"details\":\"Emits {RoleRevoked} event. Requirements: - `msg.sender` must be the admin.\",\"params\":{\"account\":\"The address of the account from which the role is revoked.\",\"role\":\"The identifier of the role.\"}},\"setAttestor(address)\":{\"details\":\"Emits a {SetAttestor} event. Notes: - The default attestor to be used in merkle campaigns. It can be overridden by setting a different attestor in the campaign contract. - Setting it to zero address would disable attestation-based claims for campaigns that have not set their own local attestor. Requirements: - `msg.sender` must be either the admin or have the {IRoleAdminable.ATTESTOR_MANAGER_ROLE} role.\",\"params\":{\"newAttestor\":\"The new attestor address. It can be the zero address.\"}},\"setAttestorForCampaign(address,address)\":{\"details\":\"Notes: - This function is a pass-through to the campaign's `setAttestor` function. - All validations are expected to be performed in the campaign's `setAttestor` function. - Setting it to zero address would not allow the campaign to use the default attestor. Requirements: - `msg.sender` must be either the admin or have the {IRoleAdminable.ATTESTOR_MANAGER_ROLE} role.\",\"params\":{\"campaign\":\"The address of an existing campaign contract.\",\"newAttestor\":\"The new attestor address.\"}},\"setCustomFeeUSDFor(uint8,address,uint256)\":{\"details\":\"Emits an {UpdateCustomFeeUSD} event. Notes: - In case of airdrops, the new fee applies only to the future campaigns created by the user. Past campaigns are not affected. - In case of streams, the new fee applies immediately to all the streams created by user. Requirements: - `msg.sender` must be either the admin or have the {IRoleAdminable.FEE_MANAGEMENT_ROLE} role. - `customFeeUSD` must be less than or equal to {MAX_FEE_USD}.\",\"params\":{\"customFeeUSD\":\"The custom USD fee to set, denominated in 8 decimals.\",\"protocol\":\"The protocol as defined in {Protocol} enum.\",\"user\":\"The user address.\"}},\"setMinFeeUSD(uint8,uint256)\":{\"details\":\"Emits a {SetMinFeeUSD} event. Notes: - In case of airdrops, the new fee applies only to the future campaigns created by the user. Past campaigns are not affected. - In case of streams, the new fee applies immediately to all the streams created by user. Requirements: - `msg.sender` must be either the admin or have the {IRoleAdminable.FEE_MANAGEMENT_ROLE} role. - `newMinFeeUSD` must be less than or equal to {MAX_FEE_USD}.\",\"params\":{\"newMinFeeUSD\":\"The custom USD fee to set, denominated in 8 decimals.\",\"protocol\":\"The protocol as defined in {Protocol} enum.\"}},\"setOracle(address)\":{\"details\":\"Emits a {SetOracle} event. Requirements: - `msg.sender` must be the admin. - If `newOracle` is not the zero address, the call to it must not fail.\",\"params\":{\"newOracle\":\"The new oracle contract address. It can be the zero address.\"}},\"supportsInterface(bytes4)\":{\"details\":\"Returns true if this contract implements the interface defined by `interfaceId`. See the corresponding https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[ERC section] to learn more about how these ids are created. This function call must use less than 30 000 gas.\"},\"transferAdmin(address)\":{\"details\":\"Notes: - Does not revert if the admin is the same. - This function can potentially leave the contract without an admin, thereby removing any functionality that is only available to the admin. Requirements: - `msg.sender` must be the contract admin.\",\"params\":{\"newAdmin\":\"The address of the new admin.\"}},\"transferFees(address[],address)\":{\"details\":\"Emits a {TransferFees} event. Notes: - If `feeRecipient` is a contract, it must be able to receive native tokens, e.g., ETH for Ethereum Mainnet. - `protocolAddresses` can be empty. Requirements: `feeRecipient` must not be the zero address. - If `msg.sender` has neither the {IRoleAdminable.FEE_COLLECTOR_ROLE} role nor is the contract admin, then `feeRecipient` must be the admin address. - `protocolAddresses` must implement the {IComptrollerable} interface.\",\"params\":{\"feeRecipient\":\"The address to which the entire fee from this contract is transferred.\",\"protocolAddresses\":\"An array of addresses of the Sablier protocols from which fees is transferred from.\"}},\"withdrawERC20Token(address,address)\":{\"details\":\"Emits a {WithdrawERC20Token} event. Requirements: - `msg.sender` must be the admin. - `to` must not be the zero address. - The token balance of this contract must not be zero.\",\"params\":{\"to\":\"The address to send the tokens to.\",\"token\":\"The ERC-20 token to withdraw.\"}}},\"title\":\"ISablierComptroller\",\"version\":1},\"userdoc\":{\"events\":{\"Execute(address,bytes,bytes)\":{\"notice\":\"Emitted when a target contract is called.\"},\"GrantRole(address,address,bytes32)\":{\"notice\":\"Emitted when `account` is granted `role`.\"},\"RoleRevoked(address,address,bytes32)\":{\"notice\":\"Emitted when `account` is revoked `role`.\"},\"SetAttestor(address,address,address)\":{\"notice\":\"Emitted when the attestor is set.\"},\"SetMinFeeUSD(uint8,address,uint256,uint256)\":{\"notice\":\"Emitted when the admin or the fee manager sets a new minimum USD fee.\"},\"SetOracle(address,address,address)\":{\"notice\":\"Emitted when the oracle contract address is set by the admin.\"},\"TransferAdmin(address,address)\":{\"notice\":\"Emitted when the admin is transferred.\"},\"TransferFees(address,uint256)\":{\"notice\":\"Emitted when the admin or the fee collector transfers the accrued fees to the fee recipient.\"},\"UpdateCustomFeeUSD(uint8,address,address,uint256,uint256)\":{\"notice\":\"Emitted when the admin or the fee manager sets/disables the custom USD fee for the provided user.\"},\"WithdrawERC20Token(address,address,address,uint256)\":{\"notice\":\"Emitted when the admin withdraws ERC-20 tokens from the comptroller.\"}},\"kind\":\"user\",\"methods\":{\"ATTESTOR_MANAGER_ROLE()\":{\"notice\":\"A role with the authority to manage attestors across the Sablier contracts.\"},\"FEE_COLLECTOR_ROLE()\":{\"notice\":\"A role with the authority to collect fees from the Sablier contracts.\"},\"FEE_MANAGEMENT_ROLE()\":{\"notice\":\"A role with the authority to update fees across the Sablier contracts.\"},\"MAX_FEE_USD()\":{\"notice\":\"Retrieves the maximum USD fee that can be set for claiming an airdrop or withdrawing from a stream.\"},\"MINIMAL_INTERFACE_ID()\":{\"notice\":\"The minimal interface ID of the comptroller.\"},\"VERSION()\":{\"notice\":\"The version of the comptroller contract.\"},\"admin()\":{\"notice\":\"The address of the admin account or contract.\"},\"attestor()\":{\"notice\":\"Retrieves the attestor address used for verifying attestation signatures in merkle campaigns.\"},\"calculateMinFeeWei(uint8)\":{\"notice\":\"Calculates the minimum fee in wei for the given protocol.\"},\"calculateMinFeeWeiFor(uint8,address)\":{\"notice\":\"Calculates the minimum fee in wei for the provided user for the given protocol.\"},\"convertUSDFeeToWei(uint256)\":{\"notice\":\"Converts the fee amount from USD to Wei.\"},\"disableCustomFeeUSDFor(uint8,address)\":{\"notice\":\"Disables the custom USD fee for the provided user for the given protocol, defaulting to the minimum fee.\"},\"execute(address,bytes)\":{\"notice\":\"Executes an external call to any contract and function.\"},\"getMinFeeUSD(uint8)\":{\"notice\":\"Get the minimum fee in USD for the given protocol, paid in the native token of the chain, e.g., ETH for Ethereum Mainnet. Use {calculateMinFeeWei} to retrieve the fee in wei.\"},\"getMinFeeUSDFor(uint8,address)\":{\"notice\":\"Get the minimum fee in USD for the provided user for the given protocol, paid in the native token of the chain, e.g., ETH for Ethereum Mainnet. Use {calculateMinFeeWeiFor} to retrieve the fee in wei.\"},\"grantRole(bytes32,address)\":{\"notice\":\"Grants `role` to `account`. Reverts if `account` already has the role.\"},\"hasRoleOrIsAdmin(bytes32,address)\":{\"notice\":\"Returns `true` if `account` has the `role` or is the admin.\"},\"lowerMinFeeUSDForCampaign(address,uint256)\":{\"notice\":\"Calls `lowerMinFeeUSD` function on an existing campaign.\"},\"oracle()\":{\"notice\":\"Retrieves the oracle contract address, which provides price data for the native token.\"},\"revokeRole(bytes32,address)\":{\"notice\":\"Revokes `role` from `account`. Reverts if `account` does not have the role.\"},\"setAttestor(address)\":{\"notice\":\"Sets the attestor address used for verifying attestation signatures in airdrop campaigns.\"},\"setAttestorForCampaign(address,address)\":{\"notice\":\"Calls `setAttestor` function on an existing campaign contract.\"},\"setCustomFeeUSDFor(uint8,address,uint256)\":{\"notice\":\"Sets the custom USD fee for the provided user for the given protocol.\"},\"setMinFeeUSD(uint8,uint256)\":{\"notice\":\"Sets a new min USD fee for the given protocol.\"},\"setOracle(address)\":{\"notice\":\"Sets the oracle contract address. The zero address can be used to disable the oracle.\"},\"transferAdmin(address)\":{\"notice\":\"Transfers the contract admin to a new address.\"},\"transferFees(address[],address)\":{\"notice\":\"Transfers fees from the given protocol addresses to this contract, and then transfer the entire balance of this contract to the fee recipient.\"},\"withdrawERC20Token(address,address)\":{\"notice\":\"Withdraws the entire ERC-20 token balance from the comptroller to a specified recipient.\"}},\"notice\":\"Manage fees across all Sablier protocols. State-changing functions are only accessible to the admin and the fee manager.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/interfaces/ISablierComptroller.sol\":\"ISablierComptroller\"},\"evmVersion\":\"shanghai\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":100000000},\"remappings\":[\":@arbitrum/=node_modules/@arbitrum/\",\":@chainlink/=node_modules/@chainlink/\",\":@eth-optimism/=node_modules/@eth-optimism/\",\":@offchainlabs/=node_modules/@offchainlabs/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":@scroll-tech/=node_modules/@scroll-tech/\",\":@zksync/=node_modules/@zksync/\",\":forge-std/=node_modules/forge-std/\"],\"viaIR\":true},\"sources\":{\"node_modules/@openzeppelin/contracts/interfaces/draft-IERC1822.sol\":{\"keccak256\":\"0xc42facb5094f2f35f066a7155bda23545e39a3156faef3ddc00185544443ba7d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d3b36282ab029b46bd082619a308a2ea11c309967b9425b7b7a6eb0b0c1c3196\",\"dweb:/ipfs/QmP2YVfDB2FoREax3vJu7QhDnyYRMw52WPrCD4vdT2kuDA\"]},\"node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0xe06a3f08a987af6ad2e1c1e774405d4fe08f1694b67517438b467cecf0da0ef7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://df6f0c459663c9858b6cba2cda1d14a7d05a985bed6d2de72bd8e78c25ee79db\",\"dweb:/ipfs/QmeTTxZ7qVk9rjEv2R4CpCwdf8UMCcRqDNMvzNxHc3Fnn9\"]},\"node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol\":{\"keccak256\":\"0x79796192ec90263f21b464d5bc90b777a525971d3de8232be80d9c4f9fb353b8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://f6fda447a62815e8064f47eff0dd1cf58d9207ad69b5d32280f8d7ed1d1e4621\",\"dweb:/ipfs/QmfDRc7pxfaXB2Dh9np5Uf29Na3pQ7tafRS684wd3GLjVL\"]},\"src/interfaces/IAdminable.sol\":{\"keccak256\":\"0x3228d63e9b0b951030c73c42bb071e64f0ff0eadbcbeefad3f29a48366539c26\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://acc90ad2bec0e84349b56611b35b56bfb75a5930fd1babb2bd638fbbb15bd126\",\"dweb:/ipfs/QmSLnHx6bo4BQeBKYferfEhZo1Z4xCXdDF1bzJoHUafHt4\"]},\"src/interfaces/IRoleAdminable.sol\":{\"keccak256\":\"0x391cb4bd4bae01e3efdb84f63635644ed6329b72e8a5105ad53833551e8ba825\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://ccca9da1c044c15cf0b647a4572c05f5d498fb18b3685a85a8836f7110cb1bc4\",\"dweb:/ipfs/QmfAKHqvgKQUgpC6VomTjTkc1tDnsbVJD5bLn8wL8KuTFV\"]},\"src/interfaces/ISablierComptroller.sol\":{\"keccak256\":\"0x5c52e70a6c083611d4b5518d17d025f70d322ee2c61d81f20f3fe50f4bd824ba\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://5c07b2076065f1c65a59176ada3459be53f78e59a2055d9ae92b226edafa484c\",\"dweb:/ipfs/QmXYRDkBSWUBza1pi439ErzeLoaLUT8Zvj2yWcFZ5F1rgX\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": { "version": "0.8.29+commit.ab55807c" },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            { "internalType": "address", "name": "target", "type": "address", "indexed": true },
+            {
+              "internalType": "bytes",
+              "name": "targetCallData",
+              "type": "bytes",
+              "indexed": false
+            },
+            { "internalType": "bytes", "name": "result", "type": "bytes", "indexed": false }
+          ],
+          "type": "event",
+          "name": "Execute",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "admin", "type": "address", "indexed": true },
+            { "internalType": "address", "name": "account", "type": "address", "indexed": true },
+            { "internalType": "bytes32", "name": "role", "type": "bytes32", "indexed": true }
+          ],
+          "type": "event",
+          "name": "GrantRole",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "admin", "type": "address", "indexed": true },
+            { "internalType": "address", "name": "account", "type": "address", "indexed": true },
+            { "internalType": "bytes32", "name": "role", "type": "bytes32", "indexed": true }
+          ],
+          "type": "event",
+          "name": "RoleRevoked",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "caller", "type": "address", "indexed": true },
+            {
+              "internalType": "address",
+              "name": "previousAttestor",
+              "type": "address",
+              "indexed": true
+            },
+            { "internalType": "address", "name": "newAttestor", "type": "address", "indexed": true }
+          ],
+          "type": "event",
+          "name": "SetAttestor",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "enum ISablierComptroller.Protocol",
+              "name": "protocol",
+              "type": "uint8",
+              "indexed": true
+            },
+            { "internalType": "address", "name": "caller", "type": "address", "indexed": false },
+            {
+              "internalType": "uint256",
+              "name": "previousMinFeeUSD",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "uint256",
+              "name": "newMinFeeUSD",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "SetMinFeeUSD",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "admin", "type": "address", "indexed": true },
+            {
+              "internalType": "address",
+              "name": "previousOracle",
+              "type": "address",
+              "indexed": false
+            },
+            { "internalType": "address", "name": "newOracle", "type": "address", "indexed": false }
+          ],
+          "type": "event",
+          "name": "SetOracle",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "oldAdmin", "type": "address", "indexed": true },
+            { "internalType": "address", "name": "newAdmin", "type": "address", "indexed": true }
+          ],
+          "type": "event",
+          "name": "TransferAdmin",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "feeRecipient",
+              "type": "address",
+              "indexed": true
+            },
+            { "internalType": "uint256", "name": "feeAmount", "type": "uint256", "indexed": false }
+          ],
+          "type": "event",
+          "name": "TransferFees",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "enum ISablierComptroller.Protocol",
+              "name": "protocol",
+              "type": "uint8",
+              "indexed": true
+            },
+            { "internalType": "address", "name": "caller", "type": "address", "indexed": false },
+            { "internalType": "address", "name": "user", "type": "address", "indexed": true },
+            {
+              "internalType": "uint256",
+              "name": "previousMinFeeUSD",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "uint256",
+              "name": "newMinFeeUSD",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "UpdateCustomFeeUSD",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "admin", "type": "address", "indexed": true },
+            {
+              "internalType": "contract IERC20",
+              "name": "token",
+              "type": "address",
+              "indexed": true
+            },
+            { "internalType": "address", "name": "to", "type": "address", "indexed": true },
+            { "internalType": "uint256", "name": "amount", "type": "uint256", "indexed": false }
+          ],
+          "type": "event",
+          "name": "WithdrawERC20Token",
+          "anonymous": false
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "ATTESTOR_MANAGER_ROLE",
+          "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "FEE_COLLECTOR_ROLE",
+          "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "FEE_MANAGEMENT_ROLE",
+          "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "MAX_FEE_USD",
+          "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "MINIMAL_INTERFACE_ID",
+          "outputs": [{ "internalType": "bytes4", "name": "", "type": "bytes4" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "VERSION",
+          "outputs": [{ "internalType": "string", "name": "", "type": "string" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "admin",
+          "outputs": [{ "internalType": "address", "name": "", "type": "address" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "attestor",
+          "outputs": [{ "internalType": "address", "name": "", "type": "address" }]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "enum ISablierComptroller.Protocol",
+              "name": "protocol",
+              "type": "uint8"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "calculateMinFeeWei",
+          "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "enum ISablierComptroller.Protocol",
+              "name": "protocol",
+              "type": "uint8"
+            },
+            { "internalType": "address", "name": "user", "type": "address" }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "calculateMinFeeWeiFor",
+          "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }]
+        },
+        {
+          "inputs": [{ "internalType": "uint256", "name": "feeUSD", "type": "uint256" }],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "convertUSDFeeToWei",
+          "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "enum ISablierComptroller.Protocol",
+              "name": "protocol",
+              "type": "uint8"
+            },
+            { "internalType": "address", "name": "user", "type": "address" }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "disableCustomFeeUSDFor"
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "target", "type": "address" },
+            { "internalType": "bytes", "name": "targetCallData", "type": "bytes" }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "execute",
+          "outputs": [{ "internalType": "bytes", "name": "result", "type": "bytes" }]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "enum ISablierComptroller.Protocol",
+              "name": "protocol",
+              "type": "uint8"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "getMinFeeUSD",
+          "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "enum ISablierComptroller.Protocol",
+              "name": "protocol",
+              "type": "uint8"
+            },
+            { "internalType": "address", "name": "user", "type": "address" }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "getMinFeeUSDFor",
+          "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }]
+        },
+        {
+          "inputs": [
+            { "internalType": "bytes32", "name": "role", "type": "bytes32" },
+            { "internalType": "address", "name": "account", "type": "address" }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "grantRole"
+        },
+        {
+          "inputs": [
+            { "internalType": "bytes32", "name": "role", "type": "bytes32" },
+            { "internalType": "address", "name": "account", "type": "address" }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "hasRoleOrIsAdmin",
+          "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }]
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "campaign", "type": "address" },
+            { "internalType": "uint256", "name": "newMinFeeUSD", "type": "uint256" }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "lowerMinFeeUSDForCampaign"
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "oracle",
+          "outputs": [{ "internalType": "address", "name": "", "type": "address" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "proxiableUUID",
+          "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }]
+        },
+        {
+          "inputs": [
+            { "internalType": "bytes32", "name": "role", "type": "bytes32" },
+            { "internalType": "address", "name": "account", "type": "address" }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "revokeRole"
+        },
+        {
+          "inputs": [{ "internalType": "address", "name": "newAttestor", "type": "address" }],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "setAttestor"
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "campaign", "type": "address" },
+            { "internalType": "address", "name": "newAttestor", "type": "address" }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "setAttestorForCampaign"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "enum ISablierComptroller.Protocol",
+              "name": "protocol",
+              "type": "uint8"
+            },
+            { "internalType": "address", "name": "user", "type": "address" },
+            { "internalType": "uint256", "name": "customFeeUSD", "type": "uint256" }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "setCustomFeeUSDFor"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "enum ISablierComptroller.Protocol",
+              "name": "protocol",
+              "type": "uint8"
+            },
+            { "internalType": "uint256", "name": "newMinFeeUSD", "type": "uint256" }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "setMinFeeUSD"
+        },
+        {
+          "inputs": [{ "internalType": "address", "name": "newOracle", "type": "address" }],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "setOracle"
+        },
+        {
+          "inputs": [{ "internalType": "bytes4", "name": "interfaceId", "type": "bytes4" }],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "supportsInterface",
+          "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }]
+        },
+        {
+          "inputs": [{ "internalType": "address", "name": "newAdmin", "type": "address" }],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "transferAdmin"
+        },
+        {
+          "inputs": [
+            { "internalType": "address[]", "name": "protocolAddresses", "type": "address[]" },
+            { "internalType": "address", "name": "feeRecipient", "type": "address" }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "transferFees"
+        },
+        {
+          "inputs": [
+            { "internalType": "contract IERC20", "name": "token", "type": "address" },
+            { "internalType": "address", "name": "to", "type": "address" }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "withdrawERC20Token"
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "MAX_FEE_USD()": {
+            "details": "This is a constant state variable and is 100e8, which is equivalent to $100."
+          },
+          "MINIMAL_INTERFACE_ID()": {
+            "details": "Any new comptroller must support the minimal interface ID made up of the following functions: 1. {calculateMinFeeWeiFor} - used by protocols inherited from {IComptrollerable}. 2. {convertUSDFeeToWei}    - used by protocols inherited from {IComptrollerable}. 3. {execute}               - used by comptroller admin to perform necessary operations. 4. {getMinFeeUSDFor}       - used by protocols inherited from {IComptrollerable}."
+          },
+          "VERSION()": {
+            "details": "This follows the format \"v{Major}.{Minor}\" (e.g., \"v1.1\")."
+          },
+          "attestor()": { "details": "A zero address indicates that the attestor is not set." },
+          "calculateMinFeeWei(uint8)": {
+            "details": "See the documentation for {convertUSDFeeToWei} for more details.",
+            "params": { "protocol": "The protocol as defined in {Protocol} enum." }
+          },
+          "calculateMinFeeWeiFor(uint8,address)": {
+            "details": "If the custom fee is enabled, it returns the custom fee, otherwise it returns the default minimum fee. See the documentation for {convertUSDFeeToWei} for more details.",
+            "params": {
+              "protocol": "The protocol as defined in {Protocol} enum.",
+              "user": "The user address."
+            }
+          },
+          "convertUSDFeeToWei(uint256)": {
+            "details": "The price is considered to be 0 if: 1. The oracle is not set. 2. The min USD fee is 0. 3. The oracle price is ≤ 0. 4. The oracle's update timestamp is in the future. 5. The oracle price hasn't been updated in the last 24 hours.",
+            "params": {
+              "feeUSD": "The fee in USD, denominated in Chainlink's 8-decimal format for USD prices, where 1e8 is $1."
+            },
+            "returns": {
+              "_0": "The fee in wei, denominated in 18 decimals (1e18 = 1 native token)."
+            }
+          },
+          "disableCustomFeeUSDFor(uint8,address)": {
+            "details": "Emits an {UpdateCustomFeeUSD} event. Notes: - In case of airdrops, the new fee applies only to the future campaigns created by the user. Past campaigns are not affected. - In case of streams, the new fee applies immediately to all the streams created by user. Requirements: - `msg.sender` must be either the admin or have the {IRoleAdminable.FEE_MANAGEMENT_ROLE} role.",
+            "params": {
+              "protocol": "The protocol as defined in {Protocol} enum.",
+              "user": "The user address."
+            }
+          },
+          "execute(address,bytes)": {
+            "details": "Emits an {Execute} event. Requirements: - `msg.sender` must be the admin. - `target` must be a contract.",
+            "params": {
+              "target": "The address of the target contract on which the data is executed.",
+              "targetCallData": "Function selector plus ABI encoded data."
+            },
+            "returns": { "result": "The result from the call." }
+          },
+          "getMinFeeUSD(uint8)": {
+            "details": "The fee is denominated in Chainlink's 8-decimal format for USD prices, where 1e8 is $1."
+          },
+          "getMinFeeUSDFor(uint8,address)": {
+            "details": "The fee is denominated in Chainlink's 8-decimal format for USD prices, where 1e8 is $1."
+          },
+          "grantRole(bytes32,address)": {
+            "details": "Emits {GrantRole} event. Requirements: - `msg.sender` must be the admin.",
+            "params": {
+              "account": "The address of the account to which the role is granted.",
+              "role": "The identifier of the role."
+            }
+          },
+          "lowerMinFeeUSDForCampaign(address,uint256)": {
+            "details": "Notes: - This function is a pass-through to the campaign's {ISablierMerkleBase.lowerMinFeeUSD} function. - All validations are expected to be performed in the campaign's `lowerMinFeeUSD` function. Requirements: - `msg.sender` must be either the admin or have the {IRoleAdminable.FEE_MANAGEMENT_ROLE} role.",
+            "params": {
+              "campaign": "The address of an existing campaign.",
+              "newMinFeeUSD": "The new min USD fee to set, denominated in 8 decimals."
+            }
+          },
+          "oracle()": { "details": "A zero address indicates that the oracle is not set." },
+          "proxiableUUID()": {
+            "details": "Returns the storage slot that the proxiable contract assumes is being used to store the implementation address. IMPORTANT: A proxy pointing at a proxiable contract should not be considered proxiable itself, because this risks bricking a proxy that upgrades to it, by delegating to itself until out of gas. Thus it is critical that this function revert if invoked through a proxy."
+          },
+          "revokeRole(bytes32,address)": {
+            "details": "Emits {RoleRevoked} event. Requirements: - `msg.sender` must be the admin.",
+            "params": {
+              "account": "The address of the account from which the role is revoked.",
+              "role": "The identifier of the role."
+            }
+          },
+          "setAttestor(address)": {
+            "details": "Emits a {SetAttestor} event. Notes: - The default attestor to be used in merkle campaigns. It can be overridden by setting a different attestor in the campaign contract. - Setting it to zero address would disable attestation-based claims for campaigns that have not set their own local attestor. Requirements: - `msg.sender` must be either the admin or have the {IRoleAdminable.ATTESTOR_MANAGER_ROLE} role.",
+            "params": { "newAttestor": "The new attestor address. It can be the zero address." }
+          },
+          "setAttestorForCampaign(address,address)": {
+            "details": "Notes: - This function is a pass-through to the campaign's `setAttestor` function. - All validations are expected to be performed in the campaign's `setAttestor` function. - Setting it to zero address would not allow the campaign to use the default attestor. Requirements: - `msg.sender` must be either the admin or have the {IRoleAdminable.ATTESTOR_MANAGER_ROLE} role.",
+            "params": {
+              "campaign": "The address of an existing campaign contract.",
+              "newAttestor": "The new attestor address."
+            }
+          },
+          "setCustomFeeUSDFor(uint8,address,uint256)": {
+            "details": "Emits an {UpdateCustomFeeUSD} event. Notes: - In case of airdrops, the new fee applies only to the future campaigns created by the user. Past campaigns are not affected. - In case of streams, the new fee applies immediately to all the streams created by user. Requirements: - `msg.sender` must be either the admin or have the {IRoleAdminable.FEE_MANAGEMENT_ROLE} role. - `customFeeUSD` must be less than or equal to {MAX_FEE_USD}.",
+            "params": {
+              "customFeeUSD": "The custom USD fee to set, denominated in 8 decimals.",
+              "protocol": "The protocol as defined in {Protocol} enum.",
+              "user": "The user address."
+            }
+          },
+          "setMinFeeUSD(uint8,uint256)": {
+            "details": "Emits a {SetMinFeeUSD} event. Notes: - In case of airdrops, the new fee applies only to the future campaigns created by the user. Past campaigns are not affected. - In case of streams, the new fee applies immediately to all the streams created by user. Requirements: - `msg.sender` must be either the admin or have the {IRoleAdminable.FEE_MANAGEMENT_ROLE} role. - `newMinFeeUSD` must be less than or equal to {MAX_FEE_USD}.",
+            "params": {
+              "newMinFeeUSD": "The custom USD fee to set, denominated in 8 decimals.",
+              "protocol": "The protocol as defined in {Protocol} enum."
+            }
+          },
+          "setOracle(address)": {
+            "details": "Emits a {SetOracle} event. Requirements: - `msg.sender` must be the admin. - If `newOracle` is not the zero address, the call to it must not fail.",
+            "params": {
+              "newOracle": "The new oracle contract address. It can be the zero address."
+            }
+          },
+          "supportsInterface(bytes4)": {
+            "details": "Returns true if this contract implements the interface defined by `interfaceId`. See the corresponding https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[ERC section] to learn more about how these ids are created. This function call must use less than 30 000 gas."
+          },
+          "transferAdmin(address)": {
+            "details": "Notes: - Does not revert if the admin is the same. - This function can potentially leave the contract without an admin, thereby removing any functionality that is only available to the admin. Requirements: - `msg.sender` must be the contract admin.",
+            "params": { "newAdmin": "The address of the new admin." }
+          },
+          "transferFees(address[],address)": {
+            "details": "Emits a {TransferFees} event. Notes: - If `feeRecipient` is a contract, it must be able to receive native tokens, e.g., ETH for Ethereum Mainnet. - `protocolAddresses` can be empty. Requirements: `feeRecipient` must not be the zero address. - If `msg.sender` has neither the {IRoleAdminable.FEE_COLLECTOR_ROLE} role nor is the contract admin, then `feeRecipient` must be the admin address. - `protocolAddresses` must implement the {IComptrollerable} interface.",
+            "params": {
+              "feeRecipient": "The address to which the entire fee from this contract is transferred.",
+              "protocolAddresses": "An array of addresses of the Sablier protocols from which fees is transferred from."
+            }
+          },
+          "withdrawERC20Token(address,address)": {
+            "details": "Emits a {WithdrawERC20Token} event. Requirements: - `msg.sender` must be the admin. - `to` must not be the zero address. - The token balance of this contract must not be zero.",
+            "params": {
+              "to": "The address to send the tokens to.",
+              "token": "The ERC-20 token to withdraw."
+            }
+          }
+        },
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "ATTESTOR_MANAGER_ROLE()": {
+            "notice": "A role with the authority to manage attestors across the Sablier contracts."
+          },
+          "FEE_COLLECTOR_ROLE()": {
+            "notice": "A role with the authority to collect fees from the Sablier contracts."
+          },
+          "FEE_MANAGEMENT_ROLE()": {
+            "notice": "A role with the authority to update fees across the Sablier contracts."
+          },
+          "MAX_FEE_USD()": {
+            "notice": "Retrieves the maximum USD fee that can be set for claiming an airdrop or withdrawing from a stream."
+          },
+          "MINIMAL_INTERFACE_ID()": { "notice": "The minimal interface ID of the comptroller." },
+          "VERSION()": { "notice": "The version of the comptroller contract." },
+          "admin()": { "notice": "The address of the admin account or contract." },
+          "attestor()": {
+            "notice": "Retrieves the attestor address used for verifying attestation signatures in merkle campaigns."
+          },
+          "calculateMinFeeWei(uint8)": {
+            "notice": "Calculates the minimum fee in wei for the given protocol."
+          },
+          "calculateMinFeeWeiFor(uint8,address)": {
+            "notice": "Calculates the minimum fee in wei for the provided user for the given protocol."
+          },
+          "convertUSDFeeToWei(uint256)": { "notice": "Converts the fee amount from USD to Wei." },
+          "disableCustomFeeUSDFor(uint8,address)": {
+            "notice": "Disables the custom USD fee for the provided user for the given protocol, defaulting to the minimum fee."
+          },
+          "execute(address,bytes)": {
+            "notice": "Executes an external call to any contract and function."
+          },
+          "getMinFeeUSD(uint8)": {
+            "notice": "Get the minimum fee in USD for the given protocol, paid in the native token of the chain, e.g., ETH for Ethereum Mainnet. Use {calculateMinFeeWei} to retrieve the fee in wei."
+          },
+          "getMinFeeUSDFor(uint8,address)": {
+            "notice": "Get the minimum fee in USD for the provided user for the given protocol, paid in the native token of the chain, e.g., ETH for Ethereum Mainnet. Use {calculateMinFeeWeiFor} to retrieve the fee in wei."
+          },
+          "grantRole(bytes32,address)": {
+            "notice": "Grants `role` to `account`. Reverts if `account` already has the role."
+          },
+          "hasRoleOrIsAdmin(bytes32,address)": {
+            "notice": "Returns `true` if `account` has the `role` or is the admin."
+          },
+          "lowerMinFeeUSDForCampaign(address,uint256)": {
+            "notice": "Calls `lowerMinFeeUSD` function on an existing campaign."
+          },
+          "oracle()": {
+            "notice": "Retrieves the oracle contract address, which provides price data for the native token."
+          },
+          "revokeRole(bytes32,address)": {
+            "notice": "Revokes `role` from `account`. Reverts if `account` does not have the role."
+          },
+          "setAttestor(address)": {
+            "notice": "Sets the attestor address used for verifying attestation signatures in airdrop campaigns."
+          },
+          "setAttestorForCampaign(address,address)": {
+            "notice": "Calls `setAttestor` function on an existing campaign contract."
+          },
+          "setCustomFeeUSDFor(uint8,address,uint256)": {
+            "notice": "Sets the custom USD fee for the provided user for the given protocol."
+          },
+          "setMinFeeUSD(uint8,uint256)": {
+            "notice": "Sets a new min USD fee for the given protocol."
+          },
+          "setOracle(address)": {
+            "notice": "Sets the oracle contract address. The zero address can be used to disable the oracle."
+          },
+          "transferAdmin(address)": { "notice": "Transfers the contract admin to a new address." },
+          "transferFees(address[],address)": {
+            "notice": "Transfers fees from the given protocol addresses to this contract, and then transfer the entire balance of this contract to the fee recipient."
+          },
+          "withdrawERC20Token(address,address)": {
+            "notice": "Withdraws the entire ERC-20 token balance from the comptroller to a specified recipient."
+          }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        "@arbitrum/=node_modules/@arbitrum/",
+        "@chainlink/=node_modules/@chainlink/",
+        "@eth-optimism/=node_modules/@eth-optimism/",
+        "@offchainlabs/=node_modules/@offchainlabs/",
+        "@openzeppelin/=node_modules/@openzeppelin/",
+        "@scroll-tech/=node_modules/@scroll-tech/",
+        "@zksync/=node_modules/@zksync/",
+        "forge-std/=node_modules/forge-std/"
+      ],
+      "optimizer": { "enabled": true, "runs": 100000000 },
+      "metadata": { "bytecodeHash": "ipfs" },
+      "compilationTarget": { "src/interfaces/ISablierComptroller.sol": "ISablierComptroller" },
+      "evmVersion": "shanghai",
+      "libraries": {},
+      "viaIR": true
+    },
+    "sources": {
+      "node_modules/@openzeppelin/contracts/interfaces/draft-IERC1822.sol": {
+        "keccak256": "0xc42facb5094f2f35f066a7155bda23545e39a3156faef3ddc00185544443ba7d",
+        "urls": [
+          "bzz-raw://d3b36282ab029b46bd082619a308a2ea11c309967b9425b7b7a6eb0b0c1c3196",
+          "dweb:/ipfs/QmP2YVfDB2FoREax3vJu7QhDnyYRMw52WPrCD4vdT2kuDA"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+        "keccak256": "0xe06a3f08a987af6ad2e1c1e774405d4fe08f1694b67517438b467cecf0da0ef7",
+        "urls": [
+          "bzz-raw://df6f0c459663c9858b6cba2cda1d14a7d05a985bed6d2de72bd8e78c25ee79db",
+          "dweb:/ipfs/QmeTTxZ7qVk9rjEv2R4CpCwdf8UMCcRqDNMvzNxHc3Fnn9"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol": {
+        "keccak256": "0x79796192ec90263f21b464d5bc90b777a525971d3de8232be80d9c4f9fb353b8",
+        "urls": [
+          "bzz-raw://f6fda447a62815e8064f47eff0dd1cf58d9207ad69b5d32280f8d7ed1d1e4621",
+          "dweb:/ipfs/QmfDRc7pxfaXB2Dh9np5Uf29Na3pQ7tafRS684wd3GLjVL"
+        ],
+        "license": "MIT"
+      },
+      "src/interfaces/IAdminable.sol": {
+        "keccak256": "0x3228d63e9b0b951030c73c42bb071e64f0ff0eadbcbeefad3f29a48366539c26",
+        "urls": [
+          "bzz-raw://acc90ad2bec0e84349b56611b35b56bfb75a5930fd1babb2bd638fbbb15bd126",
+          "dweb:/ipfs/QmSLnHx6bo4BQeBKYferfEhZo1Z4xCXdDF1bzJoHUafHt4"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "src/interfaces/IRoleAdminable.sol": {
+        "keccak256": "0x391cb4bd4bae01e3efdb84f63635644ed6329b72e8a5105ad53833551e8ba825",
+        "urls": [
+          "bzz-raw://ccca9da1c044c15cf0b647a4572c05f5d498fb18b3685a85a8836f7110cb1bc4",
+          "dweb:/ipfs/QmfAKHqvgKQUgpC6VomTjTkc1tDnsbVJD5bLn8wL8KuTFV"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "src/interfaces/ISablierComptroller.sol": {
+        "keccak256": "0x5c52e70a6c083611d4b5518d17d025f70d322ee2c61d81f20f3fe50f4bd824ba",
+        "urls": [
+          "bzz-raw://5c07b2076065f1c65a59176ada3459be53f78e59a2055d9ae92b226edafa484c",
+          "dweb:/ipfs/QmXYRDkBSWUBza1pi439ErzeLoaLUT8Zvj2yWcFZ5F1rgX"
+        ],
+        "license": "GPL-3.0-or-later"
+      }
+    },
+    "version": 1
+  },
+  "storageLayout": { "storage": [], "types": {} },
+  "ast": {
+    "absolutePath": "src/interfaces/ISablierComptroller.sol",
+    "id": 64578,
+    "exportedSymbols": {
+      "IERC165": [4982],
+      "IERC1822Proxiable": [804],
+      "IERC20": [2242],
+      "IRoleAdminable": [64302],
+      "ISablierComptroller": [64577]
+    },
+    "nodeType": "SourceUnit",
+    "src": "45:14660:78",
+    "nodes": [
+      {
+        "id": 64304,
+        "nodeType": "PragmaDirective",
+        "src": "45:25:78",
+        "nodes": [],
+        "literals": ["solidity", ">=", "0.8", ".22"]
+      },
+      {
+        "id": 64306,
+        "nodeType": "ImportDirective",
+        "src": "72:90:78",
+        "nodes": [],
+        "absolutePath": "node_modules/@openzeppelin/contracts/interfaces/draft-IERC1822.sol",
+        "file": "@openzeppelin/contracts/interfaces/draft-IERC1822.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 64578,
+        "sourceUnit": 805,
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 64305,
+              "name": "IERC1822Proxiable",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": 804,
+              "src": "81:17:78",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "id": 64308,
+        "nodeType": "ImportDirective",
+        "src": "163:72:78",
+        "nodes": [],
+        "absolutePath": "node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "file": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 64578,
+        "sourceUnit": 2243,
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 64307,
+              "name": "IERC20",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": 2242,
+              "src": "172:6:78",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "id": 64310,
+        "nodeType": "ImportDirective",
+        "src": "236:82:78",
+        "nodes": [],
+        "absolutePath": "node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol",
+        "file": "@openzeppelin/contracts/utils/introspection/IERC165.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 64578,
+        "sourceUnit": 4983,
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 64309,
+              "name": "IERC165",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": 4982,
+              "src": "245:7:78",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "id": 64312,
+        "nodeType": "ImportDirective",
+        "src": "319:54:78",
+        "nodes": [],
+        "absolutePath": "src/interfaces/IRoleAdminable.sol",
+        "file": "./IRoleAdminable.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 64578,
+        "sourceUnit": 64303,
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 64311,
+              "name": "IRoleAdminable",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": 64302,
+              "src": "328:14:78",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "id": 64577,
+        "nodeType": "ContractDefinition",
+        "src": "543:14161:78",
+        "nodes": [
+          {
+            "id": 64325,
+            "nodeType": "StructDefinition",
+            "src": "1122:70:78",
+            "nodes": [],
+            "canonicalName": "ISablierComptroller.CustomFeeUSD",
+            "documentation": {
+              "id": 64320,
+              "nodeType": "StructuredDocumentation",
+              "src": "833:284:78",
+              "text": "@notice Struct encapsulating the parameters of a custom USD fee.\n @param enabled Whether the fee is enabled. If false, the min USD fee will apply instead.\n @param fee The fee amount in USD, denominated in Chainlink's 8-decimal format for USD prices, where 1e8 is $1."
+            },
+            "members": [
+              {
+                "constant": false,
+                "id": 64322,
+                "mutability": "mutable",
+                "name": "enabled",
+                "nameLocation": "1157:7:78",
+                "nodeType": "VariableDeclaration",
+                "scope": 64325,
+                "src": "1152:12:78",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": { "typeIdentifier": "t_bool", "typeString": "bool" },
+                "typeName": {
+                  "id": 64321,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1152:4:78",
+                  "typeDescriptions": { "typeIdentifier": "t_bool", "typeString": "bool" }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 64324,
+                "mutability": "mutable",
+                "name": "fee",
+                "nameLocation": "1182:3:78",
+                "nodeType": "VariableDeclaration",
+                "scope": 64325,
+                "src": "1174:11:78",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" },
+                "typeName": {
+                  "id": 64323,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1174:7:78",
+                  "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "CustomFeeUSD",
+            "nameLocation": "1129:12:78",
+            "scope": 64577,
+            "visibility": "public"
+          },
+          {
+            "id": 64332,
+            "nodeType": "EnumDefinition",
+            "src": "1286:98:78",
+            "nodes": [],
+            "canonicalName": "ISablierComptroller.Protocol",
+            "documentation": {
+              "id": 64326,
+              "nodeType": "StructuredDocumentation",
+              "src": "1198:83:78",
+              "text": "@notice Enum representing the different protocols supported by the comptroller."
+            },
+            "members": [
+              {
+                "id": 64327,
+                "name": "Airdrops",
+                "nameLocation": "1310:8:78",
+                "nodeType": "EnumValue",
+                "src": "1310:8:78"
+              },
+              {
+                "id": 64328,
+                "name": "Flow",
+                "nameLocation": "1328:4:78",
+                "nodeType": "EnumValue",
+                "src": "1328:4:78"
+              },
+              {
+                "id": 64329,
+                "name": "Lockup",
+                "nameLocation": "1342:6:78",
+                "nodeType": "EnumValue",
+                "src": "1342:6:78"
+              },
+              {
+                "id": 64330,
+                "name": "Staking",
+                "nameLocation": "1358:7:78",
+                "nodeType": "EnumValue",
+                "src": "1358:7:78"
+              },
+              {
+                "id": 64331,
+                "name": "Bob",
+                "nameLocation": "1375:3:78",
+                "nodeType": "EnumValue",
+                "src": "1375:3:78"
+              }
+            ],
+            "name": "Protocol",
+            "nameLocation": "1291:8:78"
+          },
+          {
+            "id": 64341,
+            "nodeType": "StructDefinition",
+            "src": "1655:115:78",
+            "nodes": [],
+            "canonicalName": "ISablierComptroller.ProtocolFees",
+            "documentation": {
+              "id": 64333,
+              "nodeType": "StructuredDocumentation",
+              "src": "1390:260:78",
+              "text": "@notice Struct encapsulating the fees for a protocol.\n @param minFeeUSD The minimum fee in USD, denominated in Chainlink's 8-decimal format for USD prices, where 1e8\n is $1.\n @param customFees Custom fees struct mapped by user address."
+            },
+            "members": [
+              {
+                "constant": false,
+                "id": 64335,
+                "mutability": "mutable",
+                "name": "minFeeUSD",
+                "nameLocation": "1693:9:78",
+                "nodeType": "VariableDeclaration",
+                "scope": 64341,
+                "src": "1685:17:78",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" },
+                "typeName": {
+                  "id": 64334,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1685:7:78",
+                  "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 64340,
+                "mutability": "mutable",
+                "name": "customFeesUSD",
+                "nameLocation": "1750:13:78",
+                "nodeType": "VariableDeclaration",
+                "scope": 64341,
+                "src": "1712:51:78",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_address_$_t_struct$_CustomFeeUSD_$64325_storage_$",
+                  "typeString": "mapping(address => struct ISablierComptroller.CustomFeeUSD)"
+                },
+                "typeName": {
+                  "id": 64339,
+                  "keyName": "user",
+                  "keyNameLocation": "1728:4:78",
+                  "keyType": {
+                    "id": 64336,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1720:7:78",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "1712:37:78",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_address_$_t_struct$_CustomFeeUSD_$64325_storage_$",
+                    "typeString": "mapping(address => struct ISablierComptroller.CustomFeeUSD)"
+                  },
+                  "valueName": "",
+                  "valueNameLocation": "-1:-1:-1",
+                  "valueType": {
+                    "id": 64338,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 64337,
+                      "name": "CustomFeeUSD",
+                      "nameLocations": ["1736:12:78"],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 64325,
+                      "src": "1736:12:78"
+                    },
+                    "referencedDeclaration": 64325,
+                    "src": "1736:12:78",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_CustomFeeUSD_$64325_storage_ptr",
+                      "typeString": "struct ISablierComptroller.CustomFeeUSD"
+                    }
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "ProtocolFees",
+            "nameLocation": "1662:12:78",
+            "scope": 64577,
+            "visibility": "public"
+          },
+          {
+            "id": 64350,
+            "nodeType": "EventDefinition",
+            "src": "2043:74:78",
+            "nodes": [],
+            "anonymous": false,
+            "documentation": {
+              "id": 64342,
+              "nodeType": "StructuredDocumentation",
+              "src": "1985:53:78",
+              "text": "@notice Emitted when a target contract is called."
+            },
+            "eventSelector": "b24ebe141c5f2a744b103bea65fce6c40e0dc65d7341d092c09b160f40447990",
+            "name": "Execute",
+            "nameLocation": "2049:7:78",
+            "parameters": {
+              "id": 64349,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64344,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "target",
+                  "nameLocation": "2073:6:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64350,
+                  "src": "2057:22:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64343,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2057:7:78",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 64346,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "targetCallData",
+                  "nameLocation": "2087:14:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64350,
+                  "src": "2081:20:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 64345,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2081:5:78",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 64348,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "result",
+                  "nameLocation": "2109:6:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64350,
+                  "src": "2103:12:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 64347,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2103:5:78",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2056:60:78"
+            }
+          },
+          {
+            "id": 64359,
+            "nodeType": "EventDefinition",
+            "src": "2173:105:78",
+            "nodes": [],
+            "anonymous": false,
+            "documentation": {
+              "id": 64351,
+              "nodeType": "StructuredDocumentation",
+              "src": "2123:45:78",
+              "text": "@notice Emitted when the attestor is set."
+            },
+            "eventSelector": "e12891ebe30d5f5d47856103adbbd7804332e875271e2903e5dd759badf2f42d",
+            "name": "SetAttestor",
+            "nameLocation": "2179:11:78",
+            "parameters": {
+              "id": 64358,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64353,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "caller",
+                  "nameLocation": "2207:6:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64359,
+                  "src": "2191:22:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64352,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2191:7:78",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 64355,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "previousAttestor",
+                  "nameLocation": "2231:16:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64359,
+                  "src": "2215:32:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64354,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2215:7:78",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 64357,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "newAttestor",
+                  "nameLocation": "2265:11:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64359,
+                  "src": "2249:27:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64356,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2249:7:78",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2190:87:78"
+            }
+          },
+          {
+            "id": 64371,
+            "nodeType": "EventDefinition",
+            "src": "2370:111:78",
+            "nodes": [],
+            "anonymous": false,
+            "documentation": {
+              "id": 64360,
+              "nodeType": "StructuredDocumentation",
+              "src": "2284:81:78",
+              "text": "@notice Emitted when the admin or the fee manager sets a new minimum USD fee."
+            },
+            "eventSelector": "f4cb1d2734c9a8fc58614adae67ed933bf35438b252c7f51fbfcb6fff0bab8be",
+            "name": "SetMinFeeUSD",
+            "nameLocation": "2376:12:78",
+            "parameters": {
+              "id": 64370,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64363,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "protocol",
+                  "nameLocation": "2406:8:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64371,
+                  "src": "2389:25:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_Protocol_$64332",
+                    "typeString": "enum ISablierComptroller.Protocol"
+                  },
+                  "typeName": {
+                    "id": 64362,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 64361,
+                      "name": "Protocol",
+                      "nameLocations": ["2389:8:78"],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 64332,
+                      "src": "2389:8:78"
+                    },
+                    "referencedDeclaration": 64332,
+                    "src": "2389:8:78",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_Protocol_$64332",
+                      "typeString": "enum ISablierComptroller.Protocol"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 64365,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "caller",
+                  "nameLocation": "2424:6:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64371,
+                  "src": "2416:14:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64364,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2416:7:78",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 64367,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "previousMinFeeUSD",
+                  "nameLocation": "2440:17:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64371,
+                  "src": "2432:25:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" },
+                  "typeName": {
+                    "id": 64366,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2432:7:78",
+                    "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 64369,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "newMinFeeUSD",
+                  "nameLocation": "2467:12:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64371,
+                  "src": "2459:20:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" },
+                  "typeName": {
+                    "id": 64368,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2459:7:78",
+                    "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2388:92:78"
+            }
+          },
+          {
+            "id": 64380,
+            "nodeType": "EventDefinition",
+            "src": "2565:82:78",
+            "nodes": [],
+            "anonymous": false,
+            "documentation": {
+              "id": 64372,
+              "nodeType": "StructuredDocumentation",
+              "src": "2487:73:78",
+              "text": "@notice Emitted when the oracle contract address is set by the admin."
+            },
+            "eventSelector": "8a2921926cceeec9c87402055ba6edb6a752234970f3b7b8f99183b622b3e014",
+            "name": "SetOracle",
+            "nameLocation": "2571:9:78",
+            "parameters": {
+              "id": 64379,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64374,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "admin",
+                  "nameLocation": "2597:5:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64380,
+                  "src": "2581:21:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64373,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2581:7:78",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 64376,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "previousOracle",
+                  "nameLocation": "2612:14:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64380,
+                  "src": "2604:22:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64375,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2604:7:78",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 64378,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "newOracle",
+                  "nameLocation": "2636:9:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64380,
+                  "src": "2628:17:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64377,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2628:7:78",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2580:66:78"
+            }
+          },
+          {
+            "id": 64387,
+            "nodeType": "EventDefinition",
+            "src": "2762:68:78",
+            "nodes": [],
+            "anonymous": false,
+            "documentation": {
+              "id": 64381,
+              "nodeType": "StructuredDocumentation",
+              "src": "2653:104:78",
+              "text": "@notice Emitted when the admin or the fee collector transfers the accrued fees to the fee recipient."
+            },
+            "eventSelector": "471c95db9ae5c6f902bc9bf9d1b68834d1fd11d37ae3c127387693cb5317f727",
+            "name": "TransferFees",
+            "nameLocation": "2768:12:78",
+            "parameters": {
+              "id": 64386,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64383,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "feeRecipient",
+                  "nameLocation": "2797:12:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64387,
+                  "src": "2781:28:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64382,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2781:7:78",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 64385,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "feeAmount",
+                  "nameLocation": "2819:9:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64387,
+                  "src": "2811:17:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" },
+                  "typeName": {
+                    "id": 64384,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2811:7:78",
+                    "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2780:49:78"
+            }
+          },
+          {
+            "id": 64401,
+            "nodeType": "EventDefinition",
+            "src": "2950:185:78",
+            "nodes": [],
+            "anonymous": false,
+            "documentation": {
+              "id": 64388,
+              "nodeType": "StructuredDocumentation",
+              "src": "2836:109:78",
+              "text": "@notice Emitted when the admin or the fee manager sets/disables the custom USD fee for the provided user."
+            },
+            "eventSelector": "b7f8dab0a3f2f478718a38c5863cbbab82c45cb4ce52eb7bad5c4f04048a156f",
+            "name": "UpdateCustomFeeUSD",
+            "nameLocation": "2956:18:78",
+            "parameters": {
+              "id": 64400,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64391,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "protocol",
+                  "nameLocation": "3001:8:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64401,
+                  "src": "2984:25:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_Protocol_$64332",
+                    "typeString": "enum ISablierComptroller.Protocol"
+                  },
+                  "typeName": {
+                    "id": 64390,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 64389,
+                      "name": "Protocol",
+                      "nameLocations": ["2984:8:78"],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 64332,
+                      "src": "2984:8:78"
+                    },
+                    "referencedDeclaration": 64332,
+                    "src": "2984:8:78",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_Protocol_$64332",
+                      "typeString": "enum ISablierComptroller.Protocol"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 64393,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "caller",
+                  "nameLocation": "3027:6:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64401,
+                  "src": "3019:14:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64392,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3019:7:78",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 64395,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "user",
+                  "nameLocation": "3059:4:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64401,
+                  "src": "3043:20:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64394,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3043:7:78",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 64397,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "previousMinFeeUSD",
+                  "nameLocation": "3081:17:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64401,
+                  "src": "3073:25:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" },
+                  "typeName": {
+                    "id": 64396,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3073:7:78",
+                    "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 64399,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "newMinFeeUSD",
+                  "nameLocation": "3116:12:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64401,
+                  "src": "3108:20:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" },
+                  "typeName": {
+                    "id": 64398,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3108:7:78",
+                    "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2974:160:78"
+            }
+          },
+          {
+            "id": 64413,
+            "nodeType": "EventDefinition",
+            "src": "3226:106:78",
+            "nodes": [],
+            "anonymous": false,
+            "documentation": {
+              "id": 64402,
+              "nodeType": "StructuredDocumentation",
+              "src": "3141:80:78",
+              "text": "@notice Emitted when the admin withdraws ERC-20 tokens from the comptroller."
+            },
+            "eventSelector": "54e738f5d652d49c5aab44c5db8d93b5991df1fa4eadaae8cf2717951497e6ac",
+            "name": "WithdrawERC20Token",
+            "nameLocation": "3232:18:78",
+            "parameters": {
+              "id": 64412,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64404,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "admin",
+                  "nameLocation": "3267:5:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64413,
+                  "src": "3251:21:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64403,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3251:7:78",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 64407,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "token",
+                  "nameLocation": "3289:5:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64413,
+                  "src": "3274:20:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IERC20_$2242",
+                    "typeString": "contract IERC20"
+                  },
+                  "typeName": {
+                    "id": 64406,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 64405,
+                      "name": "IERC20",
+                      "nameLocations": ["3274:6:78"],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 2242,
+                      "src": "3274:6:78"
+                    },
+                    "referencedDeclaration": 2242,
+                    "src": "3274:6:78",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IERC20_$2242",
+                      "typeString": "contract IERC20"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 64409,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "to",
+                  "nameLocation": "3312:2:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64413,
+                  "src": "3296:18:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64408,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3296:7:78",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 64411,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nameLocation": "3324:6:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64413,
+                  "src": "3316:14:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" },
+                  "typeName": {
+                    "id": 64410,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3316:7:78",
+                    "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3250:81:78"
+            }
+          },
+          {
+            "id": 64419,
+            "nodeType": "FunctionDefinition",
+            "src": "3759:55:78",
+            "nodes": [],
+            "documentation": {
+              "id": 64414,
+              "nodeType": "StructuredDocumentation",
+              "src": "3553:201:78",
+              "text": "@notice Retrieves the maximum USD fee that can be set for claiming an airdrop or withdrawing from a stream.\n @dev This is a constant state variable and is 100e8, which is equivalent to $100."
+            },
+            "functionSelector": "78ef7aea",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "MAX_FEE_USD",
+            "nameLocation": "3768:11:78",
+            "parameters": {
+              "id": 64415,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3779:2:78"
+            },
+            "returnParameters": {
+              "id": 64418,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64417,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64419,
+                  "src": "3805:7:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" },
+                  "typeName": {
+                    "id": 64416,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3805:7:78",
+                    "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3804:9:78"
+            },
+            "scope": 64577,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 64425,
+            "nodeType": "FunctionDefinition",
+            "src": "4354:63:78",
+            "nodes": [],
+            "documentation": {
+              "id": 64420,
+              "nodeType": "StructuredDocumentation",
+              "src": "3820:529:78",
+              "text": "@notice The minimal interface ID of the comptroller.\n @dev Any new comptroller must support the minimal interface ID made up of the following functions:\n 1. {calculateMinFeeWeiFor} - used by protocols inherited from {IComptrollerable}.\n 2. {convertUSDFeeToWei}    - used by protocols inherited from {IComptrollerable}.\n 3. {execute}               - used by comptroller admin to perform necessary operations.\n 4. {getMinFeeUSDFor}       - used by protocols inherited from {IComptrollerable}."
+            },
+            "functionSelector": "c34df33e",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "MINIMAL_INTERFACE_ID",
+            "nameLocation": "4363:20:78",
+            "parameters": {
+              "id": 64421,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "4383:2:78"
+            },
+            "returnParameters": {
+              "id": 64424,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64423,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64425,
+                  "src": "4409:6:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_bytes4", "typeString": "bytes4" },
+                  "typeName": {
+                    "id": 64422,
+                    "name": "bytes4",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4409:6:78",
+                    "typeDescriptions": { "typeIdentifier": "t_bytes4", "typeString": "bytes4" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4408:8:78"
+            },
+            "scope": 64577,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 64431,
+            "nodeType": "FunctionDefinition",
+            "src": "4552:57:78",
+            "nodes": [],
+            "documentation": {
+              "id": 64426,
+              "nodeType": "StructuredDocumentation",
+              "src": "4423:124:78",
+              "text": "@notice The version of the comptroller contract.\n @dev This follows the format \"v{Major}.{Minor}\" (e.g., \"v1.1\")."
+            },
+            "functionSelector": "ffa1ad74",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "VERSION",
+            "nameLocation": "4561:7:78",
+            "parameters": {
+              "id": 64427,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "4568:2:78"
+            },
+            "returnParameters": {
+              "id": 64430,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64429,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64431,
+                  "src": "4594:13:78",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 64428,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4594:6:78",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4593:15:78"
+            },
+            "scope": 64577,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 64437,
+            "nodeType": "FunctionDefinition",
+            "src": "4793:52:78",
+            "nodes": [],
+            "documentation": {
+              "id": 64432,
+              "nodeType": "StructuredDocumentation",
+              "src": "4615:173:78",
+              "text": "@notice Retrieves the attestor address used for verifying attestation signatures in merkle campaigns.\n @dev A zero address indicates that the attestor is not set."
+            },
+            "functionSelector": "cada25c2",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "attestor",
+            "nameLocation": "4802:8:78",
+            "parameters": {
+              "id": 64433,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "4810:2:78"
+            },
+            "returnParameters": {
+              "id": 64436,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64435,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64437,
+                  "src": "4836:7:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64434,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4836:7:78",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4835:9:78"
+            },
+            "scope": 64577,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 64446,
+            "nodeType": "FunctionDefinition",
+            "src": "5071:79:78",
+            "nodes": [],
+            "documentation": {
+              "id": 64438,
+              "nodeType": "StructuredDocumentation",
+              "src": "4851:215:78",
+              "text": "@notice Calculates the minimum fee in wei for the given protocol.\n @dev See the documentation for {convertUSDFeeToWei} for more details.\n @param protocol The protocol as defined in {Protocol} enum."
+            },
+            "functionSelector": "baf8f4b9",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "calculateMinFeeWei",
+            "nameLocation": "5080:18:78",
+            "parameters": {
+              "id": 64442,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64441,
+                  "mutability": "mutable",
+                  "name": "protocol",
+                  "nameLocation": "5108:8:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64446,
+                  "src": "5099:17:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_Protocol_$64332",
+                    "typeString": "enum ISablierComptroller.Protocol"
+                  },
+                  "typeName": {
+                    "id": 64440,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 64439,
+                      "name": "Protocol",
+                      "nameLocations": ["5099:8:78"],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 64332,
+                      "src": "5099:8:78"
+                    },
+                    "referencedDeclaration": 64332,
+                    "src": "5099:8:78",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_Protocol_$64332",
+                      "typeString": "enum ISablierComptroller.Protocol"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "5098:19:78"
+            },
+            "returnParameters": {
+              "id": 64445,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64444,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64446,
+                  "src": "5141:7:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" },
+                  "typeName": {
+                    "id": 64443,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "5141:7:78",
+                    "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "5140:9:78"
+            },
+            "scope": 64577,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 64457,
+            "nodeType": "FunctionDefinition",
+            "src": "5547:96:78",
+            "nodes": [],
+            "documentation": {
+              "id": 64447,
+              "nodeType": "StructuredDocumentation",
+              "src": "5156:386:78",
+              "text": "@notice Calculates the minimum fee in wei for the provided user for the given protocol.\n @dev If the custom fee is enabled, it returns the custom fee, otherwise it returns the default minimum fee. See\n the documentation for {convertUSDFeeToWei} for more details.\n @param protocol The protocol as defined in {Protocol} enum.\n @param user The user address."
+            },
+            "functionSelector": "419d289d",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "calculateMinFeeWeiFor",
+            "nameLocation": "5556:21:78",
+            "parameters": {
+              "id": 64453,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64450,
+                  "mutability": "mutable",
+                  "name": "protocol",
+                  "nameLocation": "5587:8:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64457,
+                  "src": "5578:17:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_Protocol_$64332",
+                    "typeString": "enum ISablierComptroller.Protocol"
+                  },
+                  "typeName": {
+                    "id": 64449,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 64448,
+                      "name": "Protocol",
+                      "nameLocations": ["5578:8:78"],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 64332,
+                      "src": "5578:8:78"
+                    },
+                    "referencedDeclaration": 64332,
+                    "src": "5578:8:78",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_Protocol_$64332",
+                      "typeString": "enum ISablierComptroller.Protocol"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 64452,
+                  "mutability": "mutable",
+                  "name": "user",
+                  "nameLocation": "5605:4:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64457,
+                  "src": "5597:12:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64451,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "5597:7:78",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "5577:33:78"
+            },
+            "returnParameters": {
+              "id": 64456,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64455,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64457,
+                  "src": "5634:7:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" },
+                  "typeName": {
+                    "id": 64454,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "5634:7:78",
+                    "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "5633:9:78"
+            },
+            "scope": 64577,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 64465,
+            "nodeType": "FunctionDefinition",
+            "src": "6196:76:78",
+            "nodes": [],
+            "documentation": {
+              "id": 64458,
+              "nodeType": "StructuredDocumentation",
+              "src": "5649:542:78",
+              "text": "@notice Converts the fee amount from USD to Wei.\n @dev The price is considered to be 0 if:\n 1. The oracle is not set.\n 2. The min USD fee is 0.\n 3. The oracle price is ≤ 0.\n 4. The oracle's update timestamp is in the future.\n 5. The oracle price hasn't been updated in the last 24 hours.\n @param feeUSD The fee in USD, denominated in Chainlink's 8-decimal format for USD prices, where 1e8 is $1.\n @return The fee in wei, denominated in 18 decimals (1e18 = 1 native token)."
+            },
+            "functionSelector": "b0fa59e8",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "convertUSDFeeToWei",
+            "nameLocation": "6205:18:78",
+            "parameters": {
+              "id": 64461,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64460,
+                  "mutability": "mutable",
+                  "name": "feeUSD",
+                  "nameLocation": "6232:6:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64465,
+                  "src": "6224:14:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" },
+                  "typeName": {
+                    "id": 64459,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6224:7:78",
+                    "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "6223:16:78"
+            },
+            "returnParameters": {
+              "id": 64464,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64463,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64465,
+                  "src": "6263:7:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" },
+                  "typeName": {
+                    "id": 64462,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6263:7:78",
+                    "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "6262:9:78"
+            },
+            "scope": 64577,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 64474,
+            "nodeType": "FunctionDefinition",
+            "src": "6578:73:78",
+            "nodes": [],
+            "documentation": {
+              "id": 64466,
+              "nodeType": "StructuredDocumentation",
+              "src": "6278:295:78",
+              "text": "@notice Get the minimum fee in USD for the given protocol, paid in the native token of the chain, e.g.,\n ETH for Ethereum Mainnet. Use {calculateMinFeeWei} to retrieve the fee in wei.\n @dev The fee is denominated in Chainlink's 8-decimal format for USD prices, where 1e8 is $1."
+            },
+            "functionSelector": "b9fbe2f8",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getMinFeeUSD",
+            "nameLocation": "6587:12:78",
+            "parameters": {
+              "id": 64470,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64469,
+                  "mutability": "mutable",
+                  "name": "protocol",
+                  "nameLocation": "6609:8:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64474,
+                  "src": "6600:17:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_Protocol_$64332",
+                    "typeString": "enum ISablierComptroller.Protocol"
+                  },
+                  "typeName": {
+                    "id": 64468,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 64467,
+                      "name": "Protocol",
+                      "nameLocations": ["6600:8:78"],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 64332,
+                      "src": "6600:8:78"
+                    },
+                    "referencedDeclaration": 64332,
+                    "src": "6600:8:78",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_Protocol_$64332",
+                      "typeString": "enum ISablierComptroller.Protocol"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "6599:19:78"
+            },
+            "returnParameters": {
+              "id": 64473,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64472,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64474,
+                  "src": "6642:7:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" },
+                  "typeName": {
+                    "id": 64471,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "6642:7:78",
+                    "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "6641:9:78"
+            },
+            "scope": 64577,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 64485,
+            "nodeType": "FunctionDefinition",
+            "src": "6982:90:78",
+            "nodes": [],
+            "documentation": {
+              "id": 64475,
+              "nodeType": "StructuredDocumentation",
+              "src": "6657:320:78",
+              "text": "@notice Get the minimum fee in USD for the provided user for the given protocol, paid in the native token of the\n chain, e.g., ETH for Ethereum Mainnet. Use {calculateMinFeeWeiFor} to retrieve the fee in wei.\n @dev The fee is denominated in Chainlink's 8-decimal format for USD prices, where 1e8 is $1."
+            },
+            "functionSelector": "88dc31a8",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getMinFeeUSDFor",
+            "nameLocation": "6991:15:78",
+            "parameters": {
+              "id": 64481,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64478,
+                  "mutability": "mutable",
+                  "name": "protocol",
+                  "nameLocation": "7016:8:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64485,
+                  "src": "7007:17:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_Protocol_$64332",
+                    "typeString": "enum ISablierComptroller.Protocol"
+                  },
+                  "typeName": {
+                    "id": 64477,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 64476,
+                      "name": "Protocol",
+                      "nameLocations": ["7007:8:78"],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 64332,
+                      "src": "7007:8:78"
+                    },
+                    "referencedDeclaration": 64332,
+                    "src": "7007:8:78",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_Protocol_$64332",
+                      "typeString": "enum ISablierComptroller.Protocol"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 64480,
+                  "mutability": "mutable",
+                  "name": "user",
+                  "nameLocation": "7034:4:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64485,
+                  "src": "7026:12:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64479,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "7026:7:78",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "7006:33:78"
+            },
+            "returnParameters": {
+              "id": 64484,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64483,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64485,
+                  "src": "7063:7:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" },
+                  "typeName": {
+                    "id": 64482,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "7063:7:78",
+                    "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "7062:9:78"
+            },
+            "scope": 64577,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 64491,
+            "nodeType": "FunctionDefinition",
+            "src": "7247:50:78",
+            "nodes": [],
+            "documentation": {
+              "id": 64486,
+              "nodeType": "StructuredDocumentation",
+              "src": "7078:164:78",
+              "text": "@notice Retrieves the oracle contract address, which provides price data for the native token.\n @dev A zero address indicates that the oracle is not set."
+            },
+            "functionSelector": "7dc0d1d0",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "oracle",
+            "nameLocation": "7256:6:78",
+            "parameters": {
+              "id": 64487,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "7262:2:78"
+            },
+            "returnParameters": {
+              "id": 64490,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64489,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64491,
+                  "src": "7288:7:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64488,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "7288:7:78",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "7287:9:78"
+            },
+            "scope": 64577,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 64500,
+            "nodeType": "FunctionDefinition",
+            "src": "8202:74:78",
+            "nodes": [],
+            "documentation": {
+              "id": 64492,
+              "nodeType": "StructuredDocumentation",
+              "src": "7521:676:78",
+              "text": "@notice Disables the custom USD fee for the provided user for the given protocol, defaulting to the minimum fee.\n @dev Emits an {UpdateCustomFeeUSD} event.\n Notes:\n - In case of airdrops, the new fee applies only to the future campaigns created by the user. Past campaigns are\n not affected.\n - In case of streams, the new fee applies immediately to all the streams created by user.\n Requirements:\n - `msg.sender` must be either the admin or have the {IRoleAdminable.FEE_MANAGEMENT_ROLE} role.\n @param protocol The protocol as defined in {Protocol} enum.\n @param user The user address."
+            },
+            "functionSelector": "2fa32f4a",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "disableCustomFeeUSDFor",
+            "nameLocation": "8211:22:78",
+            "parameters": {
+              "id": 64498,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64495,
+                  "mutability": "mutable",
+                  "name": "protocol",
+                  "nameLocation": "8243:8:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64500,
+                  "src": "8234:17:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_Protocol_$64332",
+                    "typeString": "enum ISablierComptroller.Protocol"
+                  },
+                  "typeName": {
+                    "id": 64494,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 64493,
+                      "name": "Protocol",
+                      "nameLocations": ["8234:8:78"],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 64332,
+                      "src": "8234:8:78"
+                    },
+                    "referencedDeclaration": 64332,
+                    "src": "8234:8:78",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_Protocol_$64332",
+                      "typeString": "enum ISablierComptroller.Protocol"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 64497,
+                  "mutability": "mutable",
+                  "name": "user",
+                  "nameLocation": "8261:4:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64500,
+                  "src": "8253:12:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64496,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "8253:7:78",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "8233:33:78"
+            },
+            "returnParameters": {
+              "id": 64499,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "8275:0:78"
+            },
+            "scope": 64577,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 64510,
+            "nodeType": "FunctionDefinition",
+            "src": "8728:103:78",
+            "nodes": [],
+            "documentation": {
+              "id": 64501,
+              "nodeType": "StructuredDocumentation",
+              "src": "8282:441:78",
+              "text": "@notice Executes an external call to any contract and function.\n @dev Emits an {Execute} event.\n Requirements:\n - `msg.sender` must be the admin.\n - `target` must be a contract.\n @param target The address of the target contract on which the data is executed.\n @param targetCallData Function selector plus ABI encoded data.\n @return result The result from the call."
+            },
+            "functionSelector": "1cff79cd",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "execute",
+            "nameLocation": "8737:7:78",
+            "parameters": {
+              "id": 64506,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64503,
+                  "mutability": "mutable",
+                  "name": "target",
+                  "nameLocation": "8753:6:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64510,
+                  "src": "8745:14:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64502,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "8745:7:78",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 64505,
+                  "mutability": "mutable",
+                  "name": "targetCallData",
+                  "nameLocation": "8776:14:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64510,
+                  "src": "8761:29:78",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 64504,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "8761:5:78",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "8744:47:78"
+            },
+            "returnParameters": {
+              "id": 64509,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64508,
+                  "mutability": "mutable",
+                  "name": "result",
+                  "nameLocation": "8823:6:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64510,
+                  "src": "8810:19:78",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 64507,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "8810:5:78",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "8809:21:78"
+            },
+            "scope": 64577,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 64518,
+            "nodeType": "FunctionDefinition",
+            "src": "9429:84:78",
+            "nodes": [],
+            "documentation": {
+              "id": 64511,
+              "nodeType": "StructuredDocumentation",
+              "src": "8837:587:78",
+              "text": "@notice Calls `lowerMinFeeUSD` function on an existing campaign.\n @dev Notes:\n - This function is a pass-through to the campaign's {ISablierMerkleBase.lowerMinFeeUSD} function.\n - All validations are expected to be performed in the campaign's `lowerMinFeeUSD` function.\n Requirements:\n - `msg.sender` must be either the admin or have the {IRoleAdminable.FEE_MANAGEMENT_ROLE} role.\n @param campaign The address of an existing campaign.\n @param newMinFeeUSD The new min USD fee to set, denominated in 8 decimals."
+            },
+            "functionSelector": "56ad7460",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "lowerMinFeeUSDForCampaign",
+            "nameLocation": "9438:25:78",
+            "parameters": {
+              "id": 64516,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64513,
+                  "mutability": "mutable",
+                  "name": "campaign",
+                  "nameLocation": "9472:8:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64518,
+                  "src": "9464:16:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64512,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "9464:7:78",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 64515,
+                  "mutability": "mutable",
+                  "name": "newMinFeeUSD",
+                  "nameLocation": "9490:12:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64518,
+                  "src": "9482:20:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" },
+                  "typeName": {
+                    "id": 64514,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "9482:7:78",
+                    "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "9463:40:78"
+            },
+            "returnParameters": {
+              "id": 64517,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "9512:0:78"
+            },
+            "scope": 64577,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 64524,
+            "nodeType": "FunctionDefinition",
+            "src": "10214:51:78",
+            "nodes": [],
+            "documentation": {
+              "id": 64519,
+              "nodeType": "StructuredDocumentation",
+              "src": "9519:690:78",
+              "text": "@notice Sets the attestor address used for verifying attestation signatures in airdrop campaigns.\n @dev Emits a {SetAttestor} event.\n Notes:\n - The default attestor to be used in merkle campaigns. It can be overridden by setting a different attestor in\n the campaign contract.\n - Setting it to zero address would disable attestation-based claims for campaigns that have not set their own\n local attestor.\n Requirements:\n - `msg.sender` must be either the admin or have the {IRoleAdminable.ATTESTOR_MANAGER_ROLE} role.\n @param newAttestor The new attestor address. It can be the zero address."
+            },
+            "functionSelector": "f5770b1f",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setAttestor",
+            "nameLocation": "10223:11:78",
+            "parameters": {
+              "id": 64522,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64521,
+                  "mutability": "mutable",
+                  "name": "newAttestor",
+                  "nameLocation": "10243:11:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64524,
+                  "src": "10235:19:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64520,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "10235:7:78",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "10234:21:78"
+            },
+            "returnParameters": {
+              "id": 64523,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "10264:0:78"
+            },
+            "scope": 64577,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 64532,
+            "nodeType": "FunctionDefinition",
+            "src": "10920:80:78",
+            "nodes": [],
+            "documentation": {
+              "id": 64525,
+              "nodeType": "StructuredDocumentation",
+              "src": "10271:644:78",
+              "text": "@notice Calls `setAttestor` function on an existing campaign contract.\n @dev Notes:\n - This function is a pass-through to the campaign's `setAttestor` function.\n - All validations are expected to be performed in the campaign's `setAttestor` function.\n - Setting it to zero address would not allow the campaign to use the default attestor.\n Requirements:\n - `msg.sender` must be either the admin or have the {IRoleAdminable.ATTESTOR_MANAGER_ROLE} role.\n @param campaign The address of an existing campaign contract.\n @param newAttestor The new attestor address."
+            },
+            "functionSelector": "294323b7",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setAttestorForCampaign",
+            "nameLocation": "10929:22:78",
+            "parameters": {
+              "id": 64530,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64527,
+                  "mutability": "mutable",
+                  "name": "campaign",
+                  "nameLocation": "10960:8:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64532,
+                  "src": "10952:16:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64526,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "10952:7:78",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 64529,
+                  "mutability": "mutable",
+                  "name": "newAttestor",
+                  "nameLocation": "10978:11:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64532,
+                  "src": "10970:19:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64528,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "10970:7:78",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "10951:39:78"
+            },
+            "returnParameters": {
+              "id": 64531,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "10999:0:78"
+            },
+            "scope": 64577,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 64543,
+            "nodeType": "FunctionDefinition",
+            "src": "11804:92:78",
+            "nodes": [],
+            "documentation": {
+              "id": 64533,
+              "nodeType": "StructuredDocumentation",
+              "src": "11006:793:78",
+              "text": "@notice Sets the custom USD fee for the provided user for the given protocol.\n @dev Emits an {UpdateCustomFeeUSD} event.\n Notes:\n - In case of airdrops, the new fee applies only to the future campaigns created by the user. Past campaigns are\n not affected.\n - In case of streams, the new fee applies immediately to all the streams created by user.\n Requirements:\n - `msg.sender` must be either the admin or have the {IRoleAdminable.FEE_MANAGEMENT_ROLE} role.\n - `customFeeUSD` must be less than or equal to {MAX_FEE_USD}.\n @param protocol The protocol as defined in {Protocol} enum.\n @param user The user address.\n @param customFeeUSD The custom USD fee to set, denominated in 8 decimals."
+            },
+            "functionSelector": "d09e86d9",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setCustomFeeUSDFor",
+            "nameLocation": "11813:18:78",
+            "parameters": {
+              "id": 64541,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64536,
+                  "mutability": "mutable",
+                  "name": "protocol",
+                  "nameLocation": "11841:8:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64543,
+                  "src": "11832:17:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_Protocol_$64332",
+                    "typeString": "enum ISablierComptroller.Protocol"
+                  },
+                  "typeName": {
+                    "id": 64535,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 64534,
+                      "name": "Protocol",
+                      "nameLocations": ["11832:8:78"],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 64332,
+                      "src": "11832:8:78"
+                    },
+                    "referencedDeclaration": 64332,
+                    "src": "11832:8:78",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_Protocol_$64332",
+                      "typeString": "enum ISablierComptroller.Protocol"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 64538,
+                  "mutability": "mutable",
+                  "name": "user",
+                  "nameLocation": "11859:4:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64543,
+                  "src": "11851:12:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64537,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "11851:7:78",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 64540,
+                  "mutability": "mutable",
+                  "name": "customFeeUSD",
+                  "nameLocation": "11873:12:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64543,
+                  "src": "11865:20:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" },
+                  "typeName": {
+                    "id": 64539,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "11865:7:78",
+                    "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "11831:55:78"
+            },
+            "returnParameters": {
+              "id": 64542,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "11895:0:78"
+            },
+            "scope": 64577,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 64552,
+            "nodeType": "FunctionDefinition",
+            "src": "12632:72:78",
+            "nodes": [],
+            "documentation": {
+              "id": 64544,
+              "nodeType": "StructuredDocumentation",
+              "src": "11902:725:78",
+              "text": "@notice Sets a new min USD fee for the given protocol.\n @dev Emits a {SetMinFeeUSD} event.\n Notes:\n - In case of airdrops, the new fee applies only to the future campaigns created by the user. Past campaigns are\n not affected.\n - In case of streams, the new fee applies immediately to all the streams created by user.\n Requirements:\n - `msg.sender` must be either the admin or have the {IRoleAdminable.FEE_MANAGEMENT_ROLE} role.\n - `newMinFeeUSD` must be less than or equal to {MAX_FEE_USD}.\n @param protocol The protocol as defined in {Protocol} enum.\n @param newMinFeeUSD The custom USD fee to set, denominated in 8 decimals."
+            },
+            "functionSelector": "9f467352",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setMinFeeUSD",
+            "nameLocation": "12641:12:78",
+            "parameters": {
+              "id": 64550,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64547,
+                  "mutability": "mutable",
+                  "name": "protocol",
+                  "nameLocation": "12663:8:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64552,
+                  "src": "12654:17:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_Protocol_$64332",
+                    "typeString": "enum ISablierComptroller.Protocol"
+                  },
+                  "typeName": {
+                    "id": 64546,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 64545,
+                      "name": "Protocol",
+                      "nameLocations": ["12654:8:78"],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 64332,
+                      "src": "12654:8:78"
+                    },
+                    "referencedDeclaration": 64332,
+                    "src": "12654:8:78",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_Protocol_$64332",
+                      "typeString": "enum ISablierComptroller.Protocol"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 64549,
+                  "mutability": "mutable",
+                  "name": "newMinFeeUSD",
+                  "nameLocation": "12681:12:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64552,
+                  "src": "12673:20:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" },
+                  "typeName": {
+                    "id": 64548,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "12673:7:78",
+                    "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "12653:41:78"
+            },
+            "returnParameters": {
+              "id": 64551,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "12703:0:78"
+            },
+            "scope": 64577,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 64558,
+            "nodeType": "FunctionDefinition",
+            "src": "13098:47:78",
+            "nodes": [],
+            "documentation": {
+              "id": 64553,
+              "nodeType": "StructuredDocumentation",
+              "src": "12710:383:78",
+              "text": "@notice Sets the oracle contract address. The zero address can be used to disable the oracle.\n @dev Emits a {SetOracle} event.\n Requirements:\n - `msg.sender` must be the admin.\n - If `newOracle` is not the zero address, the call to it must not fail.\n @param newOracle The new oracle contract address. It can be the zero address."
+            },
+            "functionSelector": "7adbf973",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setOracle",
+            "nameLocation": "13107:9:78",
+            "parameters": {
+              "id": 64556,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64555,
+                  "mutability": "mutable",
+                  "name": "newOracle",
+                  "nameLocation": "13125:9:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64558,
+                  "src": "13117:17:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64554,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "13117:7:78",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "13116:19:78"
+            },
+            "returnParameters": {
+              "id": 64557,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "13144:0:78"
+            },
+            "scope": 64577,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 64567,
+            "nodeType": "FunctionDefinition",
+            "src": "14096:91:78",
+            "nodes": [],
+            "documentation": {
+              "id": 64559,
+              "nodeType": "StructuredDocumentation",
+              "src": "13151:940:78",
+              "text": "@notice Transfers fees from the given protocol addresses to this contract, and then transfer the entire balance\n of this contract to the fee recipient.\n @dev Emits a {TransferFees} event.\n Notes:\n - If `feeRecipient` is a contract, it must be able to receive native tokens, e.g., ETH for Ethereum Mainnet.\n - `protocolAddresses` can be empty.\n Requirements:\n `feeRecipient` must not be the zero address.\n - If `msg.sender` has neither the {IRoleAdminable.FEE_COLLECTOR_ROLE} role nor is the contract admin, then\n `feeRecipient` must be the admin address.\n - `protocolAddresses` must implement the {IComptrollerable} interface.\n @param protocolAddresses An array of addresses of the Sablier protocols from which fees is transferred from.\n @param feeRecipient The address to which the entire fee from this contract is transferred."
+            },
+            "functionSelector": "f2fc84b7",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "transferFees",
+            "nameLocation": "14105:12:78",
+            "parameters": {
+              "id": 64565,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64562,
+                  "mutability": "mutable",
+                  "name": "protocolAddresses",
+                  "nameLocation": "14137:17:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64567,
+                  "src": "14118:36:78",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_calldata_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 64560,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "14118:7:78",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                    },
+                    "id": 64561,
+                    "nodeType": "ArrayTypeName",
+                    "src": "14118:9:78",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 64564,
+                  "mutability": "mutable",
+                  "name": "feeRecipient",
+                  "nameLocation": "14164:12:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64567,
+                  "src": "14156:20:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64563,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "14156:7:78",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "14117:60:78"
+            },
+            "returnParameters": {
+              "id": 64566,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "14186:0:78"
+            },
+            "scope": 64577,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 64576,
+            "nodeType": "FunctionDefinition",
+            "src": "14639:63:78",
+            "nodes": [],
+            "documentation": {
+              "id": 64568,
+              "nodeType": "StructuredDocumentation",
+              "src": "14193:441:78",
+              "text": "@notice Withdraws the entire ERC-20 token balance from the comptroller to a specified recipient.\n @dev Emits a {WithdrawERC20Token} event.\n Requirements:\n - `msg.sender` must be the admin.\n - `to` must not be the zero address.\n - The token balance of this contract must not be zero.\n @param token The ERC-20 token to withdraw.\n @param to The address to send the tokens to."
+            },
+            "functionSelector": "ecfbe70c",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "withdrawERC20Token",
+            "nameLocation": "14648:18:78",
+            "parameters": {
+              "id": 64574,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64571,
+                  "mutability": "mutable",
+                  "name": "token",
+                  "nameLocation": "14674:5:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64576,
+                  "src": "14667:12:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IERC20_$2242",
+                    "typeString": "contract IERC20"
+                  },
+                  "typeName": {
+                    "id": 64570,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 64569,
+                      "name": "IERC20",
+                      "nameLocations": ["14667:6:78"],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 2242,
+                      "src": "14667:6:78"
+                    },
+                    "referencedDeclaration": 2242,
+                    "src": "14667:6:78",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IERC20_$2242",
+                      "typeString": "contract IERC20"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 64573,
+                  "mutability": "mutable",
+                  "name": "to",
+                  "nameLocation": "14689:2:78",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64576,
+                  "src": "14681:10:78",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64572,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "14681:7:78",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "14666:26:78"
+            },
+            "returnParameters": {
+              "id": 64575,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "14701:0:78"
+            },
+            "scope": 64577,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 64314,
+              "name": "IERC165",
+              "nameLocations": ["576:7:78"],
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 4982,
+              "src": "576:7:78"
+            },
+            "id": 64315,
+            "nodeType": "InheritanceSpecifier",
+            "src": "576:7:78"
+          },
+          {
+            "baseName": {
+              "id": 64316,
+              "name": "IERC1822Proxiable",
+              "nameLocations": ["585:17:78"],
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 804,
+              "src": "585:17:78"
+            },
+            "id": 64317,
+            "nodeType": "InheritanceSpecifier",
+            "src": "585:17:78"
+          },
+          {
+            "baseName": {
+              "id": 64318,
+              "name": "IRoleAdminable",
+              "nameLocations": ["604:14:78"],
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 64302,
+              "src": "604:14:78"
+            },
+            "id": 64319,
+            "nodeType": "InheritanceSpecifier",
+            "src": "604:14:78"
+          }
+        ],
+        "canonicalName": "ISablierComptroller",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 64313,
+          "nodeType": "StructuredDocumentation",
+          "src": "375:168:78",
+          "text": "@title ISablierComptroller\n @notice Manage fees across all Sablier protocols. State-changing functions are only accessible to the admin and the\n fee manager."
+        },
+        "fullyImplemented": false,
+        "linearizedBaseContracts": [64577, 64302, 64178, 804, 4982],
+        "name": "ISablierComptroller",
+        "nameLocation": "553:19:78",
+        "scope": 64578,
+        "usedErrors": [],
+        "usedEvents": [64165, 64248, 64257, 64350, 64359, 64371, 64380, 64387, 64401, 64413]
+      }
+    ],
+    "license": "GPL-3.0-or-later"
+  },
+  "id": 78
+}
