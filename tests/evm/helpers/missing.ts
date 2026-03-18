@@ -93,7 +93,7 @@ const INVALID_BROADCASTS: InvalidBroadcastMap = {
 };
 
 // chains for which we completely lack broadcasts.
-export const MISSING_CHAINS: number[] = [chains.iotex.id, chains.ronin.id, chains.tangle.id];
+export const MISSING_CHAINS: number[] = [chains.ronin.id, chains.tangle.id];
 
 export function isKnownMissing(
   release: Sablier.EVM.Release,

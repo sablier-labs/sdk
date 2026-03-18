@@ -40,6 +40,8 @@ The format is based on [Common Changelog](https://common-changelog.org/).
   ([`cdd32bc`](https://github.com/sablier-labs/sdk/commit/cdd32bc))
 - **Breaking:** Mark Airdrops `v3.0`, Flow `v3.0`, and Lockup `v4.0` as the latest EVM release lines, which changes
   latest-release lookups ([`6edaf99`](https://github.com/sablier-labs/sdk/commit/6edaf99))
+- **Breaking:** Remove Form and IoTeX chain definitions and all associated deployments
+  ([#145](https://github.com/sablier-labs/sdk/issues/145))
 
 ### Added
 

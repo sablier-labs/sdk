@@ -43,12 +43,6 @@ export const mainnets: Sablier.EVM.Deployment[] = [
   get(chains.chiliz.id, {
     [manifest.SABLIER_MERKLE_FACTORY]: ["0xf978034bb3CAB5fe88d23DB5Cb38D510485DaB90", 20_432_619],
   }),
-  get(chains.form.id, {
-    [manifest.SABLIER_MERKLE_FACTORY]: ["0xA9264Ef7cB1516cc27FCD5149A2909Ace885Ffb6", 3_359_651],
-  }),
-  get(chains.iotex.id, {
-    [manifest.SABLIER_MERKLE_FACTORY]: ["0xf08548b1a6DB590FEC6f1B95e6B41d17791767C2", 34_468_349],
-  }),
   get(chains.gnosis.id, {
     [manifest.SABLIER_MERKLE_FACTORY]: ["0x64ba580946985B4b87f4D9f7b6598C2156026775", 38_262_199],
   }),

@@ -55,10 +55,6 @@ export const mainnets: Sablier.EVM.Deployment[] = [
     [manifest.FLOW_NFT_DESCRIPTOR]: "0x7293F2D4A4e676EF67C085E92277AdF560AECb88",
     [manifest.SABLIER_FLOW]: ["0xa0aE7F1bE0DB024Beda05c80722413EDDe7231Bd", 21_570_971],
   }),
-  get(chains.form.id, {
-    [manifest.FLOW_NFT_DESCRIPTOR]: "0x88E64227D4DcF8De1141bb0807A9DC04a5Be9251",
-    [manifest.SABLIER_FLOW]: ["0x5dd399bb320412dF92Df5c10484d3F8d481FE231", 3_359_543],
-  }),
   get(chains.gnosis.id, {
     [manifest.FLOW_NFT_DESCRIPTOR]: "0x5A47FC8732d399a2f3845c4FC91aB91bb97da31F",
     [manifest.SABLIER_FLOW]: ["0x34Bc0C2BF1F2DA51c65cd821bA4133aFCacdb8f5", 38_258_920],
@@ -66,10 +62,6 @@ export const mainnets: Sablier.EVM.Deployment[] = [
   get(chains.hyperevm.id, {
     [manifest.FLOW_NFT_DESCRIPTOR]: "0x81Cc8C4B57B9A60a56330d087D6854A8E17Dfc7A",
     [manifest.SABLIER_FLOW]: ["0x556d859DFEB58Ed3fa092B6526b09da6b74113e2", 8_663_784],
-  }),
-  get(chains.iotex.id, {
-    [manifest.FLOW_NFT_DESCRIPTOR]: "0x91D7B990B1aCDfB2F38189c646371377416c641E",
-    [manifest.SABLIER_FLOW]: ["0xCD8871a22640C57ba36984Fb57E9c794f5Df7F40", 34_453_553],
   }),
   get(chains.lightlink.id, {
     [manifest.FLOW_NFT_DESCRIPTOR]: "0xc58E948Cb0a010105467C92856bcd4842B759fb1",

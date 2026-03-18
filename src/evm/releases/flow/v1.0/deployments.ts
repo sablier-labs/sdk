@@ -55,10 +55,6 @@ export const mainnets: Sablier.EVM.Deployment[] = [
     [manifest.FLOW_NFT_DESCRIPTOR]: "0xc07c1128c19c2bf303b68ae061eff5293927630e",
     [manifest.SABLIER_FLOW]: ["0x5515f774a4db42820802333ba575f68a6e85bd13", 37_356_094],
   }),
-  get(chains.iotex.id, {
-    [manifest.FLOW_NFT_DESCRIPTOR]: "0x83Dd52FCA44E069020b58155b761A590F12B59d3",
-    [manifest.SABLIER_FLOW]: ["0x1DdC1c21CD39c2Fa16366E6036c95342A31831Ba", 33_533_023],
-  }),
   get(chains.lightlink.id, {
     [manifest.FLOW_NFT_DESCRIPTOR]: "0xa2a48b83b6c96e1536336df9ead024d557a97a23",
     [manifest.SABLIER_FLOW]: ["0x46fa0164c5af9382d330e5a245a2ca8a18398950", 116_397_460],

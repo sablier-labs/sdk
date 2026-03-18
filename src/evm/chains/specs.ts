@@ -11,9 +11,7 @@ import {
   bsc as _bsc,
   chiliz as _chiliz,
   coreDao as _coreDao,
-  form as _form,
   gnosis as _gnosis,
-  iotex as _iotex,
   lightlinkPhoenix as _lightlinkPhoenix,
   linea as _linea,
   lineaSepolia as _lineaSepolia,
@@ -269,22 +267,6 @@ export const chainSpecs = {
     },
   },
   /* -------------------------------------------------------------------------- */
-  /*                                    FORM                                    */
-  /* -------------------------------------------------------------------------- */
-  form: {
-    base: _form,
-    meta: {
-      name: "Form",
-      ui: "NOT_SUPPORTED",
-    },
-    nativeCurrency: {
-      coinGeckoId: COIN_GECKO.eth,
-    },
-    rpc: {
-      routemesh: false,
-    },
-  },
-  /* -------------------------------------------------------------------------- */
   /*                                   GNOSIS                                   */
   /* -------------------------------------------------------------------------- */
   gnosis: {
@@ -311,19 +293,6 @@ export const chainSpecs = {
     nativeCurrency: {
       coinGeckoId: "hyperliquid",
       wrapperContract: "0x5555555555555555555555555555555555555555",
-    },
-  },
-  /* -------------------------------------------------------------------------- */
-  /*                                   IOTEX                                    */
-  /* -------------------------------------------------------------------------- */
-  iotex: {
-    base: _iotex,
-    meta: {
-      coinGeckoPlatformId: "iotex",
-      ui: "NOT_SUPPORTED",
-    },
-    nativeCurrency: {
-      coinGeckoId: "iotex",
     },
   },
   /* -------------------------------------------------------------------------- */
