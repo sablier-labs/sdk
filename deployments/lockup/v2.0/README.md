@@ -82,5 +82,4 @@ The CREATE2 salts used during deployment. A "No Salt" value means that the contr
 | Morph Holesky    | ChainID 2810, Version 2.0.0      |
 | Optimism Sepolia | ChainID 11155420, Version 2.0.0  |
 | Sepolia          | ChainID 11155111, Version 2.0.0  |
-| Taiko Hekla      | ChainID 167009, Version 2.0.0    |
 | zkSync Sepolia   | No Salt                          |

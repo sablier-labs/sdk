@@ -125,7 +125,4 @@ export const testnets: Sablier.EVM.Deployment[] = [
   get(chains.superseedSepolia.id, {
     [manifest.SABLIER_MERKLE_FACTORY]: ["0xb5951501D416cb7326e5b9bEB6EF8840a8DF6910", 13_546_515],
   }),
-  get(chains.taikoHekla.id, {
-    [manifest.SABLIER_MERKLE_FACTORY]: ["0xB5F4FB527568f88F8898Ce5F366f4d72e2C742BE", 1_156_070],
-  }),
 ];

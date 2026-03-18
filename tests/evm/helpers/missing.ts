@@ -62,7 +62,6 @@ const MISSING_LOCKUP: VersionMap = {
       lockupV1_1.core.SABLIER_V2_NFT_DESCRIPTOR,
     ],
     [chains.sepolia.id]: [lockupV1_1.core.SABLIER_V2_NFT_DESCRIPTOR],
-    [chains.taikoHekla.id]: ["all"],
     [chains.zksyncSepolia.id]: ["all"],
   },
   "v1.2": {

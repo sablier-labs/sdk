@@ -1,5 +1,4 @@
 import { describe, expect, it } from "vitest";
-import { taikoHekla } from "@/src/evm/chains/index.js";
 import { deployments as comptrollerDeployments } from "@/src/evm/comptroller/deployments.js";
 import { isBroadcastsUnified } from "@/src/internal/helpers.js";
 import { sablier } from "@/src/sablier.js";
@@ -25,7 +24,7 @@ const releasesToTest: BroadcastSource[] = [
 ];
 
 // List of deprecated chains to exclude because their RPC no longer works
-const excludeDeprecated = [taikoHekla.slug];
+const excludeDeprecated: string[] = [];
 
 type BroadcastSource = Sablier.EVM.Release | typeof comptrollerRelease;
 

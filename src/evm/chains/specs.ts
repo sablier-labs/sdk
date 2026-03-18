@@ -31,7 +31,6 @@ import {
   superseed as _superseed,
   superseedSepolia as _superseedSepolia,
   taiko as _taiko,
-  taikoHekla as _taikoHekla,
   unichain as _unichain,
   xdc as _xdc,
   zksync as _zksync,
@@ -597,29 +596,6 @@ export const chainSpecs = {
     nativeCurrency: {
       coinGeckoId: COIN_GECKO.eth,
       wrapperContract: "0x4200000000000000000000000000000000000006",
-    },
-  },
-  /* -------------------------------------------------------------------------- */
-  /*                                TAIKO HEKLA                                 */
-  /* -------------------------------------------------------------------------- */
-  taikoHekla: {
-    base: _taikoHekla,
-    meta: {
-      name: "Taiko Hekla",
-      slug: "taiko-hekla",
-    },
-    nativeCurrency: {
-      coinGeckoId: COIN_GECKO.eth,
-    },
-    overrides: {
-      rpcUrls: {
-        default: {
-          http: ["https://taiko-hekla-rpc.publicnode.com", "https://rpc.hekla.taiko.xyz"],
-        },
-      },
-    },
-    rpc: {
-      routemesh: false,
     },
   },
   /* -------------------------------------------------------------------------- */

@@ -80,5 +80,4 @@ opcode:
 | Monad Testnet    | ChainID 10143, Version 1.1.0     |
 | Optimism Sepolia | ChainID 11155420, Version 1.1.0  |
 | Sepolia          | ChainID 11155111, Version 1.1.0  |
-| Taiko Hekla      | ChainID 167009, Version 1.1.0    |
 | zkSync Sepolia   | No Salt                          |

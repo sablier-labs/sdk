@@ -368,27 +368,6 @@ export const testnets: Sablier.EVM.Deployment.LockupV1[] = [
       ],
     },
   }),
-  get(chains.taikoHekla.id, {
-    core: {
-      [manifest.core.SABLIER_V2_COMPTROLLER]: "0x2De92156000269fa2fde7544F10f01E8cBC80fFa",
-      [manifest.core.SABLIER_V2_LOCKUP_DYNAMIC]: [
-        "0xDf578C2c70A86945999c65961417057363530a1c",
-        39_025,
-      ],
-      [manifest.core.SABLIER_V2_LOCKUP_LINEAR]: [
-        "0xcb099EfC90e88690e287259410B9AE63e1658CC6",
-        39_025,
-      ],
-      [manifest.core.SABLIER_V2_NFT_DESCRIPTOR]: "0xCff4a803b0Bf55dD1BE38Fb96088478F3D2eeCF2",
-    },
-    periphery: {
-      [manifest.periphery.SABLIER_V2_BATCH]: "0xd641a0E4509Cced67cC24E7BDcDe2a31b7F7cF77",
-      [manifest.periphery.SABLIER_V2_MERKLE_STREAMER_FACTORY]: [
-        "0x29a8d9F67608d77D0B4544A70FC2ab80BA5525f5",
-        39_064,
-      ],
-    },
-  }),
   get(chains.zksyncSepolia.id, {
     core: {
       [manifest.core.SABLIER_V2_COMPTROLLER]: "0xEB4570723ae207a0473D73B3c2B255b0D5Ec9f01",

@@ -10,7 +10,7 @@ import { describe, expect, it } from "@effect/vitest";
 import { Effect, Schedule, Schema } from "effect";
 import { chains } from "@/src/evm/chains/index.js";
 
-const MALFUNCTIONING_RPC: number[] = [chains.polygon.id, chains.taikoHekla.id];
+const MALFUNCTIONING_RPC: number[] = [chains.polygon.id];
 
 const JsonRpcResponseSchema = Schema.Struct({
   id: Schema.Number,
