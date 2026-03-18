@@ -40,8 +40,8 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 - **Breaking:** Replace `comptroller.abi` and `comptroller.manifest` with versioned entries under
   `comptroller.releases["v1.0"]` and `comptroller.releases["v2.0"]`
   ([`cdd32bc`](https://github.com/sablier-labs/sdk/commit/cdd32bc))
-- **Breaking:** Remove Blast Sepolia, Form, IoTeX, Meld, Mode Testnet, Morph Holesky, Taiko Hekla chain definitions and
-  all associated deployments
+- **Breaking:** Remove Blast Sepolia, Form, IoTeX, Meld, Mode Testnet, Morph Holesky, Taiko Hekla, Ultra chain
+  definitions and all associated deployments
 
 ### Added
 
