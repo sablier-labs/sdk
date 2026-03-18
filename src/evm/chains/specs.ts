@@ -11,6 +11,7 @@ import {
   chiliz as _chiliz,
   coreDao as _coreDao,
   gnosis as _gnosis,
+  hyperEvm as _hyperEvm,
   lightlinkPhoenix as _lightlinkPhoenix,
   linea as _linea,
   lineaSepolia as _lineaSepolia,
@@ -39,7 +40,7 @@ import {
 } from "viem/chains";
 // import { berachain } from "viem/chains/definitions/zksync";
 import type { ChainSpec } from "./builder.js";
-import { denergy, hyperevm, tangle } from "./custom.js";
+import { denergy, tangle } from "./custom.js";
 
 const COIN_GECKO = {
   eth: "ethereum",
@@ -268,13 +269,21 @@ export const chainSpecs = {
   /*                                 HYPEREVM                                   */
   /* -------------------------------------------------------------------------- */
   hyperevm: {
-    base: hyperevm,
+    base: _hyperEvm,
     meta: {
       coinGeckoPlatformId: "hyperevm",
     },
     nativeCurrency: {
       coinGeckoId: "hyperliquid",
       wrapperContract: "0x5555555555555555555555555555555555555555",
+    },
+    overrides: {
+      contracts: {
+        multicall3: {
+          address: "0xcA11bde05977b3631167028862bE2a173976CA11",
+          blockCreated: 13_051,
+        },
+      },
     },
   },
   /* -------------------------------------------------------------------------- */

@@ -35,6 +35,8 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 
 ### Changed
 
+- **Breaking:** Bump `viem` peer dependency from `^2.39` to `^2.40.1`
+- Replace custom HyperEVM chain definition with viem's built-in `hyperEvm` export
 - **Breaking:** Replace `comptroller.abi` and `comptroller.manifest` with versioned entries under
   `comptroller.releases["v1.0"]` and `comptroller.releases["v2.0"]`
   ([`cdd32bc`](https://github.com/sablier-labs/sdk/commit/cdd32bc))

@@ -20,6 +20,7 @@ export const {
   bsc,
   coreDao,
   gnosis,
+  hyperevm,
   lightlink,
   linea,
   lineaSepolia,
@@ -46,15 +47,5 @@ export const {
 /*                             CUSTOM DEFINITIONS                             */
 /* -------------------------------------------------------------------------- */
 
-export const {
-  chiliz,
-  denergy,
-  hyperevm,
-  monad,
-  sei,
-  sophon,
-  taikoHekla,
-  tangle,
-  zksync,
-  zksyncSepolia,
-} = chains;
+export const { chiliz, denergy, monad, sei, sophon, taikoHekla, tangle, zksync, zksyncSepolia } =
+  chains;

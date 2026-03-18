@@ -2,7 +2,6 @@ import { defineChain as viemDefine } from "viem";
 
 const DENERGY_CHAIN_ID = 369_369;
 const DENERGY_NATIVE_CURRENCY_SYMBOL = "WATT";
-const HYPEREVM_NATIVE_CURRENCY_SYMBOL = "HYPE";
 const TANGLE_NATIVE_CURRENCY_SYMBOL = "TNT";
 
 export const denergy = viemDefine({
@@ -19,35 +18,6 @@ export const denergy = viemDefine({
   rpcUrls: {
     default: {
       http: ["https://rpc.d.energy"],
-    },
-  },
-  testnet: false,
-});
-
-/**
- * HyperEVM is using another chain's ID (Wanchain Testnet). Until they change this, we will have to define it like this.
- * @see https://github.com/wevm/viem/pull/3390
- */
-export const hyperevm = viemDefine({
-  blockExplorers: {
-    default: { name: "Explorer", url: "https://hyperevmscan.io" },
-  },
-  contracts: {
-    multicall3: {
-      address: "0xcA11bde05977b3631167028862bE2a173976CA11",
-      blockCreated: 13_051,
-    },
-  },
-  id: 999,
-  name: "HyperEVM",
-  nativeCurrency: {
-    decimals: 18,
-    name: "Hyperliquid",
-    symbol: HYPEREVM_NATIVE_CURRENCY_SYMBOL,
-  },
-  rpcUrls: {
-    default: {
-      http: ["https://rpc.hyperliquid.xyz/evm"],
     },
   },
   testnet: false,
