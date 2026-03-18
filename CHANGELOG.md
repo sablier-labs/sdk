@@ -53,11 +53,15 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 - Add `coinGeckoPlatformId` to supported EVM mainnets and Solana mainnet-beta chain metadata
   ([`09b5a88`](https://github.com/sablier-labs/sdk/commit/09b5a88f0d835718b0cbb502f826ed917a16883b))
 - Add WHYPE and WXDC wrapper contracts to HyperEVM and XDC chain specs
+  ([`8d43894`](https://github.com/sablier-labs/sdk/commit/8d43894b6bad7de07d9d16210f9ad3affb57002c))
 
 ### Fixed
 
 - Disable RouteMesh RPC for Form, Meld, and Taiko Hekla on unsupported chains
   ([`0123fd2`](https://github.com/sablier-labs/sdk/commit/0123fd2db03fadfa142779fe32c309421ec0fafc))
+- Fix type mismatch in missing chains test helper by splitting `MISSING_CHAINS` into `MISSING_CHAIN_IDS` and
+  `MISSING_CHAIN_SLUGS`
+  ([`ad93cd3`](https://github.com/sablier-labs/sdk/commit/ad93cd30822212de7e41343005c705a2186f235a))
 - Fix the Monad wrapper contract checksum
   ([`b9ba82b`](https://github.com/sablier-labs/sdk/commit/b9ba82bf2126919a4da9222d7cb5b15f737acee0))
 
