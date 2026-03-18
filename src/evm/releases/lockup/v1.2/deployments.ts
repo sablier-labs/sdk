@@ -313,30 +313,6 @@ export const mainnets: Sablier.EVM.Deployment.LockupV1[] = [
       ],
     },
   }),
-  get(chains.meld.id, {
-    core: {
-      [manifest.core.SABLIER_V2_LOCKUP_DYNAMIC]: [
-        "0xCff4a803b0Bf55dD1BE38Fb96088478F3D2eeCF2",
-        810_040,
-      ],
-      [manifest.core.SABLIER_V2_LOCKUP_LINEAR]: [
-        "0xDf578C2c70A86945999c65961417057363530a1c",
-        810_040,
-      ],
-      [manifest.core.SABLIER_V2_LOCKUP_TRANCHED]: [
-        "0xcb099EfC90e88690e287259410B9AE63e1658CC6",
-        810_040,
-      ],
-      [manifest.core.SABLIER_V2_NFT_DESCRIPTOR]: "0x2De92156000269fa2fde7544F10f01E8cBC80fFa",
-    },
-    periphery: {
-      [manifest.periphery.SABLIER_V2_BATCH_LOCKUP]: "0x0eDA15D606733f6CDe9DB67263E546bfcDDe9264",
-      [manifest.periphery.SABLIER_V2_MERKLE_LOCKUP_FACTORY]: [
-        "0x92FC05e49c27884d554D98a5C01Ff0894a9DC29a",
-        810_043,
-      ],
-    },
-  }),
   get(chains.mode.id, {
     core: {
       [manifest.core.SABLIER_V2_LOCKUP_DYNAMIC]: [

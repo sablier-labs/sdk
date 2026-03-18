@@ -16,7 +16,6 @@ import {
   linea as _linea,
   lineaSepolia as _lineaSepolia,
   mainnet as _mainnet,
-  meld as _meld,
   mode as _mode,
   monad as _monad,
   morph as _morph,
@@ -348,22 +347,6 @@ export const chainSpecs = {
     rpc: {
       alchemy: "eth-mainnet",
       infura: "mainnet",
-    },
-  },
-  /* -------------------------------------------------------------------------- */
-  /*                                    MELD                                    */
-  /* -------------------------------------------------------------------------- */
-  meld: {
-    base: _meld,
-    meta: {
-      coinGeckoPlatformId: "meld",
-      ui: "NOT_SUPPORTED",
-    },
-    nativeCurrency: {
-      coinGeckoId: "meld-2",
-    },
-    rpc: {
-      routemesh: false,
     },
   },
   /* -------------------------------------------------------------------------- */

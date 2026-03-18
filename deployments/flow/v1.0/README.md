@@ -96,7 +96,6 @@ The CREATE2 salts used during deployment:
 | Lightlink       | No Salt                       |
 | Linea           | ChainID 59144, Version 1.0.0  |
 | Mainnet         | ChainID 1, Version 1.0.0      |
-| Meld            | No Salt                       |
 | Mode            | No Salt                       |
 | Morph           | No Salt                       |
 | Optimism        | ChainID 10, Version 1.0.0     |

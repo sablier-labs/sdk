@@ -25,7 +25,6 @@ export const {
   linea,
   lineaSepolia,
   mainnet,
-  meld,
   mode,
 
   morph,
