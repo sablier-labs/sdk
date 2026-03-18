@@ -7,7 +7,6 @@ import {
   baseSepolia as _baseSepolia,
   berachain as _berachain,
   blast as _blast,
-  blastSepolia as _blastSepolia,
   bsc as _bsc,
   chiliz as _chiliz,
   coreDao as _coreDao,
@@ -18,7 +17,6 @@ import {
   mainnet as _mainnet,
   meld as _meld,
   mode as _mode,
-  modeTestnet as _modeTestnet,
   monad as _monad,
   morph as _morph,
   optimism as _optimism,
@@ -180,22 +178,6 @@ export const chainSpecs = {
     rpc: {
       alchemy: "blast-mainnet",
       infura: "blast-mainnet",
-    },
-  },
-  /* -------------------------------------------------------------------------- */
-  /*                               BLAST SEPOLIA                               */
-  /* -------------------------------------------------------------------------- */
-  blastSepolia: {
-    base: _blastSepolia,
-    meta: {
-      slug: "blast-sepolia",
-    },
-    nativeCurrency: {
-      coinGeckoId: COIN_GECKO.eth,
-    },
-    rpc: {
-      alchemy: "blast-sepolia",
-      infura: "blast-sepolia",
     },
   },
   /* -------------------------------------------------------------------------- */
@@ -387,18 +369,6 @@ export const chainSpecs = {
     nativeCurrency: {
       coinGeckoId: COIN_GECKO.eth,
       wrapperContract: "0x4200000000000000000000000000000000000006",
-    },
-  },
-  /* -------------------------------------------------------------------------- */
-  /*                                MODE TESTNET                                */
-  /* -------------------------------------------------------------------------- */
-  modeTestnet: {
-    base: _modeTestnet,
-    meta: {
-      slug: "mode-testnet",
-    },
-    nativeCurrency: {
-      coinGeckoId: COIN_GECKO.eth,
     },
   },
   /* -------------------------------------------------------------------------- */

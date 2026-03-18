@@ -115,9 +115,7 @@ export const testnets: Sablier.EVM.Deployment[] = [
   get(chains.lineaSepolia.id, {
     [manifest.SABLIER_MERKLE_FACTORY]: ["0x5ADE5DF4FB42e353223DFF677cbfec812c6C4Da7", 8_629_928],
   }),
-  get(chains.modeTestnet.id, {
-    [manifest.SABLIER_MERKLE_FACTORY]: ["0x659836D788cce324Ad8c445584b9c44c6a8c74b7", 25_076_216],
-  }),
+
   get(chains.optimismSepolia.id, {
     [manifest.SABLIER_MERKLE_FACTORY]: ["0x2934A7aDDC3000D1625eD1E8D21C070a89073702", 23_108_917],
   }),

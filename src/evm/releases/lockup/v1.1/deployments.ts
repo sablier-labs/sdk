@@ -325,27 +325,7 @@ export const testnets: Sablier.EVM.Deployment.LockupV1[] = [
       ],
     },
   }),
-  get(chains.blastSepolia.id, {
-    core: {
-      [manifest.core.SABLIER_V2_COMPTROLLER]: "0x9e216126115AFcdA9531232D3B735731905B4DC4",
-      [manifest.core.SABLIER_V2_LOCKUP_DYNAMIC]: [
-        "0x8aB55a8E046634D5AD87f64d65C1E96275e48712",
-        2_306_760,
-      ],
-      [manifest.core.SABLIER_V2_LOCKUP_LINEAR]: [
-        "0xe31Ac61c7762930625D4700D7ea9282B7E57b816",
-        2_306_760,
-      ],
-      [manifest.core.SABLIER_V2_NFT_DESCRIPTOR]: "0x1e7217Aa198A17F79cc45aB5C90277Ff1d18b5DB",
-    },
-    periphery: {
-      [manifest.periphery.SABLIER_V2_BATCH]: "0x72D91DB141fd38eD5DDc0D4b00BdDd2A17Cf6D55",
-      [manifest.periphery.SABLIER_V2_MERKLE_STREAMER_FACTORY]: [
-        "0x6F147f9A251A1F004A1d043b8E486aAb00A49cef",
-        2_306_998,
-      ],
-    },
-  }),
+
   get(chains.optimismSepolia.id, {
     core: {
       [manifest.core.SABLIER_V2_COMPTROLLER]: "0x6587166c4F4E0b6203549463EbAB4dBeFA63fd8f",

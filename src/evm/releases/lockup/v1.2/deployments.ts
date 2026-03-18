@@ -607,30 +607,7 @@ export const testnets: Sablier.EVM.Deployment.LockupV1[] = [
       ],
     },
   }),
-  get(chains.blastSepolia.id, {
-    core: {
-      [manifest.core.SABLIER_V2_LOCKUP_DYNAMIC]: [
-        "0x9dA09f4887FD3a78Ea237F74a456a82e4301F3D4",
-        8_184_206,
-      ],
-      [manifest.core.SABLIER_V2_LOCKUP_LINEAR]: [
-        "0x07f1386803ab6e1D8b6AABD50A9772E45bEA08f1",
-        8_184_207,
-      ],
-      [manifest.core.SABLIER_V2_LOCKUP_TRANCHED]: [
-        "0x7eB79ab3652713bBE989e7A0dCA61ba484CAED85",
-        8_184_207,
-      ],
-      [manifest.core.SABLIER_V2_NFT_DESCRIPTOR]: "0x93c0c4a57573C7056D7d63B536e33E28FB3ec2EE",
-    },
-    periphery: {
-      [manifest.periphery.SABLIER_V2_BATCH_LOCKUP]: "0xAC83E6aDA41a9251516601d8D5D0188466044Cc1",
-      [manifest.periphery.SABLIER_V2_MERKLE_LOCKUP_FACTORY]: [
-        "0xb9fCF1f73DD941Dd1C589fCf8545E60133EE5eC2",
-        8_184_439,
-      ],
-    },
-  }),
+
   get(chains.lineaSepolia.id, {
     core: {
       [manifest.core.SABLIER_V2_LOCKUP_DYNAMIC]: [
@@ -655,30 +632,7 @@ export const testnets: Sablier.EVM.Deployment.LockupV1[] = [
       ],
     },
   }),
-  get(chains.modeTestnet.id, {
-    core: {
-      [manifest.core.SABLIER_V2_LOCKUP_DYNAMIC]: [
-        "0x5cD39Ec69F0Ed62733d0DA3E083E451334bA1f70",
-        17_492_744,
-      ],
-      [manifest.core.SABLIER_V2_LOCKUP_LINEAR]: [
-        "0x61861e4C72EE2F6967C852FE79Eac0E7a9C4f466",
-        17_492_744,
-      ],
-      [manifest.core.SABLIER_V2_LOCKUP_TRANCHED]: [
-        "0xc51346d1FD003E536530584eb4c8974BB279712D",
-        17_492_744,
-      ],
-      [manifest.core.SABLIER_V2_NFT_DESCRIPTOR]: "0xD3c856A7333c264475aD87F9E6f84Ef376AE250D",
-    },
-    periphery: {
-      [manifest.periphery.SABLIER_V2_BATCH_LOCKUP]: "0xece83740834694A6E204825e5bcD8774F26a2665",
-      [manifest.periphery.SABLIER_V2_MERKLE_LOCKUP_FACTORY]: [
-        "0x900de6cC1021afa13f41e1067bEE681BbD661C69",
-        17_492_870,
-      ],
-    },
-  }),
+
   get(chains.optimismSepolia.id, {
     core: {
       [manifest.core.SABLIER_V2_LOCKUP_DYNAMIC]: [

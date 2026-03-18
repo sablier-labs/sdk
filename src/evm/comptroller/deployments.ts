@@ -124,9 +124,7 @@ export const testnets = [
   get(chains.baseSepolia.id, {
     [manifest.SABLIER_COMPTROLLER]: [DEFAULT_ADDRESS, 31_493_735],
   }),
-  get(chains.modeTestnet.id, {
-    [manifest.SABLIER_COMPTROLLER]: [DEFAULT_ADDRESS, 35_444_141],
-  }),
+
   get(chains.optimismSepolia.id, {
     [manifest.SABLIER_COMPTROLLER]: [DEFAULT_ADDRESS, 33_476_910],
   }),

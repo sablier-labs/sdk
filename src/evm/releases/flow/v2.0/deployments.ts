@@ -142,10 +142,7 @@ export const testnets: Sablier.EVM.Deployment[] = [
     [manifest.FLOW_NFT_DESCRIPTOR]: "0xcb5591F6d0e0fFC03037ef7b006D1361C6D33D25",
     [manifest.SABLIER_FLOW]: ["0x19e99dcdbaf2fbf43c60cfd026d571860da29d43", 31_923_790],
   }),
-  get(chains.modeTestnet.id, {
-    [manifest.FLOW_NFT_DESCRIPTOR]: "0xe1eDdA64eea2173a015A3738171C3a1C263324C7",
-    [manifest.SABLIER_FLOW]: ["0xed1bde07c0af4a2b27301555af0ac26ab1b727a8", 35_875_839],
-  }),
+
   get(chains.optimismSepolia.id, {
     [manifest.FLOW_NFT_DESCRIPTOR]: "0x4739327acfb56E90177d44Cb0845e759276BCA88",
     [manifest.SABLIER_FLOW]: ["0x4cc7b50b0856c607edee0b6547221360e82e768c", 33_906_679],

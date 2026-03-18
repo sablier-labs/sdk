@@ -16,7 +16,7 @@ export const {
   baseSepolia,
   berachain,
   blast,
-  blastSepolia,
+
   bsc,
   coreDao,
   gnosis,
@@ -26,7 +26,7 @@ export const {
   mainnet,
   meld,
   mode,
-  modeTestnet,
+
   morph,
   optimism,
   optimismSepolia,

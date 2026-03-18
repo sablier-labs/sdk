@@ -539,24 +539,7 @@ export const testnets: Sablier.EVM.Deployment[] = [
       31_731_891,
     ],
   }),
-  get(chains.modeTestnet.id, {
-    [manifest.SABLIER_FACTORY_MERKLE_INSTANT]: [
-      "0x05a666850b88a9b2f02ed851fee9a7ffc013deec",
-      35_682_183,
-    ],
-    [manifest.SABLIER_FACTORY_MERKLE_LL]: [
-      "0xb2217bda352d15c7c1972b6419f37b408b770aba",
-      35_682_183,
-    ],
-    [manifest.SABLIER_FACTORY_MERKLE_LT]: [
-      "0x2c88ce3d64d8f51834ffa81f092558c7e52874c0",
-      35_682_183,
-    ],
-    [manifest.SABLIER_FACTORY_MERKLE_VCA]: [
-      "0x134243bdfac6547f3cda2ccb7a5f2fdc1e390ba0",
-      35_682_183,
-    ],
-  }),
+
   get(chains.optimismSepolia.id, {
     [manifest.SABLIER_FACTORY_MERKLE_INSTANT]: [
       "0x15917930cc30093823790c9d1f83d550c0de33d3",

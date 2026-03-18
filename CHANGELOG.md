@@ -42,6 +42,7 @@ The format is based on [Common Changelog](https://common-changelog.org/).
   latest-release lookups ([`6edaf99`](https://github.com/sablier-labs/sdk/commit/6edaf99))
 - **Breaking:** Remove Form and IoTeX chain definitions and all associated deployments
   ([#145](https://github.com/sablier-labs/sdk/issues/145))
+- **Breaking:** Remove Blast Sepolia and Mode Testnet chain definitions and all associated deployments
 
 ### Added
 
