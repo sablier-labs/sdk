@@ -19,7 +19,7 @@ import { chainsQueries } from "@/src/evm/chains/queries.js";
 import { Protocol } from "@/src/evm/enums.js";
 import { releasesQueries } from "@/src/evm/releases/queries.js";
 import { getDeploymentsDir } from "@/src/internal/helpers.js";
-import { MISSING_CHAINS } from "./helpers/missing.js";
+import { MISSING_CHAIN_IDS, MISSING_CHAIN_SLUGS } from "./helpers/missing.js";
 
 class GlobbyError extends Data.TaggedError("GlobbyError")<{
   readonly pattern: string;
@@ -29,10 +29,8 @@ class GlobbyError extends Data.TaggedError("GlobbyError")<{
 const chainValues = Object.values(chains);
 
 const KNOWN_SLUGS = chainValues
-  .filter((chain) => !MISSING_CHAINS.includes(chain.id))
+  .filter((chain) => !MISSING_CHAIN_IDS.includes(chain.id))
   .map((chain) => chain.slug);
-
-const MISSING_SLUGS = MISSING_CHAINS.map((id) => chainValues.find((c) => c.id === id)!.slug);
 
 describe("Package chains are in sync with broadcasts", () => {
   let broadcastSlugs: string[] = [];
@@ -63,7 +61,7 @@ describe("Package chains are in sync with broadcasts", () => {
   it.effect("should not have any unknown chain in broadcasts", () =>
     Effect.gen(function* () {
       errors.clear();
-      const allowedSlugs = [...KNOWN_SLUGS, ...MISSING_SLUGS];
+      const allowedSlugs = [...KNOWN_SLUGS, ...MISSING_CHAIN_SLUGS];
       const extraChains = broadcastSlugs.filter((slug) => !allowedSlugs.includes(slug));
 
       for (const slug of extraChains) {

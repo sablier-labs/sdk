@@ -92,15 +92,17 @@ const INVALID_BROADCASTS: InvalidBroadcastMap = {
   },
 };
 
-// chains for which we completely lack broadcasts.
-export const MISSING_CHAINS: number[] = [chains.ronin.id, chains.tangle.id];
+// Chains for which we completely lack broadcasts.
+const MISSING_CHAIN_ENTRIES = [chains.ronin, chains.tangle] as const;
+export const MISSING_CHAIN_IDS: number[] = MISSING_CHAIN_ENTRIES.map((c) => c.id);
+export const MISSING_CHAIN_SLUGS: string[] = MISSING_CHAIN_ENTRIES.map((c) => c.slug);
 
 export function isKnownMissing(
   release: Sablier.EVM.Release,
   chain: Sablier.EVM.Chain,
   contractName: string
 ): boolean {
-  if (MISSING_CHAINS.includes(chain.id)) {
+  if (MISSING_CHAIN_IDS.includes(chain.id)) {
     return true;
   }
 
