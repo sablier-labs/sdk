@@ -1,12 +1,10 @@
 import { describe, expect, it } from "vitest";
 import { sablier } from "@/src/sablier.js";
-import { releases } from "@/src/solana/releases/index.js";
-
-const allReleasesToTest = [releases.airdrops["v0.1"], releases.lockup["v0.1"]];
+import { allSolanaReleases } from "../releases.js";
 
 describe("programsQueries.get", () => {
   describe("{ chainId, programName, release }", () => {
-    for (const release of allReleasesToTest) {
+    for (const release of allSolanaReleases) {
       it("should return program when found", () => {
         const deployment = release.deployments[0];
         const program = deployment.programs[0];
@@ -24,7 +22,7 @@ describe("programsQueries.get", () => {
 
   describe("{ chainId, programAddress, protocol }", () => {
     it("should return program when found in single release", () => {
-      const release = allReleasesToTest[0];
+      const release = allSolanaReleases[0];
       const deployment = release.deployments[0];
       const program = deployment.programs[0];
 
@@ -40,7 +38,7 @@ describe("programsQueries.get", () => {
 
   describe("{ chainId, programAddress, protocol, release }", () => {
     it("should return program when found", () => {
-      const release = allReleasesToTest[0];
+      const release = allSolanaReleases[0];
       const deployment = release.deployments[0];
       const program = deployment.programs[0];
 
@@ -57,7 +55,7 @@ describe("programsQueries.get", () => {
 
   describe("{ chainId, programAddress, release }", () => {
     it("should return program when found", () => {
-      const release = allReleasesToTest[0];
+      const release = allSolanaReleases[0];
       const deployment = release.deployments[0];
       const program = deployment.programs[0];
 

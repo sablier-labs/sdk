@@ -5,9 +5,6 @@ import { SOLANA_CHAIN_IDS } from "./solana/chains/chains.js";
 import { resolveSolanaStreamId, truncateSolanaAddress } from "./solana/helpers.js";
 import type { Sablier, TruncateAddressOptions } from "./types.js";
 
-/** EVM-only protocols that don't exist on Solana */
-const EVM_ONLY_PROTOCOLS = new Set([EvmProtocol.Flow, EvmProtocol.Legacy]);
-
 // Re-export platform-specific helpers
 export * from "./evm/helpers.js";
 export * from "./solana/helpers.js";
@@ -17,6 +14,9 @@ export type { TruncateAddressOptions } from "./types.js";
 
 /** Version type supporting both EVM and Solana protocols */
 type Version = Sablier.EVM.Version | Sablier.Solana.Version;
+
+/** Protocols that exist on both EVM and Solana ecosystems */
+const MULTI_ECOSYSTEM_PROTOCOLS = new Set([EvmProtocol.Airdrops, EvmProtocol.Lockup]);
 
 /**
  * Compare two semantic version strings.
@@ -145,7 +145,7 @@ export function resolveStreamId(opts: {
   const isSolanaChain = SOLANA_CHAIN_IDS.has(chainId);
 
   // Validate protocol/chain compatibility
-  if (protocol && isSolanaChain && EVM_ONLY_PROTOCOLS.has(protocol as EvmProtocol)) {
+  if (protocol && isSolanaChain && !MULTI_ECOSYSTEM_PROTOCOLS.has(protocol as EvmProtocol)) {
     throw new Error(
       `Sablier SDK: Protocol "${protocol}" is EVM-only and not valid for Solana chain ${chainId}`
     );

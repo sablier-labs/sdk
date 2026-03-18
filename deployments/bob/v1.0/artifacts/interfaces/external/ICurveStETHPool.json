@@ -1,0 +1,132 @@
+{
+  "abi": [
+    {
+      "type": "function",
+      "name": "exchange",
+      "inputs": [
+        { "name": "i", "type": "int128", "internalType": "int128" },
+        { "name": "j", "type": "int128", "internalType": "int128" },
+        { "name": "dx", "type": "uint256", "internalType": "uint256" },
+        { "name": "minDy", "type": "uint256", "internalType": "uint256" }
+      ],
+      "outputs": [{ "name": "dy", "type": "uint256", "internalType": "uint256" }],
+      "stateMutability": "payable"
+    },
+    {
+      "type": "function",
+      "name": "get_dy",
+      "inputs": [
+        { "name": "i", "type": "int128", "internalType": "int128" },
+        { "name": "j", "type": "int128", "internalType": "int128" },
+        { "name": "dx", "type": "uint256", "internalType": "uint256" }
+      ],
+      "outputs": [{ "name": "dy", "type": "uint256", "internalType": "uint256" }],
+      "stateMutability": "view"
+    }
+  ],
+  "bytecode": { "object": "0x", "sourceMap": "", "linkReferences": {} },
+  "deployedBytecode": { "object": "0x", "sourceMap": "", "linkReferences": {} },
+  "methodIdentifiers": {
+    "exchange(int128,int128,uint256,uint256)": "3df02124",
+    "get_dy(int128,int128,uint256)": "5e0d443f"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.29+commit.ab55807c\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"int128\",\"name\":\"i\",\"type\":\"int128\"},{\"internalType\":\"int128\",\"name\":\"j\",\"type\":\"int128\"},{\"internalType\":\"uint256\",\"name\":\"dx\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"minDy\",\"type\":\"uint256\"}],\"name\":\"exchange\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"dy\",\"type\":\"uint256\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int128\",\"name\":\"i\",\"type\":\"int128\"},{\"internalType\":\"int128\",\"name\":\"j\",\"type\":\"int128\"},{\"internalType\":\"uint256\",\"name\":\"dx\",\"type\":\"uint256\"}],\"name\":\"get_dy\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"dy\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"The pool has two tokens: ETH (index 0) and stETH (index 1).\",\"kind\":\"dev\",\"methods\":{\"exchange(int128,int128,uint256,uint256)\":{\"params\":{\"dx\":\"The amount of input coin to exchange.\",\"i\":\"The index of the input coin (0 = ETH, 1 = stETH).\",\"j\":\"The index of the output coin (0 = ETH, 1 = stETH).\",\"minDy\":\"The minimum amount of output coin to receive.\"},\"returns\":{\"dy\":\"The actual amount of output coin received.\"}},\"get_dy(int128,int128,uint256)\":{\"params\":{\"dx\":\"The amount of input coin.\",\"i\":\"The index of the input coin.\",\"j\":\"The index of the output coin.\"},\"returns\":{\"dy\":\"The expected amount of output coin.\"}}},\"title\":\"ICurveStETHPool\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"exchange(int128,int128,uint256,uint256)\":{\"notice\":\"Exchange between two tokens in the pool.\"},\"get_dy(int128,int128,uint256)\":{\"notice\":\"Get the amount of output coin for a given input.\"}},\"notice\":\"Minimal interface for the Curve stETH/ETH pool.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/interfaces/external/ICurveStETHPool.sol\":\"ICurveStETHPool\"},\"evmVersion\":\"shanghai\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":1000000},\"remappings\":[\":@arbitrum/=node_modules/@arbitrum/\",\":@chainlink/=node_modules/@chainlink/\",\":@eth-optimism/=node_modules/@eth-optimism/\",\":@offchainlabs/=node_modules/@offchainlabs/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":@prb/=node_modules/@prb/\",\":@sablier/=node_modules/@sablier/\",\":@scroll-tech/=node_modules/@scroll-tech/\",\":@zksync/=node_modules/@zksync/\",\":forge-std/=node_modules/forge-std/\"],\"viaIR\":true},\"sources\":{\"src/interfaces/external/ICurveStETHPool.sol\":{\"keccak256\":\"0x1f6c5033babea583b6fe58ad4800e65f0797c424d171aa9a12ee584712768381\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://d3e62ad83e724f0e63455290e7c1cbec02de7575f959c2ec74e0687c2e7c21c6\",\"dweb:/ipfs/QmV3XSQh5yyLskAFgA8zFa2BqZEftp2rSBrxWqqyT4JXur\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": { "version": "0.8.29+commit.ab55807c" },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            { "internalType": "int128", "name": "i", "type": "int128" },
+            { "internalType": "int128", "name": "j", "type": "int128" },
+            { "internalType": "uint256", "name": "dx", "type": "uint256" },
+            { "internalType": "uint256", "name": "minDy", "type": "uint256" }
+          ],
+          "stateMutability": "payable",
+          "type": "function",
+          "name": "exchange",
+          "outputs": [{ "internalType": "uint256", "name": "dy", "type": "uint256" }]
+        },
+        {
+          "inputs": [
+            { "internalType": "int128", "name": "i", "type": "int128" },
+            { "internalType": "int128", "name": "j", "type": "int128" },
+            { "internalType": "uint256", "name": "dx", "type": "uint256" }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "get_dy",
+          "outputs": [{ "internalType": "uint256", "name": "dy", "type": "uint256" }]
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "exchange(int128,int128,uint256,uint256)": {
+            "params": {
+              "dx": "The amount of input coin to exchange.",
+              "i": "The index of the input coin (0 = ETH, 1 = stETH).",
+              "j": "The index of the output coin (0 = ETH, 1 = stETH).",
+              "minDy": "The minimum amount of output coin to receive."
+            },
+            "returns": { "dy": "The actual amount of output coin received." }
+          },
+          "get_dy(int128,int128,uint256)": {
+            "params": {
+              "dx": "The amount of input coin.",
+              "i": "The index of the input coin.",
+              "j": "The index of the output coin."
+            },
+            "returns": { "dy": "The expected amount of output coin." }
+          }
+        },
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "exchange(int128,int128,uint256,uint256)": {
+            "notice": "Exchange between two tokens in the pool."
+          },
+          "get_dy(int128,int128,uint256)": {
+            "notice": "Get the amount of output coin for a given input."
+          }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        "@arbitrum/=node_modules/@arbitrum/",
+        "@chainlink/=node_modules/@chainlink/",
+        "@eth-optimism/=node_modules/@eth-optimism/",
+        "@offchainlabs/=node_modules/@offchainlabs/",
+        "@openzeppelin/=node_modules/@openzeppelin/",
+        "@prb/=node_modules/@prb/",
+        "@sablier/=node_modules/@sablier/",
+        "@scroll-tech/=node_modules/@scroll-tech/",
+        "@zksync/=node_modules/@zksync/",
+        "forge-std/=node_modules/forge-std/"
+      ],
+      "optimizer": { "enabled": true, "runs": 1000000 },
+      "metadata": { "bytecodeHash": "ipfs" },
+      "compilationTarget": { "src/interfaces/external/ICurveStETHPool.sol": "ICurveStETHPool" },
+      "evmVersion": "shanghai",
+      "libraries": {},
+      "viaIR": true
+    },
+    "sources": {
+      "src/interfaces/external/ICurveStETHPool.sol": {
+        "keccak256": "0x1f6c5033babea583b6fe58ad4800e65f0797c424d171aa9a12ee584712768381",
+        "urls": [
+          "bzz-raw://d3e62ad83e724f0e63455290e7c1cbec02de7575f959c2ec74e0687c2e7c21c6",
+          "dweb:/ipfs/QmV3XSQh5yyLskAFgA8zFa2BqZEftp2rSBrxWqqyT4JXur"
+        ],
+        "license": "GPL-3.0-or-later"
+      }
+    },
+    "version": 1
+  },
+  "id": 90
+}

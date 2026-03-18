@@ -1,19 +1,9 @@
 import { describe, expect, it } from "vitest";
-import { releases } from "@/src/evm/releases/index.js";
 import { sablier } from "@/src/sablier.js";
+import { allEvmReleases } from "../releases.js";
 
 describe("Contract catalog", () => {
-  const releasesToTest = [
-    releases.airdrops["v1.3"],
-    releases.airdrops["v2.0"],
-    releases.flow["v1.1"],
-    releases.flow["v2.0"],
-    releases.legacy["v1.1"],
-    releases.lockup["v2.0"],
-    releases.lockup["v3.0"],
-  ];
-
-  for (const release of releasesToTest) {
+  for (const release of allEvmReleases) {
     it(`should have a valid catalog for ${release.protocol} ${release.version}`, () => {
       const deployment = release.deployments[0];
       const contract = deployment.contracts[0];
@@ -29,8 +19,7 @@ describe("Contract catalog", () => {
 
 describe("alias lookups", () => {
   it("should resolve a contract by alias", () => {
-    const releasesList = Object.values(releases).flatMap((byVersion) => Object.values(byVersion));
-    const contractWithAlias = releasesList
+    const contractWithAlias = allEvmReleases
       .flatMap((release) => release.deployments)
       .flatMap((deployment) => deployment.contracts)
       .find((contract) => contract.alias);

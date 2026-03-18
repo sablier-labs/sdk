@@ -1,11 +1,9 @@
 import { describe, expect, it } from "vitest";
 import { sablier } from "@/src/sablier.js";
-import { releases } from "@/src/solana/releases/index.js";
+import { allSolanaReleases } from "../releases.js";
 
 describe("Program catalog", () => {
-  const releasesToTest = [releases.airdrops["v0.1"], releases.lockup["v0.1"]];
-
-  for (const release of releasesToTest) {
+  for (const release of allSolanaReleases) {
     it(`should have a valid catalog for ${release.protocol} ${release.version}`, () => {
       const deployment = release.deployments[0];
       const program = deployment.programs[0];
@@ -21,8 +19,7 @@ describe("Program catalog", () => {
 
 describe("alias lookups", () => {
   it("should resolve a program by alias", () => {
-    const releasesList = Object.values(releases).flatMap((byVersion) => Object.values(byVersion));
-    const programWithAlias = releasesList
+    const programWithAlias = allSolanaReleases
       .flatMap((release) => release.deployments)
       .flatMap((deployment) => deployment.programs)
       .find((program) => program.alias);

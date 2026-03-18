@@ -1,0 +1,1246 @@
+{
+  "abi": [
+    {
+      "type": "error",
+      "name": "AccountAlreadyHasRole",
+      "inputs": [
+        { "name": "role", "type": "bytes32", "internalType": "bytes32" },
+        { "name": "account", "type": "address", "internalType": "address" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "AccountDoesNotHaveRole",
+      "inputs": [
+        { "name": "role", "type": "bytes32", "internalType": "bytes32" },
+        { "name": "account", "type": "address", "internalType": "address" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "CallerNotAdmin",
+      "inputs": [
+        { "name": "admin", "type": "address", "internalType": "address" },
+        { "name": "caller", "type": "address", "internalType": "address" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "Comptrollerable_CallerNotComptroller",
+      "inputs": [
+        { "name": "comptroller", "type": "address", "internalType": "address" },
+        { "name": "caller", "type": "address", "internalType": "address" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "Comptrollerable_UnsupportedInterfaceId",
+      "inputs": [
+        { "name": "previousComptroller", "type": "address", "internalType": "address" },
+        { "name": "newComptroller", "type": "address", "internalType": "address" },
+        { "name": "minimalInterfaceId", "type": "bytes4", "internalType": "bytes4" }
+      ]
+    },
+    { "type": "error", "name": "DelegateCall", "inputs": [] },
+    { "type": "error", "name": "SablierComptroller_ExecutionFailedSilently", "inputs": [] },
+    {
+      "type": "error",
+      "name": "SablierComptroller_FeeRecipientNotAdmin",
+      "inputs": [
+        { "name": "feeRecipient", "type": "address", "internalType": "address" },
+        { "name": "admin", "type": "address", "internalType": "address" }
+      ]
+    },
+    { "type": "error", "name": "SablierComptroller_FeeRecipientZero", "inputs": [] },
+    {
+      "type": "error",
+      "name": "SablierComptroller_FeeTransferFailed",
+      "inputs": [
+        { "name": "feeRecipient", "type": "address", "internalType": "address" },
+        { "name": "feeAmount", "type": "uint256", "internalType": "uint256" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "SablierComptroller_MaxFeeUSDExceeded",
+      "inputs": [
+        { "name": "newFeeUSD", "type": "uint256", "internalType": "uint256" },
+        { "name": "maxFeeUSD", "type": "uint256", "internalType": "uint256" }
+      ]
+    },
+    { "type": "error", "name": "SablierComptroller_ToZeroAddress", "inputs": [] },
+    {
+      "type": "error",
+      "name": "SablierComptroller_TokenBalanceZero",
+      "inputs": [{ "name": "token", "type": "address", "internalType": "address" }]
+    },
+    {
+      "type": "error",
+      "name": "SafeOracle_DecimalsTooHigh",
+      "inputs": [
+        { "name": "oracle", "type": "address", "internalType": "address" },
+        { "name": "decimals", "type": "uint8", "internalType": "uint8" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "SafeOracle_DecimalsZero",
+      "inputs": [{ "name": "oracle", "type": "address", "internalType": "address" }]
+    },
+    {
+      "type": "error",
+      "name": "SafeOracle_MissesInterface",
+      "inputs": [{ "name": "oracle", "type": "address", "internalType": "address" }]
+    },
+    {
+      "type": "error",
+      "name": "SafeOracle_NotPositivePrice",
+      "inputs": [{ "name": "oracle", "type": "address", "internalType": "address" }]
+    },
+    {
+      "type": "error",
+      "name": "UnauthorizedAccess",
+      "inputs": [
+        { "name": "caller", "type": "address", "internalType": "address" },
+        { "name": "neededRole", "type": "bytes32", "internalType": "bytes32" }
+      ]
+    }
+  ],
+  "bytecode": {
+    "object": "0x6080806040523460175760399081601c823930815050f35b5f80fdfe5f80fdfea26469706673582212204354bc56c00e41906c3b717a9eacaca2b1bab190d35cbc6d3b78b9c13c15389e64736f6c634300081d0033",
+    "sourceMap": "156:4042:79:-:0;;;;;;;;;;;;;;;;;;;;;",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x5f80fdfea26469706673582212204354bc56c00e41906c3b717a9eacaca2b1bab190d35cbc6d3b78b9c13c15389e64736f6c634300081d0033",
+    "sourceMap": "156:4042:79:-:0;;",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {},
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.29+commit.ab55807c\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"AccountAlreadyHasRole\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"AccountDoesNotHaveRole\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"caller\",\"type\":\"address\"}],\"name\":\"CallerNotAdmin\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"comptroller\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"caller\",\"type\":\"address\"}],\"name\":\"Comptrollerable_CallerNotComptroller\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"previousComptroller\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"newComptroller\",\"type\":\"address\"},{\"internalType\":\"bytes4\",\"name\":\"minimalInterfaceId\",\"type\":\"bytes4\"}],\"name\":\"Comptrollerable_UnsupportedInterfaceId\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"DelegateCall\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"SablierComptroller_ExecutionFailedSilently\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"feeRecipient\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"admin\",\"type\":\"address\"}],\"name\":\"SablierComptroller_FeeRecipientNotAdmin\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"SablierComptroller_FeeRecipientZero\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"feeRecipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"feeAmount\",\"type\":\"uint256\"}],\"name\":\"SablierComptroller_FeeTransferFailed\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"newFeeUSD\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"maxFeeUSD\",\"type\":\"uint256\"}],\"name\":\"SablierComptroller_MaxFeeUSDExceeded\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"SablierComptroller_ToZeroAddress\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"}],\"name\":\"SablierComptroller_TokenBalanceZero\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"oracle\",\"type\":\"address\"},{\"internalType\":\"uint8\",\"name\":\"decimals\",\"type\":\"uint8\"}],\"name\":\"SafeOracle_DecimalsTooHigh\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"oracle\",\"type\":\"address\"}],\"name\":\"SafeOracle_DecimalsZero\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"oracle\",\"type\":\"address\"}],\"name\":\"SafeOracle_MissesInterface\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"oracle\",\"type\":\"address\"}],\"name\":\"SafeOracle_NotPositivePrice\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"caller\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"neededRole\",\"type\":\"bytes32\"}],\"name\":\"UnauthorizedAccess\",\"type\":\"error\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"title\":\"Errors\",\"version\":1},\"userdoc\":{\"errors\":{\"AccountAlreadyHasRole(bytes32,address)\":[{\"notice\":\"Thrown when trying to grant role to an `account` that already has the `role`.\"}],\"AccountDoesNotHaveRole(bytes32,address)\":[{\"notice\":\"Thrown when trying to revoke role from an `account` that does not have the `role`.\"}],\"CallerNotAdmin(address,address)\":[{\"notice\":\"Thrown when `msg.sender` is not the admin.\"}],\"Comptrollerable_CallerNotComptroller(address,address)\":[{\"notice\":\"Thrown when `msg.sender` is not the comptroller.\"}],\"Comptrollerable_UnsupportedInterfaceId(address,address,bytes4)\":[{\"notice\":\"Thrown when the new comptroller does not support the minimal interface ID from the previous comptroller.\"}],\"DelegateCall()\":[{\"notice\":\"Thrown when trying to delegate call to a function that disallows delegate calls.\"}],\"SablierComptroller_ExecutionFailedSilently()\":[{\"notice\":\"Thrown when the target contract reverts without any return data.\"}],\"SablierComptroller_FeeRecipientNotAdmin(address,address)\":[{\"notice\":\"Thrown when an unauthorized address collects fee without setting the fee recipient to admin address.\"}],\"SablierComptroller_FeeRecipientZero()\":[{\"notice\":\"Thrown when trying to transfer fees to the zero address.\"}],\"SablierComptroller_FeeTransferFailed(address,uint256)\":[{\"notice\":\"Thrown if fee transfer fails.\"}],\"SablierComptroller_MaxFeeUSDExceeded(uint256,uint256)\":[{\"notice\":\"Thrown when trying to set fee to a value that exceeds the maximum USD fee.\"}],\"SablierComptroller_ToZeroAddress()\":[{\"notice\":\"Thrown when trying to withdraw ERC-20 tokens to the zero address.\"}],\"SablierComptroller_TokenBalanceZero(address)\":[{\"notice\":\"Thrown when trying to withdraw ERC-20 tokens when the balance is zero.\"}],\"SafeOracle_DecimalsTooHigh(address,uint8)\":[{\"notice\":\"Thrown when an oracle returns too many decimals (greater than 36).\"}],\"SafeOracle_DecimalsZero(address)\":[{\"notice\":\"Thrown when an oracle returns 0 decimals.\"}],\"SafeOracle_MissesInterface(address)\":[{\"notice\":\"Thrown when an oracle does not implement the expected interface.\"}],\"SafeOracle_NotPositivePrice(address)\":[{\"notice\":\"Thrown when the price returned by the oracle is not positive.\"}],\"UnauthorizedAccess(address,bytes32)\":[{\"notice\":\"Thrown if `caller` is missing the `neededRole` and is not the admin.\"}]},\"kind\":\"user\",\"methods\":{},\"notice\":\"Library with custom errors used across the contracts.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/libraries/Errors.sol\":\"Errors\"},\"evmVersion\":\"shanghai\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":100000000},\"remappings\":[\":@arbitrum/=node_modules/@arbitrum/\",\":@chainlink/=node_modules/@chainlink/\",\":@eth-optimism/=node_modules/@eth-optimism/\",\":@offchainlabs/=node_modules/@offchainlabs/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":@scroll-tech/=node_modules/@scroll-tech/\",\":@zksync/=node_modules/@zksync/\",\":forge-std/=node_modules/forge-std/\"],\"viaIR\":true},\"sources\":{\"src/libraries/Errors.sol\":{\"keccak256\":\"0xc9a0fbcd6d582054420a32c538204ac7adb789320c6564f278ccf45baf4485c8\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://a4da46b25df4fe89ce9f0315e1ef6561554f72b2dc7edbc43bdcdf9d65e8b709\",\"dweb:/ipfs/QmNW4VtuPSsLULst92GJmmcTCRHu4n5ndU9Jb4MbVes1jp\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": { "version": "0.8.29+commit.ab55807c" },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            { "internalType": "bytes32", "name": "role", "type": "bytes32" },
+            { "internalType": "address", "name": "account", "type": "address" }
+          ],
+          "type": "error",
+          "name": "AccountAlreadyHasRole"
+        },
+        {
+          "inputs": [
+            { "internalType": "bytes32", "name": "role", "type": "bytes32" },
+            { "internalType": "address", "name": "account", "type": "address" }
+          ],
+          "type": "error",
+          "name": "AccountDoesNotHaveRole"
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "admin", "type": "address" },
+            { "internalType": "address", "name": "caller", "type": "address" }
+          ],
+          "type": "error",
+          "name": "CallerNotAdmin"
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "comptroller", "type": "address" },
+            { "internalType": "address", "name": "caller", "type": "address" }
+          ],
+          "type": "error",
+          "name": "Comptrollerable_CallerNotComptroller"
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "previousComptroller", "type": "address" },
+            { "internalType": "address", "name": "newComptroller", "type": "address" },
+            { "internalType": "bytes4", "name": "minimalInterfaceId", "type": "bytes4" }
+          ],
+          "type": "error",
+          "name": "Comptrollerable_UnsupportedInterfaceId"
+        },
+        { "inputs": [], "type": "error", "name": "DelegateCall" },
+        { "inputs": [], "type": "error", "name": "SablierComptroller_ExecutionFailedSilently" },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "feeRecipient", "type": "address" },
+            { "internalType": "address", "name": "admin", "type": "address" }
+          ],
+          "type": "error",
+          "name": "SablierComptroller_FeeRecipientNotAdmin"
+        },
+        { "inputs": [], "type": "error", "name": "SablierComptroller_FeeRecipientZero" },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "feeRecipient", "type": "address" },
+            { "internalType": "uint256", "name": "feeAmount", "type": "uint256" }
+          ],
+          "type": "error",
+          "name": "SablierComptroller_FeeTransferFailed"
+        },
+        {
+          "inputs": [
+            { "internalType": "uint256", "name": "newFeeUSD", "type": "uint256" },
+            { "internalType": "uint256", "name": "maxFeeUSD", "type": "uint256" }
+          ],
+          "type": "error",
+          "name": "SablierComptroller_MaxFeeUSDExceeded"
+        },
+        { "inputs": [], "type": "error", "name": "SablierComptroller_ToZeroAddress" },
+        {
+          "inputs": [{ "internalType": "address", "name": "token", "type": "address" }],
+          "type": "error",
+          "name": "SablierComptroller_TokenBalanceZero"
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "oracle", "type": "address" },
+            { "internalType": "uint8", "name": "decimals", "type": "uint8" }
+          ],
+          "type": "error",
+          "name": "SafeOracle_DecimalsTooHigh"
+        },
+        {
+          "inputs": [{ "internalType": "address", "name": "oracle", "type": "address" }],
+          "type": "error",
+          "name": "SafeOracle_DecimalsZero"
+        },
+        {
+          "inputs": [{ "internalType": "address", "name": "oracle", "type": "address" }],
+          "type": "error",
+          "name": "SafeOracle_MissesInterface"
+        },
+        {
+          "inputs": [{ "internalType": "address", "name": "oracle", "type": "address" }],
+          "type": "error",
+          "name": "SafeOracle_NotPositivePrice"
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "caller", "type": "address" },
+            { "internalType": "bytes32", "name": "neededRole", "type": "bytes32" }
+          ],
+          "type": "error",
+          "name": "UnauthorizedAccess"
+        }
+      ],
+      "devdoc": { "kind": "dev", "methods": {}, "version": 1 },
+      "userdoc": { "kind": "user", "methods": {}, "version": 1 }
+    },
+    "settings": {
+      "remappings": [
+        "@arbitrum/=node_modules/@arbitrum/",
+        "@chainlink/=node_modules/@chainlink/",
+        "@eth-optimism/=node_modules/@eth-optimism/",
+        "@offchainlabs/=node_modules/@offchainlabs/",
+        "@openzeppelin/=node_modules/@openzeppelin/",
+        "@scroll-tech/=node_modules/@scroll-tech/",
+        "@zksync/=node_modules/@zksync/",
+        "forge-std/=node_modules/forge-std/"
+      ],
+      "optimizer": { "enabled": true, "runs": 100000000 },
+      "metadata": { "bytecodeHash": "ipfs" },
+      "compilationTarget": { "src/libraries/Errors.sol": "Errors" },
+      "evmVersion": "shanghai",
+      "libraries": {},
+      "viaIR": true
+    },
+    "sources": {
+      "src/libraries/Errors.sol": {
+        "keccak256": "0xc9a0fbcd6d582054420a32c538204ac7adb789320c6564f278ccf45baf4485c8",
+        "urls": [
+          "bzz-raw://a4da46b25df4fe89ce9f0315e1ef6561554f72b2dc7edbc43bdcdf9d65e8b709",
+          "dweb:/ipfs/QmNW4VtuPSsLULst92GJmmcTCRHu4n5ndU9Jb4MbVes1jp"
+        ],
+        "license": "GPL-3.0-or-later"
+      }
+    },
+    "version": 1
+  },
+  "storageLayout": { "storage": [], "types": {} },
+  "ast": {
+    "absolutePath": "src/libraries/Errors.sol",
+    "id": 64686,
+    "exportedSymbols": { "Errors": [64685] },
+    "nodeType": "SourceUnit",
+    "src": "45:4154:79",
+    "nodes": [
+      {
+        "id": 64579,
+        "nodeType": "PragmaDirective",
+        "src": "45:25:79",
+        "nodes": [],
+        "literals": ["solidity", ">=", "0.8", ".22"]
+      },
+      {
+        "id": 64685,
+        "nodeType": "ContractDefinition",
+        "src": "156:4042:79",
+        "nodes": [
+          {
+            "id": 64587,
+            "nodeType": "ErrorDefinition",
+            "src": "447:52:79",
+            "nodes": [],
+            "documentation": {
+              "id": 64581,
+              "nodeType": "StructuredDocumentation",
+              "src": "388:54:79",
+              "text": "@notice Thrown when `msg.sender` is not the admin."
+            },
+            "errorSelector": "c6cce6a4",
+            "name": "CallerNotAdmin",
+            "nameLocation": "453:14:79",
+            "parameters": {
+              "id": 64586,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64583,
+                  "mutability": "mutable",
+                  "name": "admin",
+                  "nameLocation": "476:5:79",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64587,
+                  "src": "468:13:79",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64582,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "468:7:79",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 64585,
+                  "mutability": "mutable",
+                  "name": "caller",
+                  "nameLocation": "491:6:79",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64587,
+                  "src": "483:14:79",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64584,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "483:7:79",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "467:31:79"
+            }
+          },
+          {
+            "id": 64590,
+            "nodeType": "ErrorDefinition",
+            "src": "797:51:79",
+            "nodes": [],
+            "documentation": {
+              "id": 64588,
+              "nodeType": "StructuredDocumentation",
+              "src": "716:76:79",
+              "text": "@notice Thrown when the target contract reverts without any return data."
+            },
+            "errorSelector": "a25f61e6",
+            "name": "SablierComptroller_ExecutionFailedSilently",
+            "nameLocation": "803:42:79",
+            "parameters": {
+              "id": 64589,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "845:2:79"
+            }
+          },
+          {
+            "id": 64597,
+            "nodeType": "ErrorDefinition",
+            "src": "945:81:79",
+            "nodes": [],
+            "documentation": {
+              "id": 64591,
+              "nodeType": "StructuredDocumentation",
+              "src": "854:86:79",
+              "text": "@notice Thrown when trying to set fee to a value that exceeds the maximum USD fee."
+            },
+            "errorSelector": "330ce9f1",
+            "name": "SablierComptroller_MaxFeeUSDExceeded",
+            "nameLocation": "951:36:79",
+            "parameters": {
+              "id": 64596,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64593,
+                  "mutability": "mutable",
+                  "name": "newFeeUSD",
+                  "nameLocation": "996:9:79",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64597,
+                  "src": "988:17:79",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" },
+                  "typeName": {
+                    "id": 64592,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "988:7:79",
+                    "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 64595,
+                  "mutability": "mutable",
+                  "name": "maxFeeUSD",
+                  "nameLocation": "1015:9:79",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64597,
+                  "src": "1007:17:79",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" },
+                  "typeName": {
+                    "id": 64594,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1007:7:79",
+                    "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "987:38:79"
+            }
+          },
+          {
+            "id": 64604,
+            "nodeType": "ErrorDefinition",
+            "src": "1149:83:79",
+            "nodes": [],
+            "documentation": {
+              "id": 64598,
+              "nodeType": "StructuredDocumentation",
+              "src": "1032:112:79",
+              "text": "@notice Thrown when an unauthorized address collects fee without setting the fee recipient to admin address."
+            },
+            "errorSelector": "ac045a20",
+            "name": "SablierComptroller_FeeRecipientNotAdmin",
+            "nameLocation": "1155:39:79",
+            "parameters": {
+              "id": 64603,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64600,
+                  "mutability": "mutable",
+                  "name": "feeRecipient",
+                  "nameLocation": "1203:12:79",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64604,
+                  "src": "1195:20:79",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64599,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1195:7:79",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 64602,
+                  "mutability": "mutable",
+                  "name": "admin",
+                  "nameLocation": "1225:5:79",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64604,
+                  "src": "1217:13:79",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64601,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1217:7:79",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1194:37:79"
+            }
+          },
+          {
+            "id": 64607,
+            "nodeType": "ErrorDefinition",
+            "src": "1311:44:79",
+            "nodes": [],
+            "documentation": {
+              "id": 64605,
+              "nodeType": "StructuredDocumentation",
+              "src": "1238:68:79",
+              "text": "@notice Thrown when trying to transfer fees to the zero address."
+            },
+            "errorSelector": "16650253",
+            "name": "SablierComptroller_FeeRecipientZero",
+            "nameLocation": "1317:35:79",
+            "parameters": {
+              "id": 64606,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1352:2:79"
+            }
+          },
+          {
+            "id": 64614,
+            "nodeType": "ErrorDefinition",
+            "src": "1407:84:79",
+            "nodes": [],
+            "documentation": {
+              "id": 64608,
+              "nodeType": "StructuredDocumentation",
+              "src": "1361:41:79",
+              "text": "@notice Thrown if fee transfer fails."
+            },
+            "errorSelector": "d54ea680",
+            "name": "SablierComptroller_FeeTransferFailed",
+            "nameLocation": "1413:36:79",
+            "parameters": {
+              "id": 64613,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64610,
+                  "mutability": "mutable",
+                  "name": "feeRecipient",
+                  "nameLocation": "1458:12:79",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64614,
+                  "src": "1450:20:79",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64609,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1450:7:79",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 64612,
+                  "mutability": "mutable",
+                  "name": "feeAmount",
+                  "nameLocation": "1480:9:79",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64614,
+                  "src": "1472:17:79",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" },
+                  "typeName": {
+                    "id": 64611,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1472:7:79",
+                    "typeDescriptions": { "typeIdentifier": "t_uint256", "typeString": "uint256" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1449:41:79"
+            }
+          },
+          {
+            "id": 64619,
+            "nodeType": "ErrorDefinition",
+            "src": "1584:57:79",
+            "nodes": [],
+            "documentation": {
+              "id": 64615,
+              "nodeType": "StructuredDocumentation",
+              "src": "1497:82:79",
+              "text": "@notice Thrown when trying to withdraw ERC-20 tokens when the balance is zero."
+            },
+            "errorSelector": "d5006a2e",
+            "name": "SablierComptroller_TokenBalanceZero",
+            "nameLocation": "1590:35:79",
+            "parameters": {
+              "id": 64618,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64617,
+                  "mutability": "mutable",
+                  "name": "token",
+                  "nameLocation": "1634:5:79",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64619,
+                  "src": "1626:13:79",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64616,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1626:7:79",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1625:15:79"
+            }
+          },
+          {
+            "id": 64622,
+            "nodeType": "ErrorDefinition",
+            "src": "1729:41:79",
+            "nodes": [],
+            "documentation": {
+              "id": 64620,
+              "nodeType": "StructuredDocumentation",
+              "src": "1647:77:79",
+              "text": "@notice Thrown when trying to withdraw ERC-20 tokens to the zero address."
+            },
+            "errorSelector": "0424f44c",
+            "name": "SablierComptroller_ToZeroAddress",
+            "nameLocation": "1735:32:79",
+            "parameters": {
+              "id": 64621,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1767:2:79"
+            }
+          },
+          {
+            "id": 64629,
+            "nodeType": "ErrorDefinition",
+            "src": "2054:80:79",
+            "nodes": [],
+            "documentation": {
+              "id": 64623,
+              "nodeType": "StructuredDocumentation",
+              "src": "1989:60:79",
+              "text": "@notice Thrown when `msg.sender` is not the comptroller."
+            },
+            "errorSelector": "a7e1519e",
+            "name": "Comptrollerable_CallerNotComptroller",
+            "nameLocation": "2060:36:79",
+            "parameters": {
+              "id": 64628,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64625,
+                  "mutability": "mutable",
+                  "name": "comptroller",
+                  "nameLocation": "2105:11:79",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64629,
+                  "src": "2097:19:79",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64624,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2097:7:79",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 64627,
+                  "mutability": "mutable",
+                  "name": "caller",
+                  "nameLocation": "2126:6:79",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64629,
+                  "src": "2118:14:79",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64626,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2118:7:79",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2096:37:79"
+            }
+          },
+          {
+            "id": 64638,
+            "nodeType": "ErrorDefinition",
+            "src": "2261:155:79",
+            "nodes": [],
+            "documentation": {
+              "id": 64630,
+              "nodeType": "StructuredDocumentation",
+              "src": "2140:116:79",
+              "text": "@notice Thrown when the new comptroller does not support the minimal interface ID from the previous comptroller."
+            },
+            "errorSelector": "c9947bc2",
+            "name": "Comptrollerable_UnsupportedInterfaceId",
+            "nameLocation": "2267:38:79",
+            "parameters": {
+              "id": 64637,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64632,
+                  "mutability": "mutable",
+                  "name": "previousComptroller",
+                  "nameLocation": "2323:19:79",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64638,
+                  "src": "2315:27:79",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64631,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2315:7:79",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 64634,
+                  "mutability": "mutable",
+                  "name": "newComptroller",
+                  "nameLocation": "2360:14:79",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64638,
+                  "src": "2352:22:79",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64633,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2352:7:79",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 64636,
+                  "mutability": "mutable",
+                  "name": "minimalInterfaceId",
+                  "nameLocation": "2391:18:79",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64638,
+                  "src": "2384:25:79",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_bytes4", "typeString": "bytes4" },
+                  "typeName": {
+                    "id": 64635,
+                    "name": "bytes4",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2384:6:79",
+                    "typeDescriptions": { "typeIdentifier": "t_bytes4", "typeString": "bytes4" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2305:110:79"
+            }
+          },
+          {
+            "id": 64641,
+            "nodeType": "ErrorDefinition",
+            "src": "2733:21:79",
+            "nodes": [],
+            "documentation": {
+              "id": 64639,
+              "nodeType": "StructuredDocumentation",
+              "src": "2636:92:79",
+              "text": "@notice Thrown when trying to delegate call to a function that disallows delegate calls."
+            },
+            "errorSelector": "a1c0d6e5",
+            "name": "DelegateCall",
+            "nameLocation": "2739:12:79",
+            "parameters": {
+              "id": 64640,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2751:2:79"
+            }
+          },
+          {
+            "id": 64648,
+            "nodeType": "ErrorDefinition",
+            "src": "3068:59:79",
+            "nodes": [],
+            "documentation": {
+              "id": 64642,
+              "nodeType": "StructuredDocumentation",
+              "src": "2974:89:79",
+              "text": "@notice Thrown when trying to grant role to an `account` that already has the `role`."
+            },
+            "errorSelector": "cbb4ac0d",
+            "name": "AccountAlreadyHasRole",
+            "nameLocation": "3074:21:79",
+            "parameters": {
+              "id": 64647,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64644,
+                  "mutability": "mutable",
+                  "name": "role",
+                  "nameLocation": "3104:4:79",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64648,
+                  "src": "3096:12:79",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_bytes32", "typeString": "bytes32" },
+                  "typeName": {
+                    "id": 64643,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3096:7:79",
+                    "typeDescriptions": { "typeIdentifier": "t_bytes32", "typeString": "bytes32" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 64646,
+                  "mutability": "mutable",
+                  "name": "account",
+                  "nameLocation": "3118:7:79",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64648,
+                  "src": "3110:15:79",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64645,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3110:7:79",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3095:31:79"
+            }
+          },
+          {
+            "id": 64655,
+            "nodeType": "ErrorDefinition",
+            "src": "3232:60:79",
+            "nodes": [],
+            "documentation": {
+              "id": 64649,
+              "nodeType": "StructuredDocumentation",
+              "src": "3133:94:79",
+              "text": "@notice Thrown when trying to revoke role from an `account` that does not have the `role`."
+            },
+            "errorSelector": "6514a824",
+            "name": "AccountDoesNotHaveRole",
+            "nameLocation": "3238:22:79",
+            "parameters": {
+              "id": 64654,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64651,
+                  "mutability": "mutable",
+                  "name": "role",
+                  "nameLocation": "3269:4:79",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64655,
+                  "src": "3261:12:79",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_bytes32", "typeString": "bytes32" },
+                  "typeName": {
+                    "id": 64650,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3261:7:79",
+                    "typeDescriptions": { "typeIdentifier": "t_bytes32", "typeString": "bytes32" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 64653,
+                  "mutability": "mutable",
+                  "name": "account",
+                  "nameLocation": "3283:7:79",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64655,
+                  "src": "3275:15:79",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64652,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3275:7:79",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3260:31:79"
+            }
+          },
+          {
+            "id": 64662,
+            "nodeType": "ErrorDefinition",
+            "src": "3383:61:79",
+            "nodes": [],
+            "documentation": {
+              "id": 64656,
+              "nodeType": "StructuredDocumentation",
+              "src": "3298:80:79",
+              "text": "@notice Thrown if `caller` is missing the `neededRole` and is not the admin."
+            },
+            "errorSelector": "6e6c2928",
+            "name": "UnauthorizedAccess",
+            "nameLocation": "3389:18:79",
+            "parameters": {
+              "id": 64661,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64658,
+                  "mutability": "mutable",
+                  "name": "caller",
+                  "nameLocation": "3416:6:79",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64662,
+                  "src": "3408:14:79",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64657,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3408:7:79",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 64660,
+                  "mutability": "mutable",
+                  "name": "neededRole",
+                  "nameLocation": "3432:10:79",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64662,
+                  "src": "3424:18:79",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_bytes32", "typeString": "bytes32" },
+                  "typeName": {
+                    "id": 64659,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3424:7:79",
+                    "typeDescriptions": { "typeIdentifier": "t_bytes32", "typeString": "bytes32" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3407:36:79"
+            }
+          },
+          {
+            "id": 64669,
+            "nodeType": "ErrorDefinition",
+            "src": "3743:65:79",
+            "nodes": [],
+            "documentation": {
+              "id": 64663,
+              "nodeType": "StructuredDocumentation",
+              "src": "3660:78:79",
+              "text": "@notice Thrown when an oracle returns too many decimals (greater than 36)."
+            },
+            "errorSelector": "ab5a00c1",
+            "name": "SafeOracle_DecimalsTooHigh",
+            "nameLocation": "3749:26:79",
+            "parameters": {
+              "id": 64668,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64665,
+                  "mutability": "mutable",
+                  "name": "oracle",
+                  "nameLocation": "3784:6:79",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64669,
+                  "src": "3776:14:79",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64664,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3776:7:79",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 64667,
+                  "mutability": "mutable",
+                  "name": "decimals",
+                  "nameLocation": "3798:8:79",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64669,
+                  "src": "3792:14:79",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_uint8", "typeString": "uint8" },
+                  "typeName": {
+                    "id": 64666,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3792:5:79",
+                    "typeDescriptions": { "typeIdentifier": "t_uint8", "typeString": "uint8" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3775:32:79"
+            }
+          },
+          {
+            "id": 64674,
+            "nodeType": "ErrorDefinition",
+            "src": "3872:46:79",
+            "nodes": [],
+            "documentation": {
+              "id": 64670,
+              "nodeType": "StructuredDocumentation",
+              "src": "3814:53:79",
+              "text": "@notice Thrown when an oracle returns 0 decimals."
+            },
+            "errorSelector": "a3195fc9",
+            "name": "SafeOracle_DecimalsZero",
+            "nameLocation": "3878:23:79",
+            "parameters": {
+              "id": 64673,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64672,
+                  "mutability": "mutable",
+                  "name": "oracle",
+                  "nameLocation": "3910:6:79",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64674,
+                  "src": "3902:14:79",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64671,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3902:7:79",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3901:16:79"
+            }
+          },
+          {
+            "id": 64679,
+            "nodeType": "ErrorDefinition",
+            "src": "4013:49:79",
+            "nodes": [],
+            "documentation": {
+              "id": 64675,
+              "nodeType": "StructuredDocumentation",
+              "src": "3924:84:79",
+              "text": "@notice Thrown when an oracle does not implement the expected\n interface."
+            },
+            "errorSelector": "a3bef8ba",
+            "name": "SafeOracle_MissesInterface",
+            "nameLocation": "4019:26:79",
+            "parameters": {
+              "id": 64678,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64677,
+                  "mutability": "mutable",
+                  "name": "oracle",
+                  "nameLocation": "4054:6:79",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64679,
+                  "src": "4046:14:79",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64676,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4046:7:79",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4045:16:79"
+            }
+          },
+          {
+            "id": 64684,
+            "nodeType": "ErrorDefinition",
+            "src": "4146:50:79",
+            "nodes": [],
+            "documentation": {
+              "id": 64680,
+              "nodeType": "StructuredDocumentation",
+              "src": "4068:73:79",
+              "text": "@notice Thrown when the price returned by the oracle is not positive."
+            },
+            "errorSelector": "7d0e789a",
+            "name": "SafeOracle_NotPositivePrice",
+            "nameLocation": "4152:27:79",
+            "parameters": {
+              "id": 64683,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64682,
+                  "mutability": "mutable",
+                  "name": "oracle",
+                  "nameLocation": "4188:6:79",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64684,
+                  "src": "4180:14:79",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" },
+                  "typeName": {
+                    "id": 64681,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4180:7:79",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": { "typeIdentifier": "t_address", "typeString": "address" }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4179:16:79"
+            }
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "Errors",
+        "contractDependencies": [],
+        "contractKind": "library",
+        "documentation": {
+          "id": 64580,
+          "nodeType": "StructuredDocumentation",
+          "src": "72:84:79",
+          "text": "@title Errors\n @notice Library with custom errors used across the contracts."
+        },
+        "fullyImplemented": true,
+        "linearizedBaseContracts": [64685],
+        "name": "Errors",
+        "nameLocation": "164:6:79",
+        "scope": 64686,
+        "usedErrors": [
+          64587, 64590, 64597, 64604, 64607, 64614, 64619, 64622, 64629, 64638, 64641, 64648, 64655,
+          64662, 64669, 64674, 64679, 64684
+        ],
+        "usedEvents": []
+      }
+    ],
+    "license": "GPL-3.0-or-later"
+  },
+  "id": 79
+}

@@ -1,6 +1,6 @@
 import { chains } from "@/src/evm/chains/index.js";
 import type { Sablier } from "@/src/types.js";
-import manifest from "./manifest.js";
+import manifest from "./v2.0/manifest.js";
 
 /**
  * The default fixed comptroller address on all chains, with the exception of Linea.

@@ -1,25 +1,44 @@
 import { describe, expect, it } from "vitest";
-import { releases } from "@/src/evm/releases/index.js";
 import { sablier } from "@/src/sablier.js";
+import type { EvmContractEntry } from "../releases.js";
+import { allEvmContractEntries, allEvmReleases } from "../releases.js";
 
-const releasesWithDuplicateAddresses = [
-  releases.flow["v1.1"],
-  releases.flow["v2.0"],
-  releases.lockup["v2.0"],
-  releases.lockup["v3.0"],
-];
+function expectEntry<T>(entry: T | undefined, message: string): T {
+  expect(entry).toBeDefined();
+  if (!entry) {
+    throw new Error(message);
+  }
 
-const releasesWithoutDuplicateAddresses = [
-  releases.airdrops["v1.3"],
-  releases.airdrops["v2.0"],
-  releases.legacy["v1.1"],
-];
+  return entry;
+}
 
-const allReleasesToTest = [...releasesWithDuplicateAddresses, ...releasesWithoutDuplicateAddresses];
+function getAddressLookupKey(entry: EvmContractEntry): string {
+  return `${entry.release.protocol}:${entry.deployment.chainId}:${entry.contract.address.toLowerCase()}`;
+}
+
+const entriesByProtocolChainAndAddress = allEvmContractEntries.reduce((acc, entry) => {
+  const key = getAddressLookupKey(entry);
+  const existing = acc.get(key) ?? [];
+  existing.push(entry);
+  acc.set(key, existing);
+  return acc;
+}, new Map<string, EvmContractEntry[]>());
+
+const uniqueAddressEntry = allEvmContractEntries.find((entry) => {
+  const key = getAddressLookupKey(entry);
+  return (
+    entriesByProtocolChainAndAddress.get(key)?.length === 1 &&
+    entry.contract.protocol === entry.release.protocol
+  );
+});
+
+const duplicateAddressEntries = [...entriesByProtocolChainAndAddress.values()].find(
+  (entries) => new Set(entries.map((entry) => entry.release.version)).size > 1
+);
 
 describe("contractsQueries.get", () => {
   describe("{ chainId, contractName, release }", () => {
-    for (const release of allReleasesToTest) {
+    for (const release of allEvmReleases) {
       it("should return contract when found", () => {
         const deployment = release.deployments[0];
         const contract = deployment.contracts[0];
@@ -37,38 +56,32 @@ describe("contractsQueries.get", () => {
 
   describe("{ chainId, contractAddress, protocol }", () => {
     it("should return contract when found in single release", () => {
-      const release = releasesWithoutDuplicateAddresses[0];
-      const deployment = release.deployments[0];
-      const contract = deployment.contracts[0];
+      const contractEntry = expectEntry(
+        uniqueAddressEntry,
+        "Expected an EVM contract address that exists in only one release"
+      );
 
       const result = sablier.evm.contracts.get({
-        chainId: deployment.chainId,
-        contractAddress: contract.address,
-        protocol: release.protocol,
+        chainId: contractEntry.deployment.chainId,
+        contractAddress: contractEntry.contract.address,
+        protocol: contractEntry.release.protocol,
       });
 
-      expect(result).toStrictEqual(contract);
+      expect(result).toStrictEqual(contractEntry.contract);
     });
 
     it("should throw when address exists in multiple releases", () => {
-      const release1 = releasesWithDuplicateAddresses[0];
-      const release2 = releasesWithDuplicateAddresses[1];
-
-      const deployment1 = release1.deployments[0];
-      const deployment2 = release2.deployments[0];
-
-      const descriptor1 = deployment1.contracts.find((c) => c.name.includes("NFTDescriptor"));
-      const descriptor2 = deployment2.contracts.find((c) => c.name.includes("NFTDescriptor"));
-
-      expect(descriptor1).toBeDefined();
-      expect(descriptor2).toBeDefined();
-      expect(descriptor1!.address).toBe(descriptor2!.address);
+      const duplicateEntries = expectEntry(
+        duplicateAddressEntries,
+        "Expected an EVM contract address shared by multiple releases"
+      );
+      const [firstEntry] = duplicateEntries;
 
       expect(() => {
         sablier.evm.contracts.get({
-          chainId: deployment1.chainId,
-          contractAddress: descriptor1!.address,
-          protocol: release1.protocol,
+          chainId: firstEntry.deployment.chainId,
+          contractAddress: firstEntry.contract.address,
+          protocol: firstEntry.release.protocol,
         });
       }).toThrow(/exists in multiple releases/);
     });
@@ -76,9 +89,11 @@ describe("contractsQueries.get", () => {
 
   describe("{ chainId, contractAddress, protocol, release }", () => {
     it("should return contract when found", () => {
-      const release = allReleasesToTest[0];
-      const deployment = release.deployments[0];
-      const contract = deployment.contracts[0];
+      const contractEntry = allEvmContractEntries[0];
+      const { contract, deployment, release } = expectEntry(
+        contractEntry,
+        "Expected at least one EVM contract entry"
+      );
 
       const result = sablier.evm.contracts.get({
         chainId: deployment.chainId,
@@ -93,9 +108,11 @@ describe("contractsQueries.get", () => {
 
   describe("{ chainId, contractAddress, release }", () => {
     it("should return contract when found", () => {
-      const release = allReleasesToTest[0];
-      const deployment = release.deployments[0];
-      const contract = deployment.contracts[0];
+      const contractEntry = allEvmContractEntries[0];
+      const { contract, deployment, release } = expectEntry(
+        contractEntry,
+        "Expected at least one EVM contract entry"
+      );
 
       const result = sablier.evm.contracts.get({
         chainId: deployment.chainId,

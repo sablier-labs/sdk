@@ -1,0 +1,938 @@
+{
+  "abi": [
+    {
+      "type": "constructor",
+      "inputs": [
+        { "name": "name_", "type": "string", "internalType": "string" },
+        { "name": "symbol_", "type": "string", "internalType": "string" },
+        { "name": "decimals_", "type": "uint8", "internalType": "uint8" },
+        { "name": "sablierBob", "type": "address", "internalType": "address" },
+        { "name": "vaultId", "type": "uint256", "internalType": "uint256" }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "SABLIER_BOB",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "VAULT_ID",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "allowance",
+      "inputs": [
+        { "name": "owner", "type": "address", "internalType": "address" },
+        { "name": "spender", "type": "address", "internalType": "address" }
+      ],
+      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "approve",
+      "inputs": [
+        { "name": "spender", "type": "address", "internalType": "address" },
+        { "name": "value", "type": "uint256", "internalType": "uint256" }
+      ],
+      "outputs": [{ "name": "", "type": "bool", "internalType": "bool" }],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "balanceOf",
+      "inputs": [{ "name": "account", "type": "address", "internalType": "address" }],
+      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "burn",
+      "inputs": [
+        { "name": "vaultId", "type": "uint256", "internalType": "uint256" },
+        { "name": "from", "type": "address", "internalType": "address" },
+        { "name": "amount", "type": "uint256", "internalType": "uint256" }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "decimals",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "uint8", "internalType": "uint8" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "mint",
+      "inputs": [
+        { "name": "vaultId", "type": "uint256", "internalType": "uint256" },
+        { "name": "to", "type": "address", "internalType": "address" },
+        { "name": "amount", "type": "uint256", "internalType": "uint256" }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "name",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "string", "internalType": "string" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "symbol",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "string", "internalType": "string" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "totalSupply",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "transfer",
+      "inputs": [
+        { "name": "to", "type": "address", "internalType": "address" },
+        { "name": "value", "type": "uint256", "internalType": "uint256" }
+      ],
+      "outputs": [{ "name": "", "type": "bool", "internalType": "bool" }],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "transferFrom",
+      "inputs": [
+        { "name": "from", "type": "address", "internalType": "address" },
+        { "name": "to", "type": "address", "internalType": "address" },
+        { "name": "value", "type": "uint256", "internalType": "uint256" }
+      ],
+      "outputs": [{ "name": "", "type": "bool", "internalType": "bool" }],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "event",
+      "name": "Approval",
+      "inputs": [
+        { "name": "owner", "type": "address", "indexed": true, "internalType": "address" },
+        { "name": "spender", "type": "address", "indexed": true, "internalType": "address" },
+        { "name": "value", "type": "uint256", "indexed": false, "internalType": "uint256" }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "Transfer",
+      "inputs": [
+        { "name": "from", "type": "address", "indexed": true, "internalType": "address" },
+        { "name": "to", "type": "address", "indexed": true, "internalType": "address" },
+        { "name": "value", "type": "uint256", "indexed": false, "internalType": "uint256" }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "error",
+      "name": "BobVaultShare_OnlySablierBob",
+      "inputs": [
+        { "name": "caller", "type": "address", "internalType": "address" },
+        { "name": "expectedCaller", "type": "address", "internalType": "address" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "BobVaultShare_VaultIdMismatch",
+      "inputs": [
+        { "name": "providedVaultId", "type": "uint256", "internalType": "uint256" },
+        { "name": "expectedVaultId", "type": "uint256", "internalType": "uint256" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "ERC20InsufficientAllowance",
+      "inputs": [
+        { "name": "spender", "type": "address", "internalType": "address" },
+        { "name": "allowance", "type": "uint256", "internalType": "uint256" },
+        { "name": "needed", "type": "uint256", "internalType": "uint256" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "ERC20InsufficientBalance",
+      "inputs": [
+        { "name": "sender", "type": "address", "internalType": "address" },
+        { "name": "balance", "type": "uint256", "internalType": "uint256" },
+        { "name": "needed", "type": "uint256", "internalType": "uint256" }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "ERC20InvalidApprover",
+      "inputs": [{ "name": "approver", "type": "address", "internalType": "address" }]
+    },
+    {
+      "type": "error",
+      "name": "ERC20InvalidReceiver",
+      "inputs": [{ "name": "receiver", "type": "address", "internalType": "address" }]
+    },
+    {
+      "type": "error",
+      "name": "ERC20InvalidSender",
+      "inputs": [{ "name": "sender", "type": "address", "internalType": "address" }]
+    },
+    {
+      "type": "error",
+      "name": "ERC20InvalidSpender",
+      "inputs": [{ "name": "spender", "type": "address", "internalType": "address" }]
+    }
+  ],
+  "bytecode": {
+    "object": "0x60e06040523461039e5761121b80380380610019816103a2565b928339810160a08282031261039e5781516001600160401b03811161039e57816100449184016103c7565b602083015190916001600160401b03821161039e576100649184016103c7565b91604081015160ff8116810361039e576060820151916001600160a01b038316830361039e5760800151835190936001600160401b0382116102a15760035490600182811c92168015610394575b60208310146102835781601f849311610326575b50602090601f83116001146102c0575f926102b5575b50508160011b915f199060031b1c1916176003555b83516001600160401b0381116102a157600454600181811c91168015610297575b602082101461028357601f8111610220575b50602094601f82116001146101bd579481929394955f926101b2575b50508160011b915f199060031b1c1916176004555b60c05260805260a052604051610dea908161043182396080518181816101850152818161021e015281816105200152610cc8015260a0518181816102480152818161054a015281816106d60152610d23015260c051816107300152f35b015190505f80610140565b601f1982169560045f52805f20915f5b888110610208575083600195969798106101f0575b505050811b01600455610155565b01515f1960f88460031b161c191690555f80806101e2565b919260206001819286850151815501940192016101cd565b60045f527f8a35acfbc15ff81a39ae7d344fd709f28e8600b4aa8c65c6b64bfe7fe36bd19b601f830160051c81019160208410610279575b601f0160051c01905b81811061026e5750610124565b5f8155600101610261565b9091508190610258565b634e487b7160e01b5f52602260045260245ffd5b90607f1690610112565b634e487b7160e01b5f52604160045260245ffd5b015190505f806100dc565b60035f9081528281209350601f198516905b81811061030e57509084600195949392106102f6575b505050811b016003556100f1565b01515f1960f88460031b161c191690555f80806102e8565b929360206001819287860151815501950193016102d2565b60035f529091507fc2575a0e9e593c00f959f8c92f12db2869c3395a3b0502d05e2516446f71f85b601f840160051c8101916020851061038a575b90601f859493920160051c01905b81811061037c57506100c6565b5f815584935060010161036f565b9091508190610361565b91607f16916100b2565b5f80fd5b6040519190601f01601f191682016001600160401b038111838210176102a157604052565b81601f8201121561039e578051906001600160401b0382116102a1576103f6601f8301601f19166020016103a2565b928284526020838301011161039e575f5b82811061041b57505060205f918301015290565b8060208092840101518282870101520161040756fe6080806040526004361015610012575f80fd5b5f3560e01c90816306fdde03146109d057508063095ea7b31461092357806318160ddd146108e857806323b872dd14610754578063313ce567146106f9578063540acabc146106a157806370a082311461063f578063836a1040146104fa57806395d89b41146103a15780639eea5f66146101f8578063a9059cbb146101a9578063aa2e3b981461013b5763dd62ed3e146100ab575f80fd5b346101375760407ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc360112610137576100e2610b0c565b73ffffffffffffffffffffffffffffffffffffffff6100ff610b2f565b91165f52600160205273ffffffffffffffffffffffffffffffffffffffff60405f2091165f52602052602060405f2054604051908152f35b5f80fd5b34610137575f7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261013757602060405173ffffffffffffffffffffffffffffffffffffffff7f0000000000000000000000000000000000000000000000000000000000000000168152f35b346101375760407ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc360112610137576101ed6101e3610b0c565b6024359033610c15565b602060405160018152f35b346101375761020636610b52565b9173ffffffffffffffffffffffffffffffffffffffff7f00000000000000000000000000000000000000000000000000000000000000001680330361037257507f000000000000000000000000000000000000000000000000000000000000000090818103610344578373ffffffffffffffffffffffffffffffffffffffff84168015610318575f818152602081905260409020548281106102e6576020835f947fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef938587528684520360408620558060025403600255604051908152a3005b907fe450d38c000000000000000000000000000000000000000000000000000000005f5260045260245260445260645ffd5b7f96c6fd1e000000000000000000000000000000000000000000000000000000005f525f60045260245ffd5b7f900604d5000000000000000000000000000000000000000000000000000000005f5260045260245260445ffd5b7fdb702112000000000000000000000000000000000000000000000000000000005f523360045260245260445ffd5b34610137575f7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc360112610137576040515f6004548060011c906001811680156104f0575b6020831081146104c3578285529081156104815750600114610423575b61041f8361041381850382610ba7565b60405191829182610aa6565b0390f35b91905060045f527f8a35acfbc15ff81a39ae7d344fd709f28e8600b4aa8c65c6b64bfe7fe36bd19b915f905b80821061046757509091508101602001610413610403565b91926001816020925483858801015201910190929161044f565b7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff001660208086019190915291151560051b840190910191506104139050610403565b7f4e487b71000000000000000000000000000000000000000000000000000000005f52602260045260245ffd5b91607f16916103e6565b346101375761050836610b52565b9173ffffffffffffffffffffffffffffffffffffffff7f00000000000000000000000000000000000000000000000000000000000000001680330361037257507f0000000000000000000000000000000000000000000000000000000000000000908181036103445773ffffffffffffffffffffffffffffffffffffffff8316848115610613575f80525f602052600254908082018092116105e65760207fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef915f9360025584845283825260408420818154019055604051908152a3005b7f4e487b71000000000000000000000000000000000000000000000000000000005f52601160045260245ffd5b7fec442f05000000000000000000000000000000000000000000000000000000005f525f60045260245ffd5b346101375760207ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126101375773ffffffffffffffffffffffffffffffffffffffff61068b610b0c565b165f525f602052602060405f2054604051908152f35b34610137575f7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126101375760206040517f00000000000000000000000000000000000000000000000000000000000000008152f35b34610137575f7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261013757602060405160ff7f0000000000000000000000000000000000000000000000000000000000000000168152f35b346101375760607ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126101375761078b610b0c565b610793610b2f565b6044359073ffffffffffffffffffffffffffffffffffffffff831692835f52600160205260405f2073ffffffffffffffffffffffffffffffffffffffff33165f5260205260405f20547fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff811061080f575b506101ed9350610c15565b8381106108b457841561088857331561085c576101ed945f52600160205260405f2073ffffffffffffffffffffffffffffffffffffffff33165f526020528360405f209103905584610804565b7f94280d62000000000000000000000000000000000000000000000000000000005f525f60045260245ffd5b7fe602df05000000000000000000000000000000000000000000000000000000005f525f60045260245ffd5b83907ffb8f41b2000000000000000000000000000000000000000000000000000000005f523360045260245260445260645ffd5b34610137575f7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc360112610137576020600254604051908152f35b346101375760407ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126101375761095a610b0c565b6024359033156108885773ffffffffffffffffffffffffffffffffffffffff1690811561085c57335f52600160205260405f20825f526020528060405f20556040519081527f8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b92560203392a3602060405160018152f35b34610137575f7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc360112610137575f6003548060011c90600181168015610a9c575b6020831081146104c3578285529081156104815750600114610a3e5761041f8361041381850382610ba7565b91905060035f527fc2575a0e9e593c00f959f8c92f12db2869c3395a3b0502d05e2516446f71f85b915f905b808210610a8257509091508101602001610413610403565b919260018160209254838588010152019101909291610a6a565b91607f1691610a12565b919091602081528251928360208301525f5b848110610af65750507fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe0601f845f6040809697860101520116010190565b8060208092840101516040828601015201610ab8565b6004359073ffffffffffffffffffffffffffffffffffffffff8216820361013757565b6024359073ffffffffffffffffffffffffffffffffffffffff8216820361013757565b7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc6060910112610137576004359060243573ffffffffffffffffffffffffffffffffffffffff81168103610137579060443590565b90601f7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe0910116810190811067ffffffffffffffff821117610be857604052565b7f4e487b71000000000000000000000000000000000000000000000000000000005f52604160045260245ffd5b73ffffffffffffffffffffffffffffffffffffffff169081156103185773ffffffffffffffffffffffffffffffffffffffff168015610613575f828152602081905260409020549182848110610d81578490825f525f6020520360405f2055815f525f60205260405f2084815401905581817fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef6020604051888152a373ffffffffffffffffffffffffffffffffffffffff7f00000000000000000000000000000000000000000000000000000000000000001690813b15610137575f60a492819560405197889687957f801837f60000000000000000000000000000000000000000000000000000000087527f0000000000000000000000000000000000000000000000000000000000000000600488015260248701526044860152606485015260848401525af18015610d7657610d6a5750565b5f610d7491610ba7565b565b6040513d5f823e3d90fd5b84917fe450d38c000000000000000000000000000000000000000000000000000000005f5260045260245260445260645ffdfea26469706673582212209d9157574f918237d0f86bc15bd26f4e8242fc01bb0c89f3e8e245bcd077060164736f6c634300081d0033",
+    "sourceMap": "712:4362:77:-:0;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;-1:-1:-1;;;;;712:4362:77;;;;;;;;;;:::i;:::-;;;;;;;-1:-1:-1;;;;;712:4362:77;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;712:4362:77;;;;;;;;;;;;;-1:-1:-1;;;;;712:4362:77;;;;1648:13:6;712:4362:77;;;;;;;;;;;;-1:-1:-1;712:4362:77;;;;;;;;;;;;;-1:-1:-1;712:4362:77;;;;;;;;;;-1:-1:-1;712:4362:77;;;;;;;;;;;;;1648:13:6;712:4362:77;;;;;1648:13:6;712:4362:77;;;;-1:-1:-1;;;;;712:4362:77;;;;1671:17:6;712:4362:77;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;712:4362:77;;;;;;;;;;;;;1648:13:6;712:4362:77;;;;;1671:17:6;712:4362:77;;3085:21;;712:4362;3116:24;712:4362;3150:18;712:4362;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;3085:21;712:4362;;;;;;;;;;-1:-1:-1;712:4362:77;;;;;;;;;;1671:17:6;-1:-1:-1;712:4362:77;;-1:-1:-1;712:4362:77;;-1:-1:-1;712:4362:77;;;;;;;;;;;;;;;;;;;;;;;1671:17:6;712:4362:77;;;;;;;;;;1648:13:6;712:4362:77;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1671:17:6;-1:-1:-1;712:4362:77;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;712:4362:77;;;;;;;;;-1:-1:-1;712:4362:77;;;;;;;;-1:-1:-1;712:4362:77;;1671:17:6;712:4362:77;;-1:-1:-1;712:4362:77;;;;;;;;;;;;-1:-1:-1;712:4362:77;;1671:17:6;712:4362:77;;-1:-1:-1;712:4362:77;;;;;-1:-1:-1;712:4362:77;;;;;1648:13:6;-1:-1:-1;712:4362:77;;;;;;;-1:-1:-1;;;712:4362:77;;;;;;;;;;;;;;;;;;;;;;;;;;;1648:13:6;712:4362:77;;;;;;;;;;1648:13:6;712:4362:77;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1648:13:6;-1:-1:-1;712:4362:77;;;-1:-1:-1;712:4362:77;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;712:4362:77;;;;-1:-1:-1;712:4362:77;;;;;;;-1:-1:-1;712:4362:77;;;;;;;;;;;;-1:-1:-1;712:4362:77;;;;;;;;;-1:-1:-1;;712:4362:77;;;-1:-1:-1;;;;;712:4362:77;;;;;;;;;;:::o;:::-;;;;;;;;;;;;-1:-1:-1;;;;;712:4362:77;;;;;;;;-1:-1:-1;;712:4362:77;;;;:::i;:::-;;;;;;;;;;;;;-1:-1:-1;712:4362:77;;;;;;;;;-1:-1:-1;712:4362:77;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x6080806040526004361015610012575f80fd5b5f3560e01c90816306fdde03146109d057508063095ea7b31461092357806318160ddd146108e857806323b872dd14610754578063313ce567146106f9578063540acabc146106a157806370a082311461063f578063836a1040146104fa57806395d89b41146103a15780639eea5f66146101f8578063a9059cbb146101a9578063aa2e3b981461013b5763dd62ed3e146100ab575f80fd5b346101375760407ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc360112610137576100e2610b0c565b73ffffffffffffffffffffffffffffffffffffffff6100ff610b2f565b91165f52600160205273ffffffffffffffffffffffffffffffffffffffff60405f2091165f52602052602060405f2054604051908152f35b5f80fd5b34610137575f7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261013757602060405173ffffffffffffffffffffffffffffffffffffffff7f0000000000000000000000000000000000000000000000000000000000000000168152f35b346101375760407ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc360112610137576101ed6101e3610b0c565b6024359033610c15565b602060405160018152f35b346101375761020636610b52565b9173ffffffffffffffffffffffffffffffffffffffff7f00000000000000000000000000000000000000000000000000000000000000001680330361037257507f000000000000000000000000000000000000000000000000000000000000000090818103610344578373ffffffffffffffffffffffffffffffffffffffff84168015610318575f818152602081905260409020548281106102e6576020835f947fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef938587528684520360408620558060025403600255604051908152a3005b907fe450d38c000000000000000000000000000000000000000000000000000000005f5260045260245260445260645ffd5b7f96c6fd1e000000000000000000000000000000000000000000000000000000005f525f60045260245ffd5b7f900604d5000000000000000000000000000000000000000000000000000000005f5260045260245260445ffd5b7fdb702112000000000000000000000000000000000000000000000000000000005f523360045260245260445ffd5b34610137575f7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc360112610137576040515f6004548060011c906001811680156104f0575b6020831081146104c3578285529081156104815750600114610423575b61041f8361041381850382610ba7565b60405191829182610aa6565b0390f35b91905060045f527f8a35acfbc15ff81a39ae7d344fd709f28e8600b4aa8c65c6b64bfe7fe36bd19b915f905b80821061046757509091508101602001610413610403565b91926001816020925483858801015201910190929161044f565b7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff001660208086019190915291151560051b840190910191506104139050610403565b7f4e487b71000000000000000000000000000000000000000000000000000000005f52602260045260245ffd5b91607f16916103e6565b346101375761050836610b52565b9173ffffffffffffffffffffffffffffffffffffffff7f00000000000000000000000000000000000000000000000000000000000000001680330361037257507f0000000000000000000000000000000000000000000000000000000000000000908181036103445773ffffffffffffffffffffffffffffffffffffffff8316848115610613575f80525f602052600254908082018092116105e65760207fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef915f9360025584845283825260408420818154019055604051908152a3005b7f4e487b71000000000000000000000000000000000000000000000000000000005f52601160045260245ffd5b7fec442f05000000000000000000000000000000000000000000000000000000005f525f60045260245ffd5b346101375760207ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126101375773ffffffffffffffffffffffffffffffffffffffff61068b610b0c565b165f525f602052602060405f2054604051908152f35b34610137575f7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126101375760206040517f00000000000000000000000000000000000000000000000000000000000000008152f35b34610137575f7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261013757602060405160ff7f0000000000000000000000000000000000000000000000000000000000000000168152f35b346101375760607ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126101375761078b610b0c565b610793610b2f565b6044359073ffffffffffffffffffffffffffffffffffffffff831692835f52600160205260405f2073ffffffffffffffffffffffffffffffffffffffff33165f5260205260405f20547fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff811061080f575b506101ed9350610c15565b8381106108b457841561088857331561085c576101ed945f52600160205260405f2073ffffffffffffffffffffffffffffffffffffffff33165f526020528360405f209103905584610804565b7f94280d62000000000000000000000000000000000000000000000000000000005f525f60045260245ffd5b7fe602df05000000000000000000000000000000000000000000000000000000005f525f60045260245ffd5b83907ffb8f41b2000000000000000000000000000000000000000000000000000000005f523360045260245260445260645ffd5b34610137575f7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc360112610137576020600254604051908152f35b346101375760407ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126101375761095a610b0c565b6024359033156108885773ffffffffffffffffffffffffffffffffffffffff1690811561085c57335f52600160205260405f20825f526020528060405f20556040519081527f8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b92560203392a3602060405160018152f35b34610137575f7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc360112610137575f6003548060011c90600181168015610a9c575b6020831081146104c3578285529081156104815750600114610a3e5761041f8361041381850382610ba7565b91905060035f527fc2575a0e9e593c00f959f8c92f12db2869c3395a3b0502d05e2516446f71f85b915f905b808210610a8257509091508101602001610413610403565b919260018160209254838588010152019101909291610a6a565b91607f1691610a12565b919091602081528251928360208301525f5b848110610af65750507fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe0601f845f6040809697860101520116010190565b8060208092840101516040828601015201610ab8565b6004359073ffffffffffffffffffffffffffffffffffffffff8216820361013757565b6024359073ffffffffffffffffffffffffffffffffffffffff8216820361013757565b7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc6060910112610137576004359060243573ffffffffffffffffffffffffffffffffffffffff81168103610137579060443590565b90601f7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe0910116810190811067ffffffffffffffff821117610be857604052565b7f4e487b71000000000000000000000000000000000000000000000000000000005f52604160045260245ffd5b73ffffffffffffffffffffffffffffffffffffffff169081156103185773ffffffffffffffffffffffffffffffffffffffff168015610613575f828152602081905260409020549182848110610d81578490825f525f6020520360405f2055815f525f60205260405f2084815401905581817fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef6020604051888152a373ffffffffffffffffffffffffffffffffffffffff7f00000000000000000000000000000000000000000000000000000000000000001690813b15610137575f60a492819560405197889687957f801837f60000000000000000000000000000000000000000000000000000000087527f0000000000000000000000000000000000000000000000000000000000000000600488015260248701526044860152606485015260848401525af18015610d7657610d6a5750565b5f610d7491610ba7565b565b6040513d5f823e3d90fd5b84917fe450d38c000000000000000000000000000000000000000000000000000000005f5260045260245260445260645ffdfea26469706673582212209d9157574f918237d0f86bc15bd26f4e8242fc01bb0c89f3e8e245bcd077060164736f6c634300081d0033",
+    "sourceMap": "712:4362:77:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;:::i;:::-;;;;;3638:11:6;712:4362:77;;;;;;3638:27:6;712:4362:77;-1:-1:-1;712:4362:77;;;;;-1:-1:-1;712:4362:77;;;;;;;;;;;;;;;;;;;;;;;;;;;1011:45;712:4362;;;;;;;;;;;;;;;3440:5:6;712:4362:77;;:::i;:::-;;;735:10:10;;3440:5:6;:::i;:::-;712:4362:77;;;;;;;;;;;;;;:::i;:::-;1759:11;712:4362;1759:11;712:4362;1745:10;;:25;1741:123;;2013:8;;2002:19;;;;1998:112;;712:4362;;;;8035:21:6;;8031:89;;712:4362:77;;;;;;;;;;;;6321:19:6;;;6317:115;;712:4362:77;;;;7064:25:6;712:4362:77;;;;;;;;;;;;;6791:21:6;712:4362:77;;6791:21:6;712:4362:77;;;;;;7064:25:6;712:4362:77;6317:115:6;6367:50;;712:4362:77;6367:50:6;712:4362:77;;;;;;;;6367:50:6;8031:89;8079:30;712:4362:77;8079:30:6;712:4362:77;;;;;8079:30:6;1998:112:77;2044:55;712:4362;2044:55;712:4362;;;;;;2044:55;1741:123;1793:60;712:4362;1793:60;1745:10;712:4362;;;;;;1793:60;712:4362;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;712:4362:77;;-1:-1:-1;712:4362:77;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;712:4362:77;;-1:-1:-1;712:4362:77;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;1759:11;712:4362;1759:11;712:4362;1745:10;;:25;1741:123;;2013:8;;2002:19;;;;1998:112;;712:4362;;;;7509:21:6;;7505:91;;712:4362:77;;;;;;6214:21:6;712:4362:77;;;;;;;;;;;7064:25:6;712:4362:77;;;6214:21:6;712:4362:77;;;;;;;;;;;;;;;;;;;;;7064:25:6;712:4362:77;;;;;;;;;;;7505:91:6;7553:32;712:4362:77;7553:32:6;712:4362:77;;;;;7553:32:6;712:4362:77;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1098:42;712:4362;;;;;;;;;;;;;;;;;;3565:9;712:4362;;;;;;;;;;;;;;;;;:::i;:::-;;;:::i;:::-;;;;;;;;;;;;;;;;;;735:10:10;712:4362:77;-1:-1:-1;712:4362:77;;;;-1:-1:-1;712:4362:77;;10580:17:6;10561:36;;10557:309;;712:4362:77;4967:5:6;;;;;:::i;10557:309::-;10617:24;;;10613:130;;9794:19;;9790:89;;735:10:10;9892:21:6;9888:90;;4967:5;712:4362:77;;;;;;;;;;735:10:10;712:4362:77;-1:-1:-1;712:4362:77;;;;;-1:-1:-1;712:4362:77;;;;;10557:309:6;;;9888:90;9936:31;712:4362:77;9936:31:6;712:4362:77;;;;;9936:31:6;9790:89;9836:32;712:4362:77;9836:32:6;712:4362:77;;;;;9836:32:6;10613:130;10668:60;;;712:4362:77;10668:60:6;735:10:10;712:4362:77;;;;;;;;10668:60:6;712:4362:77;;;;;;;;;;;;2908:12:6;712:4362:77;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;735:10:10;;9794:19:6;9790:89;;712:4362:77;;9892:21:6;;;9888:90;;735:10:10;712:4362:77;;;;;;;;;-1:-1:-1;712:4362:77;;;;;-1:-1:-1;712:4362:77;;;;;;;10066:31:6;712:4362:77;735:10:10;10066:31:6;;712:4362:77;;;;;;;;;;;;;;;;;;;1837:5:6;712:4362:77;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;1837:5:6;712:4362:77;;;;;;;;;;;;-1:-1:-1;712:4362:77;;-1:-1:-1;712:4362:77;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;:::o;:::-;;-1:-1:-1;712:4362:77;;;;;-1:-1:-1;712:4362:77;5374:300:6;712:4362:77;;5457:18:6;;;5453:86;;712:4362:77;;5552:16:6;;5548:86;;5473:1;712:4362:77;;;;;;;;;;;;;6321:19:6;;;6317:115;;712:4362:77;;;5473:1:6;712:4362:77;5473:1:6;712:4362:77;;;;5473:1:6;712:4362:77;;;5473:1:6;712:4362:77;5473:1:6;712:4362:77;;;5473:1:6;712:4362:77;;;;;;;;;7064:25:6;712:4362:77;;;;;;7064:25:6;712:4362:77;4980:11;712:4362;4968:87;;;;;;5473:1:6;4968:87:77;712:4362;;;;;4968:87;;;;;712:4362;4968:87;;5009:8;4968:87;;;712:4362;;;;;;;;;;;;;;;;;4968:87;;;;;;;;5374:300:6;:::o;4968:87:77:-;5473:1:6;4968:87:77;;;:::i;:::-;5374:300:6:o;4968:87:77:-;712:4362;;;5473:1:6;712:4362:77;;;;;6317:115:6;6367:50;;;5473:1;6367:50;;712:4362:77;;;;;;5473:1:6;6367:50",
+    "linkReferences": {},
+    "immutableReferences": {
+      "52224": [
+        { "start": 389, "length": 32 },
+        { "start": 542, "length": 32 },
+        { "start": 1312, "length": 32 },
+        { "start": 3272, "length": 32 }
+      ],
+      "52228": [
+        { "start": 584, "length": 32 },
+        { "start": 1354, "length": 32 },
+        { "start": 1750, "length": 32 },
+        { "start": 3363, "length": 32 }
+      ],
+      "52231": [{ "start": 1840, "length": 32 }]
+    }
+  },
+  "methodIdentifiers": {
+    "SABLIER_BOB()": "aa2e3b98",
+    "VAULT_ID()": "540acabc",
+    "allowance(address,address)": "dd62ed3e",
+    "approve(address,uint256)": "095ea7b3",
+    "balanceOf(address)": "70a08231",
+    "burn(uint256,address,uint256)": "9eea5f66",
+    "decimals()": "313ce567",
+    "mint(uint256,address,uint256)": "836a1040",
+    "name()": "06fdde03",
+    "symbol()": "95d89b41",
+    "totalSupply()": "18160ddd",
+    "transfer(address,uint256)": "a9059cbb",
+    "transferFrom(address,address,uint256)": "23b872dd"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.29+commit.ab55807c\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name_\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"symbol_\",\"type\":\"string\"},{\"internalType\":\"uint8\",\"name\":\"decimals_\",\"type\":\"uint8\"},{\"internalType\":\"address\",\"name\":\"sablierBob\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"vaultId\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"caller\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"expectedCaller\",\"type\":\"address\"}],\"name\":\"BobVaultShare_OnlySablierBob\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"providedVaultId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"expectedVaultId\",\"type\":\"uint256\"}],\"name\":\"BobVaultShare_VaultIdMismatch\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"allowance\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"needed\",\"type\":\"uint256\"}],\"name\":\"ERC20InsufficientAllowance\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"balance\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"needed\",\"type\":\"uint256\"}],\"name\":\"ERC20InsufficientBalance\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"approver\",\"type\":\"address\"}],\"name\":\"ERC20InvalidApprover\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"receiver\",\"type\":\"address\"}],\"name\":\"ERC20InvalidReceiver\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"ERC20InvalidSender\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"}],\"name\":\"ERC20InvalidSpender\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Approval\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"SABLIER_BOB\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"VAULT_ID\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"}],\"name\":\"allowance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"approve\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"vaultId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"burn\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"decimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"vaultId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"mint\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"transferFrom\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Each vault has its own BobVaultShare deployed. Only the SablierBob contract can mint and burn tokens. When shares are transferred, wstETH attribution is updated proportionally via the adapter.\",\"errors\":{\"ERC20InsufficientAllowance(address,uint256,uint256)\":[{\"details\":\"Indicates a failure with the `spender`\\u2019s `allowance`. Used in transfers.\",\"params\":{\"allowance\":\"Amount of tokens a `spender` is allowed to operate with.\",\"needed\":\"Minimum amount required to perform a transfer.\",\"spender\":\"Address that may be allowed to operate on tokens without being their owner.\"}}],\"ERC20InsufficientBalance(address,uint256,uint256)\":[{\"details\":\"Indicates an error related to the current `balance` of a `sender`. Used in transfers.\",\"params\":{\"balance\":\"Current balance for the interacting account.\",\"needed\":\"Minimum amount required to perform a transfer.\",\"sender\":\"Address whose tokens are being transferred.\"}}],\"ERC20InvalidApprover(address)\":[{\"details\":\"Indicates a failure with the `approver` of a token to be approved. Used in approvals.\",\"params\":{\"approver\":\"Address initiating an approval operation.\"}}],\"ERC20InvalidReceiver(address)\":[{\"details\":\"Indicates a failure with the token `receiver`. Used in transfers.\",\"params\":{\"receiver\":\"Address to which tokens are being transferred.\"}}],\"ERC20InvalidSender(address)\":[{\"details\":\"Indicates a failure with the token `sender`. Used in transfers.\",\"params\":{\"sender\":\"Address whose tokens are being transferred.\"}}],\"ERC20InvalidSpender(address)\":[{\"details\":\"Indicates a failure with the `spender` to be approved. Used in approvals.\",\"params\":{\"spender\":\"Address that may be allowed to operate on tokens without being their owner.\"}}]},\"events\":{\"Approval(address,address,uint256)\":{\"details\":\"Emitted when the allowance of a `spender` for an `owner` is set by a call to {approve}. `value` is the new allowance.\"},\"Transfer(address,address,uint256)\":{\"details\":\"Emitted when `value` tokens are moved from one account (`from`) to another (`to`). Note that `value` may be zero.\"}},\"kind\":\"dev\",\"methods\":{\"allowance(address,address)\":{\"details\":\"See {IERC20-allowance}.\"},\"approve(address,uint256)\":{\"details\":\"See {IERC20-approve}. NOTE: If `value` is the maximum `uint256`, the allowance is not updated on `transferFrom`. This is semantically equivalent to an infinite approval. Requirements: - `spender` cannot be the zero address.\"},\"balanceOf(address)\":{\"details\":\"See {IERC20-balanceOf}.\"},\"burn(uint256,address,uint256)\":{\"details\":\"Emits a {Transfer} event. Requirements: - The caller must be the SablierBob contract. - `vaultId` must be equal to the {VAULT_ID}. - `from` must have at least `amount` tokens.\",\"params\":{\"amount\":\"The amount of tokens to burn.\",\"from\":\"The address to burn tokens from.\",\"vaultId\":\"The vault ID that this share token represents.\"}},\"constructor\":{\"params\":{\"decimals_\":\"The number of decimals.\",\"name_\":\"The name of the token (e.g., \\\"Sablier Bob WETH Vault #1\\\").\",\"sablierBob\":\"The address of the SablierBob contract.\",\"symbol_\":\"The symbol of the token (e.g., \\\"WETH-500000000000-1792790393-1\\\" with $5000 target price) with the first number being the target price denominated in Chainlink's 8-decimal format, where 1e8 is $1.\",\"vaultId\":\"The ID of the vault this share token represents.\"}},\"mint(uint256,address,uint256)\":{\"details\":\"Emits a {Transfer} event. Requirements: - The caller must be the SablierBob contract. - `vaultId` must be equal to the {VAULT_ID}.\",\"params\":{\"amount\":\"The amount of tokens to mint.\",\"to\":\"The address to mint tokens to.\",\"vaultId\":\"The vault ID that this share token represents.\"}},\"name()\":{\"details\":\"Returns the name of the token.\"},\"symbol()\":{\"details\":\"Returns the symbol of the token, usually a shorter version of the name.\"},\"totalSupply()\":{\"details\":\"See {IERC20-totalSupply}.\"},\"transfer(address,uint256)\":{\"details\":\"See {IERC20-transfer}. Requirements: - `to` cannot be the zero address. - the caller must have a balance of at least `value`.\"},\"transferFrom(address,address,uint256)\":{\"details\":\"See {IERC20-transferFrom}. Skips emitting an {Approval} event indicating an allowance update. This is not required by the ERC. See {xref-ERC20-_approve-address-address-uint256-bool-}[_approve]. NOTE: Does not update the allowance if the current allowance is the maximum `uint256`. Requirements: - `from` and `to` cannot be the zero address. - `from` must have a balance of at least `value`. - the caller must have allowance for ``from``'s tokens of at least `value`.\"}},\"stateVariables\":{\"SABLIER_BOB\":{\"details\":\"This is an immutable state variable.\"},\"VAULT_ID\":{\"details\":\"This is an immutable state variable.\"},\"_DECIMALS\":{\"details\":\"The number of decimals.\"}},\"title\":\"BobVaultShare\",\"version\":1},\"userdoc\":{\"errors\":{\"BobVaultShare_OnlySablierBob(address,address)\":[{\"notice\":\"Thrown when a function is called by an address other than SablierBob.\"}],\"BobVaultShare_VaultIdMismatch(uint256,uint256)\":[{\"notice\":\"Thrown when the provided vault ID does not match the share token's vault ID.\"}]},\"kind\":\"user\",\"methods\":{\"SABLIER_BOB()\":{\"notice\":\"Returns the address of the Bob contract with the authority to mint and burn tokens.\"},\"VAULT_ID()\":{\"notice\":\"Returns the vault ID this share token represents.\"},\"burn(uint256,address,uint256)\":{\"notice\":\"Burns `amount` tokens from `from`.\"},\"constructor\":{\"notice\":\"Deploys the vault share token.\"},\"decimals()\":{\"notice\":\"Returns the number of decimals used by the token.\"},\"mint(uint256,address,uint256)\":{\"notice\":\"Mints `amount` tokens to `to`.\"}},\"notice\":\"ERC-20 token representing shares in a Bob vault.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/BobVaultShare.sol\":\"BobVaultShare\"},\"evmVersion\":\"shanghai\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":1000000},\"remappings\":[\":@arbitrum/=node_modules/@arbitrum/\",\":@chainlink/=node_modules/@chainlink/\",\":@eth-optimism/=node_modules/@eth-optimism/\",\":@offchainlabs/=node_modules/@offchainlabs/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":@prb/=node_modules/@prb/\",\":@sablier/=node_modules/@sablier/\",\":@scroll-tech/=node_modules/@scroll-tech/\",\":@zksync/=node_modules/@zksync/\",\":forge-std/=node_modules/forge-std/\"],\"viaIR\":true},\"sources\":{\"node_modules/@chainlink/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol\":{\"keccak256\":\"0x257a8d28fa83d3d942547c8e129ef465e4b5f3f31171e7be4739a4c98da6b4f0\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6d39e11b1dc7b9b8ccdabbc9be442ab7cda4a81c748f57e316dcb1bcb4a28bf9\",\"dweb:/ipfs/QmaG6vz6W6iEUBsbHSBob5mdcitYxWjoygxREHpsJHfWrS\"]},\"node_modules/@openzeppelin/contracts/interfaces/draft-IERC1822.sol\":{\"keccak256\":\"0xc42facb5094f2f35f066a7155bda23545e39a3156faef3ddc00185544443ba7d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d3b36282ab029b46bd082619a308a2ea11c309967b9425b7b7a6eb0b0c1c3196\",\"dweb:/ipfs/QmP2YVfDB2FoREax3vJu7QhDnyYRMw52WPrCD4vdT2kuDA\"]},\"node_modules/@openzeppelin/contracts/interfaces/draft-IERC6093.sol\":{\"keccak256\":\"0x880da465c203cec76b10d72dbd87c80f387df4102274f23eea1f9c9b0918792b\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://399594cd8bb0143bc9e55e0f1d071d0d8c850a394fb7a319d50edd55d9ed822b\",\"dweb:/ipfs/QmbPZzgtT6LEm9CMqWfagQFwETbV1ztpECBB1DtQHrKiRz\"]},\"node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol\":{\"keccak256\":\"0x41f6b3b9e030561e7896dbef372b499cc8d418a80c3884a4d65a68f2fdc7493a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://80b0992a11b2fd1f75ced2971696d07bbd1d19ce6761dd50d8b6d48aa435f42a\",\"dweb:/ipfs/QmZDe5xd2gXHjVEjv9t8C1KQ68K5T8qFwdinwQgmP3rF3x\"]},\"node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0xe06a3f08a987af6ad2e1c1e774405d4fe08f1694b67517438b467cecf0da0ef7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://df6f0c459663c9858b6cba2cda1d14a7d05a985bed6d2de72bd8e78c25ee79db\",\"dweb:/ipfs/QmeTTxZ7qVk9rjEv2R4CpCwdf8UMCcRqDNMvzNxHc3Fnn9\"]},\"node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol\":{\"keccak256\":\"0x70f2f713b13b7ce4610bcd0ac9fec0f3cc43693b043abcb8dc40a42a726eb330\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c13d13304ac79a83ab1c30168967d19e2203342ebbd6a9bbce4db7550522dcbf\",\"dweb:/ipfs/QmeN5jKMN2vw5bhacr6tkg78afbTTZUeaacNHqjWt4Ew1r\"]},\"node_modules/@openzeppelin/contracts/utils/Context.sol\":{\"keccak256\":\"0x493033a8d1b176a037b2cc6a04dad01a5c157722049bbecf632ca876224dd4b2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6a708e8a5bdb1011c2c381c9a5cfd8a9a956d7d0a9dc1bd8bcdaf52f76ef2f12\",\"dweb:/ipfs/Qmax9WHBnVsZP46ZxEMNRQpLQnrdE4dK8LehML1Py8FowF\"]},\"node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol\":{\"keccak256\":\"0x79796192ec90263f21b464d5bc90b777a525971d3de8232be80d9c4f9fb353b8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://f6fda447a62815e8064f47eff0dd1cf58d9207ad69b5d32280f8d7ed1d1e4621\",\"dweb:/ipfs/QmfDRc7pxfaXB2Dh9np5Uf29Na3pQ7tafRS684wd3GLjVL\"]},\"node_modules/@prb/math/src/Common.sol\":{\"keccak256\":\"0x8225a3898d2f11f585da1fb82234800e9717fa080dbe53d450fd429a3a632e99\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://2dcbf39ca575f68f32f0d1c66391de94082424956e7585e849813966f8c0fc05\",\"dweb:/ipfs/QmYvk8vXFDUJHrmqbtutYXfoLomLBosYLyBzuPoYBxsQ42\"]},\"node_modules/@prb/math/src/UD60x18.sol\":{\"keccak256\":\"0xb98c6f74275914d279e8af6c502c2b1f50d5f6e1ed418d3b0153f5a193206c48\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a750edde2955f160806a51083a12185fb04e20efca0e3a7ebd127dc1acc049a9\",\"dweb:/ipfs/QmeAre3mThopoQPB9mSXZq6jck59QZ7JbDFR83urd2SLvp\"]},\"node_modules/@prb/math/src/sd1x18/Casting.sol\":{\"keccak256\":\"0x5d365f655f01598926c5d4fe5cda277f2cc7736fe38f943c11a32009077ddd5c\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://56b378bd6039819bc12e5f17dabd9492e1410b3281f9df496cf8210539101a11\",\"dweb:/ipfs/QmcMaE64ZWMg9cFhYxdTuG8nfzeDdNuTRHMMoFXi6tSZGu\"]},\"node_modules/@prb/math/src/sd1x18/Constants.sol\":{\"keccak256\":\"0xc14cc32061863d83912f9616de86f3c34f1ac58614b7d504c6ce07ee8efdb8e8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://22483b1282dda6a556b0232f008a5a3296bbfd76b1886e6b72bf351b7c554fab\",\"dweb:/ipfs/QmYX9cYkrFxBbhZNKsb6uUxtrc2chmAj7vuc7UKRPGMwos\"]},\"node_modules/@prb/math/src/sd1x18/Errors.sol\":{\"keccak256\":\"0xc3c8b1ab3d19889c356c222a3a2186d45dfc1d3a17b9ad88159bb64ee457baa6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://84fbe57569246403f778330bd7723018dfcb5f0ec50d7b1d82cc983c94a54bca\",\"dweb:/ipfs/QmWssAAnovc2EVjt58rTnxraE9B1RMivwTvYCYgpnr6oSE\"]},\"node_modules/@prb/math/src/sd1x18/ValueType.sol\":{\"keccak256\":\"0xaa9dc7b562faf45264390d80e2ea10c5295bb8a4f10d76261a3f9c04363734c0\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c6ca36acd15f5cb47cf124ddec289f84e1011f2d29056159e4570435629a3353\",\"dweb:/ipfs/QmUKdiLmZpAkNCq2TKxrPbQPUhiRFXGfjGSnY1VeHVu4y6\"]},\"node_modules/@prb/math/src/sd21x18/Casting.sol\":{\"keccak256\":\"0x4a16adddb9ab1f6939dd4567c77205015a11081cb840029b84bbb6fdaf78ee36\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://5003b2f4cd2fc1413da36bc63107c6e83a88d29693e8f97b54f300fa78f9c6d2\",\"dweb:/ipfs/QmaNJn91NLrZmeeGqnFQV1FTrLVSW852zHyWTrWJ5pf1pd\"]},\"node_modules/@prb/math/src/sd21x18/Constants.sol\":{\"keccak256\":\"0x501c2d5cfdea9450422182059c8df1cb6a859901a07bd59631c3fa24edcc79d4\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4669a65001c92919671fd879d33ce0e5030b602a7ba4d36bd2308128d8d1f396\",\"dweb:/ipfs/QmUC3bJ3qdkCmLMw3WHBcEqvuC4tExT2LXzUhgu5KQ3vi3\"]},\"node_modules/@prb/math/src/sd21x18/Errors.sol\":{\"keccak256\":\"0xc5422ee47eb139274e538e758fb40177a1ba22c2113ef3b3446102f0150bfe0a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a1981e052e9e86e1b0e4e55a057a7af4739aedd4ead2d60e3eaa40fb703594ee\",\"dweb:/ipfs/QmPK5qSujnyk1R8ues4RhDMy1tRKKyjQ31YJTviTKq7GML\"]},\"node_modules/@prb/math/src/sd21x18/ValueType.sol\":{\"keccak256\":\"0x532bba888370bed393464412f4ef3462d654802e71c953ad02d078e3d2701092\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://922a4e8dd813602f72d165aa1dfdf2c29b971a2abe73bebca7cd81a32ee2c880\",\"dweb:/ipfs/QmTBAJnx1r3sZpbQAuTgQtsTtvjZbpDwhCJRzkhzUumbdf\"]},\"node_modules/@prb/math/src/sd59x18/Casting.sol\":{\"keccak256\":\"0xdf70d8e70c6d6325f3f7eb028c484bc7189ef902f1d4b5b220af2e550bb5fc39\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0b15bcd36129c5cb163d57a117435afb171182018dd6d1e766a5f49cf1f4b63d\",\"dweb:/ipfs/QmbjzkMBH4FM2rdxGbx9LQ65wVERijNcu7R9C8dQmH3y4n\"]},\"node_modules/@prb/math/src/sd59x18/Constants.sol\":{\"keccak256\":\"0x9bcb8dd6b3e886d140ad1c32747a4f6d29a492529ceb835be878ae837aa6cc3a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c4045c633e3618e7e90a768d92415b2f20f781fe129b4f4e26fa88f7dbf9201f\",\"dweb:/ipfs/Qmbet95pizwPno82cJ383wJtgQRSQKESmhVZ1vDrgAu7Si\"]},\"node_modules/@prb/math/src/sd59x18/Errors.sol\":{\"keccak256\":\"0x0a79c28c85fc8a450b0801ff2e66114eac4ec565819f5d1d8738904658fe33e2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://9e0d4fd3c998019fb8555d9e26c03bec42a8513bdf4185aeac2da3a000abaebf\",\"dweb:/ipfs/QmahFJHXcX4RwPxaQbUf6LVZEk8NSpjCV3Eif7i9iqC6Mk\"]},\"node_modules/@prb/math/src/sd59x18/Helpers.sol\":{\"keccak256\":\"0x208570f1657cf730cb6c3d81aa14030e0d45cf906cdedea5059369d7df4bb716\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4c78ca900edafa9338d4e3649a55ab0c84f76468d8a22fb945ba6d01e70f8fed\",\"dweb:/ipfs/QmeP4hQYfNxcATd1FsasdD4ebyu2vrC9K1N68swxUJzzZD\"]},\"node_modules/@prb/math/src/sd59x18/Math.sol\":{\"keccak256\":\"0xd8e8b51db9b3e2fa31a60f6b8ce4ea0112c3364442ede5992aa0aa7a2c925c84\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://3c56913970e34ee7b142047b21f1856a511cbdc3473b7c50418a8490e19cd462\",\"dweb:/ipfs/QmfG1F9CBDjPYD7NXora9awFfdpvBMY9SCg5pMLCFRv9tD\"]},\"node_modules/@prb/math/src/sd59x18/ValueType.sol\":{\"keccak256\":\"0x76597ba64d37d66e0178512bc9bbc1a031a7634c45e5d5c6e9da87f46952dc9d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://36148899ad874814e9292636fb974d2eec61f1bcc0875ec39cf444d70ba40919\",\"dweb:/ipfs/QmadUe4kH2FPcdxvhCKy8yiezCvPWor4VcPzqLYSAaGDDb\"]},\"node_modules/@prb/math/src/ud21x18/Casting.sol\":{\"keccak256\":\"0x3821aa57604f6e5b7c9c5c5cc97a6d71116e673cf3fee5f76fcd42b4cefded65\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a80399c6b38ab45cc10d0a6683d50340cd89d9a085b6d0dcfb81e7c4e5b3ce09\",\"dweb:/ipfs/QmWNW2YD2LMkqrpAtJYeeuHN329Rx7mvfmrjsCo1p6akTL\"]},\"node_modules/@prb/math/src/ud21x18/Constants.sol\":{\"keccak256\":\"0x0997574a1ced6c43bde6d9c9175edc5ad64cbb920a0969a9db68eea543747601\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c09f03345a6779b002b38ffc3954258accbb2b1d0d5506d42c3bd7f117304f60\",\"dweb:/ipfs/QmTeBXRCE7H2HpqKUNsZN7Nk3rdBnFmbAUFom3E1PJeGuV\"]},\"node_modules/@prb/math/src/ud21x18/Errors.sol\":{\"keccak256\":\"0x35a1fb789b90f8c90865884d3023deb17fcca5c7146b5ddef823496d835a5415\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0af359d07ba25bdc90de7c05ed6216833932caa75d4a02fcfc51ceeaba5a4e80\",\"dweb:/ipfs/QmavBFw73Xfp1qJiN6P1gk2Dfr8ByWo3dyCPVgDHtko2gq\"]},\"node_modules/@prb/math/src/ud21x18/ValueType.sol\":{\"keccak256\":\"0x24838b2b1da371b9259d8ee21534a9f0cb5796aba75a4efca2374627952bee25\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://897e6b79308651671c7f3c91a0069e778b47356c9ba3f86e238398ab7f2623af\",\"dweb:/ipfs/QmZbLw3tJVRZFQnV9jWQUmF43gna841adSG2TAiwDAifGU\"]},\"node_modules/@prb/math/src/ud2x18/Casting.sol\":{\"keccak256\":\"0x0f3141ed054e7c29dbe1acb4b88b18eb05d60e998fba6b4e503a6799faa356d6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://b1e2468fc4c458082aaf4aa2e35af9ba3702f207e3c8533dd1e7da11ad605eae\",\"dweb:/ipfs/QmSm7iRH1eo4cJCwcAiiXWRH9Hn1urSS4tMdbaFbFGuTyL\"]},\"node_modules/@prb/math/src/ud2x18/Constants.sol\":{\"keccak256\":\"0x29b0e050c865899e1fb9022b460a7829cdee248c44c4299f068ba80695eec3fc\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://cbaef16b662fac235349bcf97bc980dd0cba15d4e6230caae61224cdac8ea6d9\",\"dweb:/ipfs/QmZQa5XBhi7k3yhtCd8wVpnwW8htfU4sjXxWhxRypMBYkC\"]},\"node_modules/@prb/math/src/ud2x18/Errors.sol\":{\"keccak256\":\"0x3b27e2a57438cd30d9c130f84aace24d547e5ed58e8689691d7d92ad2db38ddd\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://841cf9fb45443899c6b659300bbf503c3fd2c1a1e83b7f0e28620eed457f7437\",\"dweb:/ipfs/QmUqg8WscP5yQPw3UMUCWaB9RLU6nryGzseuyhAjNnDc1i\"]},\"node_modules/@prb/math/src/ud2x18/ValueType.sol\":{\"keccak256\":\"0x975a2e69b48f34a4c0bd80e8a5609ac67b7264c91992c0944f9ebe7b9e3fc9d0\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://65d012521c475295d7e70b7d526fcc0911d0f238ea938719d77251bba00c9b41\",\"dweb:/ipfs/QmexEvTQCCBPYRWAYnomZX5M7C2EkXQRAXqEYMNUZfazCs\"]},\"node_modules/@prb/math/src/ud60x18/Casting.sol\":{\"keccak256\":\"0x0803318ddc98b4ba8fbfe70e5ee08d78387fe6ae00982b9960518085a751d7b6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://2e68a2f780b2e33fa5416eb60f9daa81f014c2591119f4b67bed1217d5530780\",\"dweb:/ipfs/QmZe7JTWvbfKqMnu4sxUwWCtLcCay9hH71VZUpoFCdENcr\"]},\"node_modules/@prb/math/src/ud60x18/Constants.sol\":{\"keccak256\":\"0x2b80d26153d3fdcfb3a9ca772d9309d31ed1275f5b8b54c3ffb54d3652b37d90\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7e3a6673a156f635db94dc176baaa7274db8f9bec4461cd1152596253550ee3b\",\"dweb:/ipfs/Qmc9zT4kNSbMYaXcnbxNVqmb3P3m46ieaQxkwxqLwsvRA5\"]},\"node_modules/@prb/math/src/ud60x18/Conversions.sol\":{\"keccak256\":\"0xd486ecca97abe69acdb28230088f4c7097fbdae5b36c5ae45d5be2faac4c33f2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6080870ec6955ff0f5278f9c480b218a68714daf5f2ee42da0276d08d7b82932\",\"dweb:/ipfs/QmQ1SERHdemJgPrt4USwY8j5r63jZ8fQuJAm1knjMEEQEY\"]},\"node_modules/@prb/math/src/ud60x18/Errors.sol\":{\"keccak256\":\"0xbab6b0e303d32f3a9d9e2fe881f0392b8c59a73051a4d34f21a403b3961b3044\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://86a019bcf2510d0691287329dc057479cc0abc48a5e15f245e7f15c03052d2c8\",\"dweb:/ipfs/QmeXe5pbpDHvN5DZ8puXmH2RJ25zDHj55wpiStWtNQPvq6\"]},\"node_modules/@prb/math/src/ud60x18/Helpers.sol\":{\"keccak256\":\"0xf5faff881391d2c060029499a666cc5f0bea90a213150bb476fae8f02a5df268\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://76105fa22bb1b5f1fa99abf9c4fbc9577a02c7bc204f271754c407f0d75489f5\",\"dweb:/ipfs/QmVNGZSTniDuZus5DdbFubqJXCLtTaZit7YPm4ntjr5Lgr\"]},\"node_modules/@prb/math/src/ud60x18/Math.sol\":{\"keccak256\":\"0xc4e51dfd9af62938e277e90fa724099f239d33727a35909ed48c292a76faf2fc\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d731537cbc50b852c21d28625aeb2c329729afc23a7b86ff9d8ee5878f47e9d6\",\"dweb:/ipfs/QmS7Cj4pAdPZcTp7RqYXyxBc9EYX92CT8icfkNigktUsLr\"]},\"node_modules/@prb/math/src/ud60x18/ValueType.sol\":{\"keccak256\":\"0x1b200baf25d01a8b91b97b42114248636f742b5b7028487ef4daef6621e378a3\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://b5708ed017206bda2197654e80bea9f37b3a9993434bb066c903c2865e028f47\",\"dweb:/ipfs/QmTyotZk2J5YvWkNvB2qhXBMgRGWW2UgPqR4JPocrXSr8n\"]},\"node_modules/@sablier/evm-utils/src/interfaces/IAdminable.sol\":{\"keccak256\":\"0x3228d63e9b0b951030c73c42bb071e64f0ff0eadbcbeefad3f29a48366539c26\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://acc90ad2bec0e84349b56611b35b56bfb75a5930fd1babb2bd638fbbb15bd126\",\"dweb:/ipfs/QmSLnHx6bo4BQeBKYferfEhZo1Z4xCXdDF1bzJoHUafHt4\"]},\"node_modules/@sablier/evm-utils/src/interfaces/IComptrollerable.sol\":{\"keccak256\":\"0xdbc32762b87590be38095a84789906fa7a23fd2c2c112859504549ef3be17522\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://14ac13726bb7435ce310dd437a9b58852ca0c35640949e898c803a33a30dee8b\",\"dweb:/ipfs/QmeeKPApvBHbUF3S98qCnB26Aw67KTQF2GFyGQZCxykyMW\"]},\"node_modules/@sablier/evm-utils/src/interfaces/IRoleAdminable.sol\":{\"keccak256\":\"0x391cb4bd4bae01e3efdb84f63635644ed6329b72e8a5105ad53833551e8ba825\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://ccca9da1c044c15cf0b647a4572c05f5d498fb18b3685a85a8836f7110cb1bc4\",\"dweb:/ipfs/QmfAKHqvgKQUgpC6VomTjTkc1tDnsbVJD5bLn8wL8KuTFV\"]},\"node_modules/@sablier/evm-utils/src/interfaces/ISablierComptroller.sol\":{\"keccak256\":\"0x5c52e70a6c083611d4b5518d17d025f70d322ee2c61d81f20f3fe50f4bd824ba\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://5c07b2076065f1c65a59176ada3459be53f78e59a2055d9ae92b226edafa484c\",\"dweb:/ipfs/QmXYRDkBSWUBza1pi439ErzeLoaLUT8Zvj2yWcFZ5F1rgX\"]},\"src/BobVaultShare.sol\":{\"keccak256\":\"0x2b7da3845c067907963bbbc8053053ed03c21bd2354d1261982bb130d4cd9da4\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://564315a1e60ca6f99746a8121b15cec5868aabfaa489a247d75b518836635ad8\",\"dweb:/ipfs/QmNmTGc8kgfY8wVZdSxUbHm4RRgonD6cBXKkBdKbN5hMQT\"]},\"src/interfaces/IBobVaultShare.sol\":{\"keccak256\":\"0x7e91f71800b33ce26fa757b8d74d0e89aaf2de6ee50260a706c4c26029ae4c22\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://18e85a71eef03972eb19a277ca025c645b18aa768c03a2b1e7d81de9eeabe731\",\"dweb:/ipfs/QmbjGtkps9KvG6XBysNLB9eBoY5E47ixkTDtN8cYYRzA6b\"]},\"src/interfaces/ISablierBob.sol\":{\"keccak256\":\"0x2c21ee1f24d0443a9daf745ef2f5ccfe339120f19484565d31a46a1af09e8edc\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://1dce1fb1847e2c9fb562f9e5c8cb71d9a9d5a3b4a56ba9575ff0c7d5240b3af9\",\"dweb:/ipfs/QmZbFLtUYRV9TTw6PTsJmvhrD5BwautoUbLbj5WoVYiTPP\"]},\"src/interfaces/ISablierBobAdapter.sol\":{\"keccak256\":\"0xeb24411e0d4be288e600b9893bcf5bcfd3e38d7f2313bb68b323b2ba19d97921\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://0308e63f7a7d9af68f7109bf500e186cd06760f708242c11e4dcdf5baa14638e\",\"dweb:/ipfs/Qmdn9ViABMqhTbRMY9yHMneqD8dMY8ysqjUMVbsGJ3GVPK\"]},\"src/interfaces/ISablierBobState.sol\":{\"keccak256\":\"0xc216153d326b2b02f62fe2a02edea29a194bf850d6c5d4d1d1c618cd68bfdd5c\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://0e1c2c6b58098552b70febc6a4876c2b89fb894994049c840882c346d7e094ee\",\"dweb:/ipfs/QmWxBShVcnGCrjHfBhPH15cdLA7mtmN6QaSBSM7ZWae85Q\"]},\"src/libraries/Errors.sol\":{\"keccak256\":\"0x6c053ba4f029f4835883cf2fecd2b8adb1371b8e9820f5a3fdf679fd864ac682\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://e1d64e7f44f0e8dcb3c6842a1baa119c3dd4b1b14f29c07c4c93b4185f0a566e\",\"dweb:/ipfs/QmUjf9S6JduDhmpD8VriK8bMRYXD8m7XMRohhnE91mjDc9\"]},\"src/types/Bob.sol\":{\"keccak256\":\"0xf156bfc6b369fd9006e47e3a2531108e515878f60977987def9069b6148cbba3\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://5e2d1205de5dc31ffc76045c05b5fc9ad927346ff3a6be9ee7ee9dcd6c28bb1a\",\"dweb:/ipfs/QmeuUm54PyaS2NZ728zy3Cqnsm5BZxaGAZdQrBY85Tejdx\"]},\"src/types/Escrow.sol\":{\"keccak256\":\"0xc4c65957eab4cfd50d7806778ca69366aebe22e98736315c62fa36bda5cddba6\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://ef915ead3c018cd9c629fd3738eba614dfa0499492d25162129e9374607756c1\",\"dweb:/ipfs/QmenoUAVQFvKU4XVNm9Pm7RxvrTgBBJFXF6uNjqHMV1wAU\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": { "version": "0.8.29+commit.ab55807c" },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            { "internalType": "string", "name": "name_", "type": "string" },
+            { "internalType": "string", "name": "symbol_", "type": "string" },
+            { "internalType": "uint8", "name": "decimals_", "type": "uint8" },
+            { "internalType": "address", "name": "sablierBob", "type": "address" },
+            { "internalType": "uint256", "name": "vaultId", "type": "uint256" }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "constructor"
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "caller", "type": "address" },
+            { "internalType": "address", "name": "expectedCaller", "type": "address" }
+          ],
+          "type": "error",
+          "name": "BobVaultShare_OnlySablierBob"
+        },
+        {
+          "inputs": [
+            { "internalType": "uint256", "name": "providedVaultId", "type": "uint256" },
+            { "internalType": "uint256", "name": "expectedVaultId", "type": "uint256" }
+          ],
+          "type": "error",
+          "name": "BobVaultShare_VaultIdMismatch"
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "spender", "type": "address" },
+            { "internalType": "uint256", "name": "allowance", "type": "uint256" },
+            { "internalType": "uint256", "name": "needed", "type": "uint256" }
+          ],
+          "type": "error",
+          "name": "ERC20InsufficientAllowance"
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "sender", "type": "address" },
+            { "internalType": "uint256", "name": "balance", "type": "uint256" },
+            { "internalType": "uint256", "name": "needed", "type": "uint256" }
+          ],
+          "type": "error",
+          "name": "ERC20InsufficientBalance"
+        },
+        {
+          "inputs": [{ "internalType": "address", "name": "approver", "type": "address" }],
+          "type": "error",
+          "name": "ERC20InvalidApprover"
+        },
+        {
+          "inputs": [{ "internalType": "address", "name": "receiver", "type": "address" }],
+          "type": "error",
+          "name": "ERC20InvalidReceiver"
+        },
+        {
+          "inputs": [{ "internalType": "address", "name": "sender", "type": "address" }],
+          "type": "error",
+          "name": "ERC20InvalidSender"
+        },
+        {
+          "inputs": [{ "internalType": "address", "name": "spender", "type": "address" }],
+          "type": "error",
+          "name": "ERC20InvalidSpender"
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "owner", "type": "address", "indexed": true },
+            { "internalType": "address", "name": "spender", "type": "address", "indexed": true },
+            { "internalType": "uint256", "name": "value", "type": "uint256", "indexed": false }
+          ],
+          "type": "event",
+          "name": "Approval",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "from", "type": "address", "indexed": true },
+            { "internalType": "address", "name": "to", "type": "address", "indexed": true },
+            { "internalType": "uint256", "name": "value", "type": "uint256", "indexed": false }
+          ],
+          "type": "event",
+          "name": "Transfer",
+          "anonymous": false
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "SABLIER_BOB",
+          "outputs": [{ "internalType": "address", "name": "", "type": "address" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "VAULT_ID",
+          "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }]
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "owner", "type": "address" },
+            { "internalType": "address", "name": "spender", "type": "address" }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "allowance",
+          "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }]
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "spender", "type": "address" },
+            { "internalType": "uint256", "name": "value", "type": "uint256" }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "approve",
+          "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }]
+        },
+        {
+          "inputs": [{ "internalType": "address", "name": "account", "type": "address" }],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "balanceOf",
+          "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }]
+        },
+        {
+          "inputs": [
+            { "internalType": "uint256", "name": "vaultId", "type": "uint256" },
+            { "internalType": "address", "name": "from", "type": "address" },
+            { "internalType": "uint256", "name": "amount", "type": "uint256" }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "burn"
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "decimals",
+          "outputs": [{ "internalType": "uint8", "name": "", "type": "uint8" }]
+        },
+        {
+          "inputs": [
+            { "internalType": "uint256", "name": "vaultId", "type": "uint256" },
+            { "internalType": "address", "name": "to", "type": "address" },
+            { "internalType": "uint256", "name": "amount", "type": "uint256" }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "mint"
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "name",
+          "outputs": [{ "internalType": "string", "name": "", "type": "string" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "symbol",
+          "outputs": [{ "internalType": "string", "name": "", "type": "string" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "totalSupply",
+          "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }]
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "to", "type": "address" },
+            { "internalType": "uint256", "name": "value", "type": "uint256" }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "transfer",
+          "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }]
+        },
+        {
+          "inputs": [
+            { "internalType": "address", "name": "from", "type": "address" },
+            { "internalType": "address", "name": "to", "type": "address" },
+            { "internalType": "uint256", "name": "value", "type": "uint256" }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "transferFrom",
+          "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }]
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "allowance(address,address)": { "details": "See {IERC20-allowance}." },
+          "approve(address,uint256)": {
+            "details": "See {IERC20-approve}. NOTE: If `value` is the maximum `uint256`, the allowance is not updated on `transferFrom`. This is semantically equivalent to an infinite approval. Requirements: - `spender` cannot be the zero address."
+          },
+          "balanceOf(address)": { "details": "See {IERC20-balanceOf}." },
+          "burn(uint256,address,uint256)": {
+            "details": "Emits a {Transfer} event. Requirements: - The caller must be the SablierBob contract. - `vaultId` must be equal to the {VAULT_ID}. - `from` must have at least `amount` tokens.",
+            "params": {
+              "amount": "The amount of tokens to burn.",
+              "from": "The address to burn tokens from.",
+              "vaultId": "The vault ID that this share token represents."
+            }
+          },
+          "constructor": {
+            "params": {
+              "decimals_": "The number of decimals.",
+              "name_": "The name of the token (e.g., \"Sablier Bob WETH Vault #1\").",
+              "sablierBob": "The address of the SablierBob contract.",
+              "symbol_": "The symbol of the token (e.g., \"WETH-500000000000-1792790393-1\" with $5000 target price) with the first number being the target price denominated in Chainlink's 8-decimal format, where 1e8 is $1.",
+              "vaultId": "The ID of the vault this share token represents."
+            }
+          },
+          "mint(uint256,address,uint256)": {
+            "details": "Emits a {Transfer} event. Requirements: - The caller must be the SablierBob contract. - `vaultId` must be equal to the {VAULT_ID}.",
+            "params": {
+              "amount": "The amount of tokens to mint.",
+              "to": "The address to mint tokens to.",
+              "vaultId": "The vault ID that this share token represents."
+            }
+          },
+          "name()": { "details": "Returns the name of the token." },
+          "symbol()": {
+            "details": "Returns the symbol of the token, usually a shorter version of the name."
+          },
+          "totalSupply()": { "details": "See {IERC20-totalSupply}." },
+          "transfer(address,uint256)": {
+            "details": "See {IERC20-transfer}. Requirements: - `to` cannot be the zero address. - the caller must have a balance of at least `value`."
+          },
+          "transferFrom(address,address,uint256)": {
+            "details": "See {IERC20-transferFrom}. Skips emitting an {Approval} event indicating an allowance update. This is not required by the ERC. See {xref-ERC20-_approve-address-address-uint256-bool-}[_approve]. NOTE: Does not update the allowance if the current allowance is the maximum `uint256`. Requirements: - `from` and `to` cannot be the zero address. - `from` must have a balance of at least `value`. - the caller must have allowance for ``from``'s tokens of at least `value`."
+          }
+        },
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "SABLIER_BOB()": {
+            "notice": "Returns the address of the Bob contract with the authority to mint and burn tokens."
+          },
+          "VAULT_ID()": { "notice": "Returns the vault ID this share token represents." },
+          "burn(uint256,address,uint256)": { "notice": "Burns `amount` tokens from `from`." },
+          "constructor": { "notice": "Deploys the vault share token." },
+          "decimals()": { "notice": "Returns the number of decimals used by the token." },
+          "mint(uint256,address,uint256)": { "notice": "Mints `amount` tokens to `to`." }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        "@arbitrum/=node_modules/@arbitrum/",
+        "@chainlink/=node_modules/@chainlink/",
+        "@eth-optimism/=node_modules/@eth-optimism/",
+        "@offchainlabs/=node_modules/@offchainlabs/",
+        "@openzeppelin/=node_modules/@openzeppelin/",
+        "@prb/=node_modules/@prb/",
+        "@sablier/=node_modules/@sablier/",
+        "@scroll-tech/=node_modules/@scroll-tech/",
+        "@zksync/=node_modules/@zksync/",
+        "forge-std/=node_modules/forge-std/"
+      ],
+      "optimizer": { "enabled": true, "runs": 1000000 },
+      "metadata": { "bytecodeHash": "ipfs" },
+      "compilationTarget": { "src/BobVaultShare.sol": "BobVaultShare" },
+      "evmVersion": "shanghai",
+      "libraries": {},
+      "viaIR": true
+    },
+    "sources": {
+      "node_modules/@chainlink/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol": {
+        "keccak256": "0x257a8d28fa83d3d942547c8e129ef465e4b5f3f31171e7be4739a4c98da6b4f0",
+        "urls": [
+          "bzz-raw://6d39e11b1dc7b9b8ccdabbc9be442ab7cda4a81c748f57e316dcb1bcb4a28bf9",
+          "dweb:/ipfs/QmaG6vz6W6iEUBsbHSBob5mdcitYxWjoygxREHpsJHfWrS"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/interfaces/draft-IERC1822.sol": {
+        "keccak256": "0xc42facb5094f2f35f066a7155bda23545e39a3156faef3ddc00185544443ba7d",
+        "urls": [
+          "bzz-raw://d3b36282ab029b46bd082619a308a2ea11c309967b9425b7b7a6eb0b0c1c3196",
+          "dweb:/ipfs/QmP2YVfDB2FoREax3vJu7QhDnyYRMw52WPrCD4vdT2kuDA"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/interfaces/draft-IERC6093.sol": {
+        "keccak256": "0x880da465c203cec76b10d72dbd87c80f387df4102274f23eea1f9c9b0918792b",
+        "urls": [
+          "bzz-raw://399594cd8bb0143bc9e55e0f1d071d0d8c850a394fb7a319d50edd55d9ed822b",
+          "dweb:/ipfs/QmbPZzgtT6LEm9CMqWfagQFwETbV1ztpECBB1DtQHrKiRz"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol": {
+        "keccak256": "0x41f6b3b9e030561e7896dbef372b499cc8d418a80c3884a4d65a68f2fdc7493a",
+        "urls": [
+          "bzz-raw://80b0992a11b2fd1f75ced2971696d07bbd1d19ce6761dd50d8b6d48aa435f42a",
+          "dweb:/ipfs/QmZDe5xd2gXHjVEjv9t8C1KQ68K5T8qFwdinwQgmP3rF3x"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+        "keccak256": "0xe06a3f08a987af6ad2e1c1e774405d4fe08f1694b67517438b467cecf0da0ef7",
+        "urls": [
+          "bzz-raw://df6f0c459663c9858b6cba2cda1d14a7d05a985bed6d2de72bd8e78c25ee79db",
+          "dweb:/ipfs/QmeTTxZ7qVk9rjEv2R4CpCwdf8UMCcRqDNMvzNxHc3Fnn9"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
+        "keccak256": "0x70f2f713b13b7ce4610bcd0ac9fec0f3cc43693b043abcb8dc40a42a726eb330",
+        "urls": [
+          "bzz-raw://c13d13304ac79a83ab1c30168967d19e2203342ebbd6a9bbce4db7550522dcbf",
+          "dweb:/ipfs/QmeN5jKMN2vw5bhacr6tkg78afbTTZUeaacNHqjWt4Ew1r"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/utils/Context.sol": {
+        "keccak256": "0x493033a8d1b176a037b2cc6a04dad01a5c157722049bbecf632ca876224dd4b2",
+        "urls": [
+          "bzz-raw://6a708e8a5bdb1011c2c381c9a5cfd8a9a956d7d0a9dc1bd8bcdaf52f76ef2f12",
+          "dweb:/ipfs/Qmax9WHBnVsZP46ZxEMNRQpLQnrdE4dK8LehML1Py8FowF"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol": {
+        "keccak256": "0x79796192ec90263f21b464d5bc90b777a525971d3de8232be80d9c4f9fb353b8",
+        "urls": [
+          "bzz-raw://f6fda447a62815e8064f47eff0dd1cf58d9207ad69b5d32280f8d7ed1d1e4621",
+          "dweb:/ipfs/QmfDRc7pxfaXB2Dh9np5Uf29Na3pQ7tafRS684wd3GLjVL"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/Common.sol": {
+        "keccak256": "0x8225a3898d2f11f585da1fb82234800e9717fa080dbe53d450fd429a3a632e99",
+        "urls": [
+          "bzz-raw://2dcbf39ca575f68f32f0d1c66391de94082424956e7585e849813966f8c0fc05",
+          "dweb:/ipfs/QmYvk8vXFDUJHrmqbtutYXfoLomLBosYLyBzuPoYBxsQ42"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/UD60x18.sol": {
+        "keccak256": "0xb98c6f74275914d279e8af6c502c2b1f50d5f6e1ed418d3b0153f5a193206c48",
+        "urls": [
+          "bzz-raw://a750edde2955f160806a51083a12185fb04e20efca0e3a7ebd127dc1acc049a9",
+          "dweb:/ipfs/QmeAre3mThopoQPB9mSXZq6jck59QZ7JbDFR83urd2SLvp"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd1x18/Casting.sol": {
+        "keccak256": "0x5d365f655f01598926c5d4fe5cda277f2cc7736fe38f943c11a32009077ddd5c",
+        "urls": [
+          "bzz-raw://56b378bd6039819bc12e5f17dabd9492e1410b3281f9df496cf8210539101a11",
+          "dweb:/ipfs/QmcMaE64ZWMg9cFhYxdTuG8nfzeDdNuTRHMMoFXi6tSZGu"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd1x18/Constants.sol": {
+        "keccak256": "0xc14cc32061863d83912f9616de86f3c34f1ac58614b7d504c6ce07ee8efdb8e8",
+        "urls": [
+          "bzz-raw://22483b1282dda6a556b0232f008a5a3296bbfd76b1886e6b72bf351b7c554fab",
+          "dweb:/ipfs/QmYX9cYkrFxBbhZNKsb6uUxtrc2chmAj7vuc7UKRPGMwos"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd1x18/Errors.sol": {
+        "keccak256": "0xc3c8b1ab3d19889c356c222a3a2186d45dfc1d3a17b9ad88159bb64ee457baa6",
+        "urls": [
+          "bzz-raw://84fbe57569246403f778330bd7723018dfcb5f0ec50d7b1d82cc983c94a54bca",
+          "dweb:/ipfs/QmWssAAnovc2EVjt58rTnxraE9B1RMivwTvYCYgpnr6oSE"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd1x18/ValueType.sol": {
+        "keccak256": "0xaa9dc7b562faf45264390d80e2ea10c5295bb8a4f10d76261a3f9c04363734c0",
+        "urls": [
+          "bzz-raw://c6ca36acd15f5cb47cf124ddec289f84e1011f2d29056159e4570435629a3353",
+          "dweb:/ipfs/QmUKdiLmZpAkNCq2TKxrPbQPUhiRFXGfjGSnY1VeHVu4y6"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd21x18/Casting.sol": {
+        "keccak256": "0x4a16adddb9ab1f6939dd4567c77205015a11081cb840029b84bbb6fdaf78ee36",
+        "urls": [
+          "bzz-raw://5003b2f4cd2fc1413da36bc63107c6e83a88d29693e8f97b54f300fa78f9c6d2",
+          "dweb:/ipfs/QmaNJn91NLrZmeeGqnFQV1FTrLVSW852zHyWTrWJ5pf1pd"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd21x18/Constants.sol": {
+        "keccak256": "0x501c2d5cfdea9450422182059c8df1cb6a859901a07bd59631c3fa24edcc79d4",
+        "urls": [
+          "bzz-raw://4669a65001c92919671fd879d33ce0e5030b602a7ba4d36bd2308128d8d1f396",
+          "dweb:/ipfs/QmUC3bJ3qdkCmLMw3WHBcEqvuC4tExT2LXzUhgu5KQ3vi3"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd21x18/Errors.sol": {
+        "keccak256": "0xc5422ee47eb139274e538e758fb40177a1ba22c2113ef3b3446102f0150bfe0a",
+        "urls": [
+          "bzz-raw://a1981e052e9e86e1b0e4e55a057a7af4739aedd4ead2d60e3eaa40fb703594ee",
+          "dweb:/ipfs/QmPK5qSujnyk1R8ues4RhDMy1tRKKyjQ31YJTviTKq7GML"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd21x18/ValueType.sol": {
+        "keccak256": "0x532bba888370bed393464412f4ef3462d654802e71c953ad02d078e3d2701092",
+        "urls": [
+          "bzz-raw://922a4e8dd813602f72d165aa1dfdf2c29b971a2abe73bebca7cd81a32ee2c880",
+          "dweb:/ipfs/QmTBAJnx1r3sZpbQAuTgQtsTtvjZbpDwhCJRzkhzUumbdf"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd59x18/Casting.sol": {
+        "keccak256": "0xdf70d8e70c6d6325f3f7eb028c484bc7189ef902f1d4b5b220af2e550bb5fc39",
+        "urls": [
+          "bzz-raw://0b15bcd36129c5cb163d57a117435afb171182018dd6d1e766a5f49cf1f4b63d",
+          "dweb:/ipfs/QmbjzkMBH4FM2rdxGbx9LQ65wVERijNcu7R9C8dQmH3y4n"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd59x18/Constants.sol": {
+        "keccak256": "0x9bcb8dd6b3e886d140ad1c32747a4f6d29a492529ceb835be878ae837aa6cc3a",
+        "urls": [
+          "bzz-raw://c4045c633e3618e7e90a768d92415b2f20f781fe129b4f4e26fa88f7dbf9201f",
+          "dweb:/ipfs/Qmbet95pizwPno82cJ383wJtgQRSQKESmhVZ1vDrgAu7Si"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd59x18/Errors.sol": {
+        "keccak256": "0x0a79c28c85fc8a450b0801ff2e66114eac4ec565819f5d1d8738904658fe33e2",
+        "urls": [
+          "bzz-raw://9e0d4fd3c998019fb8555d9e26c03bec42a8513bdf4185aeac2da3a000abaebf",
+          "dweb:/ipfs/QmahFJHXcX4RwPxaQbUf6LVZEk8NSpjCV3Eif7i9iqC6Mk"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd59x18/Helpers.sol": {
+        "keccak256": "0x208570f1657cf730cb6c3d81aa14030e0d45cf906cdedea5059369d7df4bb716",
+        "urls": [
+          "bzz-raw://4c78ca900edafa9338d4e3649a55ab0c84f76468d8a22fb945ba6d01e70f8fed",
+          "dweb:/ipfs/QmeP4hQYfNxcATd1FsasdD4ebyu2vrC9K1N68swxUJzzZD"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd59x18/Math.sol": {
+        "keccak256": "0xd8e8b51db9b3e2fa31a60f6b8ce4ea0112c3364442ede5992aa0aa7a2c925c84",
+        "urls": [
+          "bzz-raw://3c56913970e34ee7b142047b21f1856a511cbdc3473b7c50418a8490e19cd462",
+          "dweb:/ipfs/QmfG1F9CBDjPYD7NXora9awFfdpvBMY9SCg5pMLCFRv9tD"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd59x18/ValueType.sol": {
+        "keccak256": "0x76597ba64d37d66e0178512bc9bbc1a031a7634c45e5d5c6e9da87f46952dc9d",
+        "urls": [
+          "bzz-raw://36148899ad874814e9292636fb974d2eec61f1bcc0875ec39cf444d70ba40919",
+          "dweb:/ipfs/QmadUe4kH2FPcdxvhCKy8yiezCvPWor4VcPzqLYSAaGDDb"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud21x18/Casting.sol": {
+        "keccak256": "0x3821aa57604f6e5b7c9c5c5cc97a6d71116e673cf3fee5f76fcd42b4cefded65",
+        "urls": [
+          "bzz-raw://a80399c6b38ab45cc10d0a6683d50340cd89d9a085b6d0dcfb81e7c4e5b3ce09",
+          "dweb:/ipfs/QmWNW2YD2LMkqrpAtJYeeuHN329Rx7mvfmrjsCo1p6akTL"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud21x18/Constants.sol": {
+        "keccak256": "0x0997574a1ced6c43bde6d9c9175edc5ad64cbb920a0969a9db68eea543747601",
+        "urls": [
+          "bzz-raw://c09f03345a6779b002b38ffc3954258accbb2b1d0d5506d42c3bd7f117304f60",
+          "dweb:/ipfs/QmTeBXRCE7H2HpqKUNsZN7Nk3rdBnFmbAUFom3E1PJeGuV"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud21x18/Errors.sol": {
+        "keccak256": "0x35a1fb789b90f8c90865884d3023deb17fcca5c7146b5ddef823496d835a5415",
+        "urls": [
+          "bzz-raw://0af359d07ba25bdc90de7c05ed6216833932caa75d4a02fcfc51ceeaba5a4e80",
+          "dweb:/ipfs/QmavBFw73Xfp1qJiN6P1gk2Dfr8ByWo3dyCPVgDHtko2gq"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud21x18/ValueType.sol": {
+        "keccak256": "0x24838b2b1da371b9259d8ee21534a9f0cb5796aba75a4efca2374627952bee25",
+        "urls": [
+          "bzz-raw://897e6b79308651671c7f3c91a0069e778b47356c9ba3f86e238398ab7f2623af",
+          "dweb:/ipfs/QmZbLw3tJVRZFQnV9jWQUmF43gna841adSG2TAiwDAifGU"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud2x18/Casting.sol": {
+        "keccak256": "0x0f3141ed054e7c29dbe1acb4b88b18eb05d60e998fba6b4e503a6799faa356d6",
+        "urls": [
+          "bzz-raw://b1e2468fc4c458082aaf4aa2e35af9ba3702f207e3c8533dd1e7da11ad605eae",
+          "dweb:/ipfs/QmSm7iRH1eo4cJCwcAiiXWRH9Hn1urSS4tMdbaFbFGuTyL"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud2x18/Constants.sol": {
+        "keccak256": "0x29b0e050c865899e1fb9022b460a7829cdee248c44c4299f068ba80695eec3fc",
+        "urls": [
+          "bzz-raw://cbaef16b662fac235349bcf97bc980dd0cba15d4e6230caae61224cdac8ea6d9",
+          "dweb:/ipfs/QmZQa5XBhi7k3yhtCd8wVpnwW8htfU4sjXxWhxRypMBYkC"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud2x18/Errors.sol": {
+        "keccak256": "0x3b27e2a57438cd30d9c130f84aace24d547e5ed58e8689691d7d92ad2db38ddd",
+        "urls": [
+          "bzz-raw://841cf9fb45443899c6b659300bbf503c3fd2c1a1e83b7f0e28620eed457f7437",
+          "dweb:/ipfs/QmUqg8WscP5yQPw3UMUCWaB9RLU6nryGzseuyhAjNnDc1i"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud2x18/ValueType.sol": {
+        "keccak256": "0x975a2e69b48f34a4c0bd80e8a5609ac67b7264c91992c0944f9ebe7b9e3fc9d0",
+        "urls": [
+          "bzz-raw://65d012521c475295d7e70b7d526fcc0911d0f238ea938719d77251bba00c9b41",
+          "dweb:/ipfs/QmexEvTQCCBPYRWAYnomZX5M7C2EkXQRAXqEYMNUZfazCs"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/Casting.sol": {
+        "keccak256": "0x0803318ddc98b4ba8fbfe70e5ee08d78387fe6ae00982b9960518085a751d7b6",
+        "urls": [
+          "bzz-raw://2e68a2f780b2e33fa5416eb60f9daa81f014c2591119f4b67bed1217d5530780",
+          "dweb:/ipfs/QmZe7JTWvbfKqMnu4sxUwWCtLcCay9hH71VZUpoFCdENcr"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/Constants.sol": {
+        "keccak256": "0x2b80d26153d3fdcfb3a9ca772d9309d31ed1275f5b8b54c3ffb54d3652b37d90",
+        "urls": [
+          "bzz-raw://7e3a6673a156f635db94dc176baaa7274db8f9bec4461cd1152596253550ee3b",
+          "dweb:/ipfs/Qmc9zT4kNSbMYaXcnbxNVqmb3P3m46ieaQxkwxqLwsvRA5"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/Conversions.sol": {
+        "keccak256": "0xd486ecca97abe69acdb28230088f4c7097fbdae5b36c5ae45d5be2faac4c33f2",
+        "urls": [
+          "bzz-raw://6080870ec6955ff0f5278f9c480b218a68714daf5f2ee42da0276d08d7b82932",
+          "dweb:/ipfs/QmQ1SERHdemJgPrt4USwY8j5r63jZ8fQuJAm1knjMEEQEY"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/Errors.sol": {
+        "keccak256": "0xbab6b0e303d32f3a9d9e2fe881f0392b8c59a73051a4d34f21a403b3961b3044",
+        "urls": [
+          "bzz-raw://86a019bcf2510d0691287329dc057479cc0abc48a5e15f245e7f15c03052d2c8",
+          "dweb:/ipfs/QmeXe5pbpDHvN5DZ8puXmH2RJ25zDHj55wpiStWtNQPvq6"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/Helpers.sol": {
+        "keccak256": "0xf5faff881391d2c060029499a666cc5f0bea90a213150bb476fae8f02a5df268",
+        "urls": [
+          "bzz-raw://76105fa22bb1b5f1fa99abf9c4fbc9577a02c7bc204f271754c407f0d75489f5",
+          "dweb:/ipfs/QmVNGZSTniDuZus5DdbFubqJXCLtTaZit7YPm4ntjr5Lgr"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/Math.sol": {
+        "keccak256": "0xc4e51dfd9af62938e277e90fa724099f239d33727a35909ed48c292a76faf2fc",
+        "urls": [
+          "bzz-raw://d731537cbc50b852c21d28625aeb2c329729afc23a7b86ff9d8ee5878f47e9d6",
+          "dweb:/ipfs/QmS7Cj4pAdPZcTp7RqYXyxBc9EYX92CT8icfkNigktUsLr"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/ValueType.sol": {
+        "keccak256": "0x1b200baf25d01a8b91b97b42114248636f742b5b7028487ef4daef6621e378a3",
+        "urls": [
+          "bzz-raw://b5708ed017206bda2197654e80bea9f37b3a9993434bb066c903c2865e028f47",
+          "dweb:/ipfs/QmTyotZk2J5YvWkNvB2qhXBMgRGWW2UgPqR4JPocrXSr8n"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@sablier/evm-utils/src/interfaces/IAdminable.sol": {
+        "keccak256": "0x3228d63e9b0b951030c73c42bb071e64f0ff0eadbcbeefad3f29a48366539c26",
+        "urls": [
+          "bzz-raw://acc90ad2bec0e84349b56611b35b56bfb75a5930fd1babb2bd638fbbb15bd126",
+          "dweb:/ipfs/QmSLnHx6bo4BQeBKYferfEhZo1Z4xCXdDF1bzJoHUafHt4"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "node_modules/@sablier/evm-utils/src/interfaces/IComptrollerable.sol": {
+        "keccak256": "0xdbc32762b87590be38095a84789906fa7a23fd2c2c112859504549ef3be17522",
+        "urls": [
+          "bzz-raw://14ac13726bb7435ce310dd437a9b58852ca0c35640949e898c803a33a30dee8b",
+          "dweb:/ipfs/QmeeKPApvBHbUF3S98qCnB26Aw67KTQF2GFyGQZCxykyMW"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "node_modules/@sablier/evm-utils/src/interfaces/IRoleAdminable.sol": {
+        "keccak256": "0x391cb4bd4bae01e3efdb84f63635644ed6329b72e8a5105ad53833551e8ba825",
+        "urls": [
+          "bzz-raw://ccca9da1c044c15cf0b647a4572c05f5d498fb18b3685a85a8836f7110cb1bc4",
+          "dweb:/ipfs/QmfAKHqvgKQUgpC6VomTjTkc1tDnsbVJD5bLn8wL8KuTFV"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "node_modules/@sablier/evm-utils/src/interfaces/ISablierComptroller.sol": {
+        "keccak256": "0x5c52e70a6c083611d4b5518d17d025f70d322ee2c61d81f20f3fe50f4bd824ba",
+        "urls": [
+          "bzz-raw://5c07b2076065f1c65a59176ada3459be53f78e59a2055d9ae92b226edafa484c",
+          "dweb:/ipfs/QmXYRDkBSWUBza1pi439ErzeLoaLUT8Zvj2yWcFZ5F1rgX"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "src/BobVaultShare.sol": {
+        "keccak256": "0x2b7da3845c067907963bbbc8053053ed03c21bd2354d1261982bb130d4cd9da4",
+        "urls": [
+          "bzz-raw://564315a1e60ca6f99746a8121b15cec5868aabfaa489a247d75b518836635ad8",
+          "dweb:/ipfs/QmNmTGc8kgfY8wVZdSxUbHm4RRgonD6cBXKkBdKbN5hMQT"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "src/interfaces/IBobVaultShare.sol": {
+        "keccak256": "0x7e91f71800b33ce26fa757b8d74d0e89aaf2de6ee50260a706c4c26029ae4c22",
+        "urls": [
+          "bzz-raw://18e85a71eef03972eb19a277ca025c645b18aa768c03a2b1e7d81de9eeabe731",
+          "dweb:/ipfs/QmbjGtkps9KvG6XBysNLB9eBoY5E47ixkTDtN8cYYRzA6b"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "src/interfaces/ISablierBob.sol": {
+        "keccak256": "0x2c21ee1f24d0443a9daf745ef2f5ccfe339120f19484565d31a46a1af09e8edc",
+        "urls": [
+          "bzz-raw://1dce1fb1847e2c9fb562f9e5c8cb71d9a9d5a3b4a56ba9575ff0c7d5240b3af9",
+          "dweb:/ipfs/QmZbFLtUYRV9TTw6PTsJmvhrD5BwautoUbLbj5WoVYiTPP"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "src/interfaces/ISablierBobAdapter.sol": {
+        "keccak256": "0xeb24411e0d4be288e600b9893bcf5bcfd3e38d7f2313bb68b323b2ba19d97921",
+        "urls": [
+          "bzz-raw://0308e63f7a7d9af68f7109bf500e186cd06760f708242c11e4dcdf5baa14638e",
+          "dweb:/ipfs/Qmdn9ViABMqhTbRMY9yHMneqD8dMY8ysqjUMVbsGJ3GVPK"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "src/interfaces/ISablierBobState.sol": {
+        "keccak256": "0xc216153d326b2b02f62fe2a02edea29a194bf850d6c5d4d1d1c618cd68bfdd5c",
+        "urls": [
+          "bzz-raw://0e1c2c6b58098552b70febc6a4876c2b89fb894994049c840882c346d7e094ee",
+          "dweb:/ipfs/QmWxBShVcnGCrjHfBhPH15cdLA7mtmN6QaSBSM7ZWae85Q"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "src/libraries/Errors.sol": {
+        "keccak256": "0x6c053ba4f029f4835883cf2fecd2b8adb1371b8e9820f5a3fdf679fd864ac682",
+        "urls": [
+          "bzz-raw://e1d64e7f44f0e8dcb3c6842a1baa119c3dd4b1b14f29c07c4c93b4185f0a566e",
+          "dweb:/ipfs/QmUjf9S6JduDhmpD8VriK8bMRYXD8m7XMRohhnE91mjDc9"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "src/types/Bob.sol": {
+        "keccak256": "0xf156bfc6b369fd9006e47e3a2531108e515878f60977987def9069b6148cbba3",
+        "urls": [
+          "bzz-raw://5e2d1205de5dc31ffc76045c05b5fc9ad927346ff3a6be9ee7ee9dcd6c28bb1a",
+          "dweb:/ipfs/QmeuUm54PyaS2NZ728zy3Cqnsm5BZxaGAZdQrBY85Tejdx"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "src/types/Escrow.sol": {
+        "keccak256": "0xc4c65957eab4cfd50d7806778ca69366aebe22e98736315c62fa36bda5cddba6",
+        "urls": [
+          "bzz-raw://ef915ead3c018cd9c629fd3738eba614dfa0499492d25162129e9374607756c1",
+          "dweb:/ipfs/QmenoUAVQFvKU4XVNm9Pm7RxvrTgBBJFXF6uNjqHMV1wAU"
+        ],
+        "license": "GPL-3.0-or-later"
+      }
+    },
+    "version": 1
+  },
+  "id": 77
+}

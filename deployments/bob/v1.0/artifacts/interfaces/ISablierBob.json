@@ -1,0 +1,1405 @@
+{
+  "abi": [
+    {
+      "type": "function",
+      "name": "calculateMinFeeWei",
+      "inputs": [{ "name": "vaultId", "type": "uint256", "internalType": "uint256" }],
+      "outputs": [{ "name": "minFeeWei", "type": "uint256", "internalType": "uint256" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "comptroller",
+      "inputs": [],
+      "outputs": [
+        { "name": "", "type": "address", "internalType": "contract ISablierComptroller" }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "createVault",
+      "inputs": [
+        { "name": "token", "type": "address", "internalType": "contract IERC20" },
+        { "name": "oracle", "type": "address", "internalType": "contract AggregatorV3Interface" },
+        { "name": "expiry", "type": "uint40", "internalType": "uint40" },
+        { "name": "targetPrice", "type": "uint128", "internalType": "uint128" }
+      ],
+      "outputs": [{ "name": "vaultId", "type": "uint256", "internalType": "uint256" }],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "enter",
+      "inputs": [
+        { "name": "vaultId", "type": "uint256", "internalType": "uint256" },
+        { "name": "amount", "type": "uint128", "internalType": "uint128" }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "enterWithNativeToken",
+      "inputs": [{ "name": "vaultId", "type": "uint256", "internalType": "uint256" }],
+      "outputs": [],
+      "stateMutability": "payable"
+    },
+    {
+      "type": "function",
+      "name": "getAdapter",
+      "inputs": [{ "name": "vaultId", "type": "uint256", "internalType": "uint256" }],
+      "outputs": [
+        { "name": "adapter", "type": "address", "internalType": "contract ISablierBobAdapter" }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "getDefaultAdapterFor",
+      "inputs": [{ "name": "token", "type": "address", "internalType": "contract IERC20" }],
+      "outputs": [
+        { "name": "adapter", "type": "address", "internalType": "contract ISablierBobAdapter" }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "getExpiry",
+      "inputs": [{ "name": "vaultId", "type": "uint256", "internalType": "uint256" }],
+      "outputs": [{ "name": "expiry", "type": "uint40", "internalType": "uint40" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "getLastSyncedAt",
+      "inputs": [{ "name": "vaultId", "type": "uint256", "internalType": "uint256" }],
+      "outputs": [{ "name": "lastSyncedAt", "type": "uint40", "internalType": "uint40" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "getLastSyncedPrice",
+      "inputs": [{ "name": "vaultId", "type": "uint256", "internalType": "uint256" }],
+      "outputs": [{ "name": "lastSyncedPrice", "type": "uint128", "internalType": "uint128" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "getOracle",
+      "inputs": [{ "name": "vaultId", "type": "uint256", "internalType": "uint256" }],
+      "outputs": [
+        { "name": "oracle", "type": "address", "internalType": "contract AggregatorV3Interface" }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "getShareToken",
+      "inputs": [{ "name": "vaultId", "type": "uint256", "internalType": "uint256" }],
+      "outputs": [
+        { "name": "shareToken", "type": "address", "internalType": "contract IBobVaultShare" }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "getTargetPrice",
+      "inputs": [{ "name": "vaultId", "type": "uint256", "internalType": "uint256" }],
+      "outputs": [{ "name": "targetPrice", "type": "uint128", "internalType": "uint128" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "getUnderlyingToken",
+      "inputs": [{ "name": "vaultId", "type": "uint256", "internalType": "uint256" }],
+      "outputs": [{ "name": "token", "type": "address", "internalType": "contract IERC20" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "isStakedInAdapter",
+      "inputs": [{ "name": "vaultId", "type": "uint256", "internalType": "uint256" }],
+      "outputs": [{ "name": "stakedInAdapter", "type": "bool", "internalType": "bool" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "nativeToken",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "nextVaultId",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "onShareTransfer",
+      "inputs": [
+        { "name": "vaultId", "type": "uint256", "internalType": "uint256" },
+        { "name": "from", "type": "address", "internalType": "address" },
+        { "name": "to", "type": "address", "internalType": "address" },
+        { "name": "amount", "type": "uint256", "internalType": "uint256" },
+        { "name": "fromBalanceBefore", "type": "uint256", "internalType": "uint256" }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "redeem",
+      "inputs": [{ "name": "vaultId", "type": "uint256", "internalType": "uint256" }],
+      "outputs": [
+        { "name": "transferAmount", "type": "uint128", "internalType": "uint128" },
+        { "name": "feeAmountDeductedFromYield", "type": "uint128", "internalType": "uint128" }
+      ],
+      "stateMutability": "payable"
+    },
+    {
+      "type": "function",
+      "name": "setComptroller",
+      "inputs": [
+        {
+          "name": "newComptroller",
+          "type": "address",
+          "internalType": "contract ISablierComptroller"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "setDefaultAdapter",
+      "inputs": [
+        { "name": "token", "type": "address", "internalType": "contract IERC20" },
+        { "name": "newAdapter", "type": "address", "internalType": "contract ISablierBobAdapter" }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "setNativeToken",
+      "inputs": [{ "name": "newNativeToken", "type": "address", "internalType": "address" }],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "statusOf",
+      "inputs": [{ "name": "vaultId", "type": "uint256", "internalType": "uint256" }],
+      "outputs": [{ "name": "status", "type": "uint8", "internalType": "enum Bob.Status" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "syncPriceFromOracle",
+      "inputs": [{ "name": "vaultId", "type": "uint256", "internalType": "uint256" }],
+      "outputs": [{ "name": "latestPrice", "type": "uint128", "internalType": "uint128" }],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "transferFeesToComptroller",
+      "inputs": [],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "unstakeTokensViaAdapter",
+      "inputs": [{ "name": "vaultId", "type": "uint256", "internalType": "uint256" }],
+      "outputs": [
+        { "name": "amountReceivedFromAdapter", "type": "uint128", "internalType": "uint128" }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "event",
+      "name": "CreateVault",
+      "inputs": [
+        { "name": "vaultId", "type": "uint256", "indexed": true, "internalType": "uint256" },
+        { "name": "token", "type": "address", "indexed": true, "internalType": "contract IERC20" },
+        {
+          "name": "oracle",
+          "type": "address",
+          "indexed": true,
+          "internalType": "contract AggregatorV3Interface"
+        },
+        {
+          "name": "adapter",
+          "type": "address",
+          "indexed": false,
+          "internalType": "contract ISablierBobAdapter"
+        },
+        {
+          "name": "shareToken",
+          "type": "address",
+          "indexed": false,
+          "internalType": "contract IBobVaultShare"
+        },
+        { "name": "targetPrice", "type": "uint128", "indexed": false, "internalType": "uint128" },
+        { "name": "expiry", "type": "uint40", "indexed": false, "internalType": "uint40" }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "Enter",
+      "inputs": [
+        { "name": "vaultId", "type": "uint256", "indexed": true, "internalType": "uint256" },
+        { "name": "user", "type": "address", "indexed": true, "internalType": "address" },
+        {
+          "name": "amountReceived",
+          "type": "uint128",
+          "indexed": false,
+          "internalType": "uint128"
+        },
+        { "name": "sharesMinted", "type": "uint128", "indexed": false, "internalType": "uint128" }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "Redeem",
+      "inputs": [
+        { "name": "vaultId", "type": "uint256", "indexed": true, "internalType": "uint256" },
+        { "name": "user", "type": "address", "indexed": true, "internalType": "address" },
+        {
+          "name": "amountReceived",
+          "type": "uint128",
+          "indexed": false,
+          "internalType": "uint128"
+        },
+        { "name": "sharesBurned", "type": "uint128", "indexed": false, "internalType": "uint128" },
+        { "name": "fee", "type": "uint256", "indexed": false, "internalType": "uint256" }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "SetComptroller",
+      "inputs": [
+        {
+          "name": "oldComptroller",
+          "type": "address",
+          "indexed": false,
+          "internalType": "contract ISablierComptroller"
+        },
+        {
+          "name": "newComptroller",
+          "type": "address",
+          "indexed": false,
+          "internalType": "contract ISablierComptroller"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "SetDefaultAdapter",
+      "inputs": [
+        { "name": "token", "type": "address", "indexed": true, "internalType": "contract IERC20" },
+        {
+          "name": "adapter",
+          "type": "address",
+          "indexed": true,
+          "internalType": "contract ISablierBobAdapter"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "SetNativeToken",
+      "inputs": [
+        { "name": "comptroller", "type": "address", "indexed": true, "internalType": "address" },
+        { "name": "nativeToken", "type": "address", "indexed": false, "internalType": "address" }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "SyncPriceFromOracle",
+      "inputs": [
+        { "name": "vaultId", "type": "uint256", "indexed": true, "internalType": "uint256" },
+        {
+          "name": "oracle",
+          "type": "address",
+          "indexed": true,
+          "internalType": "contract AggregatorV3Interface"
+        },
+        { "name": "latestPrice", "type": "uint128", "indexed": false, "internalType": "uint128" },
+        { "name": "syncedAt", "type": "uint40", "indexed": false, "internalType": "uint40" }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "TransferFeesToComptroller",
+      "inputs": [
+        { "name": "comptroller", "type": "address", "indexed": true, "internalType": "address" },
+        { "name": "feeAmount", "type": "uint256", "indexed": false, "internalType": "uint256" }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "UnstakeFromAdapter",
+      "inputs": [
+        { "name": "vaultId", "type": "uint256", "indexed": true, "internalType": "uint256" },
+        {
+          "name": "adapter",
+          "type": "address",
+          "indexed": true,
+          "internalType": "contract ISablierBobAdapter"
+        },
+        {
+          "name": "wrappedTokenUnstakedAmount",
+          "type": "uint128",
+          "indexed": false,
+          "internalType": "uint128"
+        },
+        {
+          "name": "amountReceivedFromAdapter",
+          "type": "uint128",
+          "indexed": false,
+          "internalType": "uint128"
+        }
+      ],
+      "anonymous": false
+    }
+  ],
+  "bytecode": { "object": "0x", "sourceMap": "", "linkReferences": {} },
+  "deployedBytecode": { "object": "0x", "sourceMap": "", "linkReferences": {} },
+  "methodIdentifiers": {
+    "calculateMinFeeWei(uint256)": "cca138e5",
+    "comptroller()": "5fe3b567",
+    "createVault(address,address,uint40,uint128)": "50129dff",
+    "enter(uint256,uint128)": "c8d293b7",
+    "enterWithNativeToken(uint256)": "ef961229",
+    "getAdapter(uint256)": "ddeadbb6",
+    "getDefaultAdapterFor(address)": "a1538039",
+    "getExpiry(uint256)": "13c72608",
+    "getLastSyncedAt(uint256)": "009dd14f",
+    "getLastSyncedPrice(uint256)": "5645ed77",
+    "getOracle(uint256)": "10a9de60",
+    "getShareToken(uint256)": "65957bf5",
+    "getTargetPrice(uint256)": "46de071d",
+    "getUnderlyingToken(uint256)": "a4775772",
+    "isStakedInAdapter(uint256)": "8f4f8968",
+    "nativeToken()": "e1758bd8",
+    "nextVaultId()": "12ac1763",
+    "onShareTransfer(uint256,address,address,uint256,uint256)": "801837f6",
+    "redeem(uint256)": "db006a75",
+    "setComptroller(address)": "8bad38dd",
+    "setDefaultAdapter(address,address)": "b18c0adb",
+    "setNativeToken(address)": "6da1e102",
+    "statusOf(uint256)": "ad35efd4",
+    "syncPriceFromOracle(uint256)": "a06da630",
+    "transferFeesToComptroller()": "78f82ce7",
+    "unstakeTokensViaAdapter(uint256)": "7aca734b"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.29+commit.ab55807c\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"vaultId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"contract IERC20\",\"name\":\"token\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"contract AggregatorV3Interface\",\"name\":\"oracle\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"contract ISablierBobAdapter\",\"name\":\"adapter\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"contract IBobVaultShare\",\"name\":\"shareToken\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint128\",\"name\":\"targetPrice\",\"type\":\"uint128\"},{\"indexed\":false,\"internalType\":\"uint40\",\"name\":\"expiry\",\"type\":\"uint40\"}],\"name\":\"CreateVault\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"vaultId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint128\",\"name\":\"amountReceived\",\"type\":\"uint128\"},{\"indexed\":false,\"internalType\":\"uint128\",\"name\":\"sharesMinted\",\"type\":\"uint128\"}],\"name\":\"Enter\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"vaultId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint128\",\"name\":\"amountReceived\",\"type\":\"uint128\"},{\"indexed\":false,\"internalType\":\"uint128\",\"name\":\"sharesBurned\",\"type\":\"uint128\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"fee\",\"type\":\"uint256\"}],\"name\":\"Redeem\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"contract ISablierComptroller\",\"name\":\"oldComptroller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"contract ISablierComptroller\",\"name\":\"newComptroller\",\"type\":\"address\"}],\"name\":\"SetComptroller\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"contract IERC20\",\"name\":\"token\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"contract ISablierBobAdapter\",\"name\":\"adapter\",\"type\":\"address\"}],\"name\":\"SetDefaultAdapter\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"comptroller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"nativeToken\",\"type\":\"address\"}],\"name\":\"SetNativeToken\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"vaultId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"contract AggregatorV3Interface\",\"name\":\"oracle\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint128\",\"name\":\"latestPrice\",\"type\":\"uint128\"},{\"indexed\":false,\"internalType\":\"uint40\",\"name\":\"syncedAt\",\"type\":\"uint40\"}],\"name\":\"SyncPriceFromOracle\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"comptroller\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"feeAmount\",\"type\":\"uint256\"}],\"name\":\"TransferFeesToComptroller\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"vaultId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"contract ISablierBobAdapter\",\"name\":\"adapter\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint128\",\"name\":\"wrappedTokenUnstakedAmount\",\"type\":\"uint128\"},{\"indexed\":false,\"internalType\":\"uint128\",\"name\":\"amountReceivedFromAdapter\",\"type\":\"uint128\"}],\"name\":\"UnstakeFromAdapter\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"vaultId\",\"type\":\"uint256\"}],\"name\":\"calculateMinFeeWei\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"minFeeWei\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"comptroller\",\"outputs\":[{\"internalType\":\"contract ISablierComptroller\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract IERC20\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"contract AggregatorV3Interface\",\"name\":\"oracle\",\"type\":\"address\"},{\"internalType\":\"uint40\",\"name\":\"expiry\",\"type\":\"uint40\"},{\"internalType\":\"uint128\",\"name\":\"targetPrice\",\"type\":\"uint128\"}],\"name\":\"createVault\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"vaultId\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"vaultId\",\"type\":\"uint256\"},{\"internalType\":\"uint128\",\"name\":\"amount\",\"type\":\"uint128\"}],\"name\":\"enter\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"vaultId\",\"type\":\"uint256\"}],\"name\":\"enterWithNativeToken\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"vaultId\",\"type\":\"uint256\"}],\"name\":\"getAdapter\",\"outputs\":[{\"internalType\":\"contract ISablierBobAdapter\",\"name\":\"adapter\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract IERC20\",\"name\":\"token\",\"type\":\"address\"}],\"name\":\"getDefaultAdapterFor\",\"outputs\":[{\"internalType\":\"contract ISablierBobAdapter\",\"name\":\"adapter\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"vaultId\",\"type\":\"uint256\"}],\"name\":\"getExpiry\",\"outputs\":[{\"internalType\":\"uint40\",\"name\":\"expiry\",\"type\":\"uint40\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"vaultId\",\"type\":\"uint256\"}],\"name\":\"getLastSyncedAt\",\"outputs\":[{\"internalType\":\"uint40\",\"name\":\"lastSyncedAt\",\"type\":\"uint40\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"vaultId\",\"type\":\"uint256\"}],\"name\":\"getLastSyncedPrice\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"lastSyncedPrice\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"vaultId\",\"type\":\"uint256\"}],\"name\":\"getOracle\",\"outputs\":[{\"internalType\":\"contract AggregatorV3Interface\",\"name\":\"oracle\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"vaultId\",\"type\":\"uint256\"}],\"name\":\"getShareToken\",\"outputs\":[{\"internalType\":\"contract IBobVaultShare\",\"name\":\"shareToken\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"vaultId\",\"type\":\"uint256\"}],\"name\":\"getTargetPrice\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"targetPrice\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"vaultId\",\"type\":\"uint256\"}],\"name\":\"getUnderlyingToken\",\"outputs\":[{\"internalType\":\"contract IERC20\",\"name\":\"token\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"vaultId\",\"type\":\"uint256\"}],\"name\":\"isStakedInAdapter\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"stakedInAdapter\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"nativeToken\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"nextVaultId\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"vaultId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"fromBalanceBefore\",\"type\":\"uint256\"}],\"name\":\"onShareTransfer\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"vaultId\",\"type\":\"uint256\"}],\"name\":\"redeem\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"transferAmount\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"feeAmountDeductedFromYield\",\"type\":\"uint128\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract ISablierComptroller\",\"name\":\"newComptroller\",\"type\":\"address\"}],\"name\":\"setComptroller\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract IERC20\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"contract ISablierBobAdapter\",\"name\":\"newAdapter\",\"type\":\"address\"}],\"name\":\"setDefaultAdapter\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newNativeToken\",\"type\":\"address\"}],\"name\":\"setNativeToken\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"vaultId\",\"type\":\"uint256\"}],\"name\":\"statusOf\",\"outputs\":[{\"internalType\":\"enum Bob.Status\",\"name\":\"status\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"vaultId\",\"type\":\"uint256\"}],\"name\":\"syncPriceFromOracle\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"latestPrice\",\"type\":\"uint128\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"transferFeesToComptroller\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"vaultId\",\"type\":\"uint256\"}],\"name\":\"unstakeTokensViaAdapter\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"amountReceivedFromAdapter\",\"type\":\"uint128\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"calculateMinFeeWei(uint256)\":{\"details\":\"Reverts if `vaultId` references a null vault.\",\"params\":{\"vaultId\":\"The vault ID for the query.\"}},\"createVault(address,address,uint40,uint128)\":{\"details\":\"Emits a {CreateVault} event. Notes: - A new ERC-20 share token is deployed for each vault to represent user's share of deposits in the vault. - The default adapter for the token is copied as the vault adapter. Any change in the default adapter does not affect existing vaults. - Vault creator is responsible for choosing a valid oracle. They should use Chainlink oracles, as the integration is based on their API. Requirements: - `token` must not be the zero address. - `token` must implement `symbol()` and `decimals()` functions. - `expiry` must be in the future. - `oracle` must implement the Chainlink's {AggregatorV3Interface} interface. - `oracle` must return a positive price when `latestRoundData()` is called. - `oracle` must return a non-zero value no greater than 36 when `decimals()` is called. - `targetPrice` must not be zero or greater than the current price returned by the provided oracle.\",\"params\":{\"expiry\":\"The Unix timestamp when the vault expires.\",\"oracle\":\"The address of the price feed oracle for the deposit token.\",\"targetPrice\":\"The target price at which the vault settles, denominated in Chainlink's 8-decimal format for USD prices, where 1e8 is $1.\",\"token\":\"The address of the ERC-20 token that will be accepted for deposits.\"},\"returns\":{\"vaultId\":\"The ID of the newly created vault.\"}},\"enter(uint256,uint128)\":{\"details\":\"Emits an {Enter} event. Notes: - If an adapter is configured for the vault, tokens are automatically staked for yield using the adapter. - Share tokens are minted 1:1 with the deposited amount. Requirements: - `vaultId` must not reference a null vault. - The vault must have ACTIVE status. - `amount` must be greater than zero. - The caller must have approved this contract to transfer `amount` tokens.\",\"params\":{\"amount\":\"The amount of tokens to deposit.\",\"vaultId\":\"The ID of the vault to deposit into.\"}},\"enterWithNativeToken(uint256)\":{\"details\":\"Emits an {Enter} event. Notes: - `msg.value` is used as the deposit amount. - See notes for {enter}. Requirements: - See requirements for {enter}. - `msg.value` must be greater than zero and must not exceed `type(uint128).max`.\",\"params\":{\"vaultId\":\"The ID of the vault to deposit into.\"}},\"getAdapter(uint256)\":{\"details\":\"Reverts if `vaultId` references a null vault.\"},\"getDefaultAdapterFor(address)\":{\"details\":\"Zero address means no adapter is set.\",\"params\":{\"token\":\"The ERC-20 token to query the default adapter for.\"},\"returns\":{\"adapter\":\"The default adapter for the token.\"}},\"getExpiry(uint256)\":{\"details\":\"Reverts if `vaultId` references a null vault.\"},\"getLastSyncedAt(uint256)\":{\"details\":\"Reverts if `vaultId` references a null vault.\"},\"getLastSyncedPrice(uint256)\":{\"details\":\"Reverts if `vaultId` references a null vault.\"},\"getOracle(uint256)\":{\"details\":\"Reverts if `vaultId` references a null vault.\"},\"getShareToken(uint256)\":{\"details\":\"Reverts if `vaultId` references a null vault.\"},\"getTargetPrice(uint256)\":{\"details\":\"Reverts if `vaultId` references a null vault.\"},\"getUnderlyingToken(uint256)\":{\"details\":\"Reverts if `vaultId` references a null vault.\"},\"isStakedInAdapter(uint256)\":{\"details\":\"Reverts if `vaultId` references a null vault.\"},\"nativeToken()\":{\"details\":\"The native tokens on some chains have a dual interface as ERC-20. For example, on Polygon the $POL token is the native token and has an ERC-20 version at 0x0000000000000000000000000000000000001010. This means that `address(this).balance` returns the same value as `balanceOf(address(this))`. To avoid any unintended behavior, these tokens cannot be used in Sablier. As an alternative, users can use the Wrapped version of the token, i.e. WMATIC, which is a standard ERC-20 token.\"},\"onShareTransfer(uint256,address,address,uint256,uint256)\":{\"params\":{\"amount\":\"The number of share tokens being transferred.\",\"from\":\"The address transferring share tokens.\",\"fromBalanceBefore\":\"The number of share tokens the sender had before the transfer.\",\"to\":\"The address receiving share tokens.\",\"vaultId\":\"The ID of the vault.\"}},\"redeem(uint256)\":{\"details\":\"Emits a {Redeem} event. Notes: - If no adapter is configured for the vault, a fee in the native token is applied. - If an adapter is configured for the vault, a fee, in the deposit token, is deducted from yield generated by the adapter. - If unstake via Lido withdrawal queue contract is triggered, redeem will revert until the withdrawal from the Lido queue is finalized. Requirements: - `vaultId` must not reference a null vault. - Either block timestamp must be greater than or equal to the vault expiry or the latest price from the oracle must be greater than or equal to the target price. - The share balance of the caller must be greater than zero. - If no adapter is configured for the vault, `msg.value` must be greater than or equal to the min fee required in the native token.\",\"params\":{\"vaultId\":\"The ID of the vault to redeem from.\"},\"returns\":{\"feeAmountDeductedFromYield\":\"The fee amount deducted from the yield. Zero if no adapter is set.\",\"transferAmount\":\"The amount of tokens transferred to the caller, after fees are deducted (only applicable if adapter is set).\"}},\"setComptroller(address)\":{\"details\":\"Emits a {SetComptroller} event. Requirements: - `msg.sender` must be the current comptroller. - The new comptroller must return `true` from {supportsInterface} with the comptroller's minimal interface ID which is defined as the XOR of the following function selectors: 1. {calculateMinFeeWeiFor} 2. {convertUSDFeeToWei} 3. {execute} 4. {getMinFeeUSDFor}\",\"params\":{\"newComptroller\":\"The address of the new comptroller contract.\"}},\"setDefaultAdapter(address,address)\":{\"details\":\"Emits a {SetDefaultAdapter} event. Notes: - This only affects future vaults. Requirements: - The caller must be the comptroller. - If new adapter is not zero address, it must implement {ISablierBobAdapter} interface.\",\"params\":{\"newAdapter\":\"The address of the new adapter.\",\"token\":\"The token address to set the adapter for.\"}},\"setNativeToken(address)\":{\"details\":\"For more information, see the documentation for {nativeToken}. Emits a {SetNativeToken} event. Requirements: - `msg.sender` must be the comptroller. - `newNativeToken` must not be zero address. - The native token must not be already set.\",\"params\":{\"newNativeToken\":\"The address of the native token.\"}},\"statusOf(uint256)\":{\"details\":\"Reverts if `vaultId` references a null vault.\"},\"syncPriceFromOracle(uint256)\":{\"details\":\"Emits a {SyncPriceFromOracle} event. Notes: - Oracle staleness is not validated on-chain when calling this function. Any price returned by the oracle is accepted. - Useful for syncing the price from oracle without calling {redeem} or {enter}. This function can be called by anyone to settle vault when the price is above the target price. Requirements: - `vaultId` must not reference a null vault. - The vault must have ACTIVE status. - The oracle must return a positive price.\",\"params\":{\"vaultId\":\"The ID of the vault to sync.\"},\"returns\":{\"latestPrice\":\"The latest price fetched from the oracle, denominated in Chainlink's 8-decimal format for USD prices, where 1e8 is $1.\"}},\"transferFeesToComptroller()\":{\"details\":\"Emits a {TransferFeesToComptroller} event.\"},\"unstakeTokensViaAdapter(uint256)\":{\"details\":\"Emits an {UnstakeFromAdapter} event. Requirements: - `vaultId` must not reference a null vault. - The adapter set in the vault must not be zero address. - Either block timestamp must be greater than or equal to the vault expiry or the latest price from the oracle must be greater than or equal to the target price. - The vault must not have been unstaked already. - The amount staked must be greater than zero.\",\"params\":{\"vaultId\":\"The ID of the vault.\"},\"returns\":{\"amountReceivedFromAdapter\":\"The amount of tokens received from the adapter.\"}}},\"title\":\"ISablierBob\",\"version\":1},\"userdoc\":{\"events\":{\"CreateVault(uint256,address,address,address,address,uint128,uint40)\":{\"notice\":\"Emitted when a new vault is created.\"},\"Enter(uint256,address,uint128,uint128)\":{\"notice\":\"Emitted when a user deposits tokens into a vault.\"},\"Redeem(uint256,address,uint128,uint128,uint256)\":{\"notice\":\"Emitted when a user redeems their shares from a settled vault.\"},\"SetComptroller(address,address)\":{\"notice\":\"Emitted when the comptroller address is set by the admin.\"},\"SetDefaultAdapter(address,address)\":{\"notice\":\"Emitted when the comptroller sets a new default adapter for a token.\"},\"SetNativeToken(address,address)\":{\"notice\":\"Emitted when the native token address is set by the comptroller.\"},\"SyncPriceFromOracle(uint256,address,uint128,uint40)\":{\"notice\":\"Emitted when a vault's price is synced from the oracle.\"},\"TransferFeesToComptroller(address,uint256)\":{\"notice\":\"Emitted when the fees are transferred to the comptroller contract.\"},\"UnstakeFromAdapter(uint256,address,uint128,uint128)\":{\"notice\":\"Emitted when tokens staked in the adapter for a given vault are unstaked.\"}},\"kind\":\"user\",\"methods\":{\"calculateMinFeeWei(uint256)\":{\"notice\":\"Calculates the minimum fee in wei required to redeem from the given vault ID. Returns 0 for vaults with an adapter, since the fee is taken from yield generated.\"},\"comptroller()\":{\"notice\":\"Retrieves the address of the comptroller contract.\"},\"createVault(address,address,uint40,uint128)\":{\"notice\":\"Creates a new vault with the specified parameters.\"},\"enter(uint256,uint128)\":{\"notice\":\"Enter into a vault by depositing tokens into it and minting share tokens to the caller.\"},\"enterWithNativeToken(uint256)\":{\"notice\":\"Enter into a vault by depositing native token (such as ETH, POL, etc.) into it and minting share tokens to the caller.\"},\"getAdapter(uint256)\":{\"notice\":\"Returns the adapter configured for a specific vault.\"},\"getDefaultAdapterFor(address)\":{\"notice\":\"Returns the default adapter for a given token.\"},\"getExpiry(uint256)\":{\"notice\":\"Returns the timestamp when the vault expires.\"},\"getLastSyncedAt(uint256)\":{\"notice\":\"Returns the timestamp when the oracle price was last synced for a vault.\"},\"getLastSyncedPrice(uint256)\":{\"notice\":\"Returns the oracle price stored for a vault.\"},\"getOracle(uint256)\":{\"notice\":\"Returns the oracle address set for a vault.\"},\"getShareToken(uint256)\":{\"notice\":\"Returns the address of the ERC-20 share token for a vault.\"},\"getTargetPrice(uint256)\":{\"notice\":\"Returns the target price at which the vault settles.\"},\"getUnderlyingToken(uint256)\":{\"notice\":\"Returns the ERC-20 token accepted for deposits in a vault.\"},\"isStakedInAdapter(uint256)\":{\"notice\":\"Returns whether the vault tokens are staked in an adapter.\"},\"nativeToken()\":{\"notice\":\"Retrieves the address of the ERC-20 interface of the native token, if it exists.\"},\"nextVaultId()\":{\"notice\":\"Counter for vault IDs, incremented every time a new vault is created.\"},\"onShareTransfer(uint256,address,address,uint256,uint256)\":{\"notice\":\"Called by adapter when share tokens for a given vault are transferred between users. This is required for accounting of the yield generated by the adapter. Requirements: - The caller must be the share token contract stored in the given vault. - The calculated wstETH transfer amount must not be zero.\"},\"redeem(uint256)\":{\"notice\":\"Redeem the tokens by burning user shares.\"},\"setComptroller(address)\":{\"notice\":\"Sets the comptroller to a new address.\"},\"setDefaultAdapter(address,address)\":{\"notice\":\"Sets the default adapter for a specific token.\"},\"setNativeToken(address)\":{\"notice\":\"Sets the native token address. Once set, it cannot be changed.\"},\"statusOf(uint256)\":{\"notice\":\"Returns the vault status.\"},\"syncPriceFromOracle(uint256)\":{\"notice\":\"Fetches the latest price from the oracle set for a vault and updates it in the vault storage.\"},\"transferFeesToComptroller()\":{\"notice\":\"Transfers the fees to the comptroller contract.\"},\"unstakeTokensViaAdapter(uint256)\":{\"notice\":\"Unstake all tokens from the adapter for a given vault.\"}},\"notice\":\"Price-gated vaults that unlock deposited tokens when the price returned by the oracle is greater than or equal to the target price set by the vault creator. The tokens are also unlocked if the vault expires. When a vault is configured with a adapter, the protocol automatically stakes the tokens via adapter and earns yield on the deposit amount.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/interfaces/ISablierBob.sol\":\"ISablierBob\"},\"evmVersion\":\"shanghai\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":1000000},\"remappings\":[\":@arbitrum/=node_modules/@arbitrum/\",\":@chainlink/=node_modules/@chainlink/\",\":@eth-optimism/=node_modules/@eth-optimism/\",\":@offchainlabs/=node_modules/@offchainlabs/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":@prb/=node_modules/@prb/\",\":@sablier/=node_modules/@sablier/\",\":@scroll-tech/=node_modules/@scroll-tech/\",\":@zksync/=node_modules/@zksync/\",\":forge-std/=node_modules/forge-std/\"],\"viaIR\":true},\"sources\":{\"node_modules/@chainlink/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol\":{\"keccak256\":\"0x257a8d28fa83d3d942547c8e129ef465e4b5f3f31171e7be4739a4c98da6b4f0\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6d39e11b1dc7b9b8ccdabbc9be442ab7cda4a81c748f57e316dcb1bcb4a28bf9\",\"dweb:/ipfs/QmaG6vz6W6iEUBsbHSBob5mdcitYxWjoygxREHpsJHfWrS\"]},\"node_modules/@openzeppelin/contracts/interfaces/draft-IERC1822.sol\":{\"keccak256\":\"0xc42facb5094f2f35f066a7155bda23545e39a3156faef3ddc00185544443ba7d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d3b36282ab029b46bd082619a308a2ea11c309967b9425b7b7a6eb0b0c1c3196\",\"dweb:/ipfs/QmP2YVfDB2FoREax3vJu7QhDnyYRMw52WPrCD4vdT2kuDA\"]},\"node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0xe06a3f08a987af6ad2e1c1e774405d4fe08f1694b67517438b467cecf0da0ef7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://df6f0c459663c9858b6cba2cda1d14a7d05a985bed6d2de72bd8e78c25ee79db\",\"dweb:/ipfs/QmeTTxZ7qVk9rjEv2R4CpCwdf8UMCcRqDNMvzNxHc3Fnn9\"]},\"node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol\":{\"keccak256\":\"0x70f2f713b13b7ce4610bcd0ac9fec0f3cc43693b043abcb8dc40a42a726eb330\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c13d13304ac79a83ab1c30168967d19e2203342ebbd6a9bbce4db7550522dcbf\",\"dweb:/ipfs/QmeN5jKMN2vw5bhacr6tkg78afbTTZUeaacNHqjWt4Ew1r\"]},\"node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol\":{\"keccak256\":\"0x79796192ec90263f21b464d5bc90b777a525971d3de8232be80d9c4f9fb353b8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://f6fda447a62815e8064f47eff0dd1cf58d9207ad69b5d32280f8d7ed1d1e4621\",\"dweb:/ipfs/QmfDRc7pxfaXB2Dh9np5Uf29Na3pQ7tafRS684wd3GLjVL\"]},\"node_modules/@prb/math/src/Common.sol\":{\"keccak256\":\"0x8225a3898d2f11f585da1fb82234800e9717fa080dbe53d450fd429a3a632e99\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://2dcbf39ca575f68f32f0d1c66391de94082424956e7585e849813966f8c0fc05\",\"dweb:/ipfs/QmYvk8vXFDUJHrmqbtutYXfoLomLBosYLyBzuPoYBxsQ42\"]},\"node_modules/@prb/math/src/UD60x18.sol\":{\"keccak256\":\"0xb98c6f74275914d279e8af6c502c2b1f50d5f6e1ed418d3b0153f5a193206c48\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a750edde2955f160806a51083a12185fb04e20efca0e3a7ebd127dc1acc049a9\",\"dweb:/ipfs/QmeAre3mThopoQPB9mSXZq6jck59QZ7JbDFR83urd2SLvp\"]},\"node_modules/@prb/math/src/sd1x18/Casting.sol\":{\"keccak256\":\"0x5d365f655f01598926c5d4fe5cda277f2cc7736fe38f943c11a32009077ddd5c\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://56b378bd6039819bc12e5f17dabd9492e1410b3281f9df496cf8210539101a11\",\"dweb:/ipfs/QmcMaE64ZWMg9cFhYxdTuG8nfzeDdNuTRHMMoFXi6tSZGu\"]},\"node_modules/@prb/math/src/sd1x18/Constants.sol\":{\"keccak256\":\"0xc14cc32061863d83912f9616de86f3c34f1ac58614b7d504c6ce07ee8efdb8e8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://22483b1282dda6a556b0232f008a5a3296bbfd76b1886e6b72bf351b7c554fab\",\"dweb:/ipfs/QmYX9cYkrFxBbhZNKsb6uUxtrc2chmAj7vuc7UKRPGMwos\"]},\"node_modules/@prb/math/src/sd1x18/Errors.sol\":{\"keccak256\":\"0xc3c8b1ab3d19889c356c222a3a2186d45dfc1d3a17b9ad88159bb64ee457baa6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://84fbe57569246403f778330bd7723018dfcb5f0ec50d7b1d82cc983c94a54bca\",\"dweb:/ipfs/QmWssAAnovc2EVjt58rTnxraE9B1RMivwTvYCYgpnr6oSE\"]},\"node_modules/@prb/math/src/sd1x18/ValueType.sol\":{\"keccak256\":\"0xaa9dc7b562faf45264390d80e2ea10c5295bb8a4f10d76261a3f9c04363734c0\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c6ca36acd15f5cb47cf124ddec289f84e1011f2d29056159e4570435629a3353\",\"dweb:/ipfs/QmUKdiLmZpAkNCq2TKxrPbQPUhiRFXGfjGSnY1VeHVu4y6\"]},\"node_modules/@prb/math/src/sd21x18/Casting.sol\":{\"keccak256\":\"0x4a16adddb9ab1f6939dd4567c77205015a11081cb840029b84bbb6fdaf78ee36\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://5003b2f4cd2fc1413da36bc63107c6e83a88d29693e8f97b54f300fa78f9c6d2\",\"dweb:/ipfs/QmaNJn91NLrZmeeGqnFQV1FTrLVSW852zHyWTrWJ5pf1pd\"]},\"node_modules/@prb/math/src/sd21x18/Constants.sol\":{\"keccak256\":\"0x501c2d5cfdea9450422182059c8df1cb6a859901a07bd59631c3fa24edcc79d4\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4669a65001c92919671fd879d33ce0e5030b602a7ba4d36bd2308128d8d1f396\",\"dweb:/ipfs/QmUC3bJ3qdkCmLMw3WHBcEqvuC4tExT2LXzUhgu5KQ3vi3\"]},\"node_modules/@prb/math/src/sd21x18/Errors.sol\":{\"keccak256\":\"0xc5422ee47eb139274e538e758fb40177a1ba22c2113ef3b3446102f0150bfe0a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a1981e052e9e86e1b0e4e55a057a7af4739aedd4ead2d60e3eaa40fb703594ee\",\"dweb:/ipfs/QmPK5qSujnyk1R8ues4RhDMy1tRKKyjQ31YJTviTKq7GML\"]},\"node_modules/@prb/math/src/sd21x18/ValueType.sol\":{\"keccak256\":\"0x532bba888370bed393464412f4ef3462d654802e71c953ad02d078e3d2701092\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://922a4e8dd813602f72d165aa1dfdf2c29b971a2abe73bebca7cd81a32ee2c880\",\"dweb:/ipfs/QmTBAJnx1r3sZpbQAuTgQtsTtvjZbpDwhCJRzkhzUumbdf\"]},\"node_modules/@prb/math/src/sd59x18/Casting.sol\":{\"keccak256\":\"0xdf70d8e70c6d6325f3f7eb028c484bc7189ef902f1d4b5b220af2e550bb5fc39\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0b15bcd36129c5cb163d57a117435afb171182018dd6d1e766a5f49cf1f4b63d\",\"dweb:/ipfs/QmbjzkMBH4FM2rdxGbx9LQ65wVERijNcu7R9C8dQmH3y4n\"]},\"node_modules/@prb/math/src/sd59x18/Constants.sol\":{\"keccak256\":\"0x9bcb8dd6b3e886d140ad1c32747a4f6d29a492529ceb835be878ae837aa6cc3a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c4045c633e3618e7e90a768d92415b2f20f781fe129b4f4e26fa88f7dbf9201f\",\"dweb:/ipfs/Qmbet95pizwPno82cJ383wJtgQRSQKESmhVZ1vDrgAu7Si\"]},\"node_modules/@prb/math/src/sd59x18/Errors.sol\":{\"keccak256\":\"0x0a79c28c85fc8a450b0801ff2e66114eac4ec565819f5d1d8738904658fe33e2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://9e0d4fd3c998019fb8555d9e26c03bec42a8513bdf4185aeac2da3a000abaebf\",\"dweb:/ipfs/QmahFJHXcX4RwPxaQbUf6LVZEk8NSpjCV3Eif7i9iqC6Mk\"]},\"node_modules/@prb/math/src/sd59x18/Helpers.sol\":{\"keccak256\":\"0x208570f1657cf730cb6c3d81aa14030e0d45cf906cdedea5059369d7df4bb716\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4c78ca900edafa9338d4e3649a55ab0c84f76468d8a22fb945ba6d01e70f8fed\",\"dweb:/ipfs/QmeP4hQYfNxcATd1FsasdD4ebyu2vrC9K1N68swxUJzzZD\"]},\"node_modules/@prb/math/src/sd59x18/Math.sol\":{\"keccak256\":\"0xd8e8b51db9b3e2fa31a60f6b8ce4ea0112c3364442ede5992aa0aa7a2c925c84\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://3c56913970e34ee7b142047b21f1856a511cbdc3473b7c50418a8490e19cd462\",\"dweb:/ipfs/QmfG1F9CBDjPYD7NXora9awFfdpvBMY9SCg5pMLCFRv9tD\"]},\"node_modules/@prb/math/src/sd59x18/ValueType.sol\":{\"keccak256\":\"0x76597ba64d37d66e0178512bc9bbc1a031a7634c45e5d5c6e9da87f46952dc9d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://36148899ad874814e9292636fb974d2eec61f1bcc0875ec39cf444d70ba40919\",\"dweb:/ipfs/QmadUe4kH2FPcdxvhCKy8yiezCvPWor4VcPzqLYSAaGDDb\"]},\"node_modules/@prb/math/src/ud21x18/Casting.sol\":{\"keccak256\":\"0x3821aa57604f6e5b7c9c5c5cc97a6d71116e673cf3fee5f76fcd42b4cefded65\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a80399c6b38ab45cc10d0a6683d50340cd89d9a085b6d0dcfb81e7c4e5b3ce09\",\"dweb:/ipfs/QmWNW2YD2LMkqrpAtJYeeuHN329Rx7mvfmrjsCo1p6akTL\"]},\"node_modules/@prb/math/src/ud21x18/Constants.sol\":{\"keccak256\":\"0x0997574a1ced6c43bde6d9c9175edc5ad64cbb920a0969a9db68eea543747601\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c09f03345a6779b002b38ffc3954258accbb2b1d0d5506d42c3bd7f117304f60\",\"dweb:/ipfs/QmTeBXRCE7H2HpqKUNsZN7Nk3rdBnFmbAUFom3E1PJeGuV\"]},\"node_modules/@prb/math/src/ud21x18/Errors.sol\":{\"keccak256\":\"0x35a1fb789b90f8c90865884d3023deb17fcca5c7146b5ddef823496d835a5415\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0af359d07ba25bdc90de7c05ed6216833932caa75d4a02fcfc51ceeaba5a4e80\",\"dweb:/ipfs/QmavBFw73Xfp1qJiN6P1gk2Dfr8ByWo3dyCPVgDHtko2gq\"]},\"node_modules/@prb/math/src/ud21x18/ValueType.sol\":{\"keccak256\":\"0x24838b2b1da371b9259d8ee21534a9f0cb5796aba75a4efca2374627952bee25\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://897e6b79308651671c7f3c91a0069e778b47356c9ba3f86e238398ab7f2623af\",\"dweb:/ipfs/QmZbLw3tJVRZFQnV9jWQUmF43gna841adSG2TAiwDAifGU\"]},\"node_modules/@prb/math/src/ud2x18/Casting.sol\":{\"keccak256\":\"0x0f3141ed054e7c29dbe1acb4b88b18eb05d60e998fba6b4e503a6799faa356d6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://b1e2468fc4c458082aaf4aa2e35af9ba3702f207e3c8533dd1e7da11ad605eae\",\"dweb:/ipfs/QmSm7iRH1eo4cJCwcAiiXWRH9Hn1urSS4tMdbaFbFGuTyL\"]},\"node_modules/@prb/math/src/ud2x18/Constants.sol\":{\"keccak256\":\"0x29b0e050c865899e1fb9022b460a7829cdee248c44c4299f068ba80695eec3fc\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://cbaef16b662fac235349bcf97bc980dd0cba15d4e6230caae61224cdac8ea6d9\",\"dweb:/ipfs/QmZQa5XBhi7k3yhtCd8wVpnwW8htfU4sjXxWhxRypMBYkC\"]},\"node_modules/@prb/math/src/ud2x18/Errors.sol\":{\"keccak256\":\"0x3b27e2a57438cd30d9c130f84aace24d547e5ed58e8689691d7d92ad2db38ddd\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://841cf9fb45443899c6b659300bbf503c3fd2c1a1e83b7f0e28620eed457f7437\",\"dweb:/ipfs/QmUqg8WscP5yQPw3UMUCWaB9RLU6nryGzseuyhAjNnDc1i\"]},\"node_modules/@prb/math/src/ud2x18/ValueType.sol\":{\"keccak256\":\"0x975a2e69b48f34a4c0bd80e8a5609ac67b7264c91992c0944f9ebe7b9e3fc9d0\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://65d012521c475295d7e70b7d526fcc0911d0f238ea938719d77251bba00c9b41\",\"dweb:/ipfs/QmexEvTQCCBPYRWAYnomZX5M7C2EkXQRAXqEYMNUZfazCs\"]},\"node_modules/@prb/math/src/ud60x18/Casting.sol\":{\"keccak256\":\"0x0803318ddc98b4ba8fbfe70e5ee08d78387fe6ae00982b9960518085a751d7b6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://2e68a2f780b2e33fa5416eb60f9daa81f014c2591119f4b67bed1217d5530780\",\"dweb:/ipfs/QmZe7JTWvbfKqMnu4sxUwWCtLcCay9hH71VZUpoFCdENcr\"]},\"node_modules/@prb/math/src/ud60x18/Constants.sol\":{\"keccak256\":\"0x2b80d26153d3fdcfb3a9ca772d9309d31ed1275f5b8b54c3ffb54d3652b37d90\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7e3a6673a156f635db94dc176baaa7274db8f9bec4461cd1152596253550ee3b\",\"dweb:/ipfs/Qmc9zT4kNSbMYaXcnbxNVqmb3P3m46ieaQxkwxqLwsvRA5\"]},\"node_modules/@prb/math/src/ud60x18/Conversions.sol\":{\"keccak256\":\"0xd486ecca97abe69acdb28230088f4c7097fbdae5b36c5ae45d5be2faac4c33f2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6080870ec6955ff0f5278f9c480b218a68714daf5f2ee42da0276d08d7b82932\",\"dweb:/ipfs/QmQ1SERHdemJgPrt4USwY8j5r63jZ8fQuJAm1knjMEEQEY\"]},\"node_modules/@prb/math/src/ud60x18/Errors.sol\":{\"keccak256\":\"0xbab6b0e303d32f3a9d9e2fe881f0392b8c59a73051a4d34f21a403b3961b3044\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://86a019bcf2510d0691287329dc057479cc0abc48a5e15f245e7f15c03052d2c8\",\"dweb:/ipfs/QmeXe5pbpDHvN5DZ8puXmH2RJ25zDHj55wpiStWtNQPvq6\"]},\"node_modules/@prb/math/src/ud60x18/Helpers.sol\":{\"keccak256\":\"0xf5faff881391d2c060029499a666cc5f0bea90a213150bb476fae8f02a5df268\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://76105fa22bb1b5f1fa99abf9c4fbc9577a02c7bc204f271754c407f0d75489f5\",\"dweb:/ipfs/QmVNGZSTniDuZus5DdbFubqJXCLtTaZit7YPm4ntjr5Lgr\"]},\"node_modules/@prb/math/src/ud60x18/Math.sol\":{\"keccak256\":\"0xc4e51dfd9af62938e277e90fa724099f239d33727a35909ed48c292a76faf2fc\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d731537cbc50b852c21d28625aeb2c329729afc23a7b86ff9d8ee5878f47e9d6\",\"dweb:/ipfs/QmS7Cj4pAdPZcTp7RqYXyxBc9EYX92CT8icfkNigktUsLr\"]},\"node_modules/@prb/math/src/ud60x18/ValueType.sol\":{\"keccak256\":\"0x1b200baf25d01a8b91b97b42114248636f742b5b7028487ef4daef6621e378a3\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://b5708ed017206bda2197654e80bea9f37b3a9993434bb066c903c2865e028f47\",\"dweb:/ipfs/QmTyotZk2J5YvWkNvB2qhXBMgRGWW2UgPqR4JPocrXSr8n\"]},\"node_modules/@sablier/evm-utils/src/interfaces/IAdminable.sol\":{\"keccak256\":\"0x3228d63e9b0b951030c73c42bb071e64f0ff0eadbcbeefad3f29a48366539c26\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://acc90ad2bec0e84349b56611b35b56bfb75a5930fd1babb2bd638fbbb15bd126\",\"dweb:/ipfs/QmSLnHx6bo4BQeBKYferfEhZo1Z4xCXdDF1bzJoHUafHt4\"]},\"node_modules/@sablier/evm-utils/src/interfaces/IComptrollerable.sol\":{\"keccak256\":\"0xdbc32762b87590be38095a84789906fa7a23fd2c2c112859504549ef3be17522\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://14ac13726bb7435ce310dd437a9b58852ca0c35640949e898c803a33a30dee8b\",\"dweb:/ipfs/QmeeKPApvBHbUF3S98qCnB26Aw67KTQF2GFyGQZCxykyMW\"]},\"node_modules/@sablier/evm-utils/src/interfaces/IRoleAdminable.sol\":{\"keccak256\":\"0x391cb4bd4bae01e3efdb84f63635644ed6329b72e8a5105ad53833551e8ba825\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://ccca9da1c044c15cf0b647a4572c05f5d498fb18b3685a85a8836f7110cb1bc4\",\"dweb:/ipfs/QmfAKHqvgKQUgpC6VomTjTkc1tDnsbVJD5bLn8wL8KuTFV\"]},\"node_modules/@sablier/evm-utils/src/interfaces/ISablierComptroller.sol\":{\"keccak256\":\"0x5c52e70a6c083611d4b5518d17d025f70d322ee2c61d81f20f3fe50f4bd824ba\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://5c07b2076065f1c65a59176ada3459be53f78e59a2055d9ae92b226edafa484c\",\"dweb:/ipfs/QmXYRDkBSWUBza1pi439ErzeLoaLUT8Zvj2yWcFZ5F1rgX\"]},\"src/interfaces/IBobVaultShare.sol\":{\"keccak256\":\"0x7e91f71800b33ce26fa757b8d74d0e89aaf2de6ee50260a706c4c26029ae4c22\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://18e85a71eef03972eb19a277ca025c645b18aa768c03a2b1e7d81de9eeabe731\",\"dweb:/ipfs/QmbjGtkps9KvG6XBysNLB9eBoY5E47ixkTDtN8cYYRzA6b\"]},\"src/interfaces/ISablierBob.sol\":{\"keccak256\":\"0x2c21ee1f24d0443a9daf745ef2f5ccfe339120f19484565d31a46a1af09e8edc\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://1dce1fb1847e2c9fb562f9e5c8cb71d9a9d5a3b4a56ba9575ff0c7d5240b3af9\",\"dweb:/ipfs/QmZbFLtUYRV9TTw6PTsJmvhrD5BwautoUbLbj5WoVYiTPP\"]},\"src/interfaces/ISablierBobAdapter.sol\":{\"keccak256\":\"0xeb24411e0d4be288e600b9893bcf5bcfd3e38d7f2313bb68b323b2ba19d97921\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://0308e63f7a7d9af68f7109bf500e186cd06760f708242c11e4dcdf5baa14638e\",\"dweb:/ipfs/Qmdn9ViABMqhTbRMY9yHMneqD8dMY8ysqjUMVbsGJ3GVPK\"]},\"src/interfaces/ISablierBobState.sol\":{\"keccak256\":\"0xc216153d326b2b02f62fe2a02edea29a194bf850d6c5d4d1d1c618cd68bfdd5c\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://0e1c2c6b58098552b70febc6a4876c2b89fb894994049c840882c346d7e094ee\",\"dweb:/ipfs/QmWxBShVcnGCrjHfBhPH15cdLA7mtmN6QaSBSM7ZWae85Q\"]},\"src/types/Bob.sol\":{\"keccak256\":\"0xf156bfc6b369fd9006e47e3a2531108e515878f60977987def9069b6148cbba3\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://5e2d1205de5dc31ffc76045c05b5fc9ad927346ff3a6be9ee7ee9dcd6c28bb1a\",\"dweb:/ipfs/QmeuUm54PyaS2NZ728zy3Cqnsm5BZxaGAZdQrBY85Tejdx\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": { "version": "0.8.29+commit.ab55807c" },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            { "internalType": "uint256", "name": "vaultId", "type": "uint256", "indexed": true },
+            {
+              "internalType": "contract IERC20",
+              "name": "token",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "contract AggregatorV3Interface",
+              "name": "oracle",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "contract ISablierBobAdapter",
+              "name": "adapter",
+              "type": "address",
+              "indexed": false
+            },
+            {
+              "internalType": "contract IBobVaultShare",
+              "name": "shareToken",
+              "type": "address",
+              "indexed": false
+            },
+            {
+              "internalType": "uint128",
+              "name": "targetPrice",
+              "type": "uint128",
+              "indexed": false
+            },
+            { "internalType": "uint40", "name": "expiry", "type": "uint40", "indexed": false }
+          ],
+          "type": "event",
+          "name": "CreateVault",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            { "internalType": "uint256", "name": "vaultId", "type": "uint256", "indexed": true },
+            { "internalType": "address", "name": "user", "type": "address", "indexed": true },
+            {
+              "internalType": "uint128",
+              "name": "amountReceived",
+              "type": "uint128",
+              "indexed": false
+            },
+            {
+              "internalType": "uint128",
+              "name": "sharesMinted",
+              "type": "uint128",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "Enter",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            { "internalType": "uint256", "name": "vaultId", "type": "uint256", "indexed": true },
+            { "internalType": "address", "name": "user", "type": "address", "indexed": true },
+            {
+              "internalType": "uint128",
+              "name": "amountReceived",
+              "type": "uint128",
+              "indexed": false
+            },
+            {
+              "internalType": "uint128",
+              "name": "sharesBurned",
+              "type": "uint128",
+              "indexed": false
+            },
+            { "internalType": "uint256", "name": "fee", "type": "uint256", "indexed": false }
+          ],
+          "type": "event",
+          "name": "Redeem",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "contract ISablierComptroller",
+              "name": "oldComptroller",
+              "type": "address",
+              "indexed": false
+            },
+            {
+              "internalType": "contract ISablierComptroller",
+              "name": "newComptroller",
+              "type": "address",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "SetComptroller",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "contract IERC20",
+              "name": "token",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "contract ISablierBobAdapter",
+              "name": "adapter",
+              "type": "address",
+              "indexed": true
+            }
+          ],
+          "type": "event",
+          "name": "SetDefaultAdapter",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "comptroller",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "address",
+              "name": "nativeToken",
+              "type": "address",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "SetNativeToken",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            { "internalType": "uint256", "name": "vaultId", "type": "uint256", "indexed": true },
+            {
+              "internalType": "contract AggregatorV3Interface",
+              "name": "oracle",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "uint128",
+              "name": "latestPrice",
+              "type": "uint128",
+              "indexed": false
+            },
+            { "internalType": "uint40", "name": "syncedAt", "type": "uint40", "indexed": false }
+          ],
+          "type": "event",
+          "name": "SyncPriceFromOracle",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "comptroller",
+              "type": "address",
+              "indexed": true
+            },
+            { "internalType": "uint256", "name": "feeAmount", "type": "uint256", "indexed": false }
+          ],
+          "type": "event",
+          "name": "TransferFeesToComptroller",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            { "internalType": "uint256", "name": "vaultId", "type": "uint256", "indexed": true },
+            {
+              "internalType": "contract ISablierBobAdapter",
+              "name": "adapter",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "uint128",
+              "name": "wrappedTokenUnstakedAmount",
+              "type": "uint128",
+              "indexed": false
+            },
+            {
+              "internalType": "uint128",
+              "name": "amountReceivedFromAdapter",
+              "type": "uint128",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "UnstakeFromAdapter",
+          "anonymous": false
+        },
+        {
+          "inputs": [{ "internalType": "uint256", "name": "vaultId", "type": "uint256" }],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "calculateMinFeeWei",
+          "outputs": [{ "internalType": "uint256", "name": "minFeeWei", "type": "uint256" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "comptroller",
+          "outputs": [
+            { "internalType": "contract ISablierComptroller", "name": "", "type": "address" }
+          ]
+        },
+        {
+          "inputs": [
+            { "internalType": "contract IERC20", "name": "token", "type": "address" },
+            {
+              "internalType": "contract AggregatorV3Interface",
+              "name": "oracle",
+              "type": "address"
+            },
+            { "internalType": "uint40", "name": "expiry", "type": "uint40" },
+            { "internalType": "uint128", "name": "targetPrice", "type": "uint128" }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "createVault",
+          "outputs": [{ "internalType": "uint256", "name": "vaultId", "type": "uint256" }]
+        },
+        {
+          "inputs": [
+            { "internalType": "uint256", "name": "vaultId", "type": "uint256" },
+            { "internalType": "uint128", "name": "amount", "type": "uint128" }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "enter"
+        },
+        {
+          "inputs": [{ "internalType": "uint256", "name": "vaultId", "type": "uint256" }],
+          "stateMutability": "payable",
+          "type": "function",
+          "name": "enterWithNativeToken"
+        },
+        {
+          "inputs": [{ "internalType": "uint256", "name": "vaultId", "type": "uint256" }],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "getAdapter",
+          "outputs": [
+            { "internalType": "contract ISablierBobAdapter", "name": "adapter", "type": "address" }
+          ]
+        },
+        {
+          "inputs": [{ "internalType": "contract IERC20", "name": "token", "type": "address" }],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "getDefaultAdapterFor",
+          "outputs": [
+            { "internalType": "contract ISablierBobAdapter", "name": "adapter", "type": "address" }
+          ]
+        },
+        {
+          "inputs": [{ "internalType": "uint256", "name": "vaultId", "type": "uint256" }],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "getExpiry",
+          "outputs": [{ "internalType": "uint40", "name": "expiry", "type": "uint40" }]
+        },
+        {
+          "inputs": [{ "internalType": "uint256", "name": "vaultId", "type": "uint256" }],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "getLastSyncedAt",
+          "outputs": [{ "internalType": "uint40", "name": "lastSyncedAt", "type": "uint40" }]
+        },
+        {
+          "inputs": [{ "internalType": "uint256", "name": "vaultId", "type": "uint256" }],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "getLastSyncedPrice",
+          "outputs": [{ "internalType": "uint128", "name": "lastSyncedPrice", "type": "uint128" }]
+        },
+        {
+          "inputs": [{ "internalType": "uint256", "name": "vaultId", "type": "uint256" }],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "getOracle",
+          "outputs": [
+            {
+              "internalType": "contract AggregatorV3Interface",
+              "name": "oracle",
+              "type": "address"
+            }
+          ]
+        },
+        {
+          "inputs": [{ "internalType": "uint256", "name": "vaultId", "type": "uint256" }],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "getShareToken",
+          "outputs": [
+            { "internalType": "contract IBobVaultShare", "name": "shareToken", "type": "address" }
+          ]
+        },
+        {
+          "inputs": [{ "internalType": "uint256", "name": "vaultId", "type": "uint256" }],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "getTargetPrice",
+          "outputs": [{ "internalType": "uint128", "name": "targetPrice", "type": "uint128" }]
+        },
+        {
+          "inputs": [{ "internalType": "uint256", "name": "vaultId", "type": "uint256" }],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "getUnderlyingToken",
+          "outputs": [{ "internalType": "contract IERC20", "name": "token", "type": "address" }]
+        },
+        {
+          "inputs": [{ "internalType": "uint256", "name": "vaultId", "type": "uint256" }],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "isStakedInAdapter",
+          "outputs": [{ "internalType": "bool", "name": "stakedInAdapter", "type": "bool" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "nativeToken",
+          "outputs": [{ "internalType": "address", "name": "", "type": "address" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "nextVaultId",
+          "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }]
+        },
+        {
+          "inputs": [
+            { "internalType": "uint256", "name": "vaultId", "type": "uint256" },
+            { "internalType": "address", "name": "from", "type": "address" },
+            { "internalType": "address", "name": "to", "type": "address" },
+            { "internalType": "uint256", "name": "amount", "type": "uint256" },
+            { "internalType": "uint256", "name": "fromBalanceBefore", "type": "uint256" }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "onShareTransfer"
+        },
+        {
+          "inputs": [{ "internalType": "uint256", "name": "vaultId", "type": "uint256" }],
+          "stateMutability": "payable",
+          "type": "function",
+          "name": "redeem",
+          "outputs": [
+            { "internalType": "uint128", "name": "transferAmount", "type": "uint128" },
+            { "internalType": "uint128", "name": "feeAmountDeductedFromYield", "type": "uint128" }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "contract ISablierComptroller",
+              "name": "newComptroller",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "setComptroller"
+        },
+        {
+          "inputs": [
+            { "internalType": "contract IERC20", "name": "token", "type": "address" },
+            {
+              "internalType": "contract ISablierBobAdapter",
+              "name": "newAdapter",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "setDefaultAdapter"
+        },
+        {
+          "inputs": [{ "internalType": "address", "name": "newNativeToken", "type": "address" }],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "setNativeToken"
+        },
+        {
+          "inputs": [{ "internalType": "uint256", "name": "vaultId", "type": "uint256" }],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "statusOf",
+          "outputs": [{ "internalType": "enum Bob.Status", "name": "status", "type": "uint8" }]
+        },
+        {
+          "inputs": [{ "internalType": "uint256", "name": "vaultId", "type": "uint256" }],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "syncPriceFromOracle",
+          "outputs": [{ "internalType": "uint128", "name": "latestPrice", "type": "uint128" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "transferFeesToComptroller"
+        },
+        {
+          "inputs": [{ "internalType": "uint256", "name": "vaultId", "type": "uint256" }],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "unstakeTokensViaAdapter",
+          "outputs": [
+            { "internalType": "uint128", "name": "amountReceivedFromAdapter", "type": "uint128" }
+          ]
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "calculateMinFeeWei(uint256)": {
+            "details": "Reverts if `vaultId` references a null vault.",
+            "params": { "vaultId": "The vault ID for the query." }
+          },
+          "createVault(address,address,uint40,uint128)": {
+            "details": "Emits a {CreateVault} event. Notes: - A new ERC-20 share token is deployed for each vault to represent user's share of deposits in the vault. - The default adapter for the token is copied as the vault adapter. Any change in the default adapter does not affect existing vaults. - Vault creator is responsible for choosing a valid oracle. They should use Chainlink oracles, as the integration is based on their API. Requirements: - `token` must not be the zero address. - `token` must implement `symbol()` and `decimals()` functions. - `expiry` must be in the future. - `oracle` must implement the Chainlink's {AggregatorV3Interface} interface. - `oracle` must return a positive price when `latestRoundData()` is called. - `oracle` must return a non-zero value no greater than 36 when `decimals()` is called. - `targetPrice` must not be zero or greater than the current price returned by the provided oracle.",
+            "params": {
+              "expiry": "The Unix timestamp when the vault expires.",
+              "oracle": "The address of the price feed oracle for the deposit token.",
+              "targetPrice": "The target price at which the vault settles, denominated in Chainlink's 8-decimal format for USD prices, where 1e8 is $1.",
+              "token": "The address of the ERC-20 token that will be accepted for deposits."
+            },
+            "returns": { "vaultId": "The ID of the newly created vault." }
+          },
+          "enter(uint256,uint128)": {
+            "details": "Emits an {Enter} event. Notes: - If an adapter is configured for the vault, tokens are automatically staked for yield using the adapter. - Share tokens are minted 1:1 with the deposited amount. Requirements: - `vaultId` must not reference a null vault. - The vault must have ACTIVE status. - `amount` must be greater than zero. - The caller must have approved this contract to transfer `amount` tokens.",
+            "params": {
+              "amount": "The amount of tokens to deposit.",
+              "vaultId": "The ID of the vault to deposit into."
+            }
+          },
+          "enterWithNativeToken(uint256)": {
+            "details": "Emits an {Enter} event. Notes: - `msg.value` is used as the deposit amount. - See notes for {enter}. Requirements: - See requirements for {enter}. - `msg.value` must be greater than zero and must not exceed `type(uint128).max`.",
+            "params": { "vaultId": "The ID of the vault to deposit into." }
+          },
+          "getAdapter(uint256)": { "details": "Reverts if `vaultId` references a null vault." },
+          "getDefaultAdapterFor(address)": {
+            "details": "Zero address means no adapter is set.",
+            "params": { "token": "The ERC-20 token to query the default adapter for." },
+            "returns": { "adapter": "The default adapter for the token." }
+          },
+          "getExpiry(uint256)": { "details": "Reverts if `vaultId` references a null vault." },
+          "getLastSyncedAt(uint256)": {
+            "details": "Reverts if `vaultId` references a null vault."
+          },
+          "getLastSyncedPrice(uint256)": {
+            "details": "Reverts if `vaultId` references a null vault."
+          },
+          "getOracle(uint256)": { "details": "Reverts if `vaultId` references a null vault." },
+          "getShareToken(uint256)": { "details": "Reverts if `vaultId` references a null vault." },
+          "getTargetPrice(uint256)": { "details": "Reverts if `vaultId` references a null vault." },
+          "getUnderlyingToken(uint256)": {
+            "details": "Reverts if `vaultId` references a null vault."
+          },
+          "isStakedInAdapter(uint256)": {
+            "details": "Reverts if `vaultId` references a null vault."
+          },
+          "nativeToken()": {
+            "details": "The native tokens on some chains have a dual interface as ERC-20. For example, on Polygon the $POL token is the native token and has an ERC-20 version at 0x0000000000000000000000000000000000001010. This means that `address(this).balance` returns the same value as `balanceOf(address(this))`. To avoid any unintended behavior, these tokens cannot be used in Sablier. As an alternative, users can use the Wrapped version of the token, i.e. WMATIC, which is a standard ERC-20 token."
+          },
+          "onShareTransfer(uint256,address,address,uint256,uint256)": {
+            "params": {
+              "amount": "The number of share tokens being transferred.",
+              "from": "The address transferring share tokens.",
+              "fromBalanceBefore": "The number of share tokens the sender had before the transfer.",
+              "to": "The address receiving share tokens.",
+              "vaultId": "The ID of the vault."
+            }
+          },
+          "redeem(uint256)": {
+            "details": "Emits a {Redeem} event. Notes: - If no adapter is configured for the vault, a fee in the native token is applied. - If an adapter is configured for the vault, a fee, in the deposit token, is deducted from yield generated by the adapter. - If unstake via Lido withdrawal queue contract is triggered, redeem will revert until the withdrawal from the Lido queue is finalized. Requirements: - `vaultId` must not reference a null vault. - Either block timestamp must be greater than or equal to the vault expiry or the latest price from the oracle must be greater than or equal to the target price. - The share balance of the caller must be greater than zero. - If no adapter is configured for the vault, `msg.value` must be greater than or equal to the min fee required in the native token.",
+            "params": { "vaultId": "The ID of the vault to redeem from." },
+            "returns": {
+              "feeAmountDeductedFromYield": "The fee amount deducted from the yield. Zero if no adapter is set.",
+              "transferAmount": "The amount of tokens transferred to the caller, after fees are deducted (only applicable if adapter is set)."
+            }
+          },
+          "setComptroller(address)": {
+            "details": "Emits a {SetComptroller} event. Requirements: - `msg.sender` must be the current comptroller. - The new comptroller must return `true` from {supportsInterface} with the comptroller's minimal interface ID which is defined as the XOR of the following function selectors: 1. {calculateMinFeeWeiFor} 2. {convertUSDFeeToWei} 3. {execute} 4. {getMinFeeUSDFor}",
+            "params": { "newComptroller": "The address of the new comptroller contract." }
+          },
+          "setDefaultAdapter(address,address)": {
+            "details": "Emits a {SetDefaultAdapter} event. Notes: - This only affects future vaults. Requirements: - The caller must be the comptroller. - If new adapter is not zero address, it must implement {ISablierBobAdapter} interface.",
+            "params": {
+              "newAdapter": "The address of the new adapter.",
+              "token": "The token address to set the adapter for."
+            }
+          },
+          "setNativeToken(address)": {
+            "details": "For more information, see the documentation for {nativeToken}. Emits a {SetNativeToken} event. Requirements: - `msg.sender` must be the comptroller. - `newNativeToken` must not be zero address. - The native token must not be already set.",
+            "params": { "newNativeToken": "The address of the native token." }
+          },
+          "statusOf(uint256)": { "details": "Reverts if `vaultId` references a null vault." },
+          "syncPriceFromOracle(uint256)": {
+            "details": "Emits a {SyncPriceFromOracle} event. Notes: - Oracle staleness is not validated on-chain when calling this function. Any price returned by the oracle is accepted. - Useful for syncing the price from oracle without calling {redeem} or {enter}. This function can be called by anyone to settle vault when the price is above the target price. Requirements: - `vaultId` must not reference a null vault. - The vault must have ACTIVE status. - The oracle must return a positive price.",
+            "params": { "vaultId": "The ID of the vault to sync." },
+            "returns": {
+              "latestPrice": "The latest price fetched from the oracle, denominated in Chainlink's 8-decimal format for USD prices, where 1e8 is $1."
+            }
+          },
+          "transferFeesToComptroller()": {
+            "details": "Emits a {TransferFeesToComptroller} event."
+          },
+          "unstakeTokensViaAdapter(uint256)": {
+            "details": "Emits an {UnstakeFromAdapter} event. Requirements: - `vaultId` must not reference a null vault. - The adapter set in the vault must not be zero address. - Either block timestamp must be greater than or equal to the vault expiry or the latest price from the oracle must be greater than or equal to the target price. - The vault must not have been unstaked already. - The amount staked must be greater than zero.",
+            "params": { "vaultId": "The ID of the vault." },
+            "returns": {
+              "amountReceivedFromAdapter": "The amount of tokens received from the adapter."
+            }
+          }
+        },
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "calculateMinFeeWei(uint256)": {
+            "notice": "Calculates the minimum fee in wei required to redeem from the given vault ID. Returns 0 for vaults with an adapter, since the fee is taken from yield generated."
+          },
+          "comptroller()": { "notice": "Retrieves the address of the comptroller contract." },
+          "createVault(address,address,uint40,uint128)": {
+            "notice": "Creates a new vault with the specified parameters."
+          },
+          "enter(uint256,uint128)": {
+            "notice": "Enter into a vault by depositing tokens into it and minting share tokens to the caller."
+          },
+          "enterWithNativeToken(uint256)": {
+            "notice": "Enter into a vault by depositing native token (such as ETH, POL, etc.) into it and minting share tokens to the caller."
+          },
+          "getAdapter(uint256)": {
+            "notice": "Returns the adapter configured for a specific vault."
+          },
+          "getDefaultAdapterFor(address)": {
+            "notice": "Returns the default adapter for a given token."
+          },
+          "getExpiry(uint256)": { "notice": "Returns the timestamp when the vault expires." },
+          "getLastSyncedAt(uint256)": {
+            "notice": "Returns the timestamp when the oracle price was last synced for a vault."
+          },
+          "getLastSyncedPrice(uint256)": {
+            "notice": "Returns the oracle price stored for a vault."
+          },
+          "getOracle(uint256)": { "notice": "Returns the oracle address set for a vault." },
+          "getShareToken(uint256)": {
+            "notice": "Returns the address of the ERC-20 share token for a vault."
+          },
+          "getTargetPrice(uint256)": {
+            "notice": "Returns the target price at which the vault settles."
+          },
+          "getUnderlyingToken(uint256)": {
+            "notice": "Returns the ERC-20 token accepted for deposits in a vault."
+          },
+          "isStakedInAdapter(uint256)": {
+            "notice": "Returns whether the vault tokens are staked in an adapter."
+          },
+          "nativeToken()": {
+            "notice": "Retrieves the address of the ERC-20 interface of the native token, if it exists."
+          },
+          "nextVaultId()": {
+            "notice": "Counter for vault IDs, incremented every time a new vault is created."
+          },
+          "onShareTransfer(uint256,address,address,uint256,uint256)": {
+            "notice": "Called by adapter when share tokens for a given vault are transferred between users. This is required for accounting of the yield generated by the adapter. Requirements: - The caller must be the share token contract stored in the given vault. - The calculated wstETH transfer amount must not be zero."
+          },
+          "redeem(uint256)": { "notice": "Redeem the tokens by burning user shares." },
+          "setComptroller(address)": { "notice": "Sets the comptroller to a new address." },
+          "setDefaultAdapter(address,address)": {
+            "notice": "Sets the default adapter for a specific token."
+          },
+          "setNativeToken(address)": {
+            "notice": "Sets the native token address. Once set, it cannot be changed."
+          },
+          "statusOf(uint256)": { "notice": "Returns the vault status." },
+          "syncPriceFromOracle(uint256)": {
+            "notice": "Fetches the latest price from the oracle set for a vault and updates it in the vault storage."
+          },
+          "transferFeesToComptroller()": {
+            "notice": "Transfers the fees to the comptroller contract."
+          },
+          "unstakeTokensViaAdapter(uint256)": {
+            "notice": "Unstake all tokens from the adapter for a given vault."
+          }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        "@arbitrum/=node_modules/@arbitrum/",
+        "@chainlink/=node_modules/@chainlink/",
+        "@eth-optimism/=node_modules/@eth-optimism/",
+        "@offchainlabs/=node_modules/@offchainlabs/",
+        "@openzeppelin/=node_modules/@openzeppelin/",
+        "@prb/=node_modules/@prb/",
+        "@sablier/=node_modules/@sablier/",
+        "@scroll-tech/=node_modules/@scroll-tech/",
+        "@zksync/=node_modules/@zksync/",
+        "forge-std/=node_modules/forge-std/"
+      ],
+      "optimizer": { "enabled": true, "runs": 1000000 },
+      "metadata": { "bytecodeHash": "ipfs" },
+      "compilationTarget": { "src/interfaces/ISablierBob.sol": "ISablierBob" },
+      "evmVersion": "shanghai",
+      "libraries": {},
+      "viaIR": true
+    },
+    "sources": {
+      "node_modules/@chainlink/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol": {
+        "keccak256": "0x257a8d28fa83d3d942547c8e129ef465e4b5f3f31171e7be4739a4c98da6b4f0",
+        "urls": [
+          "bzz-raw://6d39e11b1dc7b9b8ccdabbc9be442ab7cda4a81c748f57e316dcb1bcb4a28bf9",
+          "dweb:/ipfs/QmaG6vz6W6iEUBsbHSBob5mdcitYxWjoygxREHpsJHfWrS"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/interfaces/draft-IERC1822.sol": {
+        "keccak256": "0xc42facb5094f2f35f066a7155bda23545e39a3156faef3ddc00185544443ba7d",
+        "urls": [
+          "bzz-raw://d3b36282ab029b46bd082619a308a2ea11c309967b9425b7b7a6eb0b0c1c3196",
+          "dweb:/ipfs/QmP2YVfDB2FoREax3vJu7QhDnyYRMw52WPrCD4vdT2kuDA"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+        "keccak256": "0xe06a3f08a987af6ad2e1c1e774405d4fe08f1694b67517438b467cecf0da0ef7",
+        "urls": [
+          "bzz-raw://df6f0c459663c9858b6cba2cda1d14a7d05a985bed6d2de72bd8e78c25ee79db",
+          "dweb:/ipfs/QmeTTxZ7qVk9rjEv2R4CpCwdf8UMCcRqDNMvzNxHc3Fnn9"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
+        "keccak256": "0x70f2f713b13b7ce4610bcd0ac9fec0f3cc43693b043abcb8dc40a42a726eb330",
+        "urls": [
+          "bzz-raw://c13d13304ac79a83ab1c30168967d19e2203342ebbd6a9bbce4db7550522dcbf",
+          "dweb:/ipfs/QmeN5jKMN2vw5bhacr6tkg78afbTTZUeaacNHqjWt4Ew1r"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol": {
+        "keccak256": "0x79796192ec90263f21b464d5bc90b777a525971d3de8232be80d9c4f9fb353b8",
+        "urls": [
+          "bzz-raw://f6fda447a62815e8064f47eff0dd1cf58d9207ad69b5d32280f8d7ed1d1e4621",
+          "dweb:/ipfs/QmfDRc7pxfaXB2Dh9np5Uf29Na3pQ7tafRS684wd3GLjVL"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/Common.sol": {
+        "keccak256": "0x8225a3898d2f11f585da1fb82234800e9717fa080dbe53d450fd429a3a632e99",
+        "urls": [
+          "bzz-raw://2dcbf39ca575f68f32f0d1c66391de94082424956e7585e849813966f8c0fc05",
+          "dweb:/ipfs/QmYvk8vXFDUJHrmqbtutYXfoLomLBosYLyBzuPoYBxsQ42"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/UD60x18.sol": {
+        "keccak256": "0xb98c6f74275914d279e8af6c502c2b1f50d5f6e1ed418d3b0153f5a193206c48",
+        "urls": [
+          "bzz-raw://a750edde2955f160806a51083a12185fb04e20efca0e3a7ebd127dc1acc049a9",
+          "dweb:/ipfs/QmeAre3mThopoQPB9mSXZq6jck59QZ7JbDFR83urd2SLvp"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd1x18/Casting.sol": {
+        "keccak256": "0x5d365f655f01598926c5d4fe5cda277f2cc7736fe38f943c11a32009077ddd5c",
+        "urls": [
+          "bzz-raw://56b378bd6039819bc12e5f17dabd9492e1410b3281f9df496cf8210539101a11",
+          "dweb:/ipfs/QmcMaE64ZWMg9cFhYxdTuG8nfzeDdNuTRHMMoFXi6tSZGu"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd1x18/Constants.sol": {
+        "keccak256": "0xc14cc32061863d83912f9616de86f3c34f1ac58614b7d504c6ce07ee8efdb8e8",
+        "urls": [
+          "bzz-raw://22483b1282dda6a556b0232f008a5a3296bbfd76b1886e6b72bf351b7c554fab",
+          "dweb:/ipfs/QmYX9cYkrFxBbhZNKsb6uUxtrc2chmAj7vuc7UKRPGMwos"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd1x18/Errors.sol": {
+        "keccak256": "0xc3c8b1ab3d19889c356c222a3a2186d45dfc1d3a17b9ad88159bb64ee457baa6",
+        "urls": [
+          "bzz-raw://84fbe57569246403f778330bd7723018dfcb5f0ec50d7b1d82cc983c94a54bca",
+          "dweb:/ipfs/QmWssAAnovc2EVjt58rTnxraE9B1RMivwTvYCYgpnr6oSE"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd1x18/ValueType.sol": {
+        "keccak256": "0xaa9dc7b562faf45264390d80e2ea10c5295bb8a4f10d76261a3f9c04363734c0",
+        "urls": [
+          "bzz-raw://c6ca36acd15f5cb47cf124ddec289f84e1011f2d29056159e4570435629a3353",
+          "dweb:/ipfs/QmUKdiLmZpAkNCq2TKxrPbQPUhiRFXGfjGSnY1VeHVu4y6"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd21x18/Casting.sol": {
+        "keccak256": "0x4a16adddb9ab1f6939dd4567c77205015a11081cb840029b84bbb6fdaf78ee36",
+        "urls": [
+          "bzz-raw://5003b2f4cd2fc1413da36bc63107c6e83a88d29693e8f97b54f300fa78f9c6d2",
+          "dweb:/ipfs/QmaNJn91NLrZmeeGqnFQV1FTrLVSW852zHyWTrWJ5pf1pd"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd21x18/Constants.sol": {
+        "keccak256": "0x501c2d5cfdea9450422182059c8df1cb6a859901a07bd59631c3fa24edcc79d4",
+        "urls": [
+          "bzz-raw://4669a65001c92919671fd879d33ce0e5030b602a7ba4d36bd2308128d8d1f396",
+          "dweb:/ipfs/QmUC3bJ3qdkCmLMw3WHBcEqvuC4tExT2LXzUhgu5KQ3vi3"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd21x18/Errors.sol": {
+        "keccak256": "0xc5422ee47eb139274e538e758fb40177a1ba22c2113ef3b3446102f0150bfe0a",
+        "urls": [
+          "bzz-raw://a1981e052e9e86e1b0e4e55a057a7af4739aedd4ead2d60e3eaa40fb703594ee",
+          "dweb:/ipfs/QmPK5qSujnyk1R8ues4RhDMy1tRKKyjQ31YJTviTKq7GML"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd21x18/ValueType.sol": {
+        "keccak256": "0x532bba888370bed393464412f4ef3462d654802e71c953ad02d078e3d2701092",
+        "urls": [
+          "bzz-raw://922a4e8dd813602f72d165aa1dfdf2c29b971a2abe73bebca7cd81a32ee2c880",
+          "dweb:/ipfs/QmTBAJnx1r3sZpbQAuTgQtsTtvjZbpDwhCJRzkhzUumbdf"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd59x18/Casting.sol": {
+        "keccak256": "0xdf70d8e70c6d6325f3f7eb028c484bc7189ef902f1d4b5b220af2e550bb5fc39",
+        "urls": [
+          "bzz-raw://0b15bcd36129c5cb163d57a117435afb171182018dd6d1e766a5f49cf1f4b63d",
+          "dweb:/ipfs/QmbjzkMBH4FM2rdxGbx9LQ65wVERijNcu7R9C8dQmH3y4n"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd59x18/Constants.sol": {
+        "keccak256": "0x9bcb8dd6b3e886d140ad1c32747a4f6d29a492529ceb835be878ae837aa6cc3a",
+        "urls": [
+          "bzz-raw://c4045c633e3618e7e90a768d92415b2f20f781fe129b4f4e26fa88f7dbf9201f",
+          "dweb:/ipfs/Qmbet95pizwPno82cJ383wJtgQRSQKESmhVZ1vDrgAu7Si"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd59x18/Errors.sol": {
+        "keccak256": "0x0a79c28c85fc8a450b0801ff2e66114eac4ec565819f5d1d8738904658fe33e2",
+        "urls": [
+          "bzz-raw://9e0d4fd3c998019fb8555d9e26c03bec42a8513bdf4185aeac2da3a000abaebf",
+          "dweb:/ipfs/QmahFJHXcX4RwPxaQbUf6LVZEk8NSpjCV3Eif7i9iqC6Mk"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd59x18/Helpers.sol": {
+        "keccak256": "0x208570f1657cf730cb6c3d81aa14030e0d45cf906cdedea5059369d7df4bb716",
+        "urls": [
+          "bzz-raw://4c78ca900edafa9338d4e3649a55ab0c84f76468d8a22fb945ba6d01e70f8fed",
+          "dweb:/ipfs/QmeP4hQYfNxcATd1FsasdD4ebyu2vrC9K1N68swxUJzzZD"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd59x18/Math.sol": {
+        "keccak256": "0xd8e8b51db9b3e2fa31a60f6b8ce4ea0112c3364442ede5992aa0aa7a2c925c84",
+        "urls": [
+          "bzz-raw://3c56913970e34ee7b142047b21f1856a511cbdc3473b7c50418a8490e19cd462",
+          "dweb:/ipfs/QmfG1F9CBDjPYD7NXora9awFfdpvBMY9SCg5pMLCFRv9tD"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/sd59x18/ValueType.sol": {
+        "keccak256": "0x76597ba64d37d66e0178512bc9bbc1a031a7634c45e5d5c6e9da87f46952dc9d",
+        "urls": [
+          "bzz-raw://36148899ad874814e9292636fb974d2eec61f1bcc0875ec39cf444d70ba40919",
+          "dweb:/ipfs/QmadUe4kH2FPcdxvhCKy8yiezCvPWor4VcPzqLYSAaGDDb"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud21x18/Casting.sol": {
+        "keccak256": "0x3821aa57604f6e5b7c9c5c5cc97a6d71116e673cf3fee5f76fcd42b4cefded65",
+        "urls": [
+          "bzz-raw://a80399c6b38ab45cc10d0a6683d50340cd89d9a085b6d0dcfb81e7c4e5b3ce09",
+          "dweb:/ipfs/QmWNW2YD2LMkqrpAtJYeeuHN329Rx7mvfmrjsCo1p6akTL"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud21x18/Constants.sol": {
+        "keccak256": "0x0997574a1ced6c43bde6d9c9175edc5ad64cbb920a0969a9db68eea543747601",
+        "urls": [
+          "bzz-raw://c09f03345a6779b002b38ffc3954258accbb2b1d0d5506d42c3bd7f117304f60",
+          "dweb:/ipfs/QmTeBXRCE7H2HpqKUNsZN7Nk3rdBnFmbAUFom3E1PJeGuV"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud21x18/Errors.sol": {
+        "keccak256": "0x35a1fb789b90f8c90865884d3023deb17fcca5c7146b5ddef823496d835a5415",
+        "urls": [
+          "bzz-raw://0af359d07ba25bdc90de7c05ed6216833932caa75d4a02fcfc51ceeaba5a4e80",
+          "dweb:/ipfs/QmavBFw73Xfp1qJiN6P1gk2Dfr8ByWo3dyCPVgDHtko2gq"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud21x18/ValueType.sol": {
+        "keccak256": "0x24838b2b1da371b9259d8ee21534a9f0cb5796aba75a4efca2374627952bee25",
+        "urls": [
+          "bzz-raw://897e6b79308651671c7f3c91a0069e778b47356c9ba3f86e238398ab7f2623af",
+          "dweb:/ipfs/QmZbLw3tJVRZFQnV9jWQUmF43gna841adSG2TAiwDAifGU"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud2x18/Casting.sol": {
+        "keccak256": "0x0f3141ed054e7c29dbe1acb4b88b18eb05d60e998fba6b4e503a6799faa356d6",
+        "urls": [
+          "bzz-raw://b1e2468fc4c458082aaf4aa2e35af9ba3702f207e3c8533dd1e7da11ad605eae",
+          "dweb:/ipfs/QmSm7iRH1eo4cJCwcAiiXWRH9Hn1urSS4tMdbaFbFGuTyL"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud2x18/Constants.sol": {
+        "keccak256": "0x29b0e050c865899e1fb9022b460a7829cdee248c44c4299f068ba80695eec3fc",
+        "urls": [
+          "bzz-raw://cbaef16b662fac235349bcf97bc980dd0cba15d4e6230caae61224cdac8ea6d9",
+          "dweb:/ipfs/QmZQa5XBhi7k3yhtCd8wVpnwW8htfU4sjXxWhxRypMBYkC"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud2x18/Errors.sol": {
+        "keccak256": "0x3b27e2a57438cd30d9c130f84aace24d547e5ed58e8689691d7d92ad2db38ddd",
+        "urls": [
+          "bzz-raw://841cf9fb45443899c6b659300bbf503c3fd2c1a1e83b7f0e28620eed457f7437",
+          "dweb:/ipfs/QmUqg8WscP5yQPw3UMUCWaB9RLU6nryGzseuyhAjNnDc1i"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud2x18/ValueType.sol": {
+        "keccak256": "0x975a2e69b48f34a4c0bd80e8a5609ac67b7264c91992c0944f9ebe7b9e3fc9d0",
+        "urls": [
+          "bzz-raw://65d012521c475295d7e70b7d526fcc0911d0f238ea938719d77251bba00c9b41",
+          "dweb:/ipfs/QmexEvTQCCBPYRWAYnomZX5M7C2EkXQRAXqEYMNUZfazCs"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/Casting.sol": {
+        "keccak256": "0x0803318ddc98b4ba8fbfe70e5ee08d78387fe6ae00982b9960518085a751d7b6",
+        "urls": [
+          "bzz-raw://2e68a2f780b2e33fa5416eb60f9daa81f014c2591119f4b67bed1217d5530780",
+          "dweb:/ipfs/QmZe7JTWvbfKqMnu4sxUwWCtLcCay9hH71VZUpoFCdENcr"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/Constants.sol": {
+        "keccak256": "0x2b80d26153d3fdcfb3a9ca772d9309d31ed1275f5b8b54c3ffb54d3652b37d90",
+        "urls": [
+          "bzz-raw://7e3a6673a156f635db94dc176baaa7274db8f9bec4461cd1152596253550ee3b",
+          "dweb:/ipfs/Qmc9zT4kNSbMYaXcnbxNVqmb3P3m46ieaQxkwxqLwsvRA5"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/Conversions.sol": {
+        "keccak256": "0xd486ecca97abe69acdb28230088f4c7097fbdae5b36c5ae45d5be2faac4c33f2",
+        "urls": [
+          "bzz-raw://6080870ec6955ff0f5278f9c480b218a68714daf5f2ee42da0276d08d7b82932",
+          "dweb:/ipfs/QmQ1SERHdemJgPrt4USwY8j5r63jZ8fQuJAm1knjMEEQEY"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/Errors.sol": {
+        "keccak256": "0xbab6b0e303d32f3a9d9e2fe881f0392b8c59a73051a4d34f21a403b3961b3044",
+        "urls": [
+          "bzz-raw://86a019bcf2510d0691287329dc057479cc0abc48a5e15f245e7f15c03052d2c8",
+          "dweb:/ipfs/QmeXe5pbpDHvN5DZ8puXmH2RJ25zDHj55wpiStWtNQPvq6"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/Helpers.sol": {
+        "keccak256": "0xf5faff881391d2c060029499a666cc5f0bea90a213150bb476fae8f02a5df268",
+        "urls": [
+          "bzz-raw://76105fa22bb1b5f1fa99abf9c4fbc9577a02c7bc204f271754c407f0d75489f5",
+          "dweb:/ipfs/QmVNGZSTniDuZus5DdbFubqJXCLtTaZit7YPm4ntjr5Lgr"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/Math.sol": {
+        "keccak256": "0xc4e51dfd9af62938e277e90fa724099f239d33727a35909ed48c292a76faf2fc",
+        "urls": [
+          "bzz-raw://d731537cbc50b852c21d28625aeb2c329729afc23a7b86ff9d8ee5878f47e9d6",
+          "dweb:/ipfs/QmS7Cj4pAdPZcTp7RqYXyxBc9EYX92CT8icfkNigktUsLr"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@prb/math/src/ud60x18/ValueType.sol": {
+        "keccak256": "0x1b200baf25d01a8b91b97b42114248636f742b5b7028487ef4daef6621e378a3",
+        "urls": [
+          "bzz-raw://b5708ed017206bda2197654e80bea9f37b3a9993434bb066c903c2865e028f47",
+          "dweb:/ipfs/QmTyotZk2J5YvWkNvB2qhXBMgRGWW2UgPqR4JPocrXSr8n"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@sablier/evm-utils/src/interfaces/IAdminable.sol": {
+        "keccak256": "0x3228d63e9b0b951030c73c42bb071e64f0ff0eadbcbeefad3f29a48366539c26",
+        "urls": [
+          "bzz-raw://acc90ad2bec0e84349b56611b35b56bfb75a5930fd1babb2bd638fbbb15bd126",
+          "dweb:/ipfs/QmSLnHx6bo4BQeBKYferfEhZo1Z4xCXdDF1bzJoHUafHt4"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "node_modules/@sablier/evm-utils/src/interfaces/IComptrollerable.sol": {
+        "keccak256": "0xdbc32762b87590be38095a84789906fa7a23fd2c2c112859504549ef3be17522",
+        "urls": [
+          "bzz-raw://14ac13726bb7435ce310dd437a9b58852ca0c35640949e898c803a33a30dee8b",
+          "dweb:/ipfs/QmeeKPApvBHbUF3S98qCnB26Aw67KTQF2GFyGQZCxykyMW"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "node_modules/@sablier/evm-utils/src/interfaces/IRoleAdminable.sol": {
+        "keccak256": "0x391cb4bd4bae01e3efdb84f63635644ed6329b72e8a5105ad53833551e8ba825",
+        "urls": [
+          "bzz-raw://ccca9da1c044c15cf0b647a4572c05f5d498fb18b3685a85a8836f7110cb1bc4",
+          "dweb:/ipfs/QmfAKHqvgKQUgpC6VomTjTkc1tDnsbVJD5bLn8wL8KuTFV"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "node_modules/@sablier/evm-utils/src/interfaces/ISablierComptroller.sol": {
+        "keccak256": "0x5c52e70a6c083611d4b5518d17d025f70d322ee2c61d81f20f3fe50f4bd824ba",
+        "urls": [
+          "bzz-raw://5c07b2076065f1c65a59176ada3459be53f78e59a2055d9ae92b226edafa484c",
+          "dweb:/ipfs/QmXYRDkBSWUBza1pi439ErzeLoaLUT8Zvj2yWcFZ5F1rgX"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "src/interfaces/IBobVaultShare.sol": {
+        "keccak256": "0x7e91f71800b33ce26fa757b8d74d0e89aaf2de6ee50260a706c4c26029ae4c22",
+        "urls": [
+          "bzz-raw://18e85a71eef03972eb19a277ca025c645b18aa768c03a2b1e7d81de9eeabe731",
+          "dweb:/ipfs/QmbjGtkps9KvG6XBysNLB9eBoY5E47ixkTDtN8cYYRzA6b"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "src/interfaces/ISablierBob.sol": {
+        "keccak256": "0x2c21ee1f24d0443a9daf745ef2f5ccfe339120f19484565d31a46a1af09e8edc",
+        "urls": [
+          "bzz-raw://1dce1fb1847e2c9fb562f9e5c8cb71d9a9d5a3b4a56ba9575ff0c7d5240b3af9",
+          "dweb:/ipfs/QmZbFLtUYRV9TTw6PTsJmvhrD5BwautoUbLbj5WoVYiTPP"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "src/interfaces/ISablierBobAdapter.sol": {
+        "keccak256": "0xeb24411e0d4be288e600b9893bcf5bcfd3e38d7f2313bb68b323b2ba19d97921",
+        "urls": [
+          "bzz-raw://0308e63f7a7d9af68f7109bf500e186cd06760f708242c11e4dcdf5baa14638e",
+          "dweb:/ipfs/Qmdn9ViABMqhTbRMY9yHMneqD8dMY8ysqjUMVbsGJ3GVPK"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "src/interfaces/ISablierBobState.sol": {
+        "keccak256": "0xc216153d326b2b02f62fe2a02edea29a194bf850d6c5d4d1d1c618cd68bfdd5c",
+        "urls": [
+          "bzz-raw://0e1c2c6b58098552b70febc6a4876c2b89fb894994049c840882c346d7e094ee",
+          "dweb:/ipfs/QmWxBShVcnGCrjHfBhPH15cdLA7mtmN6QaSBSM7ZWae85Q"
+        ],
+        "license": "GPL-3.0-or-later"
+      },
+      "src/types/Bob.sol": {
+        "keccak256": "0xf156bfc6b369fd9006e47e3a2531108e515878f60977987def9069b6148cbba3",
+        "urls": [
+          "bzz-raw://5e2d1205de5dc31ffc76045c05b5fc9ad927346ff3a6be9ee7ee9dcd6c28bb1a",
+          "dweb:/ipfs/QmeuUm54PyaS2NZ728zy3Cqnsm5BZxaGAZdQrBY85Tejdx"
+        ],
+        "license": "GPL-3.0-or-later"
+      }
+    },
+    "version": 1
+  },
+  "id": 84
+}

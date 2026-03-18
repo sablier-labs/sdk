@@ -1,0 +1,215 @@
+{
+  "abi": [
+    {
+      "type": "function",
+      "name": "MAX_STETH_WITHDRAWAL_AMOUNT",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "MIN_STETH_WITHDRAWAL_AMOUNT",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "claimWithdrawals",
+      "inputs": [
+        { "name": "_requestIds", "type": "uint256[]", "internalType": "uint256[]" },
+        { "name": "_hints", "type": "uint256[]", "internalType": "uint256[]" }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "findCheckpointHints",
+      "inputs": [
+        { "name": "_requestIds", "type": "uint256[]", "internalType": "uint256[]" },
+        { "name": "_firstIndex", "type": "uint256", "internalType": "uint256" },
+        { "name": "_lastIndex", "type": "uint256", "internalType": "uint256" }
+      ],
+      "outputs": [{ "name": "hintIds", "type": "uint256[]", "internalType": "uint256[]" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "getLastCheckpointIndex",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "requestWithdrawals",
+      "inputs": [
+        { "name": "_amounts", "type": "uint256[]", "internalType": "uint256[]" },
+        { "name": "_owner", "type": "address", "internalType": "address" }
+      ],
+      "outputs": [{ "name": "requestIds", "type": "uint256[]", "internalType": "uint256[]" }],
+      "stateMutability": "nonpayable"
+    }
+  ],
+  "bytecode": { "object": "0x", "sourceMap": "", "linkReferences": {} },
+  "deployedBytecode": { "object": "0x", "sourceMap": "", "linkReferences": {} },
+  "methodIdentifiers": {
+    "MAX_STETH_WITHDRAWAL_AMOUNT()": "db2296cd",
+    "MIN_STETH_WITHDRAWAL_AMOUNT()": "0d25a957",
+    "claimWithdrawals(uint256[],uint256[])": "e3afe0a3",
+    "findCheckpointHints(uint256[],uint256,uint256)": "62abe3fa",
+    "getLastCheckpointIndex()": "526eae3e",
+    "requestWithdrawals(uint256[],address)": "d6681042"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.29+commit.ab55807c\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"MAX_STETH_WITHDRAWAL_AMOUNT\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"MIN_STETH_WITHDRAWAL_AMOUNT\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256[]\",\"name\":\"_requestIds\",\"type\":\"uint256[]\"},{\"internalType\":\"uint256[]\",\"name\":\"_hints\",\"type\":\"uint256[]\"}],\"name\":\"claimWithdrawals\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256[]\",\"name\":\"_requestIds\",\"type\":\"uint256[]\"},{\"internalType\":\"uint256\",\"name\":\"_firstIndex\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_lastIndex\",\"type\":\"uint256\"}],\"name\":\"findCheckpointHints\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"hintIds\",\"type\":\"uint256[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getLastCheckpointIndex\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256[]\",\"name\":\"_amounts\",\"type\":\"uint256[]\"},{\"internalType\":\"address\",\"name\":\"_owner\",\"type\":\"address\"}],\"name\":\"requestWithdrawals\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"requestIds\",\"type\":\"uint256[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Used as a fallback unstaking path when the Curve pool is unavailable.\",\"kind\":\"dev\",\"methods\":{\"claimWithdrawals(uint256[],uint256[])\":{\"details\":\"Reverts if any of the following conditions are met:  - `requestIds` and `hints` arrays length differs.  - Any `requestId` or `hint` in arguments are not valid.  - Any request is not finalized or already claimed.  - `msg.sender` is not an owner of the requests.\",\"params\":{\"_hints\":\"Checkpoint hint for each ID. Can be obtained with `findCheckpointHints()`\",\"_requestIds\":\"Array of request IDs to claim.\"}},\"findCheckpointHints(uint256[],uint256,uint256)\":{\"details\":\"- Array of request IDs should be sorted. - `_firstIndex` should be greater than 0, because checkpoint list is 1-based array. - `_lastIndex` should be less than or equal to `getLastCheckpointIndex()`.\",\"params\":{\"_firstIndex\":\"Left boundary of the search range. Should be greater than 0.\",\"_lastIndex\":\"Right boundary of the search range. Should be less than or equal to `getLastCheckpointIndex()`.\",\"_requestIds\":\"IDs of the requests sorted in the ascending order to get hints for.\"},\"returns\":{\"hintIds\":\"Array of hints used to find required checkpoint for the request.\"}},\"requestWithdrawals(uint256[],address)\":{\"params\":{\"_amounts\":\"Array of stETH amount values. The standalone withdrawal request will be created for each item in the passed list.\",\"_owner\":\"Address that will be able to manage the created requests. If `address(0)` is passed, `msg.sender` will be used as owner.\"},\"returns\":{\"requestIds\":\"Array of the created withdrawal request IDs.\"}}},\"title\":\"ILidoWithdrawalQueue\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"MAX_STETH_WITHDRAWAL_AMOUNT()\":{\"notice\":\"Maximum amount of stETH that can be withdrawn in a single request.\"},\"MIN_STETH_WITHDRAWAL_AMOUNT()\":{\"notice\":\"Minimum amount of stETH that can be withdrawn in a single request.\"},\"claimWithdrawals(uint256[],uint256[])\":{\"notice\":\"Claim a batch of withdrawal requests if they are finalized sending locked ETH to the owner.\"},\"findCheckpointHints(uint256[],uint256,uint256)\":{\"notice\":\"Finds the list of hints for the given `_requestIds` searching among the checkpoints with indices in the range  `[_firstIndex, _lastIndex]`.\"},\"getLastCheckpointIndex()\":{\"notice\":\"Length of the checkpoint array. Last possible value for the hint.\"},\"requestWithdrawals(uint256[],address)\":{\"notice\":\"Request the batch of stETH for withdrawal. Approvals for the passed amounts should be done before.\"}},\"notice\":\"Minimal interface for Lido's WithdrawalQueueERC721 contract.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/interfaces/external/ILidoWithdrawalQueue.sol\":\"ILidoWithdrawalQueue\"},\"evmVersion\":\"shanghai\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":1000000},\"remappings\":[\":@arbitrum/=node_modules/@arbitrum/\",\":@chainlink/=node_modules/@chainlink/\",\":@eth-optimism/=node_modules/@eth-optimism/\",\":@offchainlabs/=node_modules/@offchainlabs/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":@prb/=node_modules/@prb/\",\":@sablier/=node_modules/@sablier/\",\":@scroll-tech/=node_modules/@scroll-tech/\",\":@zksync/=node_modules/@zksync/\",\":forge-std/=node_modules/forge-std/\"],\"viaIR\":true},\"sources\":{\"src/interfaces/external/ILidoWithdrawalQueue.sol\":{\"keccak256\":\"0x8b1fcfb51121595be6f4f7873f9a45ba48cc837e2dcb33c32af37db8aa653a15\",\"license\":\"GPL-3.0-or-later\",\"urls\":[\"bzz-raw://c7871ed24493c750fd5ac17c3d3d19a7f481bd88ebd33d72fee53ac72f2537bd\",\"dweb:/ipfs/QmQdkMTBYFug8TGEUYiBxD7Db8CgLmxYep736bPUA5opYa\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": { "version": "0.8.29+commit.ab55807c" },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "MAX_STETH_WITHDRAWAL_AMOUNT",
+          "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "MIN_STETH_WITHDRAWAL_AMOUNT",
+          "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }]
+        },
+        {
+          "inputs": [
+            { "internalType": "uint256[]", "name": "_requestIds", "type": "uint256[]" },
+            { "internalType": "uint256[]", "name": "_hints", "type": "uint256[]" }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "claimWithdrawals"
+        },
+        {
+          "inputs": [
+            { "internalType": "uint256[]", "name": "_requestIds", "type": "uint256[]" },
+            { "internalType": "uint256", "name": "_firstIndex", "type": "uint256" },
+            { "internalType": "uint256", "name": "_lastIndex", "type": "uint256" }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "findCheckpointHints",
+          "outputs": [{ "internalType": "uint256[]", "name": "hintIds", "type": "uint256[]" }]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "getLastCheckpointIndex",
+          "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }]
+        },
+        {
+          "inputs": [
+            { "internalType": "uint256[]", "name": "_amounts", "type": "uint256[]" },
+            { "internalType": "address", "name": "_owner", "type": "address" }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "requestWithdrawals",
+          "outputs": [{ "internalType": "uint256[]", "name": "requestIds", "type": "uint256[]" }]
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "claimWithdrawals(uint256[],uint256[])": {
+            "details": "Reverts if any of the following conditions are met:  - `requestIds` and `hints` arrays length differs.  - Any `requestId` or `hint` in arguments are not valid.  - Any request is not finalized or already claimed.  - `msg.sender` is not an owner of the requests.",
+            "params": {
+              "_hints": "Checkpoint hint for each ID. Can be obtained with `findCheckpointHints()`",
+              "_requestIds": "Array of request IDs to claim."
+            }
+          },
+          "findCheckpointHints(uint256[],uint256,uint256)": {
+            "details": "- Array of request IDs should be sorted. - `_firstIndex` should be greater than 0, because checkpoint list is 1-based array. - `_lastIndex` should be less than or equal to `getLastCheckpointIndex()`.",
+            "params": {
+              "_firstIndex": "Left boundary of the search range. Should be greater than 0.",
+              "_lastIndex": "Right boundary of the search range. Should be less than or equal to `getLastCheckpointIndex()`.",
+              "_requestIds": "IDs of the requests sorted in the ascending order to get hints for."
+            },
+            "returns": {
+              "hintIds": "Array of hints used to find required checkpoint for the request."
+            }
+          },
+          "requestWithdrawals(uint256[],address)": {
+            "params": {
+              "_amounts": "Array of stETH amount values. The standalone withdrawal request will be created for each item in the passed list.",
+              "_owner": "Address that will be able to manage the created requests. If `address(0)` is passed, `msg.sender` will be used as owner."
+            },
+            "returns": { "requestIds": "Array of the created withdrawal request IDs." }
+          }
+        },
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "MAX_STETH_WITHDRAWAL_AMOUNT()": {
+            "notice": "Maximum amount of stETH that can be withdrawn in a single request."
+          },
+          "MIN_STETH_WITHDRAWAL_AMOUNT()": {
+            "notice": "Minimum amount of stETH that can be withdrawn in a single request."
+          },
+          "claimWithdrawals(uint256[],uint256[])": {
+            "notice": "Claim a batch of withdrawal requests if they are finalized sending locked ETH to the owner."
+          },
+          "findCheckpointHints(uint256[],uint256,uint256)": {
+            "notice": "Finds the list of hints for the given `_requestIds` searching among the checkpoints with indices in the range  `[_firstIndex, _lastIndex]`."
+          },
+          "getLastCheckpointIndex()": {
+            "notice": "Length of the checkpoint array. Last possible value for the hint."
+          },
+          "requestWithdrawals(uint256[],address)": {
+            "notice": "Request the batch of stETH for withdrawal. Approvals for the passed amounts should be done before."
+          }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        "@arbitrum/=node_modules/@arbitrum/",
+        "@chainlink/=node_modules/@chainlink/",
+        "@eth-optimism/=node_modules/@eth-optimism/",
+        "@offchainlabs/=node_modules/@offchainlabs/",
+        "@openzeppelin/=node_modules/@openzeppelin/",
+        "@prb/=node_modules/@prb/",
+        "@sablier/=node_modules/@sablier/",
+        "@scroll-tech/=node_modules/@scroll-tech/",
+        "@zksync/=node_modules/@zksync/",
+        "forge-std/=node_modules/forge-std/"
+      ],
+      "optimizer": { "enabled": true, "runs": 1000000 },
+      "metadata": { "bytecodeHash": "ipfs" },
+      "compilationTarget": {
+        "src/interfaces/external/ILidoWithdrawalQueue.sol": "ILidoWithdrawalQueue"
+      },
+      "evmVersion": "shanghai",
+      "libraries": {},
+      "viaIR": true
+    },
+    "sources": {
+      "src/interfaces/external/ILidoWithdrawalQueue.sol": {
+        "keccak256": "0x8b1fcfb51121595be6f4f7873f9a45ba48cc837e2dcb33c32af37db8aa653a15",
+        "urls": [
+          "bzz-raw://c7871ed24493c750fd5ac17c3d3d19a7f481bd88ebd33d72fee53ac72f2537bd",
+          "dweb:/ipfs/QmQdkMTBYFug8TGEUYiBxD7Db8CgLmxYep736bPUA5opYa"
+        ],
+        "license": "GPL-3.0-or-later"
+      }
+    },
+    "version": 1
+  },
+  "id": 91
+}

@@ -4,6 +4,7 @@ import { release as releaseV1_1 } from "./v1.1/index.js";
 import { release as releaseV1_2 } from "./v1.2/index.js";
 import { release as releaseV2_0 } from "./v2.0/index.js";
 import { release as releaseV3_0 } from "./v3.0/index.js";
+import { release as releaseV4_0 } from "./v4.0/index.js";
 
 export const lockup = {
   "v1.0": releaseV1_0,
@@ -11,4 +12,5 @@ export const lockup = {
   "v1.2": releaseV1_2,
   "v2.0": releaseV2_0,
   "v3.0": releaseV3_0,
+  "v4.0": releaseV4_0,
 } satisfies Record<Sablier.EVM.Version.Lockup, Sablier.EVM.Release>;

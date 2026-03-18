@@ -12,6 +12,7 @@ function getCatalog(): Sablier.EVM.ContractCatalog {
 
   _catalog = {
     [Protocol.Airdrops]: {},
+    [Protocol.Bob]: {},
     [Protocol.Flow]: {},
     [Protocol.Legacy]: {},
     [Protocol.Lockup]: {},
