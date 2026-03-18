@@ -116,7 +116,6 @@ The CREATE2 salts used during deployment:
 | Blast Sepolia     | ChainID 168587773, Version 1.0.0 |
 | Linea Sepolia     | No Salt                          |
 | Mode Sepolia      | No Salt                          |
-| Morph Holesky     | No Salt                          |
 | Optimism Sepolia  | ChainID 11155420, Version 1.0.0  |
 | Sepolia           | ChainID 11155111, Version 1.0.0  |
 | Superseed Sepolia | ChainID 53302, Version 1.0.0     |

@@ -40,8 +40,8 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 - **Breaking:** Replace `comptroller.abi` and `comptroller.manifest` with versioned entries under
   `comptroller.releases["v1.0"]` and `comptroller.releases["v2.0"]`
   ([`cdd32bc`](https://github.com/sablier-labs/sdk/commit/cdd32bc))
-- **Breaking:** Remove Blast Sepolia, Form, IoTeX, and Mode Testnet chain definitions and all associated deployments
-  ([#145](https://github.com/sablier-labs/sdk/issues/145))
+- **Breaking:** Remove Blast Sepolia, Form, IoTeX, Meld, Mode Testnet, Morph Holesky, Taiko Hekla chain definitions and
+  all associated deployments
 
 ### Added
 
@@ -56,8 +56,6 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 
 ### Fixed
 
-- Disable RouteMesh RPC for Form, Meld, and Taiko Hekla on unsupported chains
-  ([`0123fd2`](https://github.com/sablier-labs/sdk/commit/0123fd2db03fadfa142779fe32c309421ec0fafc))
 - Fix type mismatch in missing chains test helper by splitting `MISSING_CHAINS` into `MISSING_CHAIN_IDS` and
   `MISSING_CHAIN_SLUGS`
   ([`ad93cd3`](https://github.com/sablier-labs/sdk/commit/ad93cd30822212de7e41343005c705a2186f235a))

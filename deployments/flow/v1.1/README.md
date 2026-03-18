@@ -76,7 +76,6 @@ opcode:
 | Blast Sepolia    | ChainID 168587773, Version 1.1.0 |
 | Linea Sepolia    | ChainID 59141, Version 1.1.0     |
 | Mode Sepolia     | ChainID 919, Version 1.1.0       |
-| Morph Holesky    | ChainID 2810, Version 1.1.0      |
 | Monad Testnet    | ChainID 10143, Version 1.1.0     |
 | Optimism Sepolia | ChainID 11155420, Version 1.1.0  |
 | Sepolia          | ChainID 11155111, Version 1.1.0  |
