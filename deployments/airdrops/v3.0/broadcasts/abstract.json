@@ -805,7 +805,28 @@
   ],
   "libraries": [],
   "pending": [],
-  "returns": {},
+  "returns": {
+    "factoryMerkleExecute": {
+      "internal_type": "contract SablierFactoryMerkleExecute",
+      "value": "0x8D9C6a53893372E95D61decec80AFD696bb36D4D"
+    },
+    "factoryMerkleInstant": {
+      "internal_type": "contract SablierFactoryMerkleInstant",
+      "value": "0x3a310776ABF7741719d2d61d0937004021575469"
+    },
+    "factoryMerkleLL": {
+      "internal_type": "contract SablierFactoryMerkleLL",
+      "value": "0xf0340224A37146F59901BD8C5e8632E3519a1E16"
+    },
+    "factoryMerkleLT": {
+      "internal_type": "contract SablierFactoryMerkleLT",
+      "value": "0x8B5BC2d3FE5EB515594aCEC7E30E5009dc699Bff"
+    },
+    "factoryMerkleVCA": {
+      "internal_type": "contract SablierFactoryMerkleVCA",
+      "value": "0xEBd2e17C86a6eA828B6FE6e6ce665fF118746Aec"
+    }
+  },
   "timestamp": 1773765925197,
   "chain": 2741,
   "commit": "5ec262e1"

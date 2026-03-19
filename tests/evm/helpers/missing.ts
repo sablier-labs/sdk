@@ -10,12 +10,6 @@ type InvalidBroadcastMap = Partial<
   Record<Sablier.EVM.Protocol, Partial<Record<Sablier.EVM.Version, number[]>>>
 >;
 
-const MISSING_AIRDROPS: VersionMap = {
-  "v3.0": {
-    [chains.abstract.id]: ["all"],
-  },
-};
-
 const MISSING_FLOW: VersionMap = {
   "v1.0": {
     [chains.lightlink.id]: ["all"],
@@ -25,9 +19,6 @@ const MISSING_FLOW: VersionMap = {
   "v1.1": {
     [chains.superseed.id]: ["all"],
     [chains.superseedSepolia.id]: ["all"],
-  },
-  "v3.0": {
-    [chains.hyperevm.id]: ["all"],
   },
 };
 
@@ -77,7 +68,6 @@ const MISSING_LOCKUP: VersionMap = {
 };
 
 const MISSING_CONTRACTS: ProtocolMap = {
-  airdrops: MISSING_AIRDROPS,
   flow: MISSING_FLOW,
   lockup: MISSING_LOCKUP,
 };
