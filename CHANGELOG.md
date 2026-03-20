@@ -9,6 +9,7 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 > Starting with v2.0.0, this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). In v1.x, it
 > did not always follow Semantic Versioning.
 
+[3.2.0]: https://github.com/sablier-labs/sdk/releases/tag/v3.2.0
 [3.1.0]: https://github.com/sablier-labs/sdk/releases/tag/v3.1.0
 [3.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v3.0.0
 [2.0.4]: https://github.com/sablier-labs/sdk/releases/tag/v2.0.4
@@ -31,6 +32,18 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 [1.2.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.2.0
 [1.1.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.1.0
 [1.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.0.0
+
+## [3.2.0] - 2026-03-20
+
+### Added
+
+- Add `linearStepper` airdrop shape using MerkleLL with the granularity feature from Airdrops v3.0
+  ([`5984b3e`](https://github.com/sablier-labs/sdk/commit/5984b3e))
+
+### Changed
+
+- Deprecate `tranchedStepper` airdrop shape in favor of `linearStepper`
+  ([`5984b3e`](https://github.com/sablier-labs/sdk/commit/5984b3e))
 
 ## [3.1.0] - 2026-03-20
 
