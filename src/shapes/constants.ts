@@ -187,6 +187,15 @@ export const AIRDROP_EVM_LL = [
   },
 ] as const satisfies readonly ContractMethod[];
 
+/** Airdrop Linear (LL) factory contracts - v3.0+ only (granularity feature) */
+export const AIRDROP_EVM_LL_V3 = [
+  {
+    contract: "SablierFactoryMerkleLL",
+    createMethods: ["createMerkleLL"],
+    version: Version.Airdrops.V3_0,
+  },
+] as const satisfies readonly ContractMethod[];
+
 /** Airdrop Linear (LL) factory contracts - v2.0+ only */
 export const AIRDROP_EVM_LL_V2 = [
   {

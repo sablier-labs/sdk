@@ -147,9 +147,9 @@ describe("shapes", () => {
   });
 
   describe("airdrop shapes", () => {
-    it("exports all 7 airdrop shapes", () => {
+    it("exports all 8 airdrop shapes", () => {
       const shapeIds = Object.keys(shapes.airdrops);
-      expect(shapeIds).toHaveLength(7);
+      expect(shapeIds).toHaveLength(8);
     });
 
     it("has correct shape IDs", () => {
@@ -158,6 +158,7 @@ describe("shapes", () => {
       expect(shapes.airdrops.cliff.id).toBe(Shape.Airdrops.Cliff);
       expect(shapes.airdrops.linearUnlockLinear.id).toBe(Shape.Airdrops.LinearUnlockLinear);
       expect(shapes.airdrops.linearUnlockCliff.id).toBe(Shape.Airdrops.LinearUnlockCliff);
+      expect(shapes.airdrops.linearStepper.id).toBe(Shape.Airdrops.LinearStepper);
       expect(shapes.airdrops.tranchedStepper.id).toBe(Shape.Airdrops.TranchedStepper);
       expect(shapes.airdrops.variableClaimAmount.id).toBe(Shape.Airdrops.VariableClaimAmount);
     });
@@ -197,6 +198,15 @@ describe("shapes", () => {
       expect(v2Contract?.createMethods).toContain("createMerkleVCA");
     });
 
+    it("linearStepper maps to v3.0 SablierFactoryMerkleLL", () => {
+      const v3Contract = shapes.airdrops.linearStepper.evm.find((c) => c.version === "v3.0");
+      expect(v3Contract).toBeDefined();
+      expect(v3Contract?.contract).toBe("SablierFactoryMerkleLL");
+      expect(v3Contract?.createMethods).toContain("createMerkleLL");
+      // v3.0-only: no v2.0 mapping
+      expect(shapes.airdrops.linearStepper.evm.find((c) => c.version === "v2.0")).toBeUndefined();
+    });
+
     it("tranchedStepper shape maps to SablierFactoryMerkleLT", () => {
       const v2Contract = shapes.airdrops.tranchedStepper.evm.find((c) => c.version === "v2.0");
       expect(v2Contract).toBeDefined();
@@ -231,6 +241,7 @@ describe("shapes", () => {
       expect(Shape.Airdrops.Cliff).toBe("cliff");
       expect(Shape.Airdrops.LinearUnlockLinear).toBe("linearUnlockLinear");
       expect(Shape.Airdrops.LinearUnlockCliff).toBe("linearUnlockCliff");
+      expect(Shape.Airdrops.LinearStepper).toBe("linearStepper");
       expect(Shape.Airdrops.TranchedStepper).toBe("tranchedStepper");
       expect(Shape.Airdrops.VariableClaimAmount).toBe("variableClaimAmount");
     });
@@ -347,8 +358,8 @@ describe("shapes", () => {
       expect(flowShapeIds).toContain(Shape.Flow.Flow);
     });
 
-    it("airdropShapeIds contains all 7 airdrop shapes", () => {
-      expect(airdropShapeIds).toHaveLength(7);
+    it("airdropShapeIds contains all 8 airdrop shapes", () => {
+      expect(airdropShapeIds).toHaveLength(8);
       expect(airdropShapeIds).toContain(Shape.Airdrops.Instant);
       expect(airdropShapeIds).toContain(Shape.Airdrops.Linear);
       expect(airdropShapeIds).toContain(Shape.Airdrops.TranchedStepper);
@@ -571,10 +582,10 @@ describe("shapes", () => {
       }
     });
 
-    it("all airdrop shapes are not deprecated", () => {
-      for (const shape of Object.values(shapes.airdrops)) {
-        expect(shape.isDeprecated).toBe(false);
-      }
+    it("marks exactly 1 airdrop shape as deprecated", () => {
+      const deprecatedShapes = Object.values(shapes.airdrops).filter((s) => s.isDeprecated);
+      expect(deprecatedShapes).toHaveLength(1);
+      expect(deprecatedShapes[0]?.id).toBe(Shape.Airdrops.TranchedStepper);
     });
   });
 
@@ -612,6 +623,7 @@ describe("shapes", () => {
       const llShapes = [
         shapes.airdrops.linear,
         shapes.airdrops.cliff,
+        shapes.airdrops.linearStepper,
         shapes.airdrops.linearUnlockLinear,
         shapes.airdrops.linearUnlockCliff,
       ];

@@ -8,6 +8,7 @@ import {
   AIRDROP_EVM_INSTANT,
   AIRDROP_EVM_LL,
   AIRDROP_EVM_LL_V2,
+  AIRDROP_EVM_LL_V3,
   AIRDROP_EVM_LT,
   AIRDROP_EVM_VCA,
   AIRDROP_SOLANA_INSTANT,
@@ -73,13 +74,27 @@ const linearUnlockCliff = defineAirdropShape(Shape.Airdrops.LinearUnlockCliff, {
 });
 
 /**
+ * Step-based airdrop via linear granularity.
+ * Claimed tokens unlock in discrete steps at regular intervals using MerkleLL with granularity.
+ *
+ * @remarks
+ * Replaces {@link tranchedStepper} by leveraging the granularity feature introduced in Airdrops v3.0.
+ */
+const linearStepper = defineAirdropShape(Shape.Airdrops.LinearStepper, {
+  evm: AIRDROP_EVM_LL_V3,
+  hasPredictableGas: true,
+  isDeprecated: false,
+  name: "Linear Stepper",
+});
+
+/**
  * Step-based airdrop via tranches.
  * Claimed tokens unlock in discrete steps.
  */
 const tranchedStepper = defineAirdropShape(Shape.Airdrops.TranchedStepper, {
   evm: AIRDROP_EVM_LT,
   hasPredictableGas: false,
-  isDeprecated: false,
+  isDeprecated: true,
   name: "Tranched Stepper",
 });
 
@@ -102,6 +117,7 @@ export const airdropShapes = {
   [Shape.Airdrops.Cliff]: cliff,
   [Shape.Airdrops.Instant]: instant,
   [Shape.Airdrops.Linear]: linear,
+  [Shape.Airdrops.LinearStepper]: linearStepper,
   [Shape.Airdrops.LinearUnlockCliff]: linearUnlockCliff,
   [Shape.Airdrops.LinearUnlockLinear]: linearUnlockLinear,
   [Shape.Airdrops.TranchedStepper]: tranchedStepper,
