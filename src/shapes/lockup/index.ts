@@ -32,6 +32,7 @@ export const lockupShapes = {
   /* -------------------------------------------------------------------------- */
   [Shape.Lockup.Cliff]: linear.cliff,
   [Shape.Lockup.Linear]: linear.linear,
+  [Shape.Lockup.LinearStepper]: linear.linearStepper,
   [Shape.Lockup.LinearTimelock]: linear.linearTimelock,
   [Shape.Lockup.LinearUnlockCliff]: linear.linearUnlockCliff,
   [Shape.Lockup.LinearUnlockLinear]: linear.linearUnlockLinear,

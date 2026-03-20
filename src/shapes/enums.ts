@@ -10,6 +10,7 @@ export namespace Shape {
     TranchedTimelock = "tranchedTimelock",
     LinearUnlockLinear = "linearUnlockLinear",
     LinearUnlockCliff = "linearUnlockCliff",
+    LinearStepper = "linearStepper",
     LinearTimelock = "linearTimelock",
     DynamicTimelock = "dynamicTimelock",
     DynamicMonthly = "dynamicMonthly",

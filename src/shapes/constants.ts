@@ -36,6 +36,11 @@ export const LOCKUP_EVM_LL_V2 = [
   { contract: "SablierLockup", createMethods: LL_METHODS, version: Version.Lockup.V2_0 },
 ] as const satisfies readonly ContractMethod[];
 
+/** Lockup Linear contracts - v4.0+ only (granularity feature) */
+export const LOCKUP_EVM_LL_V4 = [
+  { contract: "SablierLockup", createMethods: LL_METHODS, version: Version.Lockup.V4_0 },
+] as const satisfies readonly ContractMethod[];
+
 /** Solana Lockup Linear program */
 export const LOCKUP_SOLANA_LL = [
   {

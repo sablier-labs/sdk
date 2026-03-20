@@ -15,11 +15,15 @@ import { defineLockupShape } from "../types.js";
 /**
  * Step-based vesting via tranches.
  * Tokens unlock in discrete steps at regular intervals.
+ *
+ * @remarks
+ * Deprecated in favor of {@link linearStepper}, which uses LockupLinear with the
+ * granularity feature introduced in Lockup v4.0.
  */
 export const tranchedStepper = defineLockupShape(Shape.Lockup.TranchedStepper, {
   evm: LOCKUP_EVM_LT,
   hasPredictableGas: false,
-  isDeprecated: false,
+  isDeprecated: true,
   name: "Tranched Stepper",
 });
 

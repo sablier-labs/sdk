@@ -28,9 +28,9 @@ import {
 
 describe("shapes", () => {
   describe("lockup shapes", () => {
-    it("exports all 17 lockup shapes", () => {
+    it("exports all 18 lockup shapes", () => {
       const shapeIds = Object.keys(shapes.lockup);
-      expect(shapeIds).toHaveLength(17);
+      expect(shapeIds).toHaveLength(18);
     });
 
     it("has correct shape IDs", () => {
@@ -39,6 +39,7 @@ describe("shapes", () => {
       expect(shapes.lockup.cliff.id).toBe(Shape.Lockup.Cliff);
       expect(shapes.lockup.linearUnlockLinear.id).toBe(Shape.Lockup.LinearUnlockLinear);
       expect(shapes.lockup.linearUnlockCliff.id).toBe(Shape.Lockup.LinearUnlockCliff);
+      expect(shapes.lockup.linearStepper.id).toBe(Shape.Lockup.LinearStepper);
       expect(shapes.lockup.linearTimelock.id).toBe(Shape.Lockup.LinearTimelock);
       // LD shapes
       expect(shapes.lockup.dynamicExponential.id).toBe(Shape.Lockup.DynamicExponential);
@@ -97,6 +98,16 @@ describe("shapes", () => {
         expect(v3Contract?.createMethods).toContain("createWithDurationsLD");
         expect(v3Contract?.createMethods).toContain("createWithTimestampsLD");
       }
+    });
+
+    it("linearStepper maps to v4.0 SablierLockup with LL methods", () => {
+      const v4Contract = shapes.lockup.linearStepper.evm.find((c) => c.version === "v4.0");
+      expect(v4Contract).toBeDefined();
+      expect(v4Contract?.contract).toBe("SablierLockup");
+      expect(v4Contract?.createMethods).toContain("createWithDurationsLL");
+      expect(v4Contract?.createMethods).toContain("createWithTimestampsLL");
+      // v4.0-only: no v3.0 mapping
+      expect(shapes.lockup.linearStepper.evm.find((c) => c.version === "v3.0")).toBeUndefined();
     });
 
     it("LT shapes map to v3.0 SablierLockup with LT methods", () => {
@@ -206,6 +217,7 @@ describe("shapes", () => {
       expect(Shape.Lockup.TranchedTimelock).toBe("tranchedTimelock");
       expect(Shape.Lockup.LinearUnlockLinear).toBe("linearUnlockLinear");
       expect(Shape.Lockup.LinearUnlockCliff).toBe("linearUnlockCliff");
+      expect(Shape.Lockup.LinearStepper).toBe("linearStepper");
       expect(Shape.Lockup.DynamicDoubleUnlock).toBe("dynamicDoubleUnlock");
     });
 
@@ -256,7 +268,7 @@ describe("shapes", () => {
   describe("helper functions", () => {
     it("getEvmShapesByVersion returns shapes available for v3.0", () => {
       const v3Shapes = getEvmShapesByVersion(shapes.lockup, "v3.0");
-      expect(v3Shapes.length).toBe(17); // All lockup shapes support v3.0
+      expect(v3Shapes.length).toBe(17); // All lockup shapes except linearStepper (v4.0-only)
     });
 
     it("getEvmShapesByVersion returns shapes available for v1.2", () => {
@@ -323,8 +335,8 @@ describe("shapes", () => {
   });
 
   describe("shape ID arrays", () => {
-    it("lockupShapeIds contains all 17 lockup shapes", () => {
-      expect(lockupShapeIds).toHaveLength(17);
+    it("lockupShapeIds contains all 18 lockup shapes", () => {
+      expect(lockupShapeIds).toHaveLength(18);
       expect(lockupShapeIds).toContain(Shape.Lockup.Linear);
       expect(lockupShapeIds).toContain(Shape.Lockup.Cliff);
       expect(lockupShapeIds).toContain(Shape.Lockup.TranchedStepper);
@@ -539,11 +551,12 @@ describe("shapes", () => {
       Shape.Lockup.DynamicTimelock,
       Shape.Lockup.DynamicUnlockCliff,
       Shape.Lockup.DynamicUnlockLinear,
+      Shape.Lockup.TranchedStepper,
     ];
 
-    it("marks exactly 5 lockup shapes as deprecated", () => {
+    it("marks exactly 6 lockup shapes as deprecated", () => {
       const deprecatedShapes = Object.values(shapes.lockup).filter((s) => s.isDeprecated);
-      expect(deprecatedShapes).toHaveLength(5);
+      expect(deprecatedShapes).toHaveLength(6);
     });
 
     it("marks only specified shapes as deprecated", () => {

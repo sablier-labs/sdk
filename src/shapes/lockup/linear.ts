@@ -5,7 +5,12 @@
  * EVM contract configurations.
  */
 
-import { LOCKUP_EVM_LL, LOCKUP_EVM_LL_V2, LOCKUP_SOLANA_LL } from "../constants.js";
+import {
+  LOCKUP_EVM_LL,
+  LOCKUP_EVM_LL_V2,
+  LOCKUP_EVM_LL_V4,
+  LOCKUP_SOLANA_LL,
+} from "../constants.js";
 import { Shape } from "../enums.js";
 import { defineLockupShape } from "../types.js";
 
@@ -55,6 +60,20 @@ export const linearUnlockCliff = defineLockupShape(Shape.Lockup.LinearUnlockClif
   isDeprecated: false,
   name: "Linear Unlock Cliff",
   solana: LOCKUP_SOLANA_LL,
+});
+
+/**
+ * Step-based vesting via linear granularity.
+ * Tokens vest in discrete steps at regular intervals using LockupLinear with granularity.
+ *
+ * @remarks
+ * Replaces {@link tranchedStepper} by leveraging the granularity feature introduced in Lockup v4.0.
+ */
+export const linearStepper = defineLockupShape(Shape.Lockup.LinearStepper, {
+  evm: LOCKUP_EVM_LL_V4,
+  hasPredictableGas: true,
+  isDeprecated: false,
+  name: "Linear Stepper",
 });
 
 /**
