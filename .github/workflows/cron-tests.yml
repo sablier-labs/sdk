@@ -10,22 +10,20 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: "Set up devkit"
-        uses: "sablier-labs/devkit/actions/setup@v1"
-        with:
-          package-manager: "bun"
+      - name: Set up devkit
+        uses: sablier-labs/devkit/actions/setup@v1
 
-      - name: "Check the code"
-        run: "just full-check"
+      - name: Check the code
+        run: just full-check
 
-      - name: "Run the tests"
+      - name: Run the tests
         id: tests
         continue-on-error: true
         env:
           VITE_CRON_TESTS: true
           VITE_ETHERSCAN_API_KEY: ${{ secrets.VITE_ETHERSCAN_API_KEY }}
-        run: "just test"
+        run: just test
 
-      - name: "Generate test summary"
+      - name: Generate test summary
         if: always()
-        run: "bun run ./scripts/summarize-test-failures.ts >> $GITHUB_STEP_SUMMARY"
+        run: bun run ./scripts/summarize-test-failures.ts >> $GITHUB_STEP_SUMMARY

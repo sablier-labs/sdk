@@ -1,4 +1,4 @@
-name: "CI"
+name: CI
 
 concurrency:
   cancel-in-progress: true
@@ -7,34 +7,36 @@ concurrency:
 on:
   pull_request:
   push:
-    branches: ["main"]
+    branches: [main]
 
 jobs:
   ci:
-    runs-on: "ubuntu-latest"
+    runs-on: ubuntu-latest
     steps:
-      - uses: "sablier-labs/devkit/actions/setup@v1"
+      - uses: sablier-labs/devkit/actions/setup@v1
+        with:
+          save-cache: true
 
-      - name: "Run the code checks"
-        run: "just full-check"
+      - name: Run the code checks
+        run: just full-check
 
-      - name: "Run the tests"
+      - name: Run the tests
         env:
           VITE_ETHERSCAN_API_KEY: ${{ secrets.VITE_ETHERSCAN_API_KEY }}
-        run: "just test"
+        run: just test
 
-      - name: "Add summary"
+      - name: Add summary
         run: | # shell
           echo "## CI result" >> $GITHUB_STEP_SUMMARY
           echo "✅ Passed" >> $GITHUB_STEP_SUMMARY
 
   csv-check:
-    runs-on: "macos-latest"
+    runs-on: macos-latest
     steps:
-      - uses: "sablier-labs/devkit/actions/setup@v1"
+      - uses: sablier-labs/devkit/actions/setup@v1
 
-      - name: "Install qsv via Homebrew"
-        run: "brew install qsv"
+      - name: Install qsv via Homebrew
+        run: brew install qsv
 
-      - name: "Validate CSV templates"
-        run: "just csv-check"
+      - name: Validate CSV templates
+        run: just csv-check
