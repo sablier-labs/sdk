@@ -42,6 +42,7 @@ The format is based on [Common Changelog](https://common-changelog.org/).
   ([`cdd32bc`](https://github.com/sablier-labs/sdk/commit/cdd32bc))
 - **Breaking:** Remove Blast Sepolia, Form, IoTeX, Meld, Mode Testnet, Morph Holesky, Taiko Hekla, Ultra chain
   definitions and all associated deployments
+- Mark some chains as no longer supported in the UI (Blast, Core DAO, Sei, Sophon)
 
 ### Added
 
