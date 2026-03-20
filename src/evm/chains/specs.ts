@@ -169,6 +169,7 @@ export const chainSpecs = {
     base: _blast,
     meta: {
       coinGeckoPlatformId: "blast",
+      ui: "NOT_SUPPORTED",
     },
     nativeCurrency: {
       coinGeckoId: COIN_GECKO.eth,
@@ -228,6 +229,7 @@ export const chainSpecs = {
     meta: {
       coinGeckoPlatformId: "core",
       slug: "core-dao",
+      ui: "NOT_SUPPORTED",
     },
     nativeCurrency: {
       coinGeckoId: "coredaoorg",
@@ -486,6 +488,7 @@ export const chainSpecs = {
     base: _sei,
     meta: {
       coinGeckoPlatformId: "sei-v2",
+      ui: "NOT_SUPPORTED",
     },
     nativeCurrency: {
       coinGeckoId: "sei-network",
@@ -546,6 +549,7 @@ export const chainSpecs = {
     meta: {
       coinGeckoPlatformId: "sophon",
       isZk: true,
+      ui: "NOT_SUPPORTED",
     },
     nativeCurrency: {
       coinGeckoId: "sophon",
