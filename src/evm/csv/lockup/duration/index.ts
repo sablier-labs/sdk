@@ -38,6 +38,12 @@ export type DynamicDoubleUnlockColumns = LinearColumns & {
  */
 export type DynamicExponentialColumns = LinearColumns;
 
+/** Linear stepper with duration: address, amount, duration, granularity */
+export type LinearStepperColumns = LinearColumns & {
+  /** Step granularity (daily, weekly, or yearly) */
+  granularity: string;
+};
+
 /** Tranched stepper with duration: address, amount, duration, stepCount */
 export type TranchedStepperColumns = LinearColumns & {
   /** Number of discrete unlock steps */
@@ -69,11 +75,12 @@ export type LinearUnlockLinearColumns = LinearColumns & {
 /** All duration template column types */
 export type Columns =
   | CliffColumns
-  | DynamicDoubleUnlockColumns
   | DynamicCliffExponentialColumns
+  | DynamicDoubleUnlockColumns
   | DynamicExponentialColumns
   | LinearColumns
-  | TranchedStepperColumns
-  | TranchedTimelockColumns
+  | LinearStepperColumns
   | LinearUnlockCliffColumns
-  | LinearUnlockLinearColumns;
+  | LinearUnlockLinearColumns
+  | TranchedStepperColumns
+  | TranchedTimelockColumns;

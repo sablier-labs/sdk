@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Range Linear Stepper CSV Schema",
+  "description": "Schema for linear stepper vesting with absolute timestamps",
+  "type": "object",
+  "properties": {
+    "address": {
+      "$ref": "../../common.schema.json#/$defs/address"
+    },
+    "amount": {
+      "$ref": "../../common.schema.json#/$defs/amount"
+    },
+    "startAt": {
+      "$ref": "../../common.schema.json#/$defs/timestamp"
+    },
+    "endAt": {
+      "$ref": "../../common.schema.json#/$defs/timestamp"
+    },
+    "granularity": {
+      "$ref": "../../common.schema.json#/$defs/granularity"
+    }
+  },
+  "required": ["address", "amount", "startAt", "endAt", "granularity"],
+  "additionalProperties": false
+}

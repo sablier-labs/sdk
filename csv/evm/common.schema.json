@@ -32,6 +32,11 @@
       "type": "string",
       "pattern": "^[0-9]+(;[0-9]+)*$",
       "description": "Semicolon-separated unlock percentages (e.g., '10;20;30;40')"
+    },
+    "granularity": {
+      "type": "string",
+      "enum": ["daily", "weekly", "yearly"],
+      "description": "Step granularity for linear stepper vesting"
     }
   }
 }

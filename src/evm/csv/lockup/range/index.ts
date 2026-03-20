@@ -59,6 +59,12 @@ export type TranchedMonthlyColumns = BaseColumns & {
   monthCount: string;
 };
 
+/** Linear stepper with range: address, amount, startAt, endAt, granularity */
+export type LinearStepperColumns = LinearColumns & {
+  /** Step granularity (daily, weekly, or yearly) */
+  granularity: string;
+};
+
 /** Tranched stepper with range: address, amount, startAt, endAt, stepCount */
 export type TranchedStepperColumns = LinearColumns & {
   /** Number of discrete unlock steps */
@@ -95,6 +101,7 @@ export type Columns =
   | DynamicCliffExponentialColumns
   | DynamicExponentialColumns
   | LinearColumns
+  | LinearStepperColumns
   | TranchedMonthlyColumns
   | TranchedStepperColumns
   | TranchedTimelockColumns
