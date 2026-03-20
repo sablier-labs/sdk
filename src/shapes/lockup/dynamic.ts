@@ -5,7 +5,7 @@
  * segment-based vesting curves.
  */
 
-import { LOCKUP_EVM_LD } from "../constants.js";
+import { LOCKUP_EVM_LD } from "../contracts.js";
 import { Shape } from "../enums.js";
 import { defineLockupShape } from "../types.js";
 

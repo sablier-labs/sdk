@@ -8,7 +8,7 @@
  * LockupTranched was introduced in v1.2 (July 2024).
  */
 
-import { LOCKUP_EVM_LT } from "../constants.js";
+import { LOCKUP_EVM_LT } from "../contracts.js";
 import { Shape } from "../enums.js";
 import { defineLockupShape } from "../types.js";
 

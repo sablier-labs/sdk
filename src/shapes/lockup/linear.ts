@@ -7,10 +7,10 @@
 
 import {
   LOCKUP_EVM_LL,
-  LOCKUP_EVM_LL_V2,
-  LOCKUP_EVM_LL_V4,
   LOCKUP_SOLANA_LL,
-} from "../constants.js";
+  LOCKUP_V2_EVM_LL,
+  LOCKUP_V4_EVM_LL,
+} from "../contracts.js";
 import { Shape } from "../enums.js";
 import { defineLockupShape } from "../types.js";
 
@@ -43,7 +43,7 @@ export const cliff = defineLockupShape(Shape.Lockup.Cliff, {
  * A percentage unlocks immediately, remainder vests linearly.
  */
 export const linearUnlockLinear = defineLockupShape(Shape.Lockup.LinearUnlockLinear, {
-  evm: LOCKUP_EVM_LL_V2,
+  evm: LOCKUP_V2_EVM_LL,
   hasPredictableGas: true,
   isDeprecated: false,
   name: "Linear Unlock Linear",
@@ -55,7 +55,7 @@ export const linearUnlockLinear = defineLockupShape(Shape.Lockup.LinearUnlockLin
  * A percentage unlocks immediately, remainder vests after cliff.
  */
 export const linearUnlockCliff = defineLockupShape(Shape.Lockup.LinearUnlockCliff, {
-  evm: LOCKUP_EVM_LL_V2,
+  evm: LOCKUP_V2_EVM_LL,
   hasPredictableGas: true,
   isDeprecated: false,
   name: "Linear Unlock Cliff",
@@ -70,7 +70,7 @@ export const linearUnlockCliff = defineLockupShape(Shape.Lockup.LinearUnlockClif
  * Replaces {@link tranchedStepper} by leveraging the granularity feature introduced in Lockup v4.0.
  */
 export const linearStepper = defineLockupShape(Shape.Lockup.LinearStepper, {
-  evm: LOCKUP_EVM_LL_V4,
+  evm: LOCKUP_V4_EVM_LL,
   hasPredictableGas: true,
   isDeprecated: false,
   name: "Linear Stepper",
@@ -81,7 +81,7 @@ export const linearStepper = defineLockupShape(Shape.Lockup.LinearStepper, {
  * All tokens unlock at a specific timestamp (no gradual vesting).
  */
 export const linearTimelock = defineLockupShape(Shape.Lockup.LinearTimelock, {
-  evm: LOCKUP_EVM_LL_V2,
+  evm: LOCKUP_V2_EVM_LL,
   hasPredictableGas: true,
   isDeprecated: false,
   name: "Linear Timelock",

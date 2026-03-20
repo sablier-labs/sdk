@@ -30,14 +30,14 @@ export const LOCKUP_EVM_LL = [
 ] as const satisfies readonly ContractMethod[];
 
 /** Lockup Linear contracts - v2.0+ only */
-export const LOCKUP_EVM_LL_V2 = [
+export const LOCKUP_V2_EVM_LL = [
   { contract: "SablierLockup", createMethods: LL_METHODS, version: Version.Lockup.V4_0 },
   { contract: "SablierLockup", createMethods: LL_METHODS, version: Version.Lockup.V3_0 },
   { contract: "SablierLockup", createMethods: LL_METHODS, version: Version.Lockup.V2_0 },
 ] as const satisfies readonly ContractMethod[];
 
 /** Lockup Linear contracts - v4.0+ only (granularity feature) */
-export const LOCKUP_EVM_LL_V4 = [
+export const LOCKUP_V4_EVM_LL = [
   { contract: "SablierLockup", createMethods: LL_METHODS, version: Version.Lockup.V4_0 },
 ] as const satisfies readonly ContractMethod[];
 
@@ -127,11 +127,11 @@ export const FLOW_EVM = [
 ] as const satisfies readonly ContractMethod[];
 
 /* -------------------------------------------------------------------------- */
-/*                            AIRDROP CONTRACTS                               */
+/*                           AIRDROPS CONTRACTS                               */
 /* -------------------------------------------------------------------------- */
 
-/** Airdrop Instant factory contracts - v1.3+ */
-export const AIRDROP_EVM_INSTANT = [
+/** Airdrops Instant factory contracts - v1.3+ */
+export const AIRDROPS_EVM_INSTANT = [
   {
     contract: "SablierFactoryMerkleInstant",
     createMethods: ["createMerkleInstant"],
@@ -149,8 +149,8 @@ export const AIRDROP_EVM_INSTANT = [
   },
 ] as const satisfies readonly ContractMethod[];
 
-/** Solana Airdrop Instant program */
-export const AIRDROP_SOLANA_INSTANT = [
+/** Solana Airdrops Instant program */
+export const AIRDROPS_SOLANA_INSTANT = [
   {
     createMethods: ["create_campaign"],
     program: "SablierMerkleInstant",
@@ -158,8 +158,8 @@ export const AIRDROP_SOLANA_INSTANT = [
   },
 ] as const satisfies readonly ProgramMethod[];
 
-/** Airdrop Linear (LL) factory contracts - full history */
-export const AIRDROP_EVM_LL = [
+/** Airdrops Linear (LL) factory contracts - full history */
+export const AIRDROPS_EVM_LL = [
   {
     contract: "SablierFactoryMerkleLL",
     createMethods: ["createMerkleLL"],
@@ -187,8 +187,8 @@ export const AIRDROP_EVM_LL = [
   },
 ] as const satisfies readonly ContractMethod[];
 
-/** Airdrop Linear (LL) factory contracts - v3.0+ only (granularity feature) */
-export const AIRDROP_EVM_LL_V3 = [
+/** Airdrops Linear (LL) factory contracts - v3.0+ only (granularity feature) */
+export const AIRDROPS_V3_EVM_LL = [
   {
     contract: "SablierFactoryMerkleLL",
     createMethods: ["createMerkleLL"],
@@ -196,8 +196,8 @@ export const AIRDROP_EVM_LL_V3 = [
   },
 ] as const satisfies readonly ContractMethod[];
 
-/** Airdrop Linear (LL) factory contracts - v2.0+ only */
-export const AIRDROP_EVM_LL_V2 = [
+/** Airdrops Linear (LL) factory contracts - v2.0+ only */
+export const AIRDROPS_V2_EVM_LL = [
   {
     contract: "SablierFactoryMerkleLL",
     createMethods: ["createMerkleLL"],
@@ -210,8 +210,8 @@ export const AIRDROP_EVM_LL_V2 = [
   },
 ] as const satisfies readonly ContractMethod[];
 
-/** Airdrop VCA factory contracts - v2.0+ */
-export const AIRDROP_EVM_VCA = [
+/** Airdrops VCA factory contracts - v2.0+ */
+export const AIRDROPS_EVM_VCA = [
   {
     contract: "SablierFactoryMerkleVCA",
     createMethods: ["createMerkleVCA"],
@@ -224,8 +224,8 @@ export const AIRDROP_EVM_VCA = [
   },
 ] as const satisfies readonly ContractMethod[];
 
-/** Airdrop Tranched (LT) factory contracts - v1.2+ */
-export const AIRDROP_EVM_LT = [
+/** Airdrops Tranched (LT) factory contracts - v1.2+ */
+export const AIRDROPS_EVM_LT = [
   {
     contract: "SablierFactoryMerkleLT",
     createMethods: ["createMerkleLT"],

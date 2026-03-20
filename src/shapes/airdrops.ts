@@ -5,14 +5,14 @@
  */
 
 import {
-  AIRDROP_EVM_INSTANT,
-  AIRDROP_EVM_LL,
-  AIRDROP_EVM_LL_V2,
-  AIRDROP_EVM_LL_V3,
-  AIRDROP_EVM_LT,
-  AIRDROP_EVM_VCA,
-  AIRDROP_SOLANA_INSTANT,
-} from "./constants.js";
+  AIRDROPS_EVM_INSTANT,
+  AIRDROPS_EVM_LL,
+  AIRDROPS_EVM_LT,
+  AIRDROPS_EVM_VCA,
+  AIRDROPS_SOLANA_INSTANT,
+  AIRDROPS_V2_EVM_LL,
+  AIRDROPS_V3_EVM_LL,
+} from "./contracts.js";
 import { Shape } from "./enums.js";
 import type { AirdropShapesRecord } from "./types.js";
 import { defineAirdropShape } from "./types.js";
@@ -22,11 +22,11 @@ import { defineAirdropShape } from "./types.js";
  * Tokens are claimable immediately with no vesting.
  */
 const instant = defineAirdropShape(Shape.Airdrops.Instant, {
-  evm: AIRDROP_EVM_INSTANT,
+  evm: AIRDROPS_EVM_INSTANT,
   hasPredictableGas: true,
   isDeprecated: false,
   name: "Instant",
-  solana: AIRDROP_SOLANA_INSTANT,
+  solana: AIRDROPS_SOLANA_INSTANT,
 });
 
 /**
@@ -34,7 +34,7 @@ const instant = defineAirdropShape(Shape.Airdrops.Instant, {
  * Claimed tokens vest linearly from start to end.
  */
 const linear = defineAirdropShape(Shape.Airdrops.Linear, {
-  evm: AIRDROP_EVM_LL,
+  evm: AIRDROPS_EVM_LL,
   hasPredictableGas: true,
   isDeprecated: false,
   name: "Linear",
@@ -45,7 +45,7 @@ const linear = defineAirdropShape(Shape.Airdrops.Linear, {
  * Claimed tokens vest with a cliff period followed by linear vesting.
  */
 const cliff = defineAirdropShape(Shape.Airdrops.Cliff, {
-  evm: AIRDROP_EVM_LL,
+  evm: AIRDROPS_EVM_LL,
   hasPredictableGas: true,
   isDeprecated: false,
   name: "Cliff",
@@ -56,7 +56,7 @@ const cliff = defineAirdropShape(Shape.Airdrops.Cliff, {
  * A percentage is immediately available, remainder vests linearly.
  */
 const linearUnlockLinear = defineAirdropShape(Shape.Airdrops.LinearUnlockLinear, {
-  evm: AIRDROP_EVM_LL_V2,
+  evm: AIRDROPS_V2_EVM_LL,
   hasPredictableGas: true,
   isDeprecated: false,
   name: "Linear Unlock Linear",
@@ -67,7 +67,7 @@ const linearUnlockLinear = defineAirdropShape(Shape.Airdrops.LinearUnlockLinear,
  * A percentage is immediately available, remainder vests after cliff.
  */
 const linearUnlockCliff = defineAirdropShape(Shape.Airdrops.LinearUnlockCliff, {
-  evm: AIRDROP_EVM_LL_V2,
+  evm: AIRDROPS_V2_EVM_LL,
   hasPredictableGas: true,
   isDeprecated: false,
   name: "Linear Unlock Cliff",
@@ -81,7 +81,7 @@ const linearUnlockCliff = defineAirdropShape(Shape.Airdrops.LinearUnlockCliff, {
  * Replaces {@link tranchedStepper} by leveraging the granularity feature introduced in Airdrops v3.0.
  */
 const linearStepper = defineAirdropShape(Shape.Airdrops.LinearStepper, {
-  evm: AIRDROP_EVM_LL_V3,
+  evm: AIRDROPS_V3_EVM_LL,
   hasPredictableGas: true,
   isDeprecated: false,
   name: "Linear Stepper",
@@ -92,7 +92,7 @@ const linearStepper = defineAirdropShape(Shape.Airdrops.LinearStepper, {
  * Claimed tokens unlock in discrete steps.
  */
 const tranchedStepper = defineAirdropShape(Shape.Airdrops.TranchedStepper, {
-  evm: AIRDROP_EVM_LT,
+  evm: AIRDROPS_EVM_LT,
   hasPredictableGas: false,
   isDeprecated: true,
   name: "Tranched Stepper",
@@ -103,7 +103,7 @@ const tranchedStepper = defineAirdropShape(Shape.Airdrops.TranchedStepper, {
  * Each recipient can claim a different amount based on Merkle proof data.
  */
 const variableClaimAmount = defineAirdropShape(Shape.Airdrops.VariableClaimAmount, {
-  evm: AIRDROP_EVM_VCA,
+  evm: AIRDROPS_EVM_VCA,
   hasPredictableGas: true,
   isDeprecated: false,
   name: "Variable Claim Amount",
