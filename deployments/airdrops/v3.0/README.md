@@ -25,7 +25,7 @@
 
 ## Salt
 
-All contracts are deployed using Foundry's `CREATE2` factory. The following salts are used:
+All contracts except `Denergy` are deployed using Foundry's `CREATE2` factory. The following salts are used:
 
 ### Mainnets
 
@@ -38,6 +38,7 @@ All contracts are deployed using Foundry's `CREATE2` factory. The following salt
 | Berachain       | ChainID 80094, Version 3.0.0  |
 | BNB Smart Chain | ChainID 56, Version 3.0.0     |
 | Chiliz          | ChainID 88888, Version 3.0.0  |
+| Denergy         | No Salt                       |
 | Ethereum        | ChainID 1, Version 3.0.0      |
 | Gnosis          | ChainID 100, Version 3.0.0    |
 | HyperEVM        | ChainID 999, Version 3.0.0    |
