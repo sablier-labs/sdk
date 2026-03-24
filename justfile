@@ -130,6 +130,13 @@ alias b := build
 #                                     CLI                                      #
 # ---------------------------------------------------------------------------- #
 
+# Generate TypeScript ABI files from JSON ABIs.
+[group("cli")]
+@generate-abis:
+    bun scripts/generate-abis.ts
+    just biome-write src/evm/releases
+    echo "✅ Generated latest TypeScript ABI files"
+
 # Run print CLI commands.
 [group("cli")]
 @print-aliases:

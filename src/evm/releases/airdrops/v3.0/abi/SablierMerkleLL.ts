@@ -300,6 +300,17 @@ export const sablierMerkleLLAbi = [
   },
   {
     type: "function",
+    name: "sponsor",
+    inputs: [
+      { name: "token", type: "address", internalType: "contract IERC20" },
+      { name: "amount", type: "uint128", internalType: "uint128" },
+      { name: "biller", type: "address", internalType: "address" },
+    ],
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
     name: "streamShape",
     inputs: [],
     outputs: [{ name: "", type: "string", internalType: "string" }],
@@ -364,6 +375,17 @@ export const sablierMerkleLLAbi = [
       { name: "caller", type: "address", indexed: true, internalType: "address" },
       { name: "previousAttestor", type: "address", indexed: true, internalType: "address" },
       { name: "newAttestor", type: "address", indexed: true, internalType: "address" },
+    ],
+    anonymous: false,
+  },
+  {
+    type: "event",
+    name: "Sponsor",
+    inputs: [
+      { name: "caller", type: "address", indexed: true, internalType: "address" },
+      { name: "token", type: "address", indexed: true, internalType: "contract IERC20" },
+      { name: "amount", type: "uint128", indexed: false, internalType: "uint128" },
+      { name: "biller", type: "address", indexed: true, internalType: "address" },
     ],
     anonymous: false,
   },
@@ -460,6 +482,7 @@ export const sablierMerkleLLAbi = [
       { name: "newMinFeeUSD", type: "uint256", internalType: "uint256" },
     ],
   },
+  { type: "error", name: "SablierMerkleBase_SponsorAmountZero", inputs: [] },
   { type: "error", name: "SablierMerkleBase_ToZeroAddress", inputs: [] },
   {
     type: "error",

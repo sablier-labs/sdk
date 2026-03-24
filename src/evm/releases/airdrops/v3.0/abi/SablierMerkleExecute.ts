@@ -173,6 +173,17 @@ export const sablierMerkleExecuteAbi = [
   },
   {
     type: "function",
+    name: "sponsor",
+    inputs: [
+      { name: "token", type: "address", internalType: "contract IERC20" },
+      { name: "amount", type: "uint128", internalType: "uint128" },
+      { name: "biller", type: "address", internalType: "address" },
+    ],
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
     name: "transferAdmin",
     inputs: [{ name: "newAdmin", type: "address", internalType: "address" }],
     outputs: [],
@@ -206,6 +217,17 @@ export const sablierMerkleExecuteAbi = [
       { name: "comptroller", type: "address", indexed: true, internalType: "address" },
       { name: "newMinFeeUSD", type: "uint256", indexed: false, internalType: "uint256" },
       { name: "previousMinFeeUSD", type: "uint256", indexed: false, internalType: "uint256" },
+    ],
+    anonymous: false,
+  },
+  {
+    type: "event",
+    name: "Sponsor",
+    inputs: [
+      { name: "caller", type: "address", indexed: true, internalType: "address" },
+      { name: "token", type: "address", indexed: true, internalType: "contract IERC20" },
+      { name: "amount", type: "uint128", indexed: false, internalType: "uint128" },
+      { name: "biller", type: "address", indexed: true, internalType: "address" },
     ],
     anonymous: false,
   },
@@ -290,6 +312,8 @@ export const sablierMerkleExecuteAbi = [
       { name: "newMinFeeUSD", type: "uint256", internalType: "uint256" },
     ],
   },
+  { type: "error", name: "SablierMerkleBase_SponsorAmountZero", inputs: [] },
+  { type: "error", name: "SablierMerkleBase_ToZeroAddress", inputs: [] },
   {
     type: "error",
     name: "SablierMerkleExecute_NotFullAmountTransferred",
