@@ -29,7 +29,7 @@
             "internalType": "address"
           },
           {
-            "name": "depositAmount",
+            "name": "totalAmount",
             "type": "uint128",
             "internalType": "uint128"
           },
@@ -69,6 +69,23 @@
             "name": "shape",
             "type": "string",
             "internalType": "string"
+          },
+          {
+            "name": "broker",
+            "type": "tuple",
+            "internalType": "struct Broker",
+            "components": [
+              {
+                "name": "account",
+                "type": "address",
+                "internalType": "address"
+              },
+              {
+                "name": "fee",
+                "type": "uint256",
+                "internalType": "UD60x18"
+              }
+            ]
           }
         ]
       }
@@ -112,7 +129,7 @@
             "internalType": "address"
           },
           {
-            "name": "depositAmount",
+            "name": "totalAmount",
             "type": "uint128",
             "internalType": "uint128"
           },
@@ -164,6 +181,23 @@
             "name": "shape",
             "type": "string",
             "internalType": "string"
+          },
+          {
+            "name": "broker",
+            "type": "tuple",
+            "internalType": "struct Broker",
+            "components": [
+              {
+                "name": "account",
+                "type": "address",
+                "internalType": "address"
+              },
+              {
+                "name": "fee",
+                "type": "uint256",
+                "internalType": "UD60x18"
+              }
+            ]
           }
         ]
       }
@@ -207,7 +241,7 @@
             "internalType": "address"
           },
           {
-            "name": "depositAmount",
+            "name": "totalAmount",
             "type": "uint128",
             "internalType": "uint128"
           },
@@ -242,6 +276,23 @@
             "name": "shape",
             "type": "string",
             "internalType": "string"
+          },
+          {
+            "name": "broker",
+            "type": "tuple",
+            "internalType": "struct Broker",
+            "components": [
+              {
+                "name": "account",
+                "type": "address",
+                "internalType": "address"
+              },
+              {
+                "name": "fee",
+                "type": "uint256",
+                "internalType": "UD60x18"
+              }
+            ]
           }
         ]
       }
@@ -285,7 +336,7 @@
             "internalType": "address"
           },
           {
-            "name": "depositAmount",
+            "name": "totalAmount",
             "type": "uint128",
             "internalType": "uint128"
           },
@@ -330,6 +381,23 @@
             "name": "shape",
             "type": "string",
             "internalType": "string"
+          },
+          {
+            "name": "broker",
+            "type": "tuple",
+            "internalType": "struct Broker",
+            "components": [
+              {
+                "name": "account",
+                "type": "address",
+                "internalType": "address"
+              },
+              {
+                "name": "fee",
+                "type": "uint256",
+                "internalType": "UD60x18"
+              }
+            ]
           }
         ]
       }
@@ -373,7 +441,7 @@
             "internalType": "address"
           },
           {
-            "name": "depositAmount",
+            "name": "totalAmount",
             "type": "uint128",
             "internalType": "uint128"
           },
@@ -430,6 +498,23 @@
             "name": "shape",
             "type": "string",
             "internalType": "string"
+          },
+          {
+            "name": "broker",
+            "type": "tuple",
+            "internalType": "struct Broker",
+            "components": [
+              {
+                "name": "account",
+                "type": "address",
+                "internalType": "address"
+              },
+              {
+                "name": "fee",
+                "type": "uint256",
+                "internalType": "UD60x18"
+              }
+            ]
           }
         ]
       }
@@ -473,7 +558,7 @@
             "internalType": "address"
           },
           {
-            "name": "depositAmount",
+            "name": "totalAmount",
             "type": "uint128",
             "internalType": "uint128"
           },
@@ -513,6 +598,23 @@
             "name": "shape",
             "type": "string",
             "internalType": "string"
+          },
+          {
+            "name": "broker",
+            "type": "tuple",
+            "internalType": "struct Broker",
+            "components": [
+              {
+                "name": "account",
+                "type": "address",
+                "internalType": "address"
+              },
+              {
+                "name": "fee",
+                "type": "uint256",
+                "internalType": "UD60x18"
+              }
+            ]
           }
         ]
       }
@@ -527,29 +629,31 @@
     "stateMutability": "nonpayable"
   },
   {
-    "type": "event",
-    "name": "CreateLockupBatch",
+    "type": "error",
+    "name": "AddressEmptyCode",
     "inputs": [
       {
-        "name": "funder",
+        "name": "target",
         "type": "address",
-        "indexed": true,
         "internalType": "address"
-      },
-      {
-        "name": "lockup",
-        "type": "address",
-        "indexed": true,
-        "internalType": "contract ISablierLockup"
-      },
-      {
-        "name": "streamIds",
-        "type": "uint256[]",
-        "indexed": false,
-        "internalType": "uint256[]"
       }
-    ],
-    "anonymous": false
+    ]
+  },
+  {
+    "type": "error",
+    "name": "AddressInsufficientBalance",
+    "inputs": [
+      {
+        "name": "account",
+        "type": "address",
+        "internalType": "address"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "FailedInnerCall",
+    "inputs": []
   },
   {
     "type": "error",
