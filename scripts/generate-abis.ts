@@ -17,56 +17,69 @@ const ABI_DIR = join(ROOT, "abi");
 const RELEASES_DIR = join(ROOT, "src", "evm", "releases");
 const VERSION_PREFIX = /^v/;
 
-function dirs(path: string): string[] {
-  return readdirSync(path).filter((f) => statSync(join(path, f)).isDirectory());
+type GenerationSummary = {
+  generated: number;
+  skippedVersions: number;
+};
+
+function listDirectories(path: string): string[] {
+  return readdirSync(path).filter((entry) => statSync(join(path, entry)).isDirectory());
 }
 
-function parseVersion(version: string): number[] {
-  return version.replace(VERSION_PREFIX, "").split(".").map(Number);
+function listJsonFiles(path: string): string[] {
+  return readdirSync(path).filter((entry) => entry.endsWith(".json"));
 }
 
-function compareVersions(a: number[], b: number[]): number {
-  for (let i = 0; i < Math.max(a.length, b.length); i++) {
-    const diff = (a[i] ?? 0) - (b[i] ?? 0);
-    if (diff !== 0) {
-      return diff;
+function compareVersions(a: string, b: string): number {
+  const aParts = a.replace(VERSION_PREFIX, "").split(".").map(Number);
+  const bParts = b.replace(VERSION_PREFIX, "").split(".").map(Number);
+
+  for (let index = 0; index < Math.max(aParts.length, bParts.length); index++) {
+    const difference = (aParts[index] ?? 0) - (bParts[index] ?? 0);
+    if (difference !== 0) {
+      return difference;
     }
   }
+
   return 0;
 }
 
-function findLatestVersion(protocol: string): number[] | undefined {
-  const dir = join(RELEASES_DIR, protocol);
-  if (!existsSync(dir)) {
+function findLatestVersion(protocol: string): string | undefined {
+  const protocolReleasesDir = join(RELEASES_DIR, protocol);
+  if (!existsSync(protocolReleasesDir)) {
     return undefined;
   }
 
-  for (const version of readdirSync(dir)) {
-    const indexPath = join(dir, version, "index.ts");
-    if (existsSync(indexPath) && readFileSync(indexPath, "utf-8").includes("isLatest: true")) {
-      return parseVersion(version);
-    }
-  }
-  return undefined;
+  return listDirectories(protocolReleasesDir).find((version) => {
+    const indexPath = join(protocolReleasesDir, version, "index.ts");
+    return existsSync(indexPath) && readFileSync(indexPath, "utf-8").includes("isLatest: true");
+  });
 }
 
-function isOlderThanLatest(
+function shouldSkipVersion(
+  protocol: string,
   version: string,
-  latest: number[] | undefined,
-  releaseDir: string
+  latestVersion: string | undefined
 ): boolean {
-  if (!latest) {
+  const releaseDir = join(RELEASES_DIR, protocol, version);
+  if (!existsSync(releaseDir)) {
+    return true;
+  }
+
+  if (!latestVersion) {
     return false;
   }
+
   const indexPath = join(releaseDir, "index.ts");
   if (!existsSync(indexPath)) {
     return false;
   }
-  return compareVersions(parseVersion(version), latest) < 0;
+
+  return compareVersions(version, latestVersion) < 0;
 }
 
 /** Serialize a value as a TypeScript literal with bare keys and trailing commas. */
-function toTs(value: unknown, depth = 0): string {
+function toTypeScriptLiteral(value: unknown, depth = 0): string {
   if (value === null || value === undefined) {
     return String(value);
   }
@@ -77,53 +90,85 @@ function toTs(value: unknown, depth = 0): string {
     return String(value);
   }
 
-  const pad = "  ".repeat(depth + 1);
-  const closePad = "  ".repeat(depth);
+  const nextIndent = "  ".repeat(depth + 1);
+  const currentIndent = "  ".repeat(depth);
 
   if (Array.isArray(value)) {
     if (value.length === 0) {
       return "[]";
     }
-    return `[\n${value.map((v) => `${pad}${toTs(v, depth + 1)}`).join(",\n")},\n${closePad}]`;
+
+    const items = value.map((item) => `${nextIndent}${toTypeScriptLiteral(item, depth + 1)}`);
+    return `[\n${items.join(",\n")},\n${currentIndent}]`;
   }
 
   const entries = Object.entries(value as Record<string, unknown>);
   if (entries.length === 0) {
     return "{}";
   }
-  return `{\n${entries.map(([k, v]) => `${pad}${k}: ${toTs(v, depth + 1)}`).join(",\n")},\n${closePad}}`;
+
+  const properties = entries.map(
+    ([key, entryValue]) => `${nextIndent}${key}: ${toTypeScriptLiteral(entryValue, depth + 1)}`
+  );
+  return `{\n${properties.join(",\n")},\n${currentIndent}}`;
 }
 
-let generated = 0;
-let skipped = 0;
+function getExportName(contractName: string): string {
+  return `${contractName.charAt(0).toLowerCase()}${contractName.slice(1)}Abi`;
+}
 
-for (const protocol of dirs(ABI_DIR)) {
+function generateVersionAbis(protocol: string, version: string): number {
+  const sourceDir = join(ABI_DIR, protocol, version);
+  const targetDir = join(RELEASES_DIR, protocol, version, "abi");
+  mkdirSync(targetDir, { recursive: true });
+
+  let generated = 0;
+
+  for (const file of listJsonFiles(sourceDir)) {
+    const contractName = basename(file, ".json");
+    const exportName = getExportName(contractName);
+    const abiPath = join(sourceDir, file);
+    const abi = JSON.parse(readFileSync(abiPath, "utf-8"));
+    const targetPath = join(targetDir, `${contractName}.ts`);
+
+    writeFileSync(
+      targetPath,
+      `export const ${exportName} = ${toTypeScriptLiteral(abi)} as const;\n`
+    );
+    generated++;
+  }
+
+  return generated;
+}
+
+function generateProtocolAbis(protocol: string): GenerationSummary {
   const latestVersion = findLatestVersion(protocol);
+  let generated = 0;
+  let skippedVersions = 0;
 
-  for (const version of dirs(join(ABI_DIR, protocol))) {
-    const releaseDir = join(RELEASES_DIR, protocol, version);
-    if (!existsSync(releaseDir) || isOlderThanLatest(version, latestVersion, releaseDir)) {
-      skipped++;
+  for (const version of listDirectories(join(ABI_DIR, protocol))) {
+    if (shouldSkipVersion(protocol, version, latestVersion)) {
+      skippedVersions++;
       continue;
     }
 
-    const targetDir = join(releaseDir, "abi");
-    mkdirSync(targetDir, { recursive: true });
-
-    for (const file of readdirSync(join(ABI_DIR, protocol, version)).filter((f) =>
-      f.endsWith(".json")
-    )) {
-      const contractName = basename(file, ".json");
-      const exportName = `${contractName.charAt(0).toLowerCase()}${contractName.slice(1)}Abi`;
-      const abi = JSON.parse(readFileSync(join(ABI_DIR, protocol, version, file), "utf-8"));
-
-      writeFileSync(
-        join(targetDir, `${contractName}.ts`),
-        `export const ${exportName} = ${toTs(abi)} as const;\n`
-      );
-      generated++;
-    }
+    generated += generateVersionAbis(protocol, version);
   }
+
+  return { generated, skippedVersions };
 }
 
-console.log(`Generated ${generated} TypeScript ABI files (${skipped} versions skipped)`);
+function main(): void {
+  let generated = 0;
+  let skippedVersions = 0;
+
+  for (const protocol of listDirectories(ABI_DIR)) {
+    const summary = generateProtocolAbis(protocol);
+    generated += summary.generated;
+    skippedVersions += summary.skippedVersions;
+  }
+
+  console.log(`Generated ${generated} TypeScript ABI files (${skippedVersions} versions skipped)`);
+}
+
+main();
