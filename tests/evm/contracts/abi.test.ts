@@ -7,7 +7,7 @@ import { beforeAll, describe, expect, it, test } from "vitest";
 
 // TypeScript utility types for compile-time validation
 type IsReadonlyArray<T> = T extends readonly unknown[] ? true : false;
-type AssertAsConst<T> = IsReadonlyArray<T> extends true ? T : never;
+type AssertTrue<T extends true> = T;
 
 const PROJECT_ROOT = process.cwd();
 const TEST_DIR = path.dirname(fileURLToPath(import.meta.url));
@@ -254,10 +254,10 @@ describe("Type-level const validation", () => {
     type TestFlowV10 =
       typeof import("../../../src/evm/releases/flow/v1.1/abi/SablierFlow.js").sablierFlowAbi;
 
-    // These type assertions will fail if the ABIs aren't const
-    type _AssertAirdrops = AssertAsConst<TestAirdropsV14>;
-    type _AssertLockup = AssertAsConst<TestLockupV10>;
-    type _AssertFlow = AssertAsConst<TestFlowV10>;
+    // These type assertions will fail at compile time if the ABIs aren't readonly
+    type _AssertAirdrops = AssertTrue<IsReadonlyArray<TestAirdropsV14>>;
+    type _AssertLockup = AssertTrue<IsReadonlyArray<TestLockupV10>>;
+    type _AssertFlow = AssertTrue<IsReadonlyArray<TestFlowV10>>;
 
     // Runtime assertion to ensure test executes
     expect(true).toBe(true);

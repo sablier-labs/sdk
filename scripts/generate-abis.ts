@@ -10,7 +10,14 @@
  * files to `src/evm/releases/<protocol>/<version>/abi/<ContractName>.ts`.
  */
 
-import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import {
+  existsSync,
+  mkdirSync,
+  readdirSync,
+  readFileSync,
+  unlinkSync,
+  writeFileSync,
+} from "node:fs";
 import { basename, dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { Protocol } from "../src/evm/enums.js";
@@ -212,10 +219,29 @@ function getExportName(contractName: string): string {
   return `${contractName.charAt(0).toLowerCase()}${contractName.slice(1)}Abi`;
 }
 
+function listTsFiles(path: string): string[] {
+  if (!existsSync(path)) {
+    return [];
+  }
+
+  return readdirSync(path, { withFileTypes: true })
+    .filter((entry) => entry.isFile() && entry.name.endsWith(".ts"))
+    .map((entry) => entry.name);
+}
+
 function generateVersionAbis(protocol: SupportedProtocol, version: string): number {
   const sourceDir = getAbiVersionDir(protocol, version);
   const targetDir = join(getReleaseVersionDir(protocol, version), "abi");
   mkdirSync(targetDir, { recursive: true });
+
+  const expectedFiles = new Set(listJsonFiles(sourceDir).map((f) => basename(f, ".json") + ".ts"));
+
+  // Prune stale .ts files that no longer have a corresponding JSON source
+  for (const tsFile of listTsFiles(targetDir)) {
+    if (!expectedFiles.has(tsFile)) {
+      unlinkSync(join(targetDir, tsFile));
+    }
+  }
 
   let generated = 0;
 
