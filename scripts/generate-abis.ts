@@ -3,48 +3,100 @@
 /**
  * Generates TypeScript ABI files from JSON ABI files.
  *
+ * Usage:
+ *   bun scripts/generate-abis.ts [protocol] [version]
+ *
  * Scans `abi/<protocol>/<version>/*.json` and writes corresponding TypeScript
  * files to `src/evm/releases/<protocol>/<version>/abi/<ContractName>.ts`.
- *
- * Only generates for the latest version of each protocol.
  */
 
-import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
-import { basename, join, resolve } from "node:path";
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { basename, dirname, join, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+import { Protocol } from "../src/evm/enums.js";
 
-const ROOT = resolve(import.meta.dirname, "..");
+const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const ABI_DIR = join(ROOT, "abi");
 const RELEASES_DIR = join(ROOT, "src", "evm", "releases");
-const VERSION_PREFIX = /^v/;
+const ALL_PROTOCOLS = "all";
+const LATEST_VERSION = "latest";
 
-type GenerationSummary = {
-  generated: number;
-  skippedVersions: number;
+const SUPPORTED_PROTOCOLS = [
+  Protocol.Airdrops,
+  Protocol.Flow,
+  Protocol.Lockup,
+  Protocol.Bob,
+] as const;
+
+type SupportedProtocol = (typeof SUPPORTED_PROTOCOLS)[number];
+type ProtocolArgument = SupportedProtocol | typeof ALL_PROTOCOLS;
+type VersionArgument = typeof LATEST_VERSION | string;
+type CliOptions = {
+  protocol: ProtocolArgument;
+  version: VersionArgument;
+};
+type GenerationTarget = {
+  protocol: SupportedProtocol;
+  version: string;
 };
 
 function listDirectories(path: string): string[] {
-  return readdirSync(path).filter((entry) => statSync(join(path, entry)).isDirectory());
+  if (!existsSync(path)) {
+    return [];
+  }
+
+  return readdirSync(path, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => entry.name);
 }
 
 function listJsonFiles(path: string): string[] {
-  return readdirSync(path).filter((entry) => entry.endsWith(".json"));
+  return readdirSync(path, { withFileTypes: true })
+    .filter((entry) => entry.isFile() && entry.name.endsWith(".json"))
+    .map((entry) => entry.name);
 }
 
-function compareVersions(a: string, b: string): number {
-  const aParts = a.replace(VERSION_PREFIX, "").split(".").map(Number);
-  const bParts = b.replace(VERSION_PREFIX, "").split(".").map(Number);
-
-  for (let index = 0; index < Math.max(aParts.length, bParts.length); index++) {
-    const difference = (aParts[index] ?? 0) - (bParts[index] ?? 0);
-    if (difference !== 0) {
-      return difference;
-    }
-  }
-
-  return 0;
+function getAbiVersionDir(protocol: SupportedProtocol, version: string): string {
+  return join(ABI_DIR, protocol, version);
 }
 
-function findLatestVersion(protocol: string): string | undefined {
+function getReleaseVersionDir(protocol: SupportedProtocol, version: string): string {
+  return join(RELEASES_DIR, protocol, version);
+}
+
+function hasGenerationInputs(protocol: SupportedProtocol, version: string): boolean {
+  return (
+    existsSync(getAbiVersionDir(protocol, version)) &&
+    existsSync(getReleaseVersionDir(protocol, version))
+  );
+}
+
+function getUsageText(): string {
+  return [
+    "Usage: bun scripts/generate-abis.ts [protocol] [version]",
+    `Supported protocols: ${SUPPORTED_PROTOCOLS.join(", ")}, ${ALL_PROTOCOLS}`,
+    `Defaults: protocol=${ALL_PROTOCOLS}, version=${LATEST_VERSION}`,
+  ].join("\n");
+}
+
+function createUsageError(message: string): Error {
+  return new Error(`${message}\n\n${getUsageText()}`);
+}
+
+function createMissingVersionError(protocol: SupportedProtocol, version: string): Error {
+  return new Error(
+    [
+      `Cannot generate ABIs for ${protocol} ${version}.`,
+      `Expected ${getAbiVersionDir(protocol, version)} and ${getReleaseVersionDir(protocol, version)} to exist.`,
+    ].join("\n")
+  );
+}
+
+function isSupportedProtocol(value: string): value is SupportedProtocol {
+  return SUPPORTED_PROTOCOLS.includes(value as SupportedProtocol);
+}
+
+function findLatestVersion(protocol: SupportedProtocol): string | undefined {
   const protocolReleasesDir = join(RELEASES_DIR, protocol);
   if (!existsSync(protocolReleasesDir)) {
     return undefined;
@@ -56,26 +108,69 @@ function findLatestVersion(protocol: string): string | undefined {
   });
 }
 
-function shouldSkipVersion(
-  protocol: string,
-  version: string,
-  latestVersion: string | undefined
-): boolean {
-  const releaseDir = join(RELEASES_DIR, protocol, version);
-  if (!existsSync(releaseDir)) {
-    return true;
+function resolveVersion(protocol: SupportedProtocol, version: VersionArgument): string {
+  if (version !== LATEST_VERSION) {
+    return version;
   }
 
+  const latestVersion = findLatestVersion(protocol);
   if (!latestVersion) {
-    return false;
+    throw new Error(`No latest release found for protocol "${protocol}".`);
   }
 
-  const indexPath = join(releaseDir, "index.ts");
-  if (!existsSync(indexPath)) {
-    return false;
+  return latestVersion;
+}
+
+function resolveTarget(protocol: SupportedProtocol, version: VersionArgument): GenerationTarget {
+  const resolvedVersion = resolveVersion(protocol, version);
+
+  if (!hasGenerationInputs(protocol, resolvedVersion)) {
+    throw createMissingVersionError(protocol, resolvedVersion);
   }
 
-  return compareVersions(version, latestVersion) < 0;
+  return { protocol, version: resolvedVersion };
+}
+
+function parseCliArgs(args: string[]): CliOptions {
+  if (args.length > 2) {
+    throw createUsageError("Too many arguments.");
+  }
+
+  const [rawProtocol = ALL_PROTOCOLS, rawVersion = LATEST_VERSION] = args;
+
+  if (rawProtocol !== ALL_PROTOCOLS && !isSupportedProtocol(rawProtocol)) {
+    throw createUsageError(`Invalid protocol "${rawProtocol}".`);
+  }
+
+  return {
+    protocol: rawProtocol as ProtocolArgument,
+    version: rawVersion,
+  };
+}
+
+function resolveGenerationTargets(options: CliOptions): GenerationTarget[] {
+  if (options.protocol !== ALL_PROTOCOLS) {
+    return [resolveTarget(options.protocol, options.version)];
+  }
+
+  if (options.version === LATEST_VERSION) {
+    return SUPPORTED_PROTOCOLS.map((protocol) => resolveTarget(protocol, options.version));
+  }
+
+  const targets = SUPPORTED_PROTOCOLS.filter((protocol) =>
+    hasGenerationInputs(protocol, options.version)
+  ).map((protocol) => ({
+    protocol,
+    version: options.version,
+  }));
+
+  if (targets.length === 0) {
+    throw new Error(
+      `Cannot generate ABIs for version "${options.version}" on any supported protocol.`
+    );
+  }
+
+  return targets;
 }
 
 /** Serialize a value as a TypeScript literal with bare keys and trailing commas. */
@@ -117,9 +212,9 @@ function getExportName(contractName: string): string {
   return `${contractName.charAt(0).toLowerCase()}${contractName.slice(1)}Abi`;
 }
 
-function generateVersionAbis(protocol: string, version: string): number {
-  const sourceDir = join(ABI_DIR, protocol, version);
-  const targetDir = join(RELEASES_DIR, protocol, version, "abi");
+function generateVersionAbis(protocol: SupportedProtocol, version: string): number {
+  const sourceDir = getAbiVersionDir(protocol, version);
+  const targetDir = join(getReleaseVersionDir(protocol, version), "abi");
   mkdirSync(targetDir, { recursive: true });
 
   let generated = 0;
@@ -141,34 +236,40 @@ function generateVersionAbis(protocol: string, version: string): number {
   return generated;
 }
 
-function generateProtocolAbis(protocol: string): GenerationSummary {
-  const latestVersion = findLatestVersion(protocol);
-  let generated = 0;
-  let skippedVersions = 0;
+function run(args: string[] = process.argv.slice(2)): {
+  generated: number;
+  targets: GenerationTarget[];
+} {
+  const options = parseCliArgs(args);
+  const targets = resolveGenerationTargets(options);
 
-  for (const version of listDirectories(join(ABI_DIR, protocol))) {
-    if (shouldSkipVersion(protocol, version, latestVersion)) {
-      skippedVersions++;
-      continue;
-    }
+  const generated = targets.reduce(
+    (total, target) => total + generateVersionAbis(target.protocol, target.version),
+    0
+  );
 
-    generated += generateVersionAbis(protocol, version);
-  }
-
-  return { generated, skippedVersions };
+  return { generated, targets };
 }
 
-function main(): void {
-  let generated = 0;
-  let skippedVersions = 0;
-
-  for (const protocol of listDirectories(ABI_DIR)) {
-    const summary = generateProtocolAbis(protocol);
-    generated += summary.generated;
-    skippedVersions += summary.skippedVersions;
+function isDirectExecution(moduleUrl: string, entrypoint = process.argv[1]): boolean {
+  if (!entrypoint) {
+    return false;
   }
 
-  console.log(`Generated ${generated} TypeScript ABI files (${skippedVersions} versions skipped)`);
+  return fileURLToPath(moduleUrl) === resolve(entrypoint);
 }
 
-main();
+function main(args: string[] = process.argv.slice(2)): void {
+  try {
+    const { generated, targets } = run(args);
+    const scope = targets.map(({ protocol, version }) => `${protocol}@${version}`).join(", ");
+    console.log(`Generated ${generated} TypeScript ABI files for ${scope}`);
+  } catch (error) {
+    console.error(error instanceof Error ? error.message : String(error));
+    process.exit(1);
+  }
+}
+
+if (isDirectExecution(import.meta.url)) {
+  main();
+}
