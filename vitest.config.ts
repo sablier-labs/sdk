@@ -25,7 +25,7 @@ function getTimeout() {
 
 function getReporters() {
   if (CI) {
-    return ["github-actions", "json"];
+    return ["default", "github-actions", "json"];
   }
   return ["default"];
 }

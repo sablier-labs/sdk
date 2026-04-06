@@ -5,7 +5,7 @@
  * Creates a clean markdown table showing unique failures instead of repeated retry errors.
  */
 
-import { existsSync, readFileSync } from "node:fs";
+import { appendFileSync, existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 
 const ERROR_PREFIX_REGEX = /^.*?Error:\s*/;
@@ -97,9 +97,7 @@ function generateMarkdownTable(failures: FailureSummary[]): string {
   for (const failure of failures) {
     const testName = failure.fullName.replace(/\|/g, "\\|"); // Escape pipes
     const error = failure.shortError.replace(/\|/g, "\\|").substring(0, 100); // Limit length
-    const retries = `${failure.retryCount}/${failure.retryCount}`;
-
-    markdown += `| ${testName} | ${error} | ${retries} |\n`;
+    markdown += `| ${testName} | ${error} | ${failure.retryCount} |\n`;
   }
 
   return markdown;
@@ -109,8 +107,14 @@ function main() {
   const failures = summarizeFailures();
   const markdown = generateMarkdownTable(failures);
 
-  // Output to stdout (will be redirected to GITHUB_STEP_SUMMARY)
+  // Always log to console so failures are visible in CI logs.
   console.log(markdown);
+
+  // Append to GitHub step summary when running in Actions.
+  const summaryPath = process.env.GITHUB_STEP_SUMMARY;
+  if (summaryPath) {
+    appendFileSync(summaryPath, `${markdown}\n`);
+  }
 
   // Exit with code 1 if there were failures (to fail the job)
   process.exit(failures.length > 0 ? 1 : 0);

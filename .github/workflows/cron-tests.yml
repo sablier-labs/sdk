@@ -22,8 +22,9 @@ jobs:
         env:
           VITE_CRON_TESTS: true
           VITE_ETHERSCAN_API_KEY: ${{ secrets.VITE_ETHERSCAN_API_KEY }}
+          VITE_ROUTEMESH_API_KEY: ${{ secrets.VITE_ROUTEMESH_API_KEY }}
         run: just test
 
       - name: Generate test summary
         if: always()
-        run: bun run ./scripts/summarize-test-failures.ts >> $GITHUB_STEP_SUMMARY
+        run: bun run ./scripts/summarize-test-failures.ts

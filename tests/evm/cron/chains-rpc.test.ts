@@ -1,4 +1,3 @@
-import { constants as http2Constants } from "node:http2";
 import {
   FetchHttpClient,
   HttpBody,
@@ -10,7 +9,7 @@ import { describe, expect, it } from "@effect/vitest";
 import { Effect, Schedule, Schema } from "effect";
 import { chains } from "@/src/evm/chains/index.js";
 
-const MALFUNCTIONING_RPC: number[] = [chains.polygon.id];
+const ROUTEMESH_API_KEY = process.env.VITE_ROUTEMESH_API_KEY;
 
 const JsonRpcResponseSchema = Schema.Struct({
   id: Schema.Number,
@@ -45,19 +44,24 @@ function pingRpcServer(url: string) {
 }
 
 describe("Ping JSON-RPC server", () => {
-  for (const chain of Object.values(chains)) {
-    const shouldSkip: boolean = MALFUNCTIONING_RPC.includes(chain.id) || !chain.rpc.defaults[0];
+  if (!ROUTEMESH_API_KEY) {
+    it.skip("VITE_ROUTEMESH_API_KEY not set - skipping RPC tests");
+    return;
+  }
 
-    it.effect.skipIf(shouldSkip)(`${chain.name} (ID: ${chain.id})`, () =>
+  for (const chain of Object.values(chains)) {
+    const rpcUrl = chain.rpc.routemesh?.(ROUTEMESH_API_KEY);
+
+    it.effect.skipIf(!rpcUrl)(`${chain.name} (ID: ${chain.id})`, () =>
       Effect.gen(function* () {
-        const result = yield* pingRpcServer(chain.rpc.defaults[0]);
+        const result = yield* pingRpcServer(rpcUrl!);
         expect(result).toMatchObject({
           data: {
             id: 1,
             jsonrpc: "2.0",
             result: expect.any(String),
           },
-          status: http2Constants.HTTP_STATUS_OK,
+          status: 200,
         });
       })
     );
