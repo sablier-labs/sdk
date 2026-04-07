@@ -126,6 +126,7 @@ export namespace EVM {
     prbProxy: boolean;
     batch: boolean;
     legacyAbi: boolean;
+    shape: boolean;
   };
 
   export type EmptyReleaseFeatures = Record<never, never>;

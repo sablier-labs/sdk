@@ -97,12 +97,48 @@ export const evmReleaseFeatures = deepFreeze({
     [Version.Legacy.V1_1]: emptyReleaseFeatures,
   },
   [Protocol.Lockup]: {
-    [Version.Lockup.V1_0]: { batch: false, legacyAbi: true, payable: false, prbProxy: true },
-    [Version.Lockup.V1_1]: { batch: false, legacyAbi: true, payable: false, prbProxy: false },
-    [Version.Lockup.V1_2]: { batch: false, legacyAbi: false, payable: false, prbProxy: false },
-    [Version.Lockup.V2_0]: { batch: true, legacyAbi: false, payable: true, prbProxy: false },
-    [Version.Lockup.V3_0]: { batch: true, legacyAbi: false, payable: true, prbProxy: false },
-    [Version.Lockup.V4_0]: { batch: true, legacyAbi: false, payable: true, prbProxy: false },
+    [Version.Lockup.V1_0]: {
+      batch: false,
+      legacyAbi: true,
+      payable: false,
+      prbProxy: true,
+      shape: false,
+    },
+    [Version.Lockup.V1_1]: {
+      batch: false,
+      legacyAbi: true,
+      payable: false,
+      prbProxy: false,
+      shape: false,
+    },
+    [Version.Lockup.V1_2]: {
+      batch: false,
+      legacyAbi: false,
+      payable: false,
+      prbProxy: false,
+      shape: false,
+    },
+    [Version.Lockup.V2_0]: {
+      batch: true,
+      legacyAbi: false,
+      payable: true,
+      prbProxy: false,
+      shape: true,
+    },
+    [Version.Lockup.V3_0]: {
+      batch: true,
+      legacyAbi: false,
+      payable: true,
+      prbProxy: false,
+      shape: true,
+    },
+    [Version.Lockup.V4_0]: {
+      batch: true,
+      legacyAbi: false,
+      payable: true,
+      prbProxy: false,
+      shape: true,
+    },
   },
 } as const satisfies EvmReleaseFeatureRegistry);
 
@@ -271,4 +307,11 @@ export function supportsLockupPrbProxy(version: Sablier.EVM.Version.Lockup): boo
  */
 export function usesLockupSplit(version: Sablier.EVM.Version.Lockup): boolean {
   return getLockupReleaseFeatures(version).legacyAbi;
+}
+
+/**
+ * Returns whether the lockup release stores shape as an on-chain parameter.
+ */
+export function supportsLockupShape(version: Sablier.EVM.Version.Lockup): boolean {
+  return getLockupReleaseFeatures(version).shape;
 }

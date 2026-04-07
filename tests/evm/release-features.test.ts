@@ -8,6 +8,7 @@ import {
   hasSponsor,
   supportsLockupBatch,
   supportsLockupPrbProxy,
+  supportsLockupShape,
   usesLockupSplit,
 } from "@/src/evm/helpers.js";
 import { evmReleaseFeatures } from "@/src/evm/releases/features.js";
@@ -109,6 +110,7 @@ describe("EVM release features", () => {
         legacyAbi: true,
         payable: false,
         prbProxy: true,
+        shape: false,
       });
     });
 
@@ -135,6 +137,11 @@ describe("EVM release features", () => {
     it("tracks lockup split usage", () => {
       expect(usesLockupSplit(Version.Lockup.V1_1)).toBe(true);
       expect(usesLockupSplit(Version.Lockup.V1_2)).toBe(false);
+    });
+
+    it("tracks lockup shape support", () => {
+      expect(supportsLockupShape(Version.Lockup.V1_2)).toBe(false);
+      expect(supportsLockupShape(Version.Lockup.V2_0)).toBe(true);
     });
   });
 });
