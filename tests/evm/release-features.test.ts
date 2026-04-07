@@ -12,6 +12,7 @@ import {
 } from "@/src/evm/helpers.js";
 import { evmReleaseFeatures } from "@/src/evm/releases/features.js";
 import { releases } from "@/src/evm/releases/index.js";
+import type { Sablier } from "@/src/types.js";
 
 describe("EVM release features", () => {
   describe("registry completeness", () => {
@@ -42,7 +43,8 @@ describe("EVM release features", () => {
         );
       }
 
-      const features = releases.airdrops[Version.Airdrops.V3_0].features;
+      const features = releases.airdrops[Version.Airdrops.V3_0]
+        .features as Sablier.EVM.AirdropsReleaseFeatures;
       expect(features.claimTo).toBe(true);
       expect(features.sponsor).toBe(true);
     });
@@ -54,7 +56,9 @@ describe("EVM release features", () => {
         );
       }
 
-      expect(releases.flow[Version.Flow.V1_0].features.payable).toBe(false);
+      expect(
+        (releases.flow[Version.Flow.V1_0].features as Sablier.EVM.FlowReleaseFeatures).payable
+      ).toBe(false);
     });
 
     it("attaches lockup features to exported releases", () => {
@@ -64,7 +68,8 @@ describe("EVM release features", () => {
         );
       }
 
-      const features = releases.lockup[Version.Lockup.V2_0].features;
+      const features = releases.lockup[Version.Lockup.V2_0]
+        .features as Sablier.EVM.LockupReleaseFeatures;
       expect(features.batch).toBe(true);
       expect(features.legacyAbi).toBe(false);
       expect(features.prbProxy).toBe(false);

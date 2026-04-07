@@ -9,6 +9,7 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 > Starting with v2.0.0, this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). In v1.x, it
 > did not always follow Semantic Versioning.
 
+[3.4.0]: https://github.com/sablier-labs/sdk/releases/tag/v3.4.0
 [3.3.5]: https://github.com/sablier-labs/sdk/releases/tag/v3.3.5
 [3.3.4]: https://github.com/sablier-labs/sdk/releases/tag/v3.3.4
 [3.3.3]: https://github.com/sablier-labs/sdk/releases/tag/v3.3.3
@@ -38,6 +39,28 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 [1.2.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.2.0
 [1.1.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.1.0
 [1.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.0.0
+
+## [3.4.0] - 2026-04-07
+
+### Added
+
+- Add release feature registry with per-protocol capability matrices for Airdrops, Flow, and Lockup
+  ([#169](https://github.com/sablier-labs/sdk/pull/169))
+- Add `features` field to all release objects, populated automatically by release resolvers
+  ([#169](https://github.com/sablier-labs/sdk/pull/169))
+- Add protocol-specific feature accessors: `getAirdropsReleaseFeatures`, `getFlowReleaseFeatures`,
+  `getLockupReleaseFeatures` ([#169](https://github.com/sablier-labs/sdk/pull/169))
+- Add feature query helpers: `hasClaimTo`, `hasSponsor`, `supportsLockupBatch`, `supportsLockupPrbProxy`,
+  `usesLockupSplit` ([#169](https://github.com/sablier-labs/sdk/pull/169))
+- Add release object overload for `isReleasePayable` and `isEvmReleasePayable`
+  ([#169](https://github.com/sablier-labs/sdk/pull/169))
+
+### Changed
+
+- Refactor `isEvmReleasePayable` to read from the feature registry instead of hard-coded version comparisons
+  ([#169](https://github.com/sablier-labs/sdk/pull/169))
+- Deprecate two-argument `isEvmReleasePayable(protocol, version)` in favor of `isEvmReleasePayable(release)`
+  ([#169](https://github.com/sablier-labs/sdk/pull/169))
 
 ## [3.3.5] - 2026-03-25
 
