@@ -14,6 +14,7 @@ export type { TruncateAddressOptions } from "./types.js";
 
 /** Version type supporting both EVM and Solana protocols */
 type Version = Sablier.EVM.Version | Sablier.Solana.Version;
+type EvmReleaseReference = Pick<Sablier.EVM.Release, "protocol" | "version">;
 
 /** Protocols that exist on both EVM and Solana ecosystems */
 const MULTI_ECOSYSTEM_PROTOCOLS = new Set([EvmProtocol.Airdrops, EvmProtocol.Lockup]);
@@ -87,9 +88,7 @@ export function isVersionAfter(version: Version, after: Version): boolean {
  * isReleasePayable("flow", "v1.0")     // false
  * isReleasePayable("flow", "v1.1")     // true
  */
-export function isReleasePayable(
-  release: Pick<Sablier.EVM.Release, "protocol" | "version">
-): boolean;
+export function isReleasePayable(release: EvmReleaseReference): boolean;
 /**
  * @deprecated Pass a release object instead. This overload will be removed in the next major version (v4).
  */
@@ -98,12 +97,18 @@ export function isReleasePayable(
   version: Sablier.EVM.Version
 ): boolean;
 export function isReleasePayable(
-  releaseOrProtocol: Pick<Sablier.EVM.Release, "protocol" | "version"> | PayableEvmProtocol,
+  releaseOrProtocol: EvmReleaseReference | PayableEvmProtocol,
   version?: Sablier.EVM.Version
 ): boolean {
-  return typeof releaseOrProtocol === "string"
-    ? isEvmReleasePayable(releaseOrProtocol, version as Sablier.EVM.Version)
-    : isEvmReleasePayable(releaseOrProtocol);
+  if (typeof releaseOrProtocol !== "string") {
+    return isEvmReleasePayable(releaseOrProtocol);
+  }
+
+  if (!version) {
+    throw new Error('Sablier SDK: Missing "version" for isEvmReleasePayable(protocol, version)');
+  }
+
+  return isEvmReleasePayable(releaseOrProtocol, version);
 }
 
 /**

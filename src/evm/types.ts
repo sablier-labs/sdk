@@ -128,7 +128,7 @@ export namespace EVM {
     legacyAbi: boolean;
   };
 
-  export type EmptyReleaseFeatures = Record<PropertyKey, never>;
+  export type EmptyReleaseFeatures = Record<never, never>;
 
   export type EvmReleaseFeatures =
     | AirdropsReleaseFeatures

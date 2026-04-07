@@ -139,6 +139,11 @@ describe("helpers", () => {
       expect(isEvmReleasePayable("lockup", Version.Lockup.V2_0)).toBe(true);
     });
 
+    it("returns false for non-payable release objects", () => {
+      expect(isEvmReleasePayable(releases.bob[Version.Bob.V1_0])).toBe(false);
+      expect(isEvmReleasePayable(releases.legacy[Version.Legacy.V1_1])).toBe(false);
+    });
+
     describe("airdrops", () => {
       it("returns false for versions before v1.3", () => {
         expect(isEvmReleasePayable(releases.airdrops[Version.Airdrops.V1_1])).toBe(false);
