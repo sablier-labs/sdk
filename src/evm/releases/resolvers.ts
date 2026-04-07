@@ -6,6 +6,8 @@ import {
 import { getNestedValues } from "@/src/internal/utils/nested-values.js";
 import type { AliasMap } from "@/src/shared/types.js";
 import type { Sablier } from "@/src/types.js";
+import type { EvmReleaseVersionByProtocol, ReleaseFeaturesForProtocol } from "./features.js";
+import { getEvmReleaseFeatures } from "./features.js";
 
 /* -------------------------------------------------------------------------- */
 /*                                   TYPES                                    */
@@ -29,7 +31,19 @@ type DeploymentStandardParams = DeploymentBaseParams & {
   contractMap: Sablier.EVM.ContractMap;
 };
 
-type ReleaseParams<T> = Omit<T, "kind" | "contractNames">;
+type ReleaseParams<T> = Omit<T, "kind" | "contractNames" | "features" | "protocol" | "version">;
+
+type StandardRelease<
+  TProtocol extends keyof EvmReleaseVersionByProtocol,
+  TAbiMap extends Sablier.EVM.AbiMap,
+> = Sablier.EVM.Release.Standard<TAbiMap, ReleaseFeaturesForProtocol<TProtocol>>;
+
+type LockupProtocol = Extract<keyof EvmReleaseVersionByProtocol, "lockup">;
+
+type LockupV1Release<TAbiMap extends Sablier.EVM.AbiMap> = Sablier.EVM.Release.LockupV1<
+  TAbiMap,
+  ReleaseFeaturesForProtocol<LockupProtocol>
+>;
 
 /* -------------------------------------------------------------------------- */
 /*                             PLATFORM SETUP                                 */
@@ -101,12 +115,19 @@ export const resolvers = {
     /**
      * Creates a LockupV1 release with contract names extracted from manifest
      */
-    lockupV1: <TAbiMap extends Sablier.EVM.AbiMap>(
-      params: ReleaseParams<Sablier.EVM.Release.LockupV1<TAbiMap>>
-    ): Sablier.EVM.Release.LockupV1<TAbiMap> => {
+    lockupV1: <
+      TAbiMap extends Sablier.EVM.AbiMap,
+      TVersion extends EvmReleaseVersionByProtocol[LockupProtocol],
+    >(
+      params: ReleaseParams<LockupV1Release<TAbiMap>> & {
+        protocol: LockupProtocol;
+        version: TVersion;
+      }
+    ): LockupV1Release<TAbiMap> => {
       return {
         ...params,
         contractNames: getNestedValues(params.manifest),
+        features: getEvmReleaseFeatures<LockupProtocol>(params.protocol, params.version),
         kind: "lockupV1",
       };
     },
@@ -114,12 +135,20 @@ export const resolvers = {
     /**
      * Creates a standard release with contract names extracted from manifest
      */
-    standard: <TAbiMap extends Sablier.EVM.AbiMap>(
-      params: ReleaseParams<Sablier.EVM.Release.Standard<TAbiMap>>
-    ): Sablier.EVM.Release.Standard<TAbiMap> => {
+    standard: <
+      TProtocol extends keyof EvmReleaseVersionByProtocol,
+      TAbiMap extends Sablier.EVM.AbiMap,
+      TVersion extends EvmReleaseVersionByProtocol[TProtocol],
+    >(
+      params: ReleaseParams<StandardRelease<TProtocol, TAbiMap>> & {
+        protocol: TProtocol;
+        version: TVersion;
+      }
+    ): StandardRelease<TProtocol, TAbiMap> => {
       return {
         ...params,
         contractNames: getNestedValues(params.manifest),
+        features: getEvmReleaseFeatures<TProtocol>(params.protocol, params.version),
         kind: "standard",
       };
     },

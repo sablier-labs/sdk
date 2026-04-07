@@ -1,10 +1,12 @@
 import { describe, expect, it } from "vitest";
 import { Protocol as EvmProtocol, Version } from "@/src/evm/enums.js";
 import { isEvmReleasePayable } from "@/src/evm/helpers.js";
+import { releases } from "@/src/evm/releases/index.js";
 import {
   compareVersions as cmp,
   isVersionAfter as isAfter,
   isVersionBefore as isBefore,
+  isReleasePayable,
   resolveEvmStreamId,
   resolveSolanaStreamId,
   truncateAddress as truncate,
@@ -128,40 +130,77 @@ describe("helpers", () => {
   });
 
   describe("isEvmReleasePayable", () => {
+    it("accepts the legacy protocol/version signature", () => {
+      expect(isEvmReleasePayable("airdrops", Version.Airdrops.V1_2)).toBe(false);
+      expect(isEvmReleasePayable("airdrops", Version.Airdrops.V1_3)).toBe(true);
+      expect(isEvmReleasePayable("flow", Version.Flow.V1_0)).toBe(false);
+      expect(isEvmReleasePayable("flow", Version.Flow.V1_1)).toBe(true);
+      expect(isEvmReleasePayable("lockup", Version.Lockup.V1_2)).toBe(false);
+      expect(isEvmReleasePayable("lockup", Version.Lockup.V2_0)).toBe(true);
+    });
+
+    it("returns false for non-payable release objects", () => {
+      expect(isEvmReleasePayable(releases.bob[Version.Bob.V1_0])).toBe(false);
+      expect(isEvmReleasePayable(releases.legacy[Version.Legacy.V1_1])).toBe(false);
+    });
+
     describe("airdrops", () => {
       it("returns false for versions before v1.3", () => {
-        expect(isEvmReleasePayable("airdrops", Version.Airdrops.V1_1)).toBe(false);
-        expect(isEvmReleasePayable("airdrops", Version.Airdrops.V1_2)).toBe(false);
+        expect(isEvmReleasePayable(releases.airdrops[Version.Airdrops.V1_1])).toBe(false);
+        expect(isEvmReleasePayable(releases.airdrops[Version.Airdrops.V1_2])).toBe(false);
       });
 
       it("returns true for v1.3 and later", () => {
-        expect(isEvmReleasePayable("airdrops", Version.Airdrops.V1_3)).toBe(true);
-        expect(isEvmReleasePayable("airdrops", Version.Airdrops.V2_0)).toBe(true);
+        expect(isEvmReleasePayable(releases.airdrops[Version.Airdrops.V1_3])).toBe(true);
+        expect(isEvmReleasePayable(releases.airdrops[Version.Airdrops.V2_0])).toBe(true);
+        expect(isEvmReleasePayable(releases.airdrops[Version.Airdrops.V3_0])).toBe(true);
       });
     });
 
     describe("flow", () => {
       it("returns false for versions before v1.1", () => {
-        expect(isEvmReleasePayable("flow", Version.Flow.V1_0)).toBe(false);
+        expect(isEvmReleasePayable(releases.flow[Version.Flow.V1_0])).toBe(false);
       });
 
       it("returns true for v1.1 and later", () => {
-        expect(isEvmReleasePayable("flow", Version.Flow.V1_1)).toBe(true);
-        expect(isEvmReleasePayable("flow", Version.Flow.V2_0)).toBe(true);
+        expect(isEvmReleasePayable(releases.flow[Version.Flow.V1_1])).toBe(true);
+        expect(isEvmReleasePayable(releases.flow[Version.Flow.V2_0])).toBe(true);
+        expect(isEvmReleasePayable(releases.flow[Version.Flow.V3_0])).toBe(true);
       });
     });
 
     describe("lockup", () => {
       it("returns false for versions before v2.0", () => {
-        expect(isEvmReleasePayable("lockup", Version.Lockup.V1_0)).toBe(false);
-        expect(isEvmReleasePayable("lockup", Version.Lockup.V1_1)).toBe(false);
-        expect(isEvmReleasePayable("lockup", Version.Lockup.V1_2)).toBe(false);
+        expect(isEvmReleasePayable(releases.lockup[Version.Lockup.V1_0])).toBe(false);
+        expect(isEvmReleasePayable(releases.lockup[Version.Lockup.V1_1])).toBe(false);
+        expect(isEvmReleasePayable(releases.lockup[Version.Lockup.V1_2])).toBe(false);
       });
 
       it("returns true for v2.0 and later", () => {
-        expect(isEvmReleasePayable("lockup", Version.Lockup.V2_0)).toBe(true);
-        expect(isEvmReleasePayable("lockup", Version.Lockup.V3_0)).toBe(true);
+        expect(isEvmReleasePayable(releases.lockup[Version.Lockup.V2_0])).toBe(true);
+        expect(isEvmReleasePayable(releases.lockup[Version.Lockup.V3_0])).toBe(true);
+        expect(isEvmReleasePayable(releases.lockup[Version.Lockup.V4_0])).toBe(true);
       });
+    });
+  });
+
+  describe("isReleasePayable", () => {
+    it("preserves the public top-level helper behavior for release objects", () => {
+      expect(isReleasePayable(releases.airdrops[Version.Airdrops.V1_2])).toBe(false);
+      expect(isReleasePayable(releases.airdrops[Version.Airdrops.V1_3])).toBe(true);
+      expect(isReleasePayable(releases.flow[Version.Flow.V1_0])).toBe(false);
+      expect(isReleasePayable(releases.flow[Version.Flow.V1_1])).toBe(true);
+      expect(isReleasePayable(releases.lockup[Version.Lockup.V1_2])).toBe(false);
+      expect(isReleasePayable(releases.lockup[Version.Lockup.V2_0])).toBe(true);
+    });
+
+    it("preserves the legacy protocol/version signature", () => {
+      expect(isReleasePayable("airdrops", Version.Airdrops.V1_2)).toBe(false);
+      expect(isReleasePayable("airdrops", Version.Airdrops.V1_3)).toBe(true);
+      expect(isReleasePayable("flow", Version.Flow.V1_0)).toBe(false);
+      expect(isReleasePayable("flow", Version.Flow.V1_1)).toBe(true);
+      expect(isReleasePayable("lockup", Version.Lockup.V1_2)).toBe(false);
+      expect(isReleasePayable("lockup", Version.Lockup.V2_0)).toBe(true);
     });
   });
 
