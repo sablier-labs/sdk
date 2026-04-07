@@ -70,23 +70,40 @@ export function isVersionAfter(version: Version, after: Version): boolean {
  * Starting from specific versions, Sablier contracts charge a small ETH fee when
  * recipients withdraw or claim tokens from streams and airdrops.
  *
- * @param protocol - The protocol name ("airdrops", "flow", or "lockup")
- * @param version - The version to check
+ * @param release - The release object or `{ protocol, version }` pair to check
  * @returns true if the release charges fees
  * @see {@link https://docs.sablier.com/concepts/fees} for fee details
  * @example
+ * isReleasePayable({ protocol: "airdrops", version: "v1.2" }) // false
+ * isReleasePayable({ protocol: "airdrops", version: "v1.3" }) // true
  * isReleasePayable("airdrops", "v1.2") // false
  * isReleasePayable("airdrops", "v1.3") // true
+ * isReleasePayable({ protocol: "lockup", version: "v1.2" })   // false
+ * isReleasePayable({ protocol: "lockup", version: "v2.0" })   // true
  * isReleasePayable("lockup", "v1.2")   // false
  * isReleasePayable("lockup", "v2.0")   // true
+ * isReleasePayable({ protocol: "flow", version: "v1.0" })     // false
+ * isReleasePayable({ protocol: "flow", version: "v1.1" })     // true
  * isReleasePayable("flow", "v1.0")     // false
  * isReleasePayable("flow", "v1.1")     // true
  */
 export function isReleasePayable(
+  release: Pick<Sablier.EVM.Release, "protocol" | "version">
+): boolean;
+/**
+ * @deprecated Pass a release object instead. This overload will be removed in the next major version (v4).
+ */
+export function isReleasePayable(
   protocol: PayableEvmProtocol,
   version: Sablier.EVM.Version
+): boolean;
+export function isReleasePayable(
+  releaseOrProtocol: Pick<Sablier.EVM.Release, "protocol" | "version"> | PayableEvmProtocol,
+  version?: Sablier.EVM.Version
 ): boolean {
-  return isEvmReleasePayable(protocol, version);
+  return typeof releaseOrProtocol === "string"
+    ? isEvmReleasePayable(releaseOrProtocol, version as Sablier.EVM.Version)
+    : isEvmReleasePayable(releaseOrProtocol);
 }
 
 /**

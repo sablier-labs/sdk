@@ -111,16 +111,46 @@ export namespace EVM {
   /*                                   RELEASE                                  */
   /* -------------------------------------------------------------------------- */
 
+  export type AirdropsReleaseFeatures = {
+    payable: boolean;
+    claimTo: boolean;
+    sponsor: boolean;
+  };
+
+  export type FlowReleaseFeatures = {
+    payable: boolean;
+  };
+
+  export type LockupReleaseFeatures = {
+    payable: boolean;
+    prbProxy: boolean;
+    batch: boolean;
+    legacyAbi: boolean;
+  };
+
+  export type EmptyReleaseFeatures = Record<PropertyKey, never>;
+
+  export type EvmReleaseFeatures =
+    | AirdropsReleaseFeatures
+    | FlowReleaseFeatures
+    | LockupReleaseFeatures
+    | EmptyReleaseFeatures;
+
   /**
    * A collection of deployments for a given protocol and version.
    */
   export namespace Release {
-    type Common<TAbiMap extends AbiMap = AbiMap> = {
+    type Common<
+      TAbiMap extends AbiMap = AbiMap,
+      TFeatures extends EvmReleaseFeatures = EvmReleaseFeatures,
+    > = {
       abi: TAbiMap;
       /** A map of contract names to their aliases, used in the Sablier Interface and the Graph. */
       aliases?: AliasMap;
       /** An array of contract names. */
       contractNames: string[];
+      /** Release capabilities keyed to the owning protocol. */
+      features: TFeatures;
       /** Whether this is the latest release for this protocol. */
       isLatest: boolean;
       /** The kind of release. */
@@ -137,13 +167,19 @@ export namespace EVM {
      * Lockup v1.x release used to separate Lockup contracts into core and periphery sub-categories.
      * @see https://github.com/sablier-labs/v2-periphery
      */
-    export type LockupV1<TAbiMap extends AbiMap = AbiMap> = Common<TAbiMap> & {
+    export type LockupV1<
+      TAbiMap extends AbiMap = AbiMap,
+      TFeatures extends EvmReleaseFeatures = EvmReleaseFeatures,
+    > = Common<TAbiMap, TFeatures> & {
       deployments: Deployment.LockupV1[];
       kind: "lockupV1";
       manifest: Manifest.LockupV1;
     };
 
-    export type Standard<TAbiMap extends AbiMap = AbiMap> = Common<TAbiMap> & {
+    export type Standard<
+      TAbiMap extends AbiMap = AbiMap,
+      TFeatures extends EvmReleaseFeatures = EvmReleaseFeatures,
+    > = Common<TAbiMap, TFeatures> & {
       deployments: Deployment.Standard[];
       kind: "standard";
       manifest: Manifest.Standard;
