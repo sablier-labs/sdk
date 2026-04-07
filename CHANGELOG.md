@@ -9,6 +9,7 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 > Starting with v2.0.0, this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). In v1.x, it
 > did not always follow Semantic Versioning.
 
+[3.5.0]: https://github.com/sablier-labs/sdk/releases/tag/v3.5.0
 [3.4.0]: https://github.com/sablier-labs/sdk/releases/tag/v3.4.0
 [3.3.5]: https://github.com/sablier-labs/sdk/releases/tag/v3.3.5
 [3.3.4]: https://github.com/sablier-labs/sdk/releases/tag/v3.3.4
@@ -39,6 +40,15 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 [1.2.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.2.0
 [1.1.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.1.0
 [1.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.0.0
+
+## [3.5.0] - 2026-04-07
+
+### Added
+
+- Add `shape` feature flag to lockup release feature map, tracking on-chain shape parameter support (v2.0+)
+  ([`a87174c`](https://github.com/sablier-labs/sdk/commit/a87174c))
+- Add `supportsLockupShape` helper for querying shape support by lockup version
+  ([`a87174c`](https://github.com/sablier-labs/sdk/commit/a87174c))
 
 ## [3.4.0] - 2026-04-07
 
