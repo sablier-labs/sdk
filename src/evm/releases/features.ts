@@ -58,12 +58,24 @@ type PayableEvmReleaseReference = {
   };
 }[PayableEvmProtocol];
 
-const emptyReleaseFeatures = {} as const satisfies Sablier.EVM.EmptyReleaseFeatures;
+function deepFreeze<T>(value: T): T {
+  if (typeof value !== "object" || value === null || Object.isFrozen(value)) {
+    return value;
+  }
+
+  for (const nestedValue of Object.values(value as Record<string, unknown>)) {
+    deepFreeze(nestedValue);
+  }
+
+  return Object.freeze(value);
+}
+
+const emptyReleaseFeatures = deepFreeze({} as const satisfies Sablier.EVM.EmptyReleaseFeatures);
 
 /**
  * Protocol/version feature matrix used by both release resolvers and public helpers.
  */
-export const evmReleaseFeatures = {
+export const evmReleaseFeatures = deepFreeze({
   [Protocol.Airdrops]: {
     [Version.Airdrops.V1_1]: { claimTo: false, payable: false, sponsor: false },
     [Version.Airdrops.V1_2]: { claimTo: false, payable: false, sponsor: false },
@@ -92,7 +104,7 @@ export const evmReleaseFeatures = {
     [Version.Lockup.V3_0]: { batch: true, legacyAbi: false, payable: true, prbProxy: false },
     [Version.Lockup.V4_0]: { batch: true, legacyAbi: false, payable: true, prbProxy: false },
   },
-} as const satisfies EvmReleaseFeatureRegistry;
+} as const satisfies EvmReleaseFeatureRegistry);
 
 export type PayableEvmProtocol = ProtocolWithBooleanFeature<"payable">;
 
@@ -109,11 +121,11 @@ type PayableReleaseFeatureRegistry = {
   >;
 };
 
-const payableReleaseFeatureRegistry = {
+const payableReleaseFeatureRegistry = deepFreeze({
   [Protocol.Airdrops]: evmReleaseFeatures[Protocol.Airdrops],
   [Protocol.Flow]: evmReleaseFeatures[Protocol.Flow],
   [Protocol.Lockup]: evmReleaseFeatures[Protocol.Lockup],
-} satisfies PayableReleaseFeatureRegistry;
+} satisfies PayableReleaseFeatureRegistry);
 
 /**
  * Narrows protocol checks for helpers that only apply to fee-charging releases.
@@ -133,7 +145,7 @@ function isPayableEvmRelease(release: EvmReleaseReference): release is PayableEv
  * Normalizes the supported payable helper overloads to the canonical release shape.
  */
 function normalizePayableReleaseInput(
-  releaseOrProtocol: EvmReleaseReference | PayableEvmProtocol,
+  releaseOrProtocol: EvmReleaseReference | Sablier.EVM.Protocol,
   version?: Sablier.EVM.Version
 ): EvmReleaseReference {
   if (typeof releaseOrProtocol !== "string") {
@@ -196,11 +208,11 @@ export function isEvmReleasePayable(release: EvmReleaseReference): boolean;
  * @deprecated Pass a release object instead. This overload will be removed in the next major version (v4).
  */
 export function isEvmReleasePayable(
-  protocol: PayableEvmProtocol,
+  protocol: Sablier.EVM.Protocol,
   version: Sablier.EVM.Version
 ): boolean;
 export function isEvmReleasePayable(
-  releaseOrProtocol: EvmReleaseReference | PayableEvmProtocol,
+  releaseOrProtocol: EvmReleaseReference | Sablier.EVM.Protocol,
   version?: Sablier.EVM.Version
 ): boolean {
   const release = normalizePayableReleaseInput(releaseOrProtocol, version);
@@ -209,16 +221,21 @@ export function isEvmReleasePayable(
     return false;
   }
 
-  switch (release.protocol) {
-    case Protocol.Airdrops:
-      return payableReleaseFeatureRegistry[Protocol.Airdrops][release.version].payable;
-    case Protocol.Flow:
-      return payableReleaseFeatureRegistry[Protocol.Flow][release.version].payable;
-    case Protocol.Lockup:
-      return payableReleaseFeatureRegistry[Protocol.Lockup][release.version].payable;
+  const protocolRegistry = payableReleaseFeatureRegistry[release.protocol] as
+    | Record<Sablier.EVM.Version, { payable: boolean }>
+    | undefined;
+
+  if (!protocolRegistry) {
+    return false;
   }
 
-  return false;
+  const releaseFeatures = protocolRegistry[release.version];
+
+  if (!releaseFeatures) {
+    return false;
+  }
+
+  return releaseFeatures.payable;
 }
 
 /**

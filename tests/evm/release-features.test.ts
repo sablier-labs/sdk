@@ -75,6 +75,20 @@ describe("EVM release features", () => {
       expect(releases.legacy[Version.Legacy.V1_0].features).toStrictEqual({});
       expect(releases.legacy[Version.Legacy.V1_1].features).toStrictEqual({});
     });
+
+    it("freezes the canonical feature registry and attached release bags", () => {
+      const airdropsRegistry = evmReleaseFeatures[Protocol.Airdrops];
+      const airdropsFeatures = evmReleaseFeatures[Protocol.Airdrops][Version.Airdrops.V3_0];
+      const emptyFeatures = evmReleaseFeatures[Protocol.Bob][Version.Bob.V1_0];
+      const attachedFeatures = releases.airdrops[Version.Airdrops.V3_0].features;
+
+      expect(Object.isFrozen(evmReleaseFeatures)).toBe(true);
+      expect(Object.isFrozen(airdropsRegistry)).toBe(true);
+      expect(Object.isFrozen(airdropsFeatures)).toBe(true);
+      expect(Object.isFrozen(emptyFeatures)).toBe(true);
+      expect(Object.isFrozen(attachedFeatures)).toBe(true);
+      expect(attachedFeatures).toBe(airdropsFeatures);
+    });
   });
 
   describe("protocol helpers", () => {
