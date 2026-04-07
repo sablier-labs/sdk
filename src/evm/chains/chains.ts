@@ -46,4 +46,14 @@ export const {
 /*                             CUSTOM DEFINITIONS                             */
 /* -------------------------------------------------------------------------- */
 
-export const { chiliz, denergy, monad, sei, sophon, tangle, zksync, zksyncSepolia } = chains;
+export const {
+  battlechainTestnet,
+  chiliz,
+  denergy,
+  monad,
+  sei,
+  sophon,
+  tangle,
+  zksync,
+  zksyncSepolia,
+} = chains;
