@@ -1,5 +1,5 @@
 /**
- * Canonical capability registry for every shipped EVM release.
+ * @file Canonical capability registry for every shipped EVM release.
  *
  * Release builders attach these feature bags to exported release objects, and
  * helper functions read from the same registry so version-dependent behavior
@@ -7,6 +7,10 @@
  */
 import { Protocol, Version } from "@/src/evm/enums.js";
 import type { Sablier } from "@/src/types.js";
+
+/* -------------------------------------------------------------------------- */
+/*                                    TYPES                                   */
+/* -------------------------------------------------------------------------- */
 
 export type EvmReleaseVersionByProtocol = {
   airdrops: Sablier.EVM.Version.Airdrops;
@@ -92,6 +96,10 @@ export const evmReleaseFeatures = {
 
 export type PayableEvmProtocol = ProtocolWithBooleanFeature<"payable">;
 
+/* -------------------------------------------------------------------------- */
+/*                               PRIVATE HELPERS                              */
+/* -------------------------------------------------------------------------- */
+
 const evmReleaseFeatureRegistry: EvmReleaseFeatureRegistry = evmReleaseFeatures;
 
 type PayableReleaseFeatureRegistry = {
@@ -138,6 +146,10 @@ function normalizePayableReleaseInput(
 
   return { protocol: releaseOrProtocol, version };
 }
+
+/* -------------------------------------------------------------------------- */
+/*                                  FEATURES                                  */
+/* -------------------------------------------------------------------------- */
 
 /**
  * Returns the protocol-specific feature bag for a single EVM release.
@@ -210,7 +222,7 @@ export function isEvmReleasePayable(
 }
 
 /**
- * Returns whether the airdrops release supports redirecting claims to another recipient.
+ * Returns whether the airdrops release supports the `claimTo` function for claiming to a third-party address.
  */
 export function hasClaimTo(version: Sablier.EVM.Version.Airdrops): boolean {
   return getAirdropsReleaseFeatures(version).claimTo;
@@ -224,13 +236,6 @@ export function hasSponsor(version: Sablier.EVM.Version.Airdrops): boolean {
 }
 
 /**
- * Returns whether the lockup release still integrates with PRBProxy.
- */
-export function supportsLockupPrbProxy(version: Sablier.EVM.Version.Lockup): boolean {
-  return getLockupReleaseFeatures(version).prbProxy;
-}
-
-/**
  * Returns whether the lockup release exposes batch create or withdraw flows.
  */
 export function supportsLockupBatch(version: Sablier.EVM.Version.Lockup): boolean {
@@ -238,8 +243,15 @@ export function supportsLockupBatch(version: Sablier.EVM.Version.Lockup): boolea
 }
 
 /**
- * Returns whether the lockup release still relies on the legacy ABI layout.
+ * Returns whether the lockup release integrates with PRBProxy.
  */
-export function usesLegacyLockupAbis(version: Sablier.EVM.Version.Lockup): boolean {
+export function supportsLockupPrbProxy(version: Sablier.EVM.Version.Lockup): boolean {
+  return getLockupReleaseFeatures(version).prbProxy;
+}
+
+/**
+ * Returns whether the lockup release uses the split ABI layout.
+ */
+export function usesLockupSplit(version: Sablier.EVM.Version.Lockup): boolean {
   return getLockupReleaseFeatures(version).legacyAbi;
 }

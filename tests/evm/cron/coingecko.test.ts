@@ -131,7 +131,7 @@ function fetchAssetPlatforms() {
 
 describe("Validate CoinGecko IDs", () => {
   if (!COINGECKO_DEMO_API_KEY) {
-    it.skip("VITE_COINGECKO_API_KEY not set - skipping CoinGecko tests");
+    it.skip("VITE_COINGECKO_DEMO_API_KEY not set - skipping CoinGecko tests");
     return;
   }
 
@@ -150,7 +150,7 @@ describe("Validate CoinGecko IDs", () => {
 
 describe("Validate CoinGecko Platform IDs", () => {
   if (!COINGECKO_DEMO_API_KEY) {
-    it.skip("VITE_COINGECKO_API_KEY not set - skipping CoinGecko tests");
+    it.skip("VITE_COINGECKO_DEMO_API_KEY not set - skipping CoinGecko tests");
     return;
   }
 

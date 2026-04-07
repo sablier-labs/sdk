@@ -13,7 +13,7 @@ export {
   isEvmReleasePayable,
   supportsLockupBatch,
   supportsLockupPrbProxy,
-  usesLegacyLockupAbis,
+  usesLockupSplit,
 } from "./releases/features.js";
 
 /**

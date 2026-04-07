@@ -8,7 +8,7 @@ import {
   hasSponsor,
   supportsLockupBatch,
   supportsLockupPrbProxy,
-  usesLegacyLockupAbis,
+  usesLockupSplit,
 } from "@/src/evm/helpers.js";
 import { evmReleaseFeatures } from "@/src/evm/releases/features.js";
 import { releases } from "@/src/evm/releases/index.js";
@@ -113,9 +113,9 @@ describe("EVM release features", () => {
       expect(supportsLockupBatch(Version.Lockup.V2_0)).toBe(true);
     });
 
-    it("tracks legacy lockup ABI usage", () => {
-      expect(usesLegacyLockupAbis(Version.Lockup.V1_1)).toBe(true);
-      expect(usesLegacyLockupAbis(Version.Lockup.V1_2)).toBe(false);
+    it("tracks lockup split usage", () => {
+      expect(usesLockupSplit(Version.Lockup.V1_1)).toBe(true);
+      expect(usesLockupSplit(Version.Lockup.V1_2)).toBe(false);
     });
   });
 });
