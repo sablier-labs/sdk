@@ -201,11 +201,16 @@ function normalizePayableReleaseInput(
 
 /**
  * Reads the airdrops capability matrix for one released version.
+ * Returns `undefined` when the version does not belong to the Airdrops protocol.
  */
 export function getAirdropsReleaseFeatures(
-  version: Sablier.EVM.Version.Airdrops
-): Sablier.EVM.AirdropsReleaseFeatures {
-  return getEvmReleaseFeatures(Protocol.Airdrops, version);
+  version: Sablier.EVM.Version
+): Sablier.EVM.AirdropsReleaseFeatures | undefined {
+  const registry = evmReleaseFeatures[Protocol.Airdrops];
+  if (!(version in registry)) {
+    return undefined;
+  }
+  return registry[version as Sablier.EVM.Version.Airdrops];
 }
 
 /**
@@ -220,41 +225,54 @@ export function getEvmReleaseFeatures<TProtocol extends keyof EvmReleaseFeatureS
 
 /**
  * Reads the flow capability matrix for one released version.
+ * Returns `undefined` when the version does not belong to the Flow protocol.
  */
 export function getFlowReleaseFeatures(
-  version: Sablier.EVM.Version.Flow
-): Sablier.EVM.FlowReleaseFeatures {
-  return getEvmReleaseFeatures(Protocol.Flow, version);
+  version: Sablier.EVM.Version
+): Sablier.EVM.FlowReleaseFeatures | undefined {
+  const registry = evmReleaseFeatures[Protocol.Flow];
+  if (!(version in registry)) {
+    return undefined;
+  }
+  return registry[version as Sablier.EVM.Version.Flow];
 }
 
 /**
  * Reads the lockup capability matrix for one released version.
+ * Returns `undefined` when the version does not belong to the Lockup protocol.
  */
 export function getLockupReleaseFeatures(
-  version: Sablier.EVM.Version.Lockup
-): Sablier.EVM.LockupReleaseFeatures {
-  return getEvmReleaseFeatures(Protocol.Lockup, version);
+  version: Sablier.EVM.Version
+): Sablier.EVM.LockupReleaseFeatures | undefined {
+  const registry = evmReleaseFeatures[Protocol.Lockup];
+  if (!(version in registry)) {
+    return undefined;
+  }
+  return registry[version as Sablier.EVM.Version.Lockup];
 }
 
 /**
  * Returns whether the airdrops release supports the `claimTo` function for claiming to a third-party address.
+ * Returns `false` for non-Airdrops versions.
  */
-export function hasClaimTo(version: Sablier.EVM.Version.Airdrops): boolean {
-  return getAirdropsReleaseFeatures(version).claimTo;
+export function hasClaimTo(version: Sablier.EVM.Version): boolean {
+  return getAirdropsReleaseFeatures(version)?.claimTo ?? false;
 }
 
 /**
  * Returns whether the airdrops release supports sponsor-driven claims.
+ * Returns `false` for non-Airdrops versions.
  */
-export function hasSponsor(version: Sablier.EVM.Version.Airdrops): boolean {
-  return getAirdropsReleaseFeatures(version).sponsor;
+export function hasSponsor(version: Sablier.EVM.Version): boolean {
+  return getAirdropsReleaseFeatures(version)?.sponsor ?? false;
 }
 
 /**
  * Returns whether the lockup release uses the split ABI layout.
+ * Returns `false` for non-Lockup versions.
  */
-export function hasSplitLockupArchitecture(version: Sablier.EVM.Version.Lockup): boolean {
-  return getLockupReleaseFeatures(version).legacyAbi;
+export function hasSplitLockupArchitecture(version: Sablier.EVM.Version): boolean {
+  return getLockupReleaseFeatures(version)?.legacyAbi ?? false;
 }
 
 /** @deprecated Use {@link hasSplitLockupArchitecture} instead. */
@@ -300,21 +318,24 @@ export function isEvmReleasePayable(
 
 /**
  * Returns whether the lockup release exposes batch create or withdraw flows.
+ * Returns `false` for non-Lockup versions.
  */
-export function supportsLockupBatch(version: Sablier.EVM.Version.Lockup): boolean {
-  return getLockupReleaseFeatures(version).batch;
+export function supportsLockupBatch(version: Sablier.EVM.Version): boolean {
+  return getLockupReleaseFeatures(version)?.batch ?? false;
 }
 
 /**
  * Returns whether the lockup release integrates with PRBProxy.
+ * Returns `false` for non-Lockup versions.
  */
-export function supportsLockupPrbProxy(version: Sablier.EVM.Version.Lockup): boolean {
-  return getLockupReleaseFeatures(version).prbProxy;
+export function supportsLockupPrbProxy(version: Sablier.EVM.Version): boolean {
+  return getLockupReleaseFeatures(version)?.prbProxy ?? false;
 }
 
 /**
  * Returns whether the lockup release stores shape as an on-chain parameter.
+ * Returns `false` for non-Lockup versions.
  */
-export function supportsLockupShape(version: Sablier.EVM.Version.Lockup): boolean {
-  return getLockupReleaseFeatures(version).shape;
+export function supportsLockupShape(version: Sablier.EVM.Version): boolean {
+  return getLockupReleaseFeatures(version)?.shape ?? false;
 }

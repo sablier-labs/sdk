@@ -115,6 +115,13 @@ describe("EVM release features", () => {
       });
     });
 
+    it("returns undefined for versions outside the protocol", () => {
+      // v4.0 only exists in Lockup, v1.3 only exists in Airdrops
+      expect(getAirdropsReleaseFeatures(Version.Lockup.V4_0)).toBeUndefined();
+      expect(getFlowReleaseFeatures(Version.Airdrops.V1_3)).toBeUndefined();
+      expect(getLockupReleaseFeatures(Version.Airdrops.V1_3)).toBeUndefined();
+    });
+
     it("tracks airdrops claimTo support", () => {
       expect(hasClaimTo(Version.Airdrops.V1_3)).toBe(false);
       expect(hasClaimTo(Version.Airdrops.V2_0)).toBe(true);
@@ -147,6 +154,16 @@ describe("EVM release features", () => {
     it("tracks lockup shape support", () => {
       expect(supportsLockupShape(Version.Lockup.V1_2)).toBe(false);
       expect(supportsLockupShape(Version.Lockup.V2_0)).toBe(true);
+    });
+
+    it("returns false for versions outside the protocol", () => {
+      // v4.0 only exists in Lockup, v1.3 only exists in Airdrops
+      expect(hasClaimTo(Version.Lockup.V4_0)).toBe(false);
+      expect(hasSponsor(Version.Lockup.V4_0)).toBe(false);
+      expect(hasSplitLockupArchitecture(Version.Airdrops.V1_3)).toBe(false);
+      expect(supportsLockupBatch(Version.Airdrops.V1_3)).toBe(false);
+      expect(supportsLockupPrbProxy(Version.Airdrops.V1_3)).toBe(false);
+      expect(supportsLockupShape(Version.Airdrops.V1_3)).toBe(false);
     });
   });
 });
