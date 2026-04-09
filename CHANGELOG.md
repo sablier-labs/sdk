@@ -9,6 +9,7 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 > Starting with v2.0.0, this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). In v1.x, it
 > did not always follow Semantic Versioning.
 
+[3.6.0]: https://github.com/sablier-labs/sdk/releases/tag/v3.6.0
 [3.5.0]: https://github.com/sablier-labs/sdk/releases/tag/v3.5.0
 [3.4.0]: https://github.com/sablier-labs/sdk/releases/tag/v3.4.0
 [3.3.5]: https://github.com/sablier-labs/sdk/releases/tag/v3.3.5
@@ -40,6 +41,22 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 [1.2.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.2.0
 [1.1.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.1.0
 [1.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.0.0
+
+## [3.6.0] - 2026-04-09
+
+### Changed
+
+- Widen feature helper input types from protocol-specific version enums to `EVM.Version`, returning `undefined` or
+  `false` for non-matching protocols ([`718f465`](https://github.com/sablier-labs/sdk/commit/718f465))
+- Rename `usesLockupSplit` to `hasSplitLockupArchitecture`
+  ([`66598d7`](https://github.com/sablier-labs/sdk/commit/66598d7))
+- Deprecate `usesLockupSplit` in favor of `hasSplitLockupArchitecture`
+  ([`66598d7`](https://github.com/sablier-labs/sdk/commit/66598d7))
+
+### Added
+
+- Export `hasSplitLockupArchitecture` from `sablier/evm/helpers`
+  ([`66598d7`](https://github.com/sablier-labs/sdk/commit/66598d7))
 
 ## [3.5.0] - 2026-04-07
 
