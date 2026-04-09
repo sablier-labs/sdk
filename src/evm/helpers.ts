@@ -9,6 +9,7 @@ export {
   getFlowReleaseFeatures,
   getLockupReleaseFeatures,
   hasClaimTo,
+  hasSplitLockupArchitecture,
   hasSponsor,
   isEvmReleasePayable,
   supportsLockupBatch,

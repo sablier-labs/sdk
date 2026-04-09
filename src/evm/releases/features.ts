@@ -200,6 +200,15 @@ function normalizePayableReleaseInput(
 /* -------------------------------------------------------------------------- */
 
 /**
+ * Reads the airdrops capability matrix for one released version.
+ */
+export function getAirdropsReleaseFeatures(
+  version: Sablier.EVM.Version.Airdrops
+): Sablier.EVM.AirdropsReleaseFeatures {
+  return getEvmReleaseFeatures(Protocol.Airdrops, version);
+}
+
+/**
  * Returns the protocol-specific feature bag for a single EVM release.
  */
 export function getEvmReleaseFeatures<TProtocol extends keyof EvmReleaseFeatureSetByProtocol>(
@@ -207,15 +216,6 @@ export function getEvmReleaseFeatures<TProtocol extends keyof EvmReleaseFeatureS
   version: EvmReleaseVersionByProtocol[TProtocol]
 ): ReleaseFeaturesForProtocol<TProtocol> {
   return evmReleaseFeatureRegistry[protocol][version] as ReleaseFeaturesForProtocol<TProtocol>;
-}
-
-/**
- * Reads the airdrops capability matrix for one released version.
- */
-export function getAirdropsReleaseFeatures(
-  version: Sablier.EVM.Version.Airdrops
-): Sablier.EVM.AirdropsReleaseFeatures {
-  return getEvmReleaseFeatures(Protocol.Airdrops, version);
 }
 
 /**
@@ -235,6 +235,30 @@ export function getLockupReleaseFeatures(
 ): Sablier.EVM.LockupReleaseFeatures {
   return getEvmReleaseFeatures(Protocol.Lockup, version);
 }
+
+/**
+ * Returns whether the airdrops release supports the `claimTo` function for claiming to a third-party address.
+ */
+export function hasClaimTo(version: Sablier.EVM.Version.Airdrops): boolean {
+  return getAirdropsReleaseFeatures(version).claimTo;
+}
+
+/**
+ * Returns whether the airdrops release supports sponsor-driven claims.
+ */
+export function hasSponsor(version: Sablier.EVM.Version.Airdrops): boolean {
+  return getAirdropsReleaseFeatures(version).sponsor;
+}
+
+/**
+ * Returns whether the lockup release uses the split ABI layout.
+ */
+export function hasSplitLockupArchitecture(version: Sablier.EVM.Version.Lockup): boolean {
+  return getLockupReleaseFeatures(version).legacyAbi;
+}
+
+/** @deprecated Use {@link hasSplitLockupArchitecture} instead. */
+export const usesLockupSplit = hasSplitLockupArchitecture;
 
 /**
  * Returns whether a release charges native-token fees on claim or withdraw operations.
@@ -275,20 +299,6 @@ export function isEvmReleasePayable(
 }
 
 /**
- * Returns whether the airdrops release supports the `claimTo` function for claiming to a third-party address.
- */
-export function hasClaimTo(version: Sablier.EVM.Version.Airdrops): boolean {
-  return getAirdropsReleaseFeatures(version).claimTo;
-}
-
-/**
- * Returns whether the airdrops release supports sponsor-driven claims.
- */
-export function hasSponsor(version: Sablier.EVM.Version.Airdrops): boolean {
-  return getAirdropsReleaseFeatures(version).sponsor;
-}
-
-/**
  * Returns whether the lockup release exposes batch create or withdraw flows.
  */
 export function supportsLockupBatch(version: Sablier.EVM.Version.Lockup): boolean {
@@ -300,13 +310,6 @@ export function supportsLockupBatch(version: Sablier.EVM.Version.Lockup): boolea
  */
 export function supportsLockupPrbProxy(version: Sablier.EVM.Version.Lockup): boolean {
   return getLockupReleaseFeatures(version).prbProxy;
-}
-
-/**
- * Returns whether the lockup release uses the split ABI layout.
- */
-export function usesLockupSplit(version: Sablier.EVM.Version.Lockup): boolean {
-  return getLockupReleaseFeatures(version).legacyAbi;
 }
 
 /**

@@ -5,6 +5,7 @@ import {
   getFlowReleaseFeatures,
   getLockupReleaseFeatures,
   hasClaimTo,
+  hasSplitLockupArchitecture,
   hasSponsor,
   supportsLockupBatch,
   supportsLockupPrbProxy,
@@ -134,9 +135,13 @@ describe("EVM release features", () => {
       expect(supportsLockupBatch(Version.Lockup.V2_0)).toBe(true);
     });
 
-    it("tracks lockup split usage", () => {
-      expect(usesLockupSplit(Version.Lockup.V1_1)).toBe(true);
-      expect(usesLockupSplit(Version.Lockup.V1_2)).toBe(false);
+    it("tracks lockup split architecture", () => {
+      expect(hasSplitLockupArchitecture(Version.Lockup.V1_1)).toBe(true);
+      expect(hasSplitLockupArchitecture(Version.Lockup.V1_2)).toBe(false);
+    });
+
+    it("preserves usesLockupSplit as deprecated shim", () => {
+      expect(usesLockupSplit).toBe(hasSplitLockupArchitecture);
     });
 
     it("tracks lockup shape support", () => {
