@@ -1,3 +1,7 @@
+// NOTE: evm/index.ts uses explicit named re-exports instead of `export *` for
+// this module. When adding or removing a public export here, mirror the change
+// in evm/index.ts. The "barrel re-exports every helpers symbol" test in
+// tests/package-exports.test.ts will catch any drift.
 import { getContractExplorerURL as getContractExplorerURLInternal } from "@/src/internal/utils/explorer-url.js";
 import type { Sablier, TruncateAddressOptions } from "@/src/types.js";
 import { getAliasCatalog } from "./contracts/alias-catalog.js";

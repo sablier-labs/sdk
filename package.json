@@ -60,6 +60,46 @@
       "import": "./dist/esm/evm/index.js",
       "default": "./dist/cjs/evm/index.js"
     },
+    "./evm/chains": {
+      "types": "./dist/types/evm/chains/index.d.ts",
+      "import": "./dist/esm/evm/chains/index.js",
+      "default": "./dist/cjs/evm/chains/index.js"
+    },
+    "./evm/compatibility": {
+      "types": "./dist/types/evm/compatibility.d.ts",
+      "import": "./dist/esm/evm/compatibility.js",
+      "default": "./dist/cjs/evm/compatibility.js"
+    },
+    "./evm/comptroller": {
+      "types": "./dist/types/evm/comptroller/index.d.ts",
+      "import": "./dist/esm/evm/comptroller/index.js",
+      "default": "./dist/cjs/evm/comptroller/index.js"
+    },
+    "./evm/contracts": {
+      "types": "./dist/types/evm/contracts/index.d.ts",
+      "import": "./dist/esm/evm/contracts/index.js",
+      "default": "./dist/cjs/evm/contracts/index.js"
+    },
+    "./evm/csv": {
+      "types": "./dist/types/evm/csv/index.d.ts",
+      "import": "./dist/esm/evm/csv/index.js",
+      "default": "./dist/cjs/evm/csv/index.js"
+    },
+    "./evm/enums": {
+      "types": "./dist/types/evm/enums.d.ts",
+      "import": "./dist/esm/evm/enums.js",
+      "default": "./dist/cjs/evm/enums.js"
+    },
+    "./evm/helpers": {
+      "types": "./dist/types/evm/helpers.d.ts",
+      "import": "./dist/esm/evm/helpers.js",
+      "default": "./dist/cjs/evm/helpers.js"
+    },
+    "./evm/releases": {
+      "types": "./dist/types/evm/releases/index.d.ts",
+      "import": "./dist/esm/evm/releases/index.js",
+      "default": "./dist/cjs/evm/releases/index.js"
+    },
     "./evm/*": {
       "types": "./dist/types/evm/*/index.d.ts",
       "import": "./dist/esm/evm/*/index.js",
@@ -69,6 +109,41 @@
       "types": "./dist/types/solana/index.d.ts",
       "import": "./dist/esm/solana/index.js",
       "default": "./dist/cjs/solana/index.js"
+    },
+    "./solana/chains": {
+      "types": "./dist/types/solana/chains/index.d.ts",
+      "import": "./dist/esm/solana/chains/index.js",
+      "default": "./dist/cjs/solana/chains/index.js"
+    },
+    "./solana/compatibility": {
+      "types": "./dist/types/solana/compatibility.d.ts",
+      "import": "./dist/esm/solana/compatibility.js",
+      "default": "./dist/cjs/solana/compatibility.js"
+    },
+    "./solana/csv": {
+      "types": "./dist/types/solana/csv/index.d.ts",
+      "import": "./dist/esm/solana/csv/index.js",
+      "default": "./dist/cjs/solana/csv/index.js"
+    },
+    "./solana/enums": {
+      "types": "./dist/types/solana/enums.d.ts",
+      "import": "./dist/esm/solana/enums.js",
+      "default": "./dist/cjs/solana/enums.js"
+    },
+    "./solana/helpers": {
+      "types": "./dist/types/solana/helpers.d.ts",
+      "import": "./dist/esm/solana/helpers.js",
+      "default": "./dist/cjs/solana/helpers.js"
+    },
+    "./solana/programs": {
+      "types": "./dist/types/solana/programs/index.d.ts",
+      "import": "./dist/esm/solana/programs/index.js",
+      "default": "./dist/cjs/solana/programs/index.js"
+    },
+    "./solana/releases": {
+      "types": "./dist/types/solana/releases/index.d.ts",
+      "import": "./dist/esm/solana/releases/index.js",
+      "default": "./dist/cjs/solana/releases/index.js"
     },
     "./solana/releases/*/idl": {
       "types": "./dist/types/solana/releases/*/idl.d.ts",
