@@ -9,6 +9,7 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 > Starting with v2.0.0, this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). In v1.x, it
 > did not always follow Semantic Versioning.
 
+[3.7.0]: https://github.com/sablier-labs/sdk/releases/tag/v3.7.0
 [3.6.0]: https://github.com/sablier-labs/sdk/releases/tag/v3.6.0
 [3.5.0]: https://github.com/sablier-labs/sdk/releases/tag/v3.5.0
 [3.4.0]: https://github.com/sablier-labs/sdk/releases/tag/v3.4.0
@@ -41,6 +42,20 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 [1.2.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.2.0
 [1.1.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.1.0
 [1.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.0.0
+
+## [3.7.0] - 2026-04-10
+
+### Changed
+
+- Add `minFee` capability flags to Flow and Lockup release feature bags
+  ([`d0e0940`](https://github.com/sablier-labs/sdk/commit/d0e0940))
+- Document the EVM release feature registry with protocol changelog references
+  ([`d0e0940`](https://github.com/sablier-labs/sdk/commit/d0e0940))
+
+### Added
+
+- Add `hasOnchainMinFee` helper for querying on-chain minimum fee support across Flow and Lockup releases
+  ([`d0e0940`](https://github.com/sablier-labs/sdk/commit/d0e0940))
 
 ## [3.6.0] - 2026-04-09
 
