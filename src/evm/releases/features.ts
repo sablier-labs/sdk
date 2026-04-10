@@ -356,16 +356,12 @@ export function isEvmReleasePayable(
     return false;
   }
 
-  switch (release.protocol) {
-    case Protocol.Airdrops:
-      return evmReleaseFeatures[Protocol.Airdrops][release.version].payable;
-    case Protocol.Flow:
-      return evmReleaseFeatures[Protocol.Flow][release.version].payable;
-    case Protocol.Lockup:
-      return evmReleaseFeatures[Protocol.Lockup][release.version].payable;
-    default:
-      return false;
+  const registry = evmReleaseFeatures[release.protocol] as Record<string, { payable: boolean }>;
+  if (!(release.version in registry)) {
+    return false;
   }
+
+  return registry[release.version].payable;
 }
 
 /**
