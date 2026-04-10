@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { Protocol } from "@/src/evm/enums.js";
-import { resolveEvmStreamId } from "@/src/helpers.js";
+import { resolveEvmStreamId } from "@/src/evm/helpers.js";
 import { sablier } from "@/src/sablier.js";
 import type { Sablier } from "@/src/types.js";
 import type { AliasedEvmContractEntry } from "../releases.js";

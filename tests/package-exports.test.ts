@@ -7,17 +7,51 @@
 //    break when `package.json` wildcard exports assume every subpath resolves to
 //    `*/index.d.ts`.
 
+import {
+  getEvmReleaseFeatures as getEvmReleaseFeaturesFromSubpath,
+  hasClaimTo as hasClaimToFromRoot,
+  hasOnchainMinFee as hasOnchainMinFeeFromRoot,
+  hasSponsor as hasSponsorFromRoot,
+  isEvmReleasePayable as isEvmReleasePayableFromRoot,
+  evmReleaseFeatures as releaseFeatureRegistry,
+} from "sablier";
 import { hasClaimTo, hasOnchainMinFee, hasSponsor, isEvmReleasePayable } from "sablier/evm";
 import { Protocol, Version } from "sablier/evm/enums";
 import { truncateEvmAddress } from "sablier/evm/helpers";
+import {
+  evmReleaseFeatures as evmReleaseFeaturesFromReleases,
+  hasClaimTo as hasClaimToFromReleases,
+  hasSponsor as hasSponsorFromReleases,
+} from "sablier/evm/releases";
+import { getEvmReleaseFeatures } from "sablier/evm/releases/features";
 import { describe, expect, test } from "vitest";
 
 describe("package exports", () => {
+  test("sablier root re-exports release-feature helpers", () => {
+    expect(hasClaimToFromRoot(Version.Airdrops.V2_0)).toBe(true);
+    expect(hasSponsorFromRoot(Version.Airdrops.V3_0)).toBe(true);
+    expect(hasOnchainMinFeeFromRoot(Protocol.Flow, Version.Flow.V2_0)).toBe(true);
+    expect(isEvmReleasePayableFromRoot(Protocol.Lockup, Version.Lockup.V4_0)).toBe(true);
+  });
+
   test("sablier/evm re-exports release-feature helpers", () => {
     expect(hasClaimTo(Version.Airdrops.V2_0)).toBe(true);
     expect(hasSponsor(Version.Airdrops.V3_0)).toBe(true);
     expect(hasOnchainMinFee(Protocol.Flow, Version.Flow.V2_0)).toBe(true);
     expect(isEvmReleasePayable(Protocol.Lockup, Version.Lockup.V4_0)).toBe(true);
+  });
+
+  test("sablier/evm/releases re-exports release-feature helpers", () => {
+    expect(hasClaimToFromReleases(Version.Airdrops.V2_0)).toBe(true);
+    expect(hasSponsorFromReleases(Version.Airdrops.V3_0)).toBe(true);
+    expect(evmReleaseFeaturesFromReleases[Protocol.Flow][Version.Flow.V2_0]).toBe(
+      releaseFeatureRegistry[Protocol.Flow][Version.Flow.V2_0]
+    );
+  });
+
+  test("sablier/evm/releases/features subpath resolves", () => {
+    expect(getEvmReleaseFeatures("lockup", Version.Lockup.V4_0).minFee).toBe(true);
+    expect(getEvmReleaseFeaturesFromSubpath("airdrops", Version.Airdrops.V3_0).sponsor).toBe(true);
   });
 
   test("sablier/evm/helpers subpath resolves", () => {

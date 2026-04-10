@@ -5,8 +5,9 @@ import { SOLANA_CHAIN_IDS } from "./solana/chains/chains.js";
 import { resolveSolanaStreamId, truncateSolanaAddress } from "./solana/helpers.js";
 import type { Sablier, TruncateAddressOptions } from "./types.js";
 
-// Re-export platform-specific helpers
-export * from "./evm/helpers.js";
+// Re-export platform-specific helpers. EVM helpers are surfaced from the
+// package root via `src/evm/index.ts`, so keep this barrel Solana-only to avoid
+// duplicate `export *` paths for the same EVM names at `sablier`.
 export * from "./solana/helpers.js";
 
 // Re-export shared types

@@ -100,6 +100,11 @@
       "import": "./dist/esm/evm/releases/index.js",
       "default": "./dist/cjs/evm/releases/index.js"
     },
+    "./evm/releases/features": {
+      "types": "./dist/types/evm/releases/features.d.ts",
+      "import": "./dist/esm/evm/releases/features.js",
+      "default": "./dist/cjs/evm/releases/features.js"
+    },
     "./evm/*": {
       "types": "./dist/types/evm/*/index.d.ts",
       "import": "./dist/esm/evm/*/index.js",

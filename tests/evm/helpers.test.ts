@@ -1,13 +1,12 @@
 import { describe, expect, it } from "vitest";
 import { Protocol as EvmProtocol, Version } from "@/src/evm/enums.js";
-import { isEvmReleasePayable } from "@/src/evm/helpers.js";
+import { isEvmReleasePayable, resolveEvmStreamId } from "@/src/evm/helpers.js";
 import { releases } from "@/src/evm/releases/index.js";
 import {
   compareVersions as cmp,
   isVersionAfter as isAfter,
   isVersionBefore as isBefore,
   isReleasePayable,
-  resolveEvmStreamId,
   resolveSolanaStreamId,
   truncateAddress as truncate,
 } from "@/src/helpers.js";
