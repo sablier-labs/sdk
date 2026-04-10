@@ -9,6 +9,7 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 > Starting with v2.0.0, this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). In v1.x, it
 > did not always follow Semantic Versioning.
 
+[3.7.2]: https://github.com/sablier-labs/sdk/releases/tag/v3.7.2
 [3.7.1]: https://github.com/sablier-labs/sdk/releases/tag/v3.7.1
 [3.7.0]: https://github.com/sablier-labs/sdk/releases/tag/v3.7.0
 [3.6.0]: https://github.com/sablier-labs/sdk/releases/tag/v3.6.0
@@ -43,6 +44,18 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 [1.2.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.2.0
 [1.1.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.1.0
 [1.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.0.0
+
+## [3.7.2] - 2026-04-10
+
+### Added
+
+- Add explicit subpath exports for EVM and Solana modules (`sablier/evm/chains`, `sablier/evm/helpers`,
+  `sablier/solana/chains`, etc.) ([`e4574ac`](https://github.com/sablier-labs/sdk/commit/e4574ac))
+
+### Fixed
+
+- Fix EVM helpers barrel to use explicit named re-exports, improving type resolution for downstream consumers
+  ([`e4574ac`](https://github.com/sablier-labs/sdk/commit/e4574ac))
 
 ## [3.7.1] - 2026-04-10
 
