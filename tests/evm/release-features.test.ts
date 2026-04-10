@@ -5,6 +5,7 @@ import {
   getFlowReleaseFeatures,
   getLockupReleaseFeatures,
   hasClaimTo,
+  hasOnchainMinFee,
   hasSplitLockupArchitecture,
   hasSponsor,
   supportsLockupBatch,
@@ -61,6 +62,9 @@ describe("EVM release features", () => {
       expect(
         (releases.flow[Version.Flow.V1_0].features as Sablier.EVM.FlowReleaseFeatures).payable
       ).toBe(false);
+      expect(
+        (releases.flow[Version.Flow.V2_0].features as Sablier.EVM.FlowReleaseFeatures).minFee
+      ).toBe(true);
     });
 
     it("attaches lockup features to exported releases", () => {
@@ -74,6 +78,7 @@ describe("EVM release features", () => {
         .features as Sablier.EVM.LockupReleaseFeatures;
       expect(features.batch).toBe(true);
       expect(features.legacyAbi).toBe(false);
+      expect(features.minFee).toBe(false);
       expect(features.prbProxy).toBe(false);
     });
 
@@ -105,10 +110,14 @@ describe("EVM release features", () => {
         payable: true,
         sponsor: false,
       });
-      expect(getFlowReleaseFeatures(Version.Flow.V1_0)).toStrictEqual({ payable: false });
+      expect(getFlowReleaseFeatures(Version.Flow.V1_0)).toStrictEqual({
+        minFee: false,
+        payable: false,
+      });
       expect(getLockupReleaseFeatures(Version.Lockup.V1_0)).toStrictEqual({
         batch: false,
         legacyAbi: true,
+        minFee: false,
         payable: false,
         prbProxy: true,
         shape: false,
@@ -130,6 +139,20 @@ describe("EVM release features", () => {
     it("tracks airdrops sponsor support", () => {
       expect(hasSponsor(Version.Airdrops.V2_0)).toBe(false);
       expect(hasSponsor(Version.Airdrops.V3_0)).toBe(true);
+    });
+
+    it("tracks Flow and Lockup on-chain minimum fee support", () => {
+      expect(hasOnchainMinFee(Protocol.Flow, Version.Flow.V1_0)).toBe(false);
+      expect(hasOnchainMinFee(Protocol.Flow, Version.Flow.V1_1)).toBe(false);
+      expect(hasOnchainMinFee(Protocol.Flow, Version.Flow.V2_0)).toBe(true);
+      expect(hasOnchainMinFee(Protocol.Flow, Version.Flow.V3_0)).toBe(true);
+
+      expect(hasOnchainMinFee(Protocol.Lockup, Version.Lockup.V1_0)).toBe(false);
+      expect(hasOnchainMinFee(Protocol.Lockup, Version.Lockup.V1_1)).toBe(false);
+      expect(hasOnchainMinFee(Protocol.Lockup, Version.Lockup.V1_2)).toBe(false);
+      expect(hasOnchainMinFee(Protocol.Lockup, Version.Lockup.V2_0)).toBe(false);
+      expect(hasOnchainMinFee(Protocol.Lockup, Version.Lockup.V3_0)).toBe(true);
+      expect(hasOnchainMinFee(Protocol.Lockup, Version.Lockup.V4_0)).toBe(true);
     });
 
     it("tracks lockup PRBProxy support", () => {
@@ -159,6 +182,7 @@ describe("EVM release features", () => {
     it("returns false for versions outside the protocol", () => {
       // v4.0 only exists in Lockup, v1.3 only exists in Airdrops
       expect(hasClaimTo(Version.Lockup.V4_0)).toBe(false);
+      expect(hasOnchainMinFee(Protocol.Airdrops, Version.Airdrops.V1_3)).toBe(false);
       expect(hasSponsor(Version.Lockup.V4_0)).toBe(false);
       expect(hasSplitLockupArchitecture(Version.Airdrops.V1_3)).toBe(false);
       expect(supportsLockupBatch(Version.Airdrops.V1_3)).toBe(false);

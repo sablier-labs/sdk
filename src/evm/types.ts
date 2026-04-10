@@ -119,10 +119,12 @@ export namespace EVM {
 
   export type FlowReleaseFeatures = {
     payable: boolean;
+    minFee: boolean;
   };
 
   export type LockupReleaseFeatures = {
     payable: boolean;
+    minFee: boolean;
     prbProxy: boolean;
     batch: boolean;
     legacyAbi: boolean;

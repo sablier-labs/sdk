@@ -9,6 +9,7 @@ export {
   getFlowReleaseFeatures,
   getLockupReleaseFeatures,
   hasClaimTo,
+  hasOnchainMinFee,
   hasSplitLockupArchitecture,
   hasSponsor,
   isEvmReleasePayable,
