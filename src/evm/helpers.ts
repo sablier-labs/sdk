@@ -3,9 +3,16 @@ import type { Sablier, TruncateAddressOptions } from "@/src/types.js";
 import { getAliasCatalog } from "./contracts/alias-catalog.js";
 import { Protocol } from "./enums.js";
 
-export type { PayableEvmProtocol } from "./releases/features.js";
+export type {
+  EvmReleaseFeatureSetByProtocol,
+  EvmReleaseVersionByProtocol,
+  PayableEvmProtocol,
+  ReleaseFeaturesForProtocol,
+} from "./releases/features.js";
 export {
+  evmReleaseFeatures,
   getAirdropsReleaseFeatures,
+  getEvmReleaseFeatures,
   getFlowReleaseFeatures,
   getLockupReleaseFeatures,
   hasClaimTo,
