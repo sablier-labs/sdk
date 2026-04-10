@@ -9,6 +9,7 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 > Starting with v2.0.0, this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). In v1.x, it
 > did not always follow Semantic Versioning.
 
+[3.7.1]: https://github.com/sablier-labs/sdk/releases/tag/v3.7.1
 [3.7.0]: https://github.com/sablier-labs/sdk/releases/tag/v3.7.0
 [3.6.0]: https://github.com/sablier-labs/sdk/releases/tag/v3.6.0
 [3.5.0]: https://github.com/sablier-labs/sdk/releases/tag/v3.5.0
@@ -42,6 +43,13 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 [1.2.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.2.0
 [1.1.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.1.0
 [1.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.0.0
+
+## [3.7.1] - 2026-04-10
+
+### Fixed
+
+- Export missing feature helpers and types from `sablier/evm/helpers` subpath
+  ([`7bfbb85`](https://github.com/sablier-labs/sdk/commit/7bfbb85))
 
 ## [3.7.0] - 2026-04-10
 
