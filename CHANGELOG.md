@@ -9,6 +9,7 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 > Starting with v2.0.0, this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). In v1.x, it
 > did not always follow Semantic Versioning.
 
+[3.7.4]: https://github.com/sablier-labs/sdk/releases/tag/v3.7.4
 [3.7.3]: https://github.com/sablier-labs/sdk/releases/tag/v3.7.3
 [3.7.2]: https://github.com/sablier-labs/sdk/releases/tag/v3.7.2
 [3.7.1]: https://github.com/sablier-labs/sdk/releases/tag/v3.7.1
@@ -45,6 +46,13 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 [1.2.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.2.0
 [1.1.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.1.0
 [1.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.0.0
+
+## [3.7.4] - 2026-04-10
+
+### Fixed
+
+- Return `false` for unknown versions in `isEvmReleasePayable` instead of throwing a runtime error
+  ([`e14a270`](https://github.com/sablier-labs/sdk/commit/e14a270))
 
 ## [3.7.3] - 2026-04-10
 
