@@ -60,7 +60,7 @@ export function createReleasesQueries<
     getLatest: (opts: { protocol: TProtocol }): TRelease => {
       const list = Object.values(releases[opts.protocol]) as TRelease[];
       const latest = list.at(-1);
-      if (!latest || !latest.isLatest) {
+      if (!latest?.isLatest) {
         throw new Error(
           `Sablier SDK: No latest release found for Sablier ${opts.protocol}. Please report on GitHub.`
         );
