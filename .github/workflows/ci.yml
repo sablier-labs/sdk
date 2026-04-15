@@ -17,6 +17,9 @@ jobs:
         with:
           save-cache: true
 
+      - name: Build the project
+        run: just build
+
       - name: Run the code checks
         run: just full-check
 
