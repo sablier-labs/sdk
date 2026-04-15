@@ -21,6 +21,7 @@
 
 ### Salt
 
-All contracts except `Denergy` are deployed using Foundry's `CREATE2` factory. The following salt is used:
+All contracts except `Denergy` and `BattleChain Testnet` are deployed using Foundry's `CREATE2` factory. The following
+salt is used:
 
 1. Comptroller Implementation: `Version 2.0.0`

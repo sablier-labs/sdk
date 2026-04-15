@@ -214,6 +214,11 @@ export const testnets: Sablier.EVM.Deployment[] = [
     [manifest.SABLIER_BATCH_LOCKUP]: "0xB5549e9348ce9E0D461e0f8b9F05173E052Ef312",
     [manifest.SABLIER_LOCKUP]: ["0x9D68477ef056552D769752171f348B74E0050Fe8", 40_969_002],
   }),
+  get(chains.battlechainTestnet.id, {
+    [manifest.LOCKUP_NFT_DESCRIPTOR]: "0xf978034bb3CAB5fe88d23DB5Cb38D510485DaB90",
+    [manifest.SABLIER_BATCH_LOCKUP]: "0x85290381D6dfD4ff0d33265B32b050C1bDe9a56a",
+    [manifest.SABLIER_LOCKUP]: ["0xbf85cD17cA59b7A2b81d3D776cE1602a7C0aF9D9", 5418],
+  }),
   get(chains.sepolia.id, {
     [manifest.LOCKUP_HELPERS]: "0xC86B56250D2758f30d09B3420D9ec5b646244C7c",
     [manifest.LOCKUP_MATH]: "0x6c873BcE27aA6Ca803EF7013F05d1802AB6995b6",

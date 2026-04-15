@@ -82,7 +82,7 @@ const INVALID_BROADCASTS: InvalidBroadcastMap = {
 };
 
 // Chains for which we completely lack broadcasts.
-const MISSING_CHAIN_ENTRIES = [chains.battlechainTestnet, chains.ronin, chains.tangle] as const;
+const MISSING_CHAIN_ENTRIES = [chains.ronin, chains.tangle] as const;
 export const MISSING_CHAIN_IDS: number[] = MISSING_CHAIN_ENTRIES.map((c) => c.id);
 export const MISSING_CHAIN_SLUGS: string[] = MISSING_CHAIN_ENTRIES.map((c) => c.slug);
 

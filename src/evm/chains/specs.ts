@@ -153,7 +153,7 @@ export const chainSpecs = {
   battlechainTestnet: {
     base: _battlechainTestnet,
     meta: {
-      isZk: true,
+      isZk: false,
       slug: "battlechain-testnet",
     },
     nativeCurrency: {
