@@ -24,7 +24,7 @@
 
 ## Salts
 
-All contracts except `Denergy` are deployed using Foundry's `CREATE2` factory. The following salts are used:
+By default, all deployments use Foundry's `CREATE2` factory with a few exceptions. Please refer to the table below:
 
 ### Mainnets
 
@@ -57,9 +57,10 @@ All contracts except `Denergy` are deployed using Foundry's `CREATE2` factory. T
 
 ### Testnets
 
-| Chain            | Salt                            |
-| :--------------- | :------------------------------ |
-| Arbitrum Sepolia | ChainID 421614, Version 4.0.0   |
-| Base Sepolia     | ChainID 84532, Version 4.0.0    |
-| Optimism Sepolia | ChainID 11155420, Version 4.0.0 |
-| Sepolia          | ChainID 11155111, Version 4.0.0 |
+| Chain               | Salt                            |
+| :------------------ | :------------------------------ |
+| Arbitrum Sepolia    | ChainID 421614, Version 4.0.0   |
+| Base Sepolia        | ChainID 84532, Version 4.0.0    |
+| BattleChain Testnet | No Salt                         |
+| Optimism Sepolia    | ChainID 11155420, Version 4.0.0 |
+| Sepolia             | ChainID 11155111, Version 4.0.0 |

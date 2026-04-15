@@ -5,11 +5,12 @@ const DENERGY_NATIVE_CURRENCY_SYMBOL = "WATT";
 const TANGLE_NATIVE_CURRENCY_SYMBOL = "TNT";
 
 export const denergy = viemDefine({
+  id: DENERGY_CHAIN_ID,
+  name: "Denergy",
+  testnet: false,
   blockExplorers: {
     default: { name: "Explorer", url: "https://explorer.denergychain.com" },
   },
-  id: DENERGY_CHAIN_ID,
-  name: "Denergy",
   nativeCurrency: {
     decimals: 18,
     name: "Watt",
@@ -20,10 +21,12 @@ export const denergy = viemDefine({
       http: ["https://rpc.d.energy"],
     },
   },
-  testnet: false,
 });
 
 export const tangle = viemDefine({
+  id: 5845,
+  name: "Tangle",
+  testnet: false,
   blockExplorers: {
     default: { name: "Explorer", url: "https://explorer.tangle.tools" },
   },
@@ -33,8 +36,6 @@ export const tangle = viemDefine({
       blockCreated: 2_790_914,
     },
   },
-  id: 5845,
-  name: "Tangle",
   nativeCurrency: {
     decimals: 18,
     name: "Tangle",
@@ -45,5 +46,4 @@ export const tangle = viemDefine({
       http: ["https://rpc.tangle.tools"],
     },
   },
-  testnet: false,
 });

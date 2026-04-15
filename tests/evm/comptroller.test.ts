@@ -17,6 +17,8 @@ describe("comptroller", () => {
           expect(entry.address).toBe("0xF21b304A08993f98A79C7Eb841f812CCeab49B8b");
         } else if (entry.chainId === chains.denergy.id) {
           expect(entry.address).toBe("0x946654AB30Dd6eD10236C89f2C8B2719df653691");
+        } else if (entry.chainId === chains.battlechainTestnet.id) {
+          expect(entry.address).toBe("0x0eDA15D606733f6CDe9DB67263E546bfcDDe9264");
         } else {
           expect(entry.address).toBe(DEFAULT_ADDRESS);
         }

@@ -59,18 +59,22 @@ async function loadZK(
 export async function loadComptrollerBroadcast(
   chainSlug: string
 ): Promise<StandardBroadcast | null> {
-  const broadcastPath = path.join(
-    getDeploymentsDir(),
-    "comptroller",
-    "v1.0",
-    "broadcasts",
-    `${chainSlug}.json`
-  );
+  const deploymentsDir = getDeploymentsDir();
 
-  if (!fs.existsSync(broadcastPath)) {
-    return null;
+  for (const version of ["v1.0", "v2.0"]) {
+    const broadcastPath = path.join(
+      deploymentsDir,
+      "comptroller",
+      version,
+      "broadcasts",
+      `${chainSlug}.json`
+    );
+
+    if (fs.existsSync(broadcastPath)) {
+      const broadcast = await fs.promises.readFile(broadcastPath, "utf8");
+      return JSON.parse(broadcast);
+    }
   }
 
-  const broadcast = await fs.promises.readFile(broadcastPath, "utf8");
-  return JSON.parse(broadcast);
+  return null;
 }
