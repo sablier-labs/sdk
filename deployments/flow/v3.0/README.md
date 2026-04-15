@@ -21,7 +21,7 @@
 
 ## Salts
 
-All contracts except `Denergy` are deployed using Foundry's `CREATE2` factory. The following salts are used:
+By default, all deployments use Foundry's `CREATE2` factory with a few exceptions. Please refer to the table below:
 
 ### Mainnets
 
