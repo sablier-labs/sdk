@@ -9,6 +9,7 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 > Starting with v2.0.0, this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). In v1.x, it
 > did not always follow Semantic Versioning.
 
+[3.7.5]: https://github.com/sablier-labs/sdk/releases/tag/v3.7.5
 [3.7.4]: https://github.com/sablier-labs/sdk/releases/tag/v3.7.4
 [3.7.3]: https://github.com/sablier-labs/sdk/releases/tag/v3.7.3
 [3.7.2]: https://github.com/sablier-labs/sdk/releases/tag/v3.7.2
@@ -46,6 +47,13 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 [1.2.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.2.0
 [1.1.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.1.0
 [1.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.0.0
+
+## [3.7.5] - 2026-04-16
+
+### Added
+
+- BattleChain testnet deployments ([`c13ce82`](https://github.com/sablier-labs/sdk/commit/c13ce82)),
+  ([`adfbe42`](https://github.com/sablier-labs/sdk/commit/adfbe42))
 
 ## [3.7.4] - 2026-04-10
 
