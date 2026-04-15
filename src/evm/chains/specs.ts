@@ -5,6 +5,7 @@ import {
   avalanche as _avalanche,
   base as _base,
   baseSepolia as _baseSepolia,
+  battlechainTestnet as _battlechainTestnet,
   berachain as _berachain,
   blast as _blast,
   bsc as _bsc,
@@ -144,6 +145,19 @@ export const chainSpecs = {
     rpc: {
       alchemy: "base-sepolia",
       infura: "base-sepolia",
+    },
+  },
+  /* -------------------------------------------------------------------------- */
+  /*                           BATTLECHAIN TESTNET                              */
+  /* -------------------------------------------------------------------------- */
+  battlechainTestnet: {
+    base: _battlechainTestnet,
+    meta: {
+      isZk: true,
+      slug: "battlechain-testnet",
+    },
+    nativeCurrency: {
+      coinGeckoId: COIN_GECKO.eth,
     },
   },
   /* -------------------------------------------------------------------------- */
