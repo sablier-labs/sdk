@@ -1,4 +1,3 @@
-import tsconfigPaths from "vite-tsconfig-paths";
 import { defineConfig } from "vitest/config";
 
 const CI = Boolean(process.env.CI);
@@ -31,7 +30,9 @@ function getReporters() {
 }
 
 export default defineConfig({
-  plugins: [tsconfigPaths()],
+  resolve: {
+    tsconfigPaths: true,
+  },
   test: {
     environment: "node",
     exclude: [".logs/**", "node_modules/**"],
