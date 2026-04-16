@@ -9,6 +9,7 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 > Starting with v2.0.0, this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). In v1.x, it
 > did not always follow Semantic Versioning.
 
+[3.8.0]: https://github.com/sablier-labs/sdk/releases/tag/v3.8.0
 [3.7.5]: https://github.com/sablier-labs/sdk/releases/tag/v3.7.5
 [3.7.4]: https://github.com/sablier-labs/sdk/releases/tag/v3.7.4
 [3.7.3]: https://github.com/sablier-labs/sdk/releases/tag/v3.7.3
@@ -47,6 +48,18 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 [1.2.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.2.0
 [1.1.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.1.0
 [1.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.0.0
+
+## [3.8.0] - 2026-04-16
+
+### Added
+
+- Add `simpleTransfer` feature to `FlowReleaseFeatures`, flagging releases that expose the `transferTokens` ERC-20
+  wrapper (introduced in `flow@v2.0`) ([`ce995be`](https://github.com/sablier-labs/sdk/commit/ce995be))
+
+### Changed
+
+- Expand JSDoc glossary on `evmReleaseFeatures` to document the release version each capability was introduced in
+  ([`fdf40ae`](https://github.com/sablier-labs/sdk/commit/fdf40ae))
 
 ## [3.7.5] - 2026-04-16
 
