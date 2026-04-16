@@ -76,18 +76,29 @@ const emptyReleaseFeatures = deepFreeze({} as const satisfies Sablier.EVM.EmptyR
  * Protocol/version feature matrix used by both release resolvers and public helpers.
  *
  * Feature glossary:
- * - `claimTo`: Airdrops campaigns can claim to a third-party recipient address.
- * - `sponsor`: Airdrops campaigns can receive sponsor funding after deployment.
- * - `payable`: The release charges native-token fees on supported claim, withdraw, or create flows.
- * - `legacyAbi`: Lockup still uses the pre-unified split ABI layout instead of the consolidated contract surface.
- * - `batch`: Lockup exposes dedicated batch entrypoints for creating or managing multiple streams in one transaction.
- * - `prbProxy`: Lockup integrates with PRBProxy for proxy-based execution.
- * - `shape`: Lockup stores the stream shape as an on-chain parameter.
- * - `minFee`: Flow or Lockup exposes an on-chain minimum fee in wei via `minFeeWei`.
+ * - `claimTo`: Airdrops campaigns can redirect claims to a third-party recipient; introduced in `airdrops@v2.0`
  *
- * @see {@link https://github.com/sablier-labs/evm-monorepo/blob/main/airdrops/CHANGELOG.md Airdrops changelog}
- * @see {@link https://github.com/sablier-labs/evm-monorepo/blob/main/lockup/CHANGELOG.md Lockup changelog}
- * @see {@link https://github.com/sablier-labs/evm-monorepo/blob/main/flow/CHANGELOG.md Flow changelog}
+ * - `sponsor`: Airdrops campaigns expose the `sponsor` function; introduced in `airdrops@v3.0`
+ *
+ * - `payable`: Release entrypoints accept native-token value for protocol fees. This first appears in
+ *   `airdrops@v1.3`, `flow@v1.1`, and `lockup@v2.0`
+ *
+ * - `contractMinFee`: Contracts expose an onchain minimum-fee calculation; introduced in `flow@v2.0` and adopted by
+ *   Lockup in `lockup@v3.0`
+ *
+ * - `batch`: Lockup releases support batched execution helpers; introduced in `lockup@v2.0`
+ *
+ * - `shape`: Lockup create flows emit and consume canonical shape identifiers; introduced in `lockup@v2.0`
+ *
+ * - `legacyAbi`: Lockup still uses the pre-`lockup@v1.2` split ABI layout and old hook interface; cleared when
+ *   `lockup@v1.2` shipped the new hook system
+ *
+ * - `prbProxy`: Lockup still uses the original `prbProxy` deployment wiring from `lockup@v1.0`; this is only true for
+ *   that initial release and is cleared from `lockup@v1.1` onward
+ *
+ * @see {@link https://github.com/sablier-labs/evm-monorepo/blob/airdrops@v3.0/airdrops/CHANGELOG.md}
+ * @see {@link https://github.com/sablier-labs/evm-monorepo/blob/flow@v3.0/flow/CHANGELOG.md}
+ * @see {@link https://github.com/sablier-labs/evm-monorepo/blob/lockup@v4.0/lockup/CHANGELOG.md}
  */
 export const evmReleaseFeatures = deepFreeze({
   [Protocol.Airdrops]: {
