@@ -113,6 +113,7 @@ describe("EVM release features", () => {
       expect(getFlowReleaseFeatures(Version.Flow.V1_0)).toStrictEqual({
         minFee: false,
         payable: false,
+        simpleTransfer: false,
       });
       expect(getLockupReleaseFeatures(Version.Lockup.V1_0)).toStrictEqual({
         batch: false,
