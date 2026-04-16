@@ -9,6 +9,7 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 > Starting with v2.0.0, this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). In v1.x, it
 > did not always follow Semantic Versioning.
 
+[3.9.0]: https://github.com/sablier-labs/sdk/releases/tag/v3.9.0
 [3.8.0]: https://github.com/sablier-labs/sdk/releases/tag/v3.8.0
 [3.7.5]: https://github.com/sablier-labs/sdk/releases/tag/v3.7.5
 [3.7.4]: https://github.com/sablier-labs/sdk/releases/tag/v3.7.4
@@ -48,6 +49,13 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 [1.2.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.2.0
 [1.1.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.1.0
 [1.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.0.0
+
+## [3.9.0] - 2026-04-16
+
+### Added
+
+- Add `hasSimpleTransfer` helper that reports whether a Flow release exposes the `transferTokens` ERC-20 wrapper
+  ([`59530a2`](https://github.com/sablier-labs/sdk/commit/59530a2))
 
 ## [3.8.0] - 2026-04-16
 
