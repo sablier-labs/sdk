@@ -120,6 +120,7 @@ export namespace EVM {
   export type FlowReleaseFeatures = {
     payable: boolean;
     minFee: boolean;
+    simpleTransfer: boolean;
   };
 
   export type LockupReleaseFeatures = {

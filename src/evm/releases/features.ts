@@ -90,6 +90,9 @@ const emptyReleaseFeatures = deepFreeze({} as const satisfies Sablier.EVM.EmptyR
  *
  * - `shape`: Lockup create flows emit and consume canonical shape identifiers; introduced in `lockup@v2.0`
  *
+ * - `simpleTransfer`: Flow releases expose a `transferTokens` wrapper that lets the contract forward an ERC-20 transfer
+ *   on behalf of the caller; introduced in `flow@v2.0`
+ *
  * - `legacyAbi`: Lockup still uses the pre-`lockup@v1.2` split ABI layout and old hook interface; cleared when
  *   `lockup@v1.2` shipped the new hook system
  *
@@ -112,10 +115,10 @@ export const evmReleaseFeatures = deepFreeze({
     [Version.Bob.V1_0]: emptyReleaseFeatures,
   },
   [Protocol.Flow]: {
-    [Version.Flow.V1_0]: { minFee: false, payable: false },
-    [Version.Flow.V1_1]: { minFee: false, payable: true },
-    [Version.Flow.V2_0]: { minFee: true, payable: true },
-    [Version.Flow.V3_0]: { minFee: true, payable: true },
+    [Version.Flow.V1_0]: { minFee: false, payable: false, simpleTransfer: false },
+    [Version.Flow.V1_1]: { minFee: false, payable: true, simpleTransfer: false },
+    [Version.Flow.V2_0]: { minFee: true, payable: true, simpleTransfer: true },
+    [Version.Flow.V3_0]: { minFee: true, payable: true, simpleTransfer: true },
   },
   [Protocol.Legacy]: {
     [Version.Legacy.V1_0]: emptyReleaseFeatures,
