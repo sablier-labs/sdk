@@ -339,6 +339,14 @@ export function hasOnchainMinFee(
 }
 
 /**
+ * Returns whether the flow release exposes the `transferTokens` wrapper for forwarding an ERC-20 transfer on behalf of
+ * the caller. Returns `false` for non-Flow versions.
+ */
+export function hasSimpleTransfer(version: Sablier.EVM.Version): boolean {
+  return getFlowReleaseFeatures(version)?.simpleTransfer ?? false;
+}
+
+/**
  * Returns whether the lockup release uses the split ABI layout.
  * Returns `false` for non-Lockup versions.
  */

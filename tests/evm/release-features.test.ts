@@ -6,6 +6,7 @@ import {
   getLockupReleaseFeatures,
   hasClaimTo,
   hasOnchainMinFee,
+  hasSimpleTransfer,
   hasSplitLockupArchitecture,
   hasSponsor,
   supportsLockupBatch,
@@ -156,6 +157,13 @@ describe("EVM release features", () => {
       expect(hasOnchainMinFee(Protocol.Lockup, Version.Lockup.V4_0)).toBe(true);
     });
 
+    it("tracks flow simpleTransfer support", () => {
+      expect(hasSimpleTransfer(Version.Flow.V1_0)).toBe(false);
+      expect(hasSimpleTransfer(Version.Flow.V1_1)).toBe(false);
+      expect(hasSimpleTransfer(Version.Flow.V2_0)).toBe(true);
+      expect(hasSimpleTransfer(Version.Flow.V3_0)).toBe(true);
+    });
+
     it("tracks lockup PRBProxy support", () => {
       expect(supportsLockupPrbProxy(Version.Lockup.V1_0)).toBe(true);
       expect(supportsLockupPrbProxy(Version.Lockup.V1_1)).toBe(false);
@@ -184,6 +192,7 @@ describe("EVM release features", () => {
       // v4.0 only exists in Lockup, v1.3 only exists in Airdrops
       expect(hasClaimTo(Version.Lockup.V4_0)).toBe(false);
       expect(hasOnchainMinFee(Protocol.Airdrops, Version.Airdrops.V1_3)).toBe(false);
+      expect(hasSimpleTransfer(Version.Lockup.V4_0)).toBe(false);
       expect(hasSponsor(Version.Lockup.V4_0)).toBe(false);
       expect(hasSplitLockupArchitecture(Version.Airdrops.V1_3)).toBe(false);
       expect(supportsLockupBatch(Version.Airdrops.V1_3)).toBe(false);

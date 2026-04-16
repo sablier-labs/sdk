@@ -27,6 +27,7 @@ export {
   getLockupReleaseFeatures,
   hasClaimTo,
   hasOnchainMinFee,
+  hasSimpleTransfer,
   hasSplitLockupArchitecture,
   hasSponsor,
   isEvmReleasePayable,
