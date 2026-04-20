@@ -114,17 +114,20 @@ export namespace EVM {
   export type AirdropsReleaseFeatures = {
     payable: boolean;
     claimTo: boolean;
+    comptroller: boolean;
     sponsor: boolean;
   };
 
   export type FlowReleaseFeatures = {
     payable: boolean;
+    comptroller: boolean;
     minFee: boolean;
     simpleTransfer: boolean;
   };
 
   export type LockupReleaseFeatures = {
     payable: boolean;
+    comptroller: boolean;
     minFee: boolean;
     prbProxy: boolean;
     batch: boolean;

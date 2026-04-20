@@ -28,6 +28,7 @@ export {
   supportsLockupBatch,
   supportsLockupPrbProxy,
   supportsLockupShape,
+  usesComptroller,
   usesLockupSplit,
 } from "./releases/features.js";
 

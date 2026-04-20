@@ -12,6 +12,7 @@ import {
   supportsLockupBatch,
   supportsLockupPrbProxy,
   supportsLockupShape,
+  usesComptroller,
   usesLockupSplit,
 } from "@/src/evm/helpers.js";
 import { evmReleaseFeatures } from "@/src/evm/releases/features.js";
@@ -108,16 +109,19 @@ describe("EVM release features", () => {
     it("returns the full protocol-specific feature payloads", () => {
       expect(getAirdropsReleaseFeatures(Version.Airdrops.V2_0)).toStrictEqual({
         claimTo: true,
+        comptroller: true,
         payable: true,
         sponsor: false,
       });
       expect(getFlowReleaseFeatures(Version.Flow.V1_0)).toStrictEqual({
+        comptroller: false,
         minFee: false,
         payable: false,
         simpleTransfer: false,
       });
       expect(getLockupReleaseFeatures(Version.Lockup.V1_0)).toStrictEqual({
         batch: false,
+        comptroller: true,
         legacyAbi: true,
         minFee: false,
         payable: false,
@@ -186,6 +190,49 @@ describe("EVM release features", () => {
     it("tracks lockup shape support", () => {
       expect(supportsLockupShape(Version.Lockup.V1_2)).toBe(false);
       expect(supportsLockupShape(Version.Lockup.V2_0)).toBe(true);
+    });
+
+    it("tracks Comptroller integration across protocols", () => {
+      expect(usesComptroller({ protocol: Protocol.Airdrops, version: Version.Airdrops.V1_3 })).toBe(
+        false
+      );
+      expect(usesComptroller({ protocol: Protocol.Airdrops, version: Version.Airdrops.V2_0 })).toBe(
+        true
+      );
+      expect(usesComptroller({ protocol: Protocol.Airdrops, version: Version.Airdrops.V3_0 })).toBe(
+        true
+      );
+
+      expect(usesComptroller({ protocol: Protocol.Flow, version: Version.Flow.V1_1 })).toBe(false);
+      expect(usesComptroller({ protocol: Protocol.Flow, version: Version.Flow.V2_0 })).toBe(true);
+      expect(usesComptroller({ protocol: Protocol.Flow, version: Version.Flow.V3_0 })).toBe(true);
+
+      // Lockup v1.0/v1.1 wire the legacy `ISablierV2Comptroller`.
+      expect(usesComptroller({ protocol: Protocol.Lockup, version: Version.Lockup.V1_0 })).toBe(
+        true
+      );
+      expect(usesComptroller({ protocol: Protocol.Lockup, version: Version.Lockup.V1_1 })).toBe(
+        true
+      );
+      // Lockup v1.2 and v2.0 dropped the Comptroller.
+      expect(usesComptroller({ protocol: Protocol.Lockup, version: Version.Lockup.V1_2 })).toBe(
+        false
+      );
+      expect(usesComptroller({ protocol: Protocol.Lockup, version: Version.Lockup.V2_0 })).toBe(
+        false
+      );
+      expect(usesComptroller({ protocol: Protocol.Lockup, version: Version.Lockup.V3_0 })).toBe(
+        true
+      );
+      expect(usesComptroller({ protocol: Protocol.Lockup, version: Version.Lockup.V4_0 })).toBe(
+        true
+      );
+
+      // Protocols without a Comptroller flag.
+      expect(usesComptroller({ protocol: Protocol.Bob, version: Version.Bob.V1_0 })).toBe(false);
+      expect(usesComptroller({ protocol: Protocol.Legacy, version: Version.Legacy.V1_0 })).toBe(
+        false
+      );
     });
 
     it("returns false for versions outside the protocol", () => {

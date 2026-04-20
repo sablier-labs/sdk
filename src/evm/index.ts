@@ -37,6 +37,7 @@ export {
   supportsLockupPrbProxy,
   supportsLockupShape,
   truncateEvmAddress,
+  usesComptroller,
   usesLockupSplit,
 } from "./helpers.js";
 export * from "./releases/index.js";

@@ -50,6 +50,15 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 [1.1.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.1.0
 [1.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.0.0
 
+## Unreleased
+
+### Added
+
+- Add `comptroller` feature flag to `AirdropsReleaseFeatures`, `FlowReleaseFeatures`, and `LockupReleaseFeatures`,
+  tracking whether a release wires a Comptroller reference (`ISablierComptroller` or the legacy `ISablierV2Comptroller`)
+  into its contracts
+- Add `usesComptroller(release)` helper for querying Comptroller integration across Airdrops, Flow, and Lockup releases
+
 ## [3.9.0] - 2026-04-16
 
 ### Added

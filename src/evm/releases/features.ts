@@ -78,6 +78,10 @@ const emptyReleaseFeatures = deepFreeze({} as const satisfies Sablier.EVM.EmptyR
  * Feature glossary:
  * - `claimTo`: Airdrops campaigns can redirect claims to a third-party recipient; introduced in `airdrops@v2.0`
  *
+ * - `comptroller`: Release contracts take a Comptroller reference (`ISablierComptroller` or the legacy
+ *   `ISablierV2Comptroller`) that governs fee administration. True for `airdrops@v2.0+`, `flow@v2.0+`,
+ *   `lockup@v1.0`, `lockup@v1.1`, and `lockup@v3.0+`. Lockup v1.2 and v2.0 intentionally dropped the Comptroller wiring
+ *
  * - `sponsor`: Airdrops campaigns expose the `sponsor` function; introduced in `airdrops@v3.0`
  *
  * - `payable`: Release entrypoints accept native-token value for protocol fees. This first appears in
@@ -105,20 +109,30 @@ const emptyReleaseFeatures = deepFreeze({} as const satisfies Sablier.EVM.EmptyR
  */
 export const evmReleaseFeatures = deepFreeze({
   [Protocol.Airdrops]: {
-    [Version.Airdrops.V1_1]: { claimTo: false, payable: false, sponsor: false },
-    [Version.Airdrops.V1_2]: { claimTo: false, payable: false, sponsor: false },
-    [Version.Airdrops.V1_3]: { claimTo: false, payable: true, sponsor: false },
-    [Version.Airdrops.V2_0]: { claimTo: true, payable: true, sponsor: false },
-    [Version.Airdrops.V3_0]: { claimTo: true, payable: true, sponsor: true },
+    [Version.Airdrops.V1_1]: { claimTo: false, comptroller: false, payable: false, sponsor: false },
+    [Version.Airdrops.V1_2]: { claimTo: false, comptroller: false, payable: false, sponsor: false },
+    [Version.Airdrops.V1_3]: { claimTo: false, comptroller: false, payable: true, sponsor: false },
+    [Version.Airdrops.V2_0]: { claimTo: true, comptroller: true, payable: true, sponsor: false },
+    [Version.Airdrops.V3_0]: { claimTo: true, comptroller: true, payable: true, sponsor: true },
   },
   [Protocol.Bob]: {
     [Version.Bob.V1_0]: emptyReleaseFeatures,
   },
   [Protocol.Flow]: {
-    [Version.Flow.V1_0]: { minFee: false, payable: false, simpleTransfer: false },
-    [Version.Flow.V1_1]: { minFee: false, payable: true, simpleTransfer: false },
-    [Version.Flow.V2_0]: { minFee: true, payable: true, simpleTransfer: true },
-    [Version.Flow.V3_0]: { minFee: true, payable: true, simpleTransfer: true },
+    [Version.Flow.V1_0]: {
+      comptroller: false,
+      minFee: false,
+      payable: false,
+      simpleTransfer: false,
+    },
+    [Version.Flow.V1_1]: {
+      comptroller: false,
+      minFee: false,
+      payable: true,
+      simpleTransfer: false,
+    },
+    [Version.Flow.V2_0]: { comptroller: true, minFee: true, payable: true, simpleTransfer: true },
+    [Version.Flow.V3_0]: { comptroller: true, minFee: true, payable: true, simpleTransfer: true },
   },
   [Protocol.Legacy]: {
     [Version.Legacy.V1_0]: emptyReleaseFeatures,
@@ -127,6 +141,7 @@ export const evmReleaseFeatures = deepFreeze({
   [Protocol.Lockup]: {
     [Version.Lockup.V1_0]: {
       batch: false,
+      comptroller: true,
       legacyAbi: true,
       minFee: false,
       payable: false,
@@ -135,6 +150,7 @@ export const evmReleaseFeatures = deepFreeze({
     },
     [Version.Lockup.V1_1]: {
       batch: false,
+      comptroller: true,
       legacyAbi: true,
       minFee: false,
       payable: false,
@@ -143,6 +159,7 @@ export const evmReleaseFeatures = deepFreeze({
     },
     [Version.Lockup.V1_2]: {
       batch: false,
+      comptroller: false,
       legacyAbi: false,
       minFee: false,
       payable: false,
@@ -151,6 +168,7 @@ export const evmReleaseFeatures = deepFreeze({
     },
     [Version.Lockup.V2_0]: {
       batch: true,
+      comptroller: false,
       legacyAbi: false,
       minFee: false,
       payable: true,
@@ -159,6 +177,7 @@ export const evmReleaseFeatures = deepFreeze({
     },
     [Version.Lockup.V3_0]: {
       batch: true,
+      comptroller: true,
       legacyAbi: false,
       minFee: true,
       payable: true,
@@ -167,6 +186,7 @@ export const evmReleaseFeatures = deepFreeze({
     },
     [Version.Lockup.V4_0]: {
       batch: true,
+      comptroller: true,
       legacyAbi: false,
       minFee: true,
       payable: true,
@@ -408,4 +428,22 @@ export function supportsLockupPrbProxy(version: Sablier.EVM.Version): boolean {
  */
 export function supportsLockupShape(version: Sablier.EVM.Version): boolean {
   return getLockupReleaseFeatures(version)?.shape ?? false;
+}
+
+/**
+ * Returns whether the release wires a Comptroller reference (`ISablierComptroller` or the legacy
+ * `ISablierV2Comptroller`) into its contracts. Returns `false` for protocols that do not expose a Comptroller flag
+ * (Bob, Legacy).
+ */
+export function usesComptroller(release: EvmReleaseReference): boolean {
+  switch (release.protocol) {
+    case Protocol.Airdrops:
+      return getAirdropsReleaseFeatures(release.version)?.comptroller ?? false;
+    case Protocol.Flow:
+      return getFlowReleaseFeatures(release.version)?.comptroller ?? false;
+    case Protocol.Lockup:
+      return getLockupReleaseFeatures(release.version)?.comptroller ?? false;
+    default:
+      return false;
+  }
 }
