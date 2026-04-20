@@ -59,6 +59,12 @@ The format is based on [Common Changelog](https://common-changelog.org/).
   into its contracts
 - Add `usesComptroller(release)` helper for querying Comptroller integration across Airdrops, Flow, and Lockup releases
 
+### Fixed
+
+- Replace misplaced v2.0+ ABI shipped under airdrops v1.3 for `SablierMerkleLockup` with the real v1.3 ABI (immutable
+  `FEE` pattern, `LOCKUP` naming, no oracle-driven min-fee entries)
+  ([#174](https://github.com/sablier-labs/sdk/issues/174))
+
 ## [3.9.0] - 2026-04-16
 
 ### Added
