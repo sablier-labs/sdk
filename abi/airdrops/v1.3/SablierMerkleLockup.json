@@ -27,6 +27,32 @@
   },
   {
     "type": "function",
+    "name": "FEE",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "LOCKUP",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "contract ISablierLockup"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
     "name": "MERKLE_ROOT",
     "inputs": [],
     "outputs": [
@@ -34,32 +60,6 @@
         "name": "",
         "type": "bytes32",
         "internalType": "bytes32"
-      }
-    ],
-    "stateMutability": "view"
-  },
-  {
-    "type": "function",
-    "name": "ORACLE",
-    "inputs": [],
-    "outputs": [
-      {
-        "name": "",
-        "type": "address",
-        "internalType": "address"
-      }
-    ],
-    "stateMutability": "view"
-  },
-  {
-    "type": "function",
-    "name": "SABLIER_LOCKUP",
-    "inputs": [],
-    "outputs": [
-      {
-        "name": "",
-        "type": "address",
-        "internalType": "contract ISablierLockup"
       }
     ],
     "stateMutability": "view"
@@ -118,19 +118,6 @@
   },
   {
     "type": "function",
-    "name": "calculateMinFeeWei",
-    "inputs": [],
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256",
-        "internalType": "uint256"
-      }
-    ],
-    "stateMutability": "view"
-  },
-  {
-    "type": "function",
     "name": "campaignName",
     "inputs": [],
     "outputs": [
@@ -172,25 +159,6 @@
   },
   {
     "type": "function",
-    "name": "claimedStreams",
-    "inputs": [
-      {
-        "name": "recipient",
-        "type": "address",
-        "internalType": "address"
-      }
-    ],
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256[]",
-        "internalType": "uint256[]"
-      }
-    ],
-    "stateMutability": "view"
-  },
-  {
-    "type": "function",
     "name": "clawback",
     "inputs": [
       {
@@ -228,7 +196,7 @@
   },
   {
     "type": "function",
-    "name": "firstClaimTime",
+    "name": "getFirstClaimTime",
     "inputs": [],
     "outputs": [
       {
@@ -286,33 +254,7 @@
   },
   {
     "type": "function",
-    "name": "lowerMinFeeUSD",
-    "inputs": [
-      {
-        "name": "newMinFeeUSD",
-        "type": "uint256",
-        "internalType": "uint256"
-      }
-    ],
-    "outputs": [],
-    "stateMutability": "nonpayable"
-  },
-  {
-    "type": "function",
-    "name": "minFeeUSD",
-    "inputs": [],
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256",
-        "internalType": "uint256"
-      }
-    ],
-    "stateMutability": "view"
-  },
-  {
-    "type": "function",
-    "name": "streamShape",
+    "name": "shape",
     "inputs": [],
     "outputs": [
       {
@@ -335,31 +277,6 @@
     ],
     "outputs": [],
     "stateMutability": "nonpayable"
-  },
-  {
-    "type": "event",
-    "name": "Claim",
-    "inputs": [
-      {
-        "name": "index",
-        "type": "uint256",
-        "indexed": false,
-        "internalType": "uint256"
-      },
-      {
-        "name": "recipient",
-        "type": "address",
-        "indexed": true,
-        "internalType": "address"
-      },
-      {
-        "name": "amount",
-        "type": "uint128",
-        "indexed": false,
-        "internalType": "uint128"
-      }
-    ],
-    "anonymous": false
   },
   {
     "type": "event",
@@ -413,31 +330,6 @@
         "type": "uint128",
         "indexed": false,
         "internalType": "uint128"
-      }
-    ],
-    "anonymous": false
-  },
-  {
-    "type": "event",
-    "name": "LowerMinFeeUSD",
-    "inputs": [
-      {
-        "name": "factoryAdmin",
-        "type": "address",
-        "indexed": true,
-        "internalType": "address"
-      },
-      {
-        "name": "newMinFeeUSD",
-        "type": "uint256",
-        "indexed": false,
-        "internalType": "uint256"
-      },
-      {
-        "name": "previousMinFeeUSD",
-        "type": "uint256",
-        "indexed": false,
-        "internalType": "uint256"
       }
     ],
     "anonymous": false
@@ -522,22 +414,6 @@
   },
   {
     "type": "error",
-    "name": "SablierMerkleBase_CallerNotFactoryAdmin",
-    "inputs": [
-      {
-        "name": "factoryAdmin",
-        "type": "address",
-        "internalType": "address"
-      },
-      {
-        "name": "caller",
-        "type": "address",
-        "internalType": "address"
-      }
-    ]
-  },
-  {
-    "type": "error",
     "name": "SablierMerkleBase_CampaignExpired",
     "inputs": [
       {
@@ -591,17 +467,6 @@
   },
   {
     "type": "error",
-    "name": "SablierMerkleBase_IndexClaimed",
-    "inputs": [
-      {
-        "name": "index",
-        "type": "uint256",
-        "internalType": "uint256"
-      }
-    ]
-  },
-  {
-    "type": "error",
     "name": "SablierMerkleBase_InsufficientFeePayment",
     "inputs": [
       {
@@ -610,7 +475,7 @@
         "internalType": "uint256"
       },
       {
-        "name": "minFeeWei",
+        "name": "fee",
         "type": "uint256",
         "internalType": "uint256"
       }
@@ -623,15 +488,10 @@
   },
   {
     "type": "error",
-    "name": "SablierMerkleBase_NewMinFeeUSDNotLower",
+    "name": "SablierMerkleBase_StreamClaimed",
     "inputs": [
       {
-        "name": "currentMinFeeUSD",
-        "type": "uint256",
-        "internalType": "uint256"
-      },
-      {
-        "name": "newMinFeeUSD",
+        "name": "index",
         "type": "uint256",
         "internalType": "uint256"
       }

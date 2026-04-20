@@ -15,22 +15,22 @@ export const sablierMerkleLockupAbi = [
   },
   {
     inputs: [],
+    name: "FEE",
+    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "LOCKUP",
+    outputs: [{ internalType: "contract ISablierLockup", name: "", type: "address" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
     name: "MERKLE_ROOT",
     outputs: [{ internalType: "bytes32", name: "", type: "bytes32" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "ORACLE",
-    outputs: [{ internalType: "address", name: "", type: "address" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "SABLIER_LOCKUP",
-    outputs: [{ internalType: "contract ISablierLockup", name: "", type: "address" }],
     stateMutability: "view",
     type: "function",
   },
@@ -64,13 +64,6 @@ export const sablierMerkleLockupAbi = [
   },
   {
     inputs: [],
-    name: "calculateMinFeeWei",
-    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [],
     name: "campaignName",
     outputs: [{ internalType: "string", name: "", type: "string" }],
     stateMutability: "view",
@@ -86,13 +79,6 @@ export const sablierMerkleLockupAbi = [
     name: "claim",
     outputs: [],
     stateMutability: "payable",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "address", name: "recipient", type: "address" }],
-    name: "claimedStreams",
-    outputs: [{ internalType: "uint256[]", name: "", type: "uint256[]" }],
-    stateMutability: "view",
     type: "function",
   },
   {
@@ -114,7 +100,7 @@ export const sablierMerkleLockupAbi = [
   },
   {
     inputs: [],
-    name: "firstClaimTime",
+    name: "getFirstClaimTime",
     outputs: [{ internalType: "uint40", name: "", type: "uint40" }],
     stateMutability: "view",
     type: "function",
@@ -141,22 +127,8 @@ export const sablierMerkleLockupAbi = [
     type: "function",
   },
   {
-    inputs: [{ internalType: "uint256", name: "newMinFeeUSD", type: "uint256" }],
-    name: "lowerMinFeeUSD",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
     inputs: [],
-    name: "minFeeUSD",
-    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "streamShape",
+    name: "shape",
     outputs: [{ internalType: "string", name: "", type: "string" }],
     stateMutability: "view",
     type: "function",
@@ -167,16 +139,6 @@ export const sablierMerkleLockupAbi = [
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
-  },
-  {
-    anonymous: false,
-    inputs: [
-      { indexed: false, internalType: "uint256", name: "index", type: "uint256" },
-      { indexed: true, internalType: "address", name: "recipient", type: "address" },
-      { indexed: false, internalType: "uint128", name: "amount", type: "uint128" },
-    ],
-    name: "Claim",
-    type: "event",
   },
   {
     anonymous: false,
@@ -197,16 +159,6 @@ export const sablierMerkleLockupAbi = [
       { indexed: false, internalType: "uint128", name: "amount", type: "uint128" },
     ],
     name: "Clawback",
-    type: "event",
-  },
-  {
-    anonymous: false,
-    inputs: [
-      { indexed: true, internalType: "address", name: "factoryAdmin", type: "address" },
-      { indexed: false, internalType: "uint256", name: "newMinFeeUSD", type: "uint256" },
-      { indexed: false, internalType: "uint256", name: "previousMinFeeUSD", type: "uint256" },
-    ],
-    name: "LowerMinFeeUSD",
     type: "event",
   },
   {
@@ -247,14 +199,6 @@ export const sablierMerkleLockupAbi = [
   },
   {
     inputs: [
-      { internalType: "address", name: "factoryAdmin", type: "address" },
-      { internalType: "address", name: "caller", type: "address" },
-    ],
-    name: "SablierMerkleBase_CallerNotFactoryAdmin",
-    type: "error",
-  },
-  {
-    inputs: [
       { internalType: "uint256", name: "blockTimestamp", type: "uint256" },
       { internalType: "uint40", name: "expiration", type: "uint40" },
     ],
@@ -279,25 +223,17 @@ export const sablierMerkleLockupAbi = [
     type: "error",
   },
   {
-    inputs: [{ internalType: "uint256", name: "index", type: "uint256" }],
-    name: "SablierMerkleBase_IndexClaimed",
-    type: "error",
-  },
-  {
     inputs: [
       { internalType: "uint256", name: "feePaid", type: "uint256" },
-      { internalType: "uint256", name: "minFeeWei", type: "uint256" },
+      { internalType: "uint256", name: "fee", type: "uint256" },
     ],
     name: "SablierMerkleBase_InsufficientFeePayment",
     type: "error",
   },
   { inputs: [], name: "SablierMerkleBase_InvalidProof", type: "error" },
   {
-    inputs: [
-      { internalType: "uint256", name: "currentMinFeeUSD", type: "uint256" },
-      { internalType: "uint256", name: "newMinFeeUSD", type: "uint256" },
-    ],
-    name: "SablierMerkleBase_NewMinFeeUSDNotLower",
+    inputs: [{ internalType: "uint256", name: "index", type: "uint256" }],
+    name: "SablierMerkleBase_StreamClaimed",
     type: "error",
   },
   {
