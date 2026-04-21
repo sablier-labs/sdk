@@ -1,4 +1,4 @@
-# v2.0
+# v1.1
 
 ## Contracts Deployed
 
@@ -23,4 +23,4 @@
 
 All deployments except `Denergy` and `BattleChain Testnet` used Foundry's `CREATE2` factory with the following salt:
 
-1. Comptroller Implementation: `Version 2.0.0`
+1. Comptroller Implementation: `Version 1.1.0`

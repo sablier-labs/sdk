@@ -61,7 +61,7 @@ export async function loadComptrollerBroadcast(
 ): Promise<StandardBroadcast | null> {
   const deploymentsDir = getDeploymentsDir();
 
-  for (const version of ["v1.0", "v2.0"]) {
+  for (const version of ["v1.0", "v1.1"]) {
     const broadcastPath = path.join(
       deploymentsDir,
       "comptroller",
