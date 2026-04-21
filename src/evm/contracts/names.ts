@@ -1,5 +1,5 @@
 import comptrollerV1_0 from "@/src/evm/comptroller/v1.0/manifest.js";
-import comptrollerV2_0 from "@/src/evm/comptroller/v2.0/manifest.js";
+import comptrollerV1_1 from "@/src/evm/comptroller/v1.1/manifest.js";
 import airdropsV1_1 from "@/src/evm/releases/airdrops/v1.1/manifest.js";
 import airdropsV1_2 from "@/src/evm/releases/airdrops/v1.2/manifest.js";
 import airdropsV1_3 from "@/src/evm/releases/airdrops/v1.3/manifest.js";
@@ -33,7 +33,7 @@ type A2_0 = LeafKeys<typeof airdropsV2_0>;
 type B1_0 = LeafKeys<typeof bobV1_0>;
 
 type C1_0 = LeafKeys<typeof comptrollerV1_0>;
-type C2_0 = LeafKeys<typeof comptrollerV2_0>;
+type C1_1 = LeafKeys<typeof comptrollerV1_1>;
 
 type F1_0 = LeafKeys<typeof flowV1_0>;
 type F1_1 = LeafKeys<typeof flowV1_1>;
@@ -61,7 +61,7 @@ type ContractNames = Record<
 
   /** Comptroller */
   | C1_0
-  | C2_0
+  | C1_1
 
   /** Flow */
   | F1_0
@@ -107,7 +107,7 @@ function getNames(): ContractNames {
     airdropsV3_0,
     bobV1_0,
     comptrollerV1_0,
-    comptrollerV2_0,
+    comptrollerV1_1,
     flowV1_0,
     flowV1_1,
     flowV2_0,
