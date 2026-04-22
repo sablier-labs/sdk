@@ -108,6 +108,15 @@ export const chainSpecs = {
       coinGeckoId: "avalanche-2",
       wrapperContract: "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
     },
+    overrides: {
+      blockExplorers: {
+        default: {
+          apiUrl: "https://api.snowscan.xyz/api",
+          name: "Snowscan",
+          url: "https://snowscan.xyz",
+        },
+      },
+    },
     rpc: {
       alchemy: "avax-mainnet",
       infura: "avalanche-mainnet",
