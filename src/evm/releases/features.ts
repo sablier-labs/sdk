@@ -103,6 +103,10 @@ const emptyReleaseFeatures = deepFreeze({} as const satisfies Sablier.EVM.EmptyR
  * - `prbProxy`: Lockup still uses the original `prbProxy` deployment wiring from `lockup@v1.0`; this is only true for
  *   that initial release and is cleared from `lockup@v1.1` onward
  *
+ * - `publicWithdraw`: Any caller may invoke `withdraw` on a Lockup stream as long as `to == recipient`; introduced in
+ *   `lockup@v1.2`. In `lockup@v1.0` and `lockup@v1.1` only the stream sender, recipient, or an approved address can
+ *   trigger a withdrawal
+ *
  * @see {@link https://github.com/sablier-labs/evm-monorepo/blob/airdrops@v3.0/airdrops/CHANGELOG.md}
  * @see {@link https://github.com/sablier-labs/evm-monorepo/blob/flow@v3.0/flow/CHANGELOG.md}
  * @see {@link https://github.com/sablier-labs/evm-monorepo/blob/lockup@v4.0/lockup/CHANGELOG.md}
@@ -146,6 +150,7 @@ export const evmReleaseFeatures = deepFreeze({
       minFee: false,
       payable: false,
       prbProxy: true,
+      publicWithdraw: false,
       shape: false,
     },
     [Version.Lockup.V1_1]: {
@@ -155,6 +160,7 @@ export const evmReleaseFeatures = deepFreeze({
       minFee: false,
       payable: false,
       prbProxy: false,
+      publicWithdraw: false,
       shape: false,
     },
     [Version.Lockup.V1_2]: {
@@ -164,6 +170,7 @@ export const evmReleaseFeatures = deepFreeze({
       minFee: false,
       payable: false,
       prbProxy: false,
+      publicWithdraw: true,
       shape: false,
     },
     [Version.Lockup.V2_0]: {
@@ -173,6 +180,7 @@ export const evmReleaseFeatures = deepFreeze({
       minFee: false,
       payable: true,
       prbProxy: false,
+      publicWithdraw: true,
       shape: true,
     },
     [Version.Lockup.V3_0]: {
@@ -182,6 +190,7 @@ export const evmReleaseFeatures = deepFreeze({
       minFee: true,
       payable: true,
       prbProxy: false,
+      publicWithdraw: true,
       shape: true,
     },
     [Version.Lockup.V4_0]: {
@@ -191,6 +200,7 @@ export const evmReleaseFeatures = deepFreeze({
       minFee: true,
       payable: true,
       prbProxy: false,
+      publicWithdraw: true,
       shape: true,
     },
   },
@@ -420,6 +430,15 @@ export function supportsLockupBatch(version: Sablier.EVM.Version): boolean {
  */
 export function supportsLockupPrbProxy(version: Sablier.EVM.Version): boolean {
   return getLockupReleaseFeatures(version)?.prbProxy ?? false;
+}
+
+/**
+ * Returns whether the lockup release allows any caller to invoke `withdraw` as long as `to == recipient`.
+ * Releases that return `false` restrict withdrawals to the stream sender, recipient, or an approved address.
+ * Returns `false` for non-Lockup versions.
+ */
+export function supportsLockupPublicWithdraw(version: Sablier.EVM.Version): boolean {
+  return getLockupReleaseFeatures(version)?.publicWithdraw ?? false;
 }
 
 /**

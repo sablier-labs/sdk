@@ -35,6 +35,7 @@ export {
   resolveEvmStreamId,
   supportsLockupBatch,
   supportsLockupPrbProxy,
+  supportsLockupPublicWithdraw,
   supportsLockupShape,
   truncateEvmAddress,
   usesComptroller,

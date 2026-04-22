@@ -27,6 +27,7 @@ export {
   isEvmReleasePayable,
   supportsLockupBatch,
   supportsLockupPrbProxy,
+  supportsLockupPublicWithdraw,
   supportsLockupShape,
   usesComptroller,
   usesLockupSplit,

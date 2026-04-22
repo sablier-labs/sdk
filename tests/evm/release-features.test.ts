@@ -11,6 +11,7 @@ import {
   hasSponsor,
   supportsLockupBatch,
   supportsLockupPrbProxy,
+  supportsLockupPublicWithdraw,
   supportsLockupShape,
   usesComptroller,
   usesLockupSplit,
@@ -126,6 +127,7 @@ describe("EVM release features", () => {
         minFee: false,
         payable: false,
         prbProxy: true,
+        publicWithdraw: false,
         shape: false,
       });
     });
@@ -192,6 +194,15 @@ describe("EVM release features", () => {
       expect(supportsLockupShape(Version.Lockup.V2_0)).toBe(true);
     });
 
+    it("tracks lockup public withdraw support", () => {
+      expect(supportsLockupPublicWithdraw(Version.Lockup.V1_0)).toBe(false);
+      expect(supportsLockupPublicWithdraw(Version.Lockup.V1_1)).toBe(false);
+      expect(supportsLockupPublicWithdraw(Version.Lockup.V1_2)).toBe(true);
+      expect(supportsLockupPublicWithdraw(Version.Lockup.V2_0)).toBe(true);
+      expect(supportsLockupPublicWithdraw(Version.Lockup.V3_0)).toBe(true);
+      expect(supportsLockupPublicWithdraw(Version.Lockup.V4_0)).toBe(true);
+    });
+
     it("tracks Comptroller integration across protocols", () => {
       expect(usesComptroller({ protocol: Protocol.Airdrops, version: Version.Airdrops.V1_3 })).toBe(
         false
@@ -244,6 +255,7 @@ describe("EVM release features", () => {
       expect(hasSplitLockupArchitecture(Version.Airdrops.V1_3)).toBe(false);
       expect(supportsLockupBatch(Version.Airdrops.V1_3)).toBe(false);
       expect(supportsLockupPrbProxy(Version.Airdrops.V1_3)).toBe(false);
+      expect(supportsLockupPublicWithdraw(Version.Airdrops.V1_3)).toBe(false);
       expect(supportsLockupShape(Version.Airdrops.V1_3)).toBe(false);
     });
   });

@@ -130,6 +130,7 @@ export namespace EVM {
     comptroller: boolean;
     minFee: boolean;
     prbProxy: boolean;
+    publicWithdraw: boolean;
     batch: boolean;
     legacyAbi: boolean;
     shape: boolean;
