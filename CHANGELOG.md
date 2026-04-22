@@ -9,7 +9,7 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 > Starting with v2.0.0, this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). In v1.x, it
 > did not always follow Semantic Versioning.
 
-[4.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v4.0.0
+[3.10.0]: https://github.com/sablier-labs/sdk/releases/tag/v3.10.0
 [3.9.0]: https://github.com/sablier-labs/sdk/releases/tag/v3.9.0
 [3.8.0]: https://github.com/sablier-labs/sdk/releases/tag/v3.8.0
 [3.7.5]: https://github.com/sablier-labs/sdk/releases/tag/v3.7.5
@@ -51,7 +51,7 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 [1.1.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.1.0
 [1.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.0.0
 
-## [4.0.0] - 2026-04-21
+## [3.10.0] - 2026-04-21
 
 ### Added
 
@@ -60,10 +60,9 @@ The format is based on [Common Changelog](https://common-changelog.org/).
   into its contracts
 - Add `usesComptroller(release)` helper for querying Comptroller integration across Airdrops, Flow, and Lockup releases
 
-### Changed
+### Fixed
 
-- **Breaking:** Change comptroller release version from `v2.0` to `v1.1`
-  ([#177](https://github.com/sablier-labs/sdk/pulls/177))
+- Correct Comptroller release version from `v2.0` to `v1.1` ([#177](https://github.com/sablier-labs/sdk/pull/177))
 
 ### Fixed
 
