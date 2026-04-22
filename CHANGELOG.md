@@ -60,9 +60,9 @@ The format is based on [Common Changelog](https://common-changelog.org/).
   into its contracts
 - Add `usesComptroller(release)` helper for querying Comptroller integration across Airdrops, Flow, and Lockup releases
 
-### Changed
+### Fixed
 
-- Change comptroller release version from `v2.0` to `v1.1` ([#177](https://github.com/sablier-labs/sdk/pull/177))
+- Correct Comptroller release version from `v2.0` to `v1.1` ([#177](https://github.com/sablier-labs/sdk/pull/177))
 
 ### Fixed
 
