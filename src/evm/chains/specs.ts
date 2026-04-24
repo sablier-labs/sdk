@@ -192,7 +192,6 @@ export const chainSpecs = {
     base: _blast,
     meta: {
       coinGeckoPlatformId: "blast",
-      ui: "NOT_SUPPORTED",
     },
     nativeCurrency: {
       coinGeckoId: COIN_GECKO.eth,
