@@ -9,6 +9,7 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 > Starting with v2.0.0, this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). In v1.x, it
 > did not always follow Semantic Versioning.
 
+[3.11.2]: https://github.com/sablier-labs/sdk/releases/tag/v3.11.2
 [3.11.1]: https://github.com/sablier-labs/sdk/releases/tag/v3.11.1
 [3.11.0]: https://github.com/sablier-labs/sdk/releases/tag/v3.11.0
 [3.10.0]: https://github.com/sablier-labs/sdk/releases/tag/v3.10.0
@@ -52,6 +53,12 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 [1.2.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.2.0
 [1.1.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.1.0
 [1.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.0.0
+
+## [3.11.2] - 2026-04-24
+
+### Changed
+
+- Mark the Blast chain as supported by the Sablier UI ([`64047bc`](https://github.com/sablier-labs/sdk/commit/64047bc))
 
 ## [3.11.1] - 2026-04-22
 
