@@ -685,11 +685,6 @@ export const chainSpecs = {
           name: "ZKsync Explorer",
           url: "https://explorer.zksync.io",
         },
-        native: {
-          apiUrl: "https://block-explorer-api.mainnet.zksync.io/api",
-          name: "ZKsync Explorer",
-          url: "https://explorer.zksync.io",
-        },
       },
     },
     rpc: {
