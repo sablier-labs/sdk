@@ -641,6 +641,7 @@ export const chainSpecs = {
     base: _unichain,
     meta: {
       coinGeckoPlatformId: "unichain",
+      ui: "NOT_SUPPORTED",
     },
     nativeCurrency: {
       coinGeckoId: COIN_GECKO.eth,
