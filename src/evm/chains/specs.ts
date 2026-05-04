@@ -385,6 +385,15 @@ export const chainSpecs = {
       coinGeckoId: COIN_GECKO.eth,
       wrapperContract: "0x4200000000000000000000000000000000000006",
     },
+    overrides: {
+      blockExplorers: {
+        default: {
+          apiUrl: "https://explorer.mode.network/api",
+          name: "Mode Explorer",
+          url: "https://explorer.mode.network",
+        },
+      },
+    },
   },
   /* -------------------------------------------------------------------------- */
   /*                                    MONAD                                   */
