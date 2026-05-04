@@ -112,6 +112,9 @@ const emptyReleaseFeatures = deepFreeze({} as const satisfies Sablier.EVM.EmptyR
  * @see {@link https://github.com/sablier-labs/evm-monorepo/blob/lockup@v4.0/lockup/CHANGELOG.md}
  */
 export const evmReleaseFeatures = deepFreeze({
+  /* -------------------------------------------------------------------------- */
+  /*                                  AIRDROPS                                  */
+  /* -------------------------------------------------------------------------- */
   [Protocol.Airdrops]: {
     [Version.Airdrops.V1_1]: { claimTo: false, comptroller: false, payable: false, sponsor: false },
     [Version.Airdrops.V1_2]: { claimTo: false, comptroller: false, payable: false, sponsor: false },
@@ -122,6 +125,9 @@ export const evmReleaseFeatures = deepFreeze({
   [Protocol.Bob]: {
     [Version.Bob.V1_0]: emptyReleaseFeatures,
   },
+  /* -------------------------------------------------------------------------- */
+  /*                                    FLOW                                    */
+  /* -------------------------------------------------------------------------- */
   [Protocol.Flow]: {
     [Version.Flow.V1_0]: {
       comptroller: false,
@@ -138,10 +144,16 @@ export const evmReleaseFeatures = deepFreeze({
     [Version.Flow.V2_0]: { comptroller: true, minFee: true, payable: true, simpleTransfer: true },
     [Version.Flow.V3_0]: { comptroller: true, minFee: true, payable: true, simpleTransfer: true },
   },
+  /* -------------------------------------------------------------------------- */
+  /*                                   LEGACY                                   */
+  /* -------------------------------------------------------------------------- */
   [Protocol.Legacy]: {
     [Version.Legacy.V1_0]: emptyReleaseFeatures,
     [Version.Legacy.V1_1]: emptyReleaseFeatures,
   },
+  /* -------------------------------------------------------------------------- */
+  /*                                   LOCKUP                                   */
+  /* -------------------------------------------------------------------------- */
   [Protocol.Lockup]: {
     [Version.Lockup.V1_0]: {
       batch: false,
