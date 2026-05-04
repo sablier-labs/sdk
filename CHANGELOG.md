@@ -9,6 +9,7 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 > Starting with v2.0.0, this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). In v1.x, it
 > did not always follow Semantic Versioning.
 
+[3.11.3]: https://github.com/sablier-labs/sdk/releases/tag/v3.11.3
 [3.11.2]: https://github.com/sablier-labs/sdk/releases/tag/v3.11.2
 [3.11.1]: https://github.com/sablier-labs/sdk/releases/tag/v3.11.1
 [3.11.0]: https://github.com/sablier-labs/sdk/releases/tag/v3.11.0
@@ -53,6 +54,20 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 [1.2.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.2.0
 [1.1.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.1.0
 [1.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.0.0
+
+## [3.11.3] - 2026-05-04
+
+### Changed
+
+- Override the default block explorer for the Mode chain to `explorer.mode.network`
+  ([`7882733`](https://github.com/sablier-labs/sdk/commit/7882733))
+- Mark the Unichain chain as not supported by the Sablier UI
+  ([`76cc437`](https://github.com/sablier-labs/sdk/commit/76cc437))
+
+### Removed
+
+- Drop the duplicate `native` block explorer entry for the ZKsync chain
+  ([`7ccee02`](https://github.com/sablier-labs/sdk/commit/7ccee02))
 
 ## [3.11.2] - 2026-04-24
 
