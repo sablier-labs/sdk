@@ -2,7 +2,8 @@
  * @file This test suite validates RouteMesh support for all chains.
  *
  * The test pings each chain's RouteMesh endpoint with an eth_blockNumber call.
- * Chains that fail more than 5 times should be added to config.routemesh.unsupported.
+ * Chains that fail more than 5 times should opt out by setting `rpc.routemesh = false`
+ * on their spec in src/evm/chains/specs.ts.
  */
 
 import {
@@ -20,8 +21,8 @@ const ROUTEMESH_API_KEY = process.env.VITE_ROUTEMESH_API_KEY;
 
 /**
  * Maximum number of retries before considering a chain unsupported.
- * If a chain fails more than this many times, it should be added to
- * config.routemesh.unsupported in src/evm/chains/data.ts
+ * If a chain fails more than this many times, opt it out by setting
+ * `rpc.routemesh = false` on its spec in src/evm/chains/specs.ts.
  */
 const MAX_RETRIES = 5;
 
@@ -160,7 +161,7 @@ describe("RouteMesh RPC Support", () => {
       if (!result.success) {
         console.warn(
           `Chain ${chain.name} (${chain.id}) failed RouteMesh test ${result.failCount} times. ` +
-            `Error: ${result.error}. Consider adding to config.routemesh.unsupported.`
+            `Error: ${result.error}. Consider setting rpc.routemesh = false on the spec in src/evm/chains/specs.ts.`
         );
       }
 
@@ -174,9 +175,11 @@ describe("RouteMesh RPC Support", () => {
 
     if (failures.length > 0) {
       console.log("\n=== Chains that failed RouteMesh validation ===");
-      console.log("Add these to config.routemesh.unsupported in src/evm/chains/data.ts:\n");
+      console.log(
+        "Set `rpc: { routemesh: false }` on these chain specs in src/evm/chains/specs.ts:\n"
+      );
       for (const failure of failures) {
-        console.log(`  [${failure.chainId}]: true, // ${failure.chainName} - ${failure.error}`);
+        console.log(`  // chainId ${failure.chainId} - ${failure.chainName} - ${failure.error}`);
       }
       console.log("\n");
     }

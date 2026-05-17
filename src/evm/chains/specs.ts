@@ -168,6 +168,9 @@ export const chainSpecs = {
     nativeCurrency: {
       coinGeckoId: COIN_GECKO.eth,
     },
+    rpc: {
+      routemesh: false,
+    },
   },
   /* -------------------------------------------------------------------------- */
   /*                                 BERACHAIN                                  */
