@@ -645,6 +645,9 @@ export const chainSpecs = {
     nativeCurrency: {
       coinGeckoId: "tangle-network",
     },
+    rpc: {
+      routemesh: false,
+    },
   },
   /* -------------------------------------------------------------------------- */
   /*                                  UNICHAIN                                  */
