@@ -51,6 +51,7 @@ export const {
   chiliz,
   denergy,
   monad,
+  robinhood,
   sei,
   sophon,
   tangle,

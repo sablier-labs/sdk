@@ -91,6 +91,9 @@ const mainnets = [
   get(chains.polygon.id, {
     [manifest.SABLIER_COMPTROLLER]: [DEFAULT_ADDRESS, 76_850_809],
   }),
+  get(chains.robinhood.id, {
+    [manifest.SABLIER_COMPTROLLER]: ["0x12d70713796A9460314C282c613DE307FdED1a36", 10_420_232],
+  }),
   get(chains.scroll.id, {
     [manifest.SABLIER_COMPTROLLER]: [DEFAULT_ADDRESS, 21_895_919],
   }),

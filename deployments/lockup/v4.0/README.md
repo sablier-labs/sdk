@@ -48,6 +48,7 @@ By default, all deployments use Foundry's `CREATE2` factory with a few exception
 | Morph           | ChainID 2818, Version 4.0.0   |
 | Optimism        | ChainID 10, Version 4.0.0     |
 | Polygon         | ChainID 137, Version 4.0.0    |
+| Robinhood Chain | ChainID 4663, Version 4.0.1   |
 | Scroll          | ChainID 534352, Version 4.0.0 |
 | Sonic           | ChainID 146, Version 4.0.0    |
 | Superseed       | ChainID 5330, Version 4.0.0   |

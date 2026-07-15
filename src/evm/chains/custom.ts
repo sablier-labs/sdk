@@ -2,6 +2,7 @@ import { defineChain as viemDefine } from "viem";
 
 const DENERGY_CHAIN_ID = 369_369;
 const DENERGY_NATIVE_CURRENCY_SYMBOL = "WATT";
+const ROBINHOOD_CHAIN_ID = 4663;
 const TANGLE_NATIVE_CURRENCY_SYMBOL = "TNT";
 
 export const denergy = viemDefine({
@@ -18,6 +19,29 @@ export const denergy = viemDefine({
   rpcUrls: {
     default: {
       http: ["https://rpc.d.energy"],
+    },
+  },
+  testnet: false,
+});
+
+export const robinhood = viemDefine({
+  blockExplorers: {
+    default: {
+      apiUrl: "https://robinhoodchain.blockscout.com/api",
+      name: "Robinhood Chain Explorer",
+      url: "https://robinhoodchain.blockscout.com",
+    },
+  },
+  id: ROBINHOOD_CHAIN_ID,
+  name: "Robinhood Chain",
+  nativeCurrency: {
+    decimals: 18,
+    name: "Ether",
+    symbol: "ETH",
+  },
+  rpcUrls: {
+    default: {
+      http: ["https://rpc.mainnet.chain.robinhood.com"],
     },
   },
   testnet: false,

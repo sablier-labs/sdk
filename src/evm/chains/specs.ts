@@ -39,7 +39,7 @@ import {
 } from "viem/chains";
 // import { berachain } from "viem/chains/definitions/zksync";
 import type { ChainSpec } from "./builder.js";
-import { denergy, tangle } from "./custom.js";
+import { denergy, robinhood, tangle } from "./custom.js";
 
 const COIN_GECKO = {
   eth: "ethereum",
@@ -480,6 +480,19 @@ export const chainSpecs = {
     rpc: {
       alchemy: "polygon-mainnet",
       infura: "polygon-mainnet",
+    },
+  },
+  /* -------------------------------------------------------------------------- */
+  /*                              ROBINHOOD CHAIN                               */
+  /* -------------------------------------------------------------------------- */
+  robinhood: {
+    base: robinhood,
+    meta: {},
+    nativeCurrency: {
+      coinGeckoId: COIN_GECKO.eth,
+    },
+    rpc: {
+      alchemy: "robinhood-mainnet",
     },
   },
   /* -------------------------------------------------------------------------- */

@@ -21,6 +21,8 @@
 
 ### Salt
 
-All deployments except `Denergy` and `BattleChain Testnet` used Foundry's `CREATE2` factory with the following salt:
+All deployments except `Denergy` and `BattleChain Testnet` used Foundry's `CREATE2` factory.
 
 1. Comptroller Implementation: `Version 1.1.0`
+2. Robinhood Chain Comptroller Implementation: `Version 2.0.0`
+3. Robinhood Chain Comptroller Proxy: `keccak256(abi.encode("Sablier Comptroller Proxy", 4663, "2.0.0"))`

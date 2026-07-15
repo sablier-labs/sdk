@@ -409,6 +409,28 @@ export const mainnets: Sablier.EVM.Deployment[] = [
       84_324_133,
     ],
   }),
+  get(chains.robinhood.id, {
+    [manifest.SABLIER_FACTORY_MERKLE_EXECUTE]: [
+      "0x646b6D6D8169F5B62b66b96a80562af4C04Adf3E",
+      10_420_581,
+    ],
+    [manifest.SABLIER_FACTORY_MERKLE_INSTANT]: [
+      "0x825526Bf59236737C1616a02C4c114c44fE9E669",
+      10_420_606,
+    ],
+    [manifest.SABLIER_FACTORY_MERKLE_LL]: [
+      "0x5Ac1132BfA4B85f5d701B0271De644a067d66ae1",
+      10_420_631,
+    ],
+    [manifest.SABLIER_FACTORY_MERKLE_LT]: [
+      "0x461922764b2c1b82A3B940f6B716Daf6e5DEc516",
+      10_420_656,
+    ],
+    [manifest.SABLIER_FACTORY_MERKLE_VCA]: [
+      "0x8CD1a1d2AA5B7E9f9f388A0f494af9331Eb896F3",
+      10_420_681,
+    ],
+  }),
   get(chains.scroll.id, {
     [manifest.SABLIER_FACTORY_MERKLE_EXECUTE]: [
       "0xbc77E627b176087c446F15f192D631CB7BEC5381",
