@@ -16,7 +16,7 @@ export const programsQueries = createContractsQueries<
   catalog,
   contractsField: "programs",
   getAliasCatalog,
-  protocols: [Protocol.Airdrops, Protocol.Lockup],
   normalizeAddress: (address) => address, // Solana addresses are case-sensitive
+  protocols: [Protocol.Airdrops, Protocol.Lockup],
   releasesQueries,
 });

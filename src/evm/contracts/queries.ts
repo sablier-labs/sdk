@@ -16,7 +16,7 @@ export const contractsQueries = createContractsQueries<
   catalog,
   contractsField: "contracts",
   getAliasCatalog,
-  protocols: [Protocol.Airdrops, Protocol.Flow, Protocol.Legacy, Protocol.Lockup],
   normalizeAddress: (address) => address.toLowerCase(),
+  protocols: [Protocol.Airdrops, Protocol.Flow, Protocol.Legacy, Protocol.Lockup],
   releasesQueries,
 });
