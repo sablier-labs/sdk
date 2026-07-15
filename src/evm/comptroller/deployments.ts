@@ -30,7 +30,7 @@ function get(chainId: number, contractMap: Sablier.EVM.ContractMap): Sablier.EVM
 /**
  * @description Mainnet deployments for Comptroller.
  */
-export const mainnets = [
+const mainnets = [
   get(chains.abstract.id, {
     [manifest.SABLIER_COMPTROLLER]: [DEFAULT_ADDRESS, 19_953_193],
   }),
@@ -117,7 +117,7 @@ export const mainnets = [
 /**
  * @description Testnet deployments for Comptroller.
  */
-export const testnets = [
+const testnets = [
   get(chains.arbitrumSepolia.id, {
     [manifest.SABLIER_COMPTROLLER]: [DEFAULT_ADDRESS, 197_780_828],
   }),

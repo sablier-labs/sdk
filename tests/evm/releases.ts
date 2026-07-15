@@ -30,11 +30,11 @@ export const allAliasedEvmContractEntries: AliasedEvmContractEntry[] = allEvmCon
   (entry): entry is AliasedEvmContractEntry => Boolean(entry.contract.alias)
 );
 
-export function hasDeploymentArtifacts(release: Sablier.EVM.Release): boolean {
+function hasDeploymentArtifacts(release: Sablier.EVM.Release): boolean {
   return fs.existsSync(path.join(getDeploymentsDir(), release.protocol, release.version));
 }
 
-export function getProtocolEvmReleases(protocol: Sablier.EVM.Protocol): Sablier.EVM.Release[] {
+function getProtocolEvmReleases(protocol: Sablier.EVM.Protocol): Sablier.EVM.Release[] {
   return Object.values(evmReleases[protocol]);
 }
 

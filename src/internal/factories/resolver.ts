@@ -98,18 +98,3 @@ export function createStandardDeploymentResolver<
     } as TDeployment;
   };
 }
-
-/**
- * Extracts contract/program names from a manifest object
- *
- * @template T - The manifest type
- * @param manifest - The manifest object containing contract/program names
- * @param getNestedValues - Function to extract values from nested manifest structure
- * @returns Array of contract/program names
- */
-export function extractContractNames<T extends Record<string, string | Record<string, string>>>(
-  manifest: T,
-  getNestedValues: (obj: T) => string[]
-): string[] {
-  return getNestedValues(manifest);
-}

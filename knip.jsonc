@@ -1,6 +1,24 @@
 {
   "$schema": "https://unpkg.com/knip@6/schema-jsonc.json",
-  "entry": ["cli/index.ts", "src/index.ts"],
-  "ignoreDependencies": ["husky"],
+  "entry": [
+    ".claude/skills/*/scripts/*.ts",
+    "cli/index.ts",
+    "scripts/*.ts",
+    "src/index.ts",
+    "src/solana/releases/**/idl.ts"
+  ],
+  "ignoreBinaries": ["just"],
+  "ignoreDependencies": [
+    "@biomejs/biome",
+    "@typescript/native-preview",
+    "concurrently",
+    "tsc-alias",
+    "tsx"
+  ],
+  "ignoreIssues": {
+    "src/evm/releases/features.ts": ["duplicates"],
+    "src/helpers.ts": ["duplicates"],
+    "src/evm/types.ts": ["namespaceMembers"]
+  },
   "project": ["**/*.{js,ts}"]
 }

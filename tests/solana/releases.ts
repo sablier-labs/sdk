@@ -6,7 +6,7 @@ const solanaReleases = releases as Record<
   Record<string, Sablier.Solana.Release>
 >;
 
-export type SolanaProgramEntry = {
+type SolanaProgramEntry = {
   deployment: Sablier.Solana.Deployment;
   program: Sablier.Solana.Program;
   release: Sablier.Solana.Release;
@@ -20,7 +20,7 @@ export const allSolanaReleases = Object.values(solanaReleases).flatMap((byVersio
   Object.values(byVersion)
 );
 
-export const allSolanaProgramEntries: SolanaProgramEntry[] = allSolanaReleases.flatMap((release) =>
+const allSolanaProgramEntries: SolanaProgramEntry[] = allSolanaReleases.flatMap((release) =>
   release.deployments.flatMap((deployment) =>
     deployment.programs.map((program) => ({ deployment, program, release }))
   )
