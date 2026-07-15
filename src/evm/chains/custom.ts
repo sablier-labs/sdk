@@ -33,7 +33,7 @@ export const robinhood = viemDefine({
     },
   },
   id: ROBINHOOD_CHAIN_ID,
-  name: "Robinhood Chain",
+  name: "Robinhood",
   nativeCurrency: {
     decimals: 18,
     name: "Ether",
