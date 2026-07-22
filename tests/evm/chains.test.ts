@@ -13,7 +13,7 @@
 import path from "node:path";
 import { beforeAll, describe, expect, it } from "@effect/vitest";
 import { Data, Effect } from "effect";
-import globby from "globby";
+import { globby } from "globby";
 import { chains } from "@/src/evm/chains/index.js";
 import { chainsQueries } from "@/src/evm/chains/queries.js";
 import { Protocol } from "@/src/evm/enums.js";
@@ -122,7 +122,7 @@ function getAllBroadcastSlugsEffect() {
     ];
     const dirs = yield* Effect.tryPromise({
       catch: (cause) => new GlobbyError({ cause, pattern: patterns.join(", ") }),
-      try: () => globby(patterns, { onlyDirectories: true }),
+      try: () => globby(patterns, { expandDirectories: false, onlyDirectories: true }),
     });
     const results: string[] = [];
 

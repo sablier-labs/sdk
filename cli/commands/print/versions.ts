@@ -18,7 +18,7 @@ function printVersions(): void {
 
   for (const release of sablier.evm.releases.getAll()) {
     const protocol = capitalize(release.protocol);
-    const version = release.version;
+    const { version } = release;
 
     rows.push({
       protocol,

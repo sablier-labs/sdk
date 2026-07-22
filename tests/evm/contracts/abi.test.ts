@@ -2,7 +2,7 @@ import * as fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { isDeepStrictEqual } from "node:util";
-import globby from "globby";
+import { globby } from "globby";
 import { beforeAll, describe, expect, it, test } from "vitest";
 
 // TypeScript utility types for compile-time validation
@@ -80,7 +80,7 @@ async function getSortedMatches(patterns: string | readonly string[]) {
       absolute: true,
       cwd: PROJECT_ROOT,
     })
-  ).sort();
+  ).sort((a, b) => a.localeCompare(b));
 }
 
 function getPublishedAbiTsPath(jsonPath: string): string {

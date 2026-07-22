@@ -24,18 +24,14 @@ export function createChainQueries<T extends Shared.Chain>(chains: Record<string
      * @param chainId - The numeric chain identifier
      * @returns The chain if found, undefined otherwise
      */
-    get: (chainId: number): T | undefined => {
-      return chainValues.find((c) => c.id === chainId);
-    },
+    get: (chainId: number): T | undefined => chainValues.find((c) => c.id === chainId),
 
     /**
      * Get all chains sorted by name.
      *
      * @returns Array of all chains sorted alphabetically
      */
-    getAll: (): T[] => {
-      return sortChains(chainValues);
-    },
+    getAll: (): T[] => sortChains(chainValues),
 
     /**
      * Find a chain by its slug identifier.
@@ -43,18 +39,14 @@ export function createChainQueries<T extends Shared.Chain>(chains: Record<string
      * @param slug - The chain slug (e.g., "ethereum", "solana-mainnet")
      * @returns The chain if found, undefined otherwise
      */
-    getBySlug: (slug: string): T | undefined => {
-      return chainValues.find((c) => c.slug === slug);
-    },
+    getBySlug: (slug: string): T | undefined => chainValues.find((c) => c.slug === slug),
 
     /**
      * Get all mainnet chains sorted by name.
      *
      * @returns Array of mainnet chains sorted alphabetically
      */
-    getMainnets: (): T[] => {
-      return sortChains(chainValues.filter((c) => !c.isTestnet));
-    },
+    getMainnets: (): T[] => sortChains(chainValues.filter((c) => !c.isTestnet)),
 
     /**
      * Find a chain by its numeric ID, throwing an error if not found.
@@ -76,8 +68,6 @@ export function createChainQueries<T extends Shared.Chain>(chains: Record<string
      *
      * @returns Array of testnet chains sorted alphabetically
      */
-    getTestnets: (): T[] => {
-      return sortChains(chainValues.filter((c) => c.isTestnet));
-    },
+    getTestnets: (): T[] => sortChains(chainValues.filter((c) => c.isTestnet)),
   };
 }

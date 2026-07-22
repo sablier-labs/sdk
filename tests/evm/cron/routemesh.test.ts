@@ -102,7 +102,7 @@ function testChainWithRetries(chainId: number, chainName: string, apiKey: string
     let failCount = 0;
     let lastError: string | undefined;
 
-    for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+    for (let attempt = 1; attempt <= MAX_RETRIES; attempt += 1) {
       const result = yield* pingRoutemeshEndpoint(chainId, apiKey).pipe(
         Effect.catchAll((e) => Effect.succeed({ error: String(e), success: false }))
       );
@@ -111,7 +111,7 @@ function testChainWithRetries(chainId: number, chainName: string, apiKey: string
         return { chainId, chainName, failCount, success: true };
       }
 
-      failCount++;
+      failCount += 1;
       lastError = result.error;
 
       // Small delay between retries

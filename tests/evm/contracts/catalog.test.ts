@@ -5,8 +5,8 @@ import { allEvmReleases } from "../releases.js";
 describe("Contract catalog", () => {
   for (const release of allEvmReleases) {
     it(`should have a valid catalog for ${release.protocol} ${release.version}`, () => {
-      const deployment = release.deployments[0];
-      const contract = deployment.contracts[0];
+      const [deployment] = release.deployments;
+      const [contract] = deployment.contracts;
       const entry = sablier.evm.contracts.get({
         chainId: deployment.chainId,
         contractName: contract.name,
@@ -22,7 +22,7 @@ describe("alias lookups", () => {
     const contractWithAlias = allEvmReleases
       .flatMap((release) => release.deployments)
       .flatMap((deployment) => deployment.contracts)
-      .find((contract) => contract.alias);
+      .find((entry) => entry.alias);
 
     expect(contractWithAlias).toBeDefined();
 

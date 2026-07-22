@@ -46,12 +46,11 @@ const evmDeploymentsQueries = {
     chainId: number;
     release: Sablier.EVM.Release;
   }): Sablier.EVM.Deployment | undefined => {
+    // biome-ignore lint/suspicious/noUnnecessaryConditions: defensive fallback for untyped JS callers at this public API boundary
     const { release, chainId } = opts || {};
     return release.deployments.find((d) => d.chainId === chainId);
   },
-  getAll: (): Sablier.EVM.Deployment[] => {
-    return evmReleasesQueries.getAll().flatMap((r) => r.deployments);
-  },
+  getAll: (): Sablier.EVM.Deployment[] => evmReleasesQueries.getAll().flatMap((r) => r.deployments),
 };
 
 const solanaDeploymentsQueries = {
@@ -64,12 +63,12 @@ const solanaDeploymentsQueries = {
     chainId: number;
     release: Sablier.Solana.Release;
   }): Sablier.Solana.Deployment | undefined => {
+    // biome-ignore lint/suspicious/noUnnecessaryConditions: defensive fallback for untyped JS callers at this public API boundary
     const { release, chainId } = opts || {};
     return release.deployments.find((d) => d.chainId === chainId);
   },
-  getAll: (): Sablier.Solana.Deployment[] => {
-    return solanaReleasesQueries.getAll().flatMap((r) => r.deployments);
-  },
+  getAll: (): Sablier.Solana.Deployment[] =>
+    solanaReleasesQueries.getAll().flatMap((r) => r.deployments),
 };
 
 const evm = {

@@ -32,9 +32,9 @@ const INDEXED: Record<Sablier.EVM.Protocol, Set<string>> = {
 describe("Indexed contracts have a deployment block number", () => {
   for (const release of sablier.evm.releases.getAll()) {
     describe(`${release.protocol} ${release.version}`, () => {
-      const contracts = sablier.evm.contracts.getAll({ release })!;
+      const releaseContracts = sablier.evm.contracts.getAll({ release })!;
 
-      for (const contract of contracts) {
+      for (const contract of releaseContracts) {
         if (!INDEXED[release.protocol].has(contract.name)) {
           it.skip(`Skipped ${contract.name} because it's not an indexed contract.`);
           continue;

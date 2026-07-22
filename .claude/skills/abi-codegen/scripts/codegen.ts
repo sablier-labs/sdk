@@ -183,7 +183,7 @@ async function main() {
     process.exit(1);
   }
 
-  const pattern = args[0];
+  const [pattern] = args;
   console.log(`Resolving files: ${pattern}`);
 
   try {
@@ -194,6 +194,7 @@ async function main() {
     // Convert each file
     const results: ConversionResult[] = [];
     for (const file of files) {
+      // biome-ignore lint/performance/noAwaitInLoops: sequential conversion keeps per-file logs in order
       const result = await convertFile(file);
       results.push(result);
 

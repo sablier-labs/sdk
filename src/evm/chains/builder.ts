@@ -92,6 +92,7 @@ const buildChain = (key: string, spec: ChainSpec): Sablier.EVM.Chain => {
     isTestnet,
     isZK: Boolean(spec.meta.isZk),
     name: spec.meta.name ?? chain.name,
+    slug: spec.meta.slug ?? key,
     nativeCurrency: {
       ...chain.nativeCurrency,
       coinGeckoId: spec.nativeCurrency.coinGeckoId,
@@ -104,7 +105,6 @@ const buildChain = (key: string, spec: ChainSpec): Sablier.EVM.Chain => {
       infura: infuraNetwork ? (apiKey) => infuraUrl(infuraNetwork, apiKey) : undefined,
       routemesh: routemeshEnabled ? (apiKey) => routemeshUrl(chain.id, apiKey) : undefined,
     },
-    slug: spec.meta.slug ?? key,
   };
 };
 

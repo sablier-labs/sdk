@@ -1,51 +1,34 @@
 {
   "name": "sablier",
-  "description": "Contract addresses, chain data, and deployment information for the Sablier Protocol",
-  "license": "GPL-3.0-or-later",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/esm/index.js",
-  "sideEffects": false,
-  "types": "./dist/types/index.d.ts",
-  "typings": "./dist/types/index.d.ts",
   "version": "3.12.1",
-  "type": "module",
+  "description": "Contract addresses, chain data, and deployment information for the Sablier Protocol",
+  "keywords": [
+    "airdrops",
+    "blockchain",
+    "ethereum",
+    "evm",
+    "sablier",
+    "sablier-airdrops",
+    "sablier-flow",
+    "sablier-lockup",
+    "sablier-protocol",
+    "smart-contracts",
+    "token-streaming",
+    "token-vesting",
+    "vesting",
+    "web3"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sablier-labs/sdk.git"
+  },
+  "license": "GPL-3.0-or-later",
   "author": {
     "name": "Sablier Labs Ltd",
     "url": "https://sablier.com"
   },
-  "dependencies": {
-    "@coral-xyz/anchor": "^0.32.1",
-    "@solana/web3.js": "^1.98.4",
-    "viem": "^2.47.10"
-  },
-  "peerDependencies": {
-    "@coral-xyz/anchor": "^0.30",
-    "@solana/web3.js": "^1.98",
-    "viem": "^2.40.1"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "^2.3.11",
-    "@effect/platform": "^0.97.0",
-    "@effect/vitest": "^0.30.0",
-    "@sablier/devkit": "^1.11.0",
-    "@types/bun": "^1.3.14",
-    "@types/node": "^25.0.7",
-    "@typescript/native-preview": "7.0.0-dev.20260318.1",
-    "@vitest/ui": "^4.1.10",
-    "commander": "^15.0.0",
-    "concurrently": "^10.0.3",
-    "effect": "^3.22.0",
-    "globby": "^11.1.0",
-    "husky": "^9.1.7",
-    "knip": "^6.26.0",
-    "lint-staged": "^17.0.8",
-    "prettier": "^3.9.5",
-    "tsc-alias": "^1.9.1",
-    "tsx": "^4.23.1",
-    "typescript": "^5.9.3",
-    "ultracite": "^7.0.11",
-    "vitest": "^4.1.10"
-  },
+  "sideEffects": false,
+  "type": "module",
   "exports": {
     ".": {
       "types": "./dist/types/index.d.ts",
@@ -161,6 +144,10 @@
     },
     "./package.json": "./package.json"
   },
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/types/index.d.ts",
+  "typings": "./dist/types/index.d.ts",
   "files": [
     "abi/**",
     "dist/**",
@@ -168,32 +155,45 @@
     "CHANGELOG.md",
     "DOCS.md"
   ],
-  "keywords": [
-    "airdrops",
-    "blockchain",
-    "ethereum",
-    "evm",
-    "sablier",
-    "sablier-airdrops",
-    "sablier-flow",
-    "sablier-lockup",
-    "sablier-protocol",
-    "smart-contracts",
-    "token-streaming",
-    "token-vesting",
-    "vesting",
-    "web3"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sablier-labs/sdk.git"
-  },
   "scripts": {
     "build": "just build",
     "prepack": "bun install --frozen-lockfile && just build",
     "setup": "husky"
+  },
+  "dependencies": {
+    "@coral-xyz/anchor": "^0.32.1",
+    "@solana/web3.js": "^1.98.4",
+    "viem": "^2.55.5"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.5",
+    "@effect/platform": "^0.97.0",
+    "@effect/vitest": "^0.30.0",
+    "@sablier/devkit": "^1.18.6",
+    "@types/bun": "^1.3.14",
+    "@types/node": "^26.1.1",
+    "@typescript/native-preview": "7.0.0-dev.20260318.1",
+    "@vitest/ui": "^4.1.10",
+    "commander": "^15.0.0",
+    "concurrently": "^10.0.3",
+    "effect": "^3.22.0",
+    "globby": "^16.2.2",
+    "husky": "^9.1.7",
+    "knip": "^6.28.0",
+    "lint-staged": "^17.1.1",
+    "prettier": "^3.9.6",
+    "tsc-alias": "^1.9.1",
+    "tsx": "^4.23.1",
+    "typescript": "^5.9.3",
+    "ultracite": "^7.9.4",
+    "vitest": "^4.1.10"
+  },
+  "peerDependencies": {
+    "@coral-xyz/anchor": "^0.30",
+    "@solana/web3.js": "^1.98",
+    "viem": "^2.40.1"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

@@ -22,7 +22,7 @@ function expectContract(contract: BasicContract, expectedContract: BasicContract
   const expectedAddress = expectedContract.address.toLowerCase();
   expect(address).toBe(expectedAddress);
 
-  const name = contract.name;
+  const { name } = contract;
   expect(name).toBe(expectedContract.name);
 }
 
@@ -31,7 +31,7 @@ function expectZKContract(contract: BasicContract, zkBroadcast: ZKBroadcast): vo
   const expectedAddress = zkBroadcast.entries[0].address.toLowerCase();
   expect(address).toBe(expectedAddress);
 
-  const name = contract.name;
+  const { name } = contract;
   const expectedName = zkBroadcast.contractName;
   expect(name).toBe(expectedName);
 }
@@ -103,8 +103,8 @@ function createContractTests<BD, CD>(
   chain: Sablier.EVM.Chain,
   testConfig: TestConfig<BD, CD>
 ): void {
-  const chainId = deployment.chainId;
-  const chainName = chain.name;
+  const { chainId } = deployment;
+  const { name: chainName } = chain;
 
   describe(`${chainName} (ID: ${chainId})`, () => {
     if (release.kind === "lockupV1") {

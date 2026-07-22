@@ -40,8 +40,8 @@ describe("contractsQueries.get", () => {
   describe("{ chainId, contractName, release }", () => {
     for (const release of allEvmReleases) {
       it("should return contract when found", () => {
-        const deployment = release.deployments[0];
-        const contract = deployment.contracts[0];
+        const [deployment] = release.deployments;
+        const [contract] = deployment.contracts;
 
         const result = sablier.evm.contracts.get({
           chainId: deployment.chainId,
@@ -89,7 +89,7 @@ describe("contractsQueries.get", () => {
 
   describe("{ chainId, contractAddress, protocol, release }", () => {
     it("should return contract when found", () => {
-      const contractEntry = allEvmContractEntries[0];
+      const [contractEntry] = allEvmContractEntries;
       const { contract, deployment, release } = expectEntry(
         contractEntry,
         "Expected at least one EVM contract entry"
@@ -108,7 +108,7 @@ describe("contractsQueries.get", () => {
 
   describe("{ chainId, contractAddress, release }", () => {
     it("should return contract when found", () => {
-      const contractEntry = allEvmContractEntries[0];
+      const [contractEntry] = allEvmContractEntries;
       const { contract, deployment, release } = expectEntry(
         contractEntry,
         "Expected at least one EVM contract entry"
@@ -128,8 +128,8 @@ describe("contractsQueries.get", () => {
 describe("contractsQueries.getLatestByName", () => {
   it("should return contract from the latest release", () => {
     const release = sablier.evm.releases.getLatest({ protocol: "lockup" });
-    const deployment = release.deployments[0];
-    const contract = deployment.contracts[0];
+    const [deployment] = release.deployments;
+    const [contract] = deployment.contracts;
 
     const result = sablier.evm.contracts.getLatestByName({
       chainId: deployment.chainId,

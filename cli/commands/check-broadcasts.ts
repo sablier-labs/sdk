@@ -30,6 +30,7 @@ async function checkMissingBroadcasts(protocol: Sablier.EVM.Protocol): Promise<v
 
       if (r.kind === "lockupV1") {
         const components = ["core", "periphery"];
+        // biome-ignore lint/performance/noAwaitInLoops: sequential per-chain checks keep console output ordered
         const results = await Promise.all(components.map((c) => checkBroadcast(r, chain, c)));
         hasValidBroadcasts = results.every(Boolean);
       } else {
@@ -58,7 +59,7 @@ async function checkMissingBroadcasts(protocol: Sablier.EVM.Protocol): Promise<v
   printSectionHeader(`${EMOJIS.warning} Missing Broadcasts`);
 
   // Print results grouped by version
-  for (let i = 0; i < versionKeys.length; i++) {
+  for (let i = 0; i < versionKeys.length; i += 1) {
     const version = versionKeys[i];
     const versionMissing = missing[version];
 

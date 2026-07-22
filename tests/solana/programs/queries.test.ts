@@ -6,8 +6,8 @@ describe("programsQueries.get", () => {
   describe("{ chainId, programName, release }", () => {
     for (const release of allSolanaReleases) {
       it("should return program when found", () => {
-        const deployment = release.deployments[0];
-        const program = deployment.programs[0];
+        const [deployment] = release.deployments;
+        const [program] = deployment.programs;
 
         const result = sablier.solana.programs.get({
           chainId: deployment.chainId,
@@ -22,9 +22,9 @@ describe("programsQueries.get", () => {
 
   describe("{ chainId, programAddress, protocol }", () => {
     it("should return program when found in single release", () => {
-      const release = allSolanaReleases[0];
-      const deployment = release.deployments[0];
-      const program = deployment.programs[0];
+      const [release] = allSolanaReleases;
+      const [deployment] = release.deployments;
+      const [program] = deployment.programs;
 
       const result = sablier.solana.programs.get({
         chainId: deployment.chainId,
@@ -38,9 +38,9 @@ describe("programsQueries.get", () => {
 
   describe("{ chainId, programAddress, protocol, release }", () => {
     it("should return program when found", () => {
-      const release = allSolanaReleases[0];
-      const deployment = release.deployments[0];
-      const program = deployment.programs[0];
+      const [release] = allSolanaReleases;
+      const [deployment] = release.deployments;
+      const [program] = deployment.programs;
 
       const result = sablier.solana.programs.get({
         chainId: deployment.chainId,
@@ -55,9 +55,9 @@ describe("programsQueries.get", () => {
 
   describe("{ chainId, programAddress, release }", () => {
     it("should return program when found", () => {
-      const release = allSolanaReleases[0];
-      const deployment = release.deployments[0];
-      const program = deployment.programs[0];
+      const [release] = allSolanaReleases;
+      const [deployment] = release.deployments;
+      const [program] = deployment.programs;
 
       const result = sablier.solana.programs.get({
         chainId: deployment.chainId,

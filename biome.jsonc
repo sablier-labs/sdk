@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-  "extends": ["ultracite/core", "@sablier/devkit/biome"],
+  "extends": ["ultracite/biome/core", "@sablier/devkit/biome"],
   "files": {
     "includes": ["**/*.{js,json,jsonc,ts}", "!node_modules/**/*"]
   },
@@ -13,6 +13,7 @@
       "linter": {
         "rules": {
           "performance": {
+            "noAwaitInLoops": "off",
             "useTopLevelRegex": "off"
           },
           "style": {
@@ -20,6 +21,20 @@
           },
           "suspicious": {
             "noMisplacedAssertion": "off"
+          }
+        }
+      }
+    },
+    // ─────────────────────────────────────────────────────────────────────────────
+    // package.json intentionally dual-lists Solana/Viem deps as both
+    // dependencies and peerDependencies
+    // ─────────────────────────────────────────────────────────────────────────────
+    {
+      "includes": ["package.json"],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "noDuplicateDependencies": "off"
           }
         }
       }

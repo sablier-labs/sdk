@@ -38,9 +38,7 @@ const aliasedContractEntriesByProtocolAndChain = allAliasedEvmContractEntries.re
 );
 
 const crossReleaseAliasEntries = [...aliasedContractEntriesByProtocolAndChain.values()].find(
-  (entries) => {
-    return new Set(entries.map((entry) => entry.release.version)).size > 1;
-  }
+  (entries) => new Set(entries.map((entry) => entry.release.version)).size > 1
 );
 
 const crossReleaseAliasPair = (() => {
@@ -130,7 +128,7 @@ describe("contractsQueries.getByAlias", () => {
       );
 
       const wrongProtocol = Object.values(Protocol).find(
-        (protocol) => protocol !== contractEntry.release.protocol
+        (candidate) => candidate !== contractEntry.release.protocol
       );
 
       const protocol = expectEntry(

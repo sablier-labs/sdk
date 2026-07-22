@@ -99,16 +99,14 @@ export const resolvers = {
     /**
      * Creates a LockupV1 deployment with separate core and periphery contracts
      */
-    lockupV1: (params: DeploymentLockupV1Params): Sablier.EVM.Deployment.LockupV1 => {
-      return createLockupV1Deployment(params);
-    },
+    lockupV1: (params: DeploymentLockupV1Params): Sablier.EVM.Deployment.LockupV1 =>
+      createLockupV1Deployment(params),
 
     /**
      * Creates a standard deployment with all contracts in a single array
      */
-    standard: (params: DeploymentStandardParams): Sablier.EVM.Deployment => {
-      return standardDeploymentResolver(params);
-    },
+    standard: (params: DeploymentStandardParams): Sablier.EVM.Deployment =>
+      standardDeploymentResolver(params),
   },
 
   release: {
@@ -123,14 +121,12 @@ export const resolvers = {
         protocol: LockupProtocol;
         version: TVersion;
       }
-    ): LockupV1Release<TAbiMap> => {
-      return {
-        ...params,
-        contractNames: getNestedValues(params.manifest),
-        features: getEvmReleaseFeatures<LockupProtocol>(params.protocol, params.version),
-        kind: "lockupV1",
-      };
-    },
+    ): LockupV1Release<TAbiMap> => ({
+      ...params,
+      contractNames: getNestedValues(params.manifest),
+      features: getEvmReleaseFeatures<LockupProtocol>(params.protocol, params.version),
+      kind: "lockupV1",
+    }),
 
     /**
      * Creates a standard release with contract names extracted from manifest
@@ -144,13 +140,11 @@ export const resolvers = {
         protocol: TProtocol;
         version: TVersion;
       }
-    ): StandardRelease<TProtocol, TAbiMap> => {
-      return {
-        ...params,
-        contractNames: getNestedValues(params.manifest),
-        features: getEvmReleaseFeatures<TProtocol>(params.protocol, params.version),
-        kind: "standard",
-      };
-    },
+    ): StandardRelease<TProtocol, TAbiMap> => ({
+      ...params,
+      contractNames: getNestedValues(params.manifest),
+      features: getEvmReleaseFeatures<TProtocol>(params.protocol, params.version),
+      kind: "standard",
+    }),
   },
 };

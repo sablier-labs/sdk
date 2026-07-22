@@ -118,27 +118,20 @@ export function createContractsQueries<
   };
 
   // Helper to find contract by name in a release
-  const findByName = (release: TRelease, chainId: number, name: string): TContract | undefined => {
-    return getDeploymentItems(release, chainId).find((c) => c.name === name);
-  };
+  const findByName = (release: TRelease, chainId: number, name: string): TContract | undefined =>
+    getDeploymentItems(release, chainId).find((c) => c.name === name);
 
   // Helper to find contract by address in a release
   const findByAddress = (
     release: TRelease,
     chainId: number,
     address: string
-  ): TContract | undefined => {
-    return getDeploymentItems(release, chainId).find(
-      (c) => normalizeAddress(c.address) === address
-    );
-  };
+  ): TContract | undefined =>
+    getDeploymentItems(release, chainId).find((c) => normalizeAddress(c.address) === address);
 
   // Helper to check if release contains address on chain
-  const releaseHasAddress = (release: TRelease, chainId: number, address: string): boolean => {
-    return getDeploymentItems(release, chainId).some(
-      (c) => normalizeAddress(c.address) === address
-    );
-  };
+  const releaseHasAddress = (release: TRelease, chainId: number, address: string): boolean =>
+    getDeploymentItems(release, chainId).some((c) => normalizeAddress(c.address) === address);
 
   // Helper to search catalog across all protocols
   const searchCatalog = (chainId: number, address: string): TContract | undefined => {

@@ -35,6 +35,7 @@ export function findZKContract(zkData: ZKBroadcast[], contractName: string): ZKB
  * }
  */
 function findInReturns(data: StandardBroadcast, contractName: string): BasicContract | null {
+  // biome-ignore lint/suspicious/noUnnecessaryConditions: JSON.parse output isn't validated against the declared type
   if (!data.returns) {
     return null;
   }
@@ -57,6 +58,7 @@ function findInReturns(data: StandardBroadcast, contractName: string): BasicCont
  * ]
  */
 function findInLibraries(data: StandardBroadcast, contractName: string): BasicContract | null {
+  // biome-ignore lint/suspicious/noUnnecessaryConditions: JSON.parse output isn't validated against the declared type
   if (!data.libraries) {
     return null;
   }
@@ -68,8 +70,7 @@ function findInLibraries(data: StandardBroadcast, contractName: string): BasicCo
       continue;
     }
 
-    const libraryName = parts[1];
-    const libraryAddress = parts[2] as `0x${string}`;
+    const [, libraryName, libraryAddress] = parts as [string, string, `0x${string}`];
 
     if (contractName === libraryName) {
       return { address: libraryAddress, name: contractName };

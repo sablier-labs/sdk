@@ -56,12 +56,12 @@ describe("Ping JSON-RPC server", () => {
       Effect.gen(function* () {
         const result = yield* pingRpcServer(rpcUrl!);
         expect(result).toMatchObject({
+          status: 200,
           data: {
             id: 1,
             jsonrpc: "2.0",
             result: expect.any(String),
           },
-          status: 200,
         });
       })
     );

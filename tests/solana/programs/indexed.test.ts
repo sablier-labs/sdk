@@ -16,9 +16,9 @@ const INDEXED: Record<Sablier.Solana.Protocol, Set<string>> = {
 describe("Indexed programs have a deployment block number", () => {
   for (const release of sablier.solana.releases.getAll()) {
     describe(`${release.protocol} ${release.version}`, () => {
-      const programs = sablier.solana.programs.getAll({ release })!;
+      const releasePrograms = sablier.solana.programs.getAll({ release })!;
 
-      for (const program of programs) {
+      for (const program of releasePrograms) {
         if (!INDEXED[release.protocol].has(program.name)) {
           it.skip(`Skipped ${program.name} because it's not an indexed program.`);
           continue;

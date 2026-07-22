@@ -22,7 +22,7 @@ function getCatalog(): Sablier.Solana.ProgramCatalog {
       const { chainId, programs } = deployment;
 
       for (const contract of programs) {
-        const address = contract.address;
+        const { address } = contract;
         const entry = { ...contract, protocol, version };
         setPath(_catalog, [protocol, chainId, address], entry);
       }

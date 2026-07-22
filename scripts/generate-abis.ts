@@ -256,7 +256,7 @@ function generateVersionAbis(protocol: SupportedProtocol, version: string): numb
       targetPath,
       `export const ${exportName} = ${toTypeScriptLiteral(abi)} as const;\n`
     );
-    generated++;
+    generated += 1;
   }
 
   return generated;

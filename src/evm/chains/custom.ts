@@ -6,11 +6,12 @@ const ROBINHOOD_CHAIN_ID = 4663;
 const TANGLE_NATIVE_CURRENCY_SYMBOL = "TNT";
 
 export const denergy = viemDefine({
+  id: DENERGY_CHAIN_ID,
+  name: "Denergy",
+  testnet: false,
   blockExplorers: {
     default: { name: "Explorer", url: "https://explorer.denergychain.com" },
   },
-  id: DENERGY_CHAIN_ID,
-  name: "Denergy",
   nativeCurrency: {
     decimals: 18,
     name: "Watt",
@@ -21,10 +22,12 @@ export const denergy = viemDefine({
       http: ["https://rpc.d.energy"],
     },
   },
-  testnet: false,
 });
 
 export const robinhood = viemDefine({
+  id: ROBINHOOD_CHAIN_ID,
+  name: "Robinhood",
+  testnet: false,
   blockExplorers: {
     default: {
       apiUrl: "https://robinhoodchain.blockscout.com/api",
@@ -32,8 +35,6 @@ export const robinhood = viemDefine({
       url: "https://robinhoodchain.blockscout.com",
     },
   },
-  id: ROBINHOOD_CHAIN_ID,
-  name: "Robinhood",
   nativeCurrency: {
     decimals: 18,
     name: "Ether",
@@ -44,10 +45,12 @@ export const robinhood = viemDefine({
       http: ["https://rpc.mainnet.chain.robinhood.com"],
     },
   },
-  testnet: false,
 });
 
 export const tangle = viemDefine({
+  id: 5845,
+  name: "Tangle",
+  testnet: false,
   blockExplorers: {
     default: { name: "Explorer", url: "https://explorer.tangle.tools" },
   },
@@ -57,8 +60,6 @@ export const tangle = viemDefine({
       blockCreated: 2_790_914,
     },
   },
-  id: 5845,
-  name: "Tangle",
   nativeCurrency: {
     decimals: 18,
     name: "Tangle",
@@ -69,5 +70,4 @@ export const tangle = viemDefine({
       http: ["https://rpc.tangle.tools"],
     },
   },
-  testnet: false,
 });

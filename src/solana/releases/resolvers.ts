@@ -49,17 +49,17 @@ export const resolvers = {
     /**
      * Creates a standard Solana deployment
      */
-    standard: (params: DeploymentParams): Sablier.Solana.Deployment => {
-      return standardDeploymentResolver(params);
-    },
+    standard: (params: DeploymentParams): Sablier.Solana.Deployment =>
+      standardDeploymentResolver(params),
   },
 
   release: {
     /**
      * Creates a Solana release with contract names extracted from manifest
      */
-    standard: (params: ReleaseParams): Sablier.Solana.Release => {
-      return { ...params, programNames: getNestedValues(params.manifest) };
-    },
+    standard: (params: ReleaseParams): Sablier.Solana.Release => ({
+      ...params,
+      programNames: getNestedValues(params.manifest),
+    }),
   },
 };
