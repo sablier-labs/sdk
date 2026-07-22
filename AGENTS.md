@@ -84,6 +84,13 @@ bunx tsx cli print  # Print deployment info
 - **CI**: 60s timeout, 10 retries for flaky RPC calls
 - **Cron tests**: Separate suite in `tests/cron/` for scheduled CI runs
 
+**Effect-based tests:** Any test file that uses `Effect.gen` (typically ones calling external services via
+`@effect/platform`'s `HttpClient`) imports `describe`/`it`/`expect`/etc. from `@effect/vitest` instead of `vitest`
+directly, to get `it.effect` and friends. `@effect/vitest` re-exports the full `vitest` API, so this is a drop-in
+replacement everywhere else in the file. `@effect/vitest@0.30.0`'s `peerDependencies` still declares `vitest ^3.2.0` —
+this is stale upstream metadata; it has been verified compatible with the pinned `vitest ^4.1.10`, and Bun does not
+enforce peer ranges, so no override is needed.
+
 **Targeted tests:** Run only tests relevant to your changes:
 
 ```bash
