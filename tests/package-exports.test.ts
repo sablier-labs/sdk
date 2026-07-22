@@ -24,24 +24,24 @@ import {
   hasSponsor as hasSponsorFromReleases,
 } from "sablier/evm/releases";
 import { getEvmReleaseFeatures } from "sablier/evm/releases/features";
-import { describe, expect, test } from "vitest";
+import { describe, expect, it } from "vitest";
 
 describe("package exports", () => {
-  test("sablier root re-exports release-feature helpers", () => {
+  it("sablier root re-exports release-feature helpers", () => {
     expect(hasClaimToFromRoot(Version.Airdrops.V2_0)).toBe(true);
     expect(hasSponsorFromRoot(Version.Airdrops.V3_0)).toBe(true);
     expect(hasOnchainMinFeeFromRoot(Protocol.Flow, Version.Flow.V2_0)).toBe(true);
     expect(isEvmReleasePayableFromRoot(Protocol.Lockup, Version.Lockup.V4_0)).toBe(true);
   });
 
-  test("sablier/evm re-exports release-feature helpers", () => {
+  it("sablier/evm re-exports release-feature helpers", () => {
     expect(hasClaimTo(Version.Airdrops.V2_0)).toBe(true);
     expect(hasSponsor(Version.Airdrops.V3_0)).toBe(true);
     expect(hasOnchainMinFee(Protocol.Flow, Version.Flow.V2_0)).toBe(true);
     expect(isEvmReleasePayable(Protocol.Lockup, Version.Lockup.V4_0)).toBe(true);
   });
 
-  test("sablier/evm/releases re-exports release-feature helpers", () => {
+  it("sablier/evm/releases re-exports release-feature helpers", () => {
     expect(hasClaimToFromReleases(Version.Airdrops.V2_0)).toBe(true);
     expect(hasSponsorFromReleases(Version.Airdrops.V3_0)).toBe(true);
     expect(evmReleaseFeaturesFromReleases[Protocol.Flow][Version.Flow.V2_0]).toBe(
@@ -49,21 +49,21 @@ describe("package exports", () => {
     );
   });
 
-  test("sablier/evm/releases/features subpath resolves", () => {
+  it("sablier/evm/releases/features subpath resolves", () => {
     expect(getEvmReleaseFeatures("lockup", Version.Lockup.V4_0).minFee).toBe(true);
     expect(getEvmReleaseFeaturesFromSubpath("airdrops", Version.Airdrops.V3_0).sponsor).toBe(true);
   });
 
-  test("sablier/evm/helpers subpath resolves", () => {
+  it("sablier/evm/helpers subpath resolves", () => {
     expect(truncateEvmAddress("0x1234567890abcdef1234567890abcdef12345678")).toBe("0x1234...5678");
   });
 
-  test("sablier/evm/enums subpath resolves", () => {
+  it("sablier/evm/enums subpath resolves", () => {
     expect(Protocol.Flow).toBeDefined();
     expect(Version.Lockup.V4_0).toBeDefined();
   });
 
-  test("sablier/evm barrel re-exports every sablier/evm/helpers symbol", async () => {
+  it("sablier/evm barrel re-exports every sablier/evm/helpers symbol", async () => {
     const evmBarrel = await import("sablier/evm");
     const evmHelpers = await import("sablier/evm/helpers");
     const barrelKeys = new Set(Object.keys(evmBarrel));

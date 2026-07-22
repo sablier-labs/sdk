@@ -7,8 +7,6 @@
  *
  * The test searches through deployment directories for files and compares them against the chains
  * defined in the package.
- *
- * Additionally, it pings the public JSON-RPC servers of all chains to ensure they are reachable.
  */
 import path from "node:path";
 import { beforeAll, describe, expect, it } from "@effect/vitest";
@@ -53,8 +51,6 @@ describe("Package chains are in sync with broadcasts", () => {
         const msg = `❌ Missing chains:\n${[...errors].map((e) => `  🔍 ${e}`).join("\n")}`;
         return yield* Effect.fail(new Error(msg));
       }
-
-      expect(errors.size).toBe(0);
     })
   );
 
@@ -72,8 +68,6 @@ describe("Package chains are in sync with broadcasts", () => {
         const msg = `❌ Extra chains:\n${[...errors].map((e) => `  ⚠️ ${e}`).join("\n")}`;
         return yield* Effect.fail(new Error(msg));
       }
-
-      expect(errors.size).toBe(0);
     })
   );
 });

@@ -12,6 +12,8 @@ describe("comptroller", () => {
     it("returns all deployments", () => {
       const entries = comptrollerQueries.getAll();
 
+      expect(entries.length).toBeGreaterThan(0);
+
       for (const entry of entries) {
         if (entry.chainId === chains.linea.id) {
           expect(entry.address).toBe("0xF21b304A08993f98A79C7Eb841f812CCeab49B8b");

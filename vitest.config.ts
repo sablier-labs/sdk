@@ -8,7 +8,16 @@ function getInclude() {
     return ["tests/**/cron/**/*.test.ts"];
   }
 
-  return ["tests/**/*.test.ts", "!tests/**/cron/**/*.ts"];
+  return ["tests/**/*.test.ts"];
+}
+
+function getExclude() {
+  const base = [".logs/**", "node_modules/**"];
+  if (CI && VITE_CRON_TESTS) {
+    return base;
+  }
+
+  return [...base, "tests/**/cron/**/*.test.ts"];
 }
 
 /**
@@ -35,10 +44,11 @@ export default defineConfig({
   },
   test: {
     environment: "node",
-    exclude: [".logs/**", "node_modules/**"],
+    exclude: getExclude(),
     globalSetup: "./tests/setup.ts",
     globals: true,
     hideSkippedTests: true,
+    hookTimeout: getTimeout(),
     include: getInclude(),
     outputFile: CI ? "./test-results.json" : undefined,
     reporters: getReporters(),

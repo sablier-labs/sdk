@@ -1,16 +1,8 @@
 import { describe, expect, it } from "vitest";
 import { sablier } from "@/src/sablier.js";
+import { expectEntry } from "../../assertions.js";
 import type { EvmContractEntry } from "../releases.js";
 import { allEvmContractEntries, allEvmReleases } from "../releases.js";
-
-function expectEntry<T>(entry: T | undefined, message: string): T {
-  expect(entry).toBeDefined();
-  if (!entry) {
-    throw new Error(message);
-  }
-
-  return entry;
-}
 
 function getAddressLookupKey(entry: EvmContractEntry): string {
   return `${entry.release.protocol}:${entry.deployment.chainId}:${entry.contract.address.toLowerCase()}`;

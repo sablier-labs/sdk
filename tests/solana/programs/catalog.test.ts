@@ -1,18 +1,21 @@
 import { describe, expect, it } from "vitest";
 import { sablier } from "@/src/sablier.js";
+import { expectEntry } from "../../assertions.js";
 import { allSolanaReleases } from "../releases.js";
 
 describe("Program catalog", () => {
   for (const release of allSolanaReleases) {
     it(`should have a valid catalog for ${release.protocol} ${release.version}`, () => {
-      const [deployment] = release.deployments;
-      const [program] = deployment.programs;
-      const entry = sablier.solana.programs.get({
-        chainId: deployment.chainId,
-        contractName: program.name,
-        release,
-      });
-      expect(entry).toStrictEqual(program);
+      for (const deployment of release.deployments) {
+        for (const program of deployment.programs) {
+          const entry = sablier.solana.programs.get({
+            chainId: deployment.chainId,
+            contractName: program.name,
+            release,
+          });
+          expect(entry).toStrictEqual(program);
+        }
+      }
     });
   }
 });
@@ -24,9 +27,7 @@ describe("alias lookups", () => {
       .flatMap((deployment) => deployment.programs)
       .find((entry) => entry.alias);
 
-    expect(programWithAlias).toBeDefined();
-
-    const program = programWithAlias!;
+    const program = expectEntry(programWithAlias, "Expected an aliased Solana program");
     const resolved = sablier.solana.programs.getByAlias({
       alias: program.alias!,
       chainId: program.chainId,

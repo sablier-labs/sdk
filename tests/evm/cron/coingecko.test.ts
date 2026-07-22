@@ -13,7 +13,7 @@ import {
   HttpClientResponse,
 } from "@effect/platform";
 import { describe, expect, it } from "@effect/vitest";
-import { Config, Effect, Redacted, Schema } from "effect";
+import { Config, Effect, Redacted, Schedule, Schema } from "effect";
 
 const COINGECKO_DEMO_API_KEY = process.env.VITE_COINGECKO_DEMO_API_KEY;
 const COINGECKO_DEMO_API_BASE_URL = "https://api.coingecko.com/api/v3";
@@ -73,7 +73,10 @@ function validateCoinGeckoId(coinId: string) {
     const body = yield* HttpClientResponse.schemaBodyJson(CoinGeckoResponseSchema)(response);
 
     return { id: body.id, status: response.status };
-  }).pipe(Effect.provide(FetchHttpClient.layer));
+  }).pipe(
+    Effect.retry(Schedule.exponential("1 second").pipe(Schedule.intersect(Schedule.recurs(3)))),
+    Effect.provide(FetchHttpClient.layer)
+  );
 }
 
 /**
@@ -126,7 +129,10 @@ function fetchAssetPlatforms() {
     const body = yield* HttpClientResponse.schemaBodyJson(AssetPlatformsSchema)(response);
 
     return new Set(body.map((p) => p.id));
-  }).pipe(Effect.provide(FetchHttpClient.layer));
+  }).pipe(
+    Effect.retry(Schedule.exponential("1 second").pipe(Schedule.intersect(Schedule.recurs(3)))),
+    Effect.provide(FetchHttpClient.layer)
+  );
 }
 
 describe("Validate CoinGecko IDs", () => {

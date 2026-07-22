@@ -476,44 +476,42 @@ describe("shapes", () => {
       expect(v01Shapes.length).toBe(5);
     });
 
-    it("getSolanaProgramMethodsForVersion returns correct program", () => {
+    function getLinearShapeWithSolanaSupport(): ShapeWithSolanaSupport {
       const linearShape = shapes.lockup.linear;
-      if (hasSolanaSupport(linearShape)) {
-        const v01Program = getSolanaProgramMethodsForVersion(linearShape, "v0.1");
-        expect(v01Program?.program).toBe("SablierLockupLinear");
+      if (!hasSolanaSupport(linearShape)) {
+        throw new Error("Expected shapes.lockup.linear to have Solana support");
       }
+      return linearShape;
+    }
+
+    it("getSolanaProgramMethodsForVersion returns correct program", () => {
+      const linearShape = getLinearShapeWithSolanaSupport();
+      const v01Program = getSolanaProgramMethodsForVersion(linearShape, "v0.1");
+      expect(v01Program?.program).toBe("SablierLockupLinear");
     });
 
     it("getSolanaProgramMethodsForVersion returns undefined for unsupported version", () => {
-      const linearShape = shapes.lockup.linear;
-      if (hasSolanaSupport(linearShape)) {
-        // v0.2 doesn't exist
-        const v02Program = getSolanaProgramMethodsForVersion(linearShape, "v0.2" as "v0.1");
-        expect(v02Program).toBeUndefined();
-      }
+      const linearShape = getLinearShapeWithSolanaSupport();
+      // v0.2 doesn't exist
+      const v02Program = getSolanaProgramMethodsForVersion(linearShape, "v0.2" as "v0.1");
+      expect(v02Program).toBeUndefined();
     });
 
     it("isSolanaShapeAvailableInVersion returns true for supported version", () => {
-      const linearShape = shapes.lockup.linear;
-      if (hasSolanaSupport(linearShape)) {
-        expect(isSolanaShapeAvailableInVersion(linearShape, "v0.1")).toBe(true);
-      }
+      const linearShape = getLinearShapeWithSolanaSupport();
+      expect(isSolanaShapeAvailableInVersion(linearShape, "v0.1")).toBe(true);
     });
 
     it("isSolanaShapeAvailableInVersion returns false for unsupported version", () => {
-      const linearShape = shapes.lockup.linear;
-      if (hasSolanaSupport(linearShape)) {
-        expect(isSolanaShapeAvailableInVersion(linearShape, "v0.2" as "v0.1")).toBe(false);
-      }
+      const linearShape = getLinearShapeWithSolanaSupport();
+      expect(isSolanaShapeAvailableInVersion(linearShape, "v0.2" as "v0.1")).toBe(false);
     });
 
     it("getLatestSolanaProgramMethod returns first program (newest)", () => {
-      const linearShape = shapes.lockup.linear;
-      if (hasSolanaSupport(linearShape)) {
-        const latest = getLatestSolanaProgramMethod(linearShape);
-        expect(latest.version).toBe("v0.1");
-        expect(latest.program).toBe("SablierLockupLinear");
-      }
+      const linearShape = getLinearShapeWithSolanaSupport();
+      const latest = getLatestSolanaProgramMethod(linearShape);
+      expect(latest.version).toBe("v0.1");
+      expect(latest.program).toBe("SablierLockupLinear");
     });
   });
 

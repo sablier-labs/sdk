@@ -70,7 +70,7 @@ function createInnerTests<BD, CD>(
 
       it.skipIf(isMissing)(contract.name, () => {
         if (!broadcastData) {
-          return;
+          expect.fail(`Broadcast file not found for ${chain.name}`);
         }
 
         const contractData = testConfig.finder(broadcastData, contract.name);

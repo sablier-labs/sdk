@@ -1,17 +1,9 @@
 import { describe, expect, it } from "vitest";
 import { sablier } from "@/src/sablier.js";
 import { Protocol } from "@/src/solana/enums.js";
+import { expectEntry } from "../../assertions.js";
 import type { AliasedSolanaProgramEntry } from "../releases.js";
 import { allAliasedSolanaProgramEntries } from "../releases.js";
-
-function expectEntry<T>(entry: T | undefined, message: string): T {
-  expect(entry).toBeDefined();
-  if (!entry) {
-    throw new Error(message);
-  }
-
-  return entry;
-}
 
 const aliasedProgramEntry: AliasedSolanaProgramEntry | undefined =
   allAliasedSolanaProgramEntries[0];

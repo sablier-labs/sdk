@@ -60,15 +60,15 @@ export async function loadComptrollerBroadcast(
   chainSlug: string
 ): Promise<StandardBroadcast | null> {
   const deploymentsDir = getDeploymentsDir();
+  const comptrollerDir = path.join(deploymentsDir, "comptroller");
+  const versions = fs
+    .readdirSync(comptrollerDir, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => entry.name)
+    .sort();
 
-  for (const version of ["v1.0", "v1.1"]) {
-    const broadcastPath = path.join(
-      deploymentsDir,
-      "comptroller",
-      version,
-      "broadcasts",
-      `${chainSlug}.json`
-    );
+  for (const version of versions) {
+    const broadcastPath = path.join(comptrollerDir, version, "broadcasts", `${chainSlug}.json`);
 
     if (fs.existsSync(broadcastPath)) {
       const broadcast = await fs.promises.readFile(broadcastPath, "utf8");

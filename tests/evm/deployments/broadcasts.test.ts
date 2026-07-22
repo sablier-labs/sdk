@@ -23,9 +23,6 @@ const releasesToTest: BroadcastSource[] = [
   ...evmReleasesWithDeploymentArtifacts,
 ];
 
-// List of deprecated chains to exclude because their RPC no longer works
-const excludeDeprecated: string[] = [];
-
 type BroadcastSource = Sablier.EVM.Release | typeof comptrollerRelease;
 
 // Test suite to validate broadcasts files
@@ -33,11 +30,6 @@ function createTestSuite(source: BroadcastSource): void {
   describe(`${source.protocol} ${source.version}`, () => {
     for (const deployment of source.deployments) {
       const chain = sablier.evm.chains.getOrThrow(deployment.chainId);
-
-      // Exclude deprecated chains
-      if (excludeDeprecated.includes(chain.slug)) {
-        continue;
-      }
 
       // Comptroller
       if (source.protocol === "comptroller") {

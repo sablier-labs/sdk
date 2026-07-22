@@ -3,17 +3,9 @@ import { Protocol } from "@/src/evm/enums.js";
 import { resolveEvmStreamId } from "@/src/evm/helpers.js";
 import { sablier } from "@/src/sablier.js";
 import type { Sablier } from "@/src/types.js";
+import { expectEntry } from "../../assertions.js";
 import type { AliasedEvmContractEntry } from "../releases.js";
 import { allAliasedEvmContractEntries, allEvmReleases } from "../releases.js";
-
-function expectEntry<T>(entry: T | undefined, message: string): T {
-  expect(entry).toBeDefined();
-  if (!entry) {
-    throw new Error(message);
-  }
-
-  return entry;
-}
 
 const aliasLookupCounts = allAliasedEvmContractEntries.reduce((counts, entry) => {
   const key = `${entry.deployment.chainId}:${entry.contract.alias}`;

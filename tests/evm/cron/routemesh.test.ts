@@ -13,7 +13,7 @@ import {
   HttpClientRequest,
   HttpClientResponse,
 } from "@effect/platform";
-import { beforeAll, describe, expect, it } from "@effect/vitest";
+import { afterAll, beforeAll, describe, expect, it } from "@effect/vitest";
 import { Effect, Schema } from "effect";
 import { chains } from "@/src/evm/chains/index.js";
 
@@ -169,8 +169,8 @@ describe("RouteMesh RPC Support", () => {
     });
   }
 
-  // Summary test that lists all failures for easy identification
-  it("should report chains that may need to be added to unsupported list", () => {
+  // Report all failures for easy identification once every chain has been tested.
+  afterAll(() => {
     const failures = Array.from(testResultsCache.values()).filter((r) => !r.success);
 
     if (failures.length > 0) {
@@ -183,8 +183,5 @@ describe("RouteMesh RPC Support", () => {
       }
       console.log("\n");
     }
-
-    // This test always passes - it's informational only
-    expect(true).toBe(true);
   });
 });
