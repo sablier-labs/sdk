@@ -3,11 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { isDeepStrictEqual } from "node:util";
 import { globby } from "globby";
-import { beforeAll, describe, expect, it, test } from "vitest";
-
-// TypeScript utility types for compile-time validation
-type IsReadonlyArray<T> = T extends readonly unknown[] ? true : false;
-type AssertTrue<T extends true> = T;
+import { beforeAll, describe, expect, expectTypeOf, it } from "vitest";
 
 const PROJECT_ROOT = process.cwd();
 const TEST_DIR = path.dirname(fileURLToPath(import.meta.url));
@@ -245,7 +241,7 @@ describe("ABI const assertions", () => {
 // Type-level compile-time validation tests
 describe("Type-level const validation", () => {
   // Import some representative ABI files for type checking
-  test("Sample ABI files have correct const assertions", () => {
+  it("Sample ABI files have correct const assertions", () => {
     // These imports will fail at compile time if ABIs don't have proper 'as const'
     type TestAirdropsV14 =
       typeof import("../../../src/evm/releases/airdrops/v1.3/abi/SablierMerkleInstant.js").sablierMerkleInstantAbi;
@@ -254,12 +250,9 @@ describe("Type-level const validation", () => {
     type TestFlowV10 =
       typeof import("../../../src/evm/releases/flow/v1.1/abi/SablierFlow.js").sablierFlowAbi;
 
-    // These type assertions will fail at compile time if the ABIs aren't readonly
-    type _AssertAirdrops = AssertTrue<IsReadonlyArray<TestAirdropsV14>>;
-    type _AssertLockup = AssertTrue<IsReadonlyArray<TestLockupV10>>;
-    type _AssertFlow = AssertTrue<IsReadonlyArray<TestFlowV10>>;
-
-    // Runtime assertion to ensure test executes
-    expect(true).toBe(true);
+    // These type assertions fail at compile time if the ABIs aren't readonly
+    expectTypeOf<TestAirdropsV14>().toExtend<readonly unknown[]>();
+    expectTypeOf<TestLockupV10>().toExtend<readonly unknown[]>();
+    expectTypeOf<TestFlowV10>().toExtend<readonly unknown[]>();
   });
 });
