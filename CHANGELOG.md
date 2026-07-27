@@ -9,6 +9,7 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 > Starting with v2.0.0, this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). In v1.x, it
 > did not always follow Semantic Versioning.
 
+[3.12.3]: https://github.com/sablier-labs/sdk/releases/tag/v3.12.3
 [3.12.2]: https://github.com/sablier-labs/sdk/releases/tag/v3.12.2
 [3.12.1]: https://github.com/sablier-labs/sdk/releases/tag/v3.12.1
 [3.12.0]: https://github.com/sablier-labs/sdk/releases/tag/v3.12.0
@@ -57,6 +58,12 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 [1.2.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.2.0
 [1.1.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.1.0
 [1.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.0.0
+
+## [3.12.3] - 2026-07-27
+
+### Fixed
+
+- Declare Multicall3 on the Robinhood chain ([`5b3937d`](https://github.com/sablier-labs/sdk/commit/5b3937d))
 
 ## [3.12.2] - 2026-07-22
 
