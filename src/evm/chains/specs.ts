@@ -491,6 +491,16 @@ export const chainSpecs = {
     nativeCurrency: {
       coinGeckoId: COIN_GECKO.eth,
     },
+    overrides: {
+      contracts: {
+        // Genesis predeploy: `eth_getCode` at block 0 already returns the Multicall3 bytecode,
+        // and the chain has no creation transaction for it.
+        multicall3: {
+          address: "0xcA11bde05977b3631167028862bE2a173976CA11",
+          blockCreated: 0,
+        },
+      },
+    },
     rpc: {
       alchemy: "robinhood-mainnet",
     },
