@@ -1,3 +1,4 @@
+import type { ChainContract } from "viem";
 import type { AliasMap, Repository, Shared } from "@/src/shared/types.js";
 import type * as enums from "./enums.js";
 
@@ -7,6 +8,9 @@ export namespace EVM {
 
   export type AbiMap = { [contractName: string]: readonly object[] };
   export type Chain = Shared.Chain & {
+    contracts: NonNullable<Shared.Chain["contracts"]> & {
+      multicall3: ChainContract;
+    };
     /** Whether this is a zkEVM like zkSync. */
     isZK: boolean;
     rpc: Shared.Chain["rpc"] & {

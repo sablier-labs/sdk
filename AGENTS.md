@@ -178,10 +178,14 @@ import { contracts } from "sablier/evm/contracts"; // Contracts only
 
 **New chain:**
 
-1. Add chain definition to `src/evm/chains/definitions.ts`
-2. Ensure deployment broadcasts exist for the chain
-3. Run `just test` to validate
-4. Add to supported chains list in `README.md`
+1. Add the chain through `src/evm/chains/specs.ts`, using a custom Viem base in `src/evm/chains/custom.ts` only when
+   necessary.
+2. Search for canonical or alternate Multicall3 deployments and verify the deployed bytecode through RPC.
+3. If no working Multicall3 deployment exists, stop and recommend deploying it through the
+   [official Multicall3 guidance](https://github.com/mds1/multicall3) before adding the chain.
+4. Ensure deployment broadcasts exist for the chain.
+5. Run `just test` to validate.
+6. Add to the supported chains list in `README.md`.
 
 **New shape:**
 

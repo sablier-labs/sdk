@@ -9,14 +9,16 @@
  * defined in the package.
  */
 import path from "node:path";
-import { beforeAll, describe, expect, it } from "@effect/vitest";
+import { beforeAll, describe, expect, expectTypeOf, it } from "@effect/vitest";
 import { Data, Effect } from "effect";
 import { globby } from "globby";
+import type { ChainContract } from "viem";
 import { chains } from "@/src/evm/chains/index.js";
 import { chainsQueries } from "@/src/evm/chains/queries.js";
 import { Protocol } from "@/src/evm/enums.js";
 import { releasesQueries } from "@/src/evm/releases/queries.js";
 import { getDeploymentsDir } from "@/src/internal/helpers.js";
+import type { Sablier } from "@/src/types.js";
 import { MISSING_CHAIN_IDS, MISSING_CHAIN_SLUGS } from "./helpers/missing.js";
 
 class GlobbyError extends Data.TaggedError("GlobbyError")<{
@@ -87,6 +89,22 @@ describe("Block explorer URLs", () => {
     if (violations.length > 0) {
       throw new Error(`URLs with trailing slashes:\n${violations.join("\n")}`);
     }
+  });
+});
+
+describe("Multicall3", () => {
+  it("is configured on every chain", () => {
+    for (const chain of chainValues) {
+      expect(
+        chain.contracts.multicall3,
+        `No Multicall3 contract found on ${chain.name}`
+      ).toBeDefined();
+    }
+  });
+
+  it("is non-optional in the public EVM chain types", () => {
+    expectTypeOf<Sablier.EVM.Chain["contracts"]["multicall3"]>().toEqualTypeOf<ChainContract>();
+    expectTypeOf<Sablier.Chain["contracts"]["multicall3"]>().toEqualTypeOf<ChainContract>();
   });
 });
 

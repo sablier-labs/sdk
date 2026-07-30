@@ -65,6 +65,10 @@ const buildChain = (key: string, spec: ChainSpec): Sablier.EVM.Chain => {
     throw new Error(`Chain ${chain.name} has no block explorers`);
   }
 
+  if (!chain.contracts?.multicall3) {
+    throw new Error(`Chain ${chain.name} has no Multicall3 contract`);
+  }
+
   const defaultRPCs = chain.rpcUrls.default.http;
   if (!defaultRPCs) {
     throw new Error(`Chain ${chain.name} has no default RPC`);
@@ -88,6 +92,10 @@ const buildChain = (key: string, spec: ChainSpec): Sablier.EVM.Chain => {
     ...chain,
     blockExplorers: chain.blockExplorers,
     coinGeckoPlatformId: spec.meta.coinGeckoPlatformId,
+    contracts: {
+      ...chain.contracts,
+      multicall3: chain.contracts.multicall3,
+    },
     isSupportedByUI,
     isTestnet,
     isZK: Boolean(spec.meta.isZk),

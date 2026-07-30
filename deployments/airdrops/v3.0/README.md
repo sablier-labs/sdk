@@ -38,7 +38,6 @@ By default, all deployments use Foundry's `CREATE2` factory with a few exception
 | Berachain       | ChainID 80094, Version 3.0.0  |
 | BNB Smart Chain | ChainID 56, Version 3.0.0     |
 | Chiliz          | ChainID 88888, Version 3.0.0  |
-| Denergy         | No Salt                       |
 | Ethereum        | ChainID 1, Version 3.0.0      |
 | Gnosis          | ChainID 100, Version 3.0.0    |
 | HyperEVM        | ChainID 999, Version 3.0.0    |
@@ -59,10 +58,9 @@ By default, all deployments use Foundry's `CREATE2` factory with a few exception
 
 ### Testnets
 
-| Chain               | Salt                            |
-| :------------------ | :------------------------------ |
-| Arbitrum Sepolia    | ChainID 421614, Version 3.0.0   |
-| Base Sepolia        | ChainID 84532, Version 3.0.0    |
-| BattleChain Testnet | No Salt                         |
-| Optimism Sepolia    | ChainID 11155420, Version 3.0.0 |
-| Sepolia             | ChainID 11155111, Version 3.0.0 |
+| Chain            | Salt                            |
+| :--------------- | :------------------------------ |
+| Arbitrum Sepolia | ChainID 421614, Version 3.0.0   |
+| Base Sepolia     | ChainID 84532, Version 3.0.0    |
+| Optimism Sepolia | ChainID 11155420, Version 3.0.0 |
+| Sepolia          | ChainID 11155111, Version 3.0.0 |

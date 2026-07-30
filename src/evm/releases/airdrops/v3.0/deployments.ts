@@ -173,22 +173,6 @@ export const mainnets: Sablier.EVM.Deployment[] = [
       32_340_688,
     ],
   }),
-  get(chains.denergy.id, {
-    [manifest.SABLIER_FACTORY_MERKLE_EXECUTE]: [
-      "0x075765fE96d9a445C5C792FfA0Ce64A1647f0821",
-      3_448_878,
-    ],
-    [manifest.SABLIER_FACTORY_MERKLE_INSTANT]: [
-      "0xf6843cDBA4bd27c59C008f4e5a9572350Ca2BACA",
-      3_448_878,
-    ],
-    [manifest.SABLIER_FACTORY_MERKLE_LL]: ["0xa089d1179C09B5E1c07B0a03A2D8eb181E20aA43", 3_448_878],
-    [manifest.SABLIER_FACTORY_MERKLE_LT]: ["0x80Ffa31C7D1762748366C5E34D932369deB11B54", 3_448_878],
-    [manifest.SABLIER_FACTORY_MERKLE_VCA]: [
-      "0x17409C2DDFd247F8adC4e1035eF4CDD2F5C5E700",
-      3_448_878,
-    ],
-  }),
   get(chains.gnosis.id, {
     [manifest.SABLIER_FACTORY_MERKLE_EXECUTE]: [
       "0x90D02b8FeB69a127e8137885dFB60f4Cc5e4De0e",
@@ -612,13 +596,6 @@ export const testnets: Sablier.EVM.Deployment[] = [
       "0x13CBF2aC8EE2321a2e0F4DDFFDD0A2D7167967a7",
       39_001_920,
     ],
-  }),
-  get(chains.battlechainTestnet.id, {
-    [manifest.SABLIER_FACTORY_MERKLE_EXECUTE]: ["0x95EC0f86cB1f4FeeeB82924d70C6bba4fF49F2Aa", 5392],
-    [manifest.SABLIER_FACTORY_MERKLE_INSTANT]: ["0x4259557F6665eCF5907c9019a30f3Cb009c20Ae7", 5393],
-    [manifest.SABLIER_FACTORY_MERKLE_LL]: ["0x8224eb5D7d76B2D7Df43b868D875E79B11500eA8", 5434],
-    [manifest.SABLIER_FACTORY_MERKLE_LT]: ["0x83Dd52FCA44E069020b58155b761A590F12B59d3", 5434],
-    [manifest.SABLIER_FACTORY_MERKLE_VCA]: ["0x1DdC1c21CD39c2Fa16366E6036c95342A31831Ba", 5435],
   }),
   get(chains.optimismSepolia.id, {
     [manifest.SABLIER_FACTORY_MERKLE_EXECUTE]: [

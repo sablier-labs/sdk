@@ -58,9 +58,6 @@ const mainnets = [
   get(chains.coreDao.id, {
     [manifest.SABLIER_COMPTROLLER]: [DEFAULT_ADDRESS, 28_473_497],
   }),
-  get(chains.denergy.id, {
-    [manifest.SABLIER_COMPTROLLER]: ["0x946654AB30Dd6eD10236C89f2C8B2719df653691", 691_574],
-  }),
   get(chains.gnosis.id, {
     [manifest.SABLIER_COMPTROLLER]: [DEFAULT_ADDRESS, 42_287_148],
   }),
@@ -126,9 +123,6 @@ const testnets = [
   }),
   get(chains.baseSepolia.id, {
     [manifest.SABLIER_COMPTROLLER]: [DEFAULT_ADDRESS, 31_493_735],
-  }),
-  get(chains.battlechainTestnet.id, {
-    [manifest.SABLIER_COMPTROLLER]: ["0x0eDA15D606733f6CDe9DB67263E546bfcDDe9264", 5384],
   }),
   get(chains.optimismSepolia.id, {
     [manifest.SABLIER_COMPTROLLER]: [DEFAULT_ADDRESS, 33_476_910],

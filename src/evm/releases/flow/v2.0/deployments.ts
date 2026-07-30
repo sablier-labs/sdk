@@ -55,11 +55,6 @@ export const mainnets: Sablier.EVM.Deployment[] = [
     [manifest.FLOW_NFT_DESCRIPTOR]: "0x7293F2D4A4e676EF67C085E92277AdF560AECb88",
     [manifest.SABLIER_FLOW]: ["0x4cb7fb49e4b646b472a5609804004722b3b94f93", 28_769_906],
   }),
-  // The actual deployment block is 697808, but the Denergy chain does not work before block 710000.
-  get(chains.denergy.id, {
-    [manifest.FLOW_NFT_DESCRIPTOR]: "0x8C4bCE3A96CA4E1275B11FDcC38d00D142af2C3f",
-    [manifest.SABLIER_FLOW]: ["0xB2Fc49d89B72cD8Aadd7f07D602CF005D5A017Ea", 710_000],
-  }),
   get(chains.gnosis.id, {
     [manifest.FLOW_NFT_DESCRIPTOR]: "0x5A47FC8732d399a2f3845c4FC91aB91bb97da31F",
     [manifest.SABLIER_FLOW]: ["0xcdd3eb5283e4a675f16ba83e9d8c28c871a550a2", 42_459_081],

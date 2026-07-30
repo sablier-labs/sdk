@@ -5,7 +5,6 @@ import {
   avalanche as _avalanche,
   base as _base,
   baseSepolia as _baseSepolia,
-  battlechainTestnet as _battlechainTestnet,
   berachain as _berachain,
   blast as _blast,
   bsc as _bsc,
@@ -39,7 +38,7 @@ import {
 } from "viem/chains";
 // import { berachain } from "viem/chains/definitions/zksync";
 import type { ChainSpec } from "./builder.js";
-import { denergy, robinhood, tangle } from "./custom.js";
+import { robinhood, tangle } from "./custom.js";
 
 const COIN_GECKO = {
   eth: "ethereum",
@@ -157,22 +156,6 @@ export const chainSpecs = {
     },
   },
   /* -------------------------------------------------------------------------- */
-  /*                           BATTLECHAIN TESTNET                              */
-  /* -------------------------------------------------------------------------- */
-  battlechainTestnet: {
-    base: _battlechainTestnet,
-    meta: {
-      isZk: true,
-      slug: "battlechain-testnet",
-    },
-    nativeCurrency: {
-      coinGeckoId: COIN_GECKO.eth,
-    },
-    rpc: {
-      routemesh: false,
-    },
-  },
-  /* -------------------------------------------------------------------------- */
   /*                                 BERACHAIN                                  */
   /* -------------------------------------------------------------------------- */
   berachain: {
@@ -258,20 +241,6 @@ export const chainSpecs = {
     },
     nativeCurrency: {
       coinGeckoId: "coredaoorg",
-    },
-  },
-  /* -------------------------------------------------------------------------- */
-  /*                                  DENERGY                                   */
-  /* -------------------------------------------------------------------------- */
-  denergy: {
-    base: denergy,
-    meta: {},
-    nativeCurrency: {
-      coinGeckoId: "watt",
-      wrapperContract: "0x87fFB2d57f78d5A8E17db78F3290A367299b5B07",
-    },
-    rpc: {
-      routemesh: false,
     },
   },
   /* -------------------------------------------------------------------------- */
