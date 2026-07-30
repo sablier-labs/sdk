@@ -1,6 +1,6 @@
 {
   "name": "sablier",
-  "version": "3.12.3",
+  "version": "4.0.0",
   "description": "Contract addresses, chain data, and deployment information for the Sablier Protocol",
   "keywords": [
     "airdrops",
