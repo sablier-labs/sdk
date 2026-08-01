@@ -150,7 +150,7 @@ alias b := build
 # Run print CLI commands.
 [group("cli")]
 @print-missing-broadcasts protocol:
-    just cli print missing-broadcasts --protocol {{ protocol }}
+    just cli check-broadcasts --protocol {{ protocol }}
 
 # Run print CLI commands.
 [group("cli")]
