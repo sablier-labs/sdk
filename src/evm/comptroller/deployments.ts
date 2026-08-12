@@ -58,6 +58,9 @@ const mainnets = [
   get(chains.coreDao.id, {
     [manifest.SABLIER_COMPTROLLER]: [DEFAULT_ADDRESS, 28_473_497],
   }),
+  get(chains.denergy.id, {
+    [manifest.SABLIER_COMPTROLLER]: ["0x946654AB30Dd6eD10236C89f2C8B2719df653691", 691_574],
+  }),
   get(chains.gnosis.id, {
     [manifest.SABLIER_COMPTROLLER]: [DEFAULT_ADDRESS, 42_287_148],
   }),

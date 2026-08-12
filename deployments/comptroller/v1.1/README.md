@@ -21,7 +21,7 @@
 
 ### Salt
 
-All deployments used Foundry's `CREATE2` factory.
+All deployments except `Denergy` used Foundry's `CREATE2` factory.
 
 1. Comptroller Implementation: `Version 1.1.0`
 2. Robinhood Chain Comptroller Implementation: `Version 2.0.0`

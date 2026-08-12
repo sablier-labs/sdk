@@ -9,6 +9,7 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 > Starting with v2.0.0, this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). In v1.x, it
 > did not always follow Semantic Versioning.
 
+[4.1.0]: https://github.com/sablier-labs/sdk/releases/tag/v4.1.0
 [4.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v4.0.0
 [3.12.3]: https://github.com/sablier-labs/sdk/releases/tag/v3.12.3
 [3.12.2]: https://github.com/sablier-labs/sdk/releases/tag/v3.12.2
@@ -60,6 +61,12 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 [1.1.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.1.0
 [1.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.0.0
 [ab63832]: https://github.com/sablier-labs/sdk/commit/ab63832
+
+## [4.1.0] - 2026-08-12
+
+### Added
+
+- Restore Denergy support now that the chain has a canonical Multicall3 deployment
 
 ## [4.0.0] - 2026-07-30
 
