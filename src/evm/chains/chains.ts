@@ -46,4 +46,5 @@ export const {
 /*                             CUSTOM DEFINITIONS                             */
 /* -------------------------------------------------------------------------- */
 
-export const { chiliz, monad, robinhood, sei, sophon, tangle, zksync, zksyncSepolia } = chains;
+export const { chiliz, denergy, monad, robinhood, sei, sophon, tangle, zksync, zksyncSepolia } =
+  chains;

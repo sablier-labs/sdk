@@ -38,7 +38,7 @@ import {
 } from "viem/chains";
 // import { berachain } from "viem/chains/definitions/zksync";
 import type { ChainSpec } from "./builder.js";
-import { robinhood, tangle } from "./custom.js";
+import { denergy, robinhood, tangle } from "./custom.js";
 
 const COIN_GECKO = {
   eth: "ethereum",
@@ -241,6 +241,20 @@ export const chainSpecs = {
     },
     nativeCurrency: {
       coinGeckoId: "coredaoorg",
+    },
+  },
+  /* -------------------------------------------------------------------------- */
+  /*                                  DENERGY                                   */
+  /* -------------------------------------------------------------------------- */
+  denergy: {
+    base: denergy,
+    meta: {},
+    nativeCurrency: {
+      coinGeckoId: "watt",
+      wrapperContract: "0x87fFB2d57f78d5A8E17db78F3290A367299b5B07",
+    },
+    rpc: {
+      routemesh: false,
     },
   },
   /* -------------------------------------------------------------------------- */

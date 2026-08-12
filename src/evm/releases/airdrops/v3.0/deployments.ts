@@ -173,6 +173,22 @@ export const mainnets: Sablier.EVM.Deployment[] = [
       32_340_688,
     ],
   }),
+  get(chains.denergy.id, {
+    [manifest.SABLIER_FACTORY_MERKLE_EXECUTE]: [
+      "0x075765fE96d9a445C5C792FfA0Ce64A1647f0821",
+      3_448_878,
+    ],
+    [manifest.SABLIER_FACTORY_MERKLE_INSTANT]: [
+      "0xf6843cDBA4bd27c59C008f4e5a9572350Ca2BACA",
+      3_448_878,
+    ],
+    [manifest.SABLIER_FACTORY_MERKLE_LL]: ["0xa089d1179C09B5E1c07B0a03A2D8eb181E20aA43", 3_448_878],
+    [manifest.SABLIER_FACTORY_MERKLE_LT]: ["0x80Ffa31C7D1762748366C5E34D932369deB11B54", 3_448_878],
+    [manifest.SABLIER_FACTORY_MERKLE_VCA]: [
+      "0x17409C2DDFd247F8adC4e1035eF4CDD2F5C5E700",
+      3_448_878,
+    ],
+  }),
   get(chains.gnosis.id, {
     [manifest.SABLIER_FACTORY_MERKLE_EXECUTE]: [
       "0x90D02b8FeB69a127e8137885dFB60f4Cc5e4De0e",

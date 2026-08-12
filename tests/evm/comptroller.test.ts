@@ -17,6 +17,8 @@ describe("comptroller", () => {
       for (const entry of entries) {
         if (entry.chainId === chains.linea.id) {
           expect(entry.address).toBe("0xF21b304A08993f98A79C7Eb841f812CCeab49B8b");
+        } else if (entry.chainId === chains.denergy.id) {
+          expect(entry.address).toBe("0x946654AB30Dd6eD10236C89f2C8B2719df653691");
         } else if (entry.chainId === chains.robinhood.id) {
           expect(entry.address).toBe("0x12d70713796A9460314C282c613DE307FdED1a36");
         } else {
