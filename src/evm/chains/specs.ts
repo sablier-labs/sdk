@@ -353,6 +353,15 @@ export const chainSpecs = {
       coinGeckoId: COIN_GECKO.eth,
       wrapperContract: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
     },
+    overrides: {
+      // Pin public RPCs: viem's mainnet default changes across releases, and its former default, eth.merkle.io,
+      // rate-limits every request.
+      rpcUrls: {
+        default: {
+          http: ["https://mainnet.gateway.tenderly.co", "https://rpc.mevblocker.io"],
+        },
+      },
+    },
     rpc: {
       alchemy: "eth-mainnet",
       infura: "mainnet",
