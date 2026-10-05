@@ -9,6 +9,7 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 > Starting with v2.0.0, this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). In v1.x, it
 > did not always follow Semantic Versioning.
 
+[4.1.1]: https://github.com/sablier-labs/sdk/releases/tag/v4.1.1
 [4.1.0]: https://github.com/sablier-labs/sdk/releases/tag/v4.1.0
 [4.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v4.0.0
 [3.12.3]: https://github.com/sablier-labs/sdk/releases/tag/v3.12.3
@@ -60,7 +61,20 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 [1.2.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.2.0
 [1.1.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.1.0
 [1.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.0.0
+[4f3f668]: https://github.com/sablier-labs/sdk/commit/4f3f668
 [ab63832]: https://github.com/sablier-labs/sdk/commit/ab63832
+[e364503]: https://github.com/sablier-labs/sdk/commit/e364503
+
+## [4.1.1] - 2026-10-05
+
+### Changed
+
+- Bump `viem` dependency to `^2.56.9` ([`e364503`][e364503])
+
+### Fixed
+
+- Replace the rate-limited Ethereum mainnet default RPC with Tenderly and MEV Blocker public endpoints
+  ([`4f3f668`][4f3f668])
 
 ## [4.1.0] - 2026-08-12
 
