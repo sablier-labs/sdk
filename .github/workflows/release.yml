@@ -26,9 +26,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Sync major version branch with release tag
+        env:
+          TAG_NAME: ${{ github.ref_name }}
         run: | #shell
           # Extract major version from tag (e.g., v1.2.3 -> v1)
-          TAG_NAME="${{ github.ref_name }}"
           MAJOR_VERSION=$(echo "$TAG_NAME" | cut -d. -f1)
           MAJOR_BRANCH="$MAJOR_VERSION"
 
