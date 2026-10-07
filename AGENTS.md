@@ -116,6 +116,16 @@ runs all three outputs (including CJS) and copies ABIs.
 
 **Pre-commit:** Husky runs lint-staged with Biome checks.
 
+## Releases
+
+npm publishing runs only in `.github/workflows/release.yml` through npm trusted publishing in staged mode. Never run
+`npm publish`, `npm stage approve`, `npm stage reject`, or the imported `just publish`, `just publish-beta`, and
+`just tag` recipes locally. To ship an update, bump the version and changelog, commit, create the annotated tag `vX.Y.Z`
+(prerelease: `vX.Y.Z-beta.N`), push the commit, then push the tag with `git push origin <tag>`. CI stages the version,
+and it stays unpublished until a maintainer approves it with 2FA on npmjs.com (Staged Packages) or
+`npm stage approve <stage-id>`. Prereleases use their identifier as the dist-tag. One-time maintainer setup:
+`npm trust github sablier --repo sablier-labs/sdk --file release.yml --allow-stage-publish -y`
+
 ## Code Standards
 
 ### TypeScript
