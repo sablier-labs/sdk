@@ -13,7 +13,7 @@ jobs:
   ci:
     runs-on: ubuntu-latest
     steps:
-      - uses: sablier-labs/devkit/actions/setup@v1
+      - uses: PaulRBerg/devkit/actions/setup@v1
         with:
           save-cache: true
 
@@ -36,7 +36,7 @@ jobs:
   csv-check:
     runs-on: macos-latest
     steps:
-      - uses: sablier-labs/devkit/actions/setup@v1
+      - uses: PaulRBerg/devkit/actions/setup@v1
 
       - name: Install qsv via Homebrew
         run: brew install qsv
