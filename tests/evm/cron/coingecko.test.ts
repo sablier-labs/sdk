@@ -107,7 +107,6 @@ const COINGECKO_PLATFORM_IDS = {
   "sei-v2": "Sei",
   sonic: "Sonic",
   sophon: "Sophon",
-  superseed: "Superseed",
   taiko: "Taiko",
   unichain: "Unichain",
   xdai: "Gnosis",

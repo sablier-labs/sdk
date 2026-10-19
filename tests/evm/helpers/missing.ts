@@ -16,10 +16,6 @@ const MISSING_FLOW: VersionMap = {
     [chains.zksync.id]: ["all"],
     [chains.zksyncSepolia.id]: ["all"],
   },
-  "v1.1": {
-    [chains.superseed.id]: ["all"],
-    [chains.superseedSepolia.id]: ["all"],
-  },
 };
 
 const MISSING_LOCKUP: VersionMap = {

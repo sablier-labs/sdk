@@ -87,10 +87,6 @@ export const mainnets: Sablier.EVM.Deployment[] = [
     [manifest.FLOW_NFT_DESCRIPTOR]: "0x57fd892b3dc20eadb83cd8fb0240a87960046daa",
     [manifest.SABLIER_FLOW]: ["0x66826f53bffeaab71adc7fe1a77e86f8268848d8", 11_643_209],
   }),
-  get(chains.superseed.id, {
-    [manifest.FLOW_NFT_DESCRIPTOR]: "0xac2c36347869d8d779f7872c6202de3efd6ef2bb",
-    [manifest.SABLIER_FLOW]: ["0x4f5f9b3fb57bba43aaf90e3f71d8f8f384e88e20", 3_610_744],
-  }),
   get(chains.taiko.id, {
     [manifest.FLOW_NFT_DESCRIPTOR]: "0xe790b6178612eeba6faeec16a2e1354c872f8bde",
     [manifest.SABLIER_FLOW]: ["0x3d303e4c61285f87da9f61aaadc8c89b7d55dfa2", 638_376],
@@ -130,10 +126,6 @@ export const testnets: Sablier.EVM.Deployment[] = [
   get(chains.sepolia.id, {
     [manifest.FLOW_NFT_DESCRIPTOR]: "0xbc4da2fbdfe5c5eaa11bd0e282201e2abf40b1ee",
     [manifest.SABLIER_FLOW]: ["0x5ae8c13f6ae094887322012425b34b0919097d8a", 7_210_716],
-  }),
-  get(chains.superseedSepolia.id, {
-    [manifest.FLOW_NFT_DESCRIPTOR]: "0xc43fb9fe4477d8e8bf68b9fd3a0163a4cffcbb31",
-    [manifest.SABLIER_FLOW]: ["0x905756b52efeaf75f6b1bb1bb0fc35eea15ae260", 11_235_331],
   }),
   get(chains.zksyncSepolia.id, {
     [manifest.FLOW_NFT_DESCRIPTOR]: "0x900277DBB45a04eB79028b3A44c650Ac81Ca86c4",

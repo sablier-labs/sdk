@@ -28,8 +28,6 @@ import {
   sepolia as _sepolia,
   sonic as _sonic,
   sophon as _sophon,
-  superseed as _superseed,
-  superseedSepolia as _superseedSepolia,
   taiko as _taiko,
   unichain as _unichain,
   xdc as _xdc,
@@ -607,33 +605,6 @@ export const chainSpecs = {
       blockExplorers: {
         default: { name: "Explorer", url: "https://sophscan.xyz" },
       },
-    },
-  },
-  /* -------------------------------------------------------------------------- */
-  /*                                 SUPERSEED                                  */
-  /* -------------------------------------------------------------------------- */
-  superseed: {
-    base: _superseed,
-    meta: {
-      coinGeckoPlatformId: "superseed",
-    },
-    nativeCurrency: {
-      coinGeckoId: COIN_GECKO.eth,
-    },
-    rpc: {
-      alchemy: "superseed-mainnet",
-    },
-  },
-  /* -------------------------------------------------------------------------- */
-  /*                              SUPERSEED SEPOLIA                             */
-  /* -------------------------------------------------------------------------- */
-  superseedSepolia: {
-    base: _superseedSepolia,
-    meta: {
-      slug: "superseed-sepolia",
-    },
-    nativeCurrency: {
-      coinGeckoId: COIN_GECKO.eth,
     },
   },
   /* -------------------------------------------------------------------------- */

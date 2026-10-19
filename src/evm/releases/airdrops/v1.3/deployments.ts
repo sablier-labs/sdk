@@ -82,9 +82,6 @@ export const mainnets: Sablier.EVM.Deployment[] = [
   get(chains.sophon.id, {
     [manifest.SABLIER_MERKLE_FACTORY]: ["0x9D4923e2ff0b9DAdc447A89f528760928f84D0F7", 11_290_094],
   }),
-  get(chains.superseed.id, {
-    [manifest.SABLIER_MERKLE_FACTORY]: ["0x3df48bb93509D9a041C81F6670C37B1eEb3E154B", 799_582],
-  }),
   get(chains.taiko.id, {
     [manifest.SABLIER_MERKLE_FACTORY]: ["0x39D4D8C60D3596B75bc09863605BBB4dcE8243F1", 799_582],
   }),
@@ -121,8 +118,5 @@ export const testnets: Sablier.EVM.Deployment[] = [
   }),
   get(chains.sepolia.id, {
     [manifest.SABLIER_MERKLE_FACTORY]: ["0xf642751d1271c88bBb8786067de808B32a016Fd4", 7_596_143],
-  }),
-  get(chains.superseedSepolia.id, {
-    [manifest.SABLIER_MERKLE_FACTORY]: ["0xb5951501D416cb7326e5b9bEB6EF8840a8DF6910", 13_546_515],
   }),
 ];

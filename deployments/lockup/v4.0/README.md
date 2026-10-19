@@ -51,7 +51,6 @@ By default, all deployments use Foundry's `CREATE2` factory with a few exception
 | Robinhood Chain | ChainID 4663, Version 4.0.1   |
 | Scroll          | ChainID 534352, Version 4.0.0 |
 | Sonic           | ChainID 146, Version 4.0.0    |
-| Superseed       | ChainID 5330, Version 4.0.0   |
 | Unichain        | ChainID 130, Version 4.0.0    |
 | XDC             | ChainID 50, Version 4.0.0     |
 | zkSync Era      | ChainID 324, Version 4.0.0    |

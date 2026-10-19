@@ -59,7 +59,6 @@ All contracts are deployed using Foundry's `CREATE2` factory. The following salt
 | Scroll          | ChainID 534352, Version 2.0.0 |
 | Sei             | ChainID 1329, Version 2.0.0   |
 | Sonic           | ChainID 146, Version 2.0.0    |
-| Superseed       | ChainID 5330, Version 2.0.0   |
 | Unichain        | ChainID 130, Version 2.0.0    |
 | XDC             | ChainID 50, Version 2.0.0     |
 | zkSync Era      | ChainID 324, Version 2.0.0    |

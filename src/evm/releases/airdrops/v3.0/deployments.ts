@@ -475,28 +475,6 @@ export const mainnets: Sablier.EVM.Deployment[] = [
       65_573_776,
     ],
   }),
-  get(chains.superseed.id, {
-    [manifest.SABLIER_FACTORY_MERKLE_EXECUTE]: [
-      "0x82f9A5AB00a95f7D95D6F5204E8640482DE49EF2",
-      23_793_091,
-    ],
-    [manifest.SABLIER_FACTORY_MERKLE_INSTANT]: [
-      "0x982D9a3C53e8c2162E42a2f8BaA4E3171Ed7B873",
-      23_793_091,
-    ],
-    [manifest.SABLIER_FACTORY_MERKLE_LL]: [
-      "0x05dEb48116442Bb93C0E411Aa095F45d6f29B92a",
-      23_793_091,
-    ],
-    [manifest.SABLIER_FACTORY_MERKLE_LT]: [
-      "0x1e250B33B468a24003A4F32706125667BD953D7b",
-      23_793_091,
-    ],
-    [manifest.SABLIER_FACTORY_MERKLE_VCA]: [
-      "0x8ffD310773C8840f4c4698BFA6D9850b44c2A7Fc",
-      23_793_091,
-    ],
-  }),
   get(chains.unichain.id, {
     [manifest.SABLIER_FACTORY_MERKLE_EXECUTE]: [
       "0xbC7D4Fe222Ee68BD63e8b65C3e9c9B4B61Cf56d2",

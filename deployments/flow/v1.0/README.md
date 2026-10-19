@@ -99,19 +99,17 @@ The CREATE2 salts used during deployment:
 | Optimism        | ChainID 10, Version 1.0.0     |
 | Polygon         | ChainID 137, Version 1.0.0    |
 | Scroll          | ChainID 534352, Version 1.0.0 |
-| Superseed       | ChainID 5330, Version 1.0.0   |
 | Taiko Mainnet   | ChainID 167000, Version 1.0.0 |
 | Tangle          | No Salt                       |
 | zkSync Era      | No Salt                       |
 
 ### Testnets
 
-| Chain             | Salt                            |
-| :---------------- | :------------------------------ |
-| Arbitrum Sepolia  | ChainID 421614, Version 1.0.0   |
-| Base Sepolia      | ChainID 84532, Version 1.0.0    |
-| Linea Sepolia     | No Salt                         |
-| Optimism Sepolia  | ChainID 11155420, Version 1.0.0 |
-| Sepolia           | ChainID 11155111, Version 1.0.0 |
-| Superseed Sepolia | ChainID 53302, Version 1.0.0    |
-| zkSync Sepolia    | No Salt                         |
+| Chain            | Salt                            |
+| :--------------- | :------------------------------ |
+| Arbitrum Sepolia | ChainID 421614, Version 1.0.0   |
+| Base Sepolia     | ChainID 84532, Version 1.0.0    |
+| Linea Sepolia    | No Salt                         |
+| Optimism Sepolia | ChainID 11155420, Version 1.0.0 |
+| Sepolia          | ChainID 11155111, Version 1.0.0 |
+| zkSync Sepolia   | No Salt                         |

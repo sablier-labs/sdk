@@ -181,13 +181,6 @@ export const mainnets: Sablier.EVM.Deployment[] = [
     [manifest.SABLIER_BATCH_LOCKUP]: "0x84A865542640B24301F1C8A8C60Eb098a7e1df9b",
     [manifest.SABLIER_LOCKUP]: ["0x763Cfb7DF1D1BFe50e35E295688b3Df789D2feBB", 49_254_811],
   }),
-  get(chains.superseed.id, {
-    [manifest.HELPERS]: "0xa0a1ac47260b95d334763473b868117ef7343aa0",
-    [manifest.LOCKUP_MATH]: "0x1feb172238638897b13b69c65feb508a0a96b35d",
-    [manifest.LOCKUP_NFT_DESCRIPTOR]: "0xa4576b58Ec760A8282D081dc94F3dc716DFc61e9",
-    [manifest.SABLIER_BATCH_LOCKUP]: "0x48c45c1DF54bDA1F1819AD07B6B4f8B2dcF85BAA",
-    [manifest.SABLIER_LOCKUP]: ["0x2F1c6AD6306Bd0200D55b59AD54d4b44067D00E6", 16_675_054],
-  }),
   get(chains.unichain.id, {
     [manifest.HELPERS]: "0xa0a1ac47260b95d334763473b868117ef7343aa0",
     [manifest.LOCKUP_MATH]: "0x1feb172238638897b13b69c65feb508a0a96b35d",

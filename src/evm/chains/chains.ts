@@ -35,8 +35,6 @@ export const {
   scroll,
   sepolia,
   sonic,
-  superseed,
-  superseedSepolia,
   taiko,
   unichain,
   xdc,

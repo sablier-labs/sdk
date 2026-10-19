@@ -103,9 +103,6 @@ const mainnets = [
   get(chains.sonic.id, {
     [manifest.SABLIER_COMPTROLLER]: [DEFAULT_ADDRESS, 48_050_064],
   }),
-  get(chains.superseed.id, {
-    [manifest.SABLIER_COMPTROLLER]: [DEFAULT_ADDRESS, 16_276_550],
-  }),
   get(chains.unichain.id, {
     [manifest.SABLIER_COMPTROLLER]: [DEFAULT_ADDRESS, 27_984_892],
   }),

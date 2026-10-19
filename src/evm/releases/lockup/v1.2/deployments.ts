@@ -433,30 +433,6 @@ export const mainnets: Sablier.EVM.Deployment.LockupV1[] = [
       ],
     },
   }),
-  get(chains.superseed.id, {
-    core: {
-      [manifest.core.SABLIER_V2_LOCKUP_DYNAMIC]: [
-        "0x1fA500262b352d821B4e1c933A20f2242B45383d",
-        2_896_160,
-      ],
-      [manifest.core.SABLIER_V2_LOCKUP_LINEAR]: [
-        "0x251FC799344151026d19b959B8f3667416d56B88",
-        2_896_160,
-      ],
-      [manifest.core.SABLIER_V2_LOCKUP_TRANCHED]: [
-        "0x91211E1760280d3f7dF2182ce4D1Fd6A1735C202",
-        2_896_160,
-      ],
-      [manifest.core.SABLIER_V2_NFT_DESCRIPTOR]: "0x0a6C2E6B61cf05800F9aA91494480440843d6c3c",
-    },
-    periphery: {
-      [manifest.periphery.SABLIER_V2_BATCH_LOCKUP]: "0xc4DE6f667435d5Ce0150e08BcEc9722C9017e90b",
-      [manifest.periphery.SABLIER_V2_MERKLE_LOCKUP_FACTORY]: [
-        "0xF60bEADEfbeb98C927E13C4165BCa7D85Ba32cB2",
-        2_896_477,
-      ],
-    },
-  }),
   get(chains.taiko.id, {
     core: {
       [manifest.core.SABLIER_V2_LOCKUP_DYNAMIC]: [
@@ -654,30 +630,6 @@ export const testnets: Sablier.EVM.Deployment.LockupV1[] = [
       [manifest.periphery.SABLIER_V2_MERKLE_LOCKUP_FACTORY]: [
         "0x56E9180A8d2C35c99F2F8a1A5Ab8aBe79E876E8c",
         6_240_754,
-      ],
-    },
-  }),
-  get(chains.superseedSepolia.id, {
-    core: {
-      [manifest.core.SABLIER_V2_LOCKUP_DYNAMIC]: [
-        "0xCff4a803b0Bf55dD1BE38Fb96088478F3D2eeCF2",
-        6_625_439,
-      ],
-      [manifest.core.SABLIER_V2_LOCKUP_LINEAR]: [
-        "0xDf578C2c70A86945999c65961417057363530a1c",
-        6_625_439,
-      ],
-      [manifest.core.SABLIER_V2_LOCKUP_TRANCHED]: [
-        "0xcb099EfC90e88690e287259410B9AE63e1658CC6",
-        6_625_439,
-      ],
-      [manifest.core.SABLIER_V2_NFT_DESCRIPTOR]: "0x2De92156000269fa2fde7544F10f01E8cBC80fFa",
-    },
-    periphery: {
-      [manifest.periphery.SABLIER_V2_BATCH_LOCKUP]: "0x0eDA15D606733f6CDe9DB67263E546bfcDDe9264",
-      [manifest.periphery.SABLIER_V2_MERKLE_LOCKUP_FACTORY]: [
-        "0x92FC05e49c27884d554D98a5C01Ff0894a9DC29a",
-        6_625_700,
       ],
     },
   }),
