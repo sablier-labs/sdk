@@ -7,7 +7,8 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 > [!NOTE]
 >
 > Starting with v2.0.0, this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). In v1.x, it
-> did not always follow Semantic Versioning.
+> did not always follow Semantic Versioning. Starting with v4.2.0, removing a chain is not considered a breaking change,
+> since networks can shut down outside our control.
 
 [4.1.1]: https://github.com/sablier-labs/sdk/releases/tag/v4.1.1
 [4.1.0]: https://github.com/sablier-labs/sdk/releases/tag/v4.1.0

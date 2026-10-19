@@ -126,6 +126,9 @@ and it stays unpublished until a maintainer approves it with 2FA on npmjs.com (S
 `npm stage approve <stage-id>`. Prereleases use their identifier as the dist-tag. One-time maintainer setup:
 `npm trust github sablier --repo sablier-labs/sdk --file release.yml --allow-stage-publish -y`
 
+Removing a chain is not a breaking change: networks shut down outside our control. Ship it in a minor release, list it
+under `### Removed` without a **Breaking** marker, and do not use `!` or `BREAKING CHANGE:` in its commit.
+
 ## Code Standards
 
 ### TypeScript
@@ -196,6 +199,15 @@ import { contracts } from "sablier/evm/contracts"; // Contracts only
 4. Ensure deployment broadcasts exist for the chain.
 5. Run `just test` to validate.
 6. Add to the supported chains list in `README.md`.
+
+**Removed chain** (e.g. a sunset network):
+
+1. Remove the spec and import from `src/evm/chains/specs.ts` and the export from `src/evm/chains/chains.ts`.
+2. Remove its `get(chains.<chain>.id, …)` entries from every `src/evm/releases/*/*/deployments.ts` and
+   `src/evm/comptroller/deployments.ts`.
+3. Delete its `deployments/**/broadcasts/<slug>.json` artifacts and its rows in `deployments/*/*/README.md`.
+4. Remove its test fixtures, e.g. `tests/evm/helpers/missing.ts` and `tests/evm/cron/coingecko.test.ts`.
+5. Follow the versioning rule in [Releases](#releases).
 
 **New shape:**
 
