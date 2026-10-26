@@ -10,6 +10,7 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 > did not always follow Semantic Versioning. Starting with v4.2.0, removing a chain is not considered a breaking change,
 > since networks can shut down outside our control.
 
+[4.2.1]: https://github.com/sablier-labs/sdk/releases/tag/v4.2.1
 [4.2.0]: https://github.com/sablier-labs/sdk/releases/tag/v4.2.0
 [4.1.1]: https://github.com/sablier-labs/sdk/releases/tag/v4.1.1
 [4.1.0]: https://github.com/sablier-labs/sdk/releases/tag/v4.1.0
@@ -67,6 +68,12 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 [61839cd]: https://github.com/sablier-labs/sdk/commit/61839cd
 [ab63832]: https://github.com/sablier-labs/sdk/commit/ab63832
 [e364503]: https://github.com/sablier-labs/sdk/commit/e364503
+
+## [4.2.1] - 2026-10-26
+
+### Fixed
+
+- Fix SDK imports in browsers without `Array.prototype.toSorted`
 
 ## [4.2.0] - 2026-10-19
 
