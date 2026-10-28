@@ -18,7 +18,7 @@ describe("resolveStreamId", () => {
       });
 
       // Should return EVM format: lowercase address-chainId-tokenId
-      expect(result).toMatch(/^0x[a-f0-9]{40}-1-123$/);
+      expect(result).toMatch(/^0x[a-f0-9]{40}-1-123$/u);
     });
 
     it("routes to EVM implementation for other EVM chains", () => {
@@ -30,7 +30,7 @@ describe("resolveStreamId", () => {
       });
 
       // Should return EVM format
-      expect(result).toMatch(/^0x[a-f0-9]{40}-8453-456$/);
+      expect(result).toMatch(/^0x[a-f0-9]{40}-8453-456$/u);
     });
 
     it("supports bigint tokenId for EVM", () => {
@@ -41,7 +41,7 @@ describe("resolveStreamId", () => {
         tokenId: 999n,
       });
 
-      expect(result).toMatch(/^0x[a-f0-9]{40}-1-999$/);
+      expect(result).toMatch(/^0x[a-f0-9]{40}-1-999$/u);
     });
 
     it("supports string tokenId for EVM", () => {
@@ -52,7 +52,7 @@ describe("resolveStreamId", () => {
         tokenId: "789",
       });
 
-      expect(result).toMatch(/^0x[a-f0-9]{40}-1-789$/);
+      expect(result).toMatch(/^0x[a-f0-9]{40}-1-789$/u);
     });
 
     it("throws for unknown EVM alias", () => {
@@ -62,7 +62,7 @@ describe("resolveStreamId", () => {
           chainId: 1,
           tokenId: 1,
         })
-      ).toThrowError(/Unknown EVM contract alias/);
+      ).toThrowError(/Unknown EVM contract alias/u);
     });
   });
 
@@ -128,7 +128,7 @@ describe("resolveStreamId", () => {
           chainId: CHAIN_ID_SOLANA_MAINNET_BETA,
           tokenId: 1,
         })
-      ).toThrowError(/Unknown Solana program alias/);
+      ).toThrowError(/Unknown Solana program alias/u);
     });
   });
 
@@ -141,7 +141,7 @@ describe("resolveStreamId", () => {
         protocol: EvmProtocol.Lockup,
         tokenId: 1,
       });
-      expect(evmResult).toMatch(/^0x[a-f0-9]{40}-8453-1$/);
+      expect(evmResult).toMatch(/^0x[a-f0-9]{40}-8453-1$/u);
 
       // Solana chain (>= 900000000)
       const solanaResult = resolveStreamId({
@@ -163,7 +163,7 @@ describe("resolveStreamId", () => {
         tokenId: 123,
       });
 
-      expect(result).toMatch(/^0x[a-f0-9]{40}-1-123$/);
+      expect(result).toMatch(/^0x[a-f0-9]{40}-1-123$/u);
     });
 
     it("uses protocol to disambiguate Solana aliases", () => {
@@ -189,7 +189,7 @@ describe("resolveStreamId", () => {
           protocol: EvmProtocol.Flow,
           tokenId: 1,
         })
-      ).toThrowError(/Protocol "flow" is EVM-only and not valid for Solana chain/);
+      ).toThrowError(/Protocol "flow" is EVM-only and not valid for Solana chain/u);
     });
 
     it("throws when EVM-only protocol (Legacy) is used with Solana chain", () => {
@@ -200,7 +200,7 @@ describe("resolveStreamId", () => {
           protocol: EvmProtocol.Legacy,
           tokenId: 1,
         })
-      ).toThrowError(/Protocol "legacy" is EVM-only and not valid for Solana chain/);
+      ).toThrowError(/Protocol "legacy" is EVM-only and not valid for Solana chain/u);
     });
 
     it("allows shared protocols (Lockup) on Solana chains", () => {

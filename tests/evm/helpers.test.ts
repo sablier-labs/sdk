@@ -304,7 +304,7 @@ describe("helpers", () => {
           chainId: 1,
           tokenId: 123,
         })
-      ).toThrowError(/Ambiguous EVM contract alias/);
+      ).toThrowError(/Ambiguous EVM contract alias/u);
     });
 
     it("supports protocol-scoped lookup", () => {
@@ -324,7 +324,7 @@ describe("helpers", () => {
           chainId: 1,
           tokenId: 1,
         })
-      ).toThrowError(/Unknown EVM contract alias/);
+      ).toThrowError(/Unknown EVM contract alias/u);
     });
   });
 
@@ -359,7 +359,7 @@ describe("helpers", () => {
           chainId: solanaMainnetBeta.id,
           tokenId: 1,
         })
-      ).toThrowError(/Unknown Solana program alias/);
+      ).toThrowError(/Unknown Solana program alias/u);
     });
   });
 });

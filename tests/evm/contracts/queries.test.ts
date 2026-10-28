@@ -75,7 +75,7 @@ describe("contractsQueries.get", () => {
           contractAddress: firstEntry.contract.address,
           protocol: firstEntry.release.protocol,
         });
-      }).toThrow(/exists in multiple releases/);
+      }).toThrow(/exists in multiple releases/u);
     });
   });
 

@@ -18,7 +18,7 @@ import { existsSync, mkdirSync } from "node:fs";
 import { basename, dirname, relative } from "node:path";
 import { $, Glob } from "bun";
 
-const JSON_EXT_REGEX = /\.json$/;
+const JSON_EXT_REGEX = /\.json$/u;
 
 type ConversionResult = {
   input: string;

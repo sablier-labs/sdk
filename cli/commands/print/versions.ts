@@ -2,7 +2,7 @@ import { Command } from "commander";
 import { logger } from "@/src/internal/logger.js";
 import { sablier } from "@/src/sablier.js";
 
-const VERSION_REGEX = /v(\d+)\.(\d+)/;
+const VERSION_REGEX = /v(?<major>\d+)\.(?<minor>\d+)/u;
 
 type VersionRow = {
   protocol: string;

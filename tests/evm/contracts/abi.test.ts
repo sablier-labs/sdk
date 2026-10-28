@@ -56,7 +56,7 @@ function getAllPublishedAbiJsonFiles() {
 }
 
 function getModuleSpecifier(filePath: string): string {
-  const relativePath = path.relative(TEST_DIR, filePath).replace(/\.ts$/, "");
+  const relativePath = path.relative(TEST_DIR, filePath).replace(/\.ts$/u, "");
   const moduleSpecifier = relativePath.split(path.sep).join("/");
 
   return moduleSpecifier.startsWith(".") ? moduleSpecifier : `./${moduleSpecifier}`;
@@ -99,7 +99,7 @@ function getPublishedAbiTsPath(jsonPath: string): string {
       "comptroller",
       parts[2],
       "abi",
-      parts[3].replace(/\.json$/, ".ts")
+      parts[3].replace(/\.json$/u, ".ts")
     );
   }
 
@@ -115,7 +115,7 @@ function getPublishedAbiTsPath(jsonPath: string): string {
     parts[1],
     parts[2],
     "abi",
-    parts[3].replace(/\.json$/, ".ts")
+    parts[3].replace(/\.json$/u, ".ts")
   );
 }
 
@@ -218,14 +218,14 @@ describe("ABI const assertions", () => {
 
       for (const filePath of abiFiles) {
         const sourceContent = await fs.readFile(filePath, "utf-8");
-        const hasAsConst = /\]\s+as\s+const\s*;/i.test(sourceContent);
+        const hasAsConst = /\]\s+as\s+const\s*;/iu.test(sourceContent);
 
         expect(
           hasAsConst,
           `File ${path.basename(filePath)} is missing 'as const' assertion. Found content ending: "${sourceContent.slice(-100)}"`
         ).toBe(true);
 
-        const hasProperExport = /export\s+const\s+\w+Abi\s*=\s*\[[\s\S]*\]\s+as\s+const\s*;/i.test(
+        const hasProperExport = /export\s+const\s+\w+Abi\s*=\s*\[[\s\S]*\]\s+as\s+const\s*;/iu.test(
           sourceContent
         );
 

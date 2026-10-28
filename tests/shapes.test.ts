@@ -593,11 +593,11 @@ describe("shapes", () => {
     // - v1.3: SablierMerkleFactory (unified, supports all types)
     // - v1.2: SablierV2MerkleLockupFactory (unified, supports LT/LL)
     // - v1.1: SablierV2MerkleStreamerFactory (supports LL only)
-    const ltFactoryPattern = /LT$|MerkleLockupFactory$|^SablierMerkleFactory$/;
+    const ltFactoryPattern = /LT$|MerkleLockupFactory$|^SablierMerkleFactory$/u;
     const llFactoryPattern =
-      /LL$|MerkleLockupFactory$|MerkleStreamerFactory$|^SablierMerkleFactory$/;
-    const instantFactoryPattern = /Instant$|^SablierMerkleFactory$/;
-    const vcaFactoryPattern = /VCA$/;
+      /LL$|MerkleLockupFactory$|MerkleStreamerFactory$|^SablierMerkleFactory$/u;
+    const instantFactoryPattern = /Instant$|^SablierMerkleFactory$/u;
+    const vcaFactoryPattern = /VCA$/u;
 
     it("variableClaimAmount shape only maps to VCA factory contracts", () => {
       for (const { contract, version } of shapes.airdrops.variableClaimAmount.evm) {

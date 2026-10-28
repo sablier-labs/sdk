@@ -65,34 +65,35 @@ function createInnerTests<BD, CD>(
       broadcastData = await testConfig.loader(release, chain, componentName);
     });
 
+    const testContract = (contract: BasicContract) => () => {
+      if (!broadcastData) {
+        expect.fail(`Broadcast file not found for ${chain.name}`);
+      }
+
+      const contractData = testConfig.finder(broadcastData, contract.name);
+      if (!contractData) {
+        // As a fallback, we check if this contract has already been validated. Some contracts
+        // are shared between releases (e.g., Comptroller in Lockup v1.0 and v1.1).
+        const previouslyValidated = getPath<boolean>(validatedContracts, [
+          chain.id,
+          contract.name,
+          contract.address,
+        ]);
+        const message = `Contract ${contract.name} on ${chain.name} has not been found nor validated`;
+        expect(previouslyValidated, message).toBeTruthy();
+        return;
+      }
+
+      // Run the test.
+      testConfig.expector(contract, contractData);
+
+      // Mark this contract as validated for this chain.
+      setPath(validatedContracts, [chain.id, contract.name, contract.address], true);
+    };
+
     for (const contract of contracts) {
       const isMissing = isKnownMissing(release, chain, contract.name);
-
-      it.skipIf(isMissing)(contract.name, () => {
-        if (!broadcastData) {
-          expect.fail(`Broadcast file not found for ${chain.name}`);
-        }
-
-        const contractData = testConfig.finder(broadcastData, contract.name);
-        if (!contractData) {
-          // As a fallback, we check if this contract has already been validated. Some contracts
-          // are shared between releases (e.g., Comptroller in Lockup v1.0 and v1.1).
-          const previouslyValidated = getPath<boolean>(validatedContracts, [
-            chain.id,
-            contract.name,
-            contract.address,
-          ]);
-          const message = `Contract ${contract.name} on ${chain.name} has not been found nor validated`;
-          expect(previouslyValidated, message).toBeTruthy();
-          return;
-        }
-
-        // Run the test.
-        testConfig.expector(contract, contractData);
-
-        // Mark this contract as validated for this chain.
-        setPath(validatedContracts, [chain.id, contract.name, contract.address], true);
-      });
+      it.skipIf(isMissing)(contract.name, testContract(contract));
     }
   });
 }

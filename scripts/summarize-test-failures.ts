@@ -8,7 +8,7 @@
 import { appendFileSync, existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 
-const ERROR_PREFIX_REGEX = /^.*?Error:\s*/;
+const ERROR_PREFIX_REGEX = /^.*?Error:\s*/u;
 
 type VitestResult = {
   testResults: Array<{
@@ -95,8 +95,8 @@ function generateMarkdownTable(failures: FailureSummary[]): string {
   markdown += "|------|-------|:-------:|\n";
 
   for (const failure of failures) {
-    const testName = failure.fullName.replace(/\|/g, "\\|"); // Escape pipes
-    const error = failure.shortError.replace(/\|/g, "\\|").slice(0, 100); // Limit length
+    const testName = failure.fullName.replace(/\|/gu, "\\|"); // Escape pipes
+    const error = failure.shortError.replace(/\|/gu, "\\|").slice(0, 100); // Limit length
     markdown += `| ${testName} | ${error} | ${failure.retryCount} |\n`;
   }
 
