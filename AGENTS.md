@@ -8,8 +8,7 @@ After generating code, run these commands **in order**.
 
 **File argument rules:**
 
-- Changed fewer than 10 files? → Pass specific paths or globs
-- Changed 10+ files? → Omit file arguments to process all files
+- Pass explicit changed-file paths regardless of file count
 
 **Command sequence:**
 
@@ -22,21 +21,15 @@ After generating code, run these commands **in order**.
 **Examples:**
 
 ```bash
-# Fewer than 10 files: use specific paths
-just biome-lint app/page.tsx app/layout.tsx
-
-# More than 10 files: use globs
-just biome-lint app/**/*.ts app/**/*.tsx
-
-# 10+ files: omit file arguments
-just biome-lint
+# Lint the changed SDK files
+just biome-lint src/evm/chains/specs.ts src/shapes/constants.ts
 
 # TypeScript check always runs on entire project
 just tsc-check
 ```
 
-If any command fails, analyze the errors and fix them before continuing. Then, run `just biome-write` to format all code
-at the end.
+If any command fails, analyze the errors and fix them before continuing. Then run `just biome-write <changed files>` to
+format the changed code.
 
 ## Context
 
@@ -64,14 +57,14 @@ nun package-name    # Remove dependency
 ### Development Workflow
 
 ```bash
-just build          # Build library (tsc + tsc-alias + copy ABIs)
-just test           # Run tests with Vitest
-just test <file>    # Run specific test file
-just biome-lint     # Lint check
-just biome-check    # Lint and format check
-just biome-write    # Auto-fix issues
-just tsc-check      # TypeScript validation
-just clean          # Remove dist/
+just build                  # Build library (tsc + tsc-alias)
+just test                   # Run tests with Vitest
+just test <file>            # Run specific test file
+just biome-lint <files>     # Lint changed files
+just biome-check <files>    # Check lint and formatting in changed files
+just biome-write <files>    # Auto-fix changed files
+just tsc-check              # TypeScript validation
+just clean                  # Remove dist/
 
 # CLI usage (after build)
 bunx tsx cli        # Show CLI help
@@ -108,13 +101,14 @@ Uses `just` + Bun + TypeScript with dual CJS/ESM output:
 - **Types**: `tsc` + `tsc-alias` using `configs/tsconfig.types.json` → `dist/types/`
 
 For development, run only ESM and types builds (`just tsc-build-esm` and `just tsc-build-types`). The full `just build`
-runs all three outputs (including CJS) and copies ABIs.
+runs all three outputs (including CJS). The package ships JSON ABIs directly from `abi/`.
 
 **Path aliases:**
 
 - `@/src/*` → `src/*`
 
-**Pre-commit:** Husky runs lint-staged with Biome checks.
+**Pre-commit:** Husky runs lint-staged with Biome checks. The hook rejects partially staged files and disables stashing
+and hiding partial changes. Stage or unstage each file fully before committing.
 
 ## Releases
 

@@ -22,7 +22,8 @@ bun setup
 just --list                 # Show all available commands
 just build                  # Build the TypeScript package
 just full-check             # Run all code quality checks
-just full-write             # Auto-fix formatting and linting
+just biome-write <files>    # Auto-fix changed code
+just prettier-write <files> # Format changed docs
 just test                   # Run test suite
 ```
 
@@ -50,7 +51,14 @@ TODO
 
 - After adding new chains or new deployments, bump the minor version. E.g. if the current version is `v1.0.0`, the next
   version should be `v1.1.0`.
-- Tag the new version by running the `tag` command, e.g. `just tag v1.0.0`.
-- Publish the npm package using the `publish` or `publish-beta` command.
-  - For new experimental features, use the `publish-beta` command.
-  - For new stable features, use the `publish` command.
+- Commit the version and changelog changes.
+- Create an annotated tag matching the package version, e.g. `git tag -a v1.1.0 -m "v1.1.0"`.
+- Use `v1.1.0-beta.1` for an experimental prerelease.
+- Push the commit.
+- Push the tag with `git push origin <tag>`.
+- `.github/workflows/release.yml` stages the package through npm trusted publishing. Prereleases use their identifier as
+  the dist-tag, e.g. `beta`.
+- A maintainer approves the staged version with 2FA on npmjs.com under Staged Packages or with
+  `npm stage approve <stage-id>`. The version stays unpublished until approval.
+- Do not run `npm publish`, `just publish`, `just publish-beta`, or `just tag` locally. Agents must also leave staged
+  package approval or rejection to a maintainer.
