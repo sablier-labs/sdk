@@ -10,6 +10,7 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 > did not always follow Semantic Versioning. Starting with v4.2.0, removing a chain is not considered a breaking change,
 > since networks can shut down outside our control.
 
+[4.2.2]: https://github.com/sablier-labs/sdk/releases/tag/v4.2.2
 [4.2.1]: https://github.com/sablier-labs/sdk/releases/tag/v4.2.1
 [4.2.0]: https://github.com/sablier-labs/sdk/releases/tag/v4.2.0
 [4.1.1]: https://github.com/sablier-labs/sdk/releases/tag/v4.1.1
@@ -68,6 +69,13 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 [61839cd]: https://github.com/sablier-labs/sdk/commit/61839cd
 [ab63832]: https://github.com/sablier-labs/sdk/commit/ab63832
 [e364503]: https://github.com/sablier-labs/sdk/commit/e364503
+[f8ed660]: https://github.com/sablier-labs/sdk/commit/f8ed660
+
+## [4.2.2] - 2026-11-16
+
+### Fixed
+
+- Replace the rate-limited XDC default RPC with XinFin public endpoints ([`f8ed660`][f8ed660])
 
 ## [4.2.1] - 2026-10-26
 
