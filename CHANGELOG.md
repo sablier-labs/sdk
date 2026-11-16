@@ -10,6 +10,7 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 > did not always follow Semantic Versioning. Starting with v4.2.0, removing a chain is not considered a breaking change,
 > since networks can shut down outside our control.
 
+[4.2.3]: https://github.com/sablier-labs/sdk/releases/tag/v4.2.3
 [4.2.2]: https://github.com/sablier-labs/sdk/releases/tag/v4.2.2
 [4.2.1]: https://github.com/sablier-labs/sdk/releases/tag/v4.2.1
 [4.2.0]: https://github.com/sablier-labs/sdk/releases/tag/v4.2.0
@@ -65,11 +66,19 @@ The format is based on [Common Changelog](https://common-changelog.org/).
 [1.2.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.2.0
 [1.1.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.1.0
 [1.0.0]: https://github.com/sablier-labs/sdk/releases/tag/v1.0.0
+[0534ef9]: https://github.com/sablier-labs/sdk/commit/0534ef9
 [4f3f668]: https://github.com/sablier-labs/sdk/commit/4f3f668
 [61839cd]: https://github.com/sablier-labs/sdk/commit/61839cd
 [ab63832]: https://github.com/sablier-labs/sdk/commit/ab63832
 [e364503]: https://github.com/sablier-labs/sdk/commit/e364503
 [f8ed660]: https://github.com/sablier-labs/sdk/commit/f8ed660
+
+## [4.2.3] - 2026-11-16
+
+### Fixed
+
+- Replace the XinFin XDC RPCs, which block Node clients, with `rpc.xdc.network` and `xdc.public-rpc.com`
+  ([`0534ef9`][0534ef9])
 
 ## [4.2.2] - 2026-11-16
 
