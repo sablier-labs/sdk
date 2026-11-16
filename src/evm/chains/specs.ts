@@ -667,10 +667,11 @@ export const chainSpecs = {
       wrapperContract: "0x951857744785E80e2De051c32EE7b25f9c458C42",
     },
     overrides: {
-      // Pin XinFin's public RPCs: viem's default, rpc.xdcrpc.com, rate-limits and serves Cloudflare challenges.
+      // Pin public RPCs that serve Node clients: viem's default, rpc.xdcrpc.com, rate-limits, and the
+      // xinfin.network RPCs answer Node's default `node` User-Agent with a Cloudflare 403.
       rpcUrls: {
         default: {
-          http: ["https://rpc.xinfin.network", "https://erpc.xinfin.network"],
+          http: ["https://rpc.xdc.network", "https://xdc.public-rpc.com"],
         },
       },
     },
