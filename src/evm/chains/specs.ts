@@ -666,6 +666,14 @@ export const chainSpecs = {
       coinGeckoId: "xdce-crowd-sale",
       wrapperContract: "0x951857744785E80e2De051c32EE7b25f9c458C42",
     },
+    overrides: {
+      // Pin XinFin's public RPCs: viem's default, rpc.xdcrpc.com, rate-limits and serves Cloudflare challenges.
+      rpcUrls: {
+        default: {
+          http: ["https://rpc.xinfin.network", "https://erpc.xinfin.network"],
+        },
+      },
+    },
   },
   /* -------------------------------------------------------------------------- */
   /*                                   ZKSYNC                                   */
